@@ -379,7 +379,7 @@ El 15 de septiembre de 2026 se decidieron tres planes acumulativos. Así encajan
 | Carta con alérgenos y datos estructurados | Recomendable | Recomendable | Recomendable |
 | Otros sitios y coherencia NAP (TripAdvisor y similares) | — | Sí | Sí |
 | Redes: posts, carruseles e historias | — | Sí | Sí |
-| Clips de vídeo para historias (Seedance 2.5) | — | Pocos | Sí |
+| Clips de vídeo para historias (Kling 3.0 en planos simples; Seedance 2.5 en acciones complejas) | — | Pocos | Sí |
 | Reels | — | — | Sí |
 | Voz en off y subtítulos | — | Opcional | Sí |
 | Panel de embudo y atribución básica | Sí | Sí | Sí |

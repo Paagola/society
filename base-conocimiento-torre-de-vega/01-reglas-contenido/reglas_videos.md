@@ -664,3 +664,12 @@ Un recorte más cerrado, un zoom, otra focal o una distancia menor no cuentan po
 Antes de generar: anotar el ángulo y su función en la lista de planos. Antes de animar: revisar las imágenes base juntas y rechazar las que repitan el ángulo sin excepción justificada. Antes de entregar: comprobar que los vídeos conservan esa variedad.
 
 Esta regla prevalece sobre recetas anteriores que repitan ángulo sin una transición estudiada y justificada. En el reel del chuletón actual, un macro desde el mismo tres cuartos no es variedad suficiente; se sustituye por un cenital real.
+
+
+## 18. Selección de modelo según la acción — actualización del usuario, 2026-09-15
+
+- Vídeos sencillos, desplazamientos de cámara y planos de producto sin interacción compleja: **Kling 3.0**.
+- Manos, uso de cubiertos, cortes para mostrar el interior de la carne y otras acciones físicas complejas: **Seedance 2.5** como modelo preferido.
+- Clasificar cada plano por la acción antes de generar; no elegir todos los modelos por igual para ahorrar decisiones. La preferencia de modelo no sustituye la revisión de anatomía, contacto, física del corte ni continuidad.
+- Esta indicación prevalece sobre recetas anteriores que asignen Kling a un corte con manos. En el reel actual del chuletón, regenerar ese plano con Seedance 2.5 y conservar la luz natural solicitada.
+- Se mantiene la regla de variedad real de ángulos entre vídeos generados.

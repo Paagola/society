@@ -8,65 +8,76 @@ Informe para Víctor Pagola del Pino · TFG de segundo curso de DAM · 14 de sep
 
 > **Actualización del 15 de septiembre de 2026.**
 >
-> - Society es un **proyecto propio para toda la hostelería**, con posible venta a partir de enero de 2027.
-> - Hasta entonces, el desarrollo se centra en **contenido para redes sociales**.
-> - La oferta pasa a **tres planes acumulativos**:
+> - **Proyecto.** Society es un proyecto propio para toda la hostelería, con posible venta a partir de enero de 2027. Hasta entonces, el desarrollo se centra en contenido para redes sociales.
+> - **Planes.** La oferta pasa a tres planes acumulativos:
 >   1. Google Business Profile.
->   2. Lo anterior más redes con historias y posts, y gestión de otros sitios.
->   3. Lo anterior más reels.
-> - **Seedance 2.5 es el modelo principal de vídeo.**
-> - Torre de Vega se mantiene como caso práctico y fuente de evidencia, no como cliente objetivo.
+>   2. El anterior más redes con historias y posts, y gestión de otros sitios.
+>   3. El anterior más reels.
+> - **Vídeo por tipo de acción.** **Kling 3.0 en planos simples y Seedance 2.5 en manos, cubiertos, cortes e interacciones complejas.** Es la indicación más concreta del 15 de septiembre y sustituye a la propuesta anterior de Seedance 2.5 para todo.
+> - **Aprendizajes incorporados.** Los del reel de chuletón del 15 de septiembre (`base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/`).
+> - **Torre de Vega** sigue siendo caso práctico y fuente de evidencia, no cliente objetivo.
 >
-> Se han recalculado las secciones 1, 4.2, 9, 10 y 11. El resto conserva el análisis del 14 de septiembre.
+> Se han recalculado las secciones 1, 4.2, 9, 10 y 11 y se han añadido precauciones en 4.3, 4.7, 5.2, 7.3, 7.4 y 7.5. El flujo completo de usuario está en `Society_flujo_de_la_aplicacion.md`.
 
 Society debería desarrollarse como un sistema de producción audiovisual para restaurantes: recibe material real, convierte una intención sencilla en un guion, produce únicamente los recursos necesarios, verifica su fidelidad y entrega una pieza montada. El valor de la aplicación está en conservar la identidad del negocio y automatizar las decisiones que hoy requieren intervención constante.
 
 La prioridad es construir un director de planos con reglas verificables. Escribir prompts más precisos ayuda, pero no garantiza geometría, manos ni física realistas. Cada plano debe tener referencias, una acción, estados inicial y final, una trayectoria de cámara y criterios de aceptación. Cuando la generación no sea adecuada, Society debe seleccionar material real o una alternativa de montaje compatible con la intención.
 
-El MVP recomendado incluye:
+**El MVP recomendado incluye:**
 
-- catálogo real de platos y local;
-- tres entradas de creación y reglas de marca versionadas;
-- generación de imágenes;
-- vídeo con Seedance 2.5 en dos modos: imagen inicial, e imagen inicial y final;
-- edición automática en plantillas;
-- control de presupuesto por plan;
-- la cuenta propia de Society como banco de pruebas.
+- Catálogo real de platos y local.
+- Tres entradas de creación y reglas de marca versionadas.
+- Generación de imágenes.
+- Vídeo con Kling 3.0 en planos simples y Seedance 2.5 en interacciones complejas.
+- Voz y subtítulos alineados.
+- Edición automática en plantillas.
+- Control de presupuesto por plan.
+- La cuenta propia de Society como banco de pruebas.
 
 La reconstrucción 3D propia sigue dentro de la visión del producto, con captura desde Society, pero debe validarse como módulo experimental de una zona del restaurante antes de exigirla en el onboarding de todos los clientes.
 
 Se mantiene GPT-6 Astra para planificar, redactar todos los prompts, dirigir la edición y revisar resultados. Su tarifa pública es 10 USD por millón de tokens de entrada y 50 USD por millón de salida. La escritura de prompts se presupuesta aparte de los modelos que producen imágenes y vídeos. [S1]
 
-**Seedance 2.5 cambia la economía del plan de reels.**
+**La selección de modelo por acción es la mayor palanca de coste del plan de reels.** Un reel estándar tiene cuatro planos simples de 3 s y dos planos complejos de 6 s, la duración que necesitó el corte aceptado en el ensayo.
 
 | Configuración | Coste variable de un reel estándar |
 | --- | --- |
-| Cálculo anterior (Kling 3.0 y Seedance 2.0) | 13,05 USD |
-| Seedance 2.5 a 1080p en fal | **44,75 USD** |
-| Seedance 2.5 a 720p en fal | **19,88 USD** |
-| Seedance 2.5 a 1080p en Higgsfield | 19,05 USD, si su contrato permite el uso en un SaaS |
+| Cálculo del 14/09 (Kling 3.0 y Seedance 2.0) | 13,05 USD |
+| Kling 3.0 + Seedance 2.5 a 1080p en fal | **25,82 USD** |
+| Kling 3.0 + Seedance 2.5 a 720p en fal | **13,38 USD** |
+| Kling 3.0 en fal + Seedance 2.5 a 1080p en Higgsfield | 12,97 USD, si su contrato permite el uso en un SaaS |
 
-Un reel estándar tiene seis planos generados. **La resolución y el proveedor son la decisión económica más importante del plan 3.**
+Hacer los seis planos con Seedance 2.5 a 1080p en fal añadiría unos 45 € por reel, reserva incluida.
 
-**Coste orientativo por plan.** Se calcula con cuotas de ejemplo, no decididas: plan 1 con 4 publicaciones en la ficha y 20 respuestas a reseñas; plan 2 con 20 imágenes y 4 clips de historia; plan 3 con 4 reels.
+**Coste orientativo por plan.** Se calcula con cuotas de ejemplo, no decididas: plan 1 con 4 publicaciones en la ficha y 20 respuestas a reseñas; plan 2 con 20 imágenes y 4 clips de historia (3 simples y 1 complejo); plan 3 con 4 reels.
 
 | Plan | Coste por restaurante | Precio mínimo para un 40 % de margen |
 | --- | --- | --- |
 | 1 · Presencia en Google | **41 €** | 73 € |
-| 2 · Presencia + redes | **85-109 €** | 148-191 € |
-| 3 · Completo con reels | **172-314 €** | 301-548 € |
+| 2 · Presencia + redes | **76-82 €** | 133-144 € |
+| 3 · Completo con reels | **136-200 €** | 237-350 € |
 
-Los rangos dependen de la resolución y el proveedor. Son márgenes de contribución, no beneficio neto ni precios decididos (sección 10).
+Los rangos dependen de la resolución y el proveedor de Seedance 2.5. Son márgenes de contribución, no beneficio neto ni precios decididos (sección 10).
 
-**Calidad del modelo.** En la clasificación de Arena del 14 de septiembre de 2026, Seedance 2.5 a 720p es cuarto en imagen a vídeo (1.475 ± 8) y empata en la práctica con Seedance 2.0 (1.474 ± 7); en texto a vídeo es sexto. [S23][S24] Está en el grupo de cabeza y aporta capacidades que encajan con Society: hasta 30 s por generación, fotograma inicial y final, referencias múltiples y audio sincronizado. Las votaciones públicas, sin embargo, no lo sitúan como el mejor modelo en solitario. La decisión se mantiene, y el ensayo de calidad del TFG debe comprobarla con platos y locales reales.
+**Calidad de los modelos.**
 
-Las cifras dependen especialmente de los planos con manos. El presupuesto supone seis planos generados de 4 s por reel y un 50 % de generaciones de vídeo adicionales. No se recomienda vender uso ilimitado ni prometer que todos los vídeos saldrán bien a la primera.
+- **Clasificación.** En Arena, a 14 de septiembre de 2026, Seedance 2.5 a 720p es cuarto en imagen a vídeo (1.475 ± 8) y empata en la práctica con Seedance 2.0 (1.474 ± 7); en texto a vídeo es sexto. Kling 3.0 Pro aparece en el puesto 19 de imagen a vídeo. [S23][S24]
+- **Qué justifica la preferencia por Kling.** Usarlo en planos simples es un criterio de coste y adecuación, no una afirmación de superioridad.
+- **Ensayo del 15 de septiembre.** El corte con Kling se sustituyó por Seedance 2.5 y el propietario valoró mejor el resultado, sin métricas de publicación. [S28]
+
+Las cifras dependen especialmente de los planos con manos. El presupuesto supone un 50 % de generaciones de vídeo adicionales. No se recomienda vender uso ilimitado ni prometer que todos los vídeos saldrán bien a la primera.
 
 ## 2 Alcance y lectura del material
 
 La carpeta indicada contiene 65 archivos: documentación de producto, metodología de prompting, guiones, informes, seis scripts Python, un script de búsqueda y un archivo de espacio de trabajo. El inventario adjunto cubre los 65 archivos y asigna su función dentro de Society.
 
-**Revisión del 15 de septiembre.** Se han incorporado las decisiones comerciales documentadas en `README.md`. También se han vuelto a consultar las fuentes de vídeo (Seedance 2.5 en fal y Higgsfield, clasificaciones de Arena y Artificial Analysis) y de voz. La voz y los subtítulos se detallan en `Society_voces_y_subtitulos.md`.
+**Revisión del 15 de septiembre.** Se han incorporado:
+
+- las decisiones comerciales documentadas en `README.md`;
+- las fuentes de vídeo consultadas de nuevo (Seedance 2.5 en fal y Higgsfield, clasificaciones de Arena y Artificial Analysis);
+- los aprendizajes del reel de chuletón de ese mismo día.
+
+La voz y los subtítulos se detallan en `Society_voces_y_subtitulos.md`.
 
 El análisis es documental y estático. Los vídeos originales, fotografías, proyectos After Effects y archivo Blender citados no están incluidos en esta carpeta. Los resultados visuales y métricas se tratan como registros del proyecto, no como pruebas reproducidas en esta revisión. Los scripts no se han ejecutado ni se han lanzado generaciones de pago. Las fuentes web de precios se han consultado el 14 y el 15 de septiembre de 2026.
 
@@ -82,8 +93,9 @@ El README establece que Víctor escribe el código de la aplicación. Este infor
 | Carta web con 38 productos y 41 generaciones iniciales | La fotografía de catálogo es un caso más controlable que un reel con acciones |
 | Cambio de reglas que obligó a corregir 15 contradicciones | Versionar reglas y sus dependencias; no cargar indiscriminadamente toda la carpeta |
 | Material real de fuego y brasa preferido por el cliente | Crear biblioteca de clips reales reutilizables y evitar sustituciones generativas innecesarias |
+| Reel de chuletón del 15 de septiembre: 9 s, corte con Seedance 2.5, parrilla real, voz y subtítulos alineados, valorado «bastante mejor» | Selección de modelo por acción, prueba de voz antes de producir, subtítulos con tiempos medidos; sin métricas de publicación todavía |
 
-Fuentes locales: caso práctico, documentación del Reel 01, Reel 06, mapa de carta web e informe de procesos del 14 de septiembre. El dato 38/41 equivale a 1,079 generaciones por producto en esa fase, pero no incluye el trabajo posterior para fondo oscuro ni mide por sí solo aceptación visual a la primera.
+Fuentes locales: caso práctico, documentación del Reel 01, Reel 06, mapa de carta web, informe de procesos del 14 de septiembre y aprendizajes del reel de chuletón del 15 de septiembre. El dato 38/41 equivale a 1,079 generaciones por producto en esa fase, pero no incluye el trabajo posterior para fondo oscuro ni mide por sí solo aceptación visual a la primera.
 
 ### 2.2 Contradicciones que permanecen
 
@@ -95,6 +107,8 @@ Fuentes locales: caso práctico, documentación del Reel 01, Reel 06, mapa de ca
 6. **Encadenar frente a reanclar.** El encadenado ayuda a conservar un fondo, pero propaga errores. Cada variante debe conservar la imagen maestra y las fotos originales del producto; la última generación es una referencia de composición, no la nueva verdad del negocio.
 7. **Resolución nominal frente a real.** Se registra Kling a 1076 × 1924 aunque se describe como mínimo 1080p. Society debe medir dimensiones y decidir si acepta y normaliza esa salida; no afirmar que cumple literalmente 1080 × 1920 nativos.
 8. **Plan 3D contradictorio.** La investigación propone escaneo integrado y Genjutsu; el piloto documenta previsualización con escala arbitraria y decisiones estéticas anteriores. Registrar ambos como etapas distintas, no como una reconstrucción fotorrealista terminada.
+9. **Acabado dramático frente a natural.** La regla 17 fija un acabado editorial dramático, pero en el reel de chuletón el propietario rechazó el brillo y el aspecto publicitario y pidió luz natural cotidiana. Manda la última corrección para esa pieza. Society la guarda como preferencia por cliente y pieza, con fecha, sin convertirla en regla universal ni borrar el historial.
+10. **Números de regla duplicados.** `reglas_videos.md` tiene dos apartados «17» con temas distintos. Los conflictos no se resuelven por el número del encabezado: cada regla necesita identificador estable, fecha y alcance.
 
 ### 2.3 Correcciones de interpretación
 
@@ -102,7 +116,7 @@ Un trípode puede estar perfectamente fijo y producir vídeo realista. El proble
 
 Un desplazamiento o escalado de una capa en AE cambia el encuadre, pero no crea nuevas superficies ni una órbita real. Una imagen de plato colocada sobre un fondo 3D continúa siendo plana; con una cámara amplia aparecerán errores de perspectiva, oclusión y contacto.
 
-Las métricas de un predictor no son mediciones de actividad cerebral de los espectadores ni probabilidades calibradas de viralidad. Los resultados de una cuenta y las correlaciones con muestras pequeñas no demuestran cómo decide Instagram. La mejora de abandono registrada en el Reel 03 es una observación prometedora, no un experimento causal. Society debe separar calidad visual, evaluación editorial y resultados reales de negocio.
+Las métricas de un predictor no son mediciones de actividad cerebral de los espectadores ni probabilidades calibradas de viralidad. Los resultados de una cuenta y las correlaciones con muestras pequeñas no demuestran cómo decide Instagram. La mejora de abandono registrada en el Reel 03 es una observación prometedora, no un experimento causal. La valoración «bastante mejor» del reel de chuletón es una aprobación creativa, no una métrica. Society debe separar calidad visual, evaluación editorial y resultados reales de negocio.
 
 ## 3 Producto y experiencia de usuario
 
@@ -111,6 +125,8 @@ Las métricas de un predictor no son mediciones de actividad cerebral de los esp
 El restaurante configura una sola vez su nombre, identidad visual, platos, ubicaciones, estilo preferido y restricciones. Society guía una captura sencilla: plato completo en ángulo de tres cuartos, vista cenital y detalle; fotos del lugar donde se servirá; clips de acciones difíciles, como servir, cortar o trabajar con fuego. La aplicación puede aceptar una sola foto, pero limitará las perspectivas a lo respaldado por ella.
 
 Cada recurso se etiqueta como real, generado o externo. La ficha conserva fecha, producto, ubicación, derechos de uso y calidad. El propietario confirma los nombres y características del plato: un modelo visual no debe decidir ingredientes, alérgenos, denominación comercial ni precios.
+
+**Estilo y voz se eligen con muestras, no con adjetivos.** Society genera dos o tres muestras con el plato real del restaurante y reproduce varias voces diciendo una frase del negocio con nombres de platos y precios. Así se detectan pronto rechazos como el del ensayo del 15 de septiembre, donde una voz sonó extranjera y el acabado publicitario no gustó. El recorrido completo está en `Society_flujo_de_la_aplicacion.md`.
 
 El escaneo avanzado, cuando exista, se capturará desde Society. No se obliga al cliente a instalar Polycam, KIRI u otra aplicación. El uso interno de bibliotecas o un importador de Blender no modifica esta experiencia.
 
@@ -124,7 +140,7 @@ El escaneo avanzado, cuando exista, se capturará desde Society. No se obliga al
 
 Enlaces de Instagram que no se puedan recuperar deben conducir a una subida de archivo o a elegir un formato del catálogo. No basar el MVP en acceso a guardados privados ni en scraping que requiera credenciales del usuario.
 
-Seleccionar un plato del catálogo debe ser tan directo como subir una foto. Si el plato carece de referencia real, Society solicita una foto o propone otro producto disponible; no entrega una invención como representación del restaurante.
+Seleccionar un plato del catálogo debe ser tan directo como subir una foto. Si el plato carece de referencia real, Society solicita una foto o propone otro producto disponible; no entrega una invención como representación del restaurante. Una excepción, como el chuletón del ensayo, solo existe con autorización expresa del propietario y queda registrada con su alcance.
 
 ### 3.3 Automatización con intervención por excepción
 
@@ -138,7 +154,7 @@ Las correcciones del usuario se aplican al elemento señalado: texto, intensidad
 
 ### 3.4 Pantallas del MVP
 
-Inicio con proyectos y botón Crear; catálogo de platos; biblioteca del local; asistente de creación; estado de producción; revisión con comentarios por escena; marca y reglas; plan contratado y cuotas del mes; ficha de Google (plan 1); consumo y facturación. El panel interno añade trabajos fallidos, costes por proveedor y versiones de recetas.
+Inicio con proyectos y botón Crear; catálogo de platos; biblioteca del local; diagnóstico de alta; muestras de estilo y prueba de voz; asistente de creación; estado de producción; revisión con comentarios por escena; marca y reglas; plan contratado y cuotas del mes; ficha de Google (plan 1); consumo y facturación. El panel interno añade trabajos fallidos, costes por proveedor, modelo pedido y devuelto, y versiones de recetas.
 
 ## 4 Método de vídeo con mayor control
 
@@ -152,6 +168,7 @@ Antes de redactar un prompt, Astra produce una ficha validable. El contrato es i
 | Referencias | Foto real del plato, mesa real, imagen base aprobada |
 | Objetos persistentes | Un plato, misma ración, misma vajilla y fondo |
 | Acción | Una mano termina de apoyar el plato |
+| Tipo de acción | Simple o compleja; decide el modelo de la ruta |
 | Estado inicial y final | Plato ligeramente elevado; plato apoyado con mano inmóvil |
 | Cámara | Trípode fijo durante una acción de contacto |
 | Duración | 4 s generados, 2,5 s útiles previstos |
@@ -166,26 +183,30 @@ Los valores en centímetros, grados y segundos son objetivos creativos cuando se
 
 **Ruta A, material real.** Preferida para fuego, líquidos complejos, contacto mano-objeto, corte, reflejos difíciles y recorridos amplios de sala cuando hay metraje útil. Se selecciona el tramo, se estabiliza con prudencia, se ajusta el color y se monta. Los clips reales conservan física que la IA tendría que reconstruir.
 
-**Ruta B, imagen a vídeo con movimiento moderado.** Para planos cortos de producto, desplazamiento reducido y una acción local. Se anima una imagen mejorada y aceptada con **Seedance 2.5**, modelo principal del proyecto desde el 15 de septiembre de 2026. Su duración mínima es de 4 s, así que se genera con margen y se recorta el tramo útil. Kling 3.0 Pro, candidato inicial en el caso práctico, queda como alternativa documentada si un ensayo concreto lo justifica.
+**Ruta B, imagen a vídeo con movimiento simple.** Para planos cortos de producto, desplazamiento reducido y ninguna interacción física compleja. Se anima una imagen mejorada y aceptada con **Kling 3.0 Pro**, preferido para planos simples por indicación del 15 de septiembre de 2026. [S3]
 
-**Ruta C, estados inicial y final.** Para posar una vajilla, retirar una mano o mantener un encuadre que debe cortar con una imagen fija. Seedance 2.5 admite imagen inicial y final en la misma llamada mediante `end_image_url`. [S20] Los dos estados deben ser compatibles en perspectiva, producto, iluminación y posición. Dos imágenes no garantizan la trayectoria intermedia: hay que revisarla.
+**Ruta C, interacciones complejas.** Para manos, cubiertos, cortes, posar una vajilla o retirar una mano. Se usa **Seedance 2.5**, preferido para estas acciones.
+
+- **Cómo se ejecutó en el ensayo.** Seedance 2.5 admite imagen final mediante `end_image_url` [S20]. Aun así, el corte aceptado el 15 de septiembre usó una sola imagen inicial en modo de referencias, 6 s, 1080p y sin audio nativo [S28]. Exigir siempre dos fotogramas no describe esa ejecución; queda pendiente de conciliar con más pruebas.
+- **Descomponer la acción por fases:** contacto, fuerza, separación y revelado. Ejemplo del ensayo: entrada de cubiertos, dos movimientos cortos de sierra, separación y apertura del interior hacia cámara.
+- **Revisar la trayectoria intermedia.** Dos imágenes no la garantizan.
 
 **Ruta D, composición y animación en AE.** Para rótulos, placas, ráfagas de producto, recortes y desplazamientos contenidos. Permite usar imágenes fijas cuando la plantilla lo justifica. Si se solicita una órbita o revelado lateral, no sustituirlo por un zoom y llamarlo movimiento 3D.
 
 **Ruta E, recorrido 3D o vídeo conductor.** Experimental para sala y arquitectura. Primero se valida reconstrucción y trayectoria, después el resultado de transferencia de movimiento. No se presupone que una herramienta de motion transfer conserve cámara y geometría porque transfiera gestos humanos.
 
-**Modelo principal: Seedance 2.5**
+**Selección de modelo por acción**
 
-| Capacidad | Dato verificado | Implicación para Society |
+| Aspecto | Dato verificado | Implicación para Society |
 | --- | --- | --- |
-| Duración | De 4 a 30 s por generación [S20] | Planos cortos con margen para recortar; las secuencias largas son posibles, con menos control por plano |
-| Resolución | El esquema de la API de fal ofrece 480p, 720p y 1080p con tarifa propia, aunque su página web indica 720p como máximo [S20]. Un artículo de Higgsfield publica 1080p y otro de las mismas fechas solo 480p y 720p [S21][S22] | Medir las dimensiones reales con ffprobe en la primera integración |
-| Fotograma final | Parámetro `end_image_url` [S20] | La ruta C no obliga a cambiar de modelo |
+| Criterio | Kling 3.0 para planos simples; Seedance 2.5 para manos, cubiertos, cortes e interacciones complejas (regla 18 de `reglas_videos.md`, 15/09/2026) | El contrato de plano clasifica la acción antes de estimar coste. Es criterio de selección, no garantía técnica |
+| Coste relativo observado | Estimación previa en Higgsfield del 15/09: Seedance 2.5 de 6 s a 1080p sin audio, 54 créditos; Kling 3.0 Pro de 6 s, 10,5 créditos [S28] | Presupuestar por tipo de acción; no es una comparativa de calidad ni una factura |
+| Duración de Seedance 2.5 | De 4 a 30 s por generación [S20] | Planos con margen para recortar; el corte del ensayo necesitó 6 s |
+| Resolución de Seedance 2.5 | El esquema de la API de fal ofrece 480p, 720p y 1080p con tarifa propia, aunque su página web indica 720p como máximo [S20]. Dos artículos de Higgsfield se contradicen [S21][S22]. El ensayo obtuvo HEVC 1080 × 1920 a 24 fps [S28] | Medir dimensiones y fotogramas por segundo de cada salida |
 | Relación de aspecto | En imagen a vídeo sigue a la imagen de entrada [S20] | Las imágenes base se generan ya en 9:16 |
-| Referencias | Endpoint de referencias en fal; fuentes secundarias hablan de hasta 50 recursos | Probar si mejora la fidelidad del plato frente a usar solo la imagen inicial |
-| Audio | `generate_audio` activo por defecto: efectos, ambiente y voz con sincronía labial, incluidos en la tarifa [S20] | Desactivarlo o sustituirlo cuando el montaje use voz o música propias (`Society_voces_y_subtitulos.md`) |
+| Audio de Seedance 2.5 | `generate_audio` activo por defecto: efectos, ambiente y voz con sincronía labial, incluidos en la tarifa [S20] | Desactivarlo cuando el montaje use voz o ambiente propios, como en el ensayo |
 | Rostros reales | En la versión 2.0, CapCut bloquea imágenes con caras reales y añade marca de agua y credenciales C2PA [S26]; no verificado para la API de 2.5 | Probar pronto con referencias de personal real que haya dado su autorización |
-| Calidad percibida | Arena, 14/09/2026: cuarto en imagen a vídeo (1.475 ± 8), junto a Seedance 2.0 (1.474 ± 7); sexto en texto a vídeo [S23][S24]. Artificial Analysis aún no lo incluía en agosto de 2026 [S25] | Grupo de cabeza; la ventaja concreta para hostelería se mide en el ensayo del apartado 6.3 |
+| Calidad percibida | Arena, 14/09/2026: Seedance 2.5 a 720p, cuarto en imagen a vídeo, junto a 2.0; Kling 3.0 Pro, puesto 19 [S23][S24] | La ventaja concreta para hostelería se mide en el ensayo del apartado 6.3 |
 
 ### 4.3 Biblioteca inicial de cámara
 
@@ -201,6 +222,8 @@ Los valores en centímetros, grados y segundos son objetivos creativos cuando se
 Los rangos se calibrarán con pruebas, no se publican como capacidades garantizadas. En una toma aislada se puede acelerar y frenar suavemente. En una toma que se recorta dentro de un movimiento continuo se genera con margen antes y después del tramo útil para evitar arranques bruscos.
 
 No hace falta cambiar de movimiento en cada plano por obligación. Una plantilla de continuidad puede repetir cámara. El criterio es que el movimiento ayude a leer el plato y encaje con el montaje.
+
+**Variedad real de ángulos.** Un macro obtenido desde el mismo tres cuartos no aporta otro ángulo, aunque cambien distancia, focal o recorte. Repetir encuadre en varios vídeos generados solo se admite en una transición prevista y estudiada en un reel de referencia, guardando la referencia, los planos y el motivo. Usar dos fragmentos de una misma toma como adelanto y desarrollo es una decisión de montaje, no dos ángulos distintos. [S28]
 
 ### 4.4 Física de los elementos
 
@@ -242,6 +265,11 @@ Analizar cortes y también regiones simultáneas: las pantallas partidas del pro
 
 Astra devuelve duración relativa, acción, encuadre, posición del sujeto, rótulo y función narrativa. Society adapta esos atributos al restaurante. Se reutiliza el lenguaje audiovisual de la referencia, pero los recursos, personas, marcas y mensajes deben proceder del cliente o estar autorizados. La réplica literal de música o fotografías ajenas no forma parte del flujo automático.
 
+**Gancho y duración.** En el ensayo del 15 de septiembre, un primer montaje de 15 s resultó lento. La versión preferida duró 9 s: interior visible al principio con el rótulo «¿ESTE PUNTO?», paso a la brasa real y corte completo como desarrollo, con la voz cerrando en pregunta.
+
+- **Criterio.** Elegir el momento que justifica ver la pieza, colocarlo pronto y ajustar la duración al material y a la locución medida. Nueve segundos es una receta ensayada, no una duración óptima demostrada.
+- **Montaje con adelanto.** Si se adelanta un estado posterior de la acción, revisar que los saltos sean entendibles y no presentarlo como una acción continua. [S28]
+
 ## 5 Imágenes con menos iteración
 
 ### 5.1 La calidad empieza en la selección de referencias
@@ -255,6 +283,12 @@ El prompt debe separar lo inmutable de lo editable. Inmutable: ingredientes visi
 ### 5.2 Dos estilos con contratos diferentes
 
 **Editorial para redes.** Composición apetecible, luz direccional y acabado de la marca. Evitar generar el grano intenso en cada imagen si después se añadirá de forma consistente al vídeo. Se pueden conservar los rasgos del estilo dramático de Torre de Vega sin duplicar tratamientos de color.
+
+**Natural cotidiano.** Luz ambiente difusa, sombras suaves, color contenido y grasa con aspecto real en lugar de superficie lacada. No equivale a bajar resolución, ensuciar el plato ni desenfocar a propósito: el ensayo mantuvo 1080 × 1920. [S28]
+
+- **Brief de luz reutilizable del ensayo:** «Soft diffuse everyday restaurant daylight; gentle shadows; moderate neutral-warm colors; ordinary rendered fat rather than a lacquered surface. Preserve the real room and plate. No theatrical orange grade, commercial studio lighting or excessive sharpening.»
+- **Por qué funciona.** Describir la luz y la textura de forma explícita da mejor resultado que pedir «menos calidad».
+- **Cuándo se aplica.** El estilo lo decide cada restaurante con muestras en el alta y se guarda por cliente y pieza.
 
 **Catálogo y carta.** Producto completo, color fiable y fondo adaptado al destino. Para blanco sobre blanco, usar una máscara supervisada o una captura con contraste si se necesita transparencia. El fallo de los métodos probados no demuestra que todo algoritmo de segmentación sea incapaz de resolverlo.
 
@@ -278,15 +312,15 @@ Tasa de aprobación a la primera, generaciones facturadas por imagen aceptada, t
 
 ### 6.1 Tres controles consecutivos
 
-**Antes de gastar.** Referencias disponibles, reglas activas, coherencia de estado inicial/final, parámetros admitidos, derechos de recursos y reserva de presupuesto. El validador de esquema detiene valores incompatibles antes de llamar al proveedor.
+**Antes de gastar.** Referencias disponibles, reglas activas, tipo de acción clasificado, coherencia de estado inicial/final, parámetros admitidos, derechos de recursos y reserva de presupuesto. El validador de esquema detiene valores incompatibles antes de llamar al proveedor.
 
-**Después de generar.** Inspección técnica de dimensiones, duración, decodificación y audio. Comparación visual del producto y fotogramas temporales por Astra. Una revisión por imágenes muestreadas puede perder defectos entre muestras; añadir seguimiento temporal, análisis de movimiento y muestreo denso alrededor de contactos.
+**Después de generar.** Inspección técnica de dimensiones, fotogramas por segundo, duración, decodificación y audio. Comparación visual del producto y fotogramas temporales por Astra. Una revisión por imágenes muestreadas puede perder defectos entre muestras; añadir seguimiento temporal, análisis de movimiento y muestreo denso alrededor de contactos.
 
-**Después de montar.** Texto exacto, contraste, márgenes, continuidad, música, voz, subtítulos, recortes, sincronización y ausencia de fotogramas vacíos. Evaluar el reel completo a velocidad normal y las zonas señaladas a velocidad reducida durante el piloto.
+**Después de montar.** Texto exacto, contraste, márgenes, continuidad, música, voz, subtítulos, recortes, sincronización y ausencia de fotogramas vacíos. Leer el vídeo final completo y comprobar subtítulos al inicio, en la mitad y al final, como se hizo en el ensayo. Exportar a 30 fps una fuente de 24 fps no crea movimiento real adicional. Evaluar el reel completo a velocidad normal y las zonas señaladas a velocidad reducida durante el piloto.
 
 ### 6.2 Reglas de aceptación
 
-Bloqueos directos: ingredientes cambiados, objeto duplicado, texto comercial incorrecto, mano claramente deformada, comida que cambia de forma, fallo de exportación, referencia de otro cliente o voz generada que dice una fecha o un precio distinto del guion. No permitir que una nota estética alta compense uno de estos defectos.
+Bloqueos directos: ingredientes cambiados, objeto duplicado, texto comercial incorrecto, mano claramente deformada, comida que cambia de forma, fallo de exportación, referencia de otro cliente o voz que dice una fecha o un precio distinto del guion. No permitir que una nota estética alta compense uno de estos defectos.
 
 Para cámara fija, estimar la transformación del fondo y medir deriva. Para cámara móvil, comparar dirección y continuidad del movimiento previsto y segmentar el producto antes de juzgar su estabilidad. Una diferencia de píxeles entre dos perspectivas no prueba morphing. Las tolerancias se calibran con vídeos reales y con errores conocidos.
 
@@ -306,8 +340,10 @@ Las puntuaciones iniciales pueden valorar fidelidad, movimiento, composición y 
 **Comparaciones adicionales:**
 
 - Una variante sin fotograma final y otra sin selección de referencias, para ver qué componente aporta la mejora.
-- Los mismos clips de Seedance 2.5 a 720p reescalado y a 1080p nativo, revisados a ciegas en el móvil. Así se decide la resolución con datos.
-- Si no hay presupuesto para todas las variantes, priorizar la comparación principal y declarar el tamaño pequeño de la muestra.
+- Planos simples con Kling 3.0 y con Seedance 2.5, y planos complejos con los dos modelos, para confirmar la selección por acción.
+- Seedance 2.5 a 720p reescalado y a 1080p nativo, revisados a ciegas en el móvil.
+
+Si no hay presupuesto para todas las variantes, priorizar la comparación principal y declarar el tamaño pequeño de la muestra.
 
 Los objetivos iniciales son reducir un 30 % las regeneraciones respecto al método anterior y alcanzar al menos un 80 % de entregas sin intervención en las recetas de bajo riesgo. Se validan con datos; no constituyen compromisos comerciales. Los resultados de Instagram se estudian por separado a 7 y 30 días, sin confundir atractivo visual con reservas o ventas.
 
@@ -328,7 +364,7 @@ React con TypeScript para una web adaptable o PWA, si encaja con la evaluación 
 
 La cola del producto debe cubrir todas las etapas, incluidas imágenes, modelos de vídeo, voz y edición. Flamenco puede gestionar render de Blender, pero no sustituye esa cola de negocio. Para el MVP puede utilizarse una cola persistente sobre PostgreSQL con bloqueo, concesión temporal del trabajo, reintento y recuperación; una solución especializada es una mejora posterior.
 
-Flujo de datos: interfaz → backend → proyecto y reserva → planificador Astra → validadores → proveedores → revisión → worker de edición → revisión final → R2 → descarga del cliente.
+Flujo de datos: interfaz → backend → proyecto y reserva → planificador Astra → validadores → proveedores → revisión → worker de edición → revisión final → R2 → descarga del cliente. Los diagramas del flujo de usuario y de estados están en `diagramas/`.
 
 ### 7.2 Modelo de datos mínimo
 
@@ -338,11 +374,12 @@ Flujo de datos: interfaz → backend → proyecto y reserva → planificador Ast
 | Plan y suscripción | Plan contratado, cuotas mensuales, consumo del mes y renovación |
 | Producto y ubicación | Nombre confirmado, atributos y referencias maestras |
 | Recurso | Origen real/generado/externo, hash, dimensiones, propietario y permisos |
-| Regla de marca | Ámbito, prioridad, fecha, versión, evidencia y regla sustituida |
+| Regla de marca | Identificador estable, ámbito (cliente o pieza), prioridad, fecha, versión, evidencia y regla sustituida |
 | Plantilla | Estructura editorial, gráficos y recetas compatibles |
-| Proyecto y escena | Brief, versión del guion, contrato de plano y dependencias |
-| Intento de generación | Proveedor, modelo, resolución, configuración, prompt, coste y resultado |
-| Pista de voz y subtítulos | Guion confirmado, voz, modelo, marcas de tiempo, estilo y versión |
+| Proyecto y escena | Brief, versión del guion, contrato de plano, tipo de acción y dependencias |
+| Intento de generación | Proveedor, modelo pedido y modelo devuelto, resolución, parámetros efectivos, prompt, estimación, identificador remoto, estado, coste, motivo de descarte y si se usó |
+| Voz de marca | Proveedor, identificador de voz, muestra aprobada, valoración de pronunciación y consentimiento si es un clon |
+| Pista de voz y subtítulos | Guion confirmado, archivo de voz, marcas de tiempo medidas o alineadas, estilo y versión |
 | Evaluación | Defectos, fotogramas señalados, puntuaciones y decisión humana/automática |
 | Trabajo de montaje | Timeline, versiones, recursos, estado y salida |
 | Registro de consumo | Importe reservado, facturado, liberado y cuota comercial |
@@ -355,13 +392,17 @@ Orden propuesto: fidelidad y datos confirmados → instrucciones explícitas del
 
 Guardar regla anterior, regla nueva, fecha efectiva y artefactos dependientes. No borrar la historia; excluirla del contexto de generación salvo para diagnosticar un error. Un cambio de tipografía invalida las composiciones afectadas, no los vídeos de platos. Un cambio de uniforme invalida las imágenes que muestran personal.
 
+Cada regla necesita un identificador estable, además de fecha y alcance: cliente, plantilla o pieza. El caso práctico acumuló dos apartados «17» distintos en las reglas de vídeo, y una corrección de estilo de una sola pieza no debe sobrescribir la regla general del cliente sin decisión expresa.
+
 ### 7.4 Trabajos recuperables
 
 Estados: borrador, validando, planificando, generando imágenes, revisando imágenes, generando vídeo, revisando vídeo, montando, revisión final, listo, requiere material, fallido o cancelado. Cada etapa conserva entrada, salida y versión para reanudar sin repetir llamadas pagadas.
 
-Usar identificadores idempotentes y guardar el identificador remoto antes de esperar el resultado. Ante un timeout después de enviar, consultar el trabajo ya creado; no reenviar a ciegas. Los webhooks pueden llegar duplicados o fuera de orden. La facturación debe asentarse una sola vez y conciliarse con el proveedor.
+Usar identificadores idempotentes y guardar el identificador remoto antes de esperar el resultado. Ante un timeout después de enviar, consultar el trabajo ya creado; no reenviar a ciegas. En el ensayo del 15 de septiembre, Seedance permaneció bastante tiempo en proceso: se conservó el identificador y no se duplicó la solicitud. Una demora no equivale a fallo. Los webhooks pueden llegar duplicados o fuera de orden. La facturación debe asentarse una sola vez y conciliarse con el proveedor.
 
 Separar reintentos técnicos de regeneraciones por calidad. Los primeros usan espera creciente y un límite; los segundos requieren un diagnóstico y un cambio específico. Aplicar límites por proveedor y reparto justo entre restaurantes. Veinte usuarios registrados no implican veinte generaciones simultáneas.
+
+Registrar el modelo realmente devuelto. En el ensayo se pidió `nano_banana_pro` y varios resultados se identificaron como `nano_banana_2`. Las revisiones por cambios de preferencia también consumen recursos y deben quedar registradas con su coste. [S28]
 
 ### 7.5 Edición dirigida por Astra
 
@@ -371,10 +412,20 @@ After Effects conserva el acabado ya aprobado: tipografía, rótulos, placas y r
 
 Cada render abre una copia de plantilla y una carpeta temporal del proyecto. Un worker procesa un proyecto a la vez, registra salida y sube el archivo antes de liberar el trabajo. Si cae, se recupera desde el manifiesto. FFmpeg puede inspeccionar o codificar medios sin ser el responsable del diseño gráfico rechazado en el caso anterior.
 
+**Precauciones verificadas en el ensayo del 15 de septiembre** [S28]. El montaje se hizo con el servidor MCP local de After Effects de Higgsfield (`fnf-after-effects-mcp` 0.1.1) contra After Effects 2026, sin panel ZXP ni bridge OAuth.
+
+- **Proyecto.** Leer el proyecto antes de retomar: en una reanudación AE tenía un proyecto vacío. No reutilizar identificadores de otra sesión sin comprobarlos.
+- **Estados de la integración.** Distinguir «servidor registrado», «conexión operativa» y «herramientas disponibles en la conversación»; registrar el servidor no hizo aparecer las herramientas.
+- **Sustitución de material.** Guardar versión antes de sustituir: `footage.replace` cambia todas las capas que usan ese elemento. Tras sustituir 1076 × 1928 por 1080 × 1920, corregir escala, anclaje y posición.
+- **Cola de render.** Inspeccionarla antes de `render.start`: procesa la cola activa, y en el ensayo devolvió dos elementos renderizados. No limpiar trabajos ajenos.
+- **Metadatos.** Leer la duración de los metadatos: la composición se llamaba «10S» y el resultado final duraba 9 s.
+- **Escritura de archivos.** Esperar a que termine antes de leer fotogramas; hubo un error de imagen truncada.
+- **Unicode.** Mantenerlo de extremo a extremo; se dañó una tilde en «CHULETÓN».
+
 **AI Motion Designer queda como herramienta opcional para crear plantillas:**
 
 - Su página anuncia trabajo con GPT-6 Astra y capas editables, pero no publica una tarifa que permita cerrar aquí su coste por reel. No hace falta contratarlo para que Astra dirija el montaje de Society.
-- Estado a 14/09 (actualización del Reel 08, 20:11): plugin instalado, con el inicio de sesión y la autenticación del bridge pendientes. La prueba de producción sigue sin resultados.
+- La vía del panel y el bridge documentada el 14/09 no se utilizó en el ensayo del día 15.
 - Los restaurantes usarían Society en el navegador: no deberían instalar plugins de AE. [S12]
 
 ### 7.6 Organización propuesta del repositorio
@@ -410,10 +461,11 @@ Importes consultados el 14 y el 15 de septiembre de 2026. USD y EUR se mantienen
 | --- | --- | --- |
 | GPT-6 Astra API | 10 USD/M entrada; 50 USD/M salida; caché 1 USD/M lectura | Todos los prompts, planificación, revisión y dirección de edición [S1] |
 | Nano Banana Pro en Gemini API | 0,134 USD por imagen 1K/2K de salida; entrada y texto aparte | Se reserva 0,15 USD por intento con referencias y procesamiento [S2] |
-| **Seedance 2.5 en fal** | 0,2205 USD/s a 480p; 0,4730 USD/s a 720p; 1,164 USD/s a 1080p (equivalencias de la tarifa por tokens); audio incluido | **Modelo principal de vídeo.** 4 s a 1080p: 4,656 USD por intento [S20] |
-| Seedance 2.5 en Higgsfield | Clip de 10 s: 30 créditos a 480p, 65 a 720p, 90 a 1080p (unos 4,50 USD según Higgsfield) | Alternativa más barata si el contrato permite su uso en un SaaS [S21] |
+| **Kling 3.0 Pro en fal** | 0,112 USD/s sin audio; 0,168 USD/s con audio | **Planos simples.** 3 s sin audio: 0,336 USD por intento [S3] |
+| **Seedance 2.5 en fal** | 0,2205 USD/s a 480p; 0,4730 USD/s a 720p; 1,164 USD/s a 1080p (equivalencias de la tarifa por tokens); audio incluido | **Interacciones complejas.** 6 s a 1080p: 6,984 USD por intento [S20] |
+| Seedance 2.5 en Higgsfield | Clip de 10 s: 30 créditos a 480p, 65 a 720p, 90 a 1080p (unos 4,50 USD según Higgsfield). Estimación del 15/09 para 6 s a 1080p: 54 créditos, el mismo ritmo de 9 créditos/s | Alternativa más barata si el contrato permite su uso en un SaaS [S21][S28] |
+| Kling 3.0 Pro en Higgsfield | Estimación del 15/09: 10,5 créditos por 6 s | Referencia de coste relativo [S28] |
 | Seedance 2.0 estándar en fal | 0,682 USD/s a 1080p en la ficha | Referencia del caso práctico; alternativa fuera del presupuesto base [S4] |
-| Kling 3.0 Pro en fal | 0,112 USD/s sin audio; 0,168 USD/s con audio | Alternativa documentada; fuera del presupuesto base [S3] |
 | Veo 3.1 estándar | 0,40 USD/s con audio a 720p/1080p | 8 s: 3,20 USD; alternativa para presentador [S2] |
 | Veo 3.1 Fast | 0,12 USD/s con audio a 1080p | 8 s: 0,96 USD; candidato de ensayo, no calidad equiparada [S2] |
 | ElevenLabs API | Voz v3 y Multilingual v2: 0,10 USD/1.000 caracteres; Flash: 0,05; Scribe v2: 0,22 USD/hora | Voz en off y transcripción; detalle en el informe de voces [S27] |
@@ -432,7 +484,7 @@ Importes consultados el 14 y el 15 de septiembre de 2026. USD y EUR se mantienen
 **Precio y resolución de Seedance 2.5, pendientes de confirmar.**
 
 - **fal:** en su esquema de API, la tarifa por segundo equivale a la tarifa por tokens. Tokens = alto × ancho × segundos × 24 / 1.024; 0,0214 USD por 1.000 tokens a 480p y 720p, y 0,0234 USD a 1080p. Un clip vertical y uno horizontal de la misma resolución cuestan lo mismo. Su página web indica 720p como máximo, pero el esquema admite 1080p. [S20]
-- **Higgsfield:** dos artículos de las mismas fechas se contradicen sobre si ofrece 1080p. [S21][S22]
+- **Higgsfield:** dos artículos de las mismas fechas se contradicen sobre si ofrece 1080p [S21][S22]. En el ensayo del 15 de septiembre la salida fue 1080 × 1920. [S28]
 - **Otros proveedores:** fuentes secundarias sitúan BytePlus y Replicate en unos 0,23 USD/s a 720p, sin tarifa oficial de 1080p verificada en este informe.
 
 Antes de integrar, confirmar la resolución real con ffprobe y el importe facturado. En Higgsfield, `get_cost` permite comprobar el coste sin consumir créditos.
@@ -443,15 +495,16 @@ La API de Astra aplica sobreprecio a contextos superiores a 272.000 tokens. El p
 
 | Componente | Tratamiento económico |
 | --- | --- |
-| Higgsfield web y créditos | Seedance 2.5 se publica en créditos por clip; falta la tarifa contractual aplicable a un servicio con clientes |
+| Higgsfield web y créditos | Seedance 2.5 y Kling 3.0 se publican en créditos por clip; falta la tarifa contractual aplicable a un servicio con clientes |
 | Higgsfield Cloud API | Acceso programático disponible; coste por endpoint y uso de Society pendiente de cotización |
+| Voces de Higgsfield | Usadas en el ensayo del 15/09; el esquema consultado no ofrecía selector de idioma ni acento; coste por evaluar frente al informe de voces |
 | Genjutsu y 3D Jutsu | Opcionales; pedir cotización exacta de duración, resolución y tipo de entrada |
 | AI Motion Designer y bridge | Tarifa por tarea no verificada; no se presupone gratis |
 | Higgsedit, upscale, eliminación de fondo | Opcionales; precio por trabajo a verificar; no incluidos en la ruta base. El reescalado de 720p a 1080p debe tarifarse si se elige esa vía |
 | Virality Predictor y Video Analysis | Registros locales sin cargo en Plus; no extrapolables a gratuidad de un SaaS |
 | Voces de código abierto (Qwen3-TTS, Chatterbox) | Sin licencia de pago; cómputo GPU y mantenimiento por medir |
 | Blender, COLMAP y gsplat | Sin cuota de suscripción del software base; sí cómputo, almacenamiento y revisión de licencias |
-| FFmpeg y utilidades de análisis | Sin suscripción prevista; cómputo incluido en reserva y revisión de componentes al distribuir |
+| FFmpeg, faster-whisper y utilidades de análisis | Sin suscripción prevista; cómputo incluido en reserva y revisión de componentes al distribuir |
 | Música y efectos | Base con recursos propios o autorizados; biblioteca multiusuario comercial requiere licencia apropiada |
 | Dominio | Reserva de 2 EUR/mes; precio final depende del nombre y renovación |
 | Worker Windows para AE | Reserva de 80 EUR/mes de capacidad/amortización; no es una oferta de hosting verificada |
@@ -467,12 +520,13 @@ Se interpretan 20 usuarios como 20 restaurantes de pago, con una cuenta principa
 
 **Composición de un reel estándar del cálculo:**
 
-- Duración final de 15 a 20 segundos.
-- Ocho imágenes base: seis escenas y dos estados finales adicionales.
-- Seis clips de Seedance 2.5 de 4 s, la duración mínima del modelo: cuatro con imagen inicial y dos con imagen inicial y final.
+- Duración final de 9 a 20 segundos.
+- Ocho imágenes base: seis escenas y dos estados adicionales.
+- Cuatro clips simples de Kling 3.0 de 3 s.
+- Dos clips complejos de Seedance 2.5 de 6 s, la duración que necesitó el corte del ensayo.
 - Son 24 s generados antes de reintentos y recortes. El factor de vídeo 1,5 eleva la media a 36 s facturados por reel; el factor de imagen 1,25 eleva la media a diez intentos por reel.
 
-Estos factores representan medias para el presupuesto, no garantías del modelo. La política máxima de tres intentos por plano produce una cola de casos más caros; el 20 % de reserva financiera absorbe parte de esa variación. Proyectos fuera de presupuesto pasan a otra receta o requieren ampliación. Cada plano resuelto con material real (ruta A) reduce directamente la partida de vídeo.
+Estos factores representan medias para el presupuesto, no garantías del modelo. La política máxima de tres intentos por plano produce una cola de casos más caros; el 20 % de reserva financiera absorbe parte de esa variación. Proyectos fuera de presupuesto pasan a otra receta o requieren ampliación. Cada plano resuelto con material real (ruta A) reduce directamente la partida de vídeo, sobre todo si sustituye un plano complejo.
 
 ### 9.4 Tokens de Astra
 
@@ -484,24 +538,26 @@ Si los recorridos reales del agente superan estas reservas, hay que actualizar e
 
 ### 9.5 Coste unitario calculado
 
-| Partida por reel | Operación | USD a 1080p en fal | USD a 720p en fal |
+| Partida por reel | Operación | USD con Seedance a 1080p en fal | USD con Seedance a 720p en fal |
 | --- | --- | --- | --- |
 | Imágenes base | 8 × 1,25 × 0,15 | 1,500 | 1,500 |
-| Vídeo Seedance 2.5 | 6 × 4 s × 1,5 × tarifa por segundo | 41,904 | 17,028 |
+| Planos simples Kling 3.0 | 4 × 3 s × 1,5 × 0,112 | 2,016 | 2,016 |
+| Planos complejos Seedance 2.5 | 2 × 6 s × 1,5 × tarifa por segundo | 20,952 | 8,514 |
 | Astra completo | Entrada y salida de todas las fases | 1,000 | 1,000 |
 | Render variable | Reserva de procesamiento por reel | 0,350 | 0,350 |
-| Total unitario | Antes de infraestructura y reserva general | **44,754** | **19,878** |
+| Total unitario | Antes de infraestructura y reserva general | **25,818** | **13,380** |
 
-Con Seedance 2.5 a 1080p en Higgsfield (unos 0,45 USD/s, pendiente de contrato), el vídeo cuesta 16,20 USD y el reel **19,05 USD**. Si el reel lleva voz en off, se suman unos 0,12 USD: 1.200 caracteres con ElevenLabs v3, contando tres intentos.
+Con Seedance 2.5 a 1080p en Higgsfield (unos 0,45 USD/s, pendiente de contrato), los planos complejos cuestan 8,10 USD y el reel **12,966 USD**. Si el reel lleva voz en off, se suman unos 0,12 USD: 1.200 caracteres con ElevenLabs v3, contando tres intentos. Si los seis planos se hicieran con Seedance 2.5 de 6 s a 1080p en fal, la partida de vídeo pasaría de 22,97 a 62,86 USD por reel.
 
 **Otras unidades:**
 
 | Unidad | Operación | USD |
 | --- | --- | --- |
 | Imagen final independiente | 1,25 × 0,15 + 0,12 | 0,3075 |
-| Clip de historia de 5 s a 1080p en fal | 5 × 1,5 × 1,164 + imagen inicial 0,3075 | 9,0375 |
-| Clip de historia de 5 s a 720p en fal | 5 × 1,5 × 0,473 + 0,3075 | 3,855 |
-| Clip de historia de 5 s a 1080p en Higgsfield | 5 × 1,5 × 0,45 + 0,3075 | 3,6825 |
+| Clip de historia simple de 5 s con Kling 3.0 | 5 × 1,5 × 0,112 + imagen inicial 0,3075 | 1,1475 |
+| Clip de historia complejo de 5 s, Seedance 2.5 a 1080p en fal | 5 × 1,5 × 1,164 + 0,3075 | 9,0375 |
+| Clip de historia complejo de 5 s, Seedance 2.5 a 720p en fal | 5 × 1,5 × 0,473 + 0,3075 | 3,855 |
+| Clip de historia complejo de 5 s, Seedance 2.5 a 1080p en Higgsfield | 5 × 1,5 × 0,45 + 0,3075 | 3,6825 |
 
 El render variable de 0,35 USD es reserva estimada, además de capacidad fija del worker; si el hosting lo incluye, no se debe facturar dos veces en el modelo real.
 
@@ -514,8 +570,8 @@ La estructura de planes se decidió el 15 de septiembre de 2026 (ver `README.md`
 | Plan | Contenido | Cuotas de ejemplo al mes |
 | --- | --- | --- |
 | 1 · Presencia en Google | Ficha de Google Business Profile y SEO local | 4 publicaciones en la ficha con fotos reales, 20 respuestas a reseñas, informe mensual |
-| 2 · Presencia + redes | Plan 1 + redes centradas en historias y posts + otros sitios (TripAdvisor y similares) | 20 imágenes finales, 4 clips de historia de 5 s, informes semanales y plan mensual |
-| 3 · Completo con reels | Plan 2 + reels | 4 reels estándar |
+| 2 · Presencia + redes | Plan 1 + redes centradas en historias y posts + otros sitios (TripAdvisor y similares) | 20 imágenes finales, 4 clips de historia de 5 s (3 simples y 1 complejo), informes semanales y plan mensual |
+| 3 · Completo con reels | Plan 2 + reels | 4 reels estándar con voz en off |
 
 ### 10.2 Partidas variables por plan
 
@@ -523,9 +579,9 @@ La estructura de planes se decidió el 15 de septiembre de 2026 (ver `README.md`
 | --- | --- | --- |
 | Plan 1: Astra para ficha y reseñas | 4 publicaciones × 0,12 + 20 respuestas × (2.000 tokens de entrada + 300 de salida) + informe mensual (50.000 + 10.000) | 2,18 |
 | Plan 2: imágenes | 20 × 0,3075 | 6,15 |
-| Plan 2: clips de historia | 4 clips: 36,15 a 1080p en fal; 15,42 a 720p en fal; 14,73 a 1080p en Higgsfield | Según escenario |
+| Plan 2: clips de historia | 3 clips simples × 1,1475 + 1 clip complejo: 12,48 a 1080p en fal; 7,30 a 720p en fal; 7,13 a 1080p en Higgsfield | Según escenario |
 | Plan 2: estrategia y medición de redes | Informes semanales y plan mensual con Astra (informe de estrategia de redes) | 4,00 |
-| Plan 3: reels | 4 × 44,754 a 1080p en fal; 4 × 19,878 a 720p en fal; 4 × 19,05 a 1080p en Higgsfield | Según escenario |
+| Plan 3: reels | 4 × 25,818 a 1080p en fal; 4 × 13,380 a 720p en fal; 4 × 12,966 a 1080p en Higgsfield | Según escenario |
 | Plan 3: voz en off | 4 × 0,12 | 0,48 |
 
 ### 10.3 Coste mensual por restaurante
@@ -542,30 +598,30 @@ La estructura de planes se decidió el 15 de septiembre de 2026 (ver `README.md`
 **Fórmulas:**
 
 - **Coste por restaurante** = variable × 0,95 × 1,20 + partes fijas.
-- **Precio mínimo** para un margen de contribución objetivo del 40 % = (coste + 0,25 EUR) / (1 − 0,02662 − 0,40). El 2,662 % es la comisión de Stripe Payments + Billing (2,2 %) aplicada sobre un precio con un impuesto repercutido hipotético del 21 %, como en la versión anterior de este informe.
+- **Precio mínimo** para un margen de contribución objetivo del 40 % = (coste + 0,25 EUR) / (1 − 0,02662 − 0,40). El 2,662 % es la comisión de Stripe Payments + Billing (2,2 %) aplicada sobre un precio con un impuesto repercutido hipotético del 21 %.
 
-| Plan | Escenario de vídeo | Variable USD | Coste por restaurante | Precio mínimo sin impuestos |
+| Plan | Escenario de Seedance 2.5 | Variable USD | Coste por restaurante | Precio mínimo sin impuestos |
 | --- | --- | --- | --- | --- |
 | 1 | Sin vídeo | 2,18 | **41,39 EUR** | 72,62 EUR |
-| 2 | fal 1080p | 48,48 | **109,17 EUR** | 190,83 EUR |
-| 2 | fal 720p | 27,75 | **85,54 EUR** | 149,62 EUR |
-| 2 | Higgsfield 1080p (pendiente de contrato) | 27,06 | **84,75 EUR** | 148,24 EUR |
-| 3 | fal 1080p | 227,98 | **313,79 EUR** | 547,70 EUR |
-| 3 | fal 720p | 107,74 | **176,73 EUR** | 308,66 EUR |
-| 3 | Higgsfield 1080p (pendiente de contrato) | 103,74 | **172,16 EUR** | 300,69 EUR |
+| 2 | fal 1080p | 24,81 | **82,18 EUR** | 143,76 EUR |
+| 2 | fal 720p | 19,63 | **76,28 EUR** | 133,47 EUR |
+| 2 | Higgsfield 1080p (pendiente de contrato) | 19,46 | **76,08 EUR** | 133,12 EUR |
+| 3 | fal 1080p | 128,56 | **200,46 EUR** | 350,05 EUR |
+| 3 | fal 720p | 73,63 | **137,84 EUR** | 240,83 EUR |
+| 3 | Higgsfield 1080p (pendiente de contrato) | 71,80 | **135,75 EUR** | 237,19 EUR |
 
 **Lectura:**
 
-- **Plan 1:** es barato de producir porque no genera vídeo. Su coste lo domina el tiempo humano mientras la ficha se gestione de forma asistida.
-- **Plan 2:** con pocos clips de historia se mantiene por debajo de unos 110 EUR incluso a 1080p en fal.
-- **Plan 3:** a 1080p en fal cuesta más del doble que a 720p o en Higgsfield. **Sin decidir resolución y proveedor, el plan 3 no puede tener precio.**
+- **Plan 1.** Es barato de producir porque no genera vídeo. Su coste lo domina el tiempo humano mientras la ficha se gestione de forma asistida.
+- **Plan 2.** Con clips simples en Kling 3.0 queda por debajo de unos 85 EUR incluso a 1080p en fal.
+- **Plan 3.** La diferencia entre escenarios se debe solo a los planos complejos. Sin decidir resolución y proveedor de Seedance 2.5, su precio queda abierto entre unos 237 y 350 EUR de mínimo.
 
 **Ejemplo de cartera** de 20 restaurantes (8 en plan 1, 8 en plan 2 y 4 en plan 3), con los supuestos anteriores:
 
-| Escenario de vídeo | Coste operativo mensual |
+| Escenario de Seedance 2.5 | Coste operativo mensual |
 | --- | --- |
-| fal 720p | 1.722,36 EUR |
-| fal 1080p | 2.459,64 EUR |
+| fal 720p | 1.492,72 EUR |
+| fal 1080p | 1.790,40 EUR |
 
 Es una ilustración, no una previsión de ventas.
 
@@ -575,22 +631,23 @@ Los precios mínimos son derivaciones del modelo de costes, no una validación d
 
 | Cambio | Efecto por restaurante y mes, con reserva |
 | --- | --- |
-| Un reel adicional | +51,02 EUR a 1080p en fal; +22,66 EUR a 720p; +21,72 EUR a 1080p en Higgsfield |
-| Un clip de historia adicional de 5 s | +10,30 EUR a 1080p en fal; +4,39 EUR a 720p; +4,20 EUR en Higgsfield |
-| Resolver 2 de los 6 planos de un reel con material real | −15,92 EUR por reel a 1080p en fal |
-| Factor de vídeo de 1,5 a 2 en el plan 3 a 1080p en fal | +63,69 EUR por los 4 reels y +13,27 EUR por los 4 clips de historia |
-| Tipo presupuestario 1 USD = 1 EUR en el plan 3 a 1080p en fal | +13,69 EUR |
+| Un reel adicional | +29,43 EUR con Seedance a 1080p en fal; +15,25 EUR a 720p; +14,78 EUR en Higgsfield |
+| Un clip de historia simple adicional (Kling 3.0) | +1,31 EUR |
+| Un clip de historia complejo adicional (Seedance 2.5) | +10,30 EUR a 1080p en fal; +4,39 EUR a 720p; +4,20 EUR en Higgsfield |
+| Resolver con material real un plano complejo de un reel | −11,94 EUR por reel a 1080p en fal |
+| Hacer los seis planos de un reel con Seedance 2.5 de 6 s a 1080p en fal | +45,47 EUR por reel |
+| Factor de vídeo de 1,5 a 2 en el plan 3 a 1080p en fal | +39,19 EUR |
+| Tipo presupuestario 1 USD = 1 EUR en el plan 3 a 1080p en fal | +7,71 EUR |
 | Una hora adicional de soporte o gestión asistida | +30 EUR |
 
 **Límites de la oferta:**
 
-- **Vídeo acotado por plan.** Cada plan debe limitar la duración y el número de planos generados, y presentar los trabajos especiales como ampliaciones. No se recomienda vender uso ilimitado.
-- **Material real.** Cada plano resuelto con metraje real rebaja directamente la partida más cara.
+- **Vídeo acotado por plan.** Cada plan debe limitar la duración, el número de planos generados y, sobre todo, los planos complejos, y presentar los trabajos especiales como ampliaciones. No se recomienda vender uso ilimitado.
 - **Escala.** Con 50 restaurantes y la misma base fija, el reparto de infraestructura bajaría a 3,56 EUR por restaurante. Es una extrapolación económica, no una prueba de capacidad: la cola, el worker de AE y los límites de proveedores se deben dimensionar de nuevo.
 
 ### 10.5 Alta y 3D separados de la mensualidad
 
-Propuesta de alta: **149 a 299 EUR** por restaurante, según el trabajo de validar catálogo y marca. Con 1,5 a 3 horas a 30 EUR/h, el coste humano ya es de 45 a 90 EUR, sin contar recursos. Es una decisión comercial por validar.
+Propuesta de alta: **149 a 299 EUR** por restaurante, según el trabajo de validar catálogo, marca, muestras de estilo y prueba de voz. Con 1,5 a 3 horas a 30 EUR/h, el coste humano ya es de 45 a 90 EUR, sin contar recursos. Es una decisión comercial por validar.
 
 Ejemplo de cómputo 3D: una L4, dos núcleos físicos y 8 GiB durante una hora cuestan aproximadamente **0,96 USD** con las tarifas de Modal, antes de otros cargos. Si una reconstrucción consume dos horas, 20 altas supondrían unos **38,30 USD** de ese cómputo. No se ha medido que un restaurante se reconstruya en dos horas: el ejemplo muestra la fórmula, no el precio real del onboarding. [S11]
 
@@ -603,14 +660,15 @@ En escaneo, limpieza y validación, el tiempo humano puede dominar el coste de G
 **Primera versión comercial y del TFG:**
 
 - Un restaurante piloto y la cuenta propia de Society.
-- Catálogo real, tres entradas de creación y reglas versionadas.
+- Alta con muestras de estilo y prueba de voz.
+- Catálogo real, tres entradas de creación y reglas versionadas con identificador estable.
 - **Plan 2:** imágenes, posts y plantillas de historias.
-- **Vídeo:** clips de Seedance 2.5 con imagen inicial, y con imagen inicial y final.
-- **Plan 3:** reels con montaje automático, voz en off opcional y subtítulos.
+- **Vídeo:** clips de Kling 3.0 en planos simples y de Seedance 2.5 en interacciones complejas.
+- **Plan 3:** reels con montaje automático, voz en off y subtítulos alineados.
 - **Plan 1:** ficha de Google mínima o gestionada de forma asistida.
 - Planes y cobro con Stripe; registro de consumo por plan.
 
-La arquitectura y las pruebas contemplan veinte clientes; no es necesario gastar la producción mensual completa para demostrar aislamiento y colas.
+La arquitectura y las pruebas contemplan veinte clientes; no es necesario gastar la producción mensual completa para demostrar aislamiento y colas. El recorrido de pantallas y estados está en `Society_flujo_de_la_aplicacion.md`.
 
 **Quedan como ampliaciones:** publicación automática por API, automatización de otros sitios como TripAdvisor, scraping de guardados, predicción de viralidad comercial, avatar recurrente, doblaje, generación musical, escaneo completo de múltiples salas y editor visual de timeline. Una prueba 3D de una zona puede presentarse como investigación complementaria con resultados y límites.
 
@@ -619,9 +677,9 @@ La arquitectura y las pruebas contemplan veinte clientes; no es necesario gastar
 | Periodo | Resultado verificable |
 | --- | --- |
 | 15 sep – 4 oct | Requisitos, cuotas de los planes, resolución y proveedor de Seedance 2.5, esquema de datos, elección React o Angular, solicitudes de acceso a Meta y Google, cuenta propia de Society creada |
-| 5 oct – 1 nov | Autenticación, aislamiento entre clientes, catálogo, subida de recursos y reglas de marca versionadas |
+| 5 oct – 1 nov | Autenticación, aislamiento entre clientes, alta con catálogo, subida de recursos, muestras de estilo, prueba de voz y reglas de marca versionadas |
 | 2 nov – 29 nov | Brief de pieza, generación y verificación de imágenes, plantillas de historias, calendario y publicación asistida; la cuenta de Society empieza a publicar |
-| 30 nov – 20 dic | Clips de Seedance 2.5, voz en off y subtítulos, montaje automático en plantillas AE y medición en Instagram |
+| 30 nov – 20 dic | Clips de Kling 3.0 y Seedance 2.5, voz en off y subtítulos alineados, montaje automático en plantillas AE con controles previos al render, y medición en Instagram |
 | 21 dic – 10 ene | Ficha de Google mínima o asistida, cobro con Stripe, pruebas decisivas, piloto y documentación |
 | Enero de 2027 | Posible lanzamiento comercial |
 
@@ -632,23 +690,26 @@ La duración es una planificación propuesta, no un plazo comprometido. Confirma
 - Un cliente no puede acceder a medios de otro.
 - Un webhook repetido no cobra dos veces.
 - Una caída del worker no repite generaciones.
+- Un trabajo en espera larga no se reenvía.
 - Un cambio de precio solo recompone el rótulo.
 - Un plato sin referencia no se inventa.
 - Una regla nueva invalida las escenas afectadas.
 - Un proyecto no supera el máximo reservado.
 - Un restaurante no supera las cuotas de su plan.
 - Veinte solicitudes se encolan y recuperan con reparto justo.
-- Cambiar la voz de un reel regenera audio y subtítulos sin regenerar vídeo.
+- Cambiar la voz de un reel regenera audio y subtítulos alineados sin regenerar vídeo.
 - Un clip con dimensiones distintas de las pedidas se detecta antes de montar.
+- Sustituir un material corrige la escala.
+- La cola de render se inspecciona antes de iniciar.
 
 **Rendimiento.** Medir la latencia por etapa y el tiempo de ocupación de AE. Si un render tarda 5 minutos, 160 renders consumen unas 13,3 horas de worker al mes antes de reintentos, y una ráfaga de veinte tarda unos 100 minutos en un único worker. Es una hipótesis de capacidad que debe medirse, no un SLA.
 
 ### 11.4 Orden de decisiones
 
-1. Cerrar las cuotas de los tres planes, y la resolución y el proveedor de Seedance 2.5.
+1. Cerrar las cuotas de los tres planes, incluido el número de planos complejos por reel, y la resolución y el proveedor de Seedance 2.5.
 2. Cerrar las tres plantillas y su límite de complejidad.
-3. Formalizar las reglas del restaurante piloto sin copiar su historial como instrucciones.
-4. Validar de extremo a extremo una imagen, un clip de Seedance 2.5 con imagen inicial, uno con imagen inicial y final, y una plantilla de AE con voz y subtítulos.
+3. Formalizar las reglas del restaurante piloto con identificadores estables, sin copiar su historial como instrucciones.
+4. Validar de extremo a extremo una imagen, un clip simple de Kling 3.0, uno complejo de Seedance 2.5 y una plantilla de AE con voz y subtítulos.
 5. Medir los costes reales de esas unidades.
 6. Construir la interfaz y ampliar el catálogo.
 
@@ -656,7 +717,7 @@ La prueba central del TFG será que Society puede repetir ese proceso y recupera
 
 ## 12 Fuentes y trazabilidad
 
-Fuentes de precios y capacidades consultadas el 14 de septiembre de 2026 (S1-S19) y el 15 de septiembre de 2026 (S20-S27). Las cifras locales en créditos son evidencias históricas; las tarifas externas se refieren al proveedor y configuración indicados.
+Fuentes de precios y capacidades consultadas el 14 de septiembre de 2026 (S1-S19) y el 15 de septiembre de 2026 (S20-S27). S28 es evidencia local. Las cifras locales en créditos son evidencias históricas; las tarifas externas se refieren al proveedor y configuración indicados.
 
 - [S1] OpenAI · GPT-6 Astra · https://developers.openai.com/api/docs/models/gpt-6-astra
 - [S2] Google · Gemini API pricing · https://ai.google.dev/gemini-api/docs/pricing
@@ -685,5 +746,6 @@ Fuentes de precios y capacidades consultadas el 14 de septiembre de 2026 (S1-S19
 - [S25] Artificial Analysis · Image to Video Leaderboard · https://artificialanalysis.ai/video/leaderboard/image-to-video
 - [S26] The Next Web · Marcas de agua y límites de propiedad intelectual en Seedance 2.0 (31 mar. 2026) · https://thenextweb.com/news/bytedance-seedance-watermarking-ip-global-rollout
 - [S27] ElevenLabs · API pricing · https://elevenlabs.io/pricing/api
+- [S28] Evidencia local · Aprendizajes y receta del reel de chuletón (15 sep. 2026) · `base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/`
 
-La evidencia local queda identificada archivo por archivo en Society_inventario_documental.md. Las hipótesis de consumo, cuotas, rendimiento, reserva, cambio de divisa, soporte y precios mínimos son propuestas de este informe y se deben sustituir por mediciones del piloto. El PDF de este informe corresponde a la versión del 14 de septiembre y no incluye esta actualización.
+La evidencia local queda identificada archivo por archivo en Society_inventario_documental.md y en la carpeta S28. Las hipótesis de consumo, cuotas, rendimiento, reserva, cambio de divisa, soporte y precios mínimos son propuestas de este informe y se deben sustituir por mediciones del piloto. El PDF de este informe corresponde a la versión del 14 de septiembre y no incluye estas actualizaciones.

@@ -196,6 +196,22 @@ El brief es el contrato entre estrategia y producción. Astra lo rellena desde e
 | Dependencias | Metraje real, aprobaciones, colaborador | Metraje de brasa; confirmación de fecha y platos |
 | Ruta de producción | Enlace al proyecto de Society | Proyecto con contrato de plano |
 
+**Aprendizaje sobre el gancho (ensayo del 15 de septiembre de 2026).** El primer montaje de un reel de chuletón duraba 15 segundos y resultó lento y sin enganche. La versión preferida dura 9 segundos:
+
+- Empieza con el interior del local.
+- Pasa directamente a la brasa.
+- Deja el corte completo para el desarrollo.
+- El rótulo inicial pregunta «¿ESTE PUNTO?» y la voz termina con una pregunta al espectador.
+
+Consecuencias para el brief:
+
+- El campo *Gancho* debe nombrar el momento que justifica ver la pieza y colocarlo en los primeros segundos, sin cabeceras ni presentaciones estáticas.
+- La duración se ajusta al material y a la locución medida, no a una cifra fija. Nueve segundos es una receta ensayada, no una duración óptima demostrada.
+- Si el montaje usa un adelanto, se revisa que los saltos de estado del plato se entiendan y que no se presenten como una acción continua.
+- Que el propietario apruebe la pieza no sustituye a los datos: la hipótesis del gancho se contrasta con `reels_skip_rate` e `ig_reels_avg_watch_time` frente a la mediana del restaurante.
+
+Evidencia: [aprendizajes del reel de chuletón](../base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/aprendizajes-reel-chuleton.md), apartado 4.
+
 ### 4.6 Historias con función
 
 Una secuencia de historias se diseña como una pieza, con objetivo y fotogramas con papel:

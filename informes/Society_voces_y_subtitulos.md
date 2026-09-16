@@ -165,6 +165,27 @@ Cuando exista un guion esperado, la transcripción siempre se compara con él. S
 - Revisión letra a letra de nombres de platos, precios y fechas.
 - Tamaño y número de palabras calibrados con pruebas en el móvil durante el piloto. No se han verificado umbrales universales para vídeo vertical.
 
+### 4.4 Lo que enseñó el ensayo del 15 de septiembre
+
+Un reel de chuletón producido en local, con voz de Higgsfield (`seed_audio`), subtítulos alineados y montaje en After Effects, dejó evidencia directa sobre voz y subtítulos. **Esta prueba no usó ElevenLabs ni WhisperX**, así que no sustituye a la prueba a ciegas de la sección 8. Evidencia completa en [aprendizajes del reel de chuletón](../base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/aprendizajes-reel-chuleton.md), apartados 5 y 6.
+
+**Voz**
+
+- La voz Cillian se descartó por sonar extranjera. Se usó Nadine en la versión preferida, pero nada certifica que sea una voz nativa de español de España.
+- El esquema de `seed_audio` consultado no tenía selector de idioma ni de acento, solo velocidad, volumen y tono. No se debe inventar un parámetro de idioma ni deducir el origen de una voz por su nombre.
+- Una transcripción correcta no demuestra que el acento sea adecuado.
+- **Regla para Society:** antes de producir la pieza completa, escuchar una muestra corta en español con palabras del negocio. Guardar proveedor, identificador de voz y valoración de pronunciación. Es el paso «Prueba de voz» del alta en el [flujo de la aplicación](Society_flujo_de_la_aplicacion.md).
+
+**Subtítulos**
+
+- La locución duró 7,9 s y el proveedor no devolvió marcas de tiempo.
+- Se transcribió con faster-whisper (idioma `es`) y el resultado se alineó con el guion escrito. La transcripción escribió «braza» y el guion permitió recuperar «brasa» sin inventar tiempos.
+- La alineación dio una similitud de 0,9375, con 16 de 16 palabras temporizadas. Esa cifra mide la correspondencia del texto, no la precisión temporal ni el acento.
+- Los tiempos pasaron a capas nativas de texto en After Effects: Arial Bold de 54 px, contorno de 2,5 px y un máximo de cinco palabras por grupo. Se conservó además un SRT.
+- Se añadieron 0,1 s de lectura al final de cada frase sin mover el inicio de la voz. Si cambia el audio o se desplaza en la línea de tiempo, la alineación se rehace.
+
+**Matiz a la tabla de la sección 4.1:** «subtítulos desde el guion» solo evita transcribir cuando hay marcas de tiempo fiables del proveedor o una alineación posterior con el audio. Repartir las palabras según su longitud o una duración supuesta no sustituye medir la locución. Por eso, en Society, el texto de la locución, el audio, la alineación y el montaje son etapas separadas y se rehace solo la que cambia.
+
 ## 5 Seedance 2.5 y su audio nativo
 
 - El parámetro `generate_audio` está activado por defecto y genera efectos, ambiente y **voz sincronizada con los labios**. En fal, el audio va incluido en la tarifa por segundo. [V26]
