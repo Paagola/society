@@ -9,7 +9,7 @@
 | **Curso académico** | 2025/2026 |
 | **Estado** | Fase de definición: el desarrollo no ha empezado |
 | **Lanzamiento comercial previsto** | A partir de enero de 2027 (hipótesis) |
-| **Última actualización** | 17 de septiembre de 2026 |
+| **Última actualización** | 19 de septiembre de 2026 |
 
 Este README es la **referencia principal del proyecto**: recoge qué es Society, las decisiones vigentes, la estructura prevista y las herramientas. Los documentos de la [sección 15](#15-documentos-del-proyecto) contienen el análisis y la evidencia que respaldan cada decisión, y la carpeta [`diagramas/`](./diagramas/) contiene el flujo completo dibujado.
 
@@ -119,6 +119,8 @@ El vídeo manda en el coste, y depende de la **ruta por tipo de plano**: Kling 3
 Una imagen final independiente cuesta unos **0,31 USD**; la voz en off de un reel, unos 0,12 USD.
 
 > **Actualización del 17/09 ([Reel 09](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md)).** Montar con Remotion quita la licencia de After Effects y el worker Windows del coste fijo (178,05 → 64,56 EUR/mes; −5,67 EUR por restaurante). La multitoma de Seedance 2.5 abarata el reel estándar entre un 10 y un 13,5 % según escenario, y hasta un 39 % en reels con 3 planos complejos a 1080p en fal. Con ambas: plan 1 ≈ 36 €, plan 2 ≈ 70-77 €, plan 3 ≈ 124-179 € de coste. Las tablas de abajo siguen siendo las del 15/09.
+
+> **Actualización del 19/09 ([estudio de mercado](informes/estudio-mercado/README.md#lo-que-el-estudio-cambia-en-la-viabilidad)).** Estos costes no incluyen horas de revisión del contenido. Con 2 h al mes por cliente a 30 €/h, el plan 2 cuesta 130-137 € y su precio mínimo sube a 228-239 €. Es la cifra que debe medir el piloto.
 
 Con cuotas de ejemplo (plan 2 con 20 imágenes y 4 clips de historia; plan 3 con 4 reels con voz):
 
@@ -305,7 +307,7 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 | **Coste del vídeo** (plan 3): a 1080p en fal, un reel cuesta unos 26 USD con la ruta híbrida y unos 63 si todo se hace con Seedance | Ruta por tipo de acción; decidir resolución y proveedor con el ensayo; resolver planos con material real; límites por plan y reintentos acotados |
 | **Planes 1 y 2 dependen de funciones fuera del foco** | Operación asistida al lanzar; automatización después de enero |
 | **Confianza y cumplimiento del contenido con IA** (imagen, vídeo y voz) | Priorizar material real, no inventar, etiquetar, consentimiento para voces reales |
-| **Competencia**: plataformas de reseñas y ficha desde unos 99 € por local; agencias de 500 a 1.500 € al mes | Diferenciarse por contenido fiel al local y por el sistema completo de estrategia y medición |
+| **Competencia**: Malou desde 99 € por local (reseñas y ficha) y 151 € con gestión de redes; Localo desde 39-49 USD; agencias especializadas desde 699-799 € al mes ([estudio de mercado](informes/estudio-mercado/01-estudio-de-mercado.md)) | Diferenciarse por contenido fiel al local y por el sistema completo de estrategia y medición |
 
 ## 14. Decisiones
 
@@ -329,7 +331,7 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 ### 14.2 Pendientes
 
 1. Nombres, precios y cuotas mensuales de los tres planes.
-2. **Resolución (720p o 1080p) y proveedor (fal o Higgsfield)** para Seedance 2.5, que deciden el precio del plan 3.
+2. **Resolución (720p o 1080p) y proveedor (fal o Higgsfield)** para Seedance 2.5, que deciden el precio del plan 3. *Actualización del 19/09:* la API de Higgsfield ya es pública (pago por uso en USD, uso comercial permitido), pero su ficha de Seedance 2.5 solo documenta texto a vídeo a 480p/720p. Falta confirmar con una clave un modo con referencias de imagen a 1080p ([informe de la API §12](informes/higgsfield/02-api-y-arquitectura.md)).
 3. Proveedor de voz tras la prueba a ciegas del informe de voces.
 4. React + TypeScript o Angular.
 5. Cuenta propia de Society: redes, audiencia, línea editorial y material de partida.
@@ -338,6 +340,7 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 8. Dónde corre el orquestador de trabajos y con cuántos workers en paralelo.
 9. Papel de Society ante el Reglamento de IA (proveedor, responsable del despliegue o ambos), con revisión jurídica.
 10. ~~Licencia de After Effects para uso en un servicio SaaS.~~ Resuelta el 17/09 al pasar a Remotion. Queda medir el tiempo real de render por reel.
+11. **Oferta de entrada y piloto pagado en Málaga** (Andalucía como expansión). La [auditoría](informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md) recomienda empezar vendiendo campañas sueltas de novedades (unos 299 €) antes que la suscripción de tres planes; la alternativa es un piloto del plan 2 (3-5 negocios, 4 semanas), con una sola cuota del plan 2 y medición de las horas de revisión por cliente: si son 2 h al mes, el precio mínimo del plan 2 sube a unos 228-239 € ([estudio de mercado](informes/estudio-mercado/README.md#lo-que-el-estudio-cambia-en-la-viabilidad)).
 
 ## 15. Documentos del proyecto
 
@@ -350,6 +353,8 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 | [`informes/Society_auditoria_estrategica_y_mejoras.md`](informes/Society_auditoria_estrategica_y_mejoras.md) | Campos estratégicos de una agencia de hostelería, huecos, vulnerabilidades, formación | Actualizado el 16/09 |
 | [`informes/Society_voces_y_subtitulos.md`](informes/Society_voces_y_subtitulos.md) | ElevenLabs, servicios en la nube y modelos gratuitos de voz; subtítulos; comparativa y prueba a ciegas | Actualizado el 16/09 con la evidencia del ensayo |
 | [`informes/Society_herramientas_evaluadas.md`](informes/Society_herramientas_evaluadas.md) | Guía de comandos de cámara, ABot-Recon y MoneyPrinterTurbo: qué se descarta, qué se aprovecha y requisitos del 3D para 5 locales | Nuevo (17/09) |
+| [`informes/estudio-mercado/`](informes/estudio-mercado/README.md) | Estudio de mercado, Lean Canvas, plan de validación y **auditoría crítica** que propone entrar con campañas de novedades en Málaga; contraste con la viabilidad | Nuevo (19/09), corregido al integrarlo; validación sin ejecutar |
+| [`informes/higgsfield/`](informes/higgsfield/README.md) | API pública de Higgsfield y diseño del orquestador de trabajos, método Ad Recreator para adaptar referencias y protocolo de descubrimiento para IA | Nuevo (19/09), corregido al integrarlo |
 | [`informes/Society_analisis_video_referencia.md`](informes/Society_analisis_video_referencia.md) | Herramientas tipo GVHMR para analizar cada elemento de un vídeo de referencia (cortes, cámara, objetos, profundidad, luz, audio, rótulos), con licencias verificadas | Nuevo (17/09) |
 | [`pruebas/analizador-video-referencia/plan-de-pruebas.md`](pruebas/analizador-video-referencia/plan-de-pruebas.md) | Plan de pruebas del analizador: vídeo patrón con verdad conocida, criterios de aceptación y registro de resultados | Preparado, sin ejecutar (17/09) |
 | [`informes/Society_inventario_documental.md`](informes/Society_inventario_documental.md) | Inventario de los archivos analizados | Referencia |
