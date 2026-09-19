@@ -471,6 +471,7 @@ Importes consultados el 14 y el 15 de septiembre de 2026. USD y EUR se mantienen
 | ElevenLabs API | Voz v3 y Multilingual v2: 0,10 USD/1.000 caracteres; Flash: 0,05; Scribe v2: 0,22 USD/hora | Voz en off y transcripción; detalle en el informe de voces [S27] |
 | After Effects equipos | 33,49 EUR/mes por licencia, sin IVA, compromiso anual | Una licencia de operador en el escenario; validar despliegue [S5] |
 | After Effects particular | 26,43 EUR/mes con IVA, compromiso anual | Referencia personal; no utilizada en el coste de producción [S5] |
+| **Remotion** | Gratis para particulares y empresas de hasta 3 personas; «Automators» 0,01 USD/render con mínimo de 100 USD/mes | **Sustituye a After Effects desde el 17/09**; render headless en Linux [S29] |
 | Supabase Pro | Desde 25 USD/mes, primer proyecto con cómputo Micro cubierto | Autenticación y base de datos de todos los clientes [S6] |
 | Vercel Pro | 20 USD/mes y consumo según plan | Un desarrollador; no veinte licencias de usuario final [S7] |
 | Cloudflare R2 Standard | 0,015 USD/GB-mes; 10 GB-mes gratuitos | 400 GB medios: 5,85 USD/mes [S8] |
@@ -590,7 +591,7 @@ La estructura de planes se decidió el 15 de septiembre de 2026 (ver `README.md`
 
 - 1 USD = 0,95 EUR.
 - Reserva del 20 % sobre la producción variable.
-- Infraestructura fija de 178,05 EUR repartida entre 20 restaurantes: 8,90 EUR cada uno.
+- Infraestructura fija de 178,05 EUR repartida entre 20 restaurantes: 8,90 EUR cada uno. **Actualización del 17/09:** sin After Effects ni worker Windows, 64,56 EUR (3,23 EUR cada uno). Recalculo por plan y efecto de la multitoma de Seedance 2.5 en [aprendizajes y costes del Reel 09](../base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md); las tablas de esta sección se mantienen con los supuestos del 15/09.
 - Soporte: 15 EUR por restaurante.
 - Gestión asistida de la ficha de Google: 15 EUR (0,5 h a 30 EUR/h) en todos los planes, hasta automatizarla.
 - Gestión asistida de otros sitios: 15 EUR en los planes 2 y 3.
@@ -747,5 +748,6 @@ Fuentes de precios y capacidades consultadas el 14 de septiembre de 2026 (S1-S19
 - [S26] The Next Web · Marcas de agua y límites de propiedad intelectual en Seedance 2.0 (31 mar. 2026) · https://thenextweb.com/news/bytedance-seedance-watermarking-ip-global-rollout
 - [S27] ElevenLabs · API pricing · https://elevenlabs.io/pricing/api
 - [S28] Evidencia local · Aprendizajes y receta del reel de chuletón (15 sep. 2026) · `base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/`
+- [S29] Remotion · License & Pricing (consultado el 17 sep. 2026) · https://www.remotion.pro/license
 
 La evidencia local queda identificada archivo por archivo en Society_inventario_documental.md y en la carpeta S28. Las hipótesis de consumo, cuotas, rendimiento, reserva, cambio de divisa, soporte y precios mínimos son propuestas de este informe y se deben sustituir por mediciones del piloto. El PDF de este informe corresponde a la versión del 14 de septiembre y no incluye estas actualizaciones.

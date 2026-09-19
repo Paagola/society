@@ -1,0 +1,65 @@
+{
+ "shots": [
+  {
+   "id": "P2_silla",
+   "src": "reel09/v1_multitoma.mp4",
+   "from": 0.4,
+   "duration": 2.4
+  },
+  {
+   "id": "P3_sala",
+   "src": "reel09/p3_sala.mp4",
+   "from": 0.5,
+   "duration": 1.6
+  },
+  {
+   "id": "P4_lampara",
+   "src": "reel09/p4_lampara.mp4",
+   "from": 0.8,
+   "duration": 1.1
+  },
+  {
+   "id": "P5_vino",
+   "src": "reel09/v1_multitoma.mp4",
+   "from": 3.8,
+   "duration": 1.9
+  },
+  {
+   "id": "P6_plato_copa",
+   "src": "reel09/v1_multitoma.mp4",
+   "from": 7.2,
+   "duration": 2.2
+  },
+  {
+   "id": "P8_cierre",
+   "src": "reel09/p8_cierre.mp4",
+   "from": 0.5,
+   "duration": 2.2
+  }
+ ],
+ "titles": [
+  {
+   "text": "VOLVEMOS A ABRIR",
+   "start": 0,
+   "end": 2.4,
+   "y": 1000,
+   "fontSize": 52,
+   "tracking": 320
+  },
+  {
+   "text": "UNA NUEVA TEMPORADA",
+   "start": 2.4,
+   "end": 4.0,
+   "y": 980,
+   "fontSize": 46,
+   "tracking": 300
+  }
+ ],
+ "brand": {
+  "start": 9.3,
+  "end": 11.4,
+  "y": 1060,
+  "title": "TORRE DE VEGA",
+  "subtitle": "«EL MORA»"
+ }
+}

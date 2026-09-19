@@ -9,7 +9,7 @@
 | **Curso académico** | 2025/2026 |
 | **Estado** | Fase de definición: el desarrollo no ha empezado |
 | **Lanzamiento comercial previsto** | A partir de enero de 2027 (hipótesis) |
-| **Última actualización** | 16 de septiembre de 2026 |
+| **Última actualización** | 17 de septiembre de 2026 |
 
 Este README es la **referencia principal del proyecto**: recoge qué es Society, las decisiones vigentes, la estructura prevista y las herramientas. Los documentos de la [sección 15](#15-documentos-del-proyecto) contienen el análisis y la evidencia que respaldan cada decisión, y la carpeta [`diagramas/`](./diagramas/) contiene el flujo completo dibujado.
 
@@ -117,6 +117,8 @@ El vídeo manda en el coste, y depende de la **ruta por tipo de plano**: Kling 3
 | Clip de historia complejo de 5 s (Seedance 2.5) | 9,04 USD | 3,86 USD | 3,68 USD |
 
 Una imagen final independiente cuesta unos **0,31 USD**; la voz en off de un reel, unos 0,12 USD.
+
+> **Actualización del 17/09 ([Reel 09](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md)).** Montar con Remotion quita la licencia de After Effects y el worker Windows del coste fijo (178,05 → 64,56 EUR/mes; −5,67 EUR por restaurante). La multitoma de Seedance 2.5 abarata el reel estándar entre un 10 y un 13,5 % según escenario, y hasta un 39 % en reels con 3 planos complejos a 1080p en fal. Con ambas: plan 1 ≈ 36 €, plan 2 ≈ 70-77 €, plan 3 ≈ 124-179 € de coste. Las tablas de abajo siguen siendo las del 15/09.
 
 Con cuotas de ejemplo (plan 2 con 20 imágenes y 4 clips de historia; plan 3 con 4 reels con voz):
 
@@ -234,13 +236,16 @@ Estado a 16 de septiembre de 2026. Tarifas detalladas en el [informe de viabilid
 | Alternativas de vídeo documentadas | Seedance 2.0, Veo 3.1 | Solo si un ensayo concreto lo justifica |
 | Voz en off | ElevenLabs (API; voces de español de España) | Propuesta principal, pendiente de una prueba a ciegas frente a Azure, Gemini TTS y Qwen3-TTS ([informe de voces](informes/Society_voces_y_subtitulos.md)) |
 | Subtítulos | Marcas de tiempo de la voz generada; faster-whisper o WhisperX con alineación cuando el proveedor no las da; incrustados en After Effects o FFmpeg | Propuesta, con el ensayo del 15/09 como evidencia |
-| Montaje y rótulos | After Effects con plantillas y render automatizado | Validado en el caso práctico; licencia para uso SaaS por verificar |
+| **Montaje y rótulos** | **Remotion** (React/TypeScript, render headless en Linux): composición vertical propia con rótulos, placa y cortes | **Validado en el caso práctico el 17/09** ([Reel 09](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md)). Gratis hasta 3 personas; desde 4, 0,01 USD/render con mínimo de 100 USD/mes |
+| Montaje anterior | After Effects con plantillas y render automatizado | Validado el 08/09; **sustituido por Remotion** (quita 113,49 EUR/mes de licencia y worker Windows) |
 | Inspección y codificación de medios | FFmpeg | Propuesta |
+| Montaje de respaldo | MoviePy + FFmpeg, con MoneyPrinterTurbo (MIT) como código de referencia | Candidato de respaldo si Remotion no encaja ([herramientas evaluadas](informes/Society_herramientas_evaluadas.md)). OpenMontage (AGPL-3.0) **no** se integra en Society |
 | Instagram | Instagram API con Instagram Login: publicación, estadísticas, comentarios | Acceso estándar para la cuenta propia; App Review para cuentas de clientes |
 | Google | Google Business Profile APIs: reseñas, publicaciones, métricas | Requiere solicitud de acceso |
 | Analítica en fases tempranas | Metricool o Windsor.ai (con conector MCP) | Opcional hasta tener ingesta propia |
 | Diagramas de arquitectura y flujo | archify (MIT) | En uso: carpeta `diagramas/` |
-| 3D del local | COLMAP, gsplat, Blender | Experimental; fuera del lanzamiento |
+| 3D del local | COLMAP o GLOMAP, gsplat, Blender; VGGT-1B-Commercial como alternativa para las poses | Experimental; fuera del lanzamiento. ABot-Recon descartado por licencia no comercial ([herramientas evaluadas](informes/Society_herramientas_evaluadas.md)) |
+| Análisis de vídeos de referencia | PySceneDetect, ViPE, ShotVL, SAM 3, Depth Anything 3 (pesos Base o Metric-Large), SEA-RAFT, beat_this, WhisperX y PaddleOCR: una ficha medida por plano para escribir prompts | Candidato, pendiente de pruebas ([informe](informes/Society_analisis_video_referencia.md) · [plan de pruebas](pruebas/analizador-video-referencia/plan-de-pruebas.md)). GVHMR descartado por licencia no comercial |
 | Apoyo con IA a investigación y documentación | Claude Code; Devin Desktop (antes Windsurf) | Solo investigación y documentación, **nunca código de la app** |
 
 **Sobre la elección de modelo de vídeo:**
@@ -308,6 +313,7 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 
 | Fecha | Decisión | Detalle |
 |---|---|---|
+| 2026-09-17 | **Montaje en Remotion** en lugar de After Effects, y **multitoma de Seedance 2.5** (varios planos complejos en un solo clip) cuando haya keyframes aprobados | [Aprendizajes y costes del Reel 09](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md) |
 | 2026-09-16 | El flujo completo queda documentado en 16 diagramas de archify | Sección 7 y [flujo de la aplicación](informes/Society_flujo_de_la_aplicacion.md) |
 | 2026-09-15 | Society es un proyecto propio para toda la hostelería; Torre de Vega es solo el caso práctico | Secciones 2 y 3 |
 | 2026-09-15 | Venta posible a partir de enero de 2027 | Sección 2 |
@@ -331,7 +337,7 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 7. Si el plan 1 se lanza en enero de forma asistida o se retrasa hasta automatizarlo.
 8. Dónde corre el orquestador de trabajos y con cuántos workers en paralelo.
 9. Papel de Society ante el Reglamento de IA (proveedor, responsable del despliegue o ambos), con revisión jurídica.
-10. Licencia de After Effects para uso en un servicio SaaS.
+10. ~~Licencia de After Effects para uso en un servicio SaaS.~~ Resuelta el 17/09 al pasar a Remotion. Queda medir el tiempo real de render por reel.
 
 ## 15. Documentos del proyecto
 
@@ -343,7 +349,11 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 | [`informes/Society_estrategia_redes_y_retroalimentacion.md`](informes/Society_estrategia_redes_y_retroalimentacion.md) | Estrategia de redes, métricas, ciclo de retroalimentación, cuenta propia, herramientas por fases | Actualizado el 16/09 con el aprendizaje del gancho |
 | [`informes/Society_auditoria_estrategica_y_mejoras.md`](informes/Society_auditoria_estrategica_y_mejoras.md) | Campos estratégicos de una agencia de hostelería, huecos, vulnerabilidades, formación | Actualizado el 16/09 |
 | [`informes/Society_voces_y_subtitulos.md`](informes/Society_voces_y_subtitulos.md) | ElevenLabs, servicios en la nube y modelos gratuitos de voz; subtítulos; comparativa y prueba a ciegas | Actualizado el 16/09 con la evidencia del ensayo |
+| [`informes/Society_herramientas_evaluadas.md`](informes/Society_herramientas_evaluadas.md) | Guía de comandos de cámara, ABot-Recon y MoneyPrinterTurbo: qué se descarta, qué se aprovecha y requisitos del 3D para 5 locales | Nuevo (17/09) |
+| [`informes/Society_analisis_video_referencia.md`](informes/Society_analisis_video_referencia.md) | Herramientas tipo GVHMR para analizar cada elemento de un vídeo de referencia (cortes, cámara, objetos, profundidad, luz, audio, rótulos), con licencias verificadas | Nuevo (17/09) |
+| [`pruebas/analizador-video-referencia/plan-de-pruebas.md`](pruebas/analizador-video-referencia/plan-de-pruebas.md) | Plan de pruebas del analizador: vídeo patrón con verdad conocida, criterios de aceptación y registro de resultados | Preparado, sin ejecutar (17/09) |
 | [`informes/Society_inventario_documental.md`](informes/Society_inventario_documental.md) | Inventario de los archivos analizados | Referencia |
+| [`base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/`](./base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/) | Reel 09: montaje en Remotion, multitoma de Seedance 2.5 y efecto en el coste de cada plan | Evidencia del ensayo (17/09) |
 | [`base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/`](./base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/) | Aprendizajes, receta y evidencia del reel del 15 de septiembre | Evidencia del ensayo |
 | [`base-conocimiento-torre-de-vega/`](./base-conocimiento-torre-de-vega/) | Reglas, metodología de prompting, automatización de After Effects, guiones e informes del caso práctico | Evidencia; no define el producto |
 | [`idea.md`](./idea.md) | Definición inicial: problema, propuesta de valor, flujo por fases | Parcialmente superado |

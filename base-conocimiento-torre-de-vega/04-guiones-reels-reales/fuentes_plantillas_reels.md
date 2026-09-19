@@ -152,6 +152,19 @@ mediciones dicen exactamente qué mirar:
 
 ---
 
+## 4bis. Instagram por palabra clave — sí es automatizable (probado el 2026-09-17)
+
+La búsqueda dentro de Instagram está cerrada, pero **la descarga de un Reel público suelto no**:
+
+```
+WebSearch  site:instagram.com/reel <plato o producto> <restaurante|asador>
+  → yt-dlp https://www.instagram.com/reel/<id>/ --no-check-certificates   (sin login, 720×1280)
+  → contact sheet → filtro de contenido → recorte ≤15 s → virality_predictor
+```
+
+Rendimiento real: 8 búsquedas → 9 Reels candidatos → 2 pasan el filtro de contenido. YouTube con las
+mismas palabras clave devolvió 0 verticales válidos. Detalle en `plantillas/2026-09-17/README.md`.
+
 ## 5. Dónde buscar candidatos
 
 Por orden de utilidad real:

@@ -44,8 +44,10 @@ flujo de principio a fin sin pedirle que indique ficheros.
    `reglas_videos.md`. No lanzar `generate_video*` sin ese visto bueno.
 6. **Animar solo los planos que necesiten vídeo real**, eligiendo modelo por caso de uso (skill
    §5ter). Los paneos y push/pull van en After Effects, gratis.
-7. **Montar en After Effects** por MCP, con la tipografía aprobada y verificando contraste
-   texto/fondo.
+7. **Montar en OpenMontage + Remotion** (`C:\Users\victo\OpenMontage\remotion-composer`, composición
+   `TorreDeVegaReel`), con la tipografía aprobada y verificando contraste texto/fondo midiendo
+   **y** mirando el fotograma a tamaño real. *(Cambio del cliente el 2026-09-17: deja de pagar After
+   Effects. Receta y trampas en `instagram/reel_09_carta_de_otono.md` §4ter.)*
 8. **Actualizar el `.md` del guion** con lo que se haya aprendido.
 
 ### Calidad primero, coste después
@@ -53,6 +55,11 @@ flujo de principio a fin sin pedirle que indique ficheros.
 1. **1080p es el mínimo innegociable.** Nunca 720p ni configuraciones con resolución sin verificar.
 2. Entre las opciones que cumplen, **elegir por calidad**.
 3. **El coste solo desempata** entre opciones equivalentes.
+
+**Varias tomas por generación** *(indicación del cliente, 2026-09-17)*: usar los mejores modelos de
+vídeo disponibles y, cuando el modelo lo admita, pedir **varias tomas dentro de un mismo vídeo**
+(multi-shot) para después cortarlas en el editor. Rinde más material por crédito sin bajar de modelo.
+«No gastar una brutalidad» sigue valiendo: preflight de coste y total antes de lanzar.
 
 No proponer nunca una configuración más barata a costa de la calidad del vídeo. Si la única forma de
 ajustar presupuesto es bajar calidad, decirlo abiertamente y que decida el cliente — no hacerlo por
@@ -84,6 +91,19 @@ defecto.
 > en pantalla, que es lo que dispara la red del lenguaje), y ese mecanismo se injerta en una plantilla
 > que sí encaja. Nunca al revés.
 
+### Sin vídeo de referencia, buscarlo es obligatorio (corrección del 2026-09-17)
+
+> ⚠️ **Error cometido el 2026-09-17** (Reel «carta de otoño»). El brief venía sin reel de referencia
+> y se presentó el punto A con conceptos inventados a partir de patrones propios, dando por bueno
+> `reel_de_referencia: ninguno`. Cliente: *"si no tienes ningún vídeo de referencia es obligatorio
+> buscarlo por tu cuenta"*.
+
+**Criterio:** si el usuario no aporta plantilla, **se buscan por cuenta propia al menos 2-3
+candidatos**, se mide la viralidad de cada uno (`virality_predictor`, gratis, ≤16 s) y se **elige uno**
+con la justificación. La búsqueda se hace **por palabras clave de la comida o el producto concreto del
+Reel** (p. ej. «setas a la brasa», «guiso de otoño», «chuletón»), no por términos genéricos. El filtro
+de contenido de arriba sigue mandando antes que la puntuación. Nunca «ninguno» como valor por defecto.
+
 **Verificar el tablero antes de vaciarlo.** Un tablero de "food videography" puede ser en realidad de
 bebidas y repostería. Mirar 3-4 pines antes de descargar 20 — y decir de qué es el tablero en el
 informe.
@@ -114,6 +134,33 @@ producto. Es un caso de uso distinto al carrusel de Instagram y tiene su propia 
 Estado y pendientes en
 [`informes/2026-09-13_carta-web_mapa-de-imagenes.md`](informes/2026-09-13_carta-web_mapa-de-imagenes.md)
 — incluye los 33 productos que necesitan foto y 9 dudas de identificación abiertas con Jose.
+
+### No «corregir» una imagen que el cliente aún no ha visto aplicando un criterio de otra pieza
+
+> ⚠️ **Error cometido el 2026-09-15** (hero web, bullet time del chuletón). El primer fotograma salió
+> con un chuletón sin hueso visible. Antes de enseñarlo se regeneró añadiéndole hueso, citando la
+> «decisión cerrada» de `imagenes/parrilla/README.md` —que era del Reel 03—, y se encadenó el
+> siguiente fotograma sobre esa versión. Cliente: *"la primera imagen muy bien, pero a las dos
+> siguientes no sé por qué les ha salido un hueso"*. Dos generaciones tiradas y la entrega retrasada.
+
+**Criterio:** los defectos **objetivos** (mano deforme, objeto inventado, texto roto, sobras) se
+corrigen antes de presentar. Las decisiones **de producto o de gusto** (qué corte, si se ve el hueso,
+cuánta llama, cuánto humo) se presentan tal como salen y decide el cliente. Una nota escrita para otra
+pieza no convierte una preferencia en defecto.
+
+En la misma sesión el cliente fijó cómo es el **fotograma final de un bullet time para el hero**:
+plano cerrado, la pieza ocupa la mayor parte del encuadre —no flotando pequeña en el centro—, porque
+ese fotograma se reutiliza como imagen fija al terminar el vídeo.
+
+### El vídeo real de la parrilla está quemado — no abrir más Reels con él
+
+> ⚠️ **Corrección del cliente el 2026-09-17** (Reel 09): *"el primer vídeo que hay quiero que lo quites
+> porque ya se ha utilizado demasiadas veces"*. Era `imagenes/parrilla/clips/parrilla_volteo_master_4k60.mp4`,
+> usado ya en el Reel 03, en el del chuletón y en el hero web.
+
+**Criterio:** antes de meter metraje real en un guion, comprobar en qué piezas anteriores ya ha salido.
+Ese clip de parrilla no se vuelve a usar salvo que el cliente lo pida; hace falta metraje nuevo de brasa.
+Y como la regla 22 prohíbe generar fuego, **sin metraje nuevo no hay plano de brasa**.
 
 ### Registrar correcciones aquí, siempre
 
@@ -171,7 +218,10 @@ el total antes de generar.
   timestamps / CAMERA / FILM GRADE** + NEGATIVE + coda fotográfica. La **estructura** es obligatoria;
   los **valores** los mandan las reglas del cliente (regla 17 prevalece sobre el film stock y la
   profundidad corta de la plantilla).
-- **9:16.**
+- **9:16 en Reels.** Las piezas para la **web** (vídeo hero, cabeceras) van en **16:9 horizontal**
+  — corrección del cliente el 2026-09-15 al pedir el hero bullet time del chuletón: se había
+  arrancado en vertical aplicando por inercia el formato Reel. Preguntarse siempre dónde se publica
+  la pieza antes de fijar el aspect ratio.
 - **Acabado editorial dramático, no de iPhone** (regla 17, invertida el 2026-09-10 a petición
   expresa del cliente, sustituyendo de forma permanente el look anterior). Luz de una sola fuente,
   dura y cálida, sombras profundas casi negras, contraste alto, grano de película visible y grade
