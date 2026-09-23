@@ -1,8 +1,15 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 03 · "LO HACEMOS / LO DISFRUTAS" — estado del material
 
 Plantilla base: `plantillas/2026-09-08/01_we-make-you-enjoy_cocina-a-mesa_10s.mp4` (31 hook · 45
 overall · 43 viral — la única del lote que pasa el filtro de contenido limpia). Ranking en
-[`informes/2026-09-08_ranking-viralidad-plantillas.md`](../informes/2026-09-08_ranking-viralidad-plantillas.md).
+[`informes/2026-09-08_ranking-viralidad-plantillas.md`](../05-informes-medidos/2026-09-08_ranking-viralidad-plantillas.md).
 
 Estructura: **tres actos en ~10 s.** Acto 1 la parrilla, acto 2 la mesa, cierre el pase a sala.
 
@@ -29,7 +36,7 @@ del mismo vino — eso es un ancla de marca real, no un montaje.
 
 ## 2. Acto 1 — LO HACEMOS. ✅ **Resuelto**
 
-Nueve fotogramas extraídos a 2160×3840 en [`imagenes/parrilla/`](../imagenes/parrilla/), con su
+Nueve fotogramas extraídos a 2160×3840 en `imagenes/parrilla/` (recurso no incluido: `../imagenes/parrilla/`), con su
 procedencia documentada en el README de esa carpeta.
 
 | Plano del guion | Fichero |

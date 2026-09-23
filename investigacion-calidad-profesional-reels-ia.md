@@ -1,15 +1,22 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Investigación — Cómo pasar de "vídeo IA que necesita mucha iteración" a "vídeo de agencia profesional"
 
 **Fecha:** 2026-09-10
-**Motivo:** el flujo descrito en [`idea.md`](./idea.md) y validado en la práctica en
-[`caso-practico-01-torre-de-vega.md`](./caso-practico-01-torre-de-vega.md) funciona a nivel de proceso,
+**Motivo:** el flujo descrito en [`idea.md`](archivo/idea.md) y validado en la práctica en
+[`caso-practico-01-torre-de-vega.md`](caso-practico-01-torre-de-vega.md) funciona a nivel de proceso,
 pero el resultado visual todavía no llega al nivel de una agencia de marketing profesional pese a mucha
 iteración. Este documento investiga **por qué** y qué técnicas/arquitecturas existen hoy para cerrar
 ese hueco, de cara a diseñar Society.
 
 **Nota de alcance (regla del TFG):** este documento es investigación y recomendación de arquitectura,
 no código. No propone implementación — eso le corresponde a Víctor, según la filosofía del proyecto en
-[`README.md`](./README.md).
+[`README.md`](README.md).
 
 ---
 

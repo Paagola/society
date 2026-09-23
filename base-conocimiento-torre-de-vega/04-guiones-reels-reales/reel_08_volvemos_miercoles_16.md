@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 08 — «Volvemos el miércoles 16» (material ya generado + AI Motion Designer)
 
 **Fecha:** 2026-09-14
@@ -13,14 +20,14 @@ aprobado. El único coste posible es el del agente Motion Designer (sin tarifa p
 ## 0. Por qué esta pieza
 
 1. **Es la acción nº 4 del informe de métricas del Reel 03**
-   ([`informes/2026-09-09_reel-03_lectura-de-metricas.md`](../informes/2026-09-09_reel-03_lectura-de-metricas.md) §4):
+   ([`informes/2026-09-09_reel-03_lectura-de-metricas.md`](../05-informes-medidos/2026-09-09_reel-03_lectura-de-metricas.md) §4):
    *«mismo material, un rótulo con la fecha… convierte el plano de producto en aviso, que es el único
    formato que ha viajado en esta cuenta»*. El Reel 03 retuvo mejor que ninguno (68,1 %) y tuvo
    **0 compartidos** porque la fecha no salía en ningún fotograma. Aquí la fecha abre el vídeo.
 2. **Pregunta de control — ¿un vecino lo reenviaría?** Sí: es un aviso con fecha de reapertura, el
    patrón del mejor post de los 90 días (barbacoa, 15 compartidos).
 3. **Es la prueba piloto de AI Motion Designer** que propone
-   [`informes/2026-09-14_procesos-reels_y_ai-motion-designer.md`](../informes/2026-09-14_procesos-reels_y_ai-motion-designer.md) §4:
+   [`informes/2026-09-14_procesos-reels_y_ai-motion-designer.md`](../05-informes-medidos/2026-09-14_procesos-reels_y_ai-motion-designer.md) §4:
    paquete gráfico de marca (idea A) + texto que sale de detrás de un objeto (idea B).
 4. **No es una repetición del Reel 03:** allí era pantalla partida con dos bandas; aquí es secuencia a
    pantalla completa con ráfaga, y el mensaje es otro.
@@ -31,7 +38,7 @@ aprobado. El único coste posible es el del agente Motion Designer (sin tarifa p
 
 | Id | Fichero | Origen | Medidas | Qué se ve |
 |---|---|---|---|---|
-| `PARRILLA` | [`imagenes/parrilla/clips/parrilla_volteo_master_4k60.mp4`](../imagenes/parrilla/clips/parrilla_volteo_master_4k60.mp4) | **Metraje real** del cliente (regla 22) | 2160×3840, 60 fps, 6,82 s | Chuletón con llama viva desde t=0; la mano con pinzas entra hacia 2,3 s y lo voltea hasta ~5 s |
+| `PARRILLA` | `imagenes/parrilla/clips/parrilla_volteo_master_4k60.mp4` (recurso no incluido: `../imagenes/parrilla/clips/parrilla_volteo_master_4k60.mp4`) | **Metraje real** del cliente (regla 22) | 2160×3840, 60 fps, 6,82 s | Chuletón con llama viva desde t=0; la mano con pinzas entra hacia 2,3 s y lo voltea hasta ~5 s |
 | `VINO` | `imagenes/generadas/reel_03_lo_hacemos_lo_disfrutas/videos/v02_vino_cayendo.mp4` | Generado, aprobado (Reel 03) | 1076×1928, 24 fps, 5,04 s | Mano de mujer sirviendo Cillar de Silos; chorro cayendo desde el fotograma 0 |
 | `CARNE` | `…/videos/v01_carne-cortada_pushin.mp4` | Generado, aprobado | 1080×1912, 24 fps, 5,04 s | Solomillo cortado con patatas en plato de barro, push-in incorporado |
 | `TENEDOR` | `…/videos/v03_tenedor_levanta.mp4` | Generado, aprobado | 1080×1912, 24 fps, 5,04 s | Tenedor levantando un trozo de carne, copa de tinto detrás |

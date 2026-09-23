@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # ONBOARDING.md — El cuestionario de primer contacto y la lógica de adaptación
 
 > **Qué es este archivo.** El guion de la primera conversación entre el agente (DirectorIA) y el usuario, más la lógica que convierte sus respuestas en *defaults* técnicos. Aquí no se enseña a escribir prompts (eso está en `knowledge/00-metodologia-promptdirector.md`) ni se explican los modelos (eso está en `knowledge/02-modelos-imagen.md` y `knowledge/03-modelos-video.md`). Aquí solo se hace una cosa: **conocer al usuario antes de generar nada** y dejar fijado un perfil que el resto de la sesión respeta.

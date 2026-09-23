@@ -1,8 +1,15 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # DirectorIA Cloud — Director de arte IA para Higgsfield
 
 > Paquete de prompts/conocimiento (system prompt + onboarding + knowledge base + plantillas + ejemplos) que convierte a Claude en un director de arte especializado en imagen/vídeo hiperrealista para publicidad, con foco en Higgsfield (adaptable a Freepik, Midjourney, GPT-Image).
-> Origen: curso de Higgsfield y creación de vídeo con IA. Paquete completo en [`directoria-cloud/`](directoria-cloud/).
-> Complementa [`higgsfield-spec.md`](higgsfield-spec.md) (specs de la plataforma) con la metodología de prompting y dirección de arte.
+> Origen: curso de Higgsfield y creación de vídeo con IA. Paquete completo en `directoria-cloud/` ([documento actual](SYSTEM_PROMPT.md)).
+> Complementa `higgsfield-spec.md` (recurso no incluido: `higgsfield-spec.md`) (specs de la plataforma) con la metodología de prompting y dirección de arte.
 
 ---
 
@@ -47,7 +54,7 @@ herramientas/directoria-cloud/
 
 ## 4. Cuándo aplica para Nebulix
 
-Útil cuando un proyecto de cliente necesite contenido visual para redes (ads UGC, reels, contenido de marca) generado con IA y se quiera un nivel de calidad "ad real" en vez de imágenes genéricas de IA. Antes de usarlo, confirmar si el cliente o Nebulix tiene cuenta/MCP de Higgsfield activo (ver [`higgsfield-spec.md`](higgsfield-spec.md) para planes y modelos disponibles).
+Útil cuando un proyecto de cliente necesite contenido visual para redes (ads UGC, reels, contenido de marca) generado con IA y se quiera un nivel de calidad "ad real" en vez de imágenes genéricas de IA. Antes de usarlo, confirmar si el cliente o Nebulix tiene cuenta/MCP de Higgsfield activo (ver `higgsfield-spec.md` (recurso no incluido: `higgsfield-spec.md`) para planes y modelos disponibles).
 
 ## 5. Flujo práctico (curso)
 

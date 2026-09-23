@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # Plantilla — Talking Head con Lipsync
 
 > **Qué es esto.** La receta para que un personaje **hable a cámara** en tu anuncio: un plano fijo (o casi fijo) donde la persona mira al objetivo y pronuncia una línea de guion, con la boca sincronizada al audio.

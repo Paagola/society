@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../README.md).
+
+> **Prevalencia 2026-09-22:** producción, costes, estados y puertas humanas se rigen por el informe 05; estrategia por el cerebro estratégico. Las cifras de API social y tarifas de este flujo conservan fecha de su investigación de 16/09 y requieren revalidación antes de implementar; Meta devolvió 429 en la revisión del 22/09.
+
 # Society
 
 ## Flujo de la aplicación: del alta al contenido semanal automatizado
@@ -14,36 +21,9 @@ Es diseño, no implementación: el código lo escribe Víctor.
 
 **cuenta y plan → pago → datos del negocio → material real → catálogo verificado → cuentas conectadas → diagnóstico → estrategia y muestras de estilo y voz → aprobación → ciclo semanal → publicación → medición → aprendizaje**
 
-### 1.1 Los dieciséis diagramas
+### 1.1 Representación del flujo vigente
 
-Generados con [archify](https://github.com/tt-a1i/archify) (v2.17, licencia MIT) en la carpeta `diagramas/`. Cada fila tiene su especificación JSON (la fuente) y su HTML (el resultado que se abre en el navegador).
-
-| # | Diagrama | Tipo | Qué explica |
-| --- | --- | --- | --- |
-| 00 | Arquitectura y servicios externos | architecture | Todas las piezas del sistema y con qué servicio externo habla cada una |
-| 01 | Alta y configuración | workflow | El recorrido del propietario hasta activar el ciclo, con sus excepciones |
-| 02 | Pago y suscripción | sequence | Stripe Checkout, webhooks firmados, cuotas del plan, impagos y bajas |
-| 03 | Conexión de cuentas | sequence | OAuth de Instagram y de Google, tokens de 60 días y renovación semanal |
-| 04 | Material real y catálogo | sequence | Subida con URL firmadas, inspección técnica, revisión visual y confirmación |
-| 05 | Diagnóstico, estrategia y activación | sequence | Línea base, pilares, calendario, muestras de estilo y voz, activación |
-| 06 | Ciclo semanal | workflow | La semana automatizada, con sus dos puertas humanas |
-| 07 | Producción de imágenes | sequence | Contrato de prompt, Nano Banana Pro, verificación y reparación acotada |
-| 08 | Producción de vídeo | sequence | Ruta por tipo de acción, cola del proveedor, id remoto, verificación |
-| 09 | Voz y subtítulos | sequence | Voz desde el guion confirmado, tiempos medidos o alineados, bloqueos |
-| 10 | Montaje y render | sequence | Lista de edición, worker de After Effects, controles previos e inspección |
-| 11 | Aprobación y publicación | sequence | Contenedor de Instagram, publicación, ficha de Google y registro |
-| 12 | Medición y aprendizaje | dataflow | De las métricas a los patrones y al plan de la semana siguiente |
-| 13 | Ficha de Google y reseñas | sequence | Reseñas, respuestas aprobadas, horarios especiales y métricas locales |
-| 14 | Estados de un trabajo | lifecycle | Cómo vive un trabajo de generación y cómo se recupera |
-| 15 | Estados de una pieza | lifecycle | Cómo vive una pieza de contenido, del brief a la medición |
-
-Los archivos siguen el patrón `NN-nombre.<tipo>.json` y `NN-nombre.html`.
-
-**Cómo usar los diagramas:**
-
-- Los HTML se abren en el navegador: zoom, búsqueda, resaltado de relaciones, tema claro u oscuro, vistas guiadas y exportación a imagen.
-- El contenido está en español. La interfaz fija del visor aparece en inglés, porque archify solo la localiza a inglés y chino.
-- La especificación JSON es la fuente: si cambia el flujo, se edita el JSON y se vuelve a generar (sección 10).
+Los 16 diagramas antiguos no están en este repositorio. Se retiran sus rutas; no se presentan como entregables recuperados. El recorrido se documenta aquí y las máquinas de estados están en [automatización de producción](higgsfield/05-automatizacion-de-produccion.md). La versión anterior se conserva en archivo.
 
 ## 2 Principios del flujo
 
@@ -57,24 +37,22 @@ Los archivos siguen el patrón `NN-nombre.<tipo>.json` y `NN-nombre.html`.
 
 ## 3 Arquitectura en una vista
 
-Diagrama: `diagramas/00-arquitectura.html`.
 
 | Bloque | Piezas | Responsabilidad |
 | --- | --- | --- |
 | Interfaz | Web Society (React + TypeScript o Angular) en Vercel | Alta, catálogo, revisión, panel |
 | Servicio | API Society (TypeScript) en Vercel | Permisos, planes, presupuestos, firma de URL, encolado |
 | Supabase | Auth, PostgreSQL, cola de trabajos, Cron (pg_cron + pg_net), Edge Functions | Sesión, datos aislados por restaurante, tareas programadas |
-| Workers propios | Orquestador, worker de medios (Linux), worker de montaje (Windows con aerender) | Producción larga, inspección de medios, render |
+| Workers propios | Orquestador, worker de medios (Linux), worker de montaje (Linux con Remotion) | Producción larga, inspección de medios, render |
 | Almacenamiento | Cloudflare R2 con URL firmadas | Fotos, clips, voz, subtítulos y entregables |
 | Proveedores de IA | GPT-6 Astra, Nano Banana Pro, fal (Kling 3.0 y Seedance 2.5), ElevenLabs | Planificación, imágenes, vídeo y voz |
 | Plataformas del cliente | Instagram API, Google Business Profile, otros sitios | Publicación y métricas |
 | Cobro y avisos | Stripe, Resend | Suscripciones y notificaciones |
 
-**Por qué el trabajo largo no vive en Vercel.** Generar vídeo, montar en After Effects y transcribir supera el tiempo razonable de una función de servidor; la cola en PostgreSQL con bloqueo y reintento deja el trabajo en manos del orquestador y los workers, que pueden reanudar sin repetir llamadas pagadas.
+**Por qué el trabajo largo no vive en Vercel.** Generar vídeo, montar en Remotion y transcribir supera el tiempo razonable de una función de servidor; la cola en PostgreSQL con bloqueo y reintento deja el trabajo en manos del orquestador y los workers, que pueden reanudar sin repetir llamadas pagadas.
 
 ## 4 Alta y configuración
 
-Diagrama: `diagramas/01-alta-y-configuracion.html`. El detalle de cada paso está en los diagramas 02 a 05.
 
 ### 4.1 Pasos
 
@@ -121,7 +99,6 @@ Esta sección es la parte nueva: cada funcionalidad, su diagrama y los datos de 
 
 ### 5.1 Pago y suscripción
 
-Diagrama: `diagramas/02-pago-y-suscripcion.html`.
 
 | Punto | Comportamiento |
 | --- | --- |
@@ -135,7 +112,6 @@ Diagrama: `diagramas/02-pago-y-suscripcion.html`.
 
 ### 5.2 Conexión de cuentas y tokens
 
-Diagrama: `diagramas/03-conexion-de-cuentas.html`.
 
 | Paso | Detalle verificado |
 | --- | --- |
@@ -152,7 +128,6 @@ Los tokens se guardan cifrados y aislados por restaurante. La interfaz nunca los
 
 ### 5.3 Material real y catálogo
 
-Diagrama: `diagramas/04-material-y-catalogo.html`.
 
 - La subida usa **URL firmadas de R2**: admiten `GET`, `PUT`, `HEAD` y `DELETE`, caducan entre 1 segundo y 7 días y no funcionan con dominio propio. Se tratan como credenciales: caducidad corta y tipo de contenido restringido [F8].
 - El worker de medios lee dimensiones, duración y hash; el hash evita duplicados.
@@ -161,7 +136,6 @@ Diagrama: `diagramas/04-material-y-catalogo.html`.
 
 ### 5.4 Diagnóstico, estrategia y activación
 
-Diagrama: `diagramas/05-estrategia-y-muestras.html`.
 
 - El diagnóstico usa la ficha, la web, la coherencia de los datos y la línea base de las últimas 12 piezas; la competencia solo en agregado.
 - Estilo y voz **se eligen con muestras**, generadas con el plato real del restaurante y con una frase del negocio que incluya nombres de platos y precios.
@@ -170,7 +144,6 @@ Diagrama: `diagramas/05-estrategia-y-muestras.html`.
 
 ### 5.5 Producción de imágenes
 
-Diagrama: `diagramas/07-produccion-de-imagenes.html`.
 
 - Astra entrega una ficha validable con referencias, lo inmutable y lo editable; el adaptador la traduce al formato del proveedor.
 - Se genera **una imagen por escena**, no cuatro variantes. Un defecto local se repara con máscara; un cambio de composición obliga a regenerar desde la imagen maestra. Tras dos correcciones sin éxito, cambia la técnica o se pide material.
@@ -179,7 +152,6 @@ Diagrama: `diagramas/07-produccion-de-imagenes.html`.
 
 ### 5.6 Producción de vídeo
 
-Diagrama: `diagramas/08-produccion-de-video.html`.
 
 **Ruta por tipo de plano**
 
@@ -188,7 +160,7 @@ Diagrama: `diagramas/08-produccion-de-video.html`.
 | Fuego, brasa, líquidos complejos, recorridos de sala con metraje útil | Material real |
 | Producto con movimiento simple, desplazamiento corto | **Kling 3.0** |
 | Manos, cubiertos, cortes y otras interacciones físicas | **Seedance 2.5** |
-| Rótulos, placas, texto y composición | After Effects |
+| Rótulos, placas, texto y composición | Remotion |
 
 **Cómo se comporta la cola del proveedor** [F4]
 
@@ -201,7 +173,6 @@ Diagrama: `diagramas/08-produccion-de-video.html`.
 
 ### 5.7 Voz y subtítulos
 
-Diagrama: `diagramas/09-voz-y-subtitulos.html`.
 
 - La voz sale siempre de un guion con los datos comerciales confirmados.
 - Si el proveedor devuelve marcas de tiempo, se usan; si no, se transcribe y se alinea contra el guion escrito. Repartir palabras por longitud no sustituye a medir la locución.
@@ -210,7 +181,6 @@ Diagrama: `diagramas/09-voz-y-subtitulos.html`.
 
 ### 5.8 Montaje y render
 
-Diagrama: `diagramas/10-montaje-y-render.html`.
 
 Controles antes de renderizar, aprendidos en el ensayo:
 
@@ -224,7 +194,6 @@ Controles antes de renderizar, aprendidos en el ensayo:
 
 ### 5.9 Aprobación y publicación
 
-Diagrama: `diagramas/11-publicacion.html`.
 
 | Paso | Detalle verificado [F1] |
 | --- | --- |
@@ -241,7 +210,6 @@ Antes de publicar: etiqueta de IA decidida en el brief, máximo 5 hashtags, mús
 
 ### 5.10 Ficha de Google y reseñas
 
-Diagrama: `diagramas/13-ficha-de-google-y-resenas.html`.
 
 - Reseñas: se listan con `accounts/{cuenta}/locations/{ubicación}/reviews` y se responde con `.../reviews/{id}/reply` [F6].
 - Publicaciones locales: `.../localPosts`, con tipos de evento, oferta y llamada a la acción; las publicaciones de producto no se pueden crear por API [F7].
@@ -250,17 +218,15 @@ Diagrama: `diagramas/13-ficha-de-google-y-resenas.html`.
 
 ### 5.11 Medición y aprendizaje
 
-Diagrama: `diagramas/12-medicion-y-aprendizaje.html`.
 
 - Capturas a +24 h, +72 h, +7 días y +28 días; las historias, antes de que expiren sus estadísticas a las 24 horas.
 - Las métricas de cuenta se conservan 90 días en la API y las de piezas 2 años: sin captura propia se pierde la serie.
 - Se compara con la mediana del propio restaurante por formato, nunca con cifras absolutas.
-- Una hipótesis pasa a patrón si la misma variable gana en al menos 2 de 3 piezas; los patrones alimentan el plan de la semana siguiente.
+- Dos victorias de tres son una señal candidata, no confirmación. El cerebro estratégico exige contexto comparable, madurez e incertidumbre antes de elevarla a recomendación.
 - El uso de la API se vigila con la cabecera `X-Business-Use-Case-Usage`.
 
 ## 6 Ciclo semanal automatizado
 
-Diagrama: `diagramas/06-ciclo-semanal.html`.
 
 ### 6.1 Semana tipo
 
@@ -278,7 +244,7 @@ Propuesta orientativa; día y hora los elige cada restaurante.
 | +24 h, +72 h y +7 días | Capturas de métricas; las historias antes de 24 h | Automático |
 | Lunes siguiente | Informe semanal; los aprendizajes alimentan el nuevo plan | Automático, con lectura humana |
 
-El diagrama no dibuja la vuelta de «Métricas» a «Plan de la semana» para evitar cruces de líneas. Ese bucle existe, está en la tarjeta del diagrama y se ve completo en el diagrama 12.
+El bucle de métricas al plan semanal está definido en el cerebro estratégico; no depende de un HTML externo.
 
 ### 6.2 Criterios de guion aprendidos en el ensayo del 15 de septiembre
 
@@ -292,35 +258,12 @@ Sin generación de vídeo ni contenido de redes: publicaciones en la ficha con n
 
 ## 7 Estados: piezas y trabajos
 
-Diagramas: `diagramas/15-estados-de-una-pieza.html` y `diagramas/14-estados-de-un-trabajo.html`.
 
-### 7.1 Una pieza de contenido
+### 7.1 Estados vigentes y dos puertas humanas
 
-| Estado | Significado | Sale hacia |
-| --- | --- | --- |
-| Planificada | Brief validado con cuota disponible | Guion y prompts |
-| Guion y prompts | Contrato de plano y ruta elegidos | Produciendo |
-| Produciendo | Imágenes, clips, voz y montaje en curso | Verificando; Fallo técnico |
-| Verificando | Fidelidad, texto, audio y dimensiones | Espera aprobación |
-| Espera aprobación | Pausa hasta la decisión del propietario | Publicada y medida; Cancelada |
-| Publicada y medida | Captura a 7 días registrada | Fin |
-| Fallo técnico | Error de proveedor, render o archivo | Guion y prompts con otra receta, con límite de intentos |
-| Cancelada | Rechazada por el propietario | Fin |
+Rige la máquina de estados de [producción §4](higgsfield/05-automatizacion-de-produccion.md): proveedor, intento, pieza y publicación se persisten separados. Deadline propio cierra cada intento; un resultado tardío se concilia sin sustituir activos ni publicar. G0 aprueba perfil/ficha; G1 revisa lote de keyframes y plan antes de vídeo; G2 aprueba render, texto, canal y fecha. La revisión del guion puede añadirse por cliente, pero G1 y G2 son las puertas de lanzamiento.
 
-### 7.2 Un trabajo de generación
-
-| Estado | Significado |
-| --- | --- |
-| Encolado | Presupuesto reservado y clave idempotente creada |
-| Enviado | Identificador remoto guardado antes de esperar |
-| En el proveedor | En cola o en curso |
-| Revisión | Inspección técnica y comparación visual |
-| Aceptado | Recurso guardado en R2 y coste asentado |
-| Sin respuesta | Se consulta el estado; nunca se reenvía a ciegas |
-| Regenerar | Diagnóstico y un cambio concreto |
-| Límite agotado | Otra ruta o petición de ayuda |
-
-**Reglas que acompañan a los estados:** separar reintentos técnicos de regeneraciones por calidad; registrar modelo pedido y devuelto, parámetros efectivos, coste y motivo de descarte; y anotar si el resultado se usó en la pieza final.
+Si el propietario no aprueba a tiempo, reprogramar o archivar el ciclo; nunca publicar por silencio. La ruta asistida de publicación es válida para el MVP mientras no haya acceso API verificado.
 
 ## 8 Aprendizajes del ensayo del 15 de septiembre incorporados
 
@@ -350,40 +293,9 @@ Evidencia completa en `base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-
 
 Todas llevan el identificador del restaurante.
 
-## 10 Cómo se generan y se regeneran los diagramas
+## 10 Mantenimiento del flujo
 
-**Instalación como skill:** `npx skills add tt-a1i/archify -g`. También sirve clonar el repositorio y trabajar desde `archify/archify`.
-
-```bash
-node bin/archify.mjs validate <tipo> <ruta>/diagramas/NN-nombre.<tipo>.json --quality showcase --json
-node bin/archify.mjs deliver  <tipo> <ruta>/diagramas/NN-nombre.<tipo>.json <ruta>/diagramas/NN-nombre.html --quality showcase --json
-node bin/archify.mjs visual-check <ruta>/diagramas/NN-nombre.html --json
-```
-
-**Límites que impone archify y conviene respetar al editar:**
-
-| Límite | Valor comprobado |
-| --- | --- |
-| Anchura útil | Un `viewBox` de más de ~1085 px suspende el control de legibilidad de escritorio: el texto secundario baja de 6 px a 1440 px de pantalla |
-| Altura | Cuanto más alto el diagrama y más largas las tarjetas, más probable es que la página necesite desplazamiento vertical |
-| Secuencias | Los mensajes van entre `y = 160` y `altura − 83`, con al menos 28 px entre mensajes que comparten espacio |
-| Workflows | Columnas de 0 a 5; cada carril añade unos 124 px de altura |
-| Ciclos de vida | Columnas principales 0-4; las de eventos, 0-2, alineadas con la principal N+2 |
-| Rutas | `drop` dibuja un codo entre carriles: no sirve cuando origen y destino comparten columna |
-| Tarjetas | Son resumen, no topología: un «se reintenta» en una tarjeta no sustituye a una transición |
-
-Se valida después de cada cambio y no se da por buena una entrega con código de salida distinto de cero.
-
-**Estado de verificación a 16 de septiembre de 2026**
-
-| Comprobación | Resultado |
-| --- | --- |
-| Validación de composición | Los 16 diagramas pasan. Quince con perfil `showcase` y sin avisos |
-| Excepción de perfil | El diagrama 12 (medición) se entrega con perfil `standard` y **2 avisos**: las cinco fuentes que convergen en la misma función provocan roces entre etiquetas que el perfil estricto rechaza. Se prefirió conservar las cinco fuentes antes que borrar etiquetas con significado |
-| `visual-check` en navegador | Once diagramas caben en una pantalla de 1440 × 900. **Cuatro necesitan desplazamiento vertical**: 00 arquitectura, 01 alta, 06 ciclo semanal y 15 estados de una pieza |
-| Motivo del desplazamiento | Son los diagramas con más carriles o filas. Reducirlos a tres carriles los haría caber, a costa de fundir responsabilidades que ahora se leen separadas |
-
-El desplazamiento vertical no impide leer ni exportar el diagrama: es un criterio de presentación de archify, no un error de composición.
+El README raíz es el índice único. Los diagramas Mermaid de producción y estrategia forman parte de sus documentos fuente; se revisan junto a las transiciones descritas. La antigua validación de 16 HTML corresponde al archivo histórico y no certifica activos disponibles hoy.
 
 ## 11 Fuentes primarias consultadas
 
@@ -398,13 +310,13 @@ El desplazamiento vertical no impide leer ni exportar el diagrama: es un criteri
 - [F9] Google · Generación de imágenes con Gemini · https://ai.google.dev/gemini-api/docs/image-generation
 - [F10] archify · Repositorio (MIT) · https://github.com/tt-a1i/archify
 
-**Sin verificar todavía:** la API de Higgsfield como proveedor alternativo de vídeo, qué permite automatizar TripAdvisor, y la licencia de After Effects para uso en un servicio SaaS.
+**Pendientes vigentes:** capacidad REST equivalente con referencias, uso MCP de servicio, acceso social de clientes y TripAdvisor. AE dejó de ser dependencia; Remotion requiere comprobar la licencia aplicable a entidad y versión.
 
 ## 12 Preguntas abiertas
 
 1. Día y hora por defecto del ciclo semanal.
-2. Modo de aprobación por defecto: semana completa, pieza a pieza o revisión de guion.
-3. Qué pasa si el propietario no aprueba a tiempo: posponer, publicar solo lo aprobado o avisar y esperar.
+2. Decidido: G1 antes de animar y G2 antes de publicar; posibilidad de agrupar piezas en una revisión.
+3. Decidido: avisar y reprogramar/archivar al vencer el plazo; sin aprobación no se publica.
 4. Publicación asistida o por API en el lanzamiento de enero.
 5. Proveedor de voz: prueba a ciegas del informe de voces frente a las voces usadas en el ensayo.
 6. Resolución y proveedor de Seedance 2.5.

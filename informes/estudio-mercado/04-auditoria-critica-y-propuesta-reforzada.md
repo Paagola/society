@@ -1,3 +1,8 @@
+<!-- society-document -->
+> **Estado:** referencia. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
 # Society: auditoría crítica y propuesta de empresa más sólida
 
 > **Revisión del 19/09/2026 al integrarlo en el repositorio.** Coste humano unificado a **30 €/h** (el original usaba 25 €/h, y el estudio 01, 20 €/h). Con ese supuesto, la campaña de 299 € queda justo por debajo del 40 % (§5). Es una **recomendación comercial**, no una decisión: los planes y el alcance oficiales del TFG siguen en el [README](../../README.md). Detalle en el [índice](README.md).

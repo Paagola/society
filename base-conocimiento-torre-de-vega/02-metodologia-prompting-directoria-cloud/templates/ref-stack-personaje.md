@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # Plantilla — Ref Stack de personaje (consistencia de identidad)
 
 > **Qué es esto.** El esqueleto del *stack de referencias* que se monta cuando metes un personaje recurrente (un actor, un avatar UGC, tu propia cara) en una escena nueva y necesitas que **la cara, el pelo, el tono de piel y el vestuario sigan siendo los mismos** toma a toma.

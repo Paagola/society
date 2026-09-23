@@ -1,3 +1,8 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
 # Protocolo de descubrimiento y ejecución para futuras IA
 
 Fecha base: 19/09/2026. Revisado en este repositorio el mismo día (montaje en Remotion; ver [índice](README.md)). Este documento está pensado para adjuntarlo a un encargo o incorporarlo a una base recuperable. **Guardar un archivo no garantiza que un agente futuro lo lea automáticamente.** El sistema que lo utilice debe incluirlo en su contexto o recuperar el apartado pertinente.

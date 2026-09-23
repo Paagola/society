@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # Ejemplo trabajado — Still editorial cinematográfico surreal (Reels 9:16)
 
 > **Qué es esto:** un caso completo, de principio a fin, de cómo el DirectorIA-Cloud convierte un brief de marca en un still cinematográfico hiperrealista y luego le pone movimiento contenido. No es teoría: es el guion exacto de decisiones, prompts y parámetros que reproducirías en una sesión real.

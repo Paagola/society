@@ -1,7 +1,14 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 05 — «Media carta en 10 segundos» (cenital, ráfaga de platos)
 
 **Fecha:** 2026-09-09
-**Plantilla base:** [`plantillas/2026-09-09/A_new-season-new-menu_11s.mp4`](../plantillas/2026-09-09/A_new-season-new-menu_11s.mp4)
+**Plantilla base:** `plantillas/2026-09-09/A_new-season-new-menu_11s.mp4` (recurso no incluido: `../plantillas/2026-09-09/A_new-season-new-menu_11s.mp4`)
 (original: *"A new season, a new menu"*, restaurante **CLARENCE**)
 **Publicación prevista:** viernes 18 de septiembre — pieza fuerte de la semana 1, la que convierte al
 público que traiga el Reel de reapertura
@@ -41,7 +48,7 @@ en nuestro Reel es el hook.
 ahí. Como la palanca medida más barata que tenemos es rotular el producto en pantalla (la red del
 lenguaje de la plantilla 06 mide 0,462 frente a 0,26–0,32 del resto), aquí la ráfaga va a **0,45 s por
 plato**: sigue siendo ráfaga, pero da tiempo a leer el nombre. Es el injerto que pedía el
-[`README` de plantillas del 08-09](../plantillas/2026-09-08/README.md): *el mecanismo de la
+`README` de plantillas del 08-09 (recurso no incluido: `../plantillas/2026-09-08/README.md`): *el mecanismo de la
 descartada se injerta en la que sí encaja*.
 
 ---
@@ -74,7 +81,7 @@ el cierre lleva `ABRIMOS EL 16`: le da la fecha, que es lo que de verdad se reen
 
 ## 2. Los siete platos, y por qué estos
 
-Criterio de la Parte II de [`documentación.md`](../documentación.md) §3: **elegir por información y
+Criterio de la Parte II de [`documentación.md`](../00-proyecto/documentacion-proceso-reel01.md) §3: **elegir por información y
 variedad cromática por fotograma, no por «el plato estrella»**. El pulpo con gambas midió 0,50 de
 activación de corteza visual y el solomillo a la brasa 0,39, porque el segundo es marrón sobre marrón.
 
@@ -100,8 +107,8 @@ al local y no reconocería lo que vio.
 
 | Token | Fichero | Papel |
 |---|---|---|
-| `@image1` | [`imagenes/local/mesa-ventana.jpg`](../imagenes/local/mesa-ventana.jpg) | Mantel crema real, mantelería, vajilla, contexto de sala |
-| `@image2` | [`imagenes/local/mantel_blanco.jpg`](../imagenes/local/mantel_blanco.jpg) | Textura y costuras de la mantelería |
+| `@image1` | `imagenes/local/mesa-ventana.jpg` (recurso no incluido: `../imagenes/local/mesa-ventana.jpg`) | Mantel crema real, mantelería, vajilla, contexto de sala |
+| `@image2` | `imagenes/local/mantel_blanco.jpg` (recurso no incluido: `../imagenes/local/mantel_blanco.jpg`) | Textura y costuras de la mantelería |
 | `@image3` | `plantillas/2026-09-09/frames_A/A_3.80s.jpg` | **Solo ángulo, encuadre, distancia y reparto de luz** (regla 10) |
 | `@image4`(+`@image5`) | La foto (o dos, regla 6) del plato de cada toma | Identidad del plato y su vajilla real |
 | `@image6` | **La toma 1 ya generada** | Escena, mantel, luz y posición de cámara (regla 19) |
@@ -234,7 +241,7 @@ dos manos ya es caso 3).
 ## 8. Resultado de la generación (2026-09-09)
 
 Las ocho tomas están generadas y descargadas en
-[`imagenes/generadas/reel_05_media_carta/`](../imagenes/generadas/reel_05_media_carta/).
+`imagenes/generadas/reel_05_media_carta/` (recurso no incluido: `../imagenes/generadas/reel_05_media_carta/`).
 Coste real: **18 créditos** (9 generaciones: 8 buenas + 1 descartada por corrección).
 
 | # | Plano | `job_id` | Fichero |
@@ -293,13 +300,13 @@ Tres cosas rechazadas sobre el lote entregado:
    heredadas de la toma 1 por el encadenado (regla 19).
 2. **«Platos manchados»** — gotas y regueros de salsa en el borde de la porcelana.
 3. **«Servilletas debajo de los platos»** — no se quieren.
-4. **La tarta tenía que ir en el plato real** [`imagenes/postres/plato_tarta.jpg`](../imagenes/postres/plato_tarta.jpg),
+4. **La tarta tenía que ir en el plato real** `imagenes/postres/plato_tarta.jpg` (recurso no incluido: `../imagenes/postres/plato_tarta.jpg`),
    no en un plato berenjena inventado.
 
 **La culpa era del prompt, no del modelo.** El campo `imperfections` pedía literalmente
 `one small splash of sauce on the rim` y `a faint smear of juices on the plate rim`. Ver las reglas
 nuevas **25** (las imperfecciones van en la comida y el material, nunca en suciedad) y **26** (nada
-debajo del plato) de [`reglas_imagenes.md`](../imagenes/reglas_imagenes.md).
+debajo del plato) de [`reglas_imagenes.md`](../01-reglas-contenido/reglas_imagenes.md).
 
 ### Estado final de las ocho
 

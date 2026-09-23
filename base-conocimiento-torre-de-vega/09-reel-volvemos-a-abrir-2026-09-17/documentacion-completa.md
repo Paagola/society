@@ -1,10 +1,17 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 09 «Volvemos a abrir» — documentación completa de producción
 
 **Fecha de producción:** 2026-09-17 (una sola sesión)
 **Cliente:** Torre de Vega «El Mora» — Barriada La Alquería, Alhaurín de la Torre (Málaga)
 **Pieza:** Reel de Instagram 9:16, 1080×1920, 11,46 s, sin voz ni música (pendientes)
-**Entregable vigente:** [`imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v3_sin-fecha_sin-voz.mp4`](../imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v3_sin-fecha_sin-voz.mp4)
-**Guion de trabajo:** [`instagram/reel_09_carta_de_otono.md`](../instagram/reel_09_carta_de_otono.md)
+**Entregable vigente:** `imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v3_sin-fecha_sin-voz.mp4` (recurso no incluido: `../imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v3_sin-fecha_sin-voz.mp4`)
+**Guion de trabajo:** [`instagram/reel_09_carta_de_otono.md`](../04-guiones-reels-reales/reel_09_carta_de_otono.md)
 
 Este documento recoge **todo** lo que se hizo, en orden: el prompt de partida, las decisiones, las
 herramientas instaladas, la búsqueda de plantillas, las referencias reales, los prompts literales
@@ -345,7 +352,7 @@ tipografía aprobada.
 | Culos de botella | ~~P7 botellero~~ | **Eliminado** (§13.3) |
 | Copas con luz | **P8** copa desenfocada, aplique encendido, placa de marca | |
 
-Guion con tiempos, ángulos, movimiento y rótulos: [`instagram/reel_09_carta_de_otono.md`](../instagram/reel_09_carta_de_otono.md).
+Guion con tiempos, ángulos, movimiento y rótulos: [`instagram/reel_09_carta_de_otono.md`](../04-guiones-reels-reales/reel_09_carta_de_otono.md).
 
 **Variedad de ángulos (regla 17 de vídeo):** lateral bajo (P2), bajo de sala (P3), contrapicado (P4), a
 ras de mesa (P5), 3/4 alto (P6), nivel de mesa con foco corto (P8).

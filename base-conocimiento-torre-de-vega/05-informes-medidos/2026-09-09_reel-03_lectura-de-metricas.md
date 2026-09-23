@@ -1,13 +1,20 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 03 «Lo hacemos, lo disfrutas» — lectura de las métricas a las ~6 horas
 
 **Fecha:** 2026-09-09
 **Fuente:** capturas de Reel insights de la app de Instagram, tomadas a las 7:40, con el Reel
 publicado hacía ~5-6 h (el eje de "Views over time" llega a 6 h y la curva termina antes del final).
-**Pieza:** [`visible_cliente/reel_03_lo-hacemos-lo-disfrutas.mp4`](../visible_cliente/reel_03_lo-hacemos-lo-disfrutas.mp4)
+**Pieza:** `visible_cliente/reel_03_lo-hacemos-lo-disfrutas.mp4` (recurso no incluido: `../visible_cliente/reel_03_lo-hacemos-lo-disfrutas.mp4`)
 **Contexto de publicación:** se subió inicialmente como **Reel de prueba** (*trial reel*), pero el
 cliente **ya lo había quitado** del modo prueba cuando se tomaron estas capturas. Las fuentes de
 visualización (Feed 43,9 %, Stories 24 %) lo confirman: son fuentes que un Reel en prueba no tiene.
-Ver [`instagram/reel_03_publicacion.md`](../instagram/reel_03_publicacion.md) §5bis.
+Ver [`instagram/reel_03_publicacion.md`](../04-guiones-reels-reales/reel_03_publicacion.md) §5bis.
 
 > ⚠️ **Corrección 2026-09-09.** La primera versión de este informe atribuía casi todo el
 > comportamiento de los datos al modo prueba. **Era falso** y el cliente lo corrigió. Los números de

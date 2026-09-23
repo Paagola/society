@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** referencia. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # 05 — La Biblia del Hiperrealismo
 
 > **La regla madre de todo el sistema.** Cada imagen fija (y cada fotograma de vídeo) que produzcas debe leerse como **un anuncio premium real**, fotografiado con una cámara real, por una persona real. En el momento en que algo "parece IA", "parece CGI" o "parece render", has fracasado — da igual lo bonito que sea.

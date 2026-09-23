@@ -1,3 +1,8 @@
+<!-- society-document -->
+> **Estado:** referencia. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
 # Lean Canvas · Society
 
 Versión 1 · 19 de septiembre de 2026 · España, lanzamiento local.

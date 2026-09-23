@@ -1,9 +1,16 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 09 — «Carta de otoño» (una nueva temporada)
 
 **Fecha:** 2026-09-17
-**Plantilla:** [`plantillas/2026-09-17/01_1835-carne-e-brasa_nueva-temporada_46s_original.mp4`](../plantillas/2026-09-17/01_1835-carne-e-brasa_nueva-temporada_46s_original.mp4)
+**Plantilla:** `plantillas/2026-09-17/01_1835-carne-e-brasa_nueva-temporada_46s_original.mp4` (recurso no incluido: `../plantillas/2026-09-17/01_1835-carne-e-brasa_nueva-temporada_46s_original.mp4`)
 (@1835carneebrasa, anuncio de nueva temporada). Elegida entre 3 candidatas que pasaron el filtro de
-contenido — ver [`plantillas/2026-09-17/README.md`](../plantillas/2026-09-17/README.md).
+contenido — ver `plantillas/2026-09-17/README.md` (recurso no incluido: `../plantillas/2026-09-17/README.md`).
 **Publicación prevista:** semana del 28 sep – 4 oct (plan de contenido, pieza «carta de otoño, desde el [fecha]»)
 **Formato:** 9:16, 1080×1920, ~13 s, voz en off es-ES, rótulos Bodoni MT Regular
 **Montaje:** OpenMontage + Remotion (`C:\Users\victo\OpenMontage`) — ya no After Effects
@@ -235,7 +242,7 @@ parte en clips cortos de 3 s con `start_image` por plano para no inventar las to
 
 ## 4bis. Resultado de las imágenes (2026-09-17)
 
-Ficheros en [`imagenes/generadas/reel_09_carta_de_otono/`](../imagenes/generadas/reel_09_carta_de_otono/),
+Ficheros en `imagenes/generadas/reel_09_carta_de_otono/` (recurso no incluido: `../imagenes/generadas/reel_09_carta_de_otono/`),
 hoja de aprobación `sheet_keyframes_para_aprobar.jpg`. Salida real **1536×2752** (el "2k" de 9:16).
 ⚠️ **Pedido `nano_banana_pro`, devuelto `nano_banana_2`** en las nueve generaciones.
 
@@ -286,7 +293,7 @@ Reel"*. Aprobado también quitar P7. Se lanza vídeo.
 Composición nueva `TorreDeVegaReel` (1080×1920, 30 fps) en
 `C:\Users\victo\OpenMontage\remotion-composer\src\TorreDeVegaReel.tsx`, registrada en `Root.tsx`.
 Copia de la fuente y de los props en
-[`imagenes/generadas/reel_09_carta_de_otono/montaje_remotion/`](../imagenes/generadas/reel_09_carta_de_otono/montaje_remotion/).
+`imagenes/generadas/reel_09_carta_de_otono/montaje_remotion/` (recurso no incluido: `../imagenes/generadas/reel_09_carta_de_otono/montaje_remotion/`).
 
 ```
 cd C:\Users\victo\OpenMontage\remotion-composer
@@ -326,7 +333,7 @@ fotograma de la ventana). Dos correcciones que salieron de mirar el render:
 - faster-whisper no descarga el modelo por la intercepción TLS de Avast: `truststore.inject_into_ssl()` lo resuelve.
 
 **Entregable provisional:**
-[`REEL_09_carta_de_otono_montaje_v1_sin-voz.mp4`](../imagenes/generadas/reel_09_carta_de_otono/REEL_09_carta_de_otono_montaje_v1_sin-voz.mp4)
+`REEL_09_carta_de_otono_montaje_v1_sin-voz.mp4` (recurso no incluido: `../imagenes/generadas/reel_09_carta_de_otono/REEL_09_carta_de_otono_montaje_v1_sin-voz.mp4`)
 — 1080×1920, 30 fps, 13,06 s, H.264 16 Mbps, AAC 48 kHz.
 
 ### Montaje v2 — corrección del cliente (2026-09-17)
@@ -345,15 +352,15 @@ a ser P2 con `VOLVEMOS A ABRIR` desde el fotograma 1. Se quitan `CARTA DE OTOÑO
 | 7,0–9,2 | P6 plato y copa | V1 7,2 s | `DESDE EL [FECHA]` | 300 |
 | 9,2–11,4 | P8 cierre | 0,5 s | placa `TORRE DE VEGA` · `«EL MORA»` (desde 9,3) | 1060 |
 
-Entregable: [`REEL_09_montaje_v2_volvemos-a-abrir_sin-voz.mp4`](../imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v2_volvemos-a-abrir_sin-voz.mp4)
+Entregable: `REEL_09_montaje_v2_volvemos-a-abrir_sin-voz.mp4` (recurso no incluido: `../imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v2_volvemos-a-abrir_sin-voz.mp4`)
 — 1080×1920, 30 fps, 11,46 s. Props: `montaje_remotion/props_montaje_v2.json`.
 
 ### Montaje v3 — sin rótulo de fecha (2026-09-17)
 
 Cliente: *"quita el 'desde fecha' y no pongas nada directamente"*. P6 queda sin rótulo. Entregable
-vigente: [`REEL_09_montaje_v3_sin-fecha_sin-voz.mp4`](../imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v3_sin-fecha_sin-voz.mp4)
+vigente: `REEL_09_montaje_v3_sin-fecha_sin-voz.mp4` (recurso no incluido: `../imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v3_sin-fecha_sin-voz.mp4`)
 — 11,46 s. Props: `montaje_remotion/props_montaje_v3.json`. Documentación completa de toda la
-producción: [`informes/2026-09-17_reel-09_documentacion-completa.md`](../informes/2026-09-17_reel-09_documentacion-completa.md).
+producción: `informes/2026-09-17_reel-09_documentacion-completa.md` ([documento actual](../09-reel-volvemos-a-abrir-2026-09-17/documentacion-completa.md)).
 
 ### Muestras de voz (seed_audio, 0,5 créditos cada una)
 

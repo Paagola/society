@@ -1,9 +1,16 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 03 «Lo hacemos, lo disfrutas» — todo lo necesario para publicar
 
 **Fecha:** 2026-09-09
-**Fichero:** [`visible_cliente/reel_03_lo-hacemos-lo-disfrutas.mp4`](../visible_cliente/reel_03_lo-hacemos-lo-disfrutas.mp4)
+**Fichero:** `visible_cliente/reel_03_lo-hacemos-lo-disfrutas.mp4` (recurso no incluido: `../visible_cliente/reel_03_lo-hacemos-lo-disfrutas.mp4`)
 **Guion y montaje:** [`reel_03_lo-hacemos-lo-disfrutas.md`](reel_03_lo-hacemos-lo-disfrutas.md)
-**Base de las decisiones:** [`informes/2026-09-08_analisis-instagram-90dias.md`](../informes/2026-09-08_analisis-instagram-90dias.md)
+**Base de las decisiones:** [`informes/2026-09-08_analisis-instagram-90dias.md`](../05-informes-medidos/2026-09-08_analisis-instagram-90dias.md)
 
 ---
 
@@ -13,7 +20,7 @@
 
 `CLAUDE.md` decía "restaurante de pueblo en **El Mora (Cantabria)**". **Es falso.** "El Mora" es
 parte del nombre comercial (*Restaurante Torre de Vega "El Mora"*), no el municipio. El NAP
-verificado en [`informes/04-consistencia-nap.md`](../informes/04-consistencia-nap.md) contra la web
+verificado en `informes/04-consistencia-nap.md` (recurso no incluido: `../informes/04-consistencia-nap.md`) contra la web
 oficial es:
 
 - **Plaza Santa Ana, 8 · Barriada La Alquería · Alhaurín de la Torre · 29130 · Málaga**
@@ -257,7 +264,7 @@ separados dicen exactamente dónde tocar la próxima vez.
 3. **Etiquetar al camarero** — hace falta su permiso.
 4. **Hora de apertura del 16** — el pie no la menciona porque **no hay horario verificado**: ni la
    web oficial ni la ficha de Google publican tabla de horarios
-   ([`informes/01-expediente-digital.md`](../informes/01-expediente-digital.md)). Si el cliente
+   (`informes/01-expediente-digital.md` (recurso no incluido: `../informes/01-expediente-digital.md`)). Si el cliente
    confirma la hora, añadir "desde las HH:00" a la segunda línea; mejora el pie.
 5. **El campo web del perfil sigue vacío** — 15 minutos de trabajo que afectan a cada visita de
    perfil que genere este Reel. No bloquea la publicación, pero publicar sin arreglarlo es tirar

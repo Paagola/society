@@ -1,3 +1,8 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
 # Reglas de vídeo — Torre de Vega (Reels)
 
 Restaurante de pueblo, casi 50 años, clientela fiel y buen renombre. El objetivo de todo contenido
@@ -14,10 +19,13 @@ escena/frame de un Reel:
 
 - **Regla 1 — Continuidad**: nunca añadir mobiliario, decoración o elementos que no existan en el local
   real. Cada escena del Reel se ancla en fotos reales del local.
-- **Regla 2 — Rostros: preferencia, no prohibición** *(rebajada 2026-09-08)*: se sigue prefiriendo
-  manos, brazos y gestos, pero **la cara puede salir si el formato lo pide**. Literal del cliente:
-  "si se puede evitar se evita, sino no pasa nada". Único matiz: un empleado real identificable tiene
-  que estar de acuerdo. Ver el desarrollo completo en `reglas_imagenes.md`.
+- **Regla 2 — Personas: permitidas, con ficha de personaje** *(actualizada 2026-09-22)*: no hay
+  ninguna restricción contra mostrar caras. La condición es la consistencia: si una persona es
+  **protagonista** del Reel (habla a cámara, presenta el plato, protagoniza el gesto, o repite entre
+  planos o entre piezas), **su ficha de personaje tiene que existir y estar aprobada antes de
+  generar** (regla 18 de `reglas_imagenes.md`). Las **personas de fondo** no necesitan ficha. Único
+  matiz legal: un empleado real identificable tiene que estar de acuerdo. Desarrollo completo en
+  `reglas_imagenes.md`.
 - **Regla 4 — Iluminación en texto**: describir la luz por temperatura de color (K) y tipo de fuente en
   el prompt, nunca forzar una imagen de referencia de mood/luz compartida entre escenas.
 - **Regla 9quater — Repetir restricciones negativas en cada regeneración**: al reintentar/corregir una
@@ -66,7 +74,7 @@ Añadido 2026-09-05 tras comprobar costes reales en el proyecto del Reel de vino
 
 > ⛔ **Sustituida (anotado el 2026-09-14).** El argumento de esta regla era no pagar de más por 2K.
 > Medido con `get_cost` el 2026-09-08: `nano_banana_pro` **cuesta lo mismo a 1k que a 2k** (2,00), y
-> 2k deja margen para los reencuadres y push-in de After Effects. Vigente: **`resolution:"2k"`
+> 2k deja margen para los reencuadres y push-in de Remotion. Vigente: **`resolution:"2k"`
 > siempre** (paso 4 de `CLAUDE.md`, `documentación.md` Parte II §5). El texto de abajo se conserva
 > como historial.
 
@@ -87,110 +95,19 @@ documento), usar `"resolution": "1080p"` en `generate_image`. Si la misma imagen
 también como foto suelta de feed/carrusel además de como base de vídeo, generarla en 2K igualmente (gana
 el uso de mayor resolución) y no hace falta duplicar la generación.
 
-## 3. Herramienta de análisis pre y post generación — Higgsfield Virality Predictor
+## 3. Predictor: máximo 16 segundos y revisión acotada
 
-Añadido 2026-09-07 tras probar la herramienta con `imagenes/generadas/reel_vinos_blancos/last.mp4`.
+Vigente 2026-09-22. El ensayo V3 midió el límite de 16 s, 0 créditos y ~40 s. Analizar la referencia o el render completo solo si dura ≤16 s. Si dura más, puntuar un derivado de sus primeros 16 s y registrar la ventana: el resultado no califica la pieza entera. Revisar siempre el vídeo y audio completos.
 
-**Qué es:** herramienta MCP de Higgsfield (`virality_predictor`) que analiza un vídeo ya existente
-(propio o de referencia) y devuelve un dashboard con:
-- **Hook score**: fuerza de los primeros 3 segundos para captar atención.
-- **Peak score / peak second**: en qué segundo está el pico de mayor "enganche" del vídeo.
-- **Overall score / viral potential**: puntuación global de potencial viral (0-100).
-- **Sustain**: qué tan bien retiene la atención una vez que el espectador ya está enganchado.
-- **Brain engagement**: activación estimada por regiones (visual, atención, lenguaje, etc.), a nivel
-  más experimental/informativo.
+Hook <50, pico >3 s o sustain <50 activan revisión editorial; son umbrales internos provisionales, no leyes de Instagram. Hacer como máximo una iteración de montaje antes de decisión humana, dentro del presupuesto. No bloquear publicación solo por no llegar a 50: las referencias históricas tenían hooks 25–36. Timeout propio 120 s; si no responde, QA humana con estado «predictor no disponible». El score no demuestra ventas ni sustituye fidelidad.
 
-**Es una herramienta de análisis, no de generación**: no escribe prompts por sí sola. Sirve como bucle
-de feedback — analizas un vídeo, lees dónde falla (p. ej. hook flojo, pico tardío) y traduces eso a
-ajustes concretos de prompt/orden de escenas para la siguiente generación.
+Consultar el esquema actual de la herramienta antes de subir/analizar; no copiar parámetros históricos de otra conexión. Detalle de estados y presupuesto en [producción Society](../../informes/higgsfield/05-automatizacion-de-produccion.md).
 
-**Cuándo usarla, dos momentos:**
+## 4. Análisis de referencia: capa propia obligatoria, proveedor complementario
 
-1. **Antes de escribir los prompts de las escenas** (análisis de plantilla/referencia): si hay un vídeo
-   de referencia disponible — un Reel ajeno que funcionó bien, o un intento propio anterior — pasarlo
-   por el Virality Predictor primero para extraer qué patrón de ritmo/hook usa (p. ej. "el pico está en
-   el segundo 1, no en el 5") y estructurar el guion de escenas del Reel nuevo replicando ese patrón.
-2. **Después de montar el Reel propio, antes de publicar**: analizar el vídeo final ya montado para
-   detectar puntos débiles (hook_score bajo, peak_second tardío, sustain bajo) e iterar — reordenar
-   escenas, adelantar el momento más fuerte a los primeros 1-2s, o regenerar el plano de apertura — antes
-   de dar la pieza por buena.
+FFprobe/FFmpeg mide formato, cortes y audio; visión revisa fotogramas y función narrativa. Video Analysis puede complementar etiquetas, pero los trabajos colgados del 22/09 impiden tratarlo como requisito de disponibilidad. Plazo propio 90 s: después se usa análisis propio o revisión humana, sin esperar indefinidamente ni duplicar trabajos.
 
-**Cómo aplicarlo (flujo técnico):**
-1. Subir el vídeo con `media_upload` (obtiene `upload_url` + `media_id`) → `curl PUT` de los bytes →
-   `media_confirm` con `type: "video"`.
-2. Lanzar el análisis: `virality_predictor` con `action: "create"`, `params.model: "virality_predictor"`
-   y `medias: [{role: "video", id: <media_id>}]`.
-3. Esperar el resultado con `job_status` (`sync: true`, puede tardar varios minutos — un vídeo de
-   ~11.5s a 60fps tardó unos 6 minutos) o reabrir un análisis ya hecho con
-   `action: "preview"` + `job_id`.
-4. Leer `analysis.scores` (hook_score, peak_second, overall_score, viral_potential, sustain) y el
-   `results.rawUrl` (dashboard HTML interactivo) para la lectura visual completa.
-
-**Sobre el coste:** en la prueba realizada (plan Plus), el análisis **no generó ningún cargo** en el
-historial de transacciones (`transactions`) — el saldo de créditos quedó igual antes y después. No hay
-confirmación oficial de que sea "ilimitado", pero de momento se ha comprobado gratuito en este plan.
-Si se usa de forma repetida o en otro plan, comprobar `balance`/`transactions` antes y después para
-verificar que sigue sin coste.
-
-**Qué mirar en el resultado para decidir si hace falta iterar:**
-- `hook_score` bajo (< ~50) → el arranque no engancha, revisar qué pasa en los primeros 3 segundos del
-  guion de escenas.
-- `peak_second` tardío (> 2-3s) → el momento más fuerte del vídeo llega demasiado tarde; considerar
-  adelantarlo o abrir el Reel directamente con esa escena.
-- `sustain` bajo → aunque enganche al principio, se pierde audiencia según avanza; revisar ritmo de
-  corte entre escenas.
-- `overall_score`/`viral_potential` como puntuación de referencia global, útil para comparar variantes
-  entre sí (p. ej. dos órdenes de escena distintos del mismo Reel).
-
-## 4. Herramienta de desglose escena-por-escena — Higgsfield Video Analysis
-
-Añadido 2026-09-07.
-
-**Qué es:** herramienta MCP de Higgsfield (`video_analysis_create` / `video_analysis_status`) que,
-a diferencia del Virality Predictor (regla 3, que da puntuaciones de rendimiento), **desglosa un vídeo
-escena por escena**: identifica los cortes, describe qué pasa en cada plano (encuadre, movimiento de
-cámara, acción, ritmo) y da una lectura estructural del vídeo completo. Acepta como entrada un vídeo ya
-subido (`video_input_id`, el `media_id` de `media_upload`/`media_confirm`) o directamente una
-`youtube_url`.
-
-**Para qué sirve en este proyecto:** cuando el cliente pasa un vídeo (un Reel ajeno que le gusta, un
-anuncio, una referencia de otro restaurante/bodega) como plantilla de inspiración, esta herramienta
-permite analizarlo automáticamente y extraer su estructura de escenas real (cuántos planos tiene, qué
-tipo de plano es cada uno, cómo se encadenan) en vez de tener que desglosarlo a ojo. Ese desglose se usa
-después como base para **redactar los prompts de un Reel nuevo para Torre de Vega**, adaptando cada
-escena de la plantilla al negocio real: mismos tipos de plano/ritmo, pero con platos, bodega, personal
-sin cara y local reales de Torre de Vega en vez de los del vídeo original — aplicando siempre todas las
-reglas compartidas de este documento y de `reglas_imagenes.md` (continuidad, personal sin cara,
-iluminación en texto, etc.) al traducir cada escena.
-
-**Diferencia con el Virality Predictor (regla 3):**
-- **Video Analysis** → desglose estructural: "qué escenas tiene y qué pasa en cada una" → insumo para
-  **escribir** el guion de prompts de un Reel nuevo inspirado en la plantilla.
-- **Virality Predictor** → puntuación de rendimiento: "cómo de bien engancha" → insumo para **evaluar y
-  corregir** un Reel ya generado (propio o de referencia).
-- Se pueden combinar: analizar la estructura de una plantilla con Video Analysis, construir el guion de
-  Torre de Vega en base a ella, y luego validar el resultado final con el Virality Predictor.
-
-**Cómo aplicarlo (flujo técnico):**
-1. Si el vídeo es un archivo local del cliente: subirlo con `media_upload` → `curl PUT` de los bytes →
-   `media_confirm` con `type: "video"` → usar el `media_id` como `video_input_id`.
-   Si es un enlace de YouTube: pasar directamente `youtube_url` a `video_analysis_create` (no hace falta
-   subir nada).
-2. Lanzar el análisis: `video_analysis_create` con `video_input_id` **o** `youtube_url` (exactamente
-   uno de los dos).
-3. Esperar el resultado con `video_analysis_status` (`video_analyze_id`), sondeando cada 30-60s —
-   tarda normalmente 3-5 minutos, hasta `status:"completed"` (con `scenes` ya poblado) o
-   `status:"failed"` (con `fail_reason`).
-4. Leer las `scenes` devueltas (desglose plano a plano) y usarlas como base para redactar el guion de
-   escenas del Reel de Torre de Vega, adaptando cada plano al negocio real.
-
-**Aviso importante:** cuanto más largo es el vídeo, **menos fiable** es el desglose escena por escena —
-la herramienta da mejores resultados con clips cortos. Avisar al cliente de esto antes de analizar un
-vídeo largo, y si es posible, preferir recortar a la parte relevante antes de analizar.
-
-**Sobre el coste:** **gratis en el plan Plus** — verificado el 2026-09-08 (el saldo no se movió tras
-varios análisis; recogido en `CLAUDE.md` y `documentación.md` Parte II §5). Si cambia el plan, volver
-a comprobar `balance` antes y después. *(Corregido el 2026-09-14: aquí constaba «no comprobado».)*
+Registrar cortes medidos y beats interpretados por separado. La salida del proveedor redondea a segundos; no sustituye la rejilla propia. Un plan necesita un motivo por generación, no un plano por cada corte. Se mantienen referencias reales, ficha de protagonista y decisiones de transferencia explícitas. El coste cero observado es cargo de proveedor en esos ensayos, no coste total de operar Society.
 
 ## 5. Cámara "perfectamente fija" en Kling delata que es IA — pedir siempre micro-movimiento
 
@@ -242,7 +159,7 @@ devuelve un `notice`/error con `preset_recommendation` pidiendo elegir entre usa
 en modo literal.
 
 **Cómo aplicarlo:** si se quiere mantener el prompt específico de marca (lo habitual en este
-proyecto, para cumplir las reglas de continuidad/personal sin cara/iluminación), volver a llamar a la
+proyecto, para cumplir las reglas de continuidad/ficha de personaje/iluminación), volver a llamar a la
 misma generación añadiendo `declined_preset_id: <preset_id>` devuelto en el aviso — eso fuerza la
 generación literal con el prompt propio en vez del preset genérico. Tenerlo en cuenta al hacer
 `generate_video_batch`: si un ítem del lote falla por esta razón (`submission_failed`), hay que
@@ -351,7 +268,7 @@ Exigido por el cliente el 2026-09-08, tras detectar que los cuatro vídeos del R
 prompts en prosa libre en vez de con la metodología del proyecto.
 
 **Regla:** todo prompt de vídeo se construye con
-[`directoria-cloud/templates/prompt-video-motion.md`](../directoria-cloud/templates/prompt-video-motion.md).
+[`directoria-cloud/templates/prompt-video-motion.md`](../02-metodologia-prompting-directoria-cloud/templates/prompt-video-motion.md).
 
 ### Los cuatro bloques, en este orden
 
@@ -447,7 +364,7 @@ cuatro condiciones:
    espaciado + filete + sombra suave, nunca contorno negro).
 3. **El primer plano dura 2–2,5 s, no 1,2 s.** El ritmo rápido empieza después del segundo 3, no
    antes: cortar rápido al principio reparte la atención en vez de crear una.
-4. **Movimiento real, no push de After Effects.** Un paneo de AE sobre una imagen fija no lee como
+4. **Movimiento real cuando el guion exige desplazamiento de cámara.** Un paneo digital sobre una imagen fija no lee como
    "está pasando algo". Si el plano 1 debe ser generado, se genera como vídeo aunque cueste
    créditos; si puede salir de metraje real del cliente, mejor y gratis (y obligatorio si hay
    fuego o brasa — regla 22).
@@ -468,7 +385,7 @@ Si la respuesta es no, la pieza se queda en 600–900 de alcance haga lo que hag
 comparte lo que resuelve un plan (una fecha, una novedad, un aviso real), no lo que enseña un
 plato bonito.
 
-## 13. `minimax_hailuo` NO acepta `aspect_ratio` — se lo saca de la imagen de partida
+## 13. Incidente histórico de un modelo vetado: `minimax_hailuo` NO acepta `aspect_ratio` — se lo saca de la imagen de partida
 
 Medido el 2026-09-09 produciendo el Reel 06. Dos trabajos lanzados con
 `aspect_ratio:"9:16"` **fallaron sin mensaje de error**. En el payload devuelto por `job_status`
@@ -478,7 +395,7 @@ con `raw_data:true` se veía la causa: `"width":1024,"height":1024`. El parámet
 `models_explore action:"get" model_id:"minimax_hailuo"` lo dice explícitamente: `aspect_ratios: []`.
 El modelo deduce el encuadre de la `start_image`, así que con un keyframe 9:16 devuelve vertical solo.
 
-**Cómo aplicarlo:** con `minimax_hailuo`, pasar únicamente `variant`, `duration`, `resolution` y
+**Registro histórico, no ejecutar:** se pasó con `minimax_hailuo` únicamente `variant`, `duration`, `resolution` y
 `medias`. **Nada de `aspect_ratio`.** Esto es lo contrario que en Kling y Seedance, donde el aviso de
 la plantilla de `directoria-cloud` es que `aspect_ratio:"9:16"` es **obligatorio** porque el default
 es `16:9`. No se puede copiar el bloque de params de un modelo a otro.
@@ -511,7 +428,7 @@ gesto.
 detenidos en ese mismo instante, y por fin el final del movimiento. El cerebro completa el gesto en
 los planos fijos aunque no se muevan.
 
-**Coste:** 2 vídeos en vez de 6. Con `minimax_hailuo` son **20 créditos** en vez de 60.
+**Coste vigente:** cotizar dos clips con una capacidad cualificada para la acción. Los 20 frente a 60 créditos de `minimax_hailuo` son un cálculo histórico, no una recomendación; el modelo está vetado por la regla 15.
 
 ⚠️ **Los fijos tienen que estar todos en el MISMO punto del gesto.** Si uno tiene el plato ya posado
 y otro en el aire, el efecto se rompe. Al generar la serie, decirlo explícitamente en `environment`:
@@ -566,9 +483,8 @@ Validado el 2026-09-09 con `seedance_2_0` tras el fallo de la regla 15.
 tomas fijas salta y se ve.
 
 **La solución:** varios modelos aceptan `start_image` **y** `end_image`. Pasando las dos, el clip
-queda **anclado por los dos extremos** y no puede derivar: se sabe exactamente dónde empieza y dónde
-acaba. Además el último fotograma coincide al píxel con la toma fija que viene detrás, así que el
-corte es invisible.
+queda condicionado por dos referencias, sin garantía de continuidad entre ellas: se define dónde empieza y dónde
+acaba. Debe comprobarse la coincidencia del último fotograma con la toma fija posterior; el contrato no garantiza coincidencia al píxel.
 
 **Cómo se usó en el Reel 06:**
 
@@ -626,15 +542,17 @@ Ventaja operativa añadida: **devuelve 1080×1920 exactos**, sin los 1934 px de 
 - [ ] ¿El vídeo pide `duration:3` en Kling salvo indicación contraria del cliente (regla 2)?
 - [ ] ¿El aspect ratio es 9:16 y el acabado editorial dramático vigente (luz de una sola fuente,
       sombras profundas, contraste alto, grano de película visible — regla 17, invertida 2026-09-10)?
-- [ ] Si aparece una persona: ¿existe su imagen de referencia aprobada, y es claramente **otra
-      persona** distinta a la del vídeo plantilla? (regla 18 de `reglas_imagenes.md`)
-- [ ] ¿Cada escena cumple las reglas compartidas de continuidad, personal sin cara, iluminación en
+- [ ] Si aparece una persona **protagonista**: ¿existe su **ficha de personaje** aprobada con su
+      imagen maestra, se pasa su `job_id` como referencia en cada plano, y es claramente **otra
+      persona** distinta a la del vídeo plantilla? (regla 18 de `reglas_imagenes.md`). Las personas
+      de fondo no necesitan ficha.
+- [ ] ¿Cada escena cumple las reglas compartidas de continuidad, ficha de personaje, iluminación en
       texto, restricciones negativas repetidas y variedad de género en manos?
-- [ ] Si hay un vídeo de referencia disponible, ¿se ha analizado con el Virality Predictor antes de
+- [ ] Si hay un vídeo de referencia disponible, ¿se ha evaluado con el predictor entero si ≤16 s, o solo su arranque identificado si es más largo, antes de
       escribir el guion de escenas, para replicar el patrón de hook/ritmo que funciona (regla 3)?
-- [ ] Antes de publicar el Reel final, ¿se ha pasado por el Virality Predictor y revisado hook_score /
+- [ ] Antes de publicar el Reel final, ¿se ha puntuado la ventana permitida (máximo 16 s), o registrado indisponibilidad, y revisado hook_score /
       peak_second / sustain para decidir si hace falta iterar (regla 3)?
-- [ ] Si el cliente pasa un vídeo/Reel de referencia como plantilla, ¿se ha desglosado con Video
+- [ ] Si el cliente pasa un vídeo/Reel de referencia como plantilla, ¿se ha desglosado con la capa propia y, si responde, Video
       Analysis (regla 4) antes de escribir los prompts, en vez de improvisar el guion de escenas a ojo?
 - [ ] ¿El prompt de vídeo pide un movimiento mecánico, lento y cuantificado (slider motorizado, regla 11) en vez de "static camera" a secas (regla 5) — y **nunca** handheld?
 - [ ] ¿Se han pasado los **fotogramas de la plantilla** como referencia de ángulo, encuadre y luz en

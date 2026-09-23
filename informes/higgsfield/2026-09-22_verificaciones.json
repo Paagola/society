@@ -1,0 +1,58 @@
+{
+  "checked_on": "2026-09-22",
+  "verified_by": "Codex",
+  "generation_jobs_submitted": 0,
+  "catalog_tool": "mcp__higgsfield__models_explore(action=get)",
+  "quotes": [
+    {
+      "tool": "mcp__codex_apps__higgsfield_estimate_video_cost",
+      "params": {
+        "model": "seedance_2_5",
+        "mode": "omni_reference",
+        "duration": 10,
+        "resolution": "1080p",
+        "aspect_ratio": "9:16",
+        "generate_audio": false,
+        "use_unlim": false
+      },
+      "credits_exact": 120,
+      "usd": null,
+      "limitations": "Sin referencias concretas; no prueba validación de pedido completo ni modelo servido"
+    },
+    {
+      "tool": "mcp__codex_apps__higgsfield_estimate_video_cost",
+      "params": {
+        "model": "kling3_0",
+        "mode": "pro",
+        "duration": 3,
+        "aspect_ratio": "9:16",
+        "sound": "off",
+        "use_unlim": false
+      },
+      "credits_exact": 5.25,
+      "usd": null
+    },
+    {
+      "tool": "mcp__codex_apps__higgsfield_estimate_image_cost",
+      "params": {
+        "model": "nano_banana_pro",
+        "resolution": "2k",
+        "aspect_ratio": "9:16",
+        "count": 1,
+        "use_unlim": false
+      },
+      "credits_exact": 2,
+      "usd": null
+    }
+  ],
+  "canvas": {
+    "url": "https://higgsfield.ai/canvas",
+    "observed": "Vista pública; requiere login para lienzos",
+    "private_canvas_tested": false,
+    "graph_api_verified": false
+  },
+  "meta": {
+    "content_publishing": "HTTP 429",
+    "insights": "HTTP 429"
+  }
+}

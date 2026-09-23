@@ -1,8 +1,15 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 03 · "LO HACEMOS / LO DISFRUTAS" — guion y montaje
 
 Plantilla base: `plantillas/2026-09-08/01_we-make-you-enjoy_cocina-a-mesa_10s.mp4`
 (hook 31 · overall 45 · viral 43 — la única del lote que pasa el filtro de contenido limpia).
-Ranking completo en [`informes/2026-09-08_ranking-viralidad-plantillas.md`](../informes/2026-09-08_ranking-viralidad-plantillas.md).
+Ranking completo en [`informes/2026-09-08_ranking-viralidad-plantillas.md`](../05-informes-medidos/2026-09-08_ranking-viralidad-plantillas.md).
 
 **Duración: 10 s · 1080×1920 · 30 fps · sin audio generado** (va con música de Instagram).
 

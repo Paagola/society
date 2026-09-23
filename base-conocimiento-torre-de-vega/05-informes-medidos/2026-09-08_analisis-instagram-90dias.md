@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Análisis de Instagram — Torre de Vega · 90 días (11 jun – 8 sep 2026)
 
 **Fecha:** 2026-09-08
@@ -85,7 +92,7 @@ al perfil**, la cifra más alta del trimestre, con solo 455 de alcance. La espec
 ## 5. El Reel producido por la agencia: hay que decirlo
 
 El Reel **"3 blancos que le vienen que ni pintados"** (6 sep) —el primero producido con el flujo
-de generación de imágenes documentado en [`instagram/proceso-reel-vinos-blancos.md`](../instagram/proceso-reel-vinos-blancos.md)—
+de generación de imágenes documentado en [`instagram/proceso-reel-vinos-blancos.md`](../04-guiones-reels-reales/proceso-reel-vinos-blancos.md)—
 es, sobre los datos de Instagram:
 
 - **el peor de los 16 Reels en retención**: 82,8 % de abandono en los 3 primeros segundos (la
@@ -269,7 +276,7 @@ y comentarios (−0,67). Seguirlos como señal de intención, sí; decidir el ca
    publicaciones. **Pendiente de accesos.**
 5. **Error de ficha en `CLAUDE.md`.** El fichero de proyecto describe el restaurante como
    *"restaurante de pueblo en El Mora (Cantabria)"*. Los datos de la cuenta y el informe
-   [`03-colision-marca.md`](03-colision-marca.md) confirman que el restaurante está en
+   `03-colision-marca.md` (recurso no incluido: `03-colision-marca.md`) confirman que el restaurante está en
    **Barriada La Alquería, Alhaurín de la Torre (Málaga)**, y que "El Mora" es el sobrenombre de
    la casa; Cantabria viene de *otro* negocio homónimo (Torre de la Vega, en Comillas) detectado
    en el análisis de colisión de marca. **Conviene corregirlo antes del próximo lote de

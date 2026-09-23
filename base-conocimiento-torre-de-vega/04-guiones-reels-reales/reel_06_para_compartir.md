@@ -1,7 +1,14 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 06 — «Para compartir» (mismo plano, cambia el plato)
 
 **Fecha:** 2026-09-09
-**Plantilla base:** [`plantillas/2026-09-08/02_mismo-plano-cambia-el-plato_7s.mp4`](../plantillas/2026-09-08/02_mismo-plano-cambia-el-plato_7s.mp4)
+**Plantilla base:** `plantillas/2026-09-08/02_mismo-plano-cambia-el-plato_7s.mp4` (recurso no incluido: `../plantillas/2026-09-08/02_mismo-plano-cambia-el-plato_7s.mp4`)
 (copia de trabajo en `plantillas/2026-09-09/C_mismo-plano-cambia-el-plato_7s.mp4`; original:
 restaurante **MALAY FELLAS**)
 **Publicación prevista:** semana del 28 de septiembre — pieza fuerte «carta de otoño»
@@ -83,8 +90,8 @@ mesa, la luz, el ángulo y el punto exacto donde se posa el plato**.
 
 | Token | Fichero | Papel |
 |---|---|---|
-| `@image1` | [`imagenes/local/mesa-madera.jpg`](../imagenes/local/mesa-madera.jpg) | **La superficie**: mesa de pino claro real, con sus nudos, su junta de tablero y su veta |
-| `@image2` | [`imagenes/local/mesas-restaurante2.jpg`](../imagenes/local/mesas-restaurante2.jpg) | El comedor al fondo: ladrillo, visillos blancos, lámpara de forja, sillas de madera, manteles crema |
+| `@image1` | `imagenes/local/mesa-madera.jpg` (recurso no incluido: `../imagenes/local/mesa-madera.jpg`) | **La superficie**: mesa de pino claro real, con sus nudos, su junta de tablero y su veta |
+| `@image2` | `imagenes/local/mesas-restaurante2.jpg` (recurso no incluido: `../imagenes/local/mesas-restaurante2.jpg`) | El comedor al fondo: ladrillo, visillos blancos, lámpara de forja, sillas de madera, manteles crema |
 | `@image3` | `plantillas/2026-09-09/frames_C/C_1.80s.jpg` | **Solo ángulo, altura de cámara, borde de mesa en diagonal y reparto de luz** (regla 10) |
 | `@image4`(+`@image5`) | La foto (o dos, regla 6) del plato de cada toma | Identidad del plato y su vajilla real |
 | `@image6` | **La toma 1 ya generada** | Escena, mesa, fondo, luz y posición de cámara (regla 19) |
@@ -227,7 +234,7 @@ Si el cliente quiere el gesto real animado, es `minimax_hailuo` `minimax-2.3`, 6
 ## 8. Resultado de la generación (2026-09-09)
 
 Las seis tomas están generadas y descargadas en
-[`imagenes/generadas/reel_06_para_compartir/`](../imagenes/generadas/reel_06_para_compartir/).
+`imagenes/generadas/reel_06_para_compartir/` (recurso no incluido: `../imagenes/generadas/reel_06_para_compartir/`).
 Coste real: **14 créditos** (7 generaciones: 6 buenas + 1 descartada por corrección).
 
 | # | Plato | `job_id` | Fichero | Mano |
@@ -283,7 +290,7 @@ el patrón de «un solo cambio» (regla 27), a la primera.
 
 Las otras cinco tomas no llevaban servilleta debajo ni manchas: el plato va directamente sobre la mesa
 de pino en todas. Ver las reglas nuevas **25** y **26** de
-[`reglas_imagenes.md`](../imagenes/reglas_imagenes.md).
+[`reglas_imagenes.md`](../01-reglas-contenido/reglas_imagenes.md).
 
 ---
 
@@ -291,7 +298,7 @@ de pino en todas. Ver las reglas nuevas **25** y **26** de
 
 Estructura indicada por el cliente: **solo el primer plano y el último son vídeo**; los intermedios
 son fijas congeladas en la mitad del gesto. Queda como regla 14 de
-[`reglas_videos.md`](../imagenes/reglas_videos.md).
+[`reglas_videos.md`](../01-reglas-contenido/reglas_videos.md).
 
 ### Lo que hubo que cambiar en las imágenes
 
@@ -366,7 +373,7 @@ por favor no vuelvas a utilizar ese modelo"*. Y la estructura estaba mal entendi
    por su nombre siete veces. En un formato de plano fijo, eso rompe el corte a las tomas fijas.
 2. **Las gambas se rehacían** entre fotogramas: cambiaban de número y de posición.
 
-Queda como **regla 15** de [`reglas_videos.md`](../imagenes/reglas_videos.md): `minimax_hailuo`
+Queda como **regla 15** de [`reglas_videos.md`](../01-reglas-contenido/reglas_videos.md): `minimax_hailuo`
 prohibido en este proyecto. Y **corrige el caso 3** de la tabla de modelos de `documentación.md`.
 
 ### La estructura correcta, según el cliente
@@ -427,9 +434,9 @@ punto de corte.
 ## 12. Montaje final en After Effects (2026-09-10)
 
 Montado por MCP a petición del cliente («móntalo»). Proyecto guardado en
-[`Reel06_Para_Compartir.aep`](../imagenes/generadas/reel_06_para_compartir/Reel06_Para_Compartir.aep).
+`Reel06_Para_Compartir.aep` (recurso no incluido: `../imagenes/generadas/reel_06_para_compartir/Reel06_Para_Compartir.aep`).
 
-**Entregable:** [`REEL_06_para_compartir.mp4`](../imagenes/generadas/reel_06_para_compartir/REEL_06_para_compartir.mp4)
+**Entregable:** `REEL_06_para_compartir.mp4` (recurso no incluido: `../imagenes/generadas/reel_06_para_compartir/REEL_06_para_compartir.mp4`)
 — 1080×1920, 24 fps, **9,33 s**, H.264 a 14,2 Mbps, 16,6 MB.
 
 ### Composición

@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** referencia. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../README.md).
+
+> **Actualización de autoridad 2026-09-22.** Este informe conserva el razonamiento y los escenarios del 14–17/09, no una tarifa actual. Producción/coste vigente: `higgsfield/05-automatizacion-de-produccion.md`; dirección y aprendizaje: los informes nuevos. Los factores 0,050 USD/cr y 0,063 USD/cr no son equivalencias intercambiables: falta factura del pool MCP. El preflight actual de Seedance 10 s/1080p devuelve 120 cr, no 90. Las tablas mensuales quedan históricas; no se presentan como oferta de venta. El PDF antiguo se ha archivado.
+
 # Society
 
 ## Diseño de la aplicación y viabilidad para 20 restaurantes
@@ -359,12 +366,12 @@ React con TypeScript para una web adaptable o PWA, si encaja con la evaluación 
 - **Supabase:** autenticación y PostgreSQL.
 - **R2:** fotos, clips, pistas de voz y entregables.
 - **Vercel:** la interfaz y las operaciones cortas.
-- **Servidor Windows separado:** ejecuta After Effects.
+- **Worker Linux:** ejecuta Remotion desde la decisión de 17/09; no se requiere worker Windows de AE.
 - **Servidor Linux, solo para las tareas que lo necesiten:** analiza medios, transcribe o alinea subtítulos y ejecuta la reconstrucción 3D.
 
 La cola del producto debe cubrir todas las etapas, incluidas imágenes, modelos de vídeo, voz y edición. Flamenco puede gestionar render de Blender, pero no sustituye esa cola de negocio. Para el MVP puede utilizarse una cola persistente sobre PostgreSQL con bloqueo, concesión temporal del trabajo, reintento y recuperación; una solución especializada es una mejora posterior.
 
-Flujo de datos: interfaz → backend → proyecto y reserva → planificador Astra → validadores → proveedores → revisión → worker de edición → revisión final → R2 → descarga del cliente. Los diagramas del flujo de usuario y de estados están en `diagramas/`.
+Flujo de datos: interfaz → backend → proyecto y reserva → planificador Astra → validadores → proveedores → revisión → worker de edición → revisión final → R2 → descarga del cliente. El flujo y los estados vigentes están en `Society_flujo_de_la_aplicacion.md` y `higgsfield/05-automatizacion-de-produccion.md`; los 16 diagramas no están disponibles.
 
 ### 7.2 Modelo de datos mínimo
 
@@ -408,7 +415,7 @@ Registrar el modelo realmente devuelto. En el ensayo se pidió `nano_banana_pro`
 
 Astra selecciona la plantilla, el orden, los puntos de corte, las entradas de rótulos y los parámetros permitidos. El motor ejecuta una lista de edición validada. Evitar que cada reel dependa de un agente escribiendo scripts arbitrarios con acceso completo a la máquina.
 
-After Effects conserva el acabado ya aprobado: tipografía, rótulos, placas y revelados. Adobe documenta render automatizado mediante aerender. Esto permite diseñar un worker, pero no demuestra por sí solo licencia adecuada para cualquier servicio SaaS ni concurrencia ilimitada. [S15]
+El diseño anterior usaba After Effects (histórico, sustituido por Remotion el 17/09) para conservar el acabado aprobado: tipografía, rótulos, placas y revelados. Adobe documenta render automatizado mediante aerender. Esto permite diseñar un worker, pero no demuestra por sí solo licencia adecuada para cualquier servicio SaaS ni concurrencia ilimitada. [S15]
 
 Cada render abre una copia de plantilla y una carpeta temporal del proyecto. Un worker procesa un proyecto a la vez, registra salida y sube el archivo antes de liberar el trabajo. Si cae, se recupera desde el manifiesto. FFmpeg puede inspeccionar o codificar medios sin ser el responsable del diseño gráfico rechazado en el caso anterior.
 
@@ -451,7 +458,7 @@ El piloto debe cubrir una mesa y su entorno, con dos recorridos cortos. Criterio
 
 Para platos se mantienen imágenes mejoradas ancladas a fotos reales. Una composición plana sirve para trayectorias pequeñas; una órbita amplia necesita varias vistas o una representación adecuada del producto. Genjutsu debe probarse con un vídeo conductor de sala y compararse con el render previo, porque la transferencia puede modificar justamente la geometría que se intentaba preservar.
 
-## 9 Tarifas externas y supuestos
+## 9 Tarifas y supuestos históricos — no fijar precios comerciales con estas tablas
 
 ### 9.1 Tarifas públicas relevantes
 
@@ -562,7 +569,7 @@ Con Seedance 2.5 a 1080p en Higgsfield (unos 0,45 USD/s, pendiente de contrato),
 
 El render variable de 0,35 USD es reserva estimada, además de capacidad fija del worker; si el hosting lo incluye, no se debe facturar dos veces en el modelo real.
 
-## 10 Coste por plan y precio mínimo
+## 10 Escenario histórico de coste — Coste por plan y precio mínimo
 
 ### 10.1 Planes y cuotas de ejemplo
 

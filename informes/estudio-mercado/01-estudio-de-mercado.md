@@ -1,3 +1,8 @@
+<!-- society-document -->
+> **Estado:** referencia. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
 # Society · Estudio de mercado y estrategia de entrada
 
 Fecha de investigación: 19 de septiembre de 2026. Ámbito: España, empezando por una zona local. Municipio o comarca pendiente de concretar. Estado: investigación documental y propuesta de validación; no se han realizado entrevistas, encuestas ni ventas para este estudio.

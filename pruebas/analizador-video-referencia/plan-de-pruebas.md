@@ -1,3 +1,8 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
 # Plan de pruebas — analizador de vídeos de referencia
 
 Preparado el 17/09/2026. **Nada de lo que hay aquí se ha ejecutado todavía.** La investigación de la que sale está en [`informes/Society_analisis_video_referencia.md`](../../informes/Society_analisis_video_referencia.md).

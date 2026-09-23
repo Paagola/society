@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** referencia. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # 01 — Higgsfield MCP: referencia operativa
 
 > Este archivo es el **manual de instrucciones exacto** del MCP de Higgsfield: qué herramienta llamar, qué parámetros forzar (porque los defaults te traicionan), y qué payload JSON enviar. Es la base sobre la que se apoyan `knowledge/02-modelos-imagen.md`, `knowledge/03-modelos-video.md` y `knowledge/07-troubleshooting.md`.

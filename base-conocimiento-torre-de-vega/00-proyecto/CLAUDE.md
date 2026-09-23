@@ -1,3 +1,8 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
 # Torre de Vega — contexto del proyecto
 
 Restaurante **Torre de Vega "El Mora"**, casi 50 años, clientela fiel. Agencia de marketing
@@ -16,39 +21,39 @@ flujo de principio a fin sin pedirle que indique ficheros.
 
 | Fichero | Qué contiene |
 |---|---|
-| [`documentación.md`](documentación.md) | **Documento maestro.** Parte I: proceso del Reel 01. Parte II: hallazgos medidos que corrigen la Parte I. |
-| [`imagenes/reglas_videos.md`](imagenes/reglas_videos.md) | Reglas de vídeo/Reels. Especial atención a la 1 (imágenes antes que vídeo), 5 (nunca cámara estática a secas) y 6 (manos). |
-| [`imagenes/reglas_imagenes.md`](imagenes/reglas_imagenes.md) | Reglas de imagen. Especial atención a la 1 (nada inventado), 2 (sin caras), 9 (encuadre cercano), 11 (planos rechazados) y 13 (género de manos). |
-| Skill `after-effects-reels` | Detalle operativo de montaje, transiciones, tipografía, costes y elección de modelo. Se activa sola. |
-| `instagram/reel_NN_*.md` | Guiones de Reels anteriores, como ejemplo de formato. |
+| [Registro del primer Reel](documentacion-proceso-reel01.md) | **Registro histórico.** El README raíz de Society es el índice único; las reglas vigentes mandan sobre este proceso antiguo. |
+| [Reglas de vídeo](../01-reglas-contenido/reglas_videos.md) | Reglas de vídeo/Reels. Especial atención a la 1 (imágenes antes que vídeo), 5 (nunca cámara estática a secas) y 6 (manos). |
+| [Reglas de imagen](../01-reglas-contenido/reglas_imagenes.md) | Reglas de imagen. Especial atención a la 1 (nada inventado), 2 (personas permitidas, ficha de personaje obligatoria para protagonistas), 9 (encuadre cercano), 11 (planos rechazados) y 13 (género de manos). |
+| Remotion | Montaje vigente desde 17/09; la skill de After Effects está archivada y no se activa. |
+| `../04-guiones-reels-reales/reel_NN_*.md` | Guiones de Reels anteriores, como ejemplo de formato. |
 
 ### Pasos
 
-1. **Analizar la plantilla sin gastar créditos.** Cortes en local con `ffmpeg`
+1. **Analizar la plantilla.** Video Analysis tiene plazo propio de 90 s y no bloquea el análisis propio. El coste cero del ensayo no elimina coste de cómputo/visión.  Cortes en local con `ffmpeg`
    (`select='gt(scene,0.2)',showinfo`), y en paralelo `video_analysis_create` +
-   `virality_predictor` en Higgsfield — **ambos son gratis en el plan Plus**. Límite del predictor:
+   `virality_predictor` en Higgsfield — **0 créditos en el ensayo aportado; revalidar el contrato actual**. Límite del predictor:
    16 s.
-2. **Escribir el guion** como `instagram/reel_NN_nombre.md`, traduciendo la **estructura y el ritmo**
+2. **Escribir el guion** como `base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_NN_nombre.md`, traduciendo la **estructura y el ritmo**
    de la plantilla a Torre de Vega. Nunca copiar el look ni los platos de la plantilla: eso rompe la
    regla 1.
 3. **Elegir fotos reales** de `imagenes/local/`, `imagenes/comida/`, `imagenes/vinos/`,
    `imagenes/tartas/` como referencia de cada escena. Verificar que las rutas existen.
 4. **Generar las imágenes fijas** con `nano_banana_pro` a **2k** (cuesta lo mismo que 1k),
-   encadenando cada imagen como referencia de la siguiente si la escena se repite.
-   **Pasar siempre el fotograma de la plantilla del plano equivalente como referencia adicional**
+   volviendo a la maestra de escena y a las fotos reales si la escena se repite, para evitar deriva acumulativa (regla 19 de imagen).
+   **Usar el fotograma equivalente como referencia de composición cuando sea compatible con la política de personas y los roles del modelo**
    (regla 10 de `reglas_videos.md`, añadida el 2026-09-08): la plantilla manda en **ángulo, encuadre,
    distancia de cámara y reparto de luz**; las fotos reales mandan en local, platos y vajilla; y el
    acabado editorial dramático (regla 17 vigente) prevalece sobre el grade de la plantilla. Lo más parecido posible,
    pero con el estilo del cliente. Decir en el prompt qué papel tiene cada referencia.
 5. **Presentar el lote completo de imágenes y esperar aprobación explícita** — regla 1 de
    `reglas_videos.md`. No lanzar `generate_video*` sin ese visto bueno.
-6. **Animar solo los planos que necesiten vídeo real**, eligiendo modelo por caso de uso (skill
-   §5ter). Los paneos y push/pull van en After Effects, gratis.
+6. **Animar solo los planos que necesiten vídeo real**, eligiendo una configuración cualificada del [registro de producción](../../informes/higgsfield/05-automatizacion-de-produccion.md). Los paneos y push/pull van en Remotion, sin créditos de generación; existe coste de render.
 7. **Montar en OpenMontage + Remotion** (`C:\Users\victo\OpenMontage\remotion-composer`, composición
    `TorreDeVegaReel`), con la tipografía aprobada y verificando contraste texto/fondo midiendo
    **y** mirando el fotograma a tamaño real. *(Cambio del cliente el 2026-09-17: deja de pagar After
-   Effects. Receta y trampas en `instagram/reel_09_carta_de_otono.md` §4ter.)*
-8. **Actualizar el `.md` del guion** con lo que se haya aprendido.
+   Effects. Receta y trampas en `../04-guiones-reels-reales/reel_09_carta_de_otono.md` §4ter.)*
+8. **Revisar el render completo**: QA técnico/fidelidad, predictor sobre máximo 16 s y aprobación G2 del hash, copy, canal y fecha antes de publicar.
+9. **Actualizar el `.md` del guion** con lo que se haya aprendido y registrar publicación/métricas si forman parte del encargo.
 
 ### Calidad primero, coste después
 
@@ -132,7 +137,7 @@ producto. Es un caso de uso distinto al carrusel de Instagram y tiene su propia 
   sabe de antemano que la web es oscura, generar los platos blancos directamente sobre carbón.
 
 Estado y pendientes en
-[`informes/2026-09-13_carta-web_mapa-de-imagenes.md`](informes/2026-09-13_carta-web_mapa-de-imagenes.md)
+[`informes/2026-09-13_carta-web_mapa-de-imagenes.md`](../05-informes-medidos/2026-09-13_carta-web_mapa-de-imagenes.md)
 — incluye los 33 productos que necesitan foto y 9 dudas de identificación abiertas con Jose.
 
 ### No «corregir» una imagen que el cliente aún no ha visto aplicando un criterio de otra pieza

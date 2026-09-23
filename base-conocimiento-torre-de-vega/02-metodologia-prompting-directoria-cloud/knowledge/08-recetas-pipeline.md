@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** referencia. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # 08 — Recetas de pipeline (end-to-end)
 
 Este archivo es el recetario práctico de DirectorIA-Cloud. Cada receta es un **pipeline completo, paso a paso**, que va desde "tengo una idea y unas referencias" hasta "tengo el clip final listo para publicar". No te enseña la teoría (eso está en los otros archivos): te dice exactamente qué modelo usar en cada paso, qué parámetros pasar, qué vigilar mientras se cocina y cómo iterar cuando algo sale mal.

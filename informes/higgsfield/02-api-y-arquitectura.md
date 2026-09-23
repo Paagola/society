@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** referencia. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> **Sustituido parcialmente el 2026-09-22:** [05-automatizacion-de-produccion.md](05-automatizacion-de-produccion.md) manda sobre proveedor, presupuesto, estados, plazos y puertas humanas. Se conservan como referencia autenticación, estados REST, polling 2→10 s, hf_webhook sin firma documentada, saldo API separado y retención ≥7 días. El ejemplo 1,5 cr/0,094 USD no establece tarifa ni equivalencia MCP. La ausencia en OpenAPI no prueba ausencia en todo REST: falta contrato equivalente verificado.
+
 # Nueva API de Higgsfield y encaje técnico en Society
 
 Fecha de comprobación: **19/09/2026**. Documento de investigación y diseño; no contiene una implementación de la aplicación ni llamadas de generación realizadas.

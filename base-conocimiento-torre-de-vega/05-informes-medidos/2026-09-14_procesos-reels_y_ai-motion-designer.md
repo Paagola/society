@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Procesos de Reels del proyecto + evaluación de Higgsfield AI Motion Designer
 
 **Fecha:** 2026-09-14
@@ -199,7 +206,7 @@ deshacer; guardar (`ae_save_project`) antes de pasar de uno a otro.
 7. **Estado de la conexión (2026-09-14):** AE 2026 instalado ✅ (cumple ambos requisitos, 24.0 y 25.0);
    conector `higgsfield-bridge` registrado en ámbito user ✅ (el endpoint existe: 401 con OAuth);
    **plugin sin instalar** ⛔ y bridge **sin autenticar** ⛔. El piloto está guionizado en
-   [`instagram/reel_08_volvemos_miercoles_16.md`](../instagram/reel_08_volvemos_miercoles_16.md).
+   [`instagram/reel_08_volvemos_miercoles_16.md`](../04-guiones-reels-reales/reel_08_volvemos_miercoles_16.md).
 
 ## Fuentes
 

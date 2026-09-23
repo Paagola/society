@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** referencia. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # 10 — Bullet Time y secuencias largas de un solo plano (mega-prompt de continuidad)
 
 > Origen: `Bullet Time AI Reel Prompt.pdf` (carpeta raíz de `directoria-cloud/`), un prompt de producción real para Higgsfield que genera un reel de **12 segundos, 9:16, un solo plano continuo**, con un accidente en bullet-time (tiempo casi congelado + cámara libre inspeccionando varios objetos) al estilo campaña de moda de lujo / videoclip premium.

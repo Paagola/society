@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** referencia. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # 09 — Vocabulario de plano/ángulo, modo orgánico y portabilidad a otras herramientas
 
 > Complemento a `05-biblia-hiperrealismo.md` y `00-metodologia-promptdirector.md`. Este archivo no introduce un método nuevo — añade tres piezas de vocabulario y criterio que faltaban: (A) cómo nombrar el **tipo de plano y ángulo de cámara** con precisión de dirección de foto, (B) un **modo específico** para cuando el objetivo NO es "anuncio premium perfecto" sino "foto real de una persona real, sin pulir" (contenido de creador/influencer, testimonios), y (C) cómo **portar** el mismo criterio a herramientas fuera de Higgsfield (Midjourney, Flux, Freepik, GPT-Image) cuando no hay MCP.

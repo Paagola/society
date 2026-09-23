@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../README.md).
+
+> **Actualización 2026-09-22:** el cerebro estratégico sustituye los criterios de confirmación, automatización y alcance. Este informe aporta contexto y diccionario de métricas; sus contratos de plataforma conservan fecha original y deben revalidarse. Los informes históricos de 90 días contienen asociaciones, no demostraciones causales.
+
 # Society
 
 ## Estrategia de redes sociales y ciclo de retroalimentación
@@ -351,8 +358,8 @@ Como los datos pueden retrasarse hasta 48 horas, cada captura guarda `capturado_
 Regla de clasificación inicial, adaptada del *deep research*:
 
 - **Ganadora en su métrica principal**: ≥ 1,5 × mediana, sin empeorar los guardarraíles.
-- **Patrón confirmado**: la misma variable gana en al menos 2 de 3 piezas.
-- **Patrón descartado**: no gana en 3 intentos consecutivos.
+- **Señal candidata**: la misma variable gana en al menos 2 de 3 piezas; no confirma causalidad ni suficiencia estadística.
+- **Revisión de hipótesis**: no gana en 3 intentos; comprobar muestra y contexto antes de descartarla.
 
 La prioridad de decisión es: resultado de negocio (conversaciones, reservas) > envíos y guardados > tiempo de visionado > me gusta > seguidores.
 

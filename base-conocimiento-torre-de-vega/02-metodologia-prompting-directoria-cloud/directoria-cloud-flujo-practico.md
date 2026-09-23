@@ -1,7 +1,14 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # Flujo práctico de creación de vídeo cinematográfico con IA
 
 > Apuntes de curso sobre generación de imagen/vídeo hiperrealista para anuncios, limpiados y estructurados como conocimiento de referencia.
-> Complementa [`directoria-cloud.md`](directoria-cloud.md) (el agente) y [`higgsfield-spec.md`](higgsfield-spec.md) (la plataforma): este archivo documenta el **flujo de trabajo real** paso a paso, con y sin Claude Code.
+> Complementa [`directoria-cloud.md`](directoria-cloud.md) (el agente) y `higgsfield-spec.md` (recurso no incluido: `higgsfield-spec.md`) (la plataforma): este archivo documenta el **flujo de trabajo real** paso a paso, con y sin Claude Code.
 
 ---
 
@@ -97,8 +104,8 @@ El cliente necesita ver un resultado tangible, no una demo abstracta: ofrecer si
 
 ## 7. Referencias cruzadas
 
-- **El agente y su protocolo de trabajo** → [`directoria-cloud.md`](directoria-cloud.md), [`directoria-cloud/SYSTEM_PROMPT.md`](directoria-cloud/SYSTEM_PROMPT.md)
-- **Specs de la plataforma Higgsfield (modelos, planes, precios)** → [`higgsfield-spec.md`](higgsfield-spec.md)
+- **El agente y su protocolo de trabajo** → [`directoria-cloud.md`](directoria-cloud.md), [`directoria-cloud/SYSTEM_PROMPT.md`](SYSTEM_PROMPT.md)
+- **Specs de la plataforma Higgsfield (modelos, planes, precios)** → `higgsfield-spec.md` (recurso no incluido: `higgsfield-spec.md`)
 - **Modelos de imagen en detalle** → `directoria-cloud/knowledge/02-modelos-imagen.md`
 - **Modelos de vídeo en detalle** → `directoria-cloud/knowledge/03-modelos-video.md`
 - **Biblia del hiperrealismo (escala, codas fotográficas)** → `directoria-cloud/knowledge/05-biblia-hiperrealismo.md`

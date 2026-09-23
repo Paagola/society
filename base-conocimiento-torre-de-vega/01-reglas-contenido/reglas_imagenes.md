@@ -1,3 +1,8 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
 # Reglas de imagen — Torre de Vega
 
 Restaurante de pueblo, casi 50 años, clientela fiel y buen renombre. El objetivo de todo contenido
@@ -6,7 +11,7 @@ vio en Instagram: no se vende una fantasía, se vende la promesa exacta del siti
 
 Este archivo cubre las reglas de **fotografía / imagen fija** (carruseles de plato, fotos de sala,
 carteles). Para reglas de **vídeo / Reels**, ver [`reglas_videos.md`](reglas_videos.md) — algunas
-reglas de este archivo (continuidad, personal sin cara, iluminación, variedad de género en manos) son
+reglas de este archivo (continuidad, ficha de personaje, iluminación, variedad de género en manos) son
 compartidas y también aplican a vídeo tal cual.
 
 ## PERFIL DE CLIENTE — DirectorIA
@@ -24,9 +29,11 @@ compartidas y también aplican a vídeo tal cual.
 - Tipos secundarios:      vídeo cinematográfico (bodega) — ver reglas_videos.md
 
 ## Personaje recurrente (identidad)
-- ¿Cara fija obligatoria? NO
-- Nota especial: personal del local (camareros, cocineros) SÍ puede aparecer, pero SIN CARA —
-  solo manos, brazos, gestos de trabajo. Válido hasta nueva orden del cliente.
+- ¿Cara fija obligatoria? NO por defecto, pero toda persona PROTAGONISTA exige ficha de
+  personaje aprobada antes de generar (reglas 2 y 18).
+- Nota especial: personal del local (camareros, cocineros) y clientes SÍ pueden aparecer con
+  cara. Protagonista → con ficha. De fondo → sin requisito. Empleado real identificable →
+  con su consentimiento. Actualizado 2026-09-22.
 
 ## Plataforma y formato
 - Dónde se publica:       Instagram
@@ -72,32 +79,38 @@ principal.
 **Aplica también a vídeo**: cada fotograma/escena de un Reel sigue esta misma regla — ver
 `reglas_videos.md`.
 
-## 2. Rostros — preferencia, no regla dura (rebajada 2026-09-08)
+## 2. Personas en cuadro — permitidas, con ficha de personaje obligatoria (actualizada 2026-09-22)
 
-> **Cambio 2026-09-08 por indicación del cliente:** esta regla deja de ser dura y pasa a ser
-> **secundaria**. Literal: *"si se puede evitar se evita, sino no pasa nada"*.
+> **Historial:** regla dura de «sin rostros» hasta 2026-09-08 → rebajada a preferencia ese día
+> (*«si se puede evitar se evita, sino no pasa nada»*) → **derogada el 2026-09-22 por indicación del
+> usuario**. Ya no existe ninguna restricción de marca contra mostrar personas.
 
-**Cómo aplicarlo ahora:**
-- **Por defecto**, seguir prefiriendo encuadres de manos, brazos, torso y gestos de servir/cocinar.
-  Es el registro que ya está validado en todo el material aprobado y mantiene la coherencia visual.
-- **Si el formato lo pide, la cara puede salir.** Ya no bloquea un guion ni obliga a recortar. Los
-  formatos de persona a cámara (reseña, primer plano comiendo, presentación de plato) quedan
-  desbloqueados.
-- Ya no hay que evitar rostros parciales "por accidente" (perfil, reflejo en cristal). Deja de ser
-  un defecto.
+**Las personas SÍ salen.** Una cara humana es el mayor activador de engagement que existe y era la
+única palanca grande que el proyecto tenía bloqueada por regla. No hay que evitar rostros, ni
+recortar encuadres, ni descartar un guion porque pida a alguien a cámara. Los formatos de persona a
+cámara (reseña, primer plano comiendo, presentación de plato, talking head) quedan desbloqueados.
 
-**Matiz que sí se mantiene — el porqué original era la privacidad del personal.** Esa regla se puso
-para proteger a empleados reales, no por estética. Así que conviene distinguir:
+**La única condición es la consistencia.** Se distinguen dos categorías, y solo una tiene requisito:
+
+| Categoría | Qué es | Requisito |
+|---|---|---|
+| **Personaje protagonista** | Cualquier persona que la pieza identifica: habla a cámara, presenta el plato, protagoniza el gesto, o reaparece en más de un plano o en más de una pieza | **Ficha de personaje aprobada ANTES de generar nada** (regla 18). Sin ficha no se genera. |
+| **Personas de fondo** | Comensales, siluetas, gente de paso, personal cuyo cuerpo o manos aparecen sin ser el sujeto del plano | Ninguno. Solo aplican las reglas 5, 7 y 7bis (variedad y naturalidad). |
+
+**Por qué la ficha:** sin una identidad fijada, el mismo camarero cambia de cara entre el plano 2 y
+el plano 5, y entre un Reel y el siguiente. Esa deriva rompe la marca mucho más de lo que la rompía
+una cara de más. La ficha convierte a la persona en un activo reutilizable de la cuenta, no en un
+extra desechable.
+
+**Matiz que se mantiene, y es legal, no estético:**
 
 | Caso | Situación |
 |---|---|
 | Persona genérica generada por IA | Sin problema. No hay ninguna persona real implicada. |
-| Empleado real identificable | Hace falta que esa persona esté de acuerdo. No es una regla de marca, es que sale su cara en publicidad. |
+| Empleado real identificable | Hace falta que esa persona esté de acuerdo. No es una regla de marca: es que sale su cara en publicidad. |
 
-**Por qué importa el cambio:** una cara humana es el mayor activador de engagement que existe, y era
-la única palanca grande que teníamos bloqueada por regla. Ver la Parte II de `documentación.md`,
-sección 3: las mediciones dicen que lo que sube la activación es la información por fotograma, y una
-persona en primer plano aporta muchísima.
+Sigue vigente además la regla 18.2: **nunca** replicar a la persona que aparece en un vídeo ajeno
+usado como plantilla.
 
 **Aplica también a vídeo** — ver `reglas_videos.md`.
 
@@ -112,7 +125,7 @@ Tono dominante coherente con la experiencia real del local: luz cálida de resta
 (ambiente, no luz de estudio plano). Para foco de producto (plato), se permite un toque de luz más
 dirigida tipo editorial si no traiciona el ambiente real de la sala.
 
-Describir la luz siempre **en texto** (temperatura de color en K, tipo de fuente) — nunca forzar una
+Describir la luz siempre **en texto** (temperatura de color en K, tipo de fuente) — no imponer una
 imagen de referencia de mood/luz compartida entre varias generaciones del mismo lote (arrastra rasgos
 faciales y repite personas de forma detectable).
 
@@ -121,8 +134,9 @@ igual de importante en prompts de vídeo — ver `reglas_videos.md`.
 
 ## 5. Perfil demográfico de las personas
 
-Sin personal con cara (regla 2). Si aparecen clientes de fondo, variar edad/complexión/vestuario entre
-generaciones del mismo lote — nunca repetir el mismo tipo de persona en dos tomas seguidas.
+A los protagonistas los fija su ficha de personaje (reglas 2 y 18); esta regla no les aplica. Para las
+**personas de fondo**: variar edad/complexión/vestuario entre generaciones del mismo lote — nunca
+repetir el mismo tipo de persona en dos tomas seguidas.
 
 ## 6. Varias referencias del mismo sujeto → usarlas todas juntas
 
@@ -174,8 +188,7 @@ plato/lifestyle (no en fotos de producto puro tipo carrusel cenital). Referencia
   una mesa de madera, barril o barra que no exista en esa ubicación.
 - **Todo lo que queda fuera del radio de la mesa se disuelve en bokeh cálido abstracto** — sin arcos,
   sillas ni estanterías legibles de fondo. El fondo aporta solo luz y color, no arquitectura.
-- **Mano SÍ, pero solo dedos/pulgar — nunca cara, nunca muñeca/brazo completo** (coherente con la regla 2
-  de personal sin cara, extendida aquí también a clientes de foto). La mano interactúa con la comida:
+- **La persona puede aparecer con cara, brazo o mano según el encuadre.** Si protagoniza el gesto, necesita ficha aprobada (reglas 2 y 18). La mano interactúa con la comida:
   sujeta el tenedor y levanta un trozo de plato hacia cámara, ese trozo es el punto de mayor nitidez.
 - **Un segundo elemento real y cercano, ligeramente desenfocado**, aporta contexto de consumo: una copa o
   botella real de la carta (ej. `imagenes/cerveza_aguila*.jpg`) apoyada en la misma mesa, nunca en primer
@@ -294,7 +307,7 @@ Aprobado 2026-08-31 por el cliente: "las fotografías de las gambas que has gene
 1. **Cenital puro producto** (`gambas_01_cenital.png`) — overhead/top-down sobre la superficie real de mesa del propio plato (aquí el barril con marca "Cillar de Silos"), sin manos, espacio negativo limpio para texto posterior.
 2. **3/4 cercano** (`gambas_02_34_cercano.png`) — ángulo alto a ~45°, cámara baja, plato desplazado de centro en tercios, fondo real de la sala disuelto en bokeh cálido.
 3. **Detalle de textura** (`gambas_03_detalle.png`) — extreme close-up/insert shot, sin plato ni mesa visibles, solo la comida y sus imperfecciones (burbujas de aceite, perejil, textura de la gamba).
-4. **Plano de contexto de mesa** (`gambas_04_contexto_mesa.png`) — mesa real distinta (mantel blanco) como superficie, mano solo dedos/pulgar sin cara ni muñeca sujetando el plato, un segundo elemento real de la carta (copa/botella) desenfocado de fondo — aplicación directa de la regla 9 a un carrusel de producto en vez de a un cartel.
+4. **Plano de contexto de mesa** (`gambas_04_contexto_mesa.png`) — mesa real distinta (mantel blanco) como superficie, mano sujetando el plato (encuadre histórico aprobado; hoy se permiten cara y brazo, con ficha si protagoniza), un segundo elemento real de la carta (copa/botella) desenfocado de fondo — aplicación directa de la regla 9 a un carrusel de producto en vez de a un cartel.
 
 **Cómo aplicarlo**: el vocabulario de tipo de plano/ángulo usado (overhead, three-quarter high angle, extreme close-up insert shot, medium shot) viene de `directoria-cloud/knowledge/09-vocabulario-plano-y-modo-organico.md` — consultarlo para nombrar el plano con precisión en vez de dejarlo implícito. Para el resto de platos del carrusel, repetir esta misma secuencia de 4 tomas salvo que el plato pida otra cosa (p. ej. un plato que no tenga sentido en cenital).
 
@@ -324,7 +337,7 @@ plato. Rechazado explícitamente por el cliente ("quedan horrible") la primera v
 de solomillo junto a la chimenea.
 
 **❌ Rechazado — plano de acción tipo "cortándose" (cuchillo cortando el corte, mano sujetando el cuchillo en
-primer plano dominante).** Aunque cumple la regla de "solo mano, nunca cara", el resultado de este tipo de
+primer plano dominante).** Aunque cumplía la antigua regla de encuadre sin cara, hoy derogada, el resultado de este tipo de
 plano (cuchillo + carne ocupando la mayor parte del encuadre, fondo apenas visible) no ha gustado al cliente.
 No usar este tipo de composición de "acción con cuchillo en primer plano" como plano por defecto.
 
@@ -371,7 +384,7 @@ Si en algún momento la pieza es para otro uso que si aproveche más resolución
 grande), pedir explícitamente al cliente confirmación antes de subir a 4K para ese caso concreto.
 
 **Excepción — keyframes que se van a animar a vídeo:** si la imagen fija es el punto de partida de una
-escena de Reel (se va a animar con Kling después), pedirla en 1080 en vez de 2K — ver regla 2bis de
+escena de Reel (se va a animar con Kling después), mantener 2K; la antigua excepción 1080 está sustituida — ver regla 2bis de
 `reglas_videos.md`.
 
 ## 13. Variedad de género en manos — cuando aparece más de una mano
@@ -386,7 +399,7 @@ Añadido 2026-09-05 por indicación del cliente.
 - Escenas de brindis o con 2+ manos: especificar explícitamente en el prompt el género de cada mano por separado (ej. "one hand is a woman's, with painted nails; the other is a man's, larger with visible hair"), nunca dejarlo genérico.
 - Con 3+ manos: mantener siempre al menos una de cada género, y si se reparte de forma desigual, que gane el número de manos de mujer.
 - A nivel de lote/serie completa (no solo dentro de un encuadre): al elegir qué mano protagoniza cada escena de mano única (sujetando botella, sirviendo, etc.), priorizar manos de mujer en más ocasiones que manos de hombre.
-- Sigue aplicando la regla 2 (nunca cara) y la regla 7bis (naturalidad, sin gestos idénticos simultáneos).
+- Sigue aplicando la regla 2 (personas permitidas; ficha si protagonizan) y la regla 7bis (naturalidad, sin gestos idénticos simultáneos).
 
 **Aplica también a vídeo**: la misma variedad de género en manos aplica a cada frame/escena de un Reel —
 ver `reglas_videos.md`.
@@ -499,32 +512,52 @@ no phone-snapshot look.
 **solo** luz, contraste, grano y profundidad de campo — nunca licencia para inventar mobiliario,
 vajilla o comida que no exista en el local.
 
-## 18. Personas en vídeo — imagen de referencia previa, y nunca la persona del vídeo original
+## 18. Ficha de personaje — obligatoria antes de generar a un protagonista
 
-Añadido 2026-09-08 por indicación del cliente, al desbloquearse la regla 2 (rostros).
+Añadida 2026-09-08 al rebajarse la regla 2. **Elevada a requisito duro el 2026-09-22**, cuando las
+personas quedaron desbloqueadas del todo: si ya no hay una regla que impida mostrar caras, lo único
+que puede romper la marca es que la cara cambie de un plano a otro. Esta regla lo impide.
 
-**Regla, dos partes:**
+**Regla:** ninguna generación de imagen o vídeo en la que una persona sea **protagonista** (regla 2)
+se lanza sin una ficha de personaje aprobada. Las personas de fondo no la necesitan.
 
-1. **Antes de generar un vídeo con una persona, generar primero su imagen de referencia** y
-   aprobarla. Esa imagen es la que fija la cara, el pelo, la ropa y la complexión, y se pasa como
-   referencia a todas las generaciones donde aparezca. Sin ella no hay continuidad: la persona cambia
-   de cara entre planos, y entre un Reel y el siguiente.
+### Qué contiene la ficha
 
-2. **Nunca puede ser la misma persona que aparece en el vídeo de referencia.** Si se usa un Reel
-   ajeno como plantilla, la persona generada tiene que ser claramente otra: distinta cara, distinto
-   pelo, distinta complexión, distinta ropa.
+Un archivo por personaje en `personajes/<nombre>.md`, más su imagen de referencia aprobada:
 
-**Por qué la segunda parte:** el vídeo plantilla se usa para copiar **estructura y ritmo**, nunca a
-la persona. Replicar el rostro de alguien real que sale en el vídeo de otro sería apropiarse de su
-imagen — esa persona no ha dado permiso para aparecer promocionando Torre de Vega. Es el mismo
-principio de la regla 1 aplicado a personas: se copia el formato, no el contenido.
+1. **Nombre interno y papel** — «Marta, camarera de sala»; «Nuria, clienta habitual».
+2. **Rasgos fijos** — edad aparente, complexión, tono de piel, pelo (color, largo, peinado), rasgos
+   faciales, vello facial, gafas, tatuajes o marcas visibles. Redactados **en inglés**, tal cual se
+   van a pegar al prompt, para que no se reescriban distinto cada vez.
+3. **Vestuario canónico** — para personal, el uniforme real de la regla 21. Para clientes, un
+   vestuario definido y repetible.
+4. **Imagen de referencia maestra** — generada con `nano_banana_pro` a 2k, guardada en
+   `imagenes/personas/`, con su `job_id` / `media_id` anotado en la ficha. Ese id se pasa como
+   `image_references` en **todas** las generaciones donde aparezca el personaje.
+5. **Plano de presentación** — el encuadre con el que se presentó al personaje (distancia, altura de
+   cámara, focal aproximada), para poder volver a él cuando haya que reanclar la identidad.
+6. **Qué NO hace** — límites de registro: si el personaje no habla a cámara, no baila o no toca la
+   comida, se escribe aquí para que ningún guion posterior lo rompa.
 
-**Cómo aplicarlo:**
-- Generar la imagen de referencia con `nano_banana_pro` a 2k y guardarla en `imagenes/personas/`.
-- Describir explícitamente en el prompt rasgos **distintos** a los del vídeo plantilla.
-- Reutilizar siempre el mismo `job_id` / `media_id` de esa imagen como `image_references` en cada
-  generación posterior, igual que se hace con las fotos reales del local.
-- Si la persona va a ser un empleado real, aplica el matiz de la regla 2: tiene que estar de acuerdo.
+### Cómo se usa
+
+- **Antes de escribir el guion:** decidir qué personaje sale y abrir su ficha. Si no existe, crearla
+  y aprobar su imagen maestra **antes** de generar una sola escena de la pieza.
+- **En cada generación:** pasar el `job_id` de la imagen maestra como referencia, además de las
+  fotos reales del local y del plato, y pegar los rasgos fijos en el prompt.
+- **Al animar a vídeo:** la imagen maestra —o una imagen de escena ya anclada en ella— va como
+  `start_image`.
+- **Después de cada pieza:** si el personaje evoluciona (corte de pelo, uniforme nuevo), se
+  actualiza la ficha. La deriva del modelo no decide la identidad; la decide la ficha.
+
+### Dos límites que no se tocan
+
+1. **Nunca la persona del vídeo plantilla.** Si se usa un Reel ajeno como referencia de estructura,
+   el personaje generado tiene que ser claramente otro: distinta cara, distinto pelo, distinta
+   complexión, distinta ropa. Del vídeo ajeno se copia el formato y el ritmo, nunca la persona:
+   replicar el rostro de alguien real sería apropiarse de su imagen, y esa persona no ha dado
+   permiso para aparecer promocionando Torre de Vega. Es la regla 1 aplicada a personas.
+2. **Empleado real identificable → su consentimiento** (regla 2).
 
 ## 19. Escenas de mismo ángulo — encadenar imágenes de referencia SIEMPRE
 
@@ -551,7 +584,9 @@ basta con repetir el prompt: dos generaciones con el mismo texto dan dos mesas d
 Aplica igual al formato de acumulación (mesa que se llena) y a cualquier serie con encuadre fijo.
 Ver `instagram/reel_02_mesa_que_se_llena.md`, fase A.
 
-## 20. Efectos de texto por capas en After Effects — recurso validado
+## 20. Efectos de texto por capas — intención vigente, técnica AE histórica
+
+Desde 2026-09-17 se resuelven en Remotion como capas, máscaras y entradas temporizadas. La receta AE siguiente es histórica y no activa esa herramienta.
 
 Añadido 2026-09-08: **al cliente le gustan** los efectos donde el texto aparece al retirarse un
 elemento, o queda por detrás de un objeto. Usarlos cuando el guion lo permita.
@@ -622,7 +657,7 @@ Exigido por el cliente el 2026-09-08, después de detectar que se estaban escrib
 libre ignorando la metodología del proyecto.
 
 **Regla:** todo prompt de imagen se construye con
-[`directoria-cloud/templates/prompt-imagen.md`](../directoria-cloud/templates/prompt-imagen.md). No es
+[`directoria-cloud/templates/prompt-imagen.md`](../02-metodologia-prompting-directoria-cloud/templates/prompt-imagen.md). No es
 orientativo.
 
 ### Las dos partes
@@ -648,8 +683,8 @@ orientativo.
 | Campo de la plantilla | Qué pide | Qué manda en Torre de Vega |
 |---|---|---|
 | `film_stock` | Kodak Portra 400, Vision3 500T, grano de película | **Regla 17 vigente (2026-09-10).** Se rellena con el acabado dramático: `warm cinematic colour grade around 3000-3300K, heavy contrast with deep near-black shadows, visible fine film grain`. *(Corregido el 2026-09-14: decía `iPhone capture, no film grain`.)* |
-| `aperture_f` | f/1.8-2.2, profundidad corta, bokeh cremoso | **Regla 17.** Profundidad amplia y fondo legible → f/5.6-8 |
-| `cct_k` | Cálido dramático | **Regla 9ter.** ~4300K, blancos neutros |
+| `aperture_f` | f/1.8-2.2, profundidad corta, bokeh cremoso | **Regla 17 vigente.** Profundidad corta permitida según composición; no obliga a fondo siempre legible |
+| `cct_k` | Cálido dramático | **Regla 17 vigente.** ~3000–3300K como intención de look; 9ter se conserva como antecedente, salvo excepción de pieza aprobada |
 
 La estructura de la plantilla es obligatoria; **los valores los mandan las reglas de este fichero.**
 
@@ -657,7 +692,7 @@ La estructura de la plantilla es obligatoria; **los valores los mandan las regla
 
 ## 24. El modelo se inventa el logo de la marca sobre la mantelería — prohibirlo por su nombre
 
-Incidente 2026-09-09, generando la banda 1 del [Reel 04](../instagram/reel_04_volvemos_16.md). El
+Incidente 2026-09-09, generando la banda 1 del [Reel 04](../04-guiones-reels-reales/reel_04_volvemos_16.md). El
 prompt cerraba, como manda la plantilla, en `no text, no logo, no watermark`, y aun así
 `nano_banana_pro` devolvió una servilleta de papel con **`TORRE DE VEGA` impreso y un emblema
 encima**, inventados de cero.
@@ -751,7 +786,7 @@ franja sospechosa de todas las tomas a la vez — ahí las manchas cantan y la t
 ## 28. Fotos de producto para la carta web — fondo blanco + `multiply`, nunca recorte a alfa
 
 Añadido 2026-09-13, al producir las 38 imágenes de plato de la carta web
-(ver [`informes/2026-09-13_carta-web_mapa-de-imagenes.md`](../informes/2026-09-13_carta-web_mapa-de-imagenes.md)).
+(ver [`informes/2026-09-13_carta-web_mapa-de-imagenes.md`](../05-informes-medidos/2026-09-13_carta-web_mapa-de-imagenes.md)).
 
 **El caso de uso es distinto al carrusel de Instagram**: aquí el plato tiene que quedar aislado, a
 78-82 px, junto al nombre y el precio, sobre el fondo claro de la página (`#e9ecef` en esta web). No
@@ -838,7 +873,7 @@ los platos blancos** y sobre blanco los oscuros. Ahorra la ronda de regeneració
 
 - [ ] ¿Todos los elementos del encuadre (mobiliario, cuadros, manteles, decoración) existen de verdad
       en las fotos de referencia del local?
-- [ ] Si hay personal del local en el encuadre, ¿está garantizado que no se ve la cara?
+- [ ] Si hay protagonista, ¿tiene ficha e imagen maestra aprobadas? Si es un empleado real identificable, ¿hay consentimiento? El fondo incidental no necesita ficha.
 - [ ] ¿El plato/bodega protagoniza el encuadre según corresponda?
 - [ ] ¿La luz está descrita en texto (K, tipo de fuente) en vez de forzada por imagen de referencia
       compartida?

@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 
 ---
 
@@ -8,12 +15,12 @@ Las tres bandas están generadas y descargadas. Coste real: **10 créditos** (5 
 
 | Banda | `job_id` | Fichero |
 |---|---|---|
-| 1 · `13:00` | `ac591f81-77f5-4a2a-8533-1fbe25a55096` | [`04_banda1_13h00.png`](../imagenes/generadas/reel_04_volvemos_16/04_banda1_13h00.png) |
-| 2 · `13:20` | `c479cdf9-1ce1-4602-bc68-99009656fa7e` | [`04_banda2_13h20.png`](../imagenes/generadas/reel_04_volvemos_16/04_banda2_13h20.png) |
-| 3 · `14:00` | `7e4628e4-2f03-4b0b-9dd4-653e6fb4abe4` | [`04_banda3_14h00.png`](../imagenes/generadas/reel_04_volvemos_16/04_banda3_14h00.png) |
+| 1 · `13:00` | `ac591f81-77f5-4a2a-8533-1fbe25a55096` | `04_banda1_13h00.png` (recurso no incluido: `../imagenes/generadas/reel_04_volvemos_16/04_banda1_13h00.png`) |
+| 2 · `13:20` | `c479cdf9-1ce1-4602-bc68-99009656fa7e` | `04_banda2_13h20.png` (recurso no incluido: `../imagenes/generadas/reel_04_volvemos_16/04_banda2_13h20.png`) |
+| 3 · `14:00` | `7e4628e4-2f03-4b0b-9dd4-653e6fb4abe4` | `04_banda3_14h00.png` (recurso no incluido: `../imagenes/generadas/reel_04_volvemos_16/04_banda3_14h00.png`) |
 
 Maqueta de los tres estados de revelado, para ver el formato de un vistazo:
-[`maqueta_3_estados.jpg`](../imagenes/generadas/reel_04_volvemos_16/maqueta_3_estados.jpg).
+`maqueta_3_estados.jpg` (recurso no incluido: `../imagenes/generadas/reel_04_volvemos_16/maqueta_3_estados.jpg`).
 Las bandas ya recortadas a 1080×640 están en `band_1.png`, `band_2.png` y `band_3.png`.
 
 **`media_id` de las referencias reales** (válidos 24 h desde 2026-09-09 18:04 UTC):
@@ -43,7 +50,7 @@ fotograma de plantilla B `88340239-ea4f-4bcd-884d-85b74769307b` · `gambas`
 2. ⚠️ **Segunda pasada: el modelo se inventó una servilleta con el logo `TORRE DE VEGA` impreso.**
    El prompt ya cerraba en `no text, no logo, no watermark` y aun así lo generó. Hizo falta
    prohibirlo por su nombre en `environment` **y** en `negatives`. Ver la regla 24 nueva de
-   [`reglas_imagenes.md`](../imagenes/reglas_imagenes.md).
+   [`reglas_imagenes.md`](../01-reglas-contenido/reglas_imagenes.md).
 
 ### Lo que queda flojo, dicho claramente
 

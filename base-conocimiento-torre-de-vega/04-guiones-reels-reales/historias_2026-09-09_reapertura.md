@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Historias — semana del 9 al 15 de septiembre de 2026 (semana de cierre, reapertura el 16)
 
 **Fecha:** 2026-09-09
@@ -30,12 +37,12 @@ de reapertura.
 
 | Token | Fichero real | `media_id` Higgsfield | Papel |
 |---|---|---|---|
-| `@image1` (H1) | [`imagenes/local/mesa-chimenea.jpg`](../imagenes/local/mesa-chimenea.jpg) | `8cd399e3-795b-45a3-8294-ea1dd25bfbda` | **Manda en todo el encuadre**: mantel, vajilla, sillas, ladrillo, chimenea de piedra, repisa, cuadro del caballo |
-| `@image2` (H1) | [`imagenes/local/panoramica.png`](../imagenes/local/panoramica.png) | `fee9fb24-66a9-4cf0-850f-be5d7e9f52f7` | Comedor grande al fondo: filas de mesas, columnas, lámparas, suelo, trofeo de ciervo real |
-| `@image3` (H1) | [`imagenes/local/mesa-chimenea2.jpg`](../imagenes/local/mesa-chimenea2.jpg) | `3e7dbc58-52eb-461a-8bc4-c1d9602f45ee` | Segundo ángulo del mismo rincón de chimenea (regla 6) |
-| `@image1` (H2) | [`imagenes/comida/gambas.jpg`](../imagenes/comida/gambas.jpg) | `c2f00871-3c93-43cf-9c5d-5cb6a028c304` | Identidad del plato: cazuela de barro, gambas, aceite, guindilla, tomate, perejil |
-| `@image2` (H2) | [`imagenes/comida/gambas2.jpg`](../imagenes/comida/gambas2.jpg) | `0e6a1e4d-834b-4364-9258-8816917892d2` | Segundo ángulo del mismo plato (regla 6) |
-| `@image3` (H2) | [`imagenes/local/mantel_blanco.jpg`](../imagenes/local/mantel_blanco.jpg) | `4c3adfb4-7ca6-44e3-a684-a868f8d78df1` | Superficie real de mesa (el barril de `@image1/@image2` se sustituye por mantel para no arrastrar el rótulo "CILLAR DE SILOS DESDE 1994", que el modelo destrozaría) |
+| `@image1` (H1) | `imagenes/local/mesa-chimenea.jpg` (recurso no incluido: `../imagenes/local/mesa-chimenea.jpg`) | `8cd399e3-795b-45a3-8294-ea1dd25bfbda` | **Manda en todo el encuadre**: mantel, vajilla, sillas, ladrillo, chimenea de piedra, repisa, cuadro del caballo |
+| `@image2` (H1) | `imagenes/local/panoramica.png` (recurso no incluido: `../imagenes/local/panoramica.png`) | `fee9fb24-66a9-4cf0-850f-be5d7e9f52f7` | Comedor grande al fondo: filas de mesas, columnas, lámparas, suelo, trofeo de ciervo real |
+| `@image3` (H1) | `imagenes/local/mesa-chimenea2.jpg` (recurso no incluido: `../imagenes/local/mesa-chimenea2.jpg`) | `3e7dbc58-52eb-461a-8bc4-c1d9602f45ee` | Segundo ángulo del mismo rincón de chimenea (regla 6) |
+| `@image1` (H2) | `imagenes/comida/gambas.jpg` (recurso no incluido: `../imagenes/comida/gambas.jpg`) | `c2f00871-3c93-43cf-9c5d-5cb6a028c304` | Identidad del plato: cazuela de barro, gambas, aceite, guindilla, tomate, perejil |
+| `@image2` (H2) | `imagenes/comida/gambas2.jpg` (recurso no incluido: `../imagenes/comida/gambas2.jpg`) | `0e6a1e4d-834b-4364-9258-8816917892d2` | Segundo ángulo del mismo plato (regla 6) |
+| `@image3` (H2) | `imagenes/local/mantel_blanco.jpg` (recurso no incluido: `../imagenes/local/mantel_blanco.jpg`) | `4c3adfb4-7ca6-44e3-a684-a868f8d78df1` | Superficie real de mesa (el barril de `@image1/@image2` se sustituye por mantel para no arrastrar el rótulo "CILLAR DE SILOS DESDE 1994", que el modelo destrozaría) |
 
 ---
 
@@ -240,8 +247,8 @@ Las dos salieron a la primera, sin reintentos. Coste real: **33 créditos**. Sal
 
 | Pieza | `job_id` | Fichero | Tamaño |
 |---|---|---|---|
-| Historia 1 | `51cb1de9-9941-48b9-b42f-f5149484a088` | [`imagenes/generadas/historias_reapertura/historia_01_volvemos_el_16.png`](../imagenes/generadas/historias_reapertura/historia_01_volvemos_el_16.png) | 1520×2688 |
-| Historia 2 | `d252c723-aa3a-4cdc-963f-165df1648787` | [`imagenes/generadas/historias_reapertura/historia_02_que_vas_a_pedir.png`](../imagenes/generadas/historias_reapertura/historia_02_que_vas_a_pedir.png) | 1520×2688 |
+| Historia 1 | `51cb1de9-9941-48b9-b42f-f5149484a088` | `imagenes/generadas/historias_reapertura/historia_01_volvemos_el_16.png` (recurso no incluido: `../imagenes/generadas/historias_reapertura/historia_01_volvemos_el_16.png`) | 1520×2688 |
+| Historia 2 | `d252c723-aa3a-4cdc-963f-165df1648787` | `imagenes/generadas/historias_reapertura/historia_02_que_vas_a_pedir.png` (recurso no incluido: `../imagenes/generadas/historias_reapertura/historia_02_que_vas_a_pedir.png`) | 1520×2688 |
 
 ### Verificación contra la sección 5
 

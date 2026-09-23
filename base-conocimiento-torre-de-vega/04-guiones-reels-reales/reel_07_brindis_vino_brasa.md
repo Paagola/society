@@ -1,7 +1,14 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 07 — «Brindis» (vino de la carta + plato de la brasa)
 
 **Fecha:** 2026-09-10
-**Plantilla base:** [`plantillas/2026-09-08/07_brindis-vino-y-plato-flambeado_11s.mp4`](../plantillas/2026-09-08/07_brindis-vino-y-plato-flambeado_11s.mp4)
+**Plantilla base:** `plantillas/2026-09-08/07_brindis-vino-y-plato-flambeado_11s.mp4` (recurso no incluido: `../plantillas/2026-09-08/07_brindis-vino-y-plato-flambeado_11s.mp4`)
 (medida el 2026-09-08: hook 30 · overall 44 · viral 42 · sustain 96. Pasó el filtro de contenido:
 vino + carne a la brasa)
 **Formato:** 9:16, ~10 s, alterna bodegón de mesa / brindis en detalle / sala real / detalle
@@ -54,8 +61,8 @@ está sirviendo desde el fotograma 1, igual que en la plantilla.
 
 ## 2. Decisiones del cliente (resueltas 2026-09-10)
 
-1. **Vino:** `Solear` (manzanilla Barbadillo) — [`imagenes/vinos/solear.jpg`](../imagenes/vinos/solear.jpg).
-2. **Plato de brasa:** solomillo cortado — [`imagenes/comida/solomillo_cortado.jpg`](../imagenes/comida/solomillo_cortado.jpg).
+1. **Vino:** `Solear` (manzanilla Barbadillo) — `imagenes/vinos/solear.jpg` (recurso no incluido: `../imagenes/vinos/solear.jpg`).
+2. **Plato de brasa:** solomillo cortado — `imagenes/comida/solomillo_cortado.jpg` (recurso no incluido: `../imagenes/comida/solomillo_cortado.jpg`).
 3. **Llama:** sin fuego en cuadro. El plato va ya emplatado, con marcas de parrilla pero sin llama
    activa (regla 22 cumplida sin depender de metraje real).
 4. **Cierre:** dos copas / dos manos, una de cada género (regla 6).
@@ -66,11 +73,11 @@ está sirviendo desde el fotograma 1, igual que en la plantilla.
 
 | Uso | Fichero |
 |---|---|
-| Mesa llena / mantelería | [`imagenes/local/mesa-ventana.jpg`](../imagenes/local/mesa-ventana.jpg), [`imagenes/local/mantel_blanco.jpg`](../imagenes/local/mantel_blanco.jpg) |
-| Comedor / sala real | [`imagenes/local/mesas-restaurante2.jpg`](../imagenes/local/mesas-restaurante2.jpg), [`imagenes/local/panoramica-restaurante.jpg`](../imagenes/local/panoramica-restaurante.jpg) |
-| Barra / botellero real | [`imagenes/local/barra_botellas.jpg`](../imagenes/local/barra_botellas.jpg), [`imagenes/local/mesa-barra.jpg`](../imagenes/local/mesa-barra.jpg) |
-| Detalle decorativo real | [`imagenes/local/chimenea-restaurante.jpg`](../imagenes/local/chimenea-restaurante.jpg), [`imagenes/local/chimenea2.jpg`](../imagenes/local/chimenea2.jpg) |
-| Copa real | [`imagenes/vinos/copa-vino-grande.jpg`](../imagenes/vinos/copa-vino-grande.jpg), [`imagenes/vinos/copa-vino.jpg`](../imagenes/vinos/copa-vino.jpg) |
+| Mesa llena / mantelería | `imagenes/local/mesa-ventana.jpg` (recurso no incluido: `../imagenes/local/mesa-ventana.jpg`), `imagenes/local/mantel_blanco.jpg` (recurso no incluido: `../imagenes/local/mantel_blanco.jpg`) |
+| Comedor / sala real | `imagenes/local/mesas-restaurante2.jpg` (recurso no incluido: `../imagenes/local/mesas-restaurante2.jpg`), `imagenes/local/panoramica-restaurante.jpg` (recurso no incluido: `../imagenes/local/panoramica-restaurante.jpg`) |
+| Barra / botellero real | `imagenes/local/barra_botellas.jpg` (recurso no incluido: `../imagenes/local/barra_botellas.jpg`), `imagenes/local/mesa-barra.jpg` (recurso no incluido: `../imagenes/local/mesa-barra.jpg`) |
+| Detalle decorativo real | `imagenes/local/chimenea-restaurante.jpg` (recurso no incluido: `../imagenes/local/chimenea-restaurante.jpg`), `imagenes/local/chimenea2.jpg` (recurso no incluido: `../imagenes/local/chimenea2.jpg`) |
+| Copa real | `imagenes/vinos/copa-vino-grande.jpg` (recurso no incluido: `../imagenes/vinos/copa-vino-grande.jpg`), `imagenes/vinos/copa-vino.jpg` (recurso no incluido: `../imagenes/vinos/copa-vino.jpg`) |
 | Vino (candidatos, pendiente elección) | ver bloqueo 1 |
 | Plato de brasa (candidatos, pendiente elección) | ver bloqueo 2 |
 

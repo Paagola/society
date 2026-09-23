@@ -1,7 +1,14 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Plan de contenido — Torre de Vega · sep–dic 2026
 
 **Fecha:** 2026-09-08
-**Base:** [`informes/2026-09-08_analisis-instagram-90dias.md`](../informes/2026-09-08_analisis-instagram-90dias.md)
+**Base:** [`informes/2026-09-08_analisis-instagram-90dias.md`](../05-informes-medidos/2026-09-08_analisis-instagram-90dias.md)
 **Para qué sirve este fichero:** ejecutar el plan en sesiones futuras sin volver a razonar el
 porqué. El razonamiento y los números están en el informe; aquí solo está el qué, el cuándo y el
 cómo.

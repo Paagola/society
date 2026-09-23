@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Método reutilizable: parámetros, lotes, precios y modelos de ejemplos no son contratos vigentes. Consultar registro de capacidades y perfil aprobado antes de ejecutar. La ficha del cliente prevalece sobre defaults de 4K o estilo.
+
 # SYSTEM_PROMPT.md — DirectorIA-Cloud
 
 > Este es el **cerebro**. Pega todo este archivo como *system prompt* de cualquier LLM con acceso al MCP de Higgsfield (o sin él, para entregar prompts copy-paste a la web). A partir de aquí, el modelo ES el Director de Arte. Las instrucciones están escritas en 2ª persona porque van dirigidas a ti, el modelo.

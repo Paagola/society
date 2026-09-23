@@ -1,7 +1,14 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Reel 04 — «Volvemos el miércoles 16» (tres bandas)
 
 **Fecha:** 2026-09-09
-**Plantilla base:** [`plantillas/2026-09-09/B_south-indian-meal_8s.mp4`](../plantillas/2026-09-09/B_south-indian-meal_8s.mp4)
+**Plantilla base:** `plantillas/2026-09-09/B_south-indian-meal_8s.mp4` (recurso no incluido: `../plantillas/2026-09-09/B_south-indian-meal_8s.mp4`)
 **Publicación prevista:** miércoles 16 de septiembre — **la pieza fuerte del trimestre**
 ([`plan_contenido_2026-09_a_12.md`](plan_contenido_2026-09_a_12.md), semana 1)
 **Formato:** 9:16, ~8 s, tres bandas horizontales que aparecen una a una sobre cámara cenital fija
@@ -92,11 +99,11 @@ patrón (anuncio + fecha + beneficio local) del mejor post de los últimos 90 d�
 
 | Token | Fichero | Papel |
 |---|---|---|
-| `@image1` | [`imagenes/local/mesa-ventana.jpg`](../imagenes/local/mesa-ventana.jpg) | **Manda en la escena**: mantel crema texturizado sobre mantel blanco, platos blancos, cubertería, sillas de madera, ladrillo, ventana con visillo |
-| `@image2` | [`imagenes/local/mantel_blanco.jpg`](../imagenes/local/mantel_blanco.jpg) | Textura y costuras reales de la mantelería |
-| `@image3` | [`imagenes/local/plato-blanco-formal.jpg`](../imagenes/local/plato-blanco-formal.jpg) | Vajilla real: plato blanco con relieve de cestería en el ala |
+| `@image1` | `imagenes/local/mesa-ventana.jpg` (recurso no incluido: `../imagenes/local/mesa-ventana.jpg`) | **Manda en la escena**: mantel crema texturizado sobre mantel blanco, platos blancos, cubertería, sillas de madera, ladrillo, ventana con visillo |
+| `@image2` | `imagenes/local/mantel_blanco.jpg` (recurso no incluido: `../imagenes/local/mantel_blanco.jpg`) | Textura y costuras reales de la mantelería |
+| `@image3` | `imagenes/local/plato-blanco-formal.jpg` (recurso no incluido: `../imagenes/local/plato-blanco-formal.jpg`) | Vajilla real: plato blanco con relieve de cestería en el ala |
 | `@image4` | `plantillas/2026-09-09/frames_B/B_4.5s.jpg` | **Solo ángulo, encuadre, altura de cámara y reparto de luz** (regla 10) |
-| `@image5` (banda 2) | [`imagenes/comida/gambas.jpg`](../imagenes/comida/gambas.jpg) + `gambas2.jpg` | Identidad del plato (regla 6: los dos ángulos) |
+| `@image5` (banda 2) | `imagenes/comida/gambas.jpg` (recurso no incluido: `../imagenes/comida/gambas.jpg`) + `gambas2.jpg` | Identidad del plato (regla 6: los dos ángulos) |
 | `@image5` (banda 3) | `pulpo.png`, `croquetas.jpg`, `chirlas.jpg` | Los platos de la mesa llena |
 
 **Superficie elegida: el mantel crema, no la mesa de barril.** La mesa de tapa de barril lleva grabado
@@ -259,7 +266,7 @@ Rechazadas dos cosas en las bandas 2 y 3:
 2. **Servilleta debajo de la cazuela** en la banda 3.
 
 Ambas corregidas con el patrón de «un solo cambio» (regla 27), a la primera. Ver las reglas nuevas
-**25** y **26** de [`reglas_imagenes.md`](../imagenes/reglas_imagenes.md).
+**25** y **26** de [`reglas_imagenes.md`](../01-reglas-contenido/reglas_imagenes.md).
 
 | Banda | `job_id` final |
 |---|---|

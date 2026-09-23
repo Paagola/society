@@ -1,0 +1,898 @@
+[
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "../caso-practico-01-torre-de-vega.md",
+    "action": "ruta reparada",
+    "target": "../../../caso-practico-01-torre-de-vega.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "09-reel-volvemos-a-abrir-2026-09-17/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "00-proyecto/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/00-proyecto"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "01-reglas-contenido/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/01-reglas-contenido"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "02-metodologia-prompting-directoria-cloud/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "03-automatizacion-montaje-after-effects/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/03-automatizacion-montaje-after-effects"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "04-guiones-reels-reales/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/04-guiones-reels-reales"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "05-informes-medidos/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/05-informes-medidos"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "07-carta-web-fotos-producto/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/07-carta-web-fotos-producto"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "08-reel-chuleton-2026-09-15/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "09-reel-volvemos-a-abrir-2026-09-17/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "06-piloto-3d-blender-higgsfield/",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/06-piloto-3d-blender-higgsfield"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "06-piloto-3d-blender-higgsfield/PLAN_REEL_3D.md",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/06-piloto-3d-blender-higgsfield/PLAN_REEL_3D.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "05-informes-medidos/2026-09-14_procesos-reels_y_ai-motion-designer.md",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/05-informes-medidos/2026-09-14_procesos-reels_y_ai-motion-designer.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/base-conocimiento-torre-de-vega/README.md",
+    "original": "04-guiones-reels-reales/reel_08_volvemos_miercoles_16.md",
+    "action": "ruta reparada",
+    "target": "../../../base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_08_volvemos_miercoles_16.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/informes/estudio-mercado/README.md",
+    "original": "01-estudio-de-mercado.md",
+    "action": "ruta reparada",
+    "target": "../../../../informes/estudio-mercado/01-estudio-de-mercado.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/informes/estudio-mercado/README.md",
+    "original": "02-lean-canvas.md",
+    "action": "ruta reparada",
+    "target": "../../../../informes/estudio-mercado/02-lean-canvas.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/informes/estudio-mercado/README.md",
+    "original": "03-validacion-y-entrevistas.md",
+    "action": "ruta reparada",
+    "target": "../../../../informes/estudio-mercado/03-validacion-y-entrevistas.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/informes/estudio-mercado/README.md",
+    "original": "04-auditoria-critica-y-propuesta-reforzada.md",
+    "action": "ruta reparada",
+    "target": "../../../../informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/informes/estudio-mercado/README.md",
+    "original": "../Society_diseno_y_viabilidad.md",
+    "action": "ruta reparada",
+    "target": "../../../../informes/Society_diseno_y_viabilidad.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/informes/higgsfield/README.md",
+    "original": "02-api-y-arquitectura.md",
+    "action": "ruta reparada",
+    "target": "../../../../informes/higgsfield/02-api-y-arquitectura.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/informes/higgsfield/README.md",
+    "original": "03-ad-recreator-para-society.md",
+    "action": "ruta reparada",
+    "target": "../../../../informes/higgsfield/03-ad-recreator-para-society.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/informes/higgsfield/README.md",
+    "original": "04-protocolo-para-ia.md",
+    "action": "ruta reparada",
+    "target": "../../../../informes/higgsfield/04-protocolo-para-ia.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/informes/higgsfield/README.md",
+    "original": "ad-recreator-contrato.json",
+    "action": "ruta reparada",
+    "target": "../../../../informes/higgsfield/ad-recreator-contrato.json"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "./diagramas/",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_estrategia_redes_y_retroalimentacion.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_estrategia_redes_y_retroalimentacion.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md",
+    "action": "ruta reparada",
+    "target": "../../base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_diseno_y_viabilidad.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_diseno_y_viabilidad.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "./diagramas/",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_diseno_y_viabilidad.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_diseno_y_viabilidad.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_voces_y_subtitulos.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_voces_y_subtitulos.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md",
+    "action": "ruta reparada",
+    "target": "../../base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_herramientas_evaluadas.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_herramientas_evaluadas.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_herramientas_evaluadas.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_herramientas_evaluadas.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_analisis_video_referencia.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_analisis_video_referencia.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "pruebas/analizador-video-referencia/plan-de-pruebas.md",
+    "action": "ruta reparada",
+    "target": "../../pruebas/analizador-video-referencia/plan-de-pruebas.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_estrategia_redes_y_retroalimentacion.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_estrategia_redes_y_retroalimentacion.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_diseno_y_viabilidad.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_diseno_y_viabilidad.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/estudio-mercado/01-estudio-de-mercado.md",
+    "action": "ruta reparada",
+    "target": "../../informes/estudio-mercado/01-estudio-de-mercado.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md",
+    "action": "ruta reparada",
+    "target": "../../base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/aprendizajes-reel-chuleton.md",
+    "action": "ruta reparada",
+    "target": "../../base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/aprendizajes-reel-chuleton.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_diseno_y_viabilidad.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_diseno_y_viabilidad.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_diseno_y_viabilidad.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_diseno_y_viabilidad.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_diseno_y_viabilidad.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_diseno_y_viabilidad.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/higgsfield/02-api-y-arquitectura.md",
+    "action": "ruta reparada",
+    "target": "../../informes/higgsfield/02-api-y-arquitectura.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md",
+    "action": "ruta reparada",
+    "target": "../../informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "./diagramas/",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_diseno_y_viabilidad.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_diseno_y_viabilidad.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_estrategia_redes_y_retroalimentacion.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_estrategia_redes_y_retroalimentacion.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_auditoria_estrategica_y_mejoras.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_auditoria_estrategica_y_mejoras.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_voces_y_subtitulos.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_voces_y_subtitulos.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_herramientas_evaluadas.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_herramientas_evaluadas.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_analisis_video_referencia.md",
+    "action": "ruta reparada",
+    "target": "../../informes/Society_analisis_video_referencia.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "pruebas/analizador-video-referencia/plan-de-pruebas.md",
+    "action": "ruta reparada",
+    "target": "../../pruebas/analizador-video-referencia/plan-de-pruebas.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "informes/Society_inventario_documental.md",
+    "action": "ruta reparada",
+    "target": "../informes/Society_inventario_documental.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "./base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/",
+    "action": "ruta reparada",
+    "target": "../../base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "./base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/",
+    "action": "ruta reparada",
+    "target": "../../base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "./base-conocimiento-torre-de-vega/",
+    "action": "ruta reparada",
+    "target": "base-conocimiento-torre-de-vega"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "./idea.md",
+    "action": "ruta reparada",
+    "target": "../idea.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "./caso-practico-01-torre-de-vega.md",
+    "action": "ruta reparada",
+    "target": "../../caso-practico-01-torre-de-vega.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "./investigacion-calidad-profesional-reels-ia.md",
+    "action": "ruta reparada",
+    "target": "../../investigacion-calidad-profesional-reels-ia.md"
+  },
+  {
+    "document": "archivo/antes-de-la-revision-2026-09-22/README.md",
+    "original": "./base-conocimiento-torre-de-vega/README.md",
+    "action": "ruta reparada",
+    "target": "base-conocimiento-torre-de-vega/README.md"
+  },
+  {
+    "document": "archivo/idea.md",
+    "original": "./README.md",
+    "action": "ruta reparada",
+    "target": "../README.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/00-proyecto/CLAUDE.md",
+    "original": "documentación.md",
+    "action": "ruta reparada",
+    "target": "documentacion-proceso-reel01.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/00-proyecto/CLAUDE.md",
+    "original": "imagenes/reglas_videos.md",
+    "action": "ruta reparada",
+    "target": "../01-reglas-contenido/reglas_videos.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/00-proyecto/CLAUDE.md",
+    "original": "imagenes/reglas_imagenes.md",
+    "action": "ruta reparada",
+    "target": "../01-reglas-contenido/reglas_imagenes.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/00-proyecto/CLAUDE.md",
+    "original": "informes/2026-09-13_carta-web_mapa-de-imagenes.md",
+    "action": "ruta reparada",
+    "target": "../05-informes-medidos/2026-09-13_carta-web_mapa-de-imagenes.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/00-proyecto/documentacion-proceso-reel01.md",
+    "original": "imagenes/reglas_videos.md",
+    "action": "ruta reparada",
+    "target": "../01-reglas-contenido/reglas_videos.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/01-reglas-contenido/reglas_imagenes.md",
+    "original": "../directoria-cloud/templates/prompt-imagen.md",
+    "action": "ruta reparada",
+    "target": "../02-metodologia-prompting-directoria-cloud/templates/prompt-imagen.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/01-reglas-contenido/reglas_imagenes.md",
+    "original": "../instagram/reel_04_volvemos_16.md",
+    "action": "ruta reparada",
+    "target": "../04-guiones-reels-reales/reel_04_volvemos_16.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/01-reglas-contenido/reglas_imagenes.md",
+    "original": "../informes/2026-09-13_carta-web_mapa-de-imagenes.md",
+    "action": "ruta reparada",
+    "target": "../05-informes-medidos/2026-09-13_carta-web_mapa-de-imagenes.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/01-reglas-contenido/reglas_videos.md",
+    "original": "../directoria-cloud/templates/prompt-video-motion.md",
+    "action": "ruta reparada",
+    "target": "../02-metodologia-prompting-directoria-cloud/templates/prompt-video-motion.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/directoria-cloud-flujo-practico.md",
+    "original": "higgsfield-spec.md",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/directoria-cloud-flujo-practico.md",
+    "original": "directoria-cloud/SYSTEM_PROMPT.md",
+    "action": "ruta reparada",
+    "target": "SYSTEM_PROMPT.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/directoria-cloud-flujo-practico.md",
+    "original": "higgsfield-spec.md",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/directoria-cloud.md",
+    "original": "directoria-cloud/",
+    "action": "ruta reparada",
+    "target": "SYSTEM_PROMPT.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/directoria-cloud.md",
+    "original": "higgsfield-spec.md",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/directoria-cloud.md",
+    "original": "higgsfield-spec.md",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/historias_2026-09-09_reapertura.md",
+    "original": "../imagenes/local/mesa-chimenea.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/historias_2026-09-09_reapertura.md",
+    "original": "../imagenes/local/panoramica.png",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/historias_2026-09-09_reapertura.md",
+    "original": "../imagenes/local/mesa-chimenea2.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/historias_2026-09-09_reapertura.md",
+    "original": "../imagenes/comida/gambas.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/historias_2026-09-09_reapertura.md",
+    "original": "../imagenes/comida/gambas2.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/historias_2026-09-09_reapertura.md",
+    "original": "../imagenes/local/mantel_blanco.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/historias_2026-09-09_reapertura.md",
+    "original": "../imagenes/generadas/historias_reapertura/historia_01_volvemos_el_16.png",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/historias_2026-09-09_reapertura.md",
+    "original": "../imagenes/generadas/historias_reapertura/historia_02_que_vas_a_pedir.png",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/plan_contenido_2026-09_a_12.md",
+    "original": "../informes/2026-09-08_analisis-instagram-90dias.md",
+    "action": "ruta reparada",
+    "target": "../05-informes-medidos/2026-09-08_analisis-instagram-90dias.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_03_lo-hacemos-lo-disfrutas.md",
+    "original": "../informes/2026-09-08_ranking-viralidad-plantillas.md",
+    "action": "ruta reparada",
+    "target": "../05-informes-medidos/2026-09-08_ranking-viralidad-plantillas.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_03_lo-hacemos-lo-disfrutas__lista-de-fotos.md",
+    "original": "../informes/2026-09-08_ranking-viralidad-plantillas.md",
+    "action": "ruta reparada",
+    "target": "../05-informes-medidos/2026-09-08_ranking-viralidad-plantillas.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_03_lo-hacemos-lo-disfrutas__lista-de-fotos.md",
+    "original": "../imagenes/parrilla/",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_03_publicacion.md",
+    "original": "../visible_cliente/reel_03_lo-hacemos-lo-disfrutas.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_03_publicacion.md",
+    "original": "../informes/2026-09-08_analisis-instagram-90dias.md",
+    "action": "ruta reparada",
+    "target": "../05-informes-medidos/2026-09-08_analisis-instagram-90dias.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_03_publicacion.md",
+    "original": "../informes/04-consistencia-nap.md",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_03_publicacion.md",
+    "original": "../informes/01-expediente-digital.md",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_16.md",
+    "original": "../imagenes/generadas/reel_04_volvemos_16/04_banda1_13h00.png",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_16.md",
+    "original": "../imagenes/generadas/reel_04_volvemos_16/04_banda2_13h20.png",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_16.md",
+    "original": "../imagenes/generadas/reel_04_volvemos_16/04_banda3_14h00.png",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_16.md",
+    "original": "../imagenes/generadas/reel_04_volvemos_16/maqueta_3_estados.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_16.md",
+    "original": "../imagenes/reglas_imagenes.md",
+    "action": "ruta reparada",
+    "target": "../01-reglas-contenido/reglas_imagenes.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_el_16.md",
+    "original": "../plantillas/2026-09-09/B_south-indian-meal_8s.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_el_16.md",
+    "original": "../imagenes/local/mesa-ventana.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_el_16.md",
+    "original": "../imagenes/local/mantel_blanco.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_el_16.md",
+    "original": "../imagenes/local/plato-blanco-formal.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_el_16.md",
+    "original": "../imagenes/comida/gambas.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_04_volvemos_el_16.md",
+    "original": "../imagenes/reglas_imagenes.md",
+    "action": "ruta reparada",
+    "target": "../01-reglas-contenido/reglas_imagenes.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_05_media_carta_cenital.md",
+    "original": "../plantillas/2026-09-09/A_new-season-new-menu_11s.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_05_media_carta_cenital.md",
+    "original": "../plantillas/2026-09-08/README.md",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_05_media_carta_cenital.md",
+    "original": "../documentación.md",
+    "action": "ruta reparada",
+    "target": "../00-proyecto/documentacion-proceso-reel01.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_05_media_carta_cenital.md",
+    "original": "../imagenes/local/mesa-ventana.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_05_media_carta_cenital.md",
+    "original": "../imagenes/local/mantel_blanco.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_05_media_carta_cenital.md",
+    "original": "../imagenes/generadas/reel_05_media_carta/",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_05_media_carta_cenital.md",
+    "original": "../imagenes/postres/plato_tarta.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_05_media_carta_cenital.md",
+    "original": "../imagenes/reglas_imagenes.md",
+    "action": "ruta reparada",
+    "target": "../01-reglas-contenido/reglas_imagenes.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_06_para_compartir.md",
+    "original": "../plantillas/2026-09-08/02_mismo-plano-cambia-el-plato_7s.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_06_para_compartir.md",
+    "original": "../imagenes/local/mesa-madera.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_06_para_compartir.md",
+    "original": "../imagenes/local/mesas-restaurante2.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_06_para_compartir.md",
+    "original": "../imagenes/generadas/reel_06_para_compartir/",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_06_para_compartir.md",
+    "original": "../imagenes/reglas_imagenes.md",
+    "action": "ruta reparada",
+    "target": "../01-reglas-contenido/reglas_imagenes.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_06_para_compartir.md",
+    "original": "../imagenes/reglas_videos.md",
+    "action": "ruta reparada",
+    "target": "../01-reglas-contenido/reglas_videos.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_06_para_compartir.md",
+    "original": "../imagenes/reglas_videos.md",
+    "action": "ruta reparada",
+    "target": "../01-reglas-contenido/reglas_videos.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_06_para_compartir.md",
+    "original": "../imagenes/generadas/reel_06_para_compartir/Reel06_Para_Compartir.aep",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_06_para_compartir.md",
+    "original": "../imagenes/generadas/reel_06_para_compartir/REEL_06_para_compartir.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../plantillas/2026-09-08/07_brindis-vino-y-plato-flambeado_11s.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/vinos/solear.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/comida/solomillo_cortado.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/local/mesa-ventana.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/local/mantel_blanco.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/local/mesas-restaurante2.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/local/panoramica-restaurante.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/local/barra_botellas.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/local/mesa-barra.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/local/chimenea-restaurante.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/local/chimenea2.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/vinos/copa-vino-grande.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_07_brindis_vino_brasa.md",
+    "original": "../imagenes/vinos/copa-vino.jpg",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_08_volvemos_miercoles_16.md",
+    "original": "../informes/2026-09-09_reel-03_lectura-de-metricas.md",
+    "action": "ruta reparada",
+    "target": "../05-informes-medidos/2026-09-09_reel-03_lectura-de-metricas.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_08_volvemos_miercoles_16.md",
+    "original": "../informes/2026-09-14_procesos-reels_y_ai-motion-designer.md",
+    "action": "ruta reparada",
+    "target": "../05-informes-medidos/2026-09-14_procesos-reels_y_ai-motion-designer.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_08_volvemos_miercoles_16.md",
+    "original": "../imagenes/parrilla/clips/parrilla_volteo_master_4k60.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_09_carta_de_otono.md",
+    "original": "../plantillas/2026-09-17/01_1835-carne-e-brasa_nueva-temporada_46s_original.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_09_carta_de_otono.md",
+    "original": "../plantillas/2026-09-17/README.md",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_09_carta_de_otono.md",
+    "original": "../imagenes/generadas/reel_09_carta_de_otono/",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_09_carta_de_otono.md",
+    "original": "../imagenes/generadas/reel_09_carta_de_otono/montaje_remotion/",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_09_carta_de_otono.md",
+    "original": "../imagenes/generadas/reel_09_carta_de_otono/REEL_09_carta_de_otono_montaje_v1_sin-voz.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_09_carta_de_otono.md",
+    "original": "../imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v2_volvemos-a-abrir_sin-voz.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_09_carta_de_otono.md",
+    "original": "../imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v3_sin-fecha_sin-voz.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/04-guiones-reels-reales/reel_09_carta_de_otono.md",
+    "original": "../informes/2026-09-17_reel-09_documentacion-completa.md",
+    "action": "ruta reparada",
+    "target": "../09-reel-volvemos-a-abrir-2026-09-17/documentacion-completa.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/05-informes-medidos/2026-09-08_analisis-instagram-90dias.md",
+    "original": "../instagram/proceso-reel-vinos-blancos.md",
+    "action": "ruta reparada",
+    "target": "../04-guiones-reels-reales/proceso-reel-vinos-blancos.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/05-informes-medidos/2026-09-08_analisis-instagram-90dias.md",
+    "original": "03-colision-marca.md",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/05-informes-medidos/2026-09-09_reel-03_lectura-de-metricas.md",
+    "original": "../visible_cliente/reel_03_lo-hacemos-lo-disfrutas.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/05-informes-medidos/2026-09-09_reel-03_lectura-de-metricas.md",
+    "original": "../instagram/reel_03_publicacion.md",
+    "action": "ruta reparada",
+    "target": "../04-guiones-reels-reales/reel_03_publicacion.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/05-informes-medidos/2026-09-14_procesos-reels_y_ai-motion-designer.md",
+    "original": "../instagram/reel_08_volvemos_miercoles_16.md",
+    "action": "ruta reparada",
+    "target": "../04-guiones-reels-reales/reel_08_volvemos_miercoles_16.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/documentacion-completa.md",
+    "original": "../imagenes/generadas/reel_09_carta_de_otono/REEL_09_montaje_v3_sin-fecha_sin-voz.mp4",
+    "action": "recurso no incluido; enlace retirado"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/documentacion-completa.md",
+    "original": "../instagram/reel_09_carta_de_otono.md",
+    "action": "ruta reparada",
+    "target": "../04-guiones-reels-reales/reel_09_carta_de_otono.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/documentacion-completa.md",
+    "original": "../instagram/reel_09_carta_de_otono.md",
+    "action": "ruta reparada",
+    "target": "../04-guiones-reels-reales/reel_09_carta_de_otono.md"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/README.md",
+    "original": "montaje_remotion/",
+    "action": "ruta reparada",
+    "target": "montaje_remotion"
+  },
+  {
+    "document": "base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/README.md",
+    "original": "scripts/",
+    "action": "ruta reparada",
+    "target": "scripts"
+  },
+  {
+    "document": "investigacion-calidad-profesional-reels-ia.md",
+    "original": "./idea.md",
+    "action": "ruta reparada",
+    "target": "archivo/idea.md"
+  },
+  {
+    "document": "investigacion-calidad-profesional-reels-ia.md",
+    "original": "./caso-practico-01-torre-de-vega.md",
+    "action": "ruta reparada",
+    "target": "caso-practico-01-torre-de-vega.md"
+  },
+  {
+    "document": "investigacion-calidad-profesional-reels-ia.md",
+    "original": "./README.md",
+    "action": "ruta reparada",
+    "target": "README.md"
+  },
+  {
+    "document": "README.md",
+    "original": "informes/estudio-mercado/README.md#lo-que-el-estudio-cambia-en-la-viabilidad",
+    "action": "ancla obsoleta retirada; documento conservado",
+    "target": "informes/estudio-mercado/README.md"
+  }
+]

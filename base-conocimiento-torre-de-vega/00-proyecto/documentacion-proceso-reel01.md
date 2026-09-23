@@ -1,3 +1,10 @@
+<!-- society-document -->
+> **Estado:** histórico. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** cliente Torre de Vega; no regla universal de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](../../README.md).
+
+> Registro histórico: no ejecutar sus instrucciones como política vigente. Conserva los hechos y fechas originales. Personas permitidas; protagonistas con ficha aprobada; Remotion vigente desde 17/09. Precios/modelos y conclusiones causales requieren contexto y verificación.
+
 # Documentación — Proceso de producción de Reels
 
 Reel 01 (`carne.mp4`): 2026-09-07 · Ampliación con hallazgos medidos: 2026-09-08
@@ -23,7 +30,7 @@ descrito en `imagenes/reglas_videos.md` (reglas 3 y 4).
 
 ## Archivos de referencia usados
 
-- [`imagenes/reglas_videos.md`](imagenes/reglas_videos.md) — reglas de vídeo/Reels de Torre de
+- [`imagenes/reglas_videos.md`](../01-reglas-contenido/reglas_videos.md) — reglas de vídeo/Reels de Torre de
   Vega. En concreto:
   - Regla 3 — Higgsfield Virality Predictor (puntuación de rendimiento).
   - Regla 4 — Higgsfield Video Analysis (desglose escena por escena).

@@ -1,3 +1,8 @@
+<!-- society-document -->
+> **Estado:** vigente. **Fecha de revisión editorial:** 2026-09-22; no refecha la evidencia original.
+> **Ámbito / a quién obliga:** documentación de Society. **Fuentes:** las citadas en el cuerpo; datos no reconsultados conservan su fecha y no quedan revalidados por esta edición.
+> **Índice único y autoridad:** [README raíz](README.md).
+
 # Society
 
 **Automatización de contenido para redes sociales y presencia online de negocios de hostelería.**
@@ -9,9 +14,9 @@
 | **Curso académico** | 2025/2026 |
 | **Estado** | Fase de definición: el desarrollo no ha empezado |
 | **Lanzamiento comercial previsto** | A partir de enero de 2027 (hipótesis) |
-| **Última actualización** | 19 de septiembre de 2026 |
+| **Última actualización** | 22 de septiembre de 2026 |
 
-Este README es la **referencia principal del proyecto**: recoge qué es Society, las decisiones vigentes, la estructura prevista y las herramientas. Los documentos de la [sección 15](#15-documentos-del-proyecto) contienen el análisis y la evidencia que respaldan cada decisión, y la carpeta [`diagramas/`](./diagramas/) contiene el flujo completo dibujado.
+Este README es la **referencia principal del proyecto**: recoge qué es Society, las decisiones vigentes, la estructura prevista y las herramientas. Los documentos de la [sección 15](#15-documentos-del-proyecto) contienen el análisis y la evidencia que respaldan cada decisión. Los diagramas externos antiguos no están disponibles; los estados actuales se documentan en los informes vigentes.
 
 ## Índice
 
@@ -106,31 +111,11 @@ Estructura **acumulativa**: cada plan incluye todo lo del anterior. Decidida el 
 | **2 · Presencia + redes** | Plan 1 + gestión de redes sociales + gestión de otros sitios donde aparece el local (TripAdvisor y similares) | **Historias y posts** (imágenes y carruseles) por encima de reels | Muy poco, sobre todo para historias | Medio-bajo |
 | **3 · Completo con reels** | Plan 2 + un número de reels al mes | **Reels** como formato principal | Sí, es la partida principal del plan | Alto |
 
-### 5.1 Cuánto cuesta producir cada plan
+### 5.1 Coste y presupuesto vigentes
 
-El vídeo manda en el coste, y depende de la **ruta por tipo de plano**: Kling 3.0 en planos simples y Seedance 2.5 solo en acciones complejas (manos, cubiertos, cortes).
+Las tablas mensuales del 15/09 se conservan como escenarios históricos, no como precios actuales. El [informe de producción §6](informes/higgsfield/05-automatizacion-de-produccion.md) separa créditos MCP, USD REST, render, revisión y obligaciones inciertas. Preflight de 22/09: imagen 2K 2 cr; Kling pro 3 s sin audio 5,25 cr; Seedance 10 s/1080p sin audio 120 cr. Cotización sin referencias concretas, no generación verificada.
 
-| Unidad | fal 1080p | fal 720p | Higgsfield 1080p (pendiente de contrato) |
-|---|---|---|---|
-| Reel estándar (8 imágenes, 4 planos simples con Kling 3.0 y 2 complejos con Seedance 2.5) | 25,82 USD | 13,38 USD | 12,97 USD |
-| Clip de historia simple de 5 s (Kling 3.0) | 1,15 USD | 1,15 USD | 1,15 USD |
-| Clip de historia complejo de 5 s (Seedance 2.5) | 9,04 USD | 3,86 USD | 3,68 USD |
-
-Una imagen final independiente cuesta unos **0,31 USD**; la voz en off de un reel, unos 0,12 USD.
-
-> **Actualización del 17/09 ([Reel 09](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md)).** Montar con Remotion quita la licencia de After Effects y el worker Windows del coste fijo (178,05 → 64,56 EUR/mes; −5,67 EUR por restaurante). La multitoma de Seedance 2.5 abarata el reel estándar entre un 10 y un 13,5 % según escenario, y hasta un 39 % en reels con 3 planos complejos a 1080p en fal. Con ambas: plan 1 ≈ 36 €, plan 2 ≈ 70-77 €, plan 3 ≈ 124-179 € de coste. Las tablas de abajo siguen siendo las del 15/09.
-
-> **Actualización del 19/09 ([estudio de mercado](informes/estudio-mercado/README.md#lo-que-el-estudio-cambia-en-la-viabilidad)).** Estos costes no incluyen horas de revisión del contenido. Con 2 h al mes por cliente a 30 €/h, el plan 2 cuesta 130-137 € y su precio mínimo sube a 228-239 €. Es la cifra que debe medir el piloto.
-
-Con cuotas de ejemplo (plan 2 con 20 imágenes y 4 clips de historia; plan 3 con 4 reels con voz):
-
-| Plan | Coste mensual por restaurante | Precio mínimo para un 40 % de margen |
-|---|---|---|
-| 1 | 41 € | 73 € |
-| 2 | 76-82 € | 133-144 € |
-| 3 | 136-200 € | 237-350 € |
-
-El detalle está en el [informe de viabilidad §9.5 y §10](informes/Society_diseno_y_viabilidad.md). **El plan 3 no puede tener precio hasta decidir la resolución y el proveedor del vídeo.**
+No hay equivalencia USD/crédito MCP comprobada con factura. El 0,063 procede de un ejemplo REST y el 0,050 es supuesto histórico. Una pieza ilustrativa de siete beats suma 155 cr sin correcciones y 229 cr con factores históricos de reintento, más costes propios. Los precios/cuotas comerciales siguen pendientes del piloto, de la factura y del tiempo humano real.
 
 **Pendiente de definir por plan:**
 
@@ -154,37 +139,16 @@ El detalle está en el [informe de viabilidad §9.5 y §10](informes/Society_dis
 2. **Tres entradas de creación**: *inspirarme en un reel*, *crear desde un plato* y *comunicar una novedad*.
 3. **Estrategia.** Objetivos, situaciones de consumo, pilares de contenido y calendario (trimestral, mensual, semanal).
 4. **Brief de pieza.** Objetivo, audiencia, motivo para compartir, hipótesis, métrica principal y umbral, etiqueta de IA y dependencias.
-5. **Producción.** Contrato de plano y elección de técnica antes que de modelo: material real, Kling 3.0 para planos simples, Seedance 2.5 para interacciones complejas, composición en After Effects o 3D experimental. Voz en off y subtítulos cuando la pieza los necesita.
+5. **Producción.** Contrato de plano y elección de técnica antes que de modelo: material real, Kling 3.0 para planos simples, Seedance 2.5 para interacciones complejas, composición en Remotion; 3D experimental fuera del núcleo. Voz en off y subtítulos cuando la pieza los necesita.
 6. **Verificación.** Controles antes de gastar, después de generar y después de montar. Bloqueos directos: ingredientes cambiados, objetos duplicados, texto comercial incorrecto, manos deformadas o una voz que dice una fecha o un precio distinto del guion.
 7. **Publicación.** Asistida, con lista de verificación; por API como ampliación.
 8. **Medición y aprendizaje.** Capturas de métricas en fechas fijas, comparación con la línea base del restaurante y registro de hipótesis y patrones confirmados.
 
-El usuario **no aprueba cada paso**: elige intención y producto y revisa la pieza terminada. Hay un modo opcional para revisar el guion antes de generar vídeo, y las decisiones que no se pueden inferir (precios, fechas, ingredientes) siempre las confirma el propietario.
+Dos puertas por pieza: **G1**, lote de keyframes/plan antes de animar; **G2**, render final antes de publicar. **G0** aprueba al dar de alta o cambiar marca/personaje. Los datos comerciales nuevos los confirma el propietario. Entre puertas opera el sistema; el silencio nunca aprueba.
 
 ## 7. Diagramas del flujo
 
-La carpeta [`diagramas/`](./diagramas/) contiene el recorrido completo en 16 diagramas, generados con [archify](https://github.com/tt-a1i/archify) (MIT). Cada uno tiene su especificación JSON (la fuente) y su HTML (se abre en el navegador, con búsqueda, temas y exportación).
-
-| # | Diagrama | Qué explica |
-|---|---|---|
-| 00 | Arquitectura y servicios externos | Piezas del sistema y con qué servicio externo habla cada una |
-| 01 | Alta y configuración | Recorrido del propietario hasta activar el ciclo |
-| 02 | Pago y suscripción | Stripe: Checkout, webhooks firmados, impagos y bajas |
-| 03 | Conexión de cuentas | OAuth de Instagram y Google, tokens y renovación |
-| 04 | Material real y catálogo | Subida firmada, inspección, revisión y confirmación |
-| 05 | Diagnóstico, estrategia y activación | Línea base, pilares, muestras de estilo y voz |
-| 06 | Ciclo semanal | La semana automatizada y sus puertas humanas |
-| 07 | Producción de imágenes | Nano Banana Pro, verificación y reparación acotada |
-| 08 | Producción de vídeo | Ruta por acción, cola del proveedor, verificación |
-| 09 | Voz y subtítulos | Voz desde el guion y tiempos medidos |
-| 10 | Montaje y render | Lista de edición y worker de After Effects |
-| 11 | Aprobación y publicación | Contenedor de Instagram y ficha de Google |
-| 12 | Medición y aprendizaje | De las métricas al plan de la semana siguiente |
-| 13 | Ficha de Google y reseñas | Reseñas, respuestas aprobadas y métricas locales |
-| 14 | Estados de un trabajo | Vida de un trabajo de generación y su recuperación |
-| 15 | Estados de una pieza | Vida de una pieza, del brief a la medición |
-
-El recorrido narrado, con los datos de cada API verificados en su documentación oficial, está en [`informes/Society_flujo_de_la_aplicacion.md`](informes/Society_flujo_de_la_aplicacion.md).
+Se retiran las referencias a los 16 HTML/JSON de `diagramas/`: no existen en este repositorio. No se han reconstruido ni presentado como recuperados. El [flujo narrado](informes/Society_flujo_de_la_aplicacion.md), la [máquina de estados de producción](informes/higgsfield/05-automatizacion-de-produccion.md) y el [bucle estratégico](informes/Society_cerebro_estrategico.md) son las representaciones vigentes, con Mermaid integrado en los dos últimos.
 
 ## 8. Arquitectura propuesta
 
@@ -197,7 +161,7 @@ El recorrido narrado, con los datos de cada API verificados en su documentación
 | Despliegue | Vercel | Interfaz y operaciones cortas |
 | Cola de trabajos | PostgreSQL con bloqueo, reintento y recuperación | Todas las etapas de producción |
 | Tareas programadas | Supabase Cron (pg_cron + pg_net) + Edge Functions | Publicación, capturas de métricas, renovación de tokens |
-| Worker de montaje | Windows con After Effects (aerender) | Montaje en plantillas, rótulos y subtítulos |
+| Worker de montaje | Linux con Remotion | Montaje en plantillas, rótulos y subtítulos |
 | Worker de medios | Linux | Inspección con FFmpeg, transcripción y alineación, 3D experimental |
 | Pagos | Stripe (Payments + Billing) | Suscripciones de los tres planes |
 | Correo | Resend | Notificaciones |
@@ -205,7 +169,7 @@ El recorrido narrado, con los datos de cada API verificados en su documentación
 **Principios:**
 
 - **Multi-restaurante desde el inicio.** Cada consulta, recurso y trabajo lleva el identificador del restaurante; se prueba el aislamiento entre clientes.
-- **Trabajos recuperables e idempotentes.** Una caída no repite generaciones pagadas: el identificador remoto se guarda antes de esperar al proveedor.
+- **Trabajos recuperables.** Persistir intención antes de enviar e ID remoto al recibirlo; un envío con resultado desconocido no se repite a ciegas. La idempotencia local no garantiza exactly-once del proveedor.
 - **Reglas de marca como datos versionados**, con identificador estable, fecha y alcance.
 - **Claves de proveedores y tokens solo en el servidor.**
 - **Presupuesto reservado por proyecto y por plan.**
@@ -227,7 +191,7 @@ Horarios, carta, fotos reales y calendario de novedades son **datos únicos** qu
 
 ## 9. Herramientas
 
-Estado a 16 de septiembre de 2026. Tarifas detalladas en el [informe de viabilidad §9](informes/Society_diseno_y_viabilidad.md).
+Decisiones revisadas el 22/09/2026. El registro de capacidades de producción manda; las herramientas candidatas de esta tabla no son capacidades implementadas. Las tarifas antiguas de viabilidad son escenarios fechados.
 
 | Función | Herramienta | Estado |
 |---|---|---|
@@ -237,15 +201,15 @@ Estado a 16 de septiembre de 2026. Tarifas detalladas en el [informe de viabilid
 | **Vídeo · acciones complejas** | **Seedance 2.5**: manos, cubiertos, cortes e interacciones; clips de 4 a 30 s, fotograma final y audio opcional | **Ruta para planos difíciles**. Resolución (720p o 1080p) y proveedor (fal o Higgsfield) pendientes |
 | Alternativas de vídeo documentadas | Seedance 2.0, Veo 3.1 | Solo si un ensayo concreto lo justifica |
 | Voz en off | ElevenLabs (API; voces de español de España) | Propuesta principal, pendiente de una prueba a ciegas frente a Azure, Gemini TTS y Qwen3-TTS ([informe de voces](informes/Society_voces_y_subtitulos.md)) |
-| Subtítulos | Marcas de tiempo de la voz generada; faster-whisper o WhisperX con alineación cuando el proveedor no las da; incrustados en After Effects o FFmpeg | Propuesta, con el ensayo del 15/09 como evidencia |
-| **Montaje y rótulos** | **Remotion** (React/TypeScript, render headless en Linux): composición vertical propia con rótulos, placa y cortes | **Validado en el caso práctico el 17/09** ([Reel 09](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md)). Gratis hasta 3 personas; desde 4, 0,01 USD/render con mínimo de 100 USD/mes |
+| Subtítulos | Marcas de tiempo de la voz generada; faster-whisper o WhisperX con alineación cuando el proveedor no las da; incrustados en Remotion o FFmpeg | Propuesta, con el ensayo del 15/09 como evidencia |
+| **Montaje y rótulos** | **Remotion** (React/TypeScript, render headless en Linux): composición vertical propia con rótulos, placa y cortes | **Validado en el caso práctico el 17/09** ([Reel 09](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md)). Licencia según entidad y versión; consulta del 22/09 anuncia cambios para v5. Revalidar tarifa al fijar versión |
 | Montaje anterior | After Effects con plantillas y render automatizado | Validado el 08/09; **sustituido por Remotion** (quita 113,49 EUR/mes de licencia y worker Windows) |
 | Inspección y codificación de medios | FFmpeg | Propuesta |
 | Montaje de respaldo | MoviePy + FFmpeg, con MoneyPrinterTurbo (MIT) como código de referencia | Candidato de respaldo si Remotion no encaja ([herramientas evaluadas](informes/Society_herramientas_evaluadas.md)). OpenMontage (AGPL-3.0) **no** se integra en Society |
 | Instagram | Instagram API con Instagram Login: publicación, estadísticas, comentarios | Acceso estándar para la cuenta propia; App Review para cuentas de clientes |
 | Google | Google Business Profile APIs: reseñas, publicaciones, métricas | Requiere solicitud de acceso |
 | Analítica en fases tempranas | Metricool o Windsor.ai (con conector MCP) | Opcional hasta tener ingesta propia |
-| Diagramas de arquitectura y flujo | archify (MIT) | En uso: carpeta `diagramas/` |
+| Diagramas de arquitectura y flujo | Mermaid dentro de informes | Estados y bucle estratégico documentados; 16 diagramas anteriores no disponibles |
 | 3D del local | COLMAP o GLOMAP, gsplat, Blender; VGGT-1B-Commercial como alternativa para las poses | Experimental; fuera del lanzamiento. ABot-Recon descartado por licencia no comercial ([herramientas evaluadas](informes/Society_herramientas_evaluadas.md)) |
 | Análisis de vídeos de referencia | PySceneDetect, ViPE, ShotVL, SAM 3, Depth Anything 3 (pesos Base o Metric-Large), SEA-RAFT, beat_this, WhisperX y PaddleOCR: una ficha medida por plano para escribir prompts | Candidato, pendiente de pruebas ([informe](informes/Society_analisis_video_referencia.md) · [plan de pruebas](pruebas/analizador-video-referencia/plan-de-pruebas.md)). GVHMR descartado por licencia no comercial |
 | Apoyo con IA a investigación y documentación | Claude Code; Devin Desktop (antes Windsurf) | Solo investigación y documentación, **nunca código de la app** |
@@ -263,14 +227,14 @@ Resumen del [informe de estrategia de redes](informes/Society_estrategia_redes_y
 - **Cuatro niveles de decisión:** estrategia trimestral, plan mensual, operación semanal y brief de cada pieza.
 - **Papel de cada formato:** reels para descubrimiento, carruseles para decisión, historias para relación y conversión inmediata, fotos para avisos. El plan 2 se apoya en historias y posts; el plan 3, en reels.
 - **Gancho.** El momento que justifica ver la pieza va al principio: el ensayo del 15/09 prefirió 9 s con adelanto frente a 15 s lentos.
-- **Métricas oficiales por API**, capturadas a +24 h, +72 h, +7 días y +28 días. Las historias se capturan antes de 24 h porque sus estadísticas desaparecen.
+- **Métricas oficiales por API**, capturadas a +24 h, +72 h, +7 días y +28 días. Para historias se propone captura a 20–23 h; disponibilidad y retención deben verificarse en el contrato de Meta.
 - **Comparación** con la mediana de las últimas piezas del mismo formato, nunca con valores absolutos.
 - **Registro de hipótesis y aprendizajes.** Un patrón solo se convierte en regla si se repite.
 - **Herramientas progresivas:** registro manual → conectores con MCP → ingesta propia en Supabase → aprendizaje entre restaurantes.
 
 ## 11. Cumplimiento normativo
 
-Resumen; requiere revisión de un asesor antes de vender.
+Antecedentes de la revisión anterior, no revalidados jurídicamente el 22/09. No son un contrato de API ni asesoramiento actualizado: confirmar fuentes oficiales y revisión profesional antes de vender. Los campos y límites de Meta quedan pendientes por HTTP 429.
 
 | Tema | Obligación o límite | Aplicación en Society |
 |---|---|---|
@@ -304,7 +268,7 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 |---|---|
 | **Plazo de 4 meses** para producto y TFG | Priorizar el núcleo del plan 2 (imágenes, posts, historias) y dejar el resto preparado en el modelo de datos |
 | **Accesos externos** (revisión de Meta, API de Google Business Profile) con plazos que no dependen del proyecto | Solicitarlos en las primeras semanas; operar de forma asistida mientras tanto |
-| **Coste del vídeo** (plan 3): a 1080p en fal, un reel cuesta unos 26 USD con la ruta híbrida y unos 63 si todo se hace con Seedance | Ruta por tipo de acción; decidir resolución y proveedor con el ensayo; resolver planos con material real; límites por plan y reintentos acotados |
+| **Coste del vídeo** (plan 3): tarifas variables y coste MCP en dinero sin factura verificada | Ruta por tipo de acción; decidir resolución y proveedor con el ensayo; resolver planos con material real; límites por plan y reintentos acotados |
 | **Planes 1 y 2 dependen de funciones fuera del foco** | Operación asistida al lanzar; automatización después de enero |
 | **Confianza y cumplimiento del contenido con IA** (imagen, vídeo y voz) | Priorizar material real, no inventar, etiquetar, consentimiento para voces reales |
 | **Competencia**: Malou desde 99 € por local (reseñas y ficha) y 151 € con gestión de redes; Localo desde 39-49 USD; agencias especializadas desde 699-799 € al mes ([estudio de mercado](informes/estudio-mercado/01-estudio-de-mercado.md)) | Diferenciarse por contenido fiel al local y por el sistema completo de estrategia y medición |
@@ -316,7 +280,8 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 | Fecha | Decisión | Detalle |
 |---|---|---|
 | 2026-09-17 | **Montaje en Remotion** en lugar de After Effects, y **multitoma de Seedance 2.5** (varios planos complejos en un solo clip) cuando haya keyframes aprobados | [Aprendizajes y costes del Reel 09](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md) |
-| 2026-09-16 | El flujo completo queda documentado en 16 diagramas de archify | Sección 7 y [flujo de la aplicación](informes/Society_flujo_de_la_aplicacion.md) |
+| 2026-09-22 | Se retiran rutas de 16 diagramas ausentes; índice raíz único | Sección 7 y auditoría de continuidad |
+| 2026-09-22 | Registro de capacidades, plazos propios, dos puertas por pieza y biblia/ficha versionadas | Informes de producción, dirección visual y cerebro estratégico |
 | 2026-09-15 | Society es un proyecto propio para toda la hostelería; Torre de Vega es solo el caso práctico | Secciones 2 y 3 |
 | 2026-09-15 | Venta posible a partir de enero de 2027 | Sección 2 |
 | 2026-09-15 | Hasta enero, el desarrollo se centra en contenido para redes | Sección 4 |
@@ -326,12 +291,12 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 | 2026-09-14 | Una sola tecnología de interfaz (React + TypeScript o Angular), no ambas | [Viabilidad §7.1](informes/Society_diseno_y_viabilidad.md) |
 | 2026-09-14 | GPT-6 Astra planifica, redacta prompts, revisa y dirige la edición | [Viabilidad §1](informes/Society_diseno_y_viabilidad.md) |
 | 2026-09-14 | El 3D del local es un módulo experimental, no un requisito del onboarding | [Viabilidad §8](informes/Society_diseno_y_viabilidad.md) |
-| 2026-09-08 | Montaje en After Effects automatizado, validado en el caso práctico | [Base de conocimiento](base-conocimiento-torre-de-vega/README.md) |
+| 2026-09-08 | Histórico: montaje AE validado, sustituido por Remotion el 17/09 | [Base de conocimiento](base-conocimiento-torre-de-vega/README.md) |
 
 ### 14.2 Pendientes
 
 1. Nombres, precios y cuotas mensuales de los tres planes.
-2. **Resolución (720p o 1080p) y proveedor (fal o Higgsfield)** para Seedance 2.5, que deciden el precio del plan 3. *Actualización del 19/09:* la API de Higgsfield ya es pública (pago por uso en USD, uso comercial permitido), pero su ficha de Seedance 2.5 solo documenta texto a vídeo a 480p/720p. Falta confirmar con una clave un modo con referencias de imagen a 1080p ([informe de la API §12](informes/higgsfield/02-api-y-arquitectura.md)).
+2. Ruta de vídeo cualificada y uso MCP de servicio; no hay ruta REST equivalente con referencias/1080p verificada. Falta coste económico del pool MCP, ensayo de adaptador y alternativas fal. Véase informe de producción.
 3. Proveedor de voz tras la prueba a ciegas del informe de voces.
 4. React + TypeScript o Angular.
 5. Cuenta propia de Society: redes, audiencia, línea editorial y material de partida.
@@ -339,43 +304,116 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 7. Si el plan 1 se lanza en enero de forma asistida o se retrasa hasta automatizarlo.
 8. Dónde corre el orquestador de trabajos y con cuántos workers en paralelo.
 9. Papel de Society ante el Reglamento de IA (proveedor, responsable del despliegue o ambos), con revisión jurídica.
-10. ~~Licencia de After Effects para uso en un servicio SaaS.~~ Resuelta el 17/09 al pasar a Remotion. Queda medir el tiempo real de render por reel.
-11. **Oferta de entrada y piloto pagado en Málaga** (Andalucía como expansión). La [auditoría](informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md) recomienda empezar vendiendo campañas sueltas de novedades (unos 299 €) antes que la suscripción de tres planes; la alternativa es un piloto del plan 2 (3-5 negocios, 4 semanas), con una sola cuota del plan 2 y medición de las horas de revisión por cliente: si son 2 h al mes, el precio mínimo del plan 2 sube a unos 228-239 € ([estudio de mercado](informes/estudio-mercado/README.md#lo-que-el-estudio-cambia-en-la-viabilidad)).
+10. ~~Licencia de After Effects para uso en un servicio SaaS.~~ Descartada esa dependencia el 17/09 al pasar a Remotion. Aplicar la licencia de Remotion vigente según tamaño de empresa. Queda medir el tiempo real de render por reel.
+11. **Oferta de entrada y piloto pagado en Málaga** (Andalucía como expansión). La [auditoría](informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md) recomienda empezar vendiendo campañas sueltas de novedades (unos 299 €) antes que la suscripción de tres planes; la alternativa es un piloto del plan 2 (3-5 negocios, 4 semanas), con una sola cuota del plan 2 y medición de las horas de revisión por cliente: si son 2 h al mes, el precio mínimo del plan 2 sube a unos 228-239 € ([estudio de mercado](informes/estudio-mercado/README.md)).
 
 ## 15. Documentos del proyecto
 
-| Documento | Contenido | Estado |
-|---|---|---|
-| [`diagramas/`](./diagramas/) | 16 diagramas del flujo completo (JSON de origen y HTML navegable) | Nuevo (16/09) |
-| [`informes/Society_flujo_de_la_aplicacion.md`](informes/Society_flujo_de_la_aplicacion.md) | Recorrido del alta al ciclo semanal, funcionalidad por funcionalidad, con los datos de cada API verificados | Nuevo (16/09) |
-| [`informes/Society_diseno_y_viabilidad.md`](informes/Society_diseno_y_viabilidad.md) | Diseño del producto, método de vídeo, arquitectura, costes y viabilidad | Actualizado el 15/09 con la ruta por tipo de acción; el PDF corresponde a la versión del 14/09 |
-| [`informes/Society_estrategia_redes_y_retroalimentacion.md`](informes/Society_estrategia_redes_y_retroalimentacion.md) | Estrategia de redes, métricas, ciclo de retroalimentación, cuenta propia, herramientas por fases | Actualizado el 16/09 con el aprendizaje del gancho |
-| [`informes/Society_auditoria_estrategica_y_mejoras.md`](informes/Society_auditoria_estrategica_y_mejoras.md) | Campos estratégicos de una agencia de hostelería, huecos, vulnerabilidades, formación | Actualizado el 16/09 |
-| [`informes/Society_voces_y_subtitulos.md`](informes/Society_voces_y_subtitulos.md) | ElevenLabs, servicios en la nube y modelos gratuitos de voz; subtítulos; comparativa y prueba a ciegas | Actualizado el 16/09 con la evidencia del ensayo |
-| [`informes/Society_herramientas_evaluadas.md`](informes/Society_herramientas_evaluadas.md) | Guía de comandos de cámara, ABot-Recon y MoneyPrinterTurbo: qué se descarta, qué se aprovecha y requisitos del 3D para 5 locales | Nuevo (17/09) |
-| [`informes/estudio-mercado/`](informes/estudio-mercado/README.md) | Estudio de mercado, Lean Canvas, plan de validación y **auditoría crítica** que propone entrar con campañas de novedades en Málaga; contraste con la viabilidad | Nuevo (19/09), corregido al integrarlo; validación sin ejecutar |
-| [`informes/higgsfield/`](informes/higgsfield/README.md) | API pública de Higgsfield y diseño del orquestador de trabajos, método Ad Recreator para adaptar referencias y protocolo de descubrimiento para IA | Nuevo (19/09), corregido al integrarlo |
-| [`informes/Society_analisis_video_referencia.md`](informes/Society_analisis_video_referencia.md) | Herramientas tipo GVHMR para analizar cada elemento de un vídeo de referencia (cortes, cámara, objetos, profundidad, luz, audio, rótulos), con licencias verificadas | Nuevo (17/09) |
-| [`pruebas/analizador-video-referencia/plan-de-pruebas.md`](pruebas/analizador-video-referencia/plan-de-pruebas.md) | Plan de pruebas del analizador: vídeo patrón con verdad conocida, criterios de aceptación y registro de resultados | Preparado, sin ejecutar (17/09) |
-| [`informes/Society_inventario_documental.md`](informes/Society_inventario_documental.md) | Inventario de los archivos analizados | Referencia |
-| [`base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/`](./base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/) | Reel 09: montaje en Remotion, multitoma de Seedance 2.5 y efecto en el coste de cada plan | Evidencia del ensayo (17/09) |
-| [`base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/`](./base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/) | Aprendizajes, receta y evidencia del reel del 15 de septiembre | Evidencia del ensayo |
-| [`base-conocimiento-torre-de-vega/`](./base-conocimiento-torre-de-vega/) | Reglas, metodología de prompting, automatización de After Effects, guiones e informes del caso práctico | Evidencia; no define el producto |
-| [`idea.md`](./idea.md) | Definición inicial: problema, propuesta de valor, flujo por fases | Parcialmente superado |
-| [`caso-practico-01-torre-de-vega.md`](./caso-practico-01-torre-de-vega.md) | Primera ejecución real del flujo completo | Registro histórico |
-| [`investigacion-calidad-profesional-reels-ia.md`](./investigacion-calidad-profesional-reels-ia.md) | Cómo acercar el vídeo con IA a calidad de agencia | Investigación de referencia |
+Este es el único índice vigente. Los documentos históricos conservan evidencia, no instrucciones activas. Las rutas externas de medios no incluidos se señalan como tales, sin fabricar archivos.
+
+### Vigente
+
+| Documento | Ruta |
+|---|---|
+| Torre de Vega — contexto del proyecto | [base-conocimiento-torre-de-vega/00-proyecto/CLAUDE.md](base-conocimiento-torre-de-vega/00-proyecto/CLAUDE.md) |
+| Reglas de imagen — Torre de Vega | [base-conocimiento-torre-de-vega/01-reglas-contenido/reglas_imagenes.md](base-conocimiento-torre-de-vega/01-reglas-contenido/reglas_imagenes.md) |
+| Reglas de vídeo — Torre de Vega (Reels) | [base-conocimiento-torre-de-vega/01-reglas-contenido/reglas_videos.md](base-conocimiento-torre-de-vega/01-reglas-contenido/reglas_videos.md) |
+| ONBOARDING.md — El cuestionario de primer contacto y la lógica de adaptación | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/ONBOARDING.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/ONBOARDING.md) |
+| PERFIL DE USUARIO — DirectorIA | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/PERFIL_USUARIO.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/PERFIL_USUARIO.md) |
+| DirectorIA Cloud | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/README.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/README.md) |
+| SYSTEM_PROMPT.md — DirectorIA-Cloud | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/SYSTEM_PROMPT.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/SYSTEM_PROMPT.md) |
+| Flujo práctico de creación de vídeo cinematográfico con IA | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/directoria-cloud-flujo-practico.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/directoria-cloud-flujo-practico.md) |
+| DirectorIA Cloud — Director de arte IA para Higgsfield | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/directoria-cloud.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/directoria-cloud.md) |
+| Ejemplo trabajado — Still editorial cinematográfico surreal (Reels 9:16) | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/examples/ejemplo-editorial-cinematografico.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/examples/ejemplo-editorial-cinematografico.md) |
+| Ejemplo trabajado — Ad UGC con personaje recurrente (talking head vertical) | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/examples/ejemplo-ugc-personaje.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/examples/ejemplo-ugc-personaje.md) |
+| Plantilla — Prompt de imagen (copy-paste) | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/templates/prompt-imagen.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/templates/prompt-imagen.md) |
+| Plantilla — Motion Prompt (Kling / Seedance) | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/templates/prompt-video-motion.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/templates/prompt-video-motion.md) |
+| Plantilla — Ref Stack de personaje (consistencia de identidad) | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/templates/ref-stack-personaje.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/templates/ref-stack-personaje.md) |
+| Plantilla — Talking Head con Lipsync | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/templates/talking-head-lipsync.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/templates/talking-head-lipsync.md) |
+| Navegación | [base-conocimiento-torre-de-vega/README.md](base-conocimiento-torre-de-vega/README.md) |
+| Auditoría de continuidad de Society | [informes/2026-09-22_auditoria-de-continuidad.md](informes/2026-09-22_auditoria-de-continuidad.md) |
+| Patrón documental de Society | [informes/2026-09-22_patron-documental.md](informes/2026-09-22_patron-documental.md) |
+| Resumen de la revisión de Society | [informes/2026-09-22_resumen-de-cambios.md](informes/2026-09-22_resumen-de-cambios.md) |
+| Society | [informes/Society_analisis_video_referencia.md](informes/Society_analisis_video_referencia.md) |
+| Society — Cerebro estratégico | [informes/Society_cerebro_estrategico.md](informes/Society_cerebro_estrategico.md) |
+| Society | [informes/Society_estrategia_redes_y_retroalimentacion.md](informes/Society_estrategia_redes_y_retroalimentacion.md) |
+| Society | [informes/Society_flujo_de_la_aplicacion.md](informes/Society_flujo_de_la_aplicacion.md) |
+| Society — Método de dirección visual | [informes/Society_metodo_direccion_visual.md](informes/Society_metodo_direccion_visual.md) |
+| Society | [informes/Society_voces_y_subtitulos.md](informes/Society_voces_y_subtitulos.md) |
+| Ad Adaptation / Ad Recreator aplicado a Society | [informes/higgsfield/03-ad-recreator-para-society.md](informes/higgsfield/03-ad-recreator-para-society.md) |
+| Protocolo de descubrimiento y ejecución para futuras IA | [informes/higgsfield/04-protocolo-para-ia.md](informes/higgsfield/04-protocolo-para-ia.md) |
+| Society — Automatización de producción de Reels | [informes/higgsfield/05-automatizacion-de-produccion.md](informes/higgsfield/05-automatizacion-de-produccion.md) |
+| Navegación | [informes/higgsfield/README.md](informes/higgsfield/README.md) |
+| Encargo para GPT-6 Astra · Unificar el proyecto Society y diseñar su cerebro creativo-estratégico | [prompts/gpt6-astra-limpieza-y-sistema-creativo.md](prompts/gpt6-astra-limpieza-y-sistema-creativo.md) |
+| Prompt para Higgsfield · Bocetos de la app Society | [prompts/higgsfield-bocetos-app-society.md](prompts/higgsfield-bocetos-app-society.md) |
+| Prompt — Reel de Torre de Vega con OpenMontage | [prompts/openmontage-reel-torre-de-vega.md](prompts/openmontage-reel-torre-de-vega.md) |
+| Plan de pruebas — analizador de vídeos de referencia | [pruebas/analizador-video-referencia/plan-de-pruebas.md](pruebas/analizador-video-referencia/plan-de-pruebas.md) |
+
+### Referencia
+
+| Documento | Ruta |
+|---|---|
+| 00 · Metodología PromptDirector | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/00-metodologia-promptdirector.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/00-metodologia-promptdirector.md) |
+| 01 — Higgsfield MCP: referencia operativa | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/01-higgsfield-mcp.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/01-higgsfield-mcp.md) |
+| 02 · Modelos de imagen — Matriz "qué modelo para qué" | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/02-modelos-imagen.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/02-modelos-imagen.md) |
+| 03 · Modelos de vídeo (Higgsfield MCP) | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/03-modelos-video.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/03-modelos-video.md) |
+| 04 · Consistencia de personaje | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/04-consistencia-personaje.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/04-consistencia-personaje.md) |
+| 05 — La Biblia del Hiperrealismo | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/05-biblia-hiperrealismo.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/05-biblia-hiperrealismo.md) |
+| 06 · Dirección de Movimiento — la biblia del vídeo | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/06-direccion-movimiento.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/06-direccion-movimiento.md) |
+| 07 · Troubleshooting — Errores reales y cómo arreglarlos | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/07-troubleshooting.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/07-troubleshooting.md) |
+| 08 — Recetas de pipeline (end-to-end) | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/08-recetas-pipeline.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/08-recetas-pipeline.md) |
+| 09 — Vocabulario de plano/ángulo, modo orgánico y portabilidad a otras herramientas | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/09-vocabulario-plano-y-modo-organico.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/09-vocabulario-plano-y-modo-organico.md) |
+| 10 — Bullet Time y secuencias largas de un solo plano (mega-prompt de continuidad) | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/10-bullet-time-y-secuencias-largas.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/10-bullet-time-y-secuencias-largas.md) |
+| 11 — FPV de cámara invisible y física de fuerza compartida (construcción/deconstrucción imposible) | [base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/11-fpv-camara-invisible-y-fuerza-compartida.md](base-conocimiento-torre-de-vega/02-metodologia-prompting-directoria-cloud/knowledge/11-fpv-camara-invisible-y-fuerza-compartida.md) |
+| Society | [informes/Society_auditoria_estrategica_y_mejoras.md](informes/Society_auditoria_estrategica_y_mejoras.md) |
+| Society | [informes/Society_diseno_y_viabilidad.md](informes/Society_diseno_y_viabilidad.md) |
+| Society | [informes/Society_herramientas_evaluadas.md](informes/Society_herramientas_evaluadas.md) |
+| Society · Estudio de mercado y estrategia de entrada | [informes/estudio-mercado/01-estudio-de-mercado.md](informes/estudio-mercado/01-estudio-de-mercado.md) |
+| Lean Canvas · Society | [informes/estudio-mercado/02-lean-canvas.md](informes/estudio-mercado/02-lean-canvas.md) |
+| Society · Plan Lean Startup y trabajo de campo | [informes/estudio-mercado/03-validacion-y-entrevistas.md](informes/estudio-mercado/03-validacion-y-entrevistas.md) |
+| Society: auditoría crítica y propuesta de empresa más sólida | [informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md](informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md) |
+| Navegación | [informes/estudio-mercado/README.md](informes/estudio-mercado/README.md) |
+| Nueva API de Higgsfield y encaje técnico en Society | [informes/higgsfield/02-api-y-arquitectura.md](informes/higgsfield/02-api-y-arquitectura.md) |
+
+### Histórico
+
+| Documento | Ruta |
+|---|---|
+
+Registro de reparación: [enlaces revisados](informes/2026-09-22_enlaces-revisados.json).
+
+### Artefactos y recursos
+
+Los JSON, scripts y medios se conservan con su contexto original. Los siguientes archivos forman parte del inventario; no implican que sean código vigente de la aplicación.
+
+| Archivo | Contexto |
+|---|---|
+| [archivo/informes/Society_diseno_y_viabilidad.pdf](archivo/informes/Society_diseno_y_viabilidad.pdf) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/04-guiones-reels-reales/buscar_plantillas.sh](base-conocimiento-torre-de-vega/04-guiones-reels-reales/buscar_plantillas.sh) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/06-piloto-3d-blender-higgsfield/higgsfield_chat_addon.py](base-conocimiento-torre-de-vega/06-piloto-3d-blender-higgsfield/higgsfield_chat_addon.py) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/06-piloto-3d-blender-higgsfield/previz_recorrido.py](base-conocimiento-torre-de-vega/06-piloto-3d-blender-higgsfield/previz_recorrido.py) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/07-carta-web-fotos-producto/insertar_en_html.py](base-conocimiento-torre-de-vega/07-carta-web-fotos-producto/insertar_en_html.py) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/07-carta-web-fotos-producto/preparar_para_web.py](base-conocimiento-torre-de-vega/07-carta-web-fotos-producto/preparar_para_web.py) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/07-carta-web-fotos-producto/recortar_alfa.py](base-conocimiento-torre-de-vega/07-carta-web-fotos-producto/recortar_alfa.py) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/07-carta-web-fotos-producto/recortar_fondo_oscuro.py](base-conocimiento-torre-de-vega/07-carta-web-fotos-producto/recortar_fondo_oscuro.py) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/montaje_remotion/props_montaje_v3.json](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/montaje_remotion/props_montaje_v3.json) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/montaje_remotion/TorreDeVegaReel.tsx](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/montaje_remotion/TorreDeVegaReel.tsx) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/buscar.py](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/buscar.py) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/contrast3.py](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/contrast3.py) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/grid.py](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/grid.py) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/put_uploads.py](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/put_uploads.py) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/sheets.ps1](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/sheets.ps1) | histórico / evidencia |
+| [base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/transcribe.py](base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/scripts/transcribe.py) | histórico / evidencia |
+| [informes/2026-09-22_fuentes-github.json](informes/2026-09-22_fuentes-github.json) | registro documental |
+| [informes/higgsfield/2026-09-22_verificaciones.json](informes/higgsfield/2026-09-22_verificaciones.json) | registro documental |
+| [informes/higgsfield/ad-recreator-contrato.json](informes/higgsfield/ad-recreator-contrato.json) | registro documental |
 
 ## 16. Estado actual y próximos pasos
 
-📌 **Fase de definición** (16 de septiembre de 2026). No hay código ni stack cerrado.
+**2026-09-22: definición documental revisada; aplicación todavía no implementada.** Víctor escribe el código del TFG. Se ha ejecutado la reorganización, corregido reglas y escrito los diseños de producción, dirección visual y estrategia. No se han ejecutado generaciones de pago ni publicado contenido.
 
-**Próximos pasos:**
+Decidido: Society es el producto; Torre de Vega es evidencia. Personas permitidas con ficha para protagonistas; montaje Remotion; capacidades por contrato; plazos y estados propios; presupuesto antes de generar; dos puertas por pieza; predictor máximo 16 s; aprendizaje con incertidumbre.
 
-1. Cerrar cuotas y precios de los tres planes con los costes del informe de viabilidad.
-2. Decidir resolución y proveedor de vídeo; confirmar en la primera prueba las dimensiones reales y el importe facturado.
-3. Elegir React + TypeScript o Angular según los requisitos del centro.
-4. Definir la cuenta propia de Society: red, audiencia y línea editorial.
-5. Solicitar los accesos a la API de Instagram y a la API de Google Business Profile.
-6. Cerrar el modelo de datos con las entidades de la sección 8.1.
+Por cerrar: factura/equivalencia MCP, uso de servicio y aislamiento de MCP, ruta fal equivalente, acceso social, prueba visual autorizada, tiempo humano y de render, precios/cuotas y React o Angular. Canvas queda como herramienta opcional de dirección, con API de grafos no verificada. Ninguna de estas verificaciones se da por realizada por estar documentado su plan.
 
-La base de conocimiento está sincronizada con el caso práctico Torre de Vega a fecha de 2026-09-15 (ver la tabla de sincronizaciones en [`base-conocimiento-torre-de-vega/README.md`](./base-conocimiento-torre-de-vega/README.md)).
+Prioridad: implementar núcleo de imágenes/posts/historias y una ruta cualificada de Reel; medir un piloto; bandits, 3D y automatización de Canvas después. [Resumen de la revisión](informes/2026-09-22_resumen-de-cambios.md).
