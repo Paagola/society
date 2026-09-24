@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "society-aplicacion-tfg/documentacion/03-pantallas-y-recorridos.md",
+                "file": "informes/estudio-mercado/01-estudio-de-mercado.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03-pantallas-y-recorridos"
+              "title": "01-estudio-de-mercado"
             }
           }
         ]
@@ -190,9 +190,47 @@
   },
   "active": "840bd3051dc993fa",
   "lastOpenFiles": [
-    "prompts/higgsfield-bocetos-app-society.md",
-    "society-aplicacion-tfg/documentacion/02-requisitos-y-alcance.md",
-    "society-aplicacion-tfg/documentacion/01-producto-y-negocio.md",
-    "society-aplicacion-tfg/README.md"
+    "skills/marketing-hosteleria/references/sednveMlg",
+    "skills/directoria/references/hosteleria/03-resolucion-y-reescalado.md.tmp.23576.385c835f311d",
+    "pruebas/ab-reescalado-720p-2026-09-24/README.md",
+    "pruebas/ab-reescalado-720p-2026-09-24/metricas.json",
+    "pruebas/ab-reescalado-720p-2026-09-24/ab.py",
+    "pruebas/ab-reescalado-720p-2026-09-24/keyframe-9x16.jpg",
+    "pruebas/ab-reescalado-720p-2026-09-24/tira-1080p-nativo.jpg",
+    "pruebas/ab-reescalado-720p-2026-09-24/tira-720p.jpg",
+    "pruebas/ab-reescalado-720p-2026-09-24/servilleta-vs-keyframe.jpg",
+    "pruebas/ab-reescalado-720p-2026-09-24/fotogramas-consecutivos-plato.jpg",
+    "pruebas/ab-reescalado-720p-2026-09-24/comparativa-gambas.jpg",
+    "pruebas/ab-reescalado-720p-2026-09-24",
+    "society-identidad-editorial/animacion/js/escenas.js.tmp.2108.1812f5c6d323",
+    "society-identidad-editorial/animacion/js/app.js",
+    "society-identidad-editorial/animacion/js/escenas.js",
+    "society-identidad-editorial/animacion/js/atrezo.js",
+    "society-identidad-editorial/animacion/js/personaje.js",
+    "society-identidad-editorial/animacion/js/particulas.js",
+    "skills/director/references/07-estructuras-de-reel-hosteleria.md",
+    "skills/director/references/06-checklist-profesional.md",
+    "skills/director/references/05-orquestacion.md",
+    "skills/director/references/04-lista-de-planos.md",
+    "skills/director/references/03-movimiento-con-motivo.md",
+    "skills/director/references/02-vocabulario-camara-y-luz.md",
+    "skills/director/references/01-dramaturgia.md",
+    "skills/marketing-hosteleria/references/08-economia-y-planes.md",
+    "skills/marketing-hosteleria/references/07-metodologia-y-medicion.md",
+    "skills/marketing-hosteleria/references/06-legal-y-cumplimiento.md",
+    "skills/marketing-hosteleria/references/05-psicologia-y-ofertas.md",
+    "skills/marketing-hosteleria/references/04-negocio-local-resenas-y-funnel.md",
+    "skills/marketing-hosteleria/references/03-estrategia-de-contenido.md",
+    "skills/marketing-hosteleria/references/02-caso-medido-torre-de-vega.md",
+    "skills/marketing-hosteleria/references/01-algoritmo-y-senales-oficiales.md",
+    "skills/marketing-hosteleria/references/00-precedencia-y-correcciones.md",
+    "skills/marketing-hosteleria/references/instagram-kb/RESOLVER.md",
+    "skills/marketing-hosteleria/references/instagram-kb/README.md",
+    "skills/marketing-hosteleria/references/instagram-kb/log.md",
+    "skills/marketing-hosteleria/references/instagram-kb/index.md",
+    "skills/marketing-hosteleria/references/instagram-kb/10-skill-integration/workflow-completo.md",
+    "skills/marketing-hosteleria/references/instagram-kb/10-skill-integration/research-to-prompts.md",
+    "skills/marketing-hosteleria/references/instagram-kb/10-skill-integration/README.md",
+    "skills/marketing-hosteleria/references/instagram-kb/10-skill-integration/directoria-integration.md"
   ]
 }

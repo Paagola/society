@@ -1,0 +1,29 @@
+> **Origen:** `torre_de_vega/instagram-skill-hosteleria/log.md` (base de conocimiento de 2026-09-02). Integrado en la skill `marketing-hosteleria` el 2026-09-24 sin recortar contenido.
+> **Precedencia:** si algo de este documento choca con [`00-precedencia-y-correcciones.md`](../00-precedencia-y-correcciones.md), manda ese archivo: recoge mediciones propias posteriores y fuentes oficiales verificadas.
+
+# Log de actualizaciones
+
+## 2026-09-02 (v2) — Corrección de mitos del algoritmo + integración con DirectorIA Cloud
+- Fuente: `informes/deep-research-report.md`, un deep research real sobre el cliente Torre de Vega (asador, Alhaurín de la Torre, Málaga), y el paquete `directoria-cloud/` (skill hermana de dirección de arte IA) presentes en el mismo workspace.
+- **Corrección de honestidad en `00-algoritmo/` y `04-benchmarks-kpis/`**: varias "reglas" del algoritmo que se presentaban como hechos oficiales de Meta se han relabeled como objetivos internos de gestión, distinguidas explícitamente de las señales sí confirmadas por Adam Mosseri (average watch time, likes/reach, sends/reach). Afectados: umbral de hook a 1,7s, retención >60% a 3s como regla oficial, "Originality Score" como métrica oficial nombrada, geo-tag como boost algorítmico cuantificado, respuesta <1h como señal de ranking (se mantiene solo como SLA comercial), duración forzada de Reels 30-90s, carousels de 20 slides.
+- **Nuevo North Star**: `04-benchmarks-kpis/README.md` ahora enmarca todo alrededor de "covers reservados atribuibles a Instagram/semana", no followers ni ER en aislado.
+- **Nueva fórmula "Public Engagement Velocity"**: en `engagement-rates.md`, para rankear competencia con datos públicos reales (likes+comments) sin fingir que se tiene acceso a sus saves/reach/DMs privados.
+- **Estrategia de contenido (`01-estrategia-contenido/`)**: CTAs rediseñados para maximizar sends ("mándaselo a quien..."), hashtags reestructurados en 5 capas (hiperlocal → descubrimiento ciudad → especialidad → cocina local → producto concreto), cadencia corregida a 2 Reels + 1 Carousel + Stories diarias/semana (no volumen forzado), duración de Reels realista (12-30s), carousels de 7-10 slides, principio de "primer frame con la promesa ya dentro".
+- **Workflows (`06-workflows-automatizacion/`) y herramientas (`05-herramientas/scrapers.md`)**: rutina semanal realista de ~3h, funnel de palabra clave por DM ("MESA" o equivalente) con plantilla de respuesta rápida, columnas `Fuente`/`IG asset` para el registro de reservas, arquitectura de automatización Apify → n8n/Make → Sheets → Insights → atribución, ciclo de aprendizaje semanal (qué ganó / por qué / qué hacer después), regla de prioridad BUSINESS_WINNER > SEND/SAVE > WATCH > LIKE > follower growth.
+- **Nuevo caso de estudio real**: `08-casos-estudio/torre-de-vega-alhaurin.md` — a diferencia de los otros 3 casos (ilustrativos), este documenta una estrategia real en ejecución (arranca 2026-09-09), marcado `[PENDIENTE: actualizar con resultados tras la ejecución]` porque el resultado aún no existe.
+- **Integración con DirectorIA Cloud**: nuevo archivo `10-skill-integration/directoria-integration.md` — protocolo completo que conecta el calendario editorial de esta skill con la generación de imagen/vídeo de `directoria-cloud/` (skill hermana en el mismo workspace). Regla central: DirectorIA nunca genera un plato/producto sin foto real de referencia del cliente; mapeo de qué modelo de DirectorIA usar según el tipo de pieza (Reel, Carousel, retrato de equipo, etc.); vocabulario de ángulo compartido. También actualizados: `07-plantillas-prompts/ai-image-prompts.md` (DirectorIA como ruta recomendada, prompts genéricos de Midjourney/DALL-E degradados a fallback), `05-herramientas/ai-content.md`, y los tres archivos restantes de `10-skill-integration/`.
+- Validación: 74 archivos totales, 0 wikilinks rotos tras la revisión.
+
+## 2026-09-02 — Creación inicial de la knowledge base
+- Deep research ejecutado en paralelo sobre 6 frentes: algoritmo, estrategia de contenido, configuración técnica + herramientas, nichos + casos de estudio, benchmarks + workflows, plantillas + recursos + integración.
+- 68 archivos de contenido creados en 11 carpetas + 4 archivos raíz (README, RESOLVER, index, log).
+- Fuentes: Meta/Adam Mosseri (donde disponible), Socialinsider, Dash Social, Metricool, Buffer, Later, Sprout Social, Hootsuite, Apaya, Dataslayer, HubSpot, Coursera, y blogs especializados en hostelería (The Fork Manager, Restauración News, Qamarero, Dirección Hostelería), entre otras — cada archivo lista sus fuentes en el pie.
+- Elementos marcados explícitamente como no verificados / estimación, para no presentarlos como hecho confirmado:
+  - `00-algoritmo/returning-viewer-rate.md` — no existe confirmación oficial de una métrica con ese nombre; el archivo usa señales adyacentes verificadas (replay rate, closeness en Stories).
+  - `04-benchmarks-kpis/reach-local.md` — no hay benchmark público de "% de reach en radio 5km"; el archivo ofrece proxies (ubicación de seguidores en Insights, encuestas "cómo nos conociste").
+  - `08-casos-estudio/restaurante-malaga.md`, `cocteleria-sevilla.md`, `pizzeria-valencia.md` — etiquetados como casos ilustrativos compuestos a partir de patrones reales del sector, no como casos documentados con nombre de negocio verificado.
+  - Varios benchmarks numéricos puntuales (ej. pesos relativos de señales del algoritmo, tiempos de respuesta ideales) están marcados como estimación de terceros, no cifra oficial de Meta.
+- Pendiente para una futura revisión: contrastar límites de API de Instagram citados en `02-configuracion-tecnica/security-privacy.md` directamente contra developers.facebook.com antes de construir integraciones críticas sobre ellos; verificar precios de herramientas (cambian con frecuencia) antes de contratar.
+
+---
+*Formato: cada entrada nueva se añade arriba, con fecha en formato AAAA-MM-DD.*
