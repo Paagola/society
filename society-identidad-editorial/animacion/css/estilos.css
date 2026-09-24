@@ -1,0 +1,251 @@
+/* ==========================================================================
+   Society · Animación — estilos de la página que aloja el lienzo
+   Tokens tomados de ../README.md (paleta 60/30/10 y tipografías).
+   ========================================================================== */
+
+/* Fuentes reales del proyecto (las mismas que usan los SVG de pantallas/_svg) */
+@font-face {
+  font-family: "Anton";
+  src: url("../../pantallas/_svg/fuentes/Anton-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../../pantallas/_svg/fuentes/PlayfairDisplay-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Schibsted Grotesk";
+  src: url("../../pantallas/_svg/fuentes/SchibstedGrotesk.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --papel: #ECE8DC;
+  --cobalto: #2440E0;
+  --mostaza: #F5C518;
+  --tinta: #141414;
+  --tinta-suave: #5c584f;
+
+  --fuente-titular: "Anton", Impact, "Arial Narrow Bold", sans-serif;
+  --fuente-acento: "Playfair Display", Georgia, serif;
+  --fuente-ui: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
+
+  --radio: 18px;
+  --alto-controles: 230px; /* espacio que dejamos bajo el lienzo para controles y ayuda */
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  min-height: 100svh;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fuente-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+.pagina {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ---------- cabecera ---------- */
+.cabecera {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.logo {
+  margin: 0;
+  font-family: var(--fuente-acento);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 1;
+  /* subrayado de pincel cobalto: mismo trazo que el logotipo A */
+  padding-bottom: 6px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 21' preserveAspectRatio='none'%3E%3Cpath d='M2 17 C30 9 65 4 98 2 C99.6 2 100 4.2 98.4 5 C66 8.5 34 13.5 4.5 20 C1 20.6 0 18 2 17 Z' fill='%232440E0'/%3E%3C/svg%3E") no-repeat left bottom / 100% 8px;
+}
+.cabecera__lema {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+/* ---------- escenario (contenedor responsivo del canvas) ---------- */
+.escenario {
+  position: relative;
+  /* formato póster 4:5 como los posts de la marca; nunca más alto que la ventana */
+  width: min(100%, calc((100svh - var(--alto-controles)) * 0.8));
+  min-width: 260px;
+  aspect-ratio: 4 / 5;
+  border: 3px solid var(--tinta);
+  border-radius: var(--radio);
+  overflow: hidden;
+  background: var(--papel);
+  box-shadow: 6px 7px 0 var(--tinta);
+}
+.escenario canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.escenario__carga {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--fuente-titular);
+  font-size: 40px;
+  letter-spacing: .02em;
+}
+.escenario__carga[hidden] { display: none; }
+
+/* ---------- controles ---------- */
+.controles {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font: 700 16px/1 var(--fuente-ui);
+  color: var(--tinta);
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.boton__icono { font-size: 14px; width: 1em; text-align: center; }
+/* Único botón mostaza de la pantalla (regla de la marca) */
+.boton--principal {
+  background: var(--mostaza);
+  border: 2.5px solid var(--tinta);
+  box-shadow: 3px 3px 0 var(--tinta);
+  min-width: 118px;
+}
+.boton--borde {
+  background: transparent;
+  border: 2.5px solid var(--tinta);
+}
+.boton:hover { transform: translateY(-1px); }
+.boton:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--tinta); }
+.boton:focus-visible, .linea:focus-visible, .capitulos button:focus-visible {
+  outline: 3px solid var(--cobalto);
+  outline-offset: 3px;
+}
+
+.linea {
+  position: relative;
+  flex: 1;
+  height: 14px;
+  border: 2.5px solid var(--tinta);
+  border-radius: 999px;
+  background: #fff8;
+  overflow: hidden;
+  cursor: pointer;
+  touch-action: none;
+}
+.linea__relleno {
+  position: absolute;
+  inset: 0;
+  background: var(--cobalto);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+.linea__marcas { position: absolute; inset: 0; pointer-events: none; }
+.linea__marcas span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--tinta);
+  opacity: .5;
+}
+
+.tiempo {
+  min-width: 78px;
+  text-align: right;
+  font: 600 14px/1 var(--fuente-ui);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- capítulos ---------- */
+.capitulos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.capitulos button {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 2px solid var(--tinta);
+  border-radius: 999px;
+  background: transparent;
+  font: 600 14px/1 var(--fuente-ui);
+  color: var(--tinta);
+  cursor: pointer;
+}
+.capitulos button[aria-current="step"] {
+  background: var(--cobalto);
+  border-color: var(--cobalto);
+  color: var(--papel);
+}
+
+.ayuda {
+  margin: 0;
+  max-width: 60ch;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--tinta-suave);
+}
+kbd {
+  display: inline-block;
+  padding: 0 6px;
+  margin: 0 1px;
+  border: 1.5px solid var(--tinta-suave);
+  border-radius: 6px;
+  font: 600 11px/1.6 var(--fuente-ui);
+}
+
+@media (max-width: 520px) {
+  :root { --alto-controles: 290px; }
+  .controles { flex-wrap: wrap; }
+  .linea { flex-basis: 100%; order: 3; }
+  .boton__texto { font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boton { transition: none; }
+}
