@@ -1,0 +1,343 @@
+# Ejemplo real: Reel 09 «Volvemos a abrir» (Torre de Vega, 2026-09-17), versión de montaje vigente (v5).
+# Reconstruido a posteriori con el formato del plan para enseñar cómo se rellena. Los datos salen de
+# base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/documentacion-completa.md.
+# Prompts: literales de los anexos A y B, salvo K-P2, al que se le añade el negativo de la regla 26
+# («no napkin or cloth under the plate») que el linter echó en falta al reconstruirlo.
+# Aviso real que queda: W02 (P2 y P3 comparten desplazamiento lateral seguido; la regla 9 pide variar).
+# Los keyframes K-P3 a K-P8 remiten al anexo A para no alargar el ejemplo.
+
+reel:
+  id: reel_09_volvemos_a_abrir
+  cliente: torre-de-vega
+  fecha: 2026-09-17
+  estado: montaje
+
+brief:
+  pieza: "Carta de otoño + fecha; tras la corrección nº 2, «Volvemos a abrir» sin fecha"
+  objetivo: reenvio
+  motivo_para_reenviar: "reapertura de temporada (la fecha quedó pendiente y se retiró)"
+  reel_de_referencia: "plantillas/2026-09-17/01_1835-carne-e-brasa_nueva-temporada_46s_original.mp4"
+  metraje_real_disponible: [imagenes/parrilla/clips/parrilla_volteo_master_4k60.mp4]
+  estilo_de_luz: dramatico
+  duracion_orientativa_s: 12
+  voz_en_off: false          # se grabaron muestras; la versión vigente va sin sonido
+  cta: "reserva + pregunta al espectador"
+  presupuesto_creditos: 150  # el cliente no lo fijó; valor de ejemplo
+
+verdad:
+  anclas:
+    - {id: mantel, descripcion: "beige con relieve sobre bajo-mantel rosa pálido", fotos: [imagenes/local/mesa-ventana.jpg, imagenes/local/mesas-restaurante3.jpg], dificultad: baja}
+    - {id: silla, descripcion: "madera color miel, respaldo tallado, balaustres torneados, asiento de enea", fotos: [imagenes/local/mesa-ventana.jpg], dificultad: baja}
+    - {id: sala, descripcion: "ladrillo visto, apliques de forja, visillos blancos, chimenea de piedra", fotos: [imagenes/local/mesas-restaurante4.jpg, imagenes/local/panoramica-restaurante.jpg], dificultad: media}
+    - {id: lampara, descripcion: "corona de forja negra con bombillas vela", fotos: [imagenes/local/photo_5805514308144795419_y.jpg], dificultad: media}
+    - {id: plato, descripcion: "blanco con relieve de volutas y rombos en el ala", fotos: [imagenes/local/plato-blanco-formal.jpg], dificultad: baja}
+    - {id: copa_vino, descripcion: "copa grande de cristal fino", fotos: [imagenes/vinos/copa-vino-grande.jpg], dificultad: baja}
+    - {id: botellero, descripcion: "botellero de metal negro", fotos: [imagenes/local/photo_5805514308144795414_y.jpg], dificultad: alta}
+  metraje_real:
+    - ruta: imagenes/parrilla/clips/parrilla_volteo_master_4k60.mp4
+      contenido: "pala levanta el chuletón entre llamas"
+      tramos_utiles: ["3.4-5.8"]
+      usos_previos: [varios reels anteriores]   # el cliente lo retiró en la v2 por repetido
+  invenciones_recurrentes: ["lámpara de cristal de la plantilla", "etiqueta con texto en la botella", "botellero inventado (dos veces)", "mano no pedida en la sala"]
+  no_existe: ["carta de otoño documentada: ni platos, ni fecha, ni fotos"]
+
+tratamiento:
+  motivo_para_reenviar: "el restaurante vuelve a abrir: plan para ir"
+  momento_heroe: "el vino cayendo en la primera copa de la mesa"
+  emocion: ["la silla se retira para alguien", "la sala espera en penumbra", "la primera copa se sirve"]
+  foco_sensorial: "vista: luz cálida sobre negro"
+  motivo_visual: "formas redondas y luz cálida: copa, lámpara, plato"
+  curva_de_ritmo: "2,4 s de gancho → planos de 1,1-1,9 s → sostener 2,2 s el cierre"
+  cierre: "placa TORRE DE VEGA · «EL MORA»"
+
+conceptos:
+  - {id: C1, mecanismo: M3, titulo: "Anuncio de temporada sin platos", fotograma_1: "mano retirando la silla", arco: "bienvenida → sala → luz → vino → mesa → marca", planos_generados: 6, coste_est_creditos: 125, respuesta_pregunta_control: "sí, si lleva fecha; sin fecha se queda en pieza de ambiente"}
+  - {id: C2, mecanismo: M5, titulo: "Mismo plano, cambia el plato", fotograma_1: "primer plato en mesa con mano", arco: "4-6 platos en el mismo punto del gesto", planos_generados: 2, coste_est_creditos: 80, respuesta_pregunta_control: "no hay platos de otoño documentados"}
+  - {id: C3, mecanismo: M1, titulo: "Brasa con anuncio", fotograma_1: "pala entre llamas (real)", arco: "brasa → sala → mesa", planos_generados: 4, coste_est_creditos: 100, respuesta_pregunta_control: "sí con fecha; metraje de brasa muy usado"}
+concepto_elegido: C1
+
+planos:
+  - id: P2
+    funcion: gancho
+    t: [0.0, 2.4]
+    escalon: L4
+    justificacion_escalon: "no hay metraje real de una mano retirando la silla"
+    fuente: {tipo: generado}
+    generacion: V1
+    accion: {descripcion: "mano de mujer, ya agarrando el respaldo tallado, retira la silla unos 10 cm", clase: compleja, origen_movimiento: mano}
+    contiene: [silla, mesa, plato, copa, manos]
+    anclas: [silla, mantel, plato, copa_vino]
+    manos: [mujer]
+    angulo: {posicion: lateral, altura: respaldo, lente_mm: 50}
+    camara: {movimiento: lateral, aparato: slider_motorizado, recorrido: "5 %", direccion: izquierda}
+    beats:
+      - {t: "0.0-2.4s", accion: "un tirón suave de la silla", estado_final: "mano quieta sobre el respaldo, silla asentada"}
+    transicion: {entrada: "", salida: "corte seco a la sala"}
+    rotulo: "VOLVEMOS A ABRIR"
+    criterios_rechazo: ["dedos que cambian", "anillo que aparece", "silla que se deforma"]
+    coste_est_creditos: 30
+  - id: P3
+    funcion: desarrollo
+    t: [2.4, 4.0]
+    escalon: L4
+    justificacion_escalon: "la sala en penumbra con copa delante no existe en metraje real"
+    fuente: {tipo: generado}
+    generacion: V-P3
+    accion: {descripcion: "sala vacía; solo viaja la cámara", clase: simple, origen_movimiento: camara}
+    contiene: [mesa, copa]
+    anclas: [sala, mantel, copa_vino]
+    angulo: {posicion: frontal, altura: sentado, lente_mm: 35}
+    camara: {movimiento: lateral, aparato: slider_motorizado, recorrido: "8 %", direccion: derecha}
+    beats:
+      - {t: "0.0-1.5s", accion: "brillo leve en el vino de la copa", estado_final: ""}
+      - {t: "1.5-3.0s", accion: "solo viaja la cámara", estado_final: "sala quieta, copa en primer término"}
+    transicion: {entrada: "corte seco", salida: "luz a negro hacia la lámpara"}
+    rotulo: "UNA NUEVA TEMPORADA"
+    criterios_rechazo: ["gente que aparece", "sillas que cambian"]
+    incidencias: ["en el keyframe apareció una mano no pedida en el pie de la copa; se presentó sin tocar"]
+    coste_est_creditos: 5.25
+  - id: P4
+    funcion: desarrollo
+    t: [4.0, 5.1]
+    escalon: L4
+    justificacion_escalon: "no hay metraje real de la lámpara"
+    fuente: {tipo: generado}
+    generacion: V-P4
+    accion: {descripcion: "lámpara encendida; solo viaja la cámara", clase: simple, origen_movimiento: camara}
+    contiene: [lampara]
+    anclas: [lampara]
+    angulo: {posicion: contrapicado, altura: bajo, lente_mm: 85}
+    camara: {movimiento: arco, aparato: slider_motorizado, recorrido: "6°", direccion: izquierda_a_derecha}
+    beats:
+      - {t: "0.0-3.0s", accion: "las bombillas brillan fijas; solo viaja la cámara", estado_final: "lámpara quieta, arco completado"}
+    transicion: {entrada: "luz a negro", salida: "corte seco"}
+    rotulo: ""
+    criterios_rechazo: ["cristales", "bombillas que aparecen o desaparecen"]
+    coste_est_creditos: 5.25
+  - id: P5
+    funcion: heroe
+    t: [5.1, 7.0]
+    escalon: L4
+    justificacion_escalon: "no hay metraje real del vertido en la sala"
+    fuente: {tipo: generado}
+    generacion: V1
+    accion: {descripcion: "chorro de vino tinto cayendo en la primera copa de la mesa", clase: compleja, origen_movimiento: liquido}
+    contiene: [mesa, copa, manos, liquido]
+    anclas: [mantel, copa_vino]
+    manos: [hombre]
+    angulo: {posicion: frontal, altura: ras_de_mesa, lente_mm: 65}
+    camara: {movimiento: push_in, aparato: slider_motorizado, recorrido: "5 %"}
+    beats:
+      - {t: "0.0-3.3s", accion: "el chorro sigue cayendo; el nivel sube con ondas", estado_final: "la mano levanta la botella y el chorro termina en una gota"}
+    transicion: {entrada: "corte seco", salida: "corte seco"}
+    rotulo: ""
+    criterios_rechazo: ["vino derramado", "texto en la botella", "otras copas que se mueven"]
+    coste_est_creditos: 30
+  - id: P6
+    funcion: prueba
+    t: [7.0, 9.2]
+    escalon: L4
+    justificacion_escalon: "no hay metraje real del plato con la copa servida"
+    fuente: {tipo: generado}
+    generacion: V1
+    accion: {descripcion: "yemas de mujer en el pie de la copa la acercan 1 cm al plato", clase: compleja, origen_movimiento: mano}
+    contiene: [mesa, plato, copa, manos]
+    anclas: [plato, copa_vino, mantel]
+    manos: [mujer]
+    angulo: {posicion: tres_cuartos, altura: alto, lente_mm: 50}
+    camara: {movimiento: grua_bajada, aparato: grua_mecanica, recorrido: "4 %"}
+    beats:
+      - {t: "0.0-3.4s", accion: "un gesto corto de deslizar la copa", estado_final: "dedos quietos en el pie, copa junto al plato"}
+    transicion: {entrada: "corte seco", salida: "corte seco al cierre"}
+    rotulo: ""
+    criterios_rechazo: ["mano entera en vez de yemas", "plato con texto"]
+    coste_est_creditos: 30
+  - id: P8
+    funcion: cierre
+    t: [9.2, 11.4]
+    escalon: L4
+    justificacion_escalon: "el rincón con aplique y copa en primer término no existe en metraje real"
+    fuente: {tipo: generado}
+    generacion: V-P8
+    accion: {descripcion: "rincón de la sala tras la copa; el foco pasa de la copa a la sala", clase: simple, origen_movimiento: camara}
+    contiene: [mesa, copa]
+    anclas: [sala, copa_vino, mantel]
+    angulo: {posicion: frontal, altura: mesa, lente_mm: 50}
+    camara: {movimiento: push_in, aparato: slider_motorizado, recorrido: "3 %"}
+    beats:
+      - {t: "0.0-1.0s", accion: "brillo en la superficie del vino", estado_final: ""}
+      - {t: "1.0-2.5s", accion: "el foco viaja de la copa a la sala", estado_final: ""}
+      - {t: "2.5-3.0s", accion: "el foco se asienta en la sala", estado_final: "sala nítida, copa desenfocada"}
+    transicion: {entrada: "corte seco", salida: "fin"}
+    rotulo: "TORRE DE VEGA · «EL MORA»"
+    criterios_rechazo: ["gente", "luz que parpadea"]
+    incidencias: ["Kling devolvió un desplazamiento lateral en vez del cambio de foco pedido"]
+    coste_est_creditos: 5.25
+
+generaciones:
+  - id: K-P2
+    tipo: imagen
+    planos: [P2]
+    modelo: nano_banana_pro
+    params: {resolution: 2k, aspect_ratio: "9:16"}
+    referencias:
+      - {ruta: imagenes/local/mesa-ventana.jpg, rol: "silla y mesa puesta reales", fidelidad: completa, excluir: ""}
+      - {ruta: imagenes/local/mesas-restaurante3.jpg, rol: "sillas y mantelería", fidelidad: completa, excluir: ""}
+      - {ruta: plantillas/2026-09-17/frames_01/01_plano03_4.62s.jpg, rol: "ángulo, encuadre y dirección de luz", fidelidad: guia, excluir: "nada más de este fotograma puede aparecer"}
+    prompt: |-
+      {"subject_identity":"A real carved wooden dining chair being pulled out from a laid table at Torre de Vega, a nearly 50-year-old village grill restaurant in Alhaurín de la Torre, Málaga, Spain. @image1 and @image2 are real photographs of the dining room and govern the chair and the table completely: a honey-brown solid wood chair with a carved horizontal back rail and turned spindles and a woven rush seat, and a table dressed with a beige embossed tablecloth over a pale pink undercloth, a white plate with an embossed rim and a large wine glass. @image3 is a frame from another restaurant's video and governs ONLY the camera angle, the framing and the direction of the light; nothing else from @image3 may appear.","realism":"a real editorial photograph shot on location during evening service, a single realistic exposure, not CGI, not illustration","environment":"A woman's hand, short natural unpolished nails, fine skin texture, grips the top carved rail of the chair back and is already pulling the chair out and away from the table, the chair tilted a few degrees in motion. Behind it, the edge of the laid table with the beige embossed cloth, the rim of a white plate and the foot of a large wine glass holding red wine. The dining room beyond falls into darkness.","lighting":"one dramatic, hard, slightly warm key light from a single direction at camera-right, raking across the carved wood and the knuckles, deep near-black falloff shadows across most of the frame, heavy contrast with true blacks, warm cinematic colour grade around 3100K, visible fine film grain; not flat, not bright and airy, not neutral daylight","camera":{"lens_mm":"50","aperture_f":"2.0","iso":"800","shutter":"1/125","lens_to_subject_m":"0.5","subject_to_bg_m":"3","cct_k":"3100"},"composition":"vertical 9:16, low side angle at the height of the chair back; the hand and the carved rail cross the frame diagonally from the right edge toward the centre; the table edge soft in the lower left; the upper third falls to dark and is kept clean for a caption","imperfections":"the natural grain and small worn patches in the varnish of the chair rail, loose fibres in the woven rush seat, the embossed pattern of the tablecloth catching the light unevenly, a soft crease in the cloth where it drops","palette":"honey wood, beige linen, deep red wine, warm amber highlights falling into near-black","mood":"a quiet welcome at the start of service, intimate and editorial","film_stock":"warm cinematic colour grade around 3000-3300K, heavy contrast with deep near-black shadows, visible fine film grain","negatives":"no text, no lettering anywhere, no logo or emblem or crest or monogram on any cloth, napkin, plate or glass, no restaurant name, no stain or spots on the tablecloth, no crumbs, no food outside a plate, no half-eaten food, no empty wine glass in the foreground, no furniture, decoration or lamp absent from @image1 and @image2, no napkin or cloth under the plate, no fire, no flames, no smoke, no face, no rings, no bracelets, no watch, no metal chair, no cowhide upholstery, no dark glossy table, no flat even lighting, no bright airy look, no HDR, no CGI gloss, no watermark"}
+    coste_est_creditos: 2
+    estado: aprobado
+    job_id: 1d31813a-7ab6-4d59-b6a9-21c34ea190d6
+    modelo_devuelto: nano_banana_2
+  - {id: K-P3, tipo: imagen, planos: [P3], modelo: nano_banana_pro, params: {resolution: 2k, aspect_ratio: "9:16"}, referencias: [{ruta: imagenes/local/mesas-restaurante4.jpg, rol: "geometría de la sala", fidelidad: completa}, {ruta: imagenes/local/panoramica-restaurante.jpg, rol: "sala", fidelidad: completa}, {ruta: imagenes/local/mesas-restaurante3.jpg, rol: "sala", fidelidad: completa}, {ruta: plantillas/2026-09-17/frames_01/01_plano05_8.9s.jpg, rol: "altura de cámara, copa en primer término, reparto de luz", fidelidad: guia, excluir: "nada más de este fotograma"}], prompt: "(ver documentacion-completa.md, anexo A.2)", coste_est_creditos: 2, estado: aprobado, job_id: 33e9ec08-26d5-441e-9ef3-62f429bc5496, modelo_devuelto: nano_banana_2}
+  - {id: K-P4, tipo: imagen, planos: [P4], modelo: nano_banana_pro, params: {resolution: 2k, aspect_ratio: "9:16"}, referencias: [{ruta: imagenes/local/photo_5805514308144795419_y.jpg, rol: "la lámpara", fidelidad: completa}, {ruta: imagenes/local/mesas-restaurante4.jpg, rol: "pared y techo", fidelidad: parcial}, {ruta: plantillas/2026-09-17/frames_01/01_plano06_10.33s.jpg, rol: "contrapicado y brillo sobre negro", fidelidad: guia, excluir: "ninguna lámpara de cristal"}], prompt: "(ver documentacion-completa.md, anexo A.3)", coste_est_creditos: 2, estado: aprobado, job_id: eaaa6224-8ed7-4a02-85d3-a63d3dc16910, modelo_devuelto: nano_banana_2}
+  - {id: K-P5, tipo: imagen, planos: [P5], modelo: nano_banana_pro, params: {resolution: 2k, aspect_ratio: "9:16"}, referencias: [{ruta: imagenes/local/mesas-restaurante4.jpg, rol: "mesa puesta", fidelidad: completa}, {ruta: imagenes/local/mesa-chimenea.jpg, rol: "mantel y botella", fidelidad: completa}, {ruta: imagenes/vinos/copa-vino-grande.jpg, rol: "forma exacta de la copa", fidelidad: completa}, {ruta: plantillas/2026-09-17/frames_01/01_plano07_11.32s.jpg, rol: "altura de cámara y fila de copas", fidelidad: guia, excluir: "nada más de este fotograma"}], prompt: "(ver documentacion-completa.md, anexo A.4-A.5; la v1 se descartó por texto en la etiqueta)", coste_est_creditos: 4, estado: aprobado, job_id: e7dcd73b-6adf-4f82-ab06-c3e2b76594e4, modelo_devuelto: nano_banana_2}
+  - {id: K-P6, tipo: imagen, planos: [P6], modelo: nano_banana_pro, params: {resolution: 2k, aspect_ratio: "9:16"}, referencias: [{ruta: imagenes/local/plato-blanco-formal.jpg, rol: "plato real", fidelidad: completa}, {ruta: imagenes/local/mesa-ventana.jpg, rol: "cubierto y mantel", fidelidad: completa}, {ruta: imagenes/vinos/copa-vino-grande.jpg, rol: "copa", fidelidad: completa}, {ruta: plantillas/2026-09-17/frames_01/01_plano08_12.66s.jpg, rol: "encuadre 3/4 alto", fidelidad: guia, excluir: "el plato con marca de la plantilla"}], prompt: "(ver documentacion-completa.md, anexo A)", coste_est_creditos: 2, estado: aprobado, job_id: ea1cd697-aeb5-46ad-8908-4100db3bcdb8, modelo_devuelto: nano_banana_2}
+  - {id: K-P8, tipo: imagen, planos: [P8], modelo: nano_banana_pro, params: {resolution: 2k, aspect_ratio: "9:16"}, referencias: [{ruta: imagenes/local/mesas-restaurante3.jpg, rol: "sala y aplique", fidelidad: completa}, {ruta: imagenes/local/mesa-chimenea.jpg, rol: "mantel", fidelidad: completa}, {ruta: imagenes/vinos/copa-vino-grande.jpg, rol: "copa", fidelidad: completa}, {ruta: plantillas/2026-09-17/frames_01/01_plano10_14.7s.jpg, rol: "nivel de mesa con copa delante", fidelidad: guia, excluir: "nada más de este fotograma"}], prompt: "(ver documentacion-completa.md, anexo A)", coste_est_creditos: 2, estado: aprobado, job_id: ac38bb0b-bc3e-47ba-b305-fa5a474544bb, modelo_devuelto: nano_banana_2}
+
+  - id: V1
+    tipo: video
+    planos: [P2, P5, P6]
+    modelo: seedance_2_5
+    params: {mode: omni_reference, resolution: 1080p, duration: 10, aspect_ratio: "9:16", generate_audio: false}
+    medias: [{rol: image_references, desde: K-P2}, {rol: image_references, desde: K-P5}, {rol: image_references, desde: K-P6}]
+    prompt: |-
+      A three-shot sequence inside Torre de Vega, a village grill restaurant, with hard cuts between shots. Shot 1 is @image1, shot 2 is @image2, shot 3 is @image3. Each shot opens framed exactly like its reference image and animates it with restrained, cinematic motion.
+
+      PRESERVE EXACTLY FROM EACH REFERENCE IMAGE:
+      - The room, the carved honey-wood chair with its rush seat, the beige embossed tablecloth over the pale pink undercloth, the white plates with embossed rims, the cutlery and the large wine glasses: same shapes, same positions, unchanged.
+      - The hands: the woman's hand in shots 1 and 3 and the man's hand in shot 2 keep the same fingers, the same skin, no rings or jewellery appearing, no change of shape in any frame.
+      - The wine bottle in shot 2 stays plain dark glass with no label visible.
+      - The framing, the dramatic light direction and the colour grade of each reference.
+
+      MOTION (BEATS):
+      - 0-3.3s, shot 1 (@image1): the woman's hand, already gripping the carved top rail, draws the chair back about ten centimetres from the table in one smooth pull, then the hand rests still on the rail and the chair settles on its legs.
+      - 3.3-6.6s, shot 2 (@image2): the ruby wine stream keeps pouring continuously from the bottle into the nearest glass; the wine level rises gently with small ripples; at about 6s the man's hand tilts the bottle up slightly and the stream thins to a last drop; the other glasses stay perfectly still.
+      - 6.6-10s, shot 3 (@image3): the woman's fingertips rest on the foot of the glass, then slide the glass one centimetre closer to the plate in a single short gesture and stay still; a faint shimmer moves across the wine surface.
+
+      CAMERA:
+      - Shot 1: a single continuous lateral move on a motorised slider with a geared head, travelling about five percent to the left, slow constant speed, already moving on the first frame and still moving on the last.
+      - Shot 2: a slow motorised push-in of about five percent toward the glass and the stream, constant speed from first to last frame.
+      - Shot 3: a slow mechanical crane descent of about four percent, the camera lowering toward the plate rim at constant speed.
+      - Perfectly mechanical and stabilised in every shot: no handheld operation, no shake, no jitter, no wobble, no floaty drift, no pan, no roll, no orbit, no zoom punch.
+
+      FILM GRADE:
+      - Keep the exact grade of the references: one hard, slightly warm key light, deep near-black shadows, heavy contrast with true blacks, warm cinematic colour around 3100K, visible fine film grain. No digital sharpening, no smoothing.
+
+      NEGATIVE: no warping hands, no extra or melting fingers, no rings appearing, no morphing chair, glasses or plates, no wine spilled on the tablecloth, no stain, no label or text on the bottle, no text overlay, no logo, no food, no empty glass, no face, no fire, no smoke, no sparks, no floating objects, no handheld shake, no fast camera moves.
+
+      Shot on a cinema camera with 50mm and 65mm lenses, f/2.2, shallow depth of field consistent with the stills. Photographic realism, no text.
+    coste_est_creditos: 90
+    estado: aprobado
+    job_id: f846263b-59c1-4a91-8252-9e7046eebb85
+    modelo_devuelto: seedance_2_5
+    salida_real: "1080x1920, 24 fps, 10,04 s, cortes a 3,21 y 6,71 s"
+  - id: V-P3
+    tipo: video
+    planos: [P3]
+    modelo: kling3_0
+    params: {mode: pro, duration: 3, aspect_ratio: "9:16", sound: "off", declined_preset_id: "24bae836-2c4a-48e0-89b6-49fcc0b21612"}
+    medias: [{rol: start_image, desde: K-P3}]
+    prompt: |-
+      The empty dining room of Torre de Vega laid for dinner, seen past an out-of-focus glass of red wine. Animate the provided start image with restrained, cinematic camera motion.
+
+      PRESERVE EXACTLY FROM THE START IMAGE:
+      - The room: red brick walls, white sheer curtains, iron wall sconces, the black wrought-iron ring chandeliers, the stone fireplace wall, the tables with beige embossed cloths over pale pink undercloths, the honey carved chairs with rush seats, all in the same positions.
+      - The foreground wine glass and the hand holding its stem at the lower edge stay exactly the same, with the same fingers and the same wine level.
+      - The light direction, the deep shadows and the colour grade.
+
+      MOTION (BEATS):
+      - 0-1.5s: the room is still; the red wine in the foreground glass holds a faint glint that shifts slightly.
+      - 1.5-3s: nothing in the room moves; only the camera travels.
+
+      CAMERA:
+      - A single continuous lateral move on a motorised slider with a geared head, travelling about eight percent to the right, so the out-of-focus glass in the foreground slides across the frame faster than the tables and windows behind it, revealing real parallax. Slow, constant speed, already moving on the first frame and still moving on the last. Perfectly mechanical and stabilised: no handheld operation, no shake, no jitter, no wobble, no floaty drift, no pan, no roll, no orbit, no zoom punch.
+
+      FILM GRADE:
+      - Keep the exact grade of the start image: one hard, slightly warm key light from the windows, deep near-black shadows, heavy contrast, warm cinematic colour around 3100K, visible fine film grain.
+
+      NEGATIVE: no people walking, no morphing chairs or tables, no chandelier changing shape, no warping hand, no extra fingers, no text overlay, no logo, no fire, no smoke, no sparks, no floating objects, no handheld shake, no fast camera moves.
+
+      Shot on a cinema camera with a 35mm lens, f/2.2, depth of field consistent with the still. Photographic realism, no text.
+    coste_est_creditos: 5.25
+    estado: aprobado
+    job_id: c87d96da-e1a4-4f8b-9a18-4aae389f732f
+    modelo_devuelto: kling3_0
+    salida_real: "1076x1928, 24 fps, 3,04 s (reescalar en montaje)"
+  - id: V-P4
+    tipo: video
+    planos: [P4]
+    modelo: kling3_0
+    params: {mode: pro, duration: 3, aspect_ratio: "9:16", sound: "off", declined_preset_id: "24bae836-2c4a-48e0-89b6-49fcc0b21612"}
+    medias: [{rol: start_image, desde: K-P4}]
+    prompt: |-
+      The black wrought-iron ring chandelier of Torre de Vega, lit at night, seen from below. Animate the provided start image with restrained, cinematic camera motion.
+
+      PRESERVE EXACTLY FROM THE START IMAGE:
+      - The chandelier: the same forged iron ring with its scrolls, the same chains, the same number of arms and bare round bulbs, in the same positions; nothing added or removed.
+      - The brick wall at the lower edge and the dark ceiling.
+      - The glow of the bulbs, the deep shadows and the colour grade.
+
+      MOTION (BEATS):
+      - 0-1.5s: the bulbs glow steadily; the chandelier hangs completely still, only the faintest natural sway of the chains.
+      - 1.5-3s: nothing else moves; only the camera travels.
+
+      CAMERA:
+      - A single continuous short arc on a motorised slider with a geared head, travelling about six degrees around the chandelier from left to right while looking up at it, so the iron scrolls and the chains shift against each other and reveal the real depth of the ring. Slow, constant speed, already moving on the first frame and still moving on the last. Perfectly mechanical and stabilised: no handheld operation, no shake, no jitter, no wobble, no floaty drift, no roll, no zoom punch.
+
+      FILM GRADE:
+      - Keep the exact grade of the start image: the bulbs as the only hard warm light, the iron silhouetted and rim-lit, near-black surroundings, heavy contrast, warm cinematic colour around 3000K, visible fine film grain.
+
+      NEGATIVE: no crystals, no glass pendants, no swinging chandelier, no flickering bulbs, no bulbs appearing or disappearing, no morphing iron, no text overlay, no logo, no fire, no flames, no smoke, no sparks, no floating objects, no handheld shake, no fast camera moves.
+
+      Shot on a cinema camera with an 85mm lens, f/2.0, depth of field consistent with the still. Photographic realism, no text.
+    coste_est_creditos: 5.25
+    estado: aprobado
+    job_id: c1c52b1d-dc26-43df-9158-d66c7b17619f
+    modelo_devuelto: kling3_0
+  - id: V-P8
+    tipo: video
+    planos: [P8]
+    modelo: kling3_0
+    params: {mode: pro, duration: 3, aspect_ratio: "9:16", sound: "off", declined_preset_id: "24bae836-2c4a-48e0-89b6-49fcc0b21612"}
+    medias: [{rol: start_image, desde: K-P8}]
+    prompt: |-
+      A quiet corner of the Torre de Vega dining room seen past a glass of red wine, the iron wall sconce glowing on the brick. Animate the provided start image with restrained, cinematic motion.
+
+      PRESERVE EXACTLY FROM THE START IMAGE:
+      - The large wine glass in the foreground with the same shape and the same wine level.
+      - The brick wall, the black wrought-iron sconce with its warm bulb, the sheer curtain, the laid table with the beige embossed cloth over the pale pink undercloth and the honey carved chairs, all in the same positions.
+      - The light, the deep shadows and the colour grade.
+
+      MOTION (BEATS):
+      - 0-1s: the frame holds; a faint glint moves across the wine surface.
+      - 1-2.5s: a slow, smooth focus pull: the sharp focus travels from the glass in the foreground back to the sconce and the laid table behind, so the glass softens into a warm ruby shape and the room comes into focus.
+      - 2.5-3s: the focus settles on the room and holds.
+
+      CAMERA:
+      - A very slow motorised push-in of about three percent toward the sconce, constant speed, already moving on the first frame and still moving on the last. Perfectly mechanical and stabilised: no handheld operation, no shake, no jitter, no wobble, no floaty drift, no pan, no roll, no orbit, no zoom punch.
+
+      FILM GRADE:
+      - Keep the exact grade of the start image: the sconce as the single warm light, near-black surroundings, heavy contrast, warm cinematic colour around 3000K, visible fine film grain.
+
+      NEGATIVE: no people, no flickering light, no morphing glass, chairs or table, no wine moving by itself, no text overlay, no logo, no fire, no flames, no smoke, no sparks, no floating objects, no handheld shake, no fast camera moves.
+
+      Shot on a cinema camera with a 50mm lens, f/1.8. Photographic realism, no text.
+    coste_est_creditos: 5.25
+    estado: aprobado
+    job_id: e47b1149-439b-46a4-aea8-4d66f8dd69a9
+    modelo_devuelto: kling3_0
+
+montaje:   # props_v5.json, versión vigente
+  - {plano: P2, clip: v1_multitoma.mp4, entrada_s: 0.4, salida_s: 2.8, rotulo: "VOLVEMOS A ABRIR (52 px, tracking 320, y=1000)", transicion: "corte seco", ritmo: "sostener: es el gancho", sonido: "sin sonido"}
+  - {plano: P3, clip: p3_sala.mp4, entrada_s: 0.5, salida_s: 2.1, rotulo: "UNA NUEVA TEMPORADA (46 px, tracking 300, y=980)", transicion: "corte seco", ritmo: "", sonido: ""}
+  - {plano: P4, clip: p4_lampara.mp4, entrada_s: 0.8, salida_s: 1.9, rotulo: "", transicion: "corte seco", ritmo: "", sonido: ""}
+  - {plano: P5, clip: v1_multitoma.mp4, entrada_s: 3.8, salida_s: 5.7, rotulo: "", transicion: "corte seco", ritmo: "", sonido: ""}
+  - {plano: P6, clip: v1_multitoma.mp4, entrada_s: 7.2, salida_s: 9.4, rotulo: "", transicion: "corte seco", ritmo: "", sonido: ""}
+  - {plano: P8, clip: p8_cierre.mp4, entrada_s: 0.5, salida_s: 2.7, rotulo: "placa TORRE DE VEGA · filete · «EL MORA» desde 9,3 s (y=1060)", transicion: "fin", ritmo: "sostener 2,2 s", sonido: ""}
+
+aprendizajes_propuestos:
+  - "Multitoma de Seedance 2.5 con keyframes aprobados: «Shot 1 is @image1…», beats por tramo y hard cuts"
+  - "Kling 3.0 ignoró el cambio de foco (P8): no confiarle un rack focus"
+  - "Un encuadre de la plantilla que no existe en el local se quita del guion (botellero)"

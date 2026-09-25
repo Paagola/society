@@ -1,0 +1,155 @@
+# Perfil de cliente — Torre de Vega «El Mora»
+# Resumen operativo a fecha 2026-09-17. Las fuentes mandan: si una regla del cliente es
+# posterior o más concreta que este resumen, se aplica la del cliente y se propone actualizar
+# este archivo. No resolver conflictos por número de regla (hay dos «17» en reglas_videos.md).
+# Estas son preferencias de ESTE cliente, no reglas de Society.
+
+cliente: torre-de-vega
+nombre: "Torre de Vega «El Mora»"
+principio: >
+  Un cliente que entre al local no puede notar ninguna diferencia con lo que vio en el Reel.
+  No se vende una fantasía; se vende el sitio real.
+pregunta_control: "¿Un vecino de Alhaurín le reenviaría esto a alguien?"
+
+# Bloque literal que abre los prompts de imagen (Reel 09, anexo A).
+lugar: "Torre de Vega, a nearly 50-year-old village grill restaurant in Alhaurín de la Torre, Málaga, Spain"
+
+fuentes:
+  - "C:/Users/victo/Documents/torre_de_vega/CLAUDE.md"
+  - "C:/Users/victo/Documents/torre_de_vega/documentación.md"
+  - "C:/Users/victo/Documents/torre_de_vega/imagenes/reglas_imagenes.md"
+  - "C:/Users/victo/Documents/torre_de_vega/imagenes/reglas_videos.md"
+  - "C:/Users/victo/Documents/torre_de_vega/informes/2026-09-08_analisis-instagram-90dias.md"
+  - "base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/aprendizajes-reel-chuleton.md"
+  - "base-conocimiento-torre-de-vega/09-reel-volvemos-a-abrir-2026-09-17/aprendizajes-y-costes.md"
+
+formato:
+  aspect_ratio: "9:16"
+  salida: "1080x1920"
+  video_resolucion_min: 1080p        # innegociable: nunca 720p ni reescalado
+  imagen_resolucion: 2k              # regla 12 de imagen: 2K, nunca 4K
+  max_referencias_imagen: 4          # la atención se diluye pasadas 3-4
+
+modelos:
+  simple: [kling3_0]                 # regla 18 de vídeo (2026-09-15)
+  compleja: [seedance_2_5]           # manos, cubiertos, cortes, líquidos
+  prohibidos: [minimax_hailuo]       # regla 15 de vídeo
+  sin_end_image: [veo3_1]            # regla 16 de vídeo
+  kling_duracion_por_defecto: 3      # regla 2 de vídeo
+  preset_conocido:                   # regla 7 de vídeo
+    nombre: "IN THE DARK"
+    declined_preset_id: "24bae836-2c4a-48e0-89b6-49fcc0b21612"
+
+gancho:                              # regla 12 de vídeo
+  duracion_min_s: 2.0
+  duracion_max_s: 2.5
+  rotulo_obligatorio: true
+  inicio_rapido_desde_s: 3.0
+
+manos:                               # regla 13 compartida
+  generos_distintos_en_plano: true
+  predominio: mujer
+
+camara:                              # reglas 5, 9 y 11 de vídeo
+  frase_obligatoria: "already moving on the first frame"
+  prohibido: [handheld, "static camera"]
+  aparato_por_defecto: "a motorised slider with a geared head"
+
+# Negativos que viajan en TODOS los prompts (regla 9quater). El linter los exige.
+# Cada entrada admite alternativas separadas por «|».
+negativos_obligatorios:
+  video:
+    - "no text"
+    - "no logo"
+    - "no fire"
+    - "no smoke"
+    - "no sparks"
+    - "no floating objects"
+    - "no handheld"
+    - "no fast camera moves"
+  imagen:
+    - "no text|no readable text|no letters"
+    - "no logo"
+    - "no fire"
+    - "no smoke"
+    - "no HDR"
+    - "no CGI gloss"
+    - "no watermark"
+
+# Negativos según lo que contiene el plano (campo planos[].contiene).
+negativos_condicionales:
+  video:
+    manos: ["no warping hand", "extra fingers|extra or melting fingers", "rings|jewellery"]
+    liquido: ["spill|spilled", "no stain"]
+  imagen:
+    mesa: ["no stain|no stains", "no crumbs"]
+    plato: ["no napkin|nothing underneath", "no half-eaten|no leftovers"]
+    copa: ["no empty"]
+    manos: ["no rings|no jewellery", "no face"]
+    comida: ["no food outside|no crumbs", "no half-eaten|no leftovers"]
+
+estilos_de_luz:
+  dramatico:                         # regla 17 de imagen (invertida 2026-09-10)
+    origen: "reglas_imagenes.md, regla 17"
+    lighting: >-
+      one dramatic, hard, slightly warm key light from a single direction, deep near-black
+      falloff shadows across most of the frame, heavy contrast with true blacks, warm cinematic
+      colour grade around 3100K, visible fine film grain; not flat, not bright and airy
+    film_stock: >-
+      warm cinematic colour grade around 3000-3300K, heavy contrast with deep near-black shadows,
+      visible fine film grain
+    video_grade: >-
+      Keep the exact grade of the start image: one hard, slightly warm key light, deep near-black
+      shadows, heavy contrast with true blacks, warm cinematic colour around 3100K, visible fine
+      film grain. No digital sharpening, no smoothing.
+  natural_difusa:                    # corrección del reel del chuletón, 2026-09-15 (solo esa pieza)
+    origen: "aprendizajes-reel-chuleton.md §2 — derivado a inglés aquí; validar en la primera pieza"
+    lighting: >-
+      soft ambient light from the dining room windows, gentle soft-edged shadows, restrained natural
+      colour, whites kept neutral, an everyday service look; not glossy, not advertising-bright,
+      not HDR
+    film_stock: >-
+      natural restrained colour, neutral whites, soft contrast, fine unobtrusive grain
+    video_grade: >-
+      Keep the exact grade of the start image: soft ambient light, gentle shadows, restrained natural
+      colour, neutral whites. No digital sharpening, no smoothing, no added gloss.
+
+tipografia:                          # para el paquete de montaje
+  rotulos: "Bodoni MT Regular espaciada, con filete y sombra suave; nunca contorno negro"
+  zona_segura: "rótulos dentro de la zona segura de Reels; medir contraste y revisar a tamaño real"
+
+# Lo que fijan las fotos reales (Reel 09, §11). Base del inventario de verdad.
+anclas_conocidas:
+  - {id: mantel, descripcion: "mantel beige con relieve sobre bajo-mantel rosa pálido", fotos: [imagenes/local/mesa-ventana.jpg, imagenes/local/mesas-restaurante3.jpg]}
+  - {id: silla, descripcion: "silla de madera color miel, respaldo tallado, balaustres torneados, asiento de enea", fotos: [imagenes/local/mesa-ventana.jpg]}
+  - {id: sala, descripcion: "ladrillo visto, apliques de forja, visillos blancos, suelo de terracota, pared de piedra con chimenea", fotos: [imagenes/local/mesas-restaurante4.jpg, imagenes/local/panoramica-restaurante.jpg]}
+  - {id: lampara, descripcion: "lámpara de corona de forja negra con bombillas vela", fotos: [imagenes/local/photo_5805514308144795419_y.jpg]}
+  - {id: plato, descripcion: "plato blanco con relieve de volutas y rombos en el ala", fotos: [imagenes/local/plato-blanco-formal.jpg]}
+  - {id: copa_vino, descripcion: "copa de vino grande de cristal fino", fotos: [imagenes/vinos/copa-vino-grande.jpg]}
+  - {id: botellero, descripcion: "botellero de metal negro", fotos: [imagenes/local/photo_5805514308144795414_y.jpg], dificultad: alta, nota: "inventado dos veces en el Reel 09; plano eliminado"}
+  - {id: trofeo_ciervo, descripcion: "trofeo de ciervo en una columna del comedor grande", fotos: [imagenes/local/panoramica.png], nota: "real; solo donde una foto de esa zona lo muestra (regla 9ter-bis)"}
+
+invenciones_recurrentes:
+  - "logo o emblema sobre la mantelería (regla 24)"
+  - "servilleta, paño o papel bajo el plato (regla 26)"
+  - "manchas, motas o migas en mantel y plato (regla 25)"
+  - "lámpara de cristal copiada de la referencia"
+  - "silla metálica, tapicería de piel de vaca, mesa oscura brillante"
+  - "etiqueta con texto en la botella"
+  - "manos no pedidas en planos de sala (P3 del Reel 09)"
+  - "blancos amarillentos: pedir blancos neutros (regla 9ter)"
+  - "aspecto HDR de inmobiliaria (regla 9quinquies)"
+
+prohibiciones:
+  - "texto a vídeo, stock o archivo"
+  - "fuego, brasa o humo generados si existe material real (regla 22)"
+  - "platos comidos o copas vacías (regla 15)"
+  - "personas identificables sin referencia aprobada; nunca la persona del vídeo de referencia (regla 18 de imagen)"
+  - "cámara handheld o «static camera» a secas (reglas 5 y 11)"
+  - "repetir ángulo entre vídeos generados salvo transición estudiada (variedad de ángulos, 2026-09-15)"
+
+referencias_de_video:                # CLAUDE.md §21, corrección del Reel 09
+  obligatorio_buscar: true
+  minimo_candidatas: 2
+  busqueda: "site:instagram.com/reel <plato> + yt-dlp; YouTube devuelve horizontales"
+  filtro: "vino, carne a la brasa, cocina tradicional o restaurante rural; si no, solo el mecanismo"

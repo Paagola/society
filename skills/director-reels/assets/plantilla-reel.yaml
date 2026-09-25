@@ -1,0 +1,115 @@
+# Plan de Reel — fuente de verdad de la producción.
+# Copiar a la carpeta del reel como plan.yaml y rellenar por etapas.
+# Validar con: python scripts/lint_reel.py plan.yaml --perfil perfiles/<cliente>.yaml --raiz <carpeta_cliente>
+# Texto para el cliente en español; campos "prompt" en inglés.
+
+reel:
+  id: reel_NN_nombre
+  cliente: torre-de-vega          # nombre del archivo en perfiles/
+  fecha: 2026-MM-DD
+  estado: brief                   # brief | verdad | conceptos | planos | keyframes | clips | montaje | publicado
+
+# ── Etapa 1 ───────────────────────────────────────────────────────────────
+brief:
+  pieza: ""
+  objetivo: ""                    # retencion | reenvio | seguidores
+  motivo_para_reenviar: ""        # fecha, novedad o aviso real; o "ninguno"
+  reel_de_referencia: ""          # URL, ruta o "ninguno"
+  metraje_real_disponible: []     # rutas
+  estilo_de_luz: ""               # clave de perfil.estilos_de_luz (dramatico | natural_difusa)
+  duracion_orientativa_s: 12
+  voz_en_off: false
+  cta: ""
+  presupuesto_creditos: 0
+
+# ── Etapa 2 · references/01 ───────────────────────────────────────────────
+verdad:
+  anclas: []
+  #  - id: copa_vino
+  #    descripcion: "copa de cristal fino, balón ancho, tallo largo"
+  #    fotos: [imagenes/vinos/copa-vino-grande.jpg]
+  #    dificultad: baja            # baja | media | alta
+  metraje_real: []
+  #  - ruta: videos/parrilla.mp4
+  #    contenido: ""
+  #    duracion_s: 0
+  #    tramos_utiles: ["0.0-2.4"]
+  #    usos_previos: []
+  invenciones_recurrentes: []     # lo que el modelo mete aunque no exista
+  no_existe: []                   # lo que no puede aparecer en esta pieza
+
+# ── Etapa 3 · references/02 §1 ────────────────────────────────────────────
+tratamiento:
+  motivo_para_reenviar: ""
+  momento_heroe: ""
+  emocion: []                     # 2-4 señales observables
+  foco_sensorial: ""
+  motivo_visual: ""
+  curva_de_ritmo: ""
+  cierre: ""
+
+# ── Etapa 4 · references/02 §2-§4 ─────────────────────────────────────────
+conceptos: []
+#  - id: C1
+#    mecanismo: M1                 # catálogo de references/02
+#    titulo: ""
+#    fotograma_1: ""
+#    arco: ""
+#    planos_generados: 0
+#    coste_est_creditos: 0
+#    respuesta_pregunta_control: ""
+#    puntuacion: {reenvio: 0, gancho: 0, riesgo: 0, coste: 0, novedad: 0, encaje: 0}
+concepto_elegido: ""
+
+# ── Etapa 5 · references/03 ───────────────────────────────────────────────
+planos: []
+#  - id: P1
+#    funcion: gancho               # gancho | desarrollo | heroe | prueba | cierre
+#    t: [0.0, 2.4]
+#    escalon: L0                   # L0 | L1 | L2 | L3 | L4
+#    justificacion_escalon: ""     # obligatorio desde L2
+#    fuente: {tipo: real, ruta: "", tramo: "0.0-2.4"}   # tipo: real | generado
+#    generacion: ""                # id de la generación de vídeo (si tipo: generado)
+#    accion:
+#      descripcion: ""
+#      clase: simple               # simple | compleja | ninguna
+#      origen_movimiento: camara   # liquido | mano | objeto_en_curso | fuego | vapor | camara | ninguno
+#    contiene: []                  # mesa | plato | copa | manos | comida | liquido | silla | lampara (activa negativos condicionales)
+#    anclas: []                    # ids de verdad.anclas que aparecen en el plano
+#    manos: []                     # [mujer] | [hombre] | [mujer, hombre]
+#    angulo: {posicion: tres_cuartos, altura: media, lente_mm: 50}
+#    camara: {movimiento: push_in, aparato: slider_motorizado, recorrido: "4 %", direccion: ""}
+#    excepcion_angulo: ""          # solo para una transición estudiada en una referencia
+#    beats:
+#      - {t: "0.0-1.2s", accion: "", estado_final: ""}
+#    transicion: {entrada: "", salida: ""}
+#    rotulo: ""
+#    criterios_rechazo: []
+#    coste_est_creditos: 0
+
+generaciones: []
+#  - id: K-P2                      # K- keyframe, V- vídeo
+#    tipo: imagen                  # imagen | video
+#    planos: [P2]
+#    modelo: nano_banana_pro
+#    params: {resolution: 2k, aspect_ratio: "9:16"}
+#    referencias:
+#      - {ruta: "", rol: "", fidelidad: completa, excluir: ""}   # completa | parcial | atributo | guia
+#    prompt: ""
+#    coste_est_creditos: 0
+#    estado: pendiente             # pendiente | generado | aprobado | descartado
+#    job_id: ""
+#    modelo_devuelto: ""
+
+# ── Etapa 9 · references/07 ───────────────────────────────────────────────
+montaje: []
+#  - plano: P1
+#    clip: ""
+#    entrada_s: 0.0
+#    salida_s: 2.4
+#    rotulo: ""
+#    transicion: "corte seco"
+#    ritmo: ""                     # p. ej. "corte en el tiempo fuerte"
+#    sonido: ""
+
+aprendizajes_propuestos: []

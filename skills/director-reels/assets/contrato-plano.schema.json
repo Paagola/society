@@ -1,0 +1,395 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "contrato-plano.schema.json",
+  "title": "Plan de Reel — contrato de plano y de generación",
+  "description": "Esquema formal de planos[] y generaciones[] de plan.yaml. Referencia de diseño: un plano es una unidad de montaje; una generación es una llamada a la API que puede producir varios planos.",
+  "type": "object",
+  "required": [
+    "reel",
+    "brief",
+    "verdad",
+    "tratamiento",
+    "planos",
+    "generaciones"
+  ],
+  "properties": {
+    "planos": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/plano"
+      }
+    },
+    "generaciones": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/generacion"
+      }
+    }
+  },
+  "$defs": {
+    "plano": {
+      "type": "object",
+      "required": [
+        "id",
+        "funcion",
+        "t",
+        "escalon",
+        "fuente",
+        "accion",
+        "angulo",
+        "camara"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^P[0-9]+[a-z]?$"
+        },
+        "funcion": {
+          "enum": [
+            "gancho",
+            "desarrollo",
+            "heroe",
+            "prueba",
+            "cierre"
+          ]
+        },
+        "t": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "escalon": {
+          "enum": [
+            "L0",
+            "L1",
+            "L2",
+            "L3",
+            "L4"
+          ]
+        },
+        "justificacion_escalon": {
+          "type": "string"
+        },
+        "fuente": {
+          "type": "object",
+          "required": [
+            "tipo"
+          ],
+          "properties": {
+            "tipo": {
+              "enum": [
+                "real",
+                "generado"
+              ]
+            },
+            "ruta": {
+              "type": "string"
+            },
+            "tramo": {
+              "type": "string"
+            }
+          }
+        },
+        "generacion": {
+          "type": "string"
+        },
+        "accion": {
+          "type": "object",
+          "required": [
+            "descripcion",
+            "clase",
+            "origen_movimiento"
+          ],
+          "properties": {
+            "descripcion": {
+              "type": "string"
+            },
+            "clase": {
+              "enum": [
+                "simple",
+                "compleja",
+                "ninguna"
+              ]
+            },
+            "origen_movimiento": {
+              "enum": [
+                "liquido",
+                "mano",
+                "objeto_en_curso",
+                "fuego",
+                "vapor",
+                "camara",
+                "ninguno"
+              ]
+            }
+          }
+        },
+        "contiene": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "anclas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "manos": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "mujer",
+              "hombre"
+            ]
+          }
+        },
+        "angulo": {
+          "type": "object",
+          "required": [
+            "posicion",
+            "altura"
+          ],
+          "properties": {
+            "posicion": {
+              "enum": [
+                "frontal",
+                "tres_cuartos",
+                "lateral",
+                "cenital",
+                "contrapicado",
+                "picado"
+              ]
+            },
+            "altura": {
+              "enum": [
+                "ras_de_mesa",
+                "mesa",
+                "sentado",
+                "respaldo",
+                "de_pie",
+                "alto",
+                "bajo"
+              ]
+            },
+            "lente_mm": {
+              "type": "number"
+            }
+          }
+        },
+        "camara": {
+          "type": "object",
+          "required": [
+            "movimiento"
+          ],
+          "properties": {
+            "movimiento": {
+              "enum": [
+                "push_in",
+                "pull_back",
+                "lateral",
+                "arco",
+                "grua_bajada",
+                "grua_subida",
+                "tilt",
+                "foco",
+                "bloqueada"
+              ]
+            },
+            "aparato": {
+              "type": "string"
+            },
+            "recorrido": {
+              "type": "string"
+            },
+            "direccion": {
+              "type": "string"
+            }
+          }
+        },
+        "excepcion_angulo": {
+          "type": "string"
+        },
+        "beats": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "t",
+              "accion"
+            ],
+            "properties": {
+              "t": {
+                "type": "string"
+              },
+              "accion": {
+                "type": "string"
+              },
+              "estado_final": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "transicion": {
+          "type": "object",
+          "properties": {
+            "entrada": {
+              "type": "string"
+            },
+            "salida": {
+              "type": "string"
+            }
+          }
+        },
+        "rotulo": {
+          "type": "string"
+        },
+        "criterios_rechazo": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "incidencias": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "coste_est_creditos": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "generacion": {
+      "type": "object",
+      "required": [
+        "id",
+        "tipo",
+        "planos",
+        "modelo",
+        "params",
+        "prompt",
+        "estado"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "tipo": {
+          "enum": [
+            "imagen",
+            "video"
+          ]
+        },
+        "planos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "modelo": {
+          "type": "string"
+        },
+        "modelo_devuelto": {
+          "type": "string"
+        },
+        "params": {
+          "type": "object",
+          "required": [
+            "aspect_ratio"
+          ]
+        },
+        "referencias": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "ruta",
+              "rol",
+              "fidelidad"
+            ],
+            "properties": {
+              "ruta": {
+                "type": "string"
+              },
+              "rol": {
+                "type": "string"
+              },
+              "fidelidad": {
+                "enum": [
+                  "completa",
+                  "parcial",
+                  "atributo",
+                  "guia"
+                ]
+              },
+              "excluir": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "medias": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "rol",
+              "desde"
+            ],
+            "properties": {
+              "rol": {
+                "enum": [
+                  "start_image",
+                  "end_image",
+                  "image_references",
+                  "video_references",
+                  "audio_references"
+                ]
+              },
+              "desde": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "coste_est_creditos": {
+          "type": "number",
+          "minimum": 0
+        },
+        "coste_real_creditos": {
+          "type": "number",
+          "minimum": 0
+        },
+        "estado": {
+          "enum": [
+            "pendiente",
+            "generado",
+            "aprobado",
+            "descartado"
+          ]
+        },
+        "motivo_descarte": {
+          "type": "string"
+        },
+        "job_id": {
+          "type": "string"
+        },
+        "salida_real": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

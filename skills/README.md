@@ -1,11 +1,12 @@
 # Skills de producción de Society
 
-Cinco skills trabajan juntas para producir contenido de hostelería:
+Seis skills trabajan juntas para producir contenido de hostelería:
 
 | Skill | Hace |
 |---|---|
 | [`marketing-hosteleria`](marketing-hosteleria/SKILL.md) | Decide qué publicar y para qué (brief, objetivo, medición) |
 | [`director`](director/SKILL.md) | Decide la pieza: conceptos, lista de planos, puertas A–E |
+| [`director-reels`](director-reels/SKILL.md) | Produce un reel concreto de principio a fin: plan YAML, inventario de verdad, contratos de plano, keyframes, clips, revisión y paquete de montaje |
 | [`directoria`](directoria/SKILL.md) | Escribe los prompts de imagen y vídeo y revisa el resultado |
 | [`higgsfield`](higgsfield/SKILL.md) | Elige modelo y parámetros, calcula coste y ejecuta |
 | [`openmontage`](openmontage/SKILL.md) | Monta, pone sonido y revisa antes de entregar |
@@ -14,7 +15,7 @@ Cinco skills trabajan juntas para producir contenido de hostelería:
 
 ## Regla cero: firma de rodaje real (obligatoria)
 
-**Se aplica a cualquier imagen, clip o reel que haga cualquiera de las cinco skills, antes que cualquier otra regla de estilo.** El cliente paga por contenido que parece rodado por un profesional. Si parece hecho con IA, el trabajo ha fallado, por bonito o nítido que sea.
+**Se aplica a cualquier imagen, clip o reel que haga cualquiera de las skills, antes que cualquier otra regla de estilo.** El cliente paga por contenido que parece rodado por un profesional. Si parece hecho con IA, el trabajo ha fallado, por bonito o nítido que sea.
 
 La regla completa, con bloques de prompt y umbrales, está en [`directoria/references/hosteleria/08-firma-de-rodaje-real.md`](directoria/references/hosteleria/08-firma-de-rodaje-real.md). Sale de una comparación medida (→ [`pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/`](../pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/README.md)).
 
