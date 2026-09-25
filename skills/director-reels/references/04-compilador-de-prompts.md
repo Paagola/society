@@ -112,7 +112,9 @@ veces, deja de gastar: parche de píxel sobre textura regular, o el plano sale.
 
 ---
 
-## 3. Vídeo simple: Kling 3.0
+## 3. Vídeo simple: Kling 3.0 — OBSOLETO (2026-09-25)
+
+> **No se usa.** Todos los planos, simples o complejos, van por Seedance 2.5 a 720p + reescalado ByteDance pro (§4 y `../../directoria/references/hosteleria/03` §3.1). Se conserva como histórico.
 
 **Cuándo:** planos de cámara sin interacción compleja: sala, lámpara, mesa puesta, producto quieto.
 
@@ -167,7 +169,7 @@ planos complejos con keyframes aprobados: ahorra segundos (el Reel 09 hizo tres 
 primera).
 
 **Parámetros:** `model: seedance_2_5`, `mode: "omni_reference"`, `resolution: "1080p"`, `duration` según
-los planos (4-30 s), `aspect_ratio: "9:16"`, `generate_audio: false` (el sonido va en montaje),
+los planos (4-30 s); **resolución de trabajo 720p** y reescalado ByteDance pro solo de la toma aprobada (regla vigente desde el 24/09; sustituye al 1080p nativo de abajo), `aspect_ratio: "9:16"`, `generate_audio: false` (el sonido va en montaje),
 `medias: image_references` en el orden de `@image1…` (plano único: `start_image` y `end_image` también
 están admitidos según `models_explore` del 17/09).
 

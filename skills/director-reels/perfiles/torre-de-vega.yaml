@@ -31,7 +31,7 @@ formato:
   max_referencias_imagen: 4          # la atención se diluye pasadas 3-4
 
 modelos:
-  simple: [kling3_0]                 # regla 18 de vídeo (2026-09-15)
+  simple: [seedance_2_5]             # 2026-09-25: Kling 3.0 obsoleto; Seedance 2.5 720p + ByteDance pro
   compleja: [seedance_2_5]           # manos, cubiertos, cortes, líquidos
   prohibidos: [minimax_hailuo]       # regla 15 de vídeo
   sin_end_image: [veo3_1]            # regla 16 de vídeo

@@ -122,7 +122,8 @@ hasta que se apruebe el lote completo.
 
 ### 7 · Clips
 
-Compila los prompts de vídeo por dialecto (`references/04-compilador-de-prompts.md` §3-§5): Kling 3.0
+**Ruta única desde el 25/09/2026: Seedance 2.5 a 720p + reescalado ByteDance pro de la toma aprobada; Kling 3.0 no se usa** (el §3 del compilador queda como histórico).
+Compila los prompts de vídeo por dialecto (`references/04-compilador-de-prompts.md` §4-§5): ~~Kling 3.0~~
 para planos simples, Seedance 2.5 para manos, cubiertos, cortes y líquidos, y **multitoma** de Seedance
 2.5 cuando haya dos o más planos complejos con keyframes aprobados.
 

@@ -19,6 +19,10 @@ Seis skills trabajan juntas para producir contenido de hostelería:
 
 La regla completa, con bloques de prompt y umbrales, está en [`directoria/references/hosteleria/08-firma-de-rodaje-real.md`](directoria/references/hosteleria/08-firma-de-rodaje-real.md). Sale de una comparación medida (→ [`pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/`](../pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/README.md)).
 
+### Ruta de vídeo única (2026-09-25)
+
+Todo clip se genera con **Seedance 2.5 a 720p** (`mode:"omni_reference"`, `aspect_ratio:"9:16"`) y solo la toma aprobada se reescala a 1080×1920 con **ByteDance pro** (R-RES-01, `directoria/references/hosteleria/03` §3.1). **Kling 3.0 no se usa**, aunque alguna referencia antigua de estas skills lo siga nombrando: donde choquen, manda esta línea.
+
 ### Antes de generar nada
 
 1. **Material real primero.** Fotos reales del local y del plato como ancla de cada keyframe. Para manos, fuego y proceso, pedir metraje real al local antes de generar.

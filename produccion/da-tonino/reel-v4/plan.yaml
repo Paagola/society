@@ -147,3 +147,12 @@ segunda_tanda:
     kling3_0_pro_3s: {planos: [1, 2, 3, 5, 8, 9, 10], coste: 36.75}
     seedance_2_5_720p_multitoma_9s_con_audio: {planos: [4, 6, 7], coste: 63}
     total: 99.75
+
+# ── Incidencia (2026-09-25) ──────────────────────────────────────────────
+incidencia_kling:
+  que_paso: "Se lanzaron 6 clips con kling3_0 pro 3 s con sonido (45 cr) siguiendo reglas antiguas del repo; Víctor pidió pararlos y recordó que la ruta vigente es Seedance 2.5 720p + upscale."
+  jobs: [b540bd2a-103c-4433-9ee9-5fc7cab53def, 81deca67-c663-497c-b4b2-f241b2c3ac61, 6cdb58f2-2c08-4f7a-a8f0-f7d27b44fb1c, a1084f8a-40f7-4a9c-b13f-5c9fdc54bd71, 29e43925-781b-41d0-b821-a95054bcac43, 4a1e6798-aad6-44f6-93d6-ae05474bab7b]
+  imagenes_no_pedidas: [61cf86a3-e324-4af8-bc43-b5c05db20499, 8684f5e3-56a5-44cc-9279-c457e39d6c26]  # variantes de socarrat, 4 cr
+  cancelacion: "No hay herramienta de cancelación en el MCP; los trabajos se cobraron."
+  correccion: "Kling marcado como obsoleto en README §9, skills/README, CLAUDE.md, higgsfield, director-reels y perfiles."
+  saldo_tras_incidencia: 131.77
