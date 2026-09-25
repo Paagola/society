@@ -22,16 +22,23 @@ anclas:
   paella: {foto: paella, descripcion: "paellera de acero con asas negras, arroz amarillo, gambas, mejillones, almejas, limón, perejil, dos cucharas; servilleta blanca con raya roja y azul"}
 
 no_existe:
-  - "cocina (no hay fotos: no se genera ninguna cocina)"
+  - "cocina reconocible (no hay fotos): solo el «pase oscuro» abstracto aprobado, fondo casi negro con bombillas cálidas desenfocadas"
   - "horno, fuego o brasa (no hay fotos ni metraje)"
   - "personal con uniforme concreto (no hay fotos)"
   - "el cliente de la sudadera morada de la foto de rigatoni (no se reproduce)"
 
 estilo:
+  # Aprobado por Víctor el 2026-09-25: rechaza la luz de día («demasiada luz, poco profesional») y aprueba
+  # como referencia los keyframes 819b7da7, 84a4353e, 8563dfdb, 795f7e30 (luz de cena) y 3def1863 (sala).
+  plantilla_luz_media_id: 7cb29887-9735-4941-a282-d21d2a6ce3ff
+  anclas_de_estilo: [819b7da7-9fc6-432c-835f-6511297caf2c, 84a4353e-e0e3-46d3-b370-c05c49f9dad7]
   luz: >-
-    Daylight from the street window as the only key, directional with real falloff; neutral white
-    balance around 5000K; deep shadows under plates; specular highlights on oil, sauce and glass;
-    pendant bulbs only as small warm accents.
+    Low-key 'dinner light': a single soft-edged or hard key from behind and to the side as a rim light
+    on steam, sauce and crust edges; the food is the brightest thing in the frame; the background falls
+    to near black with one or two warm bulbs as soft bokeh points (the restaurant's pendant lamps).
+    Deep blacks, highlights never clipped, neutral-warm white balance around 4300-5000K, true food colours.
+  superficie: "pase de acero oscuro o mesa oscura; manos con guante de nitrilo negro mate en cocina, mano desnuda sin anillos en mesa"
+  luz_descartada: "luz de día de ventana como luz principal en platos (reel v4, primera tanda)"
   camara: "Seguimiento de pequeña amplitud permitido (no hay prohibición del cliente); slider en la sala."
   foco: "f/2 en platos y manos con plano de foco nombrado; f/2.8 en la sala."
 

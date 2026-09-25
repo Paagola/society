@@ -120,6 +120,30 @@ montaje:
   # grade y grano comunes; revisión final con skills/openmontage/scripts/medir_realismo.py
 
 aprendizajes_propuestos:
+  - "En luz de cena (fondo casi negro) las imágenes aprobadas por el cliente miden 20–31 % de foco: el umbral 8–25 % de 08 §12 es para planos con fondo visible; en low-key se acepta hasta ~32 % (proponer ajuste en 08)."
   - "El servidor sirvió nano_banana_2 al pedir nano_banana_pro (25/09): registrar siempre modelo_devuelto."
   - "Este entorno bloquea *.cloudfront.net: la revisión visual y el montaje necesitan permitir d8j0ntlcm91z4.cloudfront.net o trabajar en el sandbox de Higgsfield."
   - "Nano Banana no obedece f/1.8 en un «un solo cambio» (foco 36 % → 38 %). Para el foco fino, probar en vídeo (Seedance con rack focus) o describir el desenfoque por objetos («the beer glass is an unrecognisable blur»), no por apertura."
+
+# ── Segunda tanda (2026-09-25) · luz de cena aprobada por Víctor ────────────
+# Víctor rechazó la primera tanda («demasiada luz») y aprobó como referencia 819b7da7, 84a4353e,
+# 8563dfdb, 795f7e30 y 3def1863. Estilo fijado en perfiles/da-tonino.yaml (estilo.luz).
+segunda_tanda:
+  estado: keyframes               # puerta C pendiente de Víctor
+  coste_creditos: 16              # 8 × 2; saldo tras la tanda: 180,77
+  lista_de_planos:                # orden propuesto; ~0,8–1,2 s por toma + sala + cartela
+    - {n: 1,  id: rucula,        job_id: 819b7da7-9fc6-432c-835f-6511297caf2c, origen: aprobada,  medido: {foco: 31, negro: 2.0, blanco: 202}}
+    - {n: 2,  id: cornicione,    job_id: ad4338f4-4604-44e7-810f-400918a828b5, origen: "recompuesta 9:16 de 795f7e30", medido: {foco: 23, negro: 5.0, blanco: 198}}
+    - {n: 3,  id: jamon,         job_id: d68d1d5f-2b9e-4e96-8def-5e000e0f4413, origen: "recompuesta 9:16 de 8563dfdb", medido: {foco: 22, negro: 1.3, blanco: 206}}
+    - {n: 4,  id: porcion,       job_id: 6ef88286-7842-4e84-886f-f3831569e2d5, origen: nueva, medido: {foco: 29, negro: 4.0, blanco: 207}}
+    - {n: 5,  id: salteado,      job_id: 84a4353e-e0e3-46d3-b370-c05c49f9dad7, origen: aprobada, medido: {foco: 20, negro: 2.0, blanco: 170}}
+    - {n: 6,  id: emplatado,     job_id: f1e1b0d2-d6c5-4d39-bb23-153394d33ba1, origen: nueva, medido: {foco: 15, negro: 7.7, blanco: 228}}
+    - {n: 7,  id: socarrat,      job_id: 1586e2c5-9565-4e97-b35c-8c2936415341, origen: nueva, medido: {foco: 28, negro: 3.0, blanco: 207}}
+    - {n: 8,  id: paella_macro,  job_id: c3b14697-0827-4e69-9e5c-f42e5bc2eacd, origen: nueva, medido: {foco: 18, negro: 0.0, blanco: 237}}
+    - {n: 9,  id: cerveza,       job_id: 44676d3d-2cdf-4d7a-ba73-05657d3ef37e, origen: nueva, medido: {foco: 16, negro: 3.0, blanco: 214}}
+    - {n: 10, id: sala_noche,    job_id: bcf38aba-0e89-4b6c-b9ce-79c7c65757c3, origen: "variante nocturna de 3def1863", medido: {foco: 18, negro: 3.7, blanco: 171}}
+    - {n: 10b, id: sala_dia,     job_id: 3def1863-8753-4d25-a7a4-474fc00564e6, origen: aprobada, nota: "alternativa; rompe el mundo de luz si se usa entre planos de noche"}
+  video_propuesto:
+    kling3_0_pro_3s: {planos: [1, 2, 3, 5, 8, 9, 10], coste: 36.75}
+    seedance_2_5_720p_multitoma_9s_con_audio: {planos: [4, 6, 7], coste: 63}
+    total: 99.75
