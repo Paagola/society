@@ -1,9 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, Img, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {Body, Brush, Headline, Line, Paper} from '../components';
+import {Brush, Headline, Line, Paper} from '../components';
 import {COPY} from '../copy';
 import {C, FONT, PAD, tween} from '../theme';
-import {Folio} from './Folio';
 import {useWide} from '../format';
 
 const TILE = 300;
@@ -101,11 +100,7 @@ export const Feed: React.FC = () => {
   return (
     <AbsoluteFill>
       <Paper />
-      <Folio page={5} />
       <Headline lines={COPY.feed.titular} size={wide ? 250 : 240} at={4} stagger={6} style={{position: 'absolute', left: PAD - 4, top: wide ? 200 : 130}} />
-      <Body size={32} style={{position: 'absolute', ...(wide ? {left: PAD, top: 700, width: 520} : {right: PAD, top: 450, width: 330, textAlign: 'right'}), opacity: tween(f, 18, 30)}}>
-        Posts, carruseles, historias y reels con criterio.
-      </Body>
       <div
         style={{
           position: 'absolute',

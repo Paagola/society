@@ -1,9 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, Img, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {Body, Bubble, Headline, Paper} from '../components';
+import {Bubble, Headline, Paper} from '../components';
 import {COPY} from '../copy';
 import {C, EASE_OUT, FONT, PAD, tween} from '../theme';
-import {Folio} from './Folio';
 import {useWide} from '../format';
 
 
@@ -17,11 +16,7 @@ export const Planes: React.FC = () => {
   return (
     <AbsoluteFill>
       <Paper dark />
-      <Folio page={7} dark />
       <Headline lines={titular} size={300} at={2} stagger={6} color={C.papel} style={{position: 'absolute', left: PAD - 4, top: wide ? 150 : 130}} />
-      <Body size={34} color={C.papel} style={{position: 'absolute', ...(wide ? {left: PAD, top: 720, width: 540} : {right: PAD, top: 330, width: 360, textAlign: 'right'}), opacity: tween(f, 14, 26)}}>
-        De tu ficha de Google a los reels. Tú eliges hasta dónde.
-      </Body>
       {lista.map((p, i) => {
         const at = 14 + i * 8;
         const x = tween(f, at, at + 22, [1100, 0], EASE_OUT);
@@ -49,10 +44,7 @@ export const Planes: React.FC = () => {
           >
             <Img src={staticFile(`img/${p.img}`)} style={{width: 226, height: 226, objectFit: 'cover', borderRadius: 18}} />
             <div style={{flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 10}}>
-              <div style={{fontFamily: FONT.display, fontSize: 104, lineHeight: 0.92, color: ink, filter: 'url(#tinta)'}}>{p.nombre}</div>
-              <Body size={28} color={ink}>
-                {p.texto}
-              </Body>
+              <div style={{fontFamily: FONT.display, fontSize: 130, lineHeight: 0.92, color: ink, filter: 'url(#tinta)'}}>{p.nombre}</div>
             </div>
             <svg width={34} height={30} viewBox="0 0 24 20" fill="none" stroke={ink} strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" style={{alignSelf: 'flex-end'}}>
               <path d="M2 10 H21 M13 2 L21 10 L13 18" />

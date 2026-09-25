@@ -1,9 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {Body, Headline, Label, Paper, PillSticker, Phone, Reveal, Sparkle} from '../components';
+import {Headline, Paper, PillSticker, Phone, Reveal, Sparkle} from '../components';
 import {COPY} from '../copy';
 import {C, EASE, FONT, PAD, tween} from '../theme';
-import {Folio} from './Folio';
 import {useWide} from '../format';
 import {PantallaBusca, PantallaHoy, PantallaQueda, SCREEN_W} from './Pantallas';
 
@@ -21,7 +20,6 @@ export const Pasos: React.FC = () => {
   return (
     <AbsoluteFill>
       <Paper />
-      <Folio page={4} footer={false} />
 
       {COPY.pasos.map((p, i) => {
         const at = i * STEP;
@@ -31,13 +29,7 @@ export const Pasos: React.FC = () => {
             <Reveal at={at + 2} out={out} dur={20} style={wide ? {position: 'absolute', left: PAD - 6, top: 640} : {position: 'absolute', right: PAD - 10, top: 120}}>
               <div style={{fontFamily: FONT.display, fontSize: 300, lineHeight: 1, color: C.cobalto, filter: 'url(#tinta)'}}>{p.num}</div>
             </Reveal>
-            <Reveal at={at + 2} out={out} style={{position: 'absolute', left: PAD, top: 136}}>
-              <Label size={22}>Paso {p.num} / 03</Label>
-            </Reveal>
             <Headline lines={p.titular} size={200} at={at + 4} stagger={5} out={out} style={{position: 'absolute', left: PAD - 4, top: 170}} />
-            <Reveal at={at + 12} out={out} style={{position: 'absolute', left: PAD, top: 560, width: wide ? 900 : 820}}>
-              <Body size={34}>{p.nota}</Body>
-            </Reveal>
           </React.Fragment>
         );
       })}

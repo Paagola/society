@@ -1,6 +1,6 @@
 # Society · Vídeo promocional
 
-Vídeo vertical (1080 × 1920, 30 fps, 44 s) hecho en **Remotion** (React + TypeScript) con la identidad de `society-identidad-editorial`: papel arrugado, Anton con una palabra en serif cursiva, fotos recortadas con trama, pegatinas y el bocadillo `@society`. Está compuesto como una revista: cada escena es una página con folio, número y sección.
+Vídeo vertical (1080 × 1920, 30 fps, 44 s) hecho en **Remotion** (React + TypeScript) con la identidad de `society-identidad-editorial`: papel arrugado, Anton con una palabra en serif cursiva, fotos recortadas con trama, pegatinas y el bocadillo `@society`. Está compuesto como una revista, sin letra pequeña: cada escena se apoya solo en su titular grande, las imágenes y las pegatinas.
 
 El render final está en [`society-promo.mp4`](society-promo.mp4).
 

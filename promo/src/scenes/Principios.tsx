@@ -1,9 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, Sequence, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {Body, Cutout, Headline, Label, Paper, Sparkle} from '../components';
+import {Cutout, Headline, Paper, Sparkle} from '../components';
 import {COPY} from '../copy';
-import {C, FONT, PAD, tween} from '../theme';
-import {Folio} from './Folio';
+import {C, FONT, PAD} from '../theme';
 import {useWide} from '../format';
 
 export const BEAT = 55;
@@ -32,19 +31,12 @@ const Semana: React.FC = () => {
 };
 
 const Beat: React.FC<{i: number}> = ({i}) => {
-  const f = useCurrentFrame();
   const p = COPY.principios[i];
   const wide = useWide();
   const out = i < 2 ? BEAT - 10 : undefined;
   return (
     <AbsoluteFill>
-      <Label size={24} color={C.papel} style={{position: 'absolute', left: PAD, top: wide ? 170 : 200, opacity: tween(f, 2, 10) - (out ? tween(f, out, out + 6) : 0)}}>
-        Principio {String(i + 1).padStart(2, '0')} / 03
-      </Label>
       <Headline lines={p.titular} size={wide ? 200 : 218} at={2} stagger={5} out={out} color={C.papel} style={{position: 'absolute', left: PAD - 4, top: wide ? 210 : 240}} />
-      <Body size={40} color={C.papel} style={{position: 'absolute', left: PAD, top: wide ? 660 : 810, width: wide ? 760 : 800, opacity: tween(f, 12, 22) - (out ? tween(f, out, out + 6) : 0)}}>
-        {p.texto}
-      </Body>
       {i === 0 && <Cutout src="mano-copa.png" x={wide ? 1180 : 380} y={wide ? 140 : 1050} width={wide ? 620 : 640} at={6} from={[0, 700]} rot={-4} out={out} />}
       {i === 1 && <Cutout src="plato-trama.png" x={wide ? 980 : 120} y={wide ? 320 : 1180} width={wide ? 860 : 860} at={6} from={[0, 700]} rot={3} out={out} />}
       {i === 2 && <Semana />}
@@ -58,7 +50,6 @@ export const Principios: React.FC = () => {
   return (
   <AbsoluteFill>
     <Paper dark />
-    <Folio page={6} dark />
     {[0, 1, 2].map((i) => (
       <Sequence key={i} from={i * BEAT} durationInFrames={i < 2 ? BEAT + 4 : undefined} layout="none">
         <Beat i={i} />

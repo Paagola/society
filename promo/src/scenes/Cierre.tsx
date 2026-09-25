@@ -1,9 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {Bubble, Button, Cutout, Headline, Label, Logo, Paper, Sparkle} from '../components';
+import {Bubble, Button, Cutout, Headline, Logo, Paper, Sparkle} from '../components';
 import {COPY} from '../copy';
-import {C, PAD, tween} from '../theme';
-import {Folio} from './Folio';
+import {PAD, tween} from '../theme';
 import {useWide} from '../format';
 
 // Cierre: firma, lema y llamada a la acción.
@@ -14,7 +13,6 @@ export const Cierre: React.FC = () => {
   return (
     <AbsoluteFill>
       <Paper />
-      <Folio page={8} />
       <div style={{position: 'absolute', top: wide ? 150 : 230, width: wide ? 'auto' : '100%', left: wide ? PAD : 0, display: 'flex', justifyContent: 'center'}}>
         <Logo size={wide ? 220 : 250} at={4} />
       </div>
@@ -32,12 +30,6 @@ export const Cierre: React.FC = () => {
       <Sparkle x={wide ? 1820 : 960} y={wide ? 880 : 1000} size={70} at={40} seed={11} />
       <div style={{position: 'absolute', left: PAD, top: wide ? 740 : 1420, width: 470, opacity: tween(f, 44, 56), transform: `translateY(${tween(f, 44, 60, [40, 0])}px)`}}>
         <Button label={COPY.cierre.boton} size={44} press={press} />
-        <Label size={24} style={{marginTop: 30}}>
-          Llega en {COPY.cierre.fecha}
-        </Label>
-        <Label size={24} color={C.cobalto} style={{marginTop: 6}}>
-          @society
-        </Label>
       </div>
     </AbsoluteFill>
   );

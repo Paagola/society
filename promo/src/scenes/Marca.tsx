@@ -1,9 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {Body, Brush, Bubble, Label, Paper, Reveal, Sparkle, StarSticker} from '../components';
+import {Brush, Bubble, Paper, Reveal, Sparkle, StarSticker} from '../components';
 import {COPY} from '../copy';
 import {C, EASE_OUT, FONT, tween} from '../theme';
-import {Folio} from './Folio';
 import {useWide} from '../format';
 
 
@@ -18,10 +17,6 @@ export const Marca: React.FC = () => {
   return (
     <AbsoluteFill>
       <Paper />
-      <Folio page={3} />
-      <Label size={24} style={{position: 'absolute', top: wide ? 150 : 360, width: '100%', textAlign: 'center', opacity: tween(f, 2, 12)}}>
-        Presentamos
-      </Label>
 
       <div style={{position: 'absolute', top: wide ? 190 : 420, width: '100%', display: 'flex', justifyContent: 'center'}}>
         {'SOCIETY'.split('').map((ch, i) => {
@@ -87,10 +82,6 @@ export const Marca: React.FC = () => {
         </Reveal>
         <Brush width={760} at={44} style={{marginTop: -18}} />
       </div>
-
-      <Body size={40} style={{position: 'absolute', top: wide ? 830 : 1110, left: wide ? 520 : 150, right: wide ? 520 : 150, textAlign: 'center', opacity: tween(f, 52, 66)}}>
-        {COPY.marca.bajada}
-      </Body>
 
       <Bubble x={wide ? 1320 : 690} y={wide ? 130 : 300} at={48} size={42} rot={6} />
       <Sparkle x={wide ? 380 : 130} y={wide ? 250 : 300} size={100} at={40} seed={5} />

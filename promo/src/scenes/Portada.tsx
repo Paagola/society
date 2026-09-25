@@ -1,9 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {Body, Bubble, Cutout, Headline, Label, Logo, Paper, Sparkle, StarSticker} from '../components';
+import {Bubble, Cutout, Headline, Logo, Paper, Sparkle, StarSticker} from '../components';
 import {COPY} from '../copy';
 import {C, PAD, tween} from '../theme';
-import {Folio} from './Folio';
 import {useWide} from '../format';
 
 // Portada de revista: «TU BAR merece QUE LO VEAN.» con la mano y la copa cruzando el titular.
@@ -33,18 +32,8 @@ export const Portada: React.FC = () => {
         <Sparkle x={wide ? 1000 : 930} y={wide ? 330 : 470} size={120} at={44} seed={1} />
         <Sparkle x={wide ? 1790 : 130} y={wide ? 900 : 1180} size={90} at={52} seed={2} />
         <Sparkle x={wide ? 1060 : 420} y={wide ? 700 : 1250} size={60} at={58} seed={3} />
-
-        <div style={{position: 'absolute', left: PAD, top: wide ? 872 : 1560, width: wide ? 900 : 470}}>
-          <Label size={20} style={{opacity: tween(f, 50, 62), marginBottom: 14}}>
-            En este número
-          </Label>
-          <Body size={32} style={{opacity: tween(f, 54, 68)}}>
-            {COPY.portada.entradilla}
-          </Body>
-        </div>
         <StarSticker x={wide ? 900 : 250} y={wide ? 700 : 1400} size={wide ? 180 : 210} at={68} lines={['Nuevo']} rot={-12} />
       </AbsoluteFill>
-      <Folio page={1} />
       {/* Filete cobalto lateral: lomo de la revista */}
       <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: 14, background: C.cobalto, transform: `scaleY(${tween(f, 0, 24)})`, transformOrigin: 'top'}} />
     </AbsoluteFill>
