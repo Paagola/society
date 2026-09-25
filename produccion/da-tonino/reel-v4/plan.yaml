@@ -166,3 +166,15 @@ ruta_seedance:
   tomas_rapidas: "cada clip se pide como multitoma con cortes secos de 0,6–1,0 s; en montaje ningún plano pasa de 1,2 s salvo el héroe final"
   reescalado: "ByteDance pro a 1080×1920 solo de las tomas aprobadas"
   gasto: "preflight de coste y OK de Víctor antes de lanzar nada"
+
+# Reel en una sola generación (Víctor, 2026-09-25: «que haga directamente el reel entero con este modelo»)
+reel_seedance_unico:
+  job_id: 023715c8-3b7a-44c5-9522-c5e78809ee5d
+  modelo: "seedance_2_5 · omni_reference · 720p · 9:16 · 12 s · audio"
+  referencias: "las 9 aprobadas, @Image 1–9 en orden de lista de planos (rúcula, cornicione, jamón, porción, salteado, emplatado, paella macro, cerveza, sala)"
+  prompt: prompt-seedance-reel.txt
+  coste_creditos: 84
+  saldo_antes: 131.77
+  preset_rechazado: "IN THE DARK (24bae836), se generó literal"
+  estado: generando
+  siguiente: "revisión de Víctor → reescalado ByteDance pro de la toma aprobada → montaje en sandbox (grade, grano, música con pulso, cartela «Da Tonino · Ristorante · Reserva tu mesa») → medir_realismo.py"

@@ -23,6 +23,15 @@ La regla completa, con bloques de prompt y umbrales, está en [`directoria/refer
 
 Todo clip se genera con **Seedance 2.5 a 720p** (`mode:"omni_reference"`, `aspect_ratio:"9:16"`) y solo la toma aprobada se reescala a 1080×1920 con **ByteDance pro** (R-RES-01, `directoria/references/hosteleria/03` §3.1). **Kling 3.0 no se usa**, aunque alguna referencia antigua de estas skills lo siga nombrando: donde choquen, manda esta línea.
 
+**El reel entero sale de una sola generación multitoma** (Víctor, 2026-09-25), no de un clip por plano. En una llamada van todas las imágenes aprobadas como `image_references` (@Image 1…n, hasta 9) y el prompt las recorre en orden:
+
+1. Cabecera: «A N-second vertical restaurant film in K shots with hard cuts», y «Shot k is @Image k… each image is the first frame of its shot… do not mix elements between shots».
+2. Bloques comunes: PRESERVE TEXTURE, PRESERVE EXPOSURE AND COLOUR, SHARPNESS.
+3. Un bloque `[Shot k, a–b s]` por toma, de 0,8–1,4 s (el plano final puede durar más): un verbo con consecuencia física y **un movimiento de cámara profesional con nombre**: dolly-in que frena en seco, slider macro lateral, rack focus, tilt de gimbal que sigue la acción, whip de cámara en mano, grúa cenital, arco corto en slider o planeo FPV / dron de interior en la sala. Nada de «trípode fijo con empuje de 3 cm» en todas las tomas.
+4. Cierre: EDIT (corte en el punto más rápido del movimiento, velocidad real, sin rampas), manos y personas, sin texto, sonido diegético y cámara.
+
+Ejemplo en uso: [`produccion/da-tonino/reel-v4/prompt-seedance-reel.txt`](../produccion/da-tonino/reel-v4/prompt-seedance-reel.txt).
+
 ### Antes de generar nada
 
 1. **Material real primero.** Fotos reales del local y del plato como ancla de cada keyframe. Para manos, fuego y proceso, pedir metraje real al local antes de generar.
