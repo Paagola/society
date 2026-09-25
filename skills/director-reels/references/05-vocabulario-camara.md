@@ -63,6 +63,20 @@ fija** (regla 12).
 | Dutch Angle, Fisheye | Fuera del tono de marca (auténtico, tradicional) | — |
 | Whip Pan generado | Puente sin anclas | Transición en cámara (`02` §3) o en montaje |
 
+### Excepciones aprobadas por perfil (Da Tonino, 25/09/2026)
+
+Donde el perfil del cliente no lo prohíbe, Víctor aprobó en el reel v4 de Da Tonino estos movimientos,
+siempre sobre una imagen aprobada que ya enseña el espacio o el gesto (→ `04` §4.0):
+
+| Movimiento | Fórmula que funcionó |
+|---|---|
+| Planeo FPV / dron de interior en la sala | *stabilised FPV-style glide at table height between the tables toward the window, then rising smoothly like a small indoor drone to a high angle …, ending steady. The room … stays exactly as in the reference; nothing new appears.* |
+| Whip en mano que sigue un salto de sartén | *handheld whip-follow of the toss with real weight, then settles* |
+| Dolly-in que frena en seco | *fast snap dolly-in of 10 cm on a slider that stops hard with a tiny settle as <acción> lands* |
+| Slider macro lateral | *macro probe lens on a motorised slider tracking sideways along <borde> at constant speed, 6 cm in 1s, … through a razor-thin focus plane* |
+
+Para Torre de Vega sigue valiendo la tabla de arriba (sin cámara en mano).
+
 ---
 
 ## 3. Ángulos: qué cuenta como distinto

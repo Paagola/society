@@ -1,0 +1,11 @@
+- receta: reel_entero_multitoma_luz_de_cena
+  reel: da-tonino/reel-v4
+  generacion: 023715c8-3b7a-44c5-9522-c5e78809ee5d
+  modelo: seedance_2_5
+  params: {mode: omni_reference, resolution: 720p, aspect_ratio: "9:16", duration: 12, generate_audio: true}
+  referencias: "9 imágenes aprobadas como image_references, en el orden de las tomas"
+  estilo_de_luz: luz_de_cena
+  prompt: ../reel-v4/prompt-seedance-reel.txt
+  por_que_funciono: "una sola generación (un mundo de luz y un ritmo), tomas de 1 s con tramo exacto, un verbo y un movimiento de cámara con nombre distinto por toma, corte en el punto más rápido, sala al final como respiro"
+  coste_creditos: 84
+  aprobado_por_cliente: 2026-09-25

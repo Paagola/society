@@ -177,6 +177,69 @@ están admitidos según `models_explore` del 17/09).
 con catálogo del 07/08 dice que solo 720p. Si hoy no aparece 1080p, **para y pregunta**. Si produces
 desde las herramientas de OpenMontage, `seedance_video` solo expone 480p/720p aunque fal admite 1080p.
 
+### 4.0 Dirección aprobada: el reel entero en una sola multitoma (Da Tonino v4, 25/09/2026)
+
+**Es el patrón por defecto desde el 25/09/2026.** Víctor aprobó el reel de Da Tonino (job `023715c8`) a la
+primera con esta dirección. Prompt íntegro: [`produccion/da-tonino/reel-v4/prompt-seedance-reel.txt`](../../../produccion/da-tonino/reel-v4/prompt-seedance-reel.txt).
+
+**Qué decide la dirección (y por qué funcionó):**
+
+1. **Una generación, todo el reel.** No se hace un clip por plano: una sola llamada a Seedance 2.5
+   (`omni_reference`, 720p, 9:16, 12 s, `generate_audio: true`) con todas las imágenes aprobadas como
+   `image_references` (@Image 1…9, hasta 9) en el orden de la lista de planos. Coste: 84 cr por 12 s.
+   Salen una sola luz, un solo grano y un solo ritmo, sin costuras entre clips.
+2. **Tomas rápidas.** Nueve tomas de 1,0–1,4 s con corte seco y una toma final de sala de 3 s. El prompt
+   da el tramo exacto de cada una (`[Shot k, a-b s]`) y pide que el corte caiga en el punto más rápido del
+   movimiento.
+3. **Una toma = un verbo + un movimiento de cámara profesional con nombre, distinto del anterior.** Nunca
+   «trípode con empuje de 3 cm» en todas. La secuencia aprobada:
+
+   | # | Toma | Verbo | Cámara |
+   |---|---|---|---|
+   | 1 | Rúcula | cae y se posa | dolly-in rápido que frena en seco |
+   | 2 | Cornicione | — (textura) | slider macro lateral, plano de foco finísimo |
+   | 3 | Jamón | — (brillo) | rack focus de la hoja al jamón + empuje de 3 cm |
+   | 4 | Porción | se levanta, el queso se estira y rompe | tilt de gimbal que sigue la porción |
+   | 5 | Salteado | salto de sartén | whip de cámara en mano con peso, que se asienta |
+   | 6 | Emplatado | pinzas colocan el nido | grúa de 45° a casi cenital |
+   | 7 | Paella | vapor | slider bajo a ras del borde, vapor cruzando el objetivo |
+   | 8 | Cerveza | la mano suelta la caña, la espuma asienta | arco de 10° en slider, parallax de bombillas |
+   | 9 | Sala | — (espacio) | planeo tipo FPV / dron de interior entre mesas que sube a picado |
+
+4. **Ritmo en tres actos por el menú:** pizza (textura → gesto) → pasta (fuego → plato) → paella y bebida
+   → sala como respiro final y sitio para la cartela.
+5. **Mundo de luz único** (luz de cena del perfil) en todos los platos; la sala, con su luz de día
+   aprobada, va sola al final, así que el cambio de luz se lee como «salimos al comedor» y no como error.
+6. **Bloques comunes del prompt:** PRESERVE TEXTURE (lista de texturas reales plato a plato), PRESERVE
+   EXPOSURE AND COLOUR, SHARPNESS (un plano de foco por toma, estela solo en lo rápido), EDIT (corte en
+   el punto más rápido, velocidad real, sin rampas ni zooms), manos de un solo cocinero, sonido
+   diegético descrito por acción, sin música ni voz (la música va en montaje).
+
+**Plantilla:**
+
+```text
+A <T>-second vertical restaurant film in <K> shots with hard cuts, shot by a professional food commercial
+crew. Shot 1 is @Image 1. … Shot K is @Image K. Each image is the first frame of its shot and defines that
+shot's food, hands, tableware, room and light exactly; do not mix elements between shots.
+PRESERVE TEXTURE: <texturas reales, plato a plato>. Textures never soften, smear or become smoother over time.
+PRESERVE EXPOSURE AND COLOUR: <luz del perfil>. Do not warm up, darken, flatten or add an orange cast.
+SHARPNESS: one named focus plane per shot …; 180-degree shutter motion blur only on what moves fast.
+[Shot 1, 0-1.2s] <lugar>. <verbo con tiempos y consecuencia física>. CAMERA: <movimiento con nombre y medida>; focus on <objeto>.
+…
+[Shot K, a-T s] <sala>. CAMERA: <planeo / grúa>. The room … stays exactly as in the reference; nothing new appears.
+EDIT: every cut lands on the fastest part of the motion. Real-time speed, no speed ramps, no zoom effects, no transitions other than hard cuts.
+Only the hands described in each shot, all from the same cook; no faces, no extra people. Pure video, no subtitles, no text, no logos.
+Sound: realistic diegetic sound only, <un sonido por acción>, quiet room tone; no music, no voice.
+Shot on a full-frame cinema camera, 35-100mm primes around f/2, photographic realism, fine natural grain.
+```
+
+**Límites:** el planeo FPV, el whip en mano y el arco solo valen sobre una imagen aprobada que ya enseña
+ese espacio o ese gesto; si el perfil del cliente los prohíbe (Torre de Vega: nada de cámara en mano),
+manda el perfil y se sustituyen por slider. Si el servidor sugiere un preset («IN THE DARK»), se
+rechaza con `declined_preset_id`.
+
+El patrón de §4.1 queda para reels de pocas tomas largas o clientes con cámara solo mecánica.
+
 ### 4.1 Multitoma (patrón validado, V1 del Reel 09)
 
 ```text

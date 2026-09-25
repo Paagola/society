@@ -53,3 +53,11 @@ negativos_obligatorios:
   - "nothing invented beyond the references"
 
 cierre: "Da Tonino · Ristorante · Reserva tu mesa"
+
+direccion_aprobada:
+  # Víctor aprobó el reel v4 (job 023715c8) el 2026-09-25. Detalle: references/04-compilador-de-prompts.md §4.0
+  formato: "una sola multitoma Seedance 2.5, 12 s, 9 tomas con corte seco de 1,0–1,4 s + sala final de 3 s"
+  orden: "pizza (rúcula, cornicione, jamón, porción) → pasta (salteado, emplatado) → paella → cerveza → sala"
+  camara: "un movimiento profesional con nombre distinto por toma: dolly-in que frena, slider macro, rack focus, tilt de gimbal, whip en mano, grúa a cenital, slider bajo, arco corto, planeo FPV en sala"
+  sonido: "diegético de Seedance por acción; música con pulso en montaje"
+  receta: produccion/da-tonino/recetas/reel_multitoma.yaml

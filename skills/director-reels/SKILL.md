@@ -127,6 +127,8 @@ Compila los prompts de vídeo por dialecto (`references/04-compilador-de-prompts
 para planos simples, Seedance 2.5 para manos, cubiertos, cortes y líquidos, y **multitoma** de Seedance
 2.5 cuando haya dos o más planos complejos con keyframes aprobados.
 
+**Dirección por defecto (aprobada el 25/09/2026, Da Tonino v4):** el reel entero en **una sola multitoma** de Seedance con todas las imágenes aprobadas, tomas de 1,0–1,4 s con corte seco y un movimiento de cámara profesional con nombre distinto en cada toma → `references/04-compilador-de-prompts.md` §4.0.
+
 Preflight obligatorio antes de cada tanda:
 
 - `models_explore action:"get"` del modelo: confirma que admite 1080p y los roles de media que vas a

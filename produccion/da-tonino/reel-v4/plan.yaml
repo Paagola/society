@@ -176,5 +176,5 @@ reel_seedance_unico:
   coste_creditos: 84
   saldo_antes: 131.77
   preset_rechazado: "IN THE DARK (24bae836), se generó literal"
-  estado: generando
+  estado: aprobado  # Víctor, 2026-09-25: «me gusta»
   siguiente: "revisión de Víctor → reescalado ByteDance pro de la toma aprobada → montaje en sandbox (grade, grano, música con pulso, cartela «Da Tonino · Ristorante · Reserva tu mesa») → medir_realismo.py"
