@@ -196,4 +196,26 @@ montaje_v5:
   instagram_1080: 8ac1bc5e-6f6b-466c-9a01-daf5693be0e2
   detalle: montaje/README.md
   medicion: montaje/medicion-v5.txt
-  estado: entregado
+  estado: sustituido por v6
+montaje_v6:
+  pedido: "Víctor 25/09: quitar el sonido de la pizza (candidato E, porción) sin tocar la canción; logo con la tipografía del carrusel"
+  prompt: prompts/openmontage-da-tonino-quitar-sonido-pizza.md
+  openmontage: {proyecto: projects/da-tonino-reel-v6, pipeline: hybrid, etapa: edit, politica: manual_all}
+  sonido:
+    quitado: {candidato: E, toma: porcion, tramo_s: [3.57, 4.57], stem: other, separacion: htdemucs_ft}
+    metodo: "b) puerta espectral guiada por el stem, restada de la mezcla original, fundidos de 18 ms"
+    medido: {agudos_db: [55.9, 48.0], tramo_total_db: -0.9, lufs: [-14.1, -14.2], pico_dbtp: [-1.3, -1.4]}
+    fuera_del_tramo: "idéntico bit a bit a la v5"
+  tipografia:
+    logo: montaje/logo-carrusel-4k.png
+    fuentes: {titulo: Cinzel, acento: "Pinyon Script", texto: "Montserrat Light"}
+    sistema: pruebas/carrusel-da-tonino-2026-09-25/maquetar.py
+    plano_rehecho: {plano: sala, tramo_s: [9.375, 13.541667], fuente: "reescalado 4K 94fa925f", etalonaje: "sala_v5.cube + vignette 0.93 + gblur 0.7 + grano"}
+  imagen_0_9375: "copiada de la v5 sin reencodar (framemd5 idéntico)"
+  master_4k: 4a51f618-7bbc-4cb2-aa4a-26e65bb8fb14
+  instagram_1080: cfc5c21c-d47a-4dad-bd11-42a23f87cc92
+  detalle: montaje/README.md
+  medicion: montaje/medicion-v6.txt
+  coste_creditos: 0
+  estado: entregado   # Víctor, 25/09/2026: «ok»
+

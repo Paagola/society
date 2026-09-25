@@ -1,0 +1,35 @@
+# Medición v6 · Da Tonino (25/09/2026)
+## medir_realismo.py sobre da-tonino-reel-v6-1080.mp4
+
+== da-tonino-reel-v6-1080.mp4
+inicio    fin   dur  foco %  mov px  irreg
+   0.0    1.7   1.7      25    2.84   7.34
+   1.7    2.6   0.9      28    3.96   1.21
+   2.6    3.5   0.9      12    2.51   0.91
+   3.5    4.9   1.4      32    1.85   1.83
+   4.9    7.2   2.3      18    4.62  18.78
+   7.2    8.1   0.9      20    1.75   0.43
+   8.1    9.5   1.4      17    0.15   0.36
+   9.5   13.7   4.2      13    0.37   0.90
+
+Resumen                      valor    objetivo        estado
+  Duración media de plano (s)       1.7   0.4–1.2       REVISAR
+  Encuadre en foco (%)             20.6   8–25       ok
+  Movimiento de cámara (px)         2.3   1–9       ok
+  Negro, percentil 1                0.7   0–3.5       ok
+  Blanco, percentil 99            201.2   220–255       REVISAR
+  Audio, RMS                     5079.5   1500–20000       ok
+  Planos con cámara quieta            2   0–2          ok
+  Transiciones (indicativo)           1   0            REVISAR  desenfoque 13.2s
+  Nitidez media (informativo)     593.3
+  Saturación media (inform.)      157.7
+
+## Sonoridad (ebur128)
+    I:         -14.2 LUFS
+    LRA:         2.5 LU
+    Peak:       -1.4 dBFS
+
+## Integridad
+4K y 1080: 325 fotogramas, 13,541667 s, 0 errores de descodificación; 0–9,375 s idénticos a la v5 (framemd5 de 225 fotogramas)
+Sala nueva frente a la v5 (9,4–9,8 s): luminancia 39,2 / 39,0; R/B 1,55 / 1,53
+Sonido E (3,57–4,57 s): >1,5 kHz 55,9 → 48,0 dB; total del tramo −0,9 dB; fuera del tramo, audio idéntico bit a bit

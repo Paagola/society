@@ -54,6 +54,18 @@ negativos_obligatorios:
 
 cierre: "Da Tonino · Ristorante · Reserva tu mesa"
 
+tipografia:
+  # Víctor, 2026-09-25: el reel lleva la misma tipografía que el carrusel «Anatomía de una pizza».
+  sistema: pruebas/carrusel-da-tonino-2026-09-25/maquetar.py
+  fuentes_dir: pruebas/carrusel-da-tonino-2026-09-25/fuentes   # OFL (Google Fonts)
+  titulo: "Cinzel Regular, mayúsculas, tracking amplio"
+  acento: "Pinyon Script (una palabra o frase corta)"
+  texto: "Montserrat Light, versalitas con tracking"
+  colores: {crema: [246, 241, 233], piedra: [214, 206, 194]}
+  logo_reel: produccion/da-tonino/reel-v4/montaje/logo-carrusel-4k.png
+  descartada: "Playfair Display cursiva + Schibsted Grotesk (logo de la v5)"
+  regla: "logo y rótulos siempre como capa aparte, nunca incrustados en el máster"
+
 direccion_aprobada:
   # Víctor aprobó el reel v4 (job 023715c8) el 2026-09-25. Detalle: references/04-compilador-de-prompts.md §4.0
   formato: "una sola multitoma Seedance 2.5, 12 s, 9 tomas con corte seco de 1,0–1,4 s + sala final de 3 s"

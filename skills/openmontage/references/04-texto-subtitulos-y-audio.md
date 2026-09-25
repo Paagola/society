@@ -141,3 +141,25 @@ ffmpeg -i sep/htdemucs/a/bass.wav -i sep/htdemucs/a/other.wav -i sep/htdemucs/a/
 - **Comprobar el reparto antes de mezclar:** medir el RMS por toma de cada stem. La canción es estable en todas las tomas. Los efectos caen a −70 dB en las tomas sin acción (textura, sala).
 - **Coste y tiempo:** 0 créditos; unos 8 s de CPU por 12 s de audio en el sandbox de Higgsfield.
 - **Límite:** la separación no es perfecta. Siempre hay que escuchar el resultado antes de entregar.
+
+## Quitar un sonido colado en la canción sin tocarla (validado el 25/09/2026, Da Tonino v6)
+
+Cuando un efecto (roce, crujido, tirón) se ha colado en un stem que **también lleva la canción** (`other` o `bass`), no se puede silenciar el stem. Orden de preferencia:
+
+1. **Localizar, no suponer.** `htdemucs_ft`, RMS por stem en ventanas de 20–50 ms, centroide espectral y % de energía > 2 kHz. El bajo de la canción es periódico, está en 120–185 Hz y casi no tiene agudos; un efecto colado es de banda ancha y va ligado a una toma. Se generan clips de escucha (±0,5 s, mezcla y stem ×3) y un espectrograma, y **el cliente elige** cuál es.
+2. **Puerta espectral guiada por el stem** (método de la v6): STFT del stem → suelo local por bin (percentil 20 en 0,5 s) → exceso = lo que sobresale más de 1,25× del suelo → se resta ese exceso, con la fase del stem, **de la mezcla original** (no se resintetiza desde stems), solo dentro del tramo elegido y con fundidos de 15–20 ms. Script: `produccion/da-tonino/reel-v4/montaje/v6-sonido/quitar_E.py`. Resultado medido: −7,9 dB en agudos y solo −0,9 dB en el total del tramo.
+3. **Si deja la canción sucia:** sustituir el tramo por el mismo compás de otro momento, con fundido cruzado de 30–50 ms y sin salto de tempo.
+
+- **Comprobar que fuera del tramo el audio es idéntico bit a bit** (`numpy.array_equal`), y que los empalmes no tienen clics (salto máximo entre muestras ±50 ms).
+- **No aplicar `loudnorm` a todo el tema** si solo se ha tocado un tramo: movería la canción en todo el reel. Si ya está cerca de −14 LUFS, se deja.
+
+## Rótulos y logo: nunca incrustados en el máster (25/09/2026, Da Tonino v6)
+
+- **El máster se guarda limpio, sin texto**, y los rótulos y el logo van como capa aparte (PNG con alfa o capa de Remotion) hasta la entrega. En la v5 el logo iba incrustado en la sala y cambiar la tipografía obligó a rehacer el plano desde el clip de Seedance y a reajustar su etalonaje.
+- **Si ya está incrustado**, se rehace solo ese plano:
+  - la cabeza se copia sin reencodar cortando en un fotograma clave por **número de paquetes** (`-frames:v N -c:v copy`; `-t` arrastra paquetes de más con B-frames);
+  - el plano nuevo se codifica con **los mismos ajustes de x264** que el máster (leídos de su cabecera SEI: `preset`, `crf`, `level`) y marcas de tiempo desde cero (`setpts=N/24/TB`, misma `video_track_timescale`); se une con el demuxer `concat`, no con `.ts`;
+  - para igualar el etalonaje: ajustar una curva por canal + la máscara real de `vignette` (medida sobre un fotograma gris) y **cerrar el bucle con renders de ffmpeg** (en YUV la viñeta solo oscurece la luma y calienta la imagen; aplicarla en RGB);
+  - verificar con `framemd5 -map 0:v` (sin `-map`, el audio se cuela en la comparación).
+- **Una sola voz tipográfica por cliente:** el reel usa el mismo sistema que sus carruseles y posts. Da Tonino: Cinzel + Pinyon Script + Montserrat Light (`skills/director-reels/perfiles/da-tonino.yaml`).
+
