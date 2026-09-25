@@ -123,6 +123,7 @@ MOTION (BEATS):
 
 CAMERA:
 - [Choose ONE: a slow lateral dolly of ~10% revealing parallax between foreground and background / a slow push-in of ~5% / locked]. Smooth, motorized, no handheld shake. One move only.
+- Hostelería, planos de proceso con manos: usar el bloque CAPTURE de `references/hosteleria/08-firma-de-rodaje-real.md` §11 en lugar de esta línea (seguimiento de pequeña amplitud que acompaña la mano, obturación de 180°, plano de foco nombrado).
 
 FILM GRADE:
 - Keep the exact grade of the start image. [Kodak Vision3 500T teal-orange cinematic / anamorphic with horizontal flares and oval bokeh]. Clean blacks, fine grain, real film texture. No digital over-sharpening.

@@ -16,6 +16,8 @@ Catálogo de transiciones de cuatro fuentes: OpenMontage (convenciones de montaj
 
 ## 1. Reglas que mandan
 
+> **Comida y acción [MEDIDO 25/09/2026]:** solo corte seco, en el golpe del sonido. Las transiciones de efecto (desenfoque, destello, zoom, fundido) entre planos de comida se leen como montaje automático y fueron dos de las señales de IA del reel de Da Tonino v3; la referencia rodada no usa ninguna. El catálogo de abajo sigue valiendo para rótulos, cambios de capítulo y piezas que no son de producto.
+
 1. **Como mucho 2–3 tipos de transición por pieza.** Cuantos más tipos, menos significa cada uno ("demasiados tipos de transición matan el mood", `cinematic/scene-director`).
 2. **La transición significa algo:** corte = continuidad; disolvencia = paso del tiempo o parentesco emocional; fundido a negro = cambio de acto; *wipe* = siguiente paso; zoom = más detalle.
 3. **El sonido de la transición empieza 10–20 ms antes** que el cambio de imagen; el pico del *whoosh* coincide con el momento de mayor cambio visual.

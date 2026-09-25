@@ -84,6 +84,15 @@ La base DirectorIA nació para publicidad de belleza, moda y perfume (el caso Bl
 - **Base heredada:** un clip de 4–6 s lleva un único beat principal (`knowledge/06` §1).
 - **No es una contradicción:** sigue valiendo **por toma**. La multitoma de Seedance 2.5 (varias tomas en una generación, con el corte escondido en un gesto rápido) es un montaje dentro del clip: cada toma conserva su único beat. → [`07-recreacion-de-referencia.md`](07-recreacion-de-referencia.md)
 
+### 2.10 Firma de rodaje real [MEDIDO 25/09/2026]
+
+Comparación del reel de Da Tonino v3 con un reel de producto rodado (`pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/`). Tres reglas anteriores, aplicadas a todos los planos, producían el aspecto de catálogo que delata la IA. Se corrigen **para vídeo y planos de acción**; el detalle está en [`08-firma-de-rodaje-real.md`](08-firma-de-rodaje-real.md).
+
+- **§2.2 f/4 en platos → matizado.** f/4 queda para el still de catálogo. En vídeo y acción, plano de foco fino con nombre (f/1.8–2.8 equivalente). Medido: 31 % del encuadre en foco en el v3 frente a 18 % en la referencia. La textura se resuelve en ese plano de foco con la ficha de `01`; el fallo del 24/09 era desenfocar el plato entero.
+- **`02` §2 «la sala levanta las sombras» → matizado.** El balance de blancos sigue neutro; el contraste no se aplana. En cocina, proceso y fuego, luz *low-key* dura y motivada. Medido: negro p1 5,8 frente a 1,8; blanco p99 194 frente a 234.
+- **Prefijo `director/04` §2 «Motorised slider moves only, no handheld» → sustituido.** Cámara en mano o gimbal con microtemblor en proceso; slider solo en el plano héroe. Medido: 5 planos quietos frente a 2. **Límite:** seguimiento con intención de pequeña amplitud, nunca temblor genérico ni recorrido sobre la comida; si la ficha del cliente prohíbe la cámara en mano (Torre de Vega), manda la ficha.
+- **Nuevo:** física con peso y obturación de 180° (desenfoque de movimiento), un verbo de manos por plano, un solo mundo visual, corte seco sin transiciones de efecto y sonido obligatorio.
+
 ## 3. Conflictos con fuentes públicas
 
 | Fuente pública | Qué dice | Decisión |
@@ -101,3 +110,5 @@ La base DirectorIA nació para publicidad de belleza, moda y perfume (el caso Bl
 3. GPT Image 2.5 y Seedream 4.5 frente a Nano Banana Pro, con la misma ficha de texturas.
 4. Si Nano Banana respeta los valores numéricos de cámara (§2.7).
 5. Si la cláusula de asignación positiva de color (`02` §4) frena el calentamiento de Seedance en comida. Es la primera prueba A/B a hacer: el mismo keyframe con y sin la cláusula, midiendo rojo/azul y luminancia.
+6. **Umbrales de firma de rodaje** (`08` §12): salen de una sola referencia. Repetir la medición con 3–5 reels de producto rodados.
+7. **A/B de `08`:** profundidad de campo f/4 frente a f/2 con plano de foco nombrado; cámara fija frente a en mano; suavizado de 0,3–0,5 px + grano tras el reescalado. Cada una con el script y una prueba a ciegas con 5 personas.

@@ -88,6 +88,8 @@ Se empieza siempre por el revelado simple. La tipografía no cambia: solo cambia
 
 ## 6. Audio: niveles, ducking y efectos
 
+> **Obligatorio [MEDIDO 25/09/2026]:** el reel de Da Tonino v3 se entregó con la pista de audio vacía. Un reel de comida sin sonido no pasa la puerta E. Capas mínimas y origen del sonido: `directoria/references/hosteleria/08-firma-de-rodaje-real.md` §9.
+
 **Loudness de entrega** (OpenMontage `sound-design.md`, que cita las especificaciones de las plataformas):
 
 | Plataforma | LUFS integrados | True peak |

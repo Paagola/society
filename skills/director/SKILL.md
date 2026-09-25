@@ -4,7 +4,7 @@ description: 'Director de la pieza completa y orquestador de las skills de produ
 license: 'Contenido propio + adaptaciones de fuentes MIT y CC BY 4.0 (ver "Fuentes")'
 metadata:
   author: victor-society
-  version: "2.0.0"
+  version: "2.1.0"
 ---
 
 # Director
@@ -18,11 +18,12 @@ La skill que **decide la pieza** y **coordina** a las demás. Convierte un brief
 1. **Primero la historia, luego el plano:** fórmula de escena, cinco anclajes y un arco que encaje con el brief (novedad con fecha → final abierto; proceso → cadena causal; plato estrella → momento culminante). → `references/01`
 2. **Cada plano hace un trabajo** (emoción, acción o presión) y lleva **tres detalles físicos** (presión del entorno, microacción, sonido o motivo). Si no, se elimina. → `references/01` §2–3
 3. **Lenguaje preciso:** tamaño, ángulo, movimiento, óptica y luz con nombre; nada de "cinematic". → `references/02`
-4. **La cámara se mueve por un motivo**, con un movimiento dominante, recorrido y tiempo en números y un punto final. En comida: recorrido mecánico pequeño; lo amplio, en montaje. → `references/03`, `references/02` §10
+4. **La cámara se mueve por un motivo**, con un movimiento dominante, recorrido y tiempo en números y un punto final. En comida: recorrido pequeño sobre el plato; en planos de proceso, cámara en mano que acompaña el gesto; nada de recorridos macro sobre comida blanda. → `references/03`, `references/02` §10
 5. **El fotograma 1 ya tiene acción y rótulo**, abre ancho, y el momento que justifica la pieza va al principio. → `references/06` §5
 6. **Variedad real:** 3+ tamaños de plano, ninguna racha de 3 cortes iguales en tamaño y movimiento, duraciones escalonadas. → `references/06` §3
-7. **Nada inventado:** todo sale del inventario real del local; si hay metraje real, se usa.
-8. **Pregunta de control:** *¿alguien del barrio le reenviaría esto a otra persona?* Si no, se replantea antes de gastar.
+7. **Nada inventado y material real primero:** todo sale del inventario real del local. Para planos de manos, fuego o proceso se **pide** una sesión corta con el móvil antes de generar (`directoria/references/hosteleria/08` §13).
+8. **Firma de rodaje real** [MEDIDO 25/09/2026]: plano de foco fino, luz con fuente y contraste, cámara con peso, física con desenfoque de movimiento, un verbo de manos por plano, un solo mundo visual. → `directoria/references/hosteleria/08`
+9. **Pregunta de control:** *¿alguien del barrio le reenviaría esto a otra persona?* Si no, se replantea antes de gastar.
 
 ## Flujo con puertas
 
@@ -45,7 +46,7 @@ Por cada plano generado, `directoria` escribe el prompt de imagen (textura, luz,
 `directoria` escribe el prompt de vídeo (bloques PRESERVE + movimiento de esta lista) y `higgsfield` lo ejecuta. Revisión técnica y fotograma a fotograma. Multitoma de Seedance 2.5 con ventanas de 3 s o más por toma.
 
 ### 7 · Montaje → **PUERTA E**
-`openmontage` monta con la lista: gancho, escalera de ritmo, transiciones, rótulos, audio, auditoría antislideshow, revisión técnica.
+`openmontage` monta con la lista: gancho, escalera de ritmo, corte seco, rótulos, **sonido obligatorio**, grade y grano comunes, auditoría antislideshow y `scripts/medir_realismo.py`.
 
 ### 8 · Publicar, medir y aprender
 `marketing-hosteleria` publica y mide. Los aprendizajes se **proponen**; entran en las reglas solo con aprobación y con fecha. → `references/05`

@@ -4,7 +4,7 @@ description: 'Montaje y retención de reels de hostelería: cómo usar OpenMonta
 license: 'Contenido propio + adaptaciones de fuentes MIT y CC BY 4.0 (ver "Fuentes")'
 metadata:
   author: victor-society
-  version: "2.0.0"
+  version: "2.1.0"
 ---
 
 # OpenMontage y montaje que retiene
@@ -16,15 +16,18 @@ Esta skill toma los clips aprobados y los convierte en una pieza que **se ve ent
 ## Reglas que no se negocian
 
 1. **Fotograma 1 con acción ya empezada y rótulo desde el principio.** Nada de logo ni intro. El gancho abre **en plano ancho**, con información (+10 % de activación medida frente al plano cerrado). → `references/03` §2–3
-2. **Como mucho 2–3 tipos de transición por pieza**, y cada transición significa algo. → `references/02`
+2. **En comida, corte seco.** Nada de desenfoque, destello ni zoom de transición entre planos de acción (medido 25/09/2026: firma de montaje automático). Como mucho un *whip* que nace del gesto. → `references/02`, `directoria/references/hosteleria/08` §8
 3. **Ritmo escalonado, no picadora:** largo → más corto → más corto → pausa → impacto. Cada corte sirve primero a la emoción y a la historia (Murch). → `references/03` §4
-4. **Ningún plano quieto:** empujar y tirar alternados **en montaje**, nunca pedidos al modelo de vídeo (el movimiento macro generado deforma la comida). → `references/02` §5
+4. **Ningún plano quieto, y el movimiento nace en el plano:** cámara en mano o gimbal con microtemblor en los planos de proceso (bloque CAPTURE de `directoria/references/hosteleria/08`). El empuje digital en montaje sobre un clip quieto se lee como plantilla [MEDIDO 25/09/2026]: solo como recurso de rescate. Los recorridos macro sobre comida blanda siguen prohibidos. → `references/02` §5
 5. **Nunca slideshow:** ninguna racha de 3 cortes con el mismo tamaño de plano y el mismo movimiento; se rompe el patrón al menos cada 4 cortes. → `references/05`
 6. **Todo dentro de la zona segura de Reels**; nada en los 310 px de abajo. → `references/04` §1
 7. **Tipografía que resta:** peso Regular, tamaño contenido, *tracking* amplio, sin contorno (estándar validado por el cliente de referencia). → `references/04` §2
 8. **Subtítulos con tiempos medidos**, nunca repartidos por longitud de palabra. SRT siempre. → `references/04` §4
 9. **Entrega:** 1080×1920, sin bandas, −14 LUFS / −1 dBTP, H.264 de 8–15 Mbps, sin marcas de agua. → `references/05` §5
-10. **Máximo 2 iteraciones de Virality Predictor** por reel de comida; después, las palancas están en el material. → `references/03` §5
+10. **Sin sonido no se entrega:** música con pulso + un efecto por acción + ambiente. El corte cae en el golpe. → `references/04` §6, `directoria/references/hosteleria/08` §9
+11. **Grade y grano comunes** a toda la pieza en montaje (negros 0–3, brillos 225–245, grano fino), nunca pedidos en el prompt. → `directoria/references/hosteleria/08` §10
+12. **Revisión automática de firma de rodaje** antes de entregar: `python3 scripts/medir_realismo.py reel.mp4 [referencia.mp4]`. → `references/05` §5
+13. **Máximo 2 iteraciones de Virality Predictor** por reel de comida; después, las palancas están en el material. → `references/03` §5
 
 ## Flujo de montaje
 
