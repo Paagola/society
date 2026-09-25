@@ -339,6 +339,7 @@ Este es el único índice vigente. Los documentos históricos conservan evidenci
 | Society | [informes/Society_estrategia_redes_y_retroalimentacion.md](informes/Society_estrategia_redes_y_retroalimentacion.md) |
 | Society | [informes/Society_flujo_de_la_aplicacion.md](informes/Society_flujo_de_la_aplicacion.md) |
 | Society — Método de dirección visual | [informes/Society_metodo_direccion_visual.md](informes/Society_metodo_direccion_visual.md) |
+| Society — Sistema operativo de marketing (eventos, interacción, plano de control; lámina en `informes/diagramas/`) | [informes/Society_sistema_operativo_de_marketing.md](informes/Society_sistema_operativo_de_marketing.md) |
 | Society | [informes/Society_voces_y_subtitulos.md](informes/Society_voces_y_subtitulos.md) |
 | Ad Adaptation / Ad Recreator aplicado a Society | [informes/higgsfield/03-ad-recreator-para-society.md](informes/higgsfield/03-ad-recreator-para-society.md) |
 | Protocolo de descubrimiento y ejecución para futuras IA | [informes/higgsfield/04-protocolo-para-ia.md](informes/higgsfield/04-protocolo-para-ia.md) |
