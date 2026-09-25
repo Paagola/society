@@ -186,4 +186,14 @@ montaje:
   media_id: e7c65767-aab5-4a5c-8328-750417fa3d8d
   detalle: montaje/README.md
   medicion: montaje/medicion.txt
-  estado: entregado  # pendiente de visto bueno final de Víctor y música al publicar
+  estado: sustituido por v5
+reescalado_4k:
+  job_id: 94fa925f-007b-4e0c-972a-be293f348be4
+  params: {provider: bytedance, preset: aigc, resolution: 4k, fps: 24}
+montaje_v5:
+  pedido: "Víctor 25/09: le encantan canción y tomas; quitar efectos salvo el de apoyar la cerveza (corte final); sala con otra luz, logo encima y apagado lento"
+  master_4k: 4ac9c8b1-e18b-4c1b-ab3b-112cf162d8ae
+  instagram_1080: 8ac1bc5e-6f6b-466c-9a01-daf5693be0e2
+  detalle: montaje/README.md
+  medicion: montaje/medicion-v5.txt
+  estado: entregado

@@ -21,7 +21,7 @@ La regla completa, con bloques de prompt y umbrales, está en [`directoria/refer
 
 ### Ruta de vídeo única (2026-09-25)
 
-Todo clip se genera con **Seedance 2.5 a 720p** (`mode:"omni_reference"`, `aspect_ratio:"9:16"`) y solo la toma aprobada se reescala a 1080×1920 con **ByteDance pro** (R-RES-01, `directoria/references/hosteleria/03` §3.1). **Kling 3.0 no se usa**, aunque alguna referencia antigua de estas skills lo siga nombrando: donde choquen, manda esta línea.
+Todo clip se genera con **Seedance 2.5 a 720p** (`mode:"omni_reference"`, `aspect_ratio:"9:16"`) y solo la toma aprobada se reescala con **ByteDance pro** (preset `aigc`) **a 4K (2160×3840) desde el 720p original**: máster en 4K y copia a 1080×1920 para publicar (Víctor, 25/09/2026; sustituye al 1080 de R-RES-01, `directoria/references/hosteleria/03` §3.1). **Kling 3.0 no se usa**, aunque alguna referencia antigua de estas skills lo siga nombrando: donde choquen, manda esta línea.
 
 **El reel entero sale de una sola generación multitoma** (Víctor, 2026-09-25), no de un clip por plano. En una llamada van todas las imágenes aprobadas como `image_references` (@Image 1…n, hasta 9) y el prompt las recorre en orden:
 

@@ -233,6 +233,17 @@ Sound: realistic diegetic sound only, <un sonido por acción>, quiet room tone; 
 Shot on a full-frame cinema camera, 35-100mm primes around f/2, photographic realism, fine natural grain.
 ```
 
+**Cierre y sonido aprobados (reel v5, 25/09/2026).** Víctor pidió, y aprobó en la dirección, este final:
+
+- **La canción de Seedance se queda; los efectos se quitan todos menos uno:** el golpe de la caña al apoyarse en la mesa, que hace de **corte final** antes de la sala. Seedance entrega canción y efectos mezclados. Se separan en montaje con Demucs (`htdemucs`): canción = `bass` + `other`, efectos = `drums` + `vocals`. En la toma de la cerveza se devuelven los efectos al +40 %. Ver `openmontage/references/04-texto-subtitulos-y-audio.md`.
+- **Sala con otra luz, logo encima y apagado lento:**
+  - la sala de día pasa a luz de cena en el etalonaje (brillo medio ≈ 38 y R/B ≈ 1,5, cerca de la toma de la cerveza, que está en 48 y 1,8);
+  - el logotipo aparece sobre la sala a los 0,5 s;
+  - la imagen funde a negro en 1,3 s;
+  - el logo se queda 0,8 s sobre negro y la canción se apaga con él.
+  Sustituye a la cartela negra aparte. Es la única transición de efecto permitida: la pide el cliente para el cierre.
+- **Pedirlo ya en el prompt:** en próximos reels, la toma de sala se pide directamente con la luz de cena del perfil, sin sonido diegético salvo el golpe final.
+
 **Límites:** el planeo FPV, el whip en mano y el arco solo valen sobre una imagen aprobada que ya enseña
 ese espacio o ese gesto; si el perfil del cliente los prohíbe (Torre de Vega: nada de cámara en mano),
 manda el perfil y se sustituyen por slider. Si el servidor sugiere un preset («IN THE DARK»), se
