@@ -350,6 +350,7 @@ Este es el único índice vigente. Los documentos históricos conservan evidenci
 | Encargo para GPT-6 Astra · Unificar el proyecto Society y diseñar su cerebro creativo-estratégico | [prompts/gpt6-astra-limpieza-y-sistema-creativo.md](prompts/gpt6-astra-limpieza-y-sistema-creativo.md) |
 | Prompt para Higgsfield · Bocetos de la app Society | [prompts/higgsfield-bocetos-app-society.md](prompts/higgsfield-bocetos-app-society.md) |
 | Prompt — Reel de Torre de Vega con OpenMontage | [prompts/openmontage-reel-torre-de-vega.md](prompts/openmontage-reel-torre-de-vega.md) |
+| Prompt — Da Tonino v5: quitar el sonido de la pizza con OpenMontage | [prompts/openmontage-da-tonino-quitar-sonido-pizza.md](prompts/openmontage-da-tonino-quitar-sonido-pizza.md) |
 | Plan de pruebas — analizador de vídeos de referencia | [pruebas/analizador-video-referencia/plan-de-pruebas.md](pruebas/analizador-video-referencia/plan-de-pruebas.md) |
 | Da Tonino v3 frente a un reel rodado: qué delata la IA (medido; origen de la firma de rodaje real en las skills) | [pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/README.md](pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/README.md) |
 
