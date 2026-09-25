@@ -2,6 +2,5 @@ tfg.code-workspace
 
 .vscode
 
-society-identidad-editorial
-
-posts__pycache__/
+posts
+__pycache__/

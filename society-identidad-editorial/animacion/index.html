@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Society · Animación</title>
+  <meta name="description" content="Animación cartoon en Canvas 2D: el problema que Society resuelve a los hosteleros.">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <main class="pagina">
+    <header class="cabecera">
+      <p class="logo">Society</p>
+      <p class="cabecera__lema">Qué problema resolvemos</p>
+    </header>
+
+    <!-- Contenedor del lienzo: el canvas se adapta a su tamaño (ResizeObserver en js/app.js) -->
+    <section class="escenario" id="escenario">
+      <canvas id="lienzo" role="img"
+        aria-label="Animación: Cortado, un hostelero con forma de taza de café, no sabe qué publicar y su bar está vacío. Escribe una frase en Society, obtiene un post listo y el bar se llena."></canvas>
+      <p class="escenario__carga" id="carga">Cargando…</p>
+    </section>
+
+    <nav class="controles" aria-label="Controles de la animación">
+      <button type="button" class="boton boton--principal" id="btn-play" aria-pressed="true">
+        <span class="boton__icono" aria-hidden="true">❚❚</span><span class="boton__texto">Pausa</span>
+      </button>
+      <button type="button" class="boton boton--borde" id="btn-reiniciar">
+        <span class="boton__icono" aria-hidden="true">↺</span><span class="boton__texto">Reiniciar</span>
+      </button>
+      <div class="linea" id="linea" role="slider" tabindex="0" aria-label="Posición de la animación"
+        aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
+        <div class="linea__relleno" id="linea-relleno"></div>
+        <div class="linea__marcas" id="linea-marcas"></div>
+      </div>
+      <span class="tiempo" id="tiempo">0:00</span>
+    </nav>
+
+    <ol class="capitulos" id="capitulos"></ol>
+
+    <p class="ayuda">
+      Mueve el ratón: Cortado te sigue con la mirada. Haz clic sobre él para que salte; en cualquier otro
+      sitio, suelta «me gusta».<br>
+      <kbd>Espacio</kbd> play/pausa · <kbd>R</kbd> reiniciar · <kbd>←</kbd><kbd>→</kbd> saltar 2 s ·
+      <kbd>F</kbd> ver FPS
+    </p>
+  </main>
+
+  <!-- Scripts clásicos (sin módulos) para que funcione abriendo el archivo con doble clic.
+       El orden importa: cada archivo amplía el espacio de nombres window.Society. -->
+  <script src="js/nucleo.js"></script>
+  <script src="js/marca.js"></script>
+  <script src="js/fondo.js"></script>
+  <script src="js/particulas.js"></script>
+  <script src="js/personaje.js"></script>
+  <script src="js/atrezo.js"></script>
+  <script src="js/escenas.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
