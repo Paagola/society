@@ -70,6 +70,21 @@ export const COPY = {
       texto: 'Un ritmo y un coste que una agencia tradicional no alcanza.',
     },
   ],
+  // Caso real: Da Tonino (25/09/2026). Todo el material sale de produccion/da-tonino y pruebas/*-da-tonino-*.
+  caso: {
+    etiqueta: 'Caso real · Da Tonino',
+    titular: [{t: 'DE 4 FOTOS'}, {t: 'a un reel.', it: true}] as Line[],
+    fotos: {num: '01', titular: [{t: 'TUS'}, {t: 'fotos.', it: true}] as Line[], sello: ['Del', 'local']},
+    crea: {num: '02', titular: [{t: 'LA IA'}, {t: 'propone.', it: true}] as Line[], descartada: 'DESCARTADA'},
+    aprueba: {num: '03', titular: [{t: 'TÚ'}, {t: 'eliges.', it: true}] as Line[]},
+    reel: {num: '04', titular: [{t: 'Y SALE'}, {t: 'el reel.', it: true}] as Line[]},
+    carrusel: {num: '05', titular: [{t: 'Y EL'}, {t: 'carrusel.', it: true}] as Line[]},
+    resultado: {
+      titular: [{t: '4 FOTOS'}, {t: 'reales.', it: true}] as Line[],
+      remate: [{t: '1 REEL + 1'}, {t: 'carrusel.', it: true}] as Line[],
+      sello: ['En un', 'día'],
+    },
+  },
   planes: {
     titular: [{t: 'TU'}, {t: 'plan', it: true}] as Line[],
     lista: [
