@@ -1,0 +1,47 @@
+# Perfil de cliente · Da Tonino Ristorante
+# Creado el 2026-09-25 a partir de 4 fotos reales aportadas por Víctor.
+# Resumen fechado: si el cliente da una regla posterior o más concreta, manda la del cliente.
+cliente: da-tonino
+nombre: "Da Tonino · Ristorante"
+fecha_perfil: 2026-09-25
+fuentes:
+  - "Fotos reales (2026-09-25): sala, rigatoni en terraza, pizza napolitana, paella de marisco"
+  - "Reel v3 y su análisis: pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/README.md"
+  - "Regla cero: skills/README.md y skills/directoria/references/hosteleria/08-firma-de-rodaje-real.md"
+
+lugar: >-
+  Da Tonino, an Italian restaurant: warm beige walls, wood-look floor planks in mixed brown tones,
+  sage-green quilted velvet chairs, square tables with white tablecloths and dark placemats, black cone
+  pendant lamps with warm bulbs, tall potted kentia palms, a shelf with a few wine bottles and a large
+  window onto the street. Outdoor terrace with green-and-white gingham tablecloths and rattan chargers.
+
+anclas:
+  sala: {foto: sala, descripcion: "sillas verde salvia acolchadas, mantel blanco, lámparas cono negras, palmeras, cristalera"}
+  pizza: {foto: pizza, descripcion: "napolitana con cornicione de manchas de leopardo, tomate, jamón crudo, rúcula, fior di latte; plato marrón oscuro sobre mantel de papel kraft en mesa de roble claro; caña de cerveza"}
+  rigatoni: {foto: rigatoni, descripcion: "rigatoni en salsa rosa, plato blanco rectangular, bajoplato de ratán, mantel de cuadros verdes en terraza; vaso de limonada turbia"}
+  paella: {foto: paella, descripcion: "paellera de acero con asas negras, arroz amarillo, gambas, mejillones, almejas, limón, perejil, dos cucharas; servilleta blanca con raya roja y azul"}
+
+no_existe:
+  - "cocina (no hay fotos: no se genera ninguna cocina)"
+  - "horno, fuego o brasa (no hay fotos ni metraje)"
+  - "personal con uniforme concreto (no hay fotos)"
+  - "el cliente de la sudadera morada de la foto de rigatoni (no se reproduce)"
+
+estilo:
+  luz: >-
+    Daylight from the street window as the only key, directional with real falloff; neutral white
+    balance around 5000K; deep shadows under plates; specular highlights on oil, sauce and glass;
+    pendant bulbs only as small warm accents.
+  camara: "Seguimiento de pequeña amplitud permitido (no hay prohibición del cliente); slider en la sala."
+  foco: "f/2 en platos y manos con plano de foco nombrado; f/2.8 en la sala."
+
+negativos_obligatorios:
+  - "no text, no logos"
+  - "no extra hands, no rings or jewellery"
+  - "no floating objects, nothing hanging in the air"
+  - "no identical repeated pieces"
+  - "no deep focus across the whole frame, no flat even lighting"
+  - "no orange cast, no CGI look"
+  - "nothing invented beyond the references"
+
+cierre: "Da Tonino · Ristorante · Reserva tu mesa"

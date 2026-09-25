@@ -1,0 +1,125 @@
+# Plan de Reel — fuente de verdad de la producción (skill director-reels + regla cero).
+reel:
+  id: reel_v4_da_tonino_mesa
+  cliente: da-tonino
+  fecha: 2026-09-25
+  estado: keyframes               # puerta C: pendiente de revisión visual
+
+brief:
+  pieza: "Reel de marca de Da Tonino rehecho desde cero con la firma de rodaje real"
+  objetivo: reenvio
+  motivo_para_reenviar: "ninguno con fecha; apetito + local reconocible («mándaselo a quien te debe una cena»)"
+  reel_de_referencia: "reel v3 (lo que no hay que repetir) y reel de producto ADS STUDIO (cadencia, foco, peso)"
+  metraje_real_disponible: []     # no hay vídeo real; se pide al local para la v5 (regla cero §13)
+  estilo_de_luz: natural_direccional
+  duracion_orientativa_s: 9
+  voz_en_off: false
+  cta: "Reserva tu mesa"
+  presupuesto_creditos: 120       # saldo inicial 206,77
+
+verdad:
+  anclas:
+    - {id: sala, fotos: [referencias/sala.jpg], dificultad: media}
+    - {id: pizza, fotos: [referencias/pizza.jpg], dificultad: media}
+    - {id: rigatoni, fotos: [referencias/rigatoni.jpg], dificultad: media}
+    - {id: paella, fotos: [referencias/paella.jpg], dificultad: alta}
+  metraje_real: []
+  invenciones_recurrentes: ["cocina oscura con dos bombillas (v3)", "vapor idéntico en todos los platos (v3)"]
+  no_existe: [cocina, horno, fuego, "personal uniformado", "cliente de la sudadera morada"]
+
+tratamiento:
+  motivo_para_reenviar: "Se ve comida real de Da Tonino servida en su mesa, con ganas de ir"
+  momento_heroe: "La porción de pizza que se levanta y se comba con su peso"
+  emocion: ["mano que coge sin esperar", "salsa que se estira", "socarrat que cruje al rascar"]
+  foco_sensorial: "peso y textura: masa que se comba, salsa brillante, arroz tostado"
+  motivo_visual: "una mano, un gesto, en la mesa real"
+  curva_de_ritmo: "1,6 s → 1,2 s → 1,4 s → 1,8 s (sala) → cartela 2 s; corte seco en el golpe"
+  cierre: "Da Tonino · Ristorante · Reserva tu mesa"
+
+conceptos:
+  - id: C1
+    mecanismo: "Tres gestos de mesa (acumulación de verbos) + sala como respuesta"
+    titulo: "Lo que pasa en la mesa"
+    fotograma_1: "La porción ya levantada, combándose"
+    arco: "gesto → gesto → gesto → dónde (la sala) → reserva"
+    planos_generados: 4
+    coste_est_creditos: 72
+concepto_elegido: C1              # elegido por el director por delegación de Víctor (2026-09-25)
+
+planos:
+  - id: P1
+    funcion: gancho
+    t: [0.0, 1.6]
+    escalon: L4
+    justificacion_escalon: "No hay metraje real; keyframe anclado en la foto real de la pizza"
+    accion: {descripcion: "la mano levanta una porción que se comba; dos hojas de rúcula caen rápido", clase: compleja, origen_movimiento: mano}
+    contiene: [plato, manos, comida, copa]
+    angulo: {posicion: tres_cuartos, altura: baja, lente_mm: 50}
+    camara: {movimiento: seguimiento, aparato: gimbal, recorrido: "3 cm hacia arriba siguiendo la porción"}
+    transicion: {entrada: "—", salida: "corte seco en el crujido"}
+  - id: P2
+    funcion: desarrollo
+    t: [1.6, 2.8]
+    escalon: L4
+    justificacion_escalon: "Keyframe anclado en la foto real de los rigatoni, sin el comensal"
+    accion: {descripcion: "el tenedor sube con dos rigatoni; hilo de salsa que se estira y se rompe; gota con estela", clase: compleja, origen_movimiento: mano}
+    contiene: [plato, manos, comida]
+    angulo: {posicion: frontal_alto, altura: media, lente_mm: 65}
+    camara: {movimiento: seguimiento, aparato: gimbal, recorrido: "2 cm hacia arriba"}
+    transicion: {entrada: "corte seco", salida: "corte seco"}
+  - id: P3
+    funcion: heroe
+    t: [2.8, 4.2]
+    escalon: L4
+    justificacion_escalon: "Keyframe anclado en la foto real de la paella"
+    accion: {descripcion: "la cuchara rasca el fondo y levanta arroz con socarrat; granos que caen; vapor a contraluz", clase: compleja, origen_movimiento: mano}
+    contiene: [comida, manos]
+    angulo: {posicion: tres_cuartos, altura: media, lente_mm: 50}
+    camara: {movimiento: push_in, aparato: gimbal, recorrido: "4 cm hacia la cuchara"}
+    transicion: {entrada: "corte seco en el rascado", salida: "corte seco"}
+  - id: P4
+    funcion: cierre
+    t: [4.2, 6.0]
+    escalon: L3
+    justificacion_escalon: "Foto real de la sala animada con un movimiento de slider real"
+    accion: {descripcion: "sala vacía; solo viaja la cámara", clase: simple, origen_movimiento: camara}
+    contiene: [mesa, silla, lampara]
+    angulo: {posicion: diagonal, altura: sentado, lente_mm: 35}
+    camara: {movimiento: lateral, aparato: slider_motorizado, recorrido: "12 cm a la derecha"}
+    rotulo: "Da Tonino · Ristorante"
+    transicion: {entrada: "corte seco", salida: "corte seco a cartela"}
+
+generaciones:
+  - {id: K-P1, tipo: imagen, planos: [P1], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, coste_creditos: 2, job_id: a85c0a2b-4d32-40ae-aa91-9206859c0ee9, estado: generado, medido: {foco: 36, negro_p1: 8.7, blanco_p99: 254}}
+  - {id: K-P1b, tipo: imagen, planos: [P1], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, coste_creditos: 2, job_id: 6627f846-b0c8-4502-bf96-c0da0e70074d, estado: generado, medido: {foco: 38, negro_p1: 9.4, blanco_p99: 255}, nota: "un solo cambio f/1.8 sin efecto medible: el modelo ignora la apertura numérica"}
+  - {id: K-P2, tipo: imagen, planos: [P2], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, coste_creditos: 2, job_id: 69a102ea-13ff-4f0e-adec-48a4618fbfc5, estado: generado, medido: {foco: 15, negro_p1: 13.3, blanco_p99: 238}}
+  - {id: K-P3, tipo: imagen, planos: [P3], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, coste_creditos: 2, job_id: 648ddf17-26d9-4c6e-9d80-18432093cd20, estado: generado, medido: {foco: 28, negro_p1: 3.0, blanco_p99: 255}}
+  - {id: K-P4, tipo: imagen, planos: [P4], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, coste_creditos: 2, job_id: 3def1863-8753-4d25-a7a4-474fc00564e6, estado: generado, medido: {foco: 20, negro_p1: 13.0, blanco_p99: 253}}
+  - id: V1
+    tipo: video
+    planos: [P1, P2, P3]
+    modelo: seedance_2_5
+    params: {mode: omni_reference, resolution: 720p, duration: 9, aspect_ratio: "9:16", generate_audio: true}
+    coste_est_creditos: 63
+    estado: pendiente             # tras aprobar la puerta C
+    nota: "multitoma; audio del modelo solo con efectos (sin música); reescalado posterior según R-RES-01"
+  - id: V2
+    tipo: video
+    planos: [P4]
+    modelo: kling3_0
+    params: {mode: pro, duration: 3, aspect_ratio: "9:16", sound: "off"}
+    coste_est_creditos: 5.25
+    estado: pendiente
+
+montaje:
+  - {plano: P1, transicion: "corte seco", sonido: "crujido de la masa al separarse"}
+  - {plano: P2, transicion: "corte seco", sonido: "tenedor contra la porcelana"}
+  - {plano: P3, transicion: "corte seco", sonido: "rascado del socarrat"}
+  - {plano: P4, rotulo: "Da Tonino · Ristorante", sonido: "ambiente de sala"}
+  - {plano: cartela, rotulo: "Reserva tu mesa", sonido: "fin de frase musical"}
+  # grade y grano comunes; revisión final con skills/openmontage/scripts/medir_realismo.py
+
+aprendizajes_propuestos:
+  - "El servidor sirvió nano_banana_2 al pedir nano_banana_pro (25/09): registrar siempre modelo_devuelto."
+  - "Este entorno bloquea *.cloudfront.net: la revisión visual y el montaje necesitan permitir d8j0ntlcm91z4.cloudfront.net o trabajar en el sandbox de Higgsfield."
+  - "Nano Banana no obedece f/1.8 en un «un solo cambio» (foco 36 % → 38 %). Para el foco fino, probar en vídeo (Seedance con rack focus) o describir el desenfoque por objetos («the beer glass is an unrecognisable blur»), no por apertura."
