@@ -1,0 +1,22 @@
+{
+  "name": "society-promo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts SocietyPromo out/society-promo.mp4",
+    "still": "remotion still src/index.ts SocietyPromo out/frame.png"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.528",
+    "@remotion/fonts": "^4.0.528",
+    "@remotion/transitions": "^4.0.528",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.528"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}

@@ -93,6 +93,7 @@ Si aparece cualquiera, se corrige antes de la puerta B:
 - Un solo plato aislado en todos los planos, sin sala, sin manos, sin personas (medido: más elementos en el encuadre = más activación).
 - Tres tomas metidas en 5 s de multitoma.
 - Ninguna fuente de sonido pensada.
+<<<<<<< HEAD
 
 ## 9. Curva de retención (Virality Predictor)
 
@@ -107,3 +108,15 @@ Reglas para que la activación no caiga a lo largo de la pieza. Se comprueban en
 - [ ] **Referencias de puntuación** (proxys, no garantía): gancho < 30 = arranque débil; global ≥ 50 = material con acción. Se compara siempre contra la mejor versión anterior del mismo cliente.
 - [ ] **Máximo 2 iteraciones de montaje** contra el predictor. Si no mejora, la palanca está en el material (acción, elementos en encuadre, persona, mensaje) o en la luz (una sola luminosidad, `06` §6), no en el corte.
 
+=======
+- Todo el encuadre en foco en planos cercanos (objetivo: 8–25 %) [MEDIDO 25/09/2026].
+- Luz plana: negros levantados y ningún brillo especular en grasa, salsa o cristal.
+- Más de 2 planos con la cámara quieta.
+- Ingredientes que caen despacio, sin estela, o que se quedan de pie al posarse; piezas idénticas.
+- Algo que se mueve sin una mano o una causa en el plano.
+- Dos estéticas de luz sin transición motivada, o el mismo fondo en planos distintos.
+- Transiciones de efecto (desenfoque, destello, zoom) entre planos de comida.
+- Planos de manos o fuego generados sin haber pedido antes metraje real al local.
+
+Revisión automática: `skills/openmontage/scripts/medir_realismo.py` (→ `directoria/references/hosteleria/08-firma-de-rodaje-real.md` §12).
+>>>>>>> 2c4e6fc8c2c88bf2843bc4ad582e9e8849f11b34

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Society · Radar de nicho</title>
+<!-- Lámina del informe Society_radar_de_nicho.md. Lienzo fijo de 3200 × 2000 px.
+     Los datos de los paneles de ejemplo son ilustrativos (piloto no ejecutado). -->
+<style>
+  @font-face { font-family: Anton; src: url(../../promo/public/fonts/Anton.woff2) format("woff2"); }
+  @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 700 900; src: url(../../promo/public/fonts/PlayfairDisplay-italic.woff2) format("woff2"); }
+  @font-face { font-family: "Schibsted Grotesk"; font-weight: 400 800; src: url(../../promo/public/fonts/SchibstedGrotesk.woff2) format("woff2"); }
+  @font-face { font-family: "Space Mono"; font-weight: 700; src: url(../../promo/public/fonts/SpaceMono.woff2) format("woff2"); }
+
+  :root { --papel: #ECE8DC; --carta: #F6F3EA; --tinta: #141414; --cobalto: #2440E0; --mostaza: #F5C518; --gris: #5b574e; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--papel); }
+  .lamina { position: relative; width: 3200px; height: 2000px; background: var(--papel); color: var(--tinta); font-family: "Schibsted Grotesk", Arial, sans-serif; overflow: hidden; }
+
+  .titulo { position: absolute; left: 60px; top: 36px; display: flex; align-items: baseline; gap: 28px; }
+  .titulo h1 { margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 110px; line-height: .9; }
+  .titulo em { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 800; font-size: 72px; letter-spacing: -.03em; }
+  .meta { position: absolute; right: 60px; top: 50px; text-align: right; font-family: "Space Mono", monospace; font-size: 20px; letter-spacing: .06em; text-transform: uppercase; line-height: 1.5; }
+
+  .paso { position: absolute; top: 230px; width: 300px; height: 770px; background: var(--carta); border: 3px solid var(--tinta); border-radius: 18px; padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+  .paso.clave { background: var(--cobalto); color: var(--papel); }
+  .paso .n { font-family: Anton, sans-serif; font-size: 96px; line-height: .85; color: var(--cobalto); }
+  .paso.clave .n { color: var(--mostaza); }
+  .paso h2 { margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: 44px; line-height: .95; text-transform: uppercase; }
+  .paso p { margin: 0; font-size: 19px; line-height: 1.35; color: var(--gris); }
+  .paso.clave p { color: #dfe3ff; }
+  .paso ul { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 19px; line-height: 1.3; }
+  .paso li { padding-left: 16px; position: relative; }
+  .paso li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .tag { margin-top: auto; align-self: flex-start; font-family: "Space Mono", monospace; font-weight: 700; font-size: 16px; letter-spacing: .04em; text-transform: uppercase; border: 2px solid currentColor; border-radius: 30px; padding: 4px 11px; }
+  .tag.m { background: var(--mostaza); color: var(--tinta); border-color: var(--tinta); }
+
+  .panel { position: absolute; top: 1110px; height: 770px; background: var(--carta); border: 3px solid var(--tinta); border-radius: 18px; padding: 24px 26px; }
+  .panel h3 { margin: 0 0 4px; font-family: Anton, sans-serif; font-weight: 400; font-size: 46px; text-transform: uppercase; line-height: 1; }
+  .panel h3 em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 800; text-transform: none; font-size: 40px; }
+  .panel .sub { font-size: 20px; color: var(--gris); margin-bottom: 16px; }
+  .mono { font-family: "Space Mono", monospace; font-size: 19px; line-height: 1.6; background: var(--tinta); color: var(--papel); border-radius: 12px; padding: 14px 16px; white-space: pre; }
+  .mono i { font-style: normal; color: var(--mostaza); }
+  .mono b { color: #9fb0ff; font-weight: 700; }
+
+  .faceta { display: grid; grid-template-columns: 170px 1fr; gap: 12px; align-items: start; padding: 10px 0; border-top: 2px solid rgba(20,20,20,.15); }
+  .faceta:first-of-type { border-top: 0; }
+  .faceta > span { font-family: Anton, sans-serif; font-size: 26px; text-transform: uppercase; padding-top: 3px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip { border: 2px solid var(--tinta); border-radius: 30px; padding: 4px 11px; font-size: 17px; font-weight: 600; background: var(--papel); white-space: nowrap; }
+  .chip.c { background: var(--cobalto); color: var(--papel); }
+  .chip.m { background: var(--mostaza); }
+
+  .ficha { background: var(--papel); border: 2px solid var(--tinta); border-radius: 14px; padding: 16px 18px; font-size: 19px; line-height: 1.45; }
+  .ficha .k { font-family: "Space Mono", monospace; font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: .05em; color: var(--gris); }
+  .ficha .fila { display: grid; grid-template-columns: 150px 1fr; gap: 10px; padding: 5px 0; border-top: 1px dashed rgba(20,20,20,.25); }
+  .ficha .fila:first-child { border-top: 0; }
+  .estado { display: inline-block; background: var(--cobalto); color: var(--papel); border-radius: 20px; padding: 2px 12px; font-weight: 700; font-size: 17px; }
+
+  .movil { width: 380px; height: 640px; margin: 0 auto; background: var(--tinta); border-radius: 46px; padding: 14px; }
+  .pant { width: 100%; height: 100%; border-radius: 34px; background: var(--papel); padding: 26px 18px 18px; overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
+  .pant .logo { font-family: "Playfair Display", serif; font-style: italic; font-weight: 900; font-size: 30px; border-bottom: 5px solid var(--cobalto); align-self: flex-start; line-height: 1; padding-bottom: 2px; }
+  .pant h4 { margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: 44px; line-height: .9; text-transform: uppercase; }
+  .pant h4 em { display: block; font-family: "Playfair Display", serif; font-style: italic; font-weight: 800; font-size: 38px; text-transform: none; }
+  .tarjeta { border: 2px solid var(--tinta); border-radius: 16px; padding: 12px; background: var(--carta); display: grid; gap: 6px; }
+  .tarjeta.c { background: var(--cobalto); color: var(--papel); border-color: var(--cobalto); }
+  .tarjeta b { font-family: Anton, sans-serif; font-weight: 400; font-size: 24px; text-transform: uppercase; line-height: 1; }
+  .tarjeta small { font-size: 14px; line-height: 1.3; }
+  .miniaturas { display: flex; gap: 6px; }
+  .miniaturas span { width: 56px; height: 72px; border-radius: 8px; background: repeating-linear-gradient(135deg, #141414 0 3px, #5b574e 3px 6px); }
+  .tarjeta.c .miniaturas span { background: repeating-linear-gradient(135deg, #0d1a7a 0 3px, #ECE8DC 3px 6px); opacity: .8; }
+  .boton { background: var(--mostaza); color: var(--tinta); border-radius: 30px; text-align: center; font-weight: 800; font-size: 17px; padding: 8px; }
+
+  .limites { position: absolute; left: 60px; right: 60px; top: 1910px; display: flex; gap: 14px; align-items: center; }
+  .limites .lbl { font-family: Anton, sans-serif; font-size: 30px; text-transform: uppercase; margin-right: 6px; }
+  .regla { background: var(--tinta); color: var(--papel); border-radius: 10px; padding: 10px 16px; font-size: 19px; font-weight: 700; white-space: nowrap; }
+  .regla em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 800; color: var(--mostaza); }
+
+  svg.flechas { position: absolute; inset: 0; pointer-events: none; }
+  .et { font-family: "Space Mono", monospace; font-weight: 700; font-size: 18px; fill: var(--tinta); paint-order: stroke; stroke: var(--papel); stroke-width: 8px; }
+</style>
+</head>
+<body>
+<div class="lamina">
+
+  <div class="titulo"><h1>Radar de nicho</h1><em>lo que funciona, convertido en tu próxima pieza.</em></div>
+  <div class="meta">Society · informe del 2026-09-25<br>Diseño, no implementado · un radar por nicho</div>
+
+  <!-- ===== Los nueve pasos ===== -->
+  <div class="paso" style="left:60px">
+    <div class="n">1</div><h2>Definir el nicho</h2>
+    <p>En el alta del cliente.</p>
+    <ul><li>Tipo de negocio y cocina</li><li>Gama y ticket</li><li>Ámbito: municipio, región, España</li><li>Público y momentos de consumo</li></ul>
+    <span class="tag">Alta · G0</span>
+  </div>
+
+  <div class="paso" style="left:407px">
+    <div class="n">2</div><h2>Descubrir cuentas</h2>
+    <p>Tres anillos de referencia.</p>
+    <ul><li><b>A</b> · competencia local, 5–10</li><li><b>B</b> · mismo tipo en España, 15–30</li><li><b>C</b> · referentes de formato, 10–20</li><li>Semillas del propietario, negocios cercanos, hashtags, operador</li><li>Solo cuentas profesionales activas</li></ul>
+    <span class="tag">B y C compartidos por nicho</span>
+  </div>
+
+  <div class="paso" style="left:755px">
+    <div class="n">3</div><h2>Recoger</h2>
+    <p>Por niveles de fuente.</p>
+    <ul><li><b>1 · API de Meta</b>: posts, carruseles y reels públicos con me gusta y comentarios</li><li><b>2 · Aportado</b>: enlaces y capturas de historias</li><li><b>3 · Proveedor</b>: apagado salvo evaluación jurídica</li><li>Capturas a 1, 3, 7 y 14 días</li></ul>
+    <span class="tag m">Revalidar API</span>
+  </div>
+
+  <div class="paso clave" style="left:1102px">
+    <div class="n">4</div><h2>Puntuar</h2>
+    <p>Frente a lo normal de cada cuenta, no en cifras absolutas.</p>
+    <ul><li>Ratio = interacciones / mediana de la cuenta en ese formato y edad</li><li>Candidata ≥ 1,5 · destacada ≥ 2,0 y p90</li><li>5 % de control aleatorio</li><li>Me gusta ocultos → sin puntuar</li></ul>
+    <span class="tag">Ausente ≠ cero</span>
+  </div>
+
+  <div class="paso" style="left:1450px">
+    <div class="n">5</div><h2>Analizar</h2>
+    <p>Una ficha por pieza.</p>
+    <ul><li><b>Reel</b>: gancho 0–3 s, planos, ritmo, texto, audio, producto, beats</li><li><b>Carrusel</b>: portada, estructura, texto, CTA</li><li><b>Historia</b>: secuencia, stickers, CTA</li><li>Vídeo temporal: se borra al acabar</li></ul>
+    <span class="tag">Analizador · Higgsfield</span>
+  </div>
+
+  <div class="paso" style="left:1797px">
+    <div class="n">6</div><h2>Clasificar</h2>
+    <p>Una etiqueta por faceta, con confianza.</p>
+    <ul><li>Formato · función · gancho · situación · producción · estructura</li><li>Modelo de lenguaje con esquema fijo</li><li>Revisión humana del 10 %</li><li>Taxonomía versionada</li></ul>
+    <span class="tag">Acuerdo ≥ 80 %</span>
+  </div>
+
+  <div class="paso clave" style="left:2145px">
+    <div class="n">7</div><h2>Seleccionar</h2>
+    <p>Los mejores de cada categoría, como patrones.</p>
+    <ul><li>≥ 3 destacadas de ≥ 2 cuentas en 60 días</li><li>Tasa de destacadas ≥ 2× el control</li><li>Si no: caso aislado</li><li>Candidato → vigente → en declive → archivado</li></ul>
+    <span class="tag">Biblioteca de patrones</span>
+  </div>
+
+  <div class="paso" style="left:2492px">
+    <div class="n">8</div><h2>Recomendar o automatizar</h2>
+    <ul><li>Encaje: objetivo, material real, capacidad, diferenciación local, fatiga, coste</li><li><b>Recomendado</b>: tarjetas «Hazlo para mí»</li><li><b>Automatizado</b>: candidato en «Puntuar» → Ad Recreator → G1 · G2</li><li>Exploración ≤ 20 %</li></ul>
+    <span class="tag m">Nunca sin firma</span>
+  </div>
+
+  <div class="paso" style="left:2840px">
+    <div class="n">9</div><h2>Aprender</h2>
+    <p>Con las métricas completas del cliente.</p>
+    <ul><li>Cada pieza guarda su patrón</li><li>A 7 días, frente a la línea base del cliente</li><li>Por cliente: funciona, no funciona o sin datos</li><li>Por nicho: solo agregado y con contrato</li><li>Recalibra los pesos del paso 4</li></ul>
+    <span class="tag">Guardados · compartidos</span>
+  </div>
+
+  <!-- ===== Paneles de detalle ===== -->
+  <div class="panel" style="left:60px; width:760px;">
+    <h3>Puntuar <em>sin engañarse</em></h3>
+    <div class="sub">Una cuenta grande siempre gana en me gusta. Lo que importa es cuánto supera una pieza a lo normal de su cuenta.</div>
+    <div class="mono">interacciones = me_gusta + <i>3</i> × comentarios
+base   = mediana de las últimas 12–30 piezas
+         de esa cuenta, ese formato, a <i>7 días</i>
+<b>ratio</b>  = interacciones / base</div>
+    <svg width="700" height="330" viewBox="0 0 700 330" style="margin-top:18px">
+      <text x="0" y="22" font-family="Space Mono" font-weight="700" font-size="16" fill="#5b574e">EJEMPLO ILUSTRATIVO · 12 REELS DE UNA MISMA CUENTA</text>
+      <g fill="#141414">
+        <rect x="20"  y="210" width="36" height="70"/><rect x="72"  y="190" width="36" height="90"/>
+        <rect x="124" y="215" width="36" height="65"/><rect x="176" y="200" width="36" height="80"/>
+        <rect x="228" y="185" width="36" height="95"/><rect x="280" y="205" width="36" height="75"/>
+        <rect x="384" y="195" width="36" height="85"/><rect x="436" y="210" width="36" height="70"/>
+        <rect x="488" y="190" width="36" height="90"/><rect x="540" y="200" width="36" height="80"/>
+        <rect x="592" y="215" width="36" height="65"/>
+      </g>
+      <rect x="332" y="72" width="36" height="208" fill="#2440E0"/>
+      <line x1="10" y1="200" x2="650" y2="200" stroke="#F5C518" stroke-width="5" stroke-dasharray="12 8"/>
+      <text x="655" y="206" font-family="Space Mono" font-weight="700" font-size="16" fill="#141414">1,0</text>
+      <text x="378" y="92" font-family="Anton" font-size="34" fill="#2440E0">2,6×</text>
+      <text x="378" y="118" font-family="Schibsted Grotesk" font-weight="600" font-size="17" fill="#141414">destacada: pasa a análisis</text>
+      <text x="20" y="310" font-family="Schibsted Grotesk" font-weight="600" font-size="17" fill="#5b574e">La línea amarilla es la mediana de la cuenta (ratio 1,0).</text>
+    </svg>
+  </div>
+
+  <div class="panel" style="left:860px; width:760px;">
+    <h3>Taxonomía <em>por facetas</em></h3>
+    <div class="sub">Las facetas se cruzan: «reel · deseo de producto · resultado primero».</div>
+    <div class="faceta"><span>Formato</span><div class="chips"><span class="chip c">Reel</span><span class="chip">Carrusel</span><span class="chip">Imagen</span><span class="chip">Historia</span></div></div>
+    <div class="faceta"><span>Función</span><div class="chips"><span class="chip">Descubrimiento</span><span class="chip c">Deseo de producto</span><span class="chip">Oficio y confianza</span><span class="chip">Comunidad</span><span class="chip">Utilidad</span><span class="chip">Conversión</span></div></div>
+    <div class="faceta"><span>Gancho</span><div class="chips"><span class="chip c">Resultado primero</span><span class="chip">Proceso hipnótico</span><span class="chip">Pregunta</span><span class="chip">Precio en pantalla</span><span class="chip">Persona a cámara</span><span class="chip">POV</span><span class="chip">Antes y después</span><span class="chip">Lista</span><span class="chip">Tendencia</span><span class="chip">Detrás de cámaras</span></div></div>
+    <div class="faceta"><span>Situación</span><div class="chips"><span class="chip">Diario</span><span class="chip c">Fin de semana</span><span class="chip">Celebración</span><span class="chip">Afterwork</span><span class="chip">Terraza</span><span class="chip">Grupo</span></div></div>
+    <div class="faceta"><span>Producción</span><div class="chips"><span class="chip">Móvil sin editar</span><span class="chip c">Editado sencillo</span><span class="chip">Producido</span><span class="chip">Solo producto</span><span class="chip">IA visible</span></div></div>
+    <div class="faceta"><span>Estructura</span><div class="chips"><span class="chip c">Resultado → proceso → mesa</span><span class="chip">Pregunta → respuesta</span><span class="chip">Lista de 3–5</span><span class="chip">Día en el local</span></div></div>
+  </div>
+
+  <div class="panel" style="left:1660px; width:700px;">
+    <h3>Ficha <em>de patrón</em></h3>
+    <div class="sub">Lo que guarda la biblioteca. Cifras ilustrativas.</div>
+    <div class="ficha">
+      <div class="fila"><span class="k">Patrón</span><span><b>Reel · deseo · resultado primero</b> &nbsp;<span class="estado">vigente</span></span></div>
+      <div class="fila"><span class="k">Nicho</span><span>Asador · gama media · Andalucía</span></div>
+      <div class="fila"><span class="k">Evidencia</span><span>7 destacadas en 4 cuentas · 60 días · ratio mediano 2,6 · 21 % frente a 6 % del control</span></div>
+      <div class="fila"><span class="k">Por qué</span><span>El plato servido en el primer segundo resuelve la curiosidad antes del scroll. <i>Hipótesis, no causa.</i></span></div>
+      <div class="fila"><span class="k">Receta</span><span>8–14 s · 5–8 planos · sin texto los 2 primeros segundos · nombre y precio desde 3 s · sonido de brasa, sin música con derechos</span></div>
+      <div class="fila"><span class="k">Necesita</span><span>Plato real fotografiable · brasa o cocina visible</span></div>
+      <div class="fila"><span class="k">Riesgo</span><span>Fatiga si más de 1 por semana · no sirve con el local cerrado</span></div>
+      <div class="fila"><span class="k">Ejemplos</span><span>Solo enlaces a Instagram · nunca archivos copiados</span></div>
+    </div>
+  </div>
+
+  <div class="panel" style="left:2400px; width:740px;">
+    <h3>Lo que ve <em>el cliente</em></h3>
+    <div class="sub">Modo recomendado, en su panel.</div>
+    <div class="movil"><div class="pant">
+      <span class="logo">Society</span>
+      <h4>Lo que funciona <em>en tu nicho.</em></h4>
+      <div class="tarjeta c">
+        <b>Plato servido en el segundo 1</b>
+        <small>2,6× lo normal en 4 asadores de Andalucía. Necesitamos una foto de tu chuletón servido.</small>
+        <div class="miniaturas"><span></span><span></span><span></span></div>
+        <div class="boton">Hazlo para mí →</div>
+      </div>
+      <div class="tarjeta">
+        <b>Carrusel «3 cortes y cuál pedir»</b>
+        <small>Nadie de tu zona lo hace todavía. Oportunidad de diferenciarte.</small>
+        <div class="miniaturas"><span></span><span></span></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ===== Flechas ===== -->
+  <svg class="flechas" width="3200" height="2000" viewBox="0 0 3200 2000">
+    <defs>
+      <marker id="p" viewBox="0 0 12 12" refX="10" refY="6" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" orient="auto-start-reverse"><path d="M0,0 L12,6 L0,12 Z" fill="#141414"/></marker>
+      <marker id="pc" viewBox="0 0 12 12" refX="10" refY="6" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" orient="auto-start-reverse"><path d="M0,0 L12,6 L0,12 Z" fill="#2440E0"/></marker>
+    </defs>
+    <g fill="none" stroke="#141414" stroke-width="4">
+      <path d="M360,420 H400" marker-end="url(#p)"/>
+      <path d="M707,420 H748" marker-end="url(#p)"/>
+      <path d="M1055,420 H1095" marker-end="url(#p)"/>
+      <path d="M1402,420 H1443" marker-end="url(#p)"/>
+      <path d="M1750,420 H1790" marker-end="url(#p)"/>
+      <path d="M2097,420 H2138" marker-end="url(#p)"/>
+      <path d="M2445,420 H2485" marker-end="url(#p)"/>
+      <path d="M2792,420 H2833" marker-end="url(#p)"/>
+    </g>
+    <g fill="none" stroke="#2440E0" stroke-width="4" stroke-dasharray="14 10">
+      <path d="M2990,1000 V1058 H1252 V1008" marker-end="url(#pc)"/>
+      <path d="M2295,1058 V1008" marker-end="url(#pc)"/>
+    </g>
+    <text class="et" x="1420" y="1064">aprende: ajusta los pesos de la puntuación y la confianza de cada patrón</text>
+  </svg>
+
+  <div class="limites">
+    <span class="lbl">Límites</span>
+    <span class="regla">Historias ajenas: <em>solo aportadas</em></span>
+    <span class="regla">Métricas públicas: <em>siempre relativas</em></span>
+    <span class="regla">Nunca se <em>republica</em>: se adapta</span>
+    <span class="regla">Sin datos de <em>quien comenta</em></span>
+    <span class="regla">Automatizado ≠ <em>sin firma</em></span>
+  </div>
+</div>
+</body>
+</html>

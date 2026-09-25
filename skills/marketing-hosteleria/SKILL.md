@@ -4,10 +4,12 @@ description: 'Estrategia de marketing y negocio para restaurantes, bares, cafés
 license: 'Contenido propio + adaptaciones de fuentes MIT (ver "Fuentes")'
 metadata:
   author: victor-society
-  version: "2.0.0"
+  version: "2.1.0"
 ---
 
 # Marketing y negocio para hostelería
+
+> **Regla cero, obligatoria antes de cualquier otra:** todo lo que se produzca tiene que parecer rodado, no generado. Lee y aplica [`../README.md`](../README.md) (firma de rodaje real: material real primero, plano de foco con nombre, luz con fuente, cámara y física con peso, un verbo de manos por plano, corte seco, sonido obligatorio y revisión con `medir_realismo.py`). Detalle: `directoria/references/hosteleria/08-firma-de-rodaje-real.md`.
 
 Estrategia para que un restaurante **llene mesas** con su presencia digital. Decide qué se cuenta, en qué formato, con qué motivo para compartirlo, cómo se mide y qué no se puede hacer. La producción (prompt, generación, montaje) la hacen `directoria`, `higgsfield` y `openmontage`, orquestadas por `director`.
 

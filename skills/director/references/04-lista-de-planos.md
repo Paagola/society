@@ -33,8 +33,10 @@ Bloque que fija el aspecto de toda la pieza: formato y resolución, doctrina de 
 ```text
 Vertical 9:16, 1080p. Real restaurant in [town]; nothing invented beyond @Room.
 Light: neutral window daylight around 5000K; warm tones only from visible sources (the grill, a candle).
-Lens: 85mm for dishes (f/4), 35mm for the room. Motorised slider moves only, constant speed, no handheld.
-Food keeps the exact texture of the reference photos in every frame. Real-time, no slow motion unless stated.
+Lens: 50-100mm at f/2 with a named focal plane for action and dishes; 35mm for the room. 180-degree shutter.
+Camera: handheld on a small rig with organic micro-shake for process shots; slow slider only for the hero shot.
+Kitchen and process: low-key, one hard motivated key, near-black background, specular highlights.
+Food keeps the exact texture of the reference photos in every frame. Objects fall with gravity and motion blur; nothing floats. Real-time, no slow motion unless stated.
 Pure video, no subtitles, no background music.
 ```
 

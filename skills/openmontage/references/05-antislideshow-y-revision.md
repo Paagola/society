@@ -79,6 +79,14 @@ ffmpeg -ss 0 -i final.mp4 -frames:v 1 f0.png; ffmpeg -ss 1 -i final.mp4 -frames:
 
 **Comprobaciones:** 1080×1920 sin bandas; duración real igual a la del guion; subtítulos presentes, sincronizados y dentro de la zona segura; audio sin clics en los cortes; ningún texto sobre la franja muerta de abajo; sin marcas de agua de herramientas.
 
+### 5.1 Firma de rodaje [MEDIDO 25/09/2026]
+
+```bash
+python3 skills/openmontage/scripts/medir_realismo.py reel.mp4 [referencia.mp4]
+```
+
+Informa por plano de duración, parte del encuadre en foco, movimiento e irregularidad de cámara, y del rango tonal, el audio y las transiciones de efecto de la pieza. Objetivos y qué hacer si falla: `directoria/references/hosteleria/08-firma-de-rodaje-real.md` §12. **Audio RMS por debajo de 1.500 bloquea la entrega.**
+
 ## 6. Revisión editorial y de marca
 
 - **Fotogramas de revisión:** apertura, revelación y cierre (`cinematic/compose-director`).

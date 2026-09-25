@@ -1,0 +1,25 @@
+# medir_realismo.py sobre v5_1080.mp4 (2026-09-25)
+== v5_1080.mp4
+inicio    fin   dur  foco %  mov px  irreg
+   0.0    1.7   1.7      25    2.84   7.34
+   1.7    2.6   0.9      28    3.96   1.21
+   2.6    3.5   0.9      12    2.51   0.91
+   3.5    4.9   1.4      32    1.85   1.83
+   4.9    7.2   2.3      18    4.62  18.78
+   7.2    8.1   0.9      20    1.75   0.43
+   8.1    9.5   1.4      17    0.15   0.36
+   9.5   13.7   4.2      15    0.33   0.83
+
+Resumen                      valor    objetivo        estado
+  Duración media de plano (s)       1.7   0.4–1.2       REVISAR
+  Encuadre en foco (%)             20.9   8–25       ok
+  Movimiento de cámara (px)         2.3   1–9       ok
+  Negro, percentil 1                0.6   0–3.5       ok
+  Blanco, percentil 99            215.1   220–255       REVISAR
+  Audio, RMS                     5136.4   1500–20000       ok
+  Planos con cámara quieta            2   0–2          ok
+  Transiciones (indicativo)           1   0            REVISAR  desenfoque 9.5s
+  Nitidez media (informativo)     657.9
+  Saturación media (inform.)      158.2
+# Sala regradada: 9,6 s media 38,8 R/B 1,52 · 10,0 s media 36,7 R/B 1,53 · 10,6 s (con logo) media 42,3
+# Sonoridad integrada −14,1 LUFS

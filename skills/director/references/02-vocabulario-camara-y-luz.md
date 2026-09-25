@@ -112,8 +112,9 @@ Evidencia propia (skill `after-effects-reels` §5bis, 08/09/2026; reglas de Torr
 | Servir vino con movimiento | Copa imposible, mano que se aplana |
 | Movimiento suave **sobre la sala** | **El mejor**: la arquitectura es rígida |
 | *"static camera"* / *"locked-off"* a secas | Se lee como foto animada |
-| *handheld* / micromovimiento de móvil | Temblor sin intención: **rechazado por el cliente** |
-| ✅ **Recorrido pequeño, mecánico, constante y cuantificado** (*motorised slider with a geared head*, 3–15 % de recorrido, velocidad constante del primer al último fotograma, *no handheld operation, no shake*) + el movimiento físico propio de la escena (humo, líquido, tela) | Lo correcto |
+| *handheld* / micromovimiento de móvil | Temblor sin intención: **rechazado por el cliente** (Torre de Vega). ⚠️ Matiz [MEDIDO 25/09/2026]: el seguimiento con intención de pequeña amplitud que acompaña la mano sí da firma de rodaje; ver `directoria/references/hosteleria/08` §4 |
+| ✅ **Plano de proceso:** seguimiento de pequeña amplitud que acompaña la mano (a mano con intención o gimbal), sin atravesar la comida | Firma de rodaje (`directoria/hosteleria/08` §4) |
+| ✅ **Plano de plato quieto:** **recorrido pequeño, mecánico, constante y cuantificado** (*motorised slider with a geared head*, 3–15 % de recorrido, velocidad constante del primer al último fotograma, *no handheld operation, no shake*) + el movimiento físico propio de la escena (humo, líquido, tela) | Lo correcto |
 
 **Consecuencias:**
 

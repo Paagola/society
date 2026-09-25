@@ -3,3 +3,4 @@ tfg.code-workspace
 .vscode
 
 posts
+__pycache__/

@@ -197,7 +197,7 @@ Decisiones revisadas el 22/09/2026. El registro de capacidades de producción ma
 |---|---|---|
 | Planificación, prompts, revisión y dirección de edición | GPT-6 Astra (API de OpenAI) | Propuesta |
 | Generación y edición de imágenes | Nano Banana Pro (`gemini-3-pro-image`, Gemini API); marca SynthID en toda salida | Propuesta |
-| **Vídeo · planos simples** | **Kling 3.0**: producto con movimiento simple, desplazamientos cortos | **Ruta por defecto** (regla del 15/09/2026) |
+| **Vídeo · todos los planos** | **Seedance 2.5 a 720p + reescalado ByteDance pro a 1080×1920** (regla R-RES-01, 24/09/2026). Kling 3.0 ya no se usa (Víctor, 25/09/2026) | **Ruta única vigente** (2026-09-25). La ruta Kling 3.0 para planos simples del 15/09 queda **obsoleta** |
 | **Vídeo · acciones complejas** | **Seedance 2.5**: manos, cubiertos, cortes e interacciones; clips de 4 a 30 s, fotograma final y audio opcional | **Ruta para planos difíciles**. Resolución (720p o 1080p) y proveedor (fal o Higgsfield) pendientes |
 | Alternativas de vídeo documentadas | Seedance 2.0, Veo 3.1 | Solo si un ensayo concreto lo justifica |
 | Voz en off | ElevenLabs (API; voces de español de España) | Propuesta principal, pendiente de una prueba a ciegas frente a Azure, Gemini TTS y Qwen3-TTS ([informe de voces](informes/Society_voces_y_subtitulos.md)) |
@@ -287,7 +287,8 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 | 2026-09-15 | Hasta enero, el desarrollo se centra en contenido para redes | Sección 4 |
 | 2026-09-15 | Society tendrá una cuenta propia en redes con contenido generado por la app | Sección 4.1 |
 | 2026-09-15 | Tres planes acumulativos: Google → + redes (historias, posts y otros sitios) → + reels | Sección 5 |
-| 2026-09-15 | **Modelo de vídeo por tipo de acción**: Kling 3.0 en planos simples y Seedance 2.5 en manos, cubiertos y cortes | Sección 9 y [aprendizajes del reel](base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/aprendizajes-reel-chuleton.md) |
+| 2026-09-25 | **Una sola ruta de vídeo**: Seedance 2.5 a 720p + reescalado ByteDance pro; Kling 3.0 deja de usarse | Sección 9 |
+| 2026-09-15 | ~~**Modelo de vídeo por tipo de acción**: Kling 3.0 en planos simples y Seedance 2.5 en manos, cubiertos y cortes~~ (obsoleto desde el 25/09) | Sección 9 y [aprendizajes del reel](base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/aprendizajes-reel-chuleton.md) |
 | 2026-09-14 | Una sola tecnología de interfaz (React + TypeScript o Angular), no ambas | [Viabilidad §7.1](informes/Society_diseno_y_viabilidad.md) |
 | 2026-09-14 | GPT-6 Astra planifica, redacta prompts, revisa y dirige la edición | [Viabilidad §1](informes/Society_diseno_y_viabilidad.md) |
 | 2026-09-14 | El 3D del local es un módulo experimental, no un requisito del onboarding | [Viabilidad §8](informes/Society_diseno_y_viabilidad.md) |
@@ -339,6 +340,8 @@ Este es el único índice vigente. Los documentos históricos conservan evidenci
 | Society | [informes/Society_estrategia_redes_y_retroalimentacion.md](informes/Society_estrategia_redes_y_retroalimentacion.md) |
 | Society | [informes/Society_flujo_de_la_aplicacion.md](informes/Society_flujo_de_la_aplicacion.md) |
 | Society — Método de dirección visual | [informes/Society_metodo_direccion_visual.md](informes/Society_metodo_direccion_visual.md) |
+| Society — Sistema operativo de marketing (eventos, interacción, plano de control; lámina en `informes/diagramas/`) | [informes/Society_sistema_operativo_de_marketing.md](informes/Society_sistema_operativo_de_marketing.md) |
+| Society — Radar de nicho (contenido del nicho del cliente: recogida, puntuación, análisis, patrones y recomendaciones; lámina en `informes/diagramas/`) | [informes/Society_radar_de_nicho.md](informes/Society_radar_de_nicho.md) |
 | Society | [informes/Society_voces_y_subtitulos.md](informes/Society_voces_y_subtitulos.md) |
 | Ad Adaptation / Ad Recreator aplicado a Society | [informes/higgsfield/03-ad-recreator-para-society.md](informes/higgsfield/03-ad-recreator-para-society.md) |
 | Protocolo de descubrimiento y ejecución para futuras IA | [informes/higgsfield/04-protocolo-para-ia.md](informes/higgsfield/04-protocolo-para-ia.md) |
@@ -347,7 +350,9 @@ Este es el único índice vigente. Los documentos históricos conservan evidenci
 | Encargo para GPT-6 Astra · Unificar el proyecto Society y diseñar su cerebro creativo-estratégico | [prompts/gpt6-astra-limpieza-y-sistema-creativo.md](prompts/gpt6-astra-limpieza-y-sistema-creativo.md) |
 | Prompt para Higgsfield · Bocetos de la app Society | [prompts/higgsfield-bocetos-app-society.md](prompts/higgsfield-bocetos-app-society.md) |
 | Prompt — Reel de Torre de Vega con OpenMontage | [prompts/openmontage-reel-torre-de-vega.md](prompts/openmontage-reel-torre-de-vega.md) |
+| Prompt — Da Tonino v5: quitar el sonido de la pizza con OpenMontage | [prompts/openmontage-da-tonino-quitar-sonido-pizza.md](prompts/openmontage-da-tonino-quitar-sonido-pizza.md) |
 | Plan de pruebas — analizador de vídeos de referencia | [pruebas/analizador-video-referencia/plan-de-pruebas.md](pruebas/analizador-video-referencia/plan-de-pruebas.md) |
+| Da Tonino v3 frente a un reel rodado: qué delata la IA (medido; origen de la firma de rodaje real en las skills) | [pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/README.md](pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/README.md) |
 
 ### Referencia
 

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Society · Sistema operativo de marketing</title>
+<!-- Lámina técnica del informe Society_sistema_operativo_de_marketing.md.
+     Lienzo fijo de 3200 × 2000 px: las cajas y las flechas usan las mismas coordenadas.
+     Exportar a PNG/SVG con un navegador sin cabeza a esa resolución. -->
+<style>
+  @font-face { font-family: Anton; src: url(../../promo/public/fonts/Anton.woff2) format("woff2"); }
+  @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 700 900; src: url(../../promo/public/fonts/PlayfairDisplay-italic.woff2) format("woff2"); }
+  @font-face { font-family: "Schibsted Grotesk"; font-weight: 400 800; src: url(../../promo/public/fonts/SchibstedGrotesk.woff2) format("woff2"); }
+  @font-face { font-family: "Space Mono"; font-weight: 700; src: url(../../promo/public/fonts/SpaceMono.woff2) format("woff2"); }
+
+  :root {
+    --papel: #ECE8DC; --carta: #F6F3EA; --tinta: #141414; --cobalto: #2440E0; --mostaza: #F5C518; --gris: #5b574e;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--papel); }
+  .lamina { position: relative; width: 3200px; height: 2000px; background: var(--papel); color: var(--tinta); font-family: "Schibsted Grotesk", Arial, sans-serif; overflow: hidden; }
+
+  .titulo { position: absolute; left: 60px; top: 36px; display: flex; align-items: baseline; gap: 28px; }
+  .titulo h1 { margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 104px; line-height: .9; letter-spacing: -.01em; }
+  .titulo em { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 800; font-size: 76px; letter-spacing: -.03em; }
+  .meta { position: absolute; right: 60px; top: 50px; text-align: right; font-family: "Space Mono", monospace; font-size: 20px; letter-spacing: .06em; text-transform: uppercase; line-height: 1.5; }
+
+  .caja { position: absolute; background: var(--carta); border: 3px solid var(--tinta); border-radius: 18px; padding: 18px 20px 20px; }
+  .caja.cobalto { background: var(--cobalto); color: var(--papel); border-color: var(--tinta); }
+  .caja.fuera { background: transparent; border-style: dashed; }
+  .cab { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+  .num { font-family: "Space Mono", monospace; font-weight: 700; font-size: 20px; }
+  .nom { font-family: Anton, Impact, sans-serif; font-size: 40px; line-height: 1; text-transform: uppercase; }
+  .sub { font-size: 19px; color: var(--gris); margin: -4px 0 12px; }
+  .cobalto .sub { color: #d7dcff; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { border: 2px solid currentColor; border-radius: 30px; padding: 5px 13px; font-size: 19px; font-weight: 600; white-space: nowrap; background: var(--papel); color: var(--tinta); border-color: var(--tinta); }
+  .cobalto .chip { background: var(--cobalto); color: var(--papel); border-color: var(--papel); }
+  .chip.m { background: var(--mostaza); }
+  .chip.c { background: var(--cobalto); color: var(--papel); }
+  .lista { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 20px; }
+  .lista b { font-weight: 700; }
+  .lista span { color: var(--gris); }
+  .mono { font-family: "Space Mono", monospace; font-size: 18px; line-height: 1.55; background: var(--tinta); color: var(--papel); border-radius: 10px; padding: 12px 14px; }
+  .mono i { color: var(--mostaza); font-style: normal; }
+
+  .canal { display: flex; align-items: center; gap: 4px; margin: 4px 0 14px; }
+  .paso { background: var(--tinta); color: var(--papel); font-family: Anton, sans-serif; font-size: 23px; padding: 7px 10px; border-radius: 8px; }
+  .paso.ap { background: var(--mostaza); color: var(--tinta); }
+  .flecha { font-size: 18px; font-weight: 800; }
+
+  .persona { position: absolute; background: var(--mostaza); border: 3px solid var(--tinta); border-radius: 60px; padding: 12px 26px; text-align: center; font-family: Anton, sans-serif; font-size: 32px; line-height: 1.05; }
+  .persona small { display: block; font-family: "Schibsted Grotesk", sans-serif; font-size: 18px; font-weight: 600; }
+
+  .eventos .lista { gap: 9px; font-size: 19px; }
+  .eventos .lista li { display: grid; grid-template-columns: 50px 1fr; gap: 6px; }
+  .eventos .lista b { font-family: "Space Mono", monospace; }
+
+  .leyenda { position: absolute; left: 60px; bottom: 34px; display: flex; gap: 40px; align-items: center; font-size: 20px; font-weight: 600; }
+  .leyenda svg { vertical-align: middle; margin-right: 10px; }
+  .reglas { position: absolute; right: 60px; bottom: 30px; display: flex; gap: 14px; }
+  .regla { background: var(--tinta); color: var(--papel); border-radius: 10px; padding: 10px 16px; font-size: 20px; font-weight: 700; }
+  .regla em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 800; color: var(--mostaza); }
+
+  svg.flechas { position: absolute; inset: 0; pointer-events: none; }
+  .et { font-family: "Space Mono", monospace; font-weight: 700; font-size: 18px; fill: var(--tinta); paint-order: stroke; stroke: var(--papel); stroke-width: 8px; }
+</style>
+</head>
+<body>
+<div class="lamina">
+
+  <div class="titulo"><h1>Sistema operativo de marketing</h1><em>un bucle por restaurante.</em></div>
+  <div class="meta">Society · informe del 2026-09-25<br>Diseño, no implementado · multi-cliente con RLS</div>
+
+  <!-- ===== Columna A ===== -->
+  <div class="caja fuera" style="left:60px; top:260px; width:500px; height:640px;">
+    <div class="cab"><span class="num">01</span><span class="nom">Señales</span></div>
+    <div class="sub">Fuera de Society · entran por API o por el propietario</div>
+    <ul class="lista">
+      <li><b>Instagram</b> <span>· insights, comentarios, DMs (webhook)</span></li>
+      <li><b>Google Business Profile</b> <span>· reseñas, búsquedas, rutas, llamadas</span></li>
+      <li><b>Calendario oficial</b> <span>· festivos por municipio, eventos</span></li>
+      <li><b>Parte meteorológico</b> <span>· solo locales con terraza</span></li>
+      <li><b>Reservas y conversiones</b> <span>· si el local las comparte</span></li>
+      <li><b>Competencia</b> <span>· solo agregado público, sin scraping</span></li>
+      <li><b>El propietario</b> <span>· cierre, agotado, novedades</span></li>
+    </ul>
+  </div>
+
+  <div class="caja" style="left:60px; top:980px; width:500px; height:420px;">
+    <div class="cab"><span class="num">··</span><span class="nom">Ingesta y detección</span></div>
+    <div class="sub">Edge Functions + pg_cron + pg_net</div>
+    <div class="chips" style="margin-bottom:14px">
+      <span class="chip">Webhooks</span><span class="chip">Sondeos</span><span class="chip">Normalizador</span>
+    </div>
+    <div class="mono">ausente <i>≠</i> cero<br>línea base por local<br>umbral → evento <i>E1–E12</i><br>clave de deduplicación</div>
+  </div>
+
+  <div class="caja" style="left:60px; top:1480px; width:500px; height:330px;">
+    <div class="cab"><span class="num">08</span><span class="nom">Observabilidad</span></div>
+    <div class="sub">PostgreSQL con vistas · sin almacén aparte</div>
+    <div class="chips">
+      <span class="chip">Traza por trabajo</span><span class="chip">Coste por pieza aprobada</span>
+      <span class="chip">Errores (Sentry u otro)</span><span class="chip">Salud de tokens y cuotas</span>
+    </div>
+  </div>
+
+  <!-- ===== Columna B ===== -->
+  <div class="caja" style="left:640px; top:260px; width:600px; height:340px;">
+    <div class="cab"><span class="num">02</span><span class="nom">Registro</span></div>
+    <div class="sub">Supabase PostgreSQL + Auth · RLS por restaurante</div>
+    <div class="chips">
+      <span class="chip">Restaurante</span><span class="chip">Carta</span><span class="chip">Recursos</span><span class="chip">Piezas</span>
+      <span class="chip">Capturas</span><span class="chip">Conversaciones</span><span class="chip">Reseñas</span>
+      <span class="chip c">Eventos</span><span class="chip c">Actividad</span><span class="chip c">Propuestas</span>
+    </div>
+  </div>
+
+  <div class="caja" style="left:640px; top:680px; width:600px; height:500px;">
+    <div class="cab"><span class="num">03</span><span class="nom">Carpeta de marca</span></div>
+    <div class="sub">Documentos versionados · el sistema propone, el propietario confirma</div>
+    <div class="mono">/marca       voz · identidad · personajes<br>/carta       productos · novedades<br>/local       datos · espacios<br>/estrategia  objetivo · pilares · hipótesis<br>/canales     instagram · google<br>/comunidad   plantillas de respuesta<br><i>/resultados  «qué funcionó» · aprendizajes</i></div>
+  </div>
+
+  <div class="caja" style="left:640px; top:1480px; width:600px; height:330px;">
+    <div class="cab"><span class="num">··</span><span class="nom">Almacenamiento</span></div>
+    <div class="sub">Cloudflare R2 con URL firmadas</div>
+    <div class="chips">
+      <span class="chip">Fotos reales</span><span class="chip">Keyframes</span><span class="chip">Clips</span>
+      <span class="chip">Voz y subtítulos</span><span class="chip">Renders finales</span>
+    </div>
+  </div>
+
+  <!-- ===== Columna C ===== -->
+  <div class="persona" style="left:1480px; top:196px; width:440px; padding:6px 20px;">Propietario<small>marca · presupuesto · última palabra</small></div>
+
+  <div class="caja cobalto" style="left:1320px; top:300px; width:760px; height:250px;">
+    <div class="cab"><span class="num">07</span><span class="nom">Plano de control</span></div>
+    <div class="sub">Web Society · lo único que el propietario necesita abrir</div>
+    <div class="chips">
+      <span class="chip m" style="color:var(--tinta);border-color:var(--tinta)">Cola de aprobación · G0 · G1 · G2</span>
+      <span class="chip">Panel</span><span class="chip">Registro de actividad</span>
+      <span class="chip">Autonomía N0 · N1 · N2</span><span class="chip">Alertas</span>
+      <span class="chip">Interruptor de parada</span>
+    </div>
+  </div>
+
+  <div class="caja" style="left:1320px; top:710px; width:760px; height:370px;">
+    <div class="cab"><span class="num">04</span><span class="nom">Orquestador</span></div>
+    <div class="sub">Worker Linux · un solo canal para el ciclo semanal y los eventos</div>
+    <div class="canal">
+      <span class="paso">Recoger</span><span class="flecha">→</span><span class="paso">Puntuar</span><span class="flecha">→</span><span class="paso">Brief</span><span class="flecha">→</span><span class="paso">Borrador</span><span class="flecha">→</span><span class="paso">Programar</span><span class="flecha">→</span><span class="paso ap">Aprobar</span>
+    </div>
+    <div class="chips">
+      <span class="chip">Planificador · modelo de lenguaje</span><span class="chip">Guardián de presupuesto</span><span class="chip">Idempotencia</span>
+    </div>
+  </div>
+
+  <div class="caja" style="left:1320px; top:1160px; width:760px; height:130px;">
+    <div class="cab" style="margin:0"><span class="num">··</span><span class="nom">Cola de trabajos</span></div>
+    <div class="sub" style="margin:4px 0 0">PostgreSQL · bloqueo · reintento · deadline · nada llama a un proveedor fuera de aquí</div>
+  </div>
+
+  <div class="caja" style="left:1320px; top:1370px; width:760px; height:440px;">
+    <div class="cab"><span class="num">05</span><span class="nom">Módulos de trabajo</span></div>
+    <div class="sub">Lo que un hostelero reconoce como «su equipo»</div>
+    <ul class="lista">
+      <li><b>Investigación</b> <span>· tendencias locales, festivos, competencia agregada</span></li>
+      <li><b>Contenido</b> <span>· captions, hooks, guiones, reglas de marca</span></li>
+      <li><b>Estudio creativo</b> <span>· imagen desde fotos reales, vídeo por contrato</span></li>
+      <li><b>Montaje</b> <span>· Remotion en worker Linux</span></li>
+      <li><b>Distribución</b> <span>· Instagram, Google o ruta asistida</span></li>
+      <li><b>Comunidad y reseñas</b> <span>· respuestas con plantilla aprobada</span></li>
+      <li><b>Analítica</b> <span>· capturas e informe «Qué funcionó»</span></li>
+    </ul>
+  </div>
+
+  <!-- ===== Columna D ===== -->
+  <div class="caja fuera" style="left:2160px; top:300px; width:540px; height:330px;">
+    <div class="cab"><span class="num">06</span><span class="nom">Salida</span></div>
+    <div class="sub">Fuera de Society</div>
+    <ul class="lista">
+      <li><b>Instagram</b> <span>· posts, historias, reels</span></li>
+      <li><b>Respuestas privadas</b> <span>· 1 DM por comentario, ≤ 7 días</span></li>
+      <li><b>Google Business Profile</b> <span>· posts, horarios, respuestas</span></li>
+      <li><b>Resend</b> <span>· avisos al propietario</span></li>
+    </ul>
+  </div>
+
+  <div class="persona" style="left:2250px; top:710px; width:360px;">Clientes del local<small>comentan · reservan · reseñan · vienen</small></div>
+
+  <div class="caja fuera" style="left:2160px; top:1370px; width:540px; height:440px;">
+    <div class="cab"><span class="num">··</span><span class="nom">Proveedores de IA</span></div>
+    <div class="sub">Se llaman solo desde la cola de trabajos</div>
+    <ul class="lista">
+      <li><b>Planificación y texto</b> <span>· propuesta vigente: GPT-6 Astra</span></li>
+      <li><b>Imagen</b> <span>· Nano Banana Pro</span></li>
+      <li><b>Vídeo simple</b> <span>· Kling 3.0</span></li>
+      <li><b>Vídeo complejo</b> <span>· Seedance 2.5</span></li>
+      <li><b>Voz</b> <span>· ElevenLabs</span></li>
+      <li><b>Subtítulos</b> <span>· marcas de tiempo o WhisperX</span></li>
+    </ul>
+  </div>
+
+  <!-- ===== Columna E: eventos ===== -->
+  <div class="caja eventos" style="left:2780px; top:260px; width:360px; height:1550px;">
+    <div class="cab"><span class="nom" style="font-size:36px">Qué interrumpe el bucle</span></div>
+    <div class="sub">Salen del detector y entran por «Recoger»</div>
+    <ul class="lista">
+      <li><b>E1</b><span><b style="font-family:inherit">Reseña negativa</b> · borrador + aviso; firma siempre</span></li>
+      <li><b>E2</b><span><b style="font-family:inherit">Reseña positiva</b> · borrador con la voz de marca</span></li>
+      <li><b>E3</b><span><b style="font-family:inherit">Palabra clave</b> en comentarios · respuesta privada</span></li>
+      <li><b>E4</b><span><b style="font-family:inherit">Calendario flojo</b> · cola de reserva</span></li>
+      <li><b>E5</b><span><b style="font-family:inherit">Pieza que despega</b> · refuerzo sin gastar más</span></li>
+      <li><b>E6</b><span><b style="font-family:inherit">Plato agotado</b> · retirar piezas</span></li>
+      <li><b>E7</b><span><b style="font-family:inherit">Cierre u horario</b> · pausar CTA, horario especial</span></li>
+      <li><b>E8</b><span><b style="font-family:inherit">Tiempo</b> · cambiar terraza ↔ interior</span></li>
+      <li><b>E9</b><span><b style="font-family:inherit">Festivo a 14 días</b> · confirmar apertura</span></li>
+      <li><b>E10</b><span><b style="font-family:inherit">Alcance cae</b> · diagnóstico por síntomas</span></li>
+      <li><b>E11</b><span><b style="font-family:inherit">Conexión caída</b> · ruta asistida + aviso</span></li>
+      <li><b>E12</b><span><b style="font-family:inherit">Presupuesto</b> 80 % aviso · 100 % parada</span></li>
+    </ul>
+  </div>
+
+  <!-- ===== Flechas ===== -->
+  <svg class="flechas" width="3200" height="2000" viewBox="0 0 3200 2000">
+    <defs>
+      <marker id="p" viewBox="0 0 12 12" refX="10" refY="6" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" orient="auto-start-reverse">
+        <path d="M0,0 L12,6 L0,12 Z" fill="#141414"/>
+      </marker>
+      <marker id="pc" viewBox="0 0 12 12" refX="10" refY="6" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" orient="auto-start-reverse">
+        <path d="M0,0 L12,6 L0,12 Z" fill="#2440E0"/>
+      </marker>
+    </defs>
+    <g fill="none" stroke="#141414" stroke-width="4" stroke-linejoin="round">
+      <!-- Señales → Ingesta -->
+      <path d="M310,900 V972" marker-end="url(#p)"/>
+      <!-- Ingesta → Registro -->
+      <path d="M560,1060 H600 V430 H632" marker-end="url(#p)"/>
+      <!-- Ingesta → Orquestador (evento) -->
+      <path d="M560,1330 H1285 V1020 H1312" marker-end="url(#p)"/>
+      <!-- Registro ↔ Orquestador -->
+      <path d="M1240,430 H1275 V790 H1312" marker-end="url(#p)" marker-start="url(#p)"/>
+      <!-- Carpeta ↔ Orquestador -->
+      <path d="M1240,900 H1312" marker-end="url(#p)" marker-start="url(#p)"/>
+      <!-- Orquestador → Cola -->
+      <path d="M1700,1080 V1152" marker-end="url(#p)"/>
+      <!-- Cola → Módulos -->
+      <path d="M1700,1290 V1362" marker-end="url(#p)"/>
+      <!-- Módulos → Proveedores -->
+      <path d="M2080,1590 H2152" marker-end="url(#p)"/>
+      <!-- Módulos → R2 -->
+      <path d="M1320,1640 H1248" marker-end="url(#p)"/>
+      <!-- Orquestador (Aprobar) → Plano de control -->
+      <path d="M1990,704 V558" marker-end="url(#p)"/>
+      <!-- Propietario ↔ Plano de control -->
+      <path d="M1700,270 V294" marker-end="url(#p)" marker-start="url(#p)"/>
+      <!-- Plano de control → Salida (aprobado) -->
+      <path d="M2080,465 H2152" marker-end="url(#p)"/>
+      <!-- Salida → Clientes -->
+      <path d="M2430,630 V702" marker-end="url(#p)"/>
+      <!-- Módulos → Observabilidad (trazas) -->
+      <path d="M1500,1810 V1870 H310 V1818" marker-end="url(#p)"/>
+    </g>
+    <g fill="none" stroke="#2440E0" stroke-width="4" stroke-dasharray="14 10" stroke-linejoin="round">
+      <!-- Clientes → Señales: el bucle -->
+      <path d="M2610,760 H2740 V178 H310 V252" marker-end="url(#pc)"/>
+      <!-- Analítica → Carpeta /resultados: «Qué funcionó» -->
+      <path d="M1320,1765 H1265 V1215 H1100 V1188" marker-end="url(#pc)"/>
+      <!-- Plano de control → Cola: parada -->
+      <path d="M2080,510 H2120 V1225 H2088" marker-end="url(#pc)"/>
+    </g>
+    <text class="et" x="620" y="170">el bucle: comentan · reservan · reseñan · vuelven a ser señal</text>
+    <text class="et" x="760" y="1320">evento E1–E12</text>
+    <text class="et" x="2088" y="450">aprobado</text>
+    <text class="et" x="1080" y="1250">«qué funcionó»</text>
+    <text class="et" x="2126" y="900">parada</text>
+    <text class="et" x="1760" y="640">pendiente de firma</text>
+    <text class="et" x="760" y="1862">trazas y coste</text>
+  </svg>
+
+  <div class="leyenda">
+    <span><svg width="70" height="14"><path d="M0,7 H60" stroke="#141414" stroke-width="4"/><path d="M56,1 L68,7 L56,13 Z" fill="#141414"/></svg>flujo de trabajo</span>
+    <span><svg width="70" height="14"><path d="M0,7 H60" stroke="#2440E0" stroke-width="4" stroke-dasharray="14 10"/><path d="M56,1 L68,7 L56,13 Z" fill="#2440E0"/></svg>retorno y control</span>
+    <span><svg width="46" height="26"><rect x="2" y="2" width="42" height="22" rx="6" fill="none" stroke="#141414" stroke-width="3" stroke-dasharray="7 5"/></svg>fuera de Society</span>
+  </div>
+  <div class="reglas">
+    <span class="regla">Nunca se publica <em>por silencio</em></span>
+    <span class="regla">Presupuesto <em>antes</em> de generar</span>
+    <span class="regla">Datos <em>aislados</em> por restaurante</span>
+  </div>
+</div>
+</body>
+</html>

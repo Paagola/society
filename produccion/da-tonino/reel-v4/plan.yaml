@@ -1,0 +1,199 @@
+# Plan de Reel — fuente de verdad de la producción (skill director-reels + regla cero).
+reel:
+  id: reel_v4_da_tonino_mesa
+  cliente: da-tonino
+  fecha: 2026-09-25
+  estado: keyframes               # puerta C: pendiente de revisión visual
+
+brief:
+  pieza: "Reel de marca de Da Tonino rehecho desde cero con la firma de rodaje real"
+  objetivo: reenvio
+  motivo_para_reenviar: "ninguno con fecha; apetito + local reconocible («mándaselo a quien te debe una cena»)"
+  reel_de_referencia: "reel v3 (lo que no hay que repetir) y reel de producto ADS STUDIO (cadencia, foco, peso)"
+  metraje_real_disponible: []     # no hay vídeo real; se pide al local para la v5 (regla cero §13)
+  estilo_de_luz: natural_direccional
+  duracion_orientativa_s: 9
+  voz_en_off: false
+  cta: "Reserva tu mesa"
+  presupuesto_creditos: 120       # saldo inicial 206,77
+
+verdad:
+  anclas:
+    - {id: sala, fotos: [referencias/sala.jpg], dificultad: media}
+    - {id: pizza, fotos: [referencias/pizza.jpg], dificultad: media}
+    - {id: rigatoni, fotos: [referencias/rigatoni.jpg], dificultad: media}
+    - {id: paella, fotos: [referencias/paella.jpg], dificultad: alta}
+  metraje_real: []
+  invenciones_recurrentes: ["cocina oscura con dos bombillas (v3)", "vapor idéntico en todos los platos (v3)"]
+  no_existe: [cocina, horno, fuego, "personal uniformado", "cliente de la sudadera morada"]
+
+tratamiento:
+  motivo_para_reenviar: "Se ve comida real de Da Tonino servida en su mesa, con ganas de ir"
+  momento_heroe: "La porción de pizza que se levanta y se comba con su peso"
+  emocion: ["mano que coge sin esperar", "salsa que se estira", "socarrat que cruje al rascar"]
+  foco_sensorial: "peso y textura: masa que se comba, salsa brillante, arroz tostado"
+  motivo_visual: "una mano, un gesto, en la mesa real"
+  curva_de_ritmo: "1,6 s → 1,2 s → 1,4 s → 1,8 s (sala) → cartela 2 s; corte seco en el golpe"
+  cierre: "Da Tonino · Ristorante · Reserva tu mesa"
+
+conceptos:
+  - id: C1
+    mecanismo: "Tres gestos de mesa (acumulación de verbos) + sala como respuesta"
+    titulo: "Lo que pasa en la mesa"
+    fotograma_1: "La porción ya levantada, combándose"
+    arco: "gesto → gesto → gesto → dónde (la sala) → reserva"
+    planos_generados: 4
+    coste_est_creditos: 72
+concepto_elegido: C1              # elegido por el director por delegación de Víctor (2026-09-25)
+
+planos:
+  - id: P1
+    funcion: gancho
+    t: [0.0, 1.6]
+    escalon: L4
+    justificacion_escalon: "No hay metraje real; keyframe anclado en la foto real de la pizza"
+    accion: {descripcion: "la mano levanta una porción que se comba; dos hojas de rúcula caen rápido", clase: compleja, origen_movimiento: mano}
+    contiene: [plato, manos, comida, copa]
+    angulo: {posicion: tres_cuartos, altura: baja, lente_mm: 50}
+    camara: {movimiento: seguimiento, aparato: gimbal, recorrido: "3 cm hacia arriba siguiendo la porción"}
+    transicion: {entrada: "—", salida: "corte seco en el crujido"}
+  - id: P2
+    funcion: desarrollo
+    t: [1.6, 2.8]
+    escalon: L4
+    justificacion_escalon: "Keyframe anclado en la foto real de los rigatoni, sin el comensal"
+    accion: {descripcion: "el tenedor sube con dos rigatoni; hilo de salsa que se estira y se rompe; gota con estela", clase: compleja, origen_movimiento: mano}
+    contiene: [plato, manos, comida]
+    angulo: {posicion: frontal_alto, altura: media, lente_mm: 65}
+    camara: {movimiento: seguimiento, aparato: gimbal, recorrido: "2 cm hacia arriba"}
+    transicion: {entrada: "corte seco", salida: "corte seco"}
+  - id: P3
+    funcion: heroe
+    t: [2.8, 4.2]
+    escalon: L4
+    justificacion_escalon: "Keyframe anclado en la foto real de la paella"
+    accion: {descripcion: "la cuchara rasca el fondo y levanta arroz con socarrat; granos que caen; vapor a contraluz", clase: compleja, origen_movimiento: mano}
+    contiene: [comida, manos]
+    angulo: {posicion: tres_cuartos, altura: media, lente_mm: 50}
+    camara: {movimiento: push_in, aparato: gimbal, recorrido: "4 cm hacia la cuchara"}
+    transicion: {entrada: "corte seco en el rascado", salida: "corte seco"}
+  - id: P4
+    funcion: cierre
+    t: [4.2, 6.0]
+    escalon: L3
+    justificacion_escalon: "Foto real de la sala animada con un movimiento de slider real"
+    accion: {descripcion: "sala vacía; solo viaja la cámara", clase: simple, origen_movimiento: camara}
+    contiene: [mesa, silla, lampara]
+    angulo: {posicion: diagonal, altura: sentado, lente_mm: 35}
+    camara: {movimiento: lateral, aparato: slider_motorizado, recorrido: "12 cm a la derecha"}
+    rotulo: "Da Tonino · Ristorante"
+    transicion: {entrada: "corte seco", salida: "corte seco a cartela"}
+
+generaciones:
+  - {id: K-P1, tipo: imagen, planos: [P1], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, coste_creditos: 2, job_id: a85c0a2b-4d32-40ae-aa91-9206859c0ee9, estado: generado, medido: {foco: 36, negro_p1: 8.7, blanco_p99: 254}}
+  - {id: K-P1b, tipo: imagen, planos: [P1], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, coste_creditos: 2, job_id: 6627f846-b0c8-4502-bf96-c0da0e70074d, estado: generado, medido: {foco: 38, negro_p1: 9.4, blanco_p99: 255}, nota: "un solo cambio f/1.8 sin efecto medible: el modelo ignora la apertura numérica"}
+  - {id: K-P2, tipo: imagen, planos: [P2], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, coste_creditos: 2, job_id: 69a102ea-13ff-4f0e-adec-48a4618fbfc5, estado: generado, medido: {foco: 15, negro_p1: 13.3, blanco_p99: 238}}
+  - {id: K-P3, tipo: imagen, planos: [P3], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, coste_creditos: 2, job_id: 648ddf17-26d9-4c6e-9d80-18432093cd20, estado: generado, medido: {foco: 28, negro_p1: 3.0, blanco_p99: 255}}
+  - {id: K-P4, tipo: imagen, planos: [P4], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, coste_creditos: 2, job_id: 3def1863-8753-4d25-a7a4-474fc00564e6, estado: generado, medido: {foco: 20, negro_p1: 13.0, blanco_p99: 253}}
+  - id: V1
+    tipo: video
+    planos: [P1, P2, P3]
+    modelo: seedance_2_5
+    params: {mode: omni_reference, resolution: 720p, duration: 9, aspect_ratio: "9:16", generate_audio: true}
+    coste_est_creditos: 63
+    estado: pendiente             # tras aprobar la puerta C
+    nota: "multitoma; audio del modelo solo con efectos (sin música); reescalado posterior según R-RES-01"
+  - id: V2
+    tipo: video
+    planos: [P4]
+    modelo: kling3_0
+    params: {mode: pro, duration: 3, aspect_ratio: "9:16", sound: "off"}
+    coste_est_creditos: 5.25
+    estado: pendiente
+
+montaje:
+  - {plano: P1, transicion: "corte seco", sonido: "crujido de la masa al separarse"}
+  - {plano: P2, transicion: "corte seco", sonido: "tenedor contra la porcelana"}
+  - {plano: P3, transicion: "corte seco", sonido: "rascado del socarrat"}
+  - {plano: P4, rotulo: "Da Tonino · Ristorante", sonido: "ambiente de sala"}
+  - {plano: cartela, rotulo: "Reserva tu mesa", sonido: "fin de frase musical"}
+  # grade y grano comunes; revisión final con skills/openmontage/scripts/medir_realismo.py
+
+aprendizajes_propuestos:
+  - "En luz de cena (fondo casi negro) las imágenes aprobadas por el cliente miden 20–31 % de foco: el umbral 8–25 % de 08 §12 es para planos con fondo visible; en low-key se acepta hasta ~32 % (proponer ajuste en 08)."
+  - "El servidor sirvió nano_banana_2 al pedir nano_banana_pro (25/09): registrar siempre modelo_devuelto."
+  - "Este entorno bloquea *.cloudfront.net: la revisión visual y el montaje necesitan permitir d8j0ntlcm91z4.cloudfront.net o trabajar en el sandbox de Higgsfield."
+  - "Nano Banana no obedece f/1.8 en un «un solo cambio» (foco 36 % → 38 %). Para el foco fino, probar en vídeo (Seedance con rack focus) o describir el desenfoque por objetos («the beer glass is an unrecognisable blur»), no por apertura."
+
+# ── Segunda tanda (2026-09-25) · luz de cena aprobada por Víctor ────────────
+# Víctor rechazó la primera tanda («demasiada luz») y aprobó como referencia 819b7da7, 84a4353e,
+# 8563dfdb, 795f7e30 y 3def1863. Estilo fijado en perfiles/da-tonino.yaml (estilo.luz).
+segunda_tanda:
+  estado: keyframes               # puerta C pendiente de Víctor
+  coste_creditos: 16              # 8 × 2; saldo tras la tanda: 180,77
+  lista_de_planos:                # orden propuesto; ~0,8–1,2 s por toma + sala + cartela
+    - {n: 1,  id: rucula,        job_id: 819b7da7-9fc6-432c-835f-6511297caf2c, origen: aprobada,  medido: {foco: 31, negro: 2.0, blanco: 202}}
+    - {n: 2,  id: cornicione,    job_id: ad4338f4-4604-44e7-810f-400918a828b5, origen: "recompuesta 9:16 de 795f7e30", medido: {foco: 23, negro: 5.0, blanco: 198}}
+    - {n: 3,  id: jamon,         job_id: d68d1d5f-2b9e-4e96-8def-5e000e0f4413, origen: "recompuesta 9:16 de 8563dfdb", medido: {foco: 22, negro: 1.3, blanco: 206}}
+    - {n: 4,  id: porcion,       job_id: 6ef88286-7842-4e84-886f-f3831569e2d5, origen: nueva, medido: {foco: 29, negro: 4.0, blanco: 207}}
+    - {n: 5,  id: salteado,      job_id: 84a4353e-e0e3-46d3-b370-c05c49f9dad7, origen: aprobada, medido: {foco: 20, negro: 2.0, blanco: 170}}
+    - {n: 6,  id: emplatado,     job_id: f1e1b0d2-d6c5-4d39-bb23-153394d33ba1, origen: nueva, medido: {foco: 15, negro: 7.7, blanco: 228}}
+    - {n: 7,  id: socarrat,      job_id: 1586e2c5-9565-4e97-b35c-8c2936415341, origen: nueva, medido: {foco: 28, negro: 3.0, blanco: 207}}
+    - {n: 8,  id: paella_macro,  job_id: c3b14697-0827-4e69-9e5c-f42e5bc2eacd, origen: nueva, medido: {foco: 18, negro: 0.0, blanco: 237}}
+    - {n: 9,  id: cerveza,       job_id: 44676d3d-2cdf-4d7a-ba73-05657d3ef37e, origen: nueva, medido: {foco: 16, negro: 3.0, blanco: 214}}
+    - {n: 10, id: sala_noche,    job_id: bcf38aba-0e89-4b6c-b9ce-79c7c65757c3, origen: "variante nocturna de 3def1863", medido: {foco: 18, negro: 3.7, blanco: 171}}
+    - {n: 10b, id: sala_dia,     job_id: 3def1863-8753-4d25-a7a4-474fc00564e6, origen: aprobada, nota: "alternativa; rompe el mundo de luz si se usa entre planos de noche"}
+  video_propuesto:
+    kling3_0_pro_3s: {planos: [1, 2, 3, 5, 8, 9, 10], coste: 36.75}
+    seedance_2_5_720p_multitoma_9s_con_audio: {planos: [4, 6, 7], coste: 63}
+    total: 99.75
+
+# ── Incidencia (2026-09-25) ──────────────────────────────────────────────
+incidencia_kling:
+  que_paso: "Se lanzaron 6 clips con kling3_0 pro 3 s con sonido (45 cr) siguiendo reglas antiguas del repo; Víctor pidió pararlos y recordó que la ruta vigente es Seedance 2.5 720p + upscale."
+  jobs: [b540bd2a-103c-4433-9ee9-5fc7cab53def, 81deca67-c663-497c-b4b2-f241b2c3ac61, 6cdb58f2-2c08-4f7a-a8f0-f7d27b44fb1c, a1084f8a-40f7-4a9c-b13f-5c9fdc54bd71, 29e43925-781b-41d0-b821-a95054bcac43, 4a1e6798-aad6-44f6-93d6-ae05474bab7b]
+  imagenes_no_pedidas: [61cf86a3-e324-4af8-bc43-b5c05db20499, 8684f5e3-56a5-44cc-9279-c457e39d6c26]  # variantes de socarrat, 4 cr
+  cancelacion: "No hay herramienta de cancelación en el MCP; los trabajos se cobraron."
+  correccion: "Kling marcado como obsoleto en README §9, skills/README, CLAUDE.md, higgsfield, director-reels y perfiles."
+  saldo_tras_incidencia: 131.77
+  descarte: "Víctor (2026-09-25) descarta por completo los 6 clips de Kling: tienen deformidades y no tienen tomas rápidas. No se usan ni como relleno ni como referencia."
+
+# Reglas que salen del descarte (para la tanda Seedance)
+ruta_seedance:
+  modelo: "Seedance 2.5 · 720p · omni_reference · 9:16 · con audio"
+  entrada: "solo imágenes aprobadas como start_image; no se generan imágenes nuevas"
+  aprobadas: [819b7da7, ad4338f4, d68d1d5f, 6ef88286, 84a4353e, f1e1b0d2, c3b14697, 44676d3d, 3def1863]
+  tomas_rapidas: "cada clip se pide como multitoma con cortes secos de 0,6–1,0 s; en montaje ningún plano pasa de 1,2 s salvo el héroe final"
+  reescalado: "ByteDance pro a 1080×1920 solo de las tomas aprobadas"
+  gasto: "preflight de coste y OK de Víctor antes de lanzar nada"
+
+# Reel en una sola generación (Víctor, 2026-09-25: «que haga directamente el reel entero con este modelo»)
+reel_seedance_unico:
+  job_id: 023715c8-3b7a-44c5-9522-c5e78809ee5d
+  modelo: "seedance_2_5 · omni_reference · 720p · 9:16 · 12 s · audio"
+  referencias: "las 9 aprobadas, @Image 1–9 en orden de lista de planos (rúcula, cornicione, jamón, porción, salteado, emplatado, paella macro, cerveza, sala)"
+  prompt: prompt-seedance-reel.txt
+  coste_creditos: 84
+  saldo_antes: 131.77
+  preset_rechazado: "IN THE DARK (24bae836), se generó literal"
+  estado: aprobado  # Víctor, 2026-09-25: «me gusta»
+  siguiente: "revisión de Víctor → reescalado ByteDance pro de la toma aprobada → montaje en sandbox (grade, grano, música con pulso, cartela «Da Tonino · Ristorante · Reserva tu mesa») → medir_realismo.py"
+
+reescalado:
+  job_id: 8fe46ec7-f8cf-4f16-a30d-63cbf12aad0d
+  params: {provider: bytedance, preset: aigc, resolution: 1080p, fps: 24}
+montaje:
+  media_id: e7c65767-aab5-4a5c-8328-750417fa3d8d
+  detalle: montaje/README.md
+  medicion: montaje/medicion.txt
+  estado: sustituido por v5
+reescalado_4k:
+  job_id: 94fa925f-007b-4e0c-972a-be293f348be4
+  params: {provider: bytedance, preset: aigc, resolution: 4k, fps: 24}
+montaje_v5:
+  pedido: "Víctor 25/09: le encantan canción y tomas; quitar efectos salvo el de apoyar la cerveza (corte final); sala con otra luz, logo encima y apagado lento"
+  master_4k: 4ac9c8b1-e18b-4c1b-ab3b-112cf162d8ae
+  instagram_1080: 8ac1bc5e-6f6b-466c-9a01-daf5693be0e2
+  detalle: montaje/README.md
+  medicion: montaje/medicion-v5.txt
+  estado: entregado

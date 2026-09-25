@@ -88,6 +88,8 @@ Se empieza siempre por el revelado simple. La tipografía no cambia: solo cambia
 
 ## 6. Audio: niveles, ducking y efectos
 
+> **Obligatorio [MEDIDO 25/09/2026]:** el reel de Da Tonino v3 se entregó con la pista de audio vacía. Un reel de comida sin sonido no pasa la puerta E. Capas mínimas y origen del sonido: `directoria/references/hosteleria/08-firma-de-rodaje-real.md` §9.
+
 **Loudness de entrega** (OpenMontage `sound-design.md`, que cita las especificaciones de las plataformas):
 
 | Plataforma | LUFS integrados | True peak |
@@ -122,3 +124,20 @@ Se empieza siempre por el revelado simple. La tipografía no cambia: solo cambia
 - **Instrumental** cuando hay voz en off (la letra compite con la narración).
 - **Desde el primer fotograma:** ningún arranque en silencio.
 - **Recordatorio medido:** añadir música no movió la métrica del Virality Predictor (→ `03` §2). Se usa por la experiencia del espectador y por el algoritmo (audio en tendencia), no por la puntuación del predictor.
+
+
+## Separar canción y efectos de un clip de Seedance (validado el 25/09/2026, Da Tonino v5)
+
+Seedance con `generate_audio: true` entrega una sola pista con canción y efectos mezclados. Para quedarse con la canción y elegir qué efectos suenan:
+
+```bash
+pip install --user torch torchaudio --index-url https://download.pytorch.org/whl/cpu && pip install --user demucs soundfile
+ffmpeg -i clip.mp4 -vn -ac 2 -ar 44100 a.wav && python3 -m demucs -n htdemucs -d cpu -o sep a.wav
+# canción = bass + other (estables en todas las tomas); efectos = drums + vocals (aparecen y desaparecen por toma)
+ffmpeg -i sep/htdemucs/a/bass.wav -i sep/htdemucs/a/other.wav -i sep/htdemucs/a/drums.wav -i sep/htdemucs/a/vocals.wav -filter_complex \
+ "[0:a][1:a]amix=inputs=2:normalize=0[mus];[2:a][3:a]amix=inputs=2:normalize=0,volume='1.4*between(t,T0,T1)':eval=frame[fx];[mus][fx]amix=inputs=2:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5" out.wav
+```
+
+- **Comprobar el reparto antes de mezclar:** medir el RMS por toma de cada stem. La canción es estable en todas las tomas. Los efectos caen a −70 dB en las tomas sin acción (textura, sala).
+- **Coste y tiempo:** 0 créditos; unos 8 s de CPU por 12 s de audio en el sandbox de Higgsfield.
+- **Límite:** la separación no es perfecta. Siempre hay que escuchar el resultado antes de entregar.

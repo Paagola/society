@@ -1,0 +1,63 @@
+# Perfil de cliente · Da Tonino Ristorante
+# Creado el 2026-09-25 a partir de 4 fotos reales aportadas por Víctor.
+# Resumen fechado: si el cliente da una regla posterior o más concreta, manda la del cliente.
+cliente: da-tonino
+nombre: "Da Tonino · Ristorante"
+fecha_perfil: 2026-09-25
+fuentes:
+  - "Fotos reales (2026-09-25): sala, rigatoni en terraza, pizza napolitana, paella de marisco"
+  - "Reel v3 y su análisis: pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/README.md"
+  - "Regla cero: skills/README.md y skills/directoria/references/hosteleria/08-firma-de-rodaje-real.md"
+
+lugar: >-
+  Da Tonino, an Italian restaurant: warm beige walls, wood-look floor planks in mixed brown tones,
+  sage-green quilted velvet chairs, square tables with white tablecloths and dark placemats, black cone
+  pendant lamps with warm bulbs, tall potted kentia palms, a shelf with a few wine bottles and a large
+  window onto the street. Outdoor terrace with green-and-white gingham tablecloths and rattan chargers.
+
+anclas:
+  sala: {foto: sala, descripcion: "sillas verde salvia acolchadas, mantel blanco, lámparas cono negras, palmeras, cristalera"}
+  pizza: {foto: pizza, descripcion: "napolitana con cornicione de manchas de leopardo, tomate, jamón crudo, rúcula, fior di latte; plato marrón oscuro sobre mantel de papel kraft en mesa de roble claro; caña de cerveza"}
+  rigatoni: {foto: rigatoni, descripcion: "rigatoni en salsa rosa, plato blanco rectangular, bajoplato de ratán, mantel de cuadros verdes en terraza; vaso de limonada turbia"}
+  paella: {foto: paella, descripcion: "paellera de acero con asas negras, arroz amarillo, gambas, mejillones, almejas, limón, perejil, dos cucharas; servilleta blanca con raya roja y azul"}
+
+no_existe:
+  - "cocina reconocible (no hay fotos): solo el «pase oscuro» abstracto aprobado, fondo casi negro con bombillas cálidas desenfocadas"
+  - "horno, fuego o brasa (no hay fotos ni metraje)"
+  - "personal con uniforme concreto (no hay fotos)"
+  - "el cliente de la sudadera morada de la foto de rigatoni (no se reproduce)"
+
+estilo:
+  # Aprobado por Víctor el 2026-09-25: rechaza la luz de día («demasiada luz, poco profesional») y aprueba
+  # como referencia los keyframes 819b7da7, 84a4353e, 8563dfdb, 795f7e30 (luz de cena) y 3def1863 (sala).
+  plantilla_luz_media_id: 7cb29887-9735-4941-a282-d21d2a6ce3ff
+  anclas_de_estilo: [819b7da7-9fc6-432c-835f-6511297caf2c, 84a4353e-e0e3-46d3-b370-c05c49f9dad7]
+  luz: >-
+    Low-key 'dinner light': a single soft-edged or hard key from behind and to the side as a rim light
+    on steam, sauce and crust edges; the food is the brightest thing in the frame; the background falls
+    to near black with one or two warm bulbs as soft bokeh points (the restaurant's pendant lamps).
+    Deep blacks, highlights never clipped, neutral-warm white balance around 4300-5000K, true food colours.
+  superficie: "pase de acero oscuro o mesa oscura; manos con guante de nitrilo negro mate en cocina, mano desnuda sin anillos en mesa"
+  luz_descartada: "luz de día de ventana como luz principal en platos (reel v4, primera tanda)"
+  camara: "Seguimiento de pequeña amplitud permitido (no hay prohibición del cliente); slider en la sala."
+  video: "Seedance 2.5 a 720p + reescalado ByteDance pro; nunca Kling 3.0 (Víctor, 25/09/2026)"
+  foco: "f/2 en platos y manos con plano de foco nombrado; f/2.8 en la sala."
+
+negativos_obligatorios:
+  - "no text, no logos"
+  - "no extra hands, no rings or jewellery"
+  - "no floating objects, nothing hanging in the air"
+  - "no identical repeated pieces"
+  - "no deep focus across the whole frame, no flat even lighting"
+  - "no orange cast, no CGI look"
+  - "nothing invented beyond the references"
+
+cierre: "Da Tonino · Ristorante · Reserva tu mesa"
+
+direccion_aprobada:
+  # Víctor aprobó el reel v4 (job 023715c8) el 2026-09-25. Detalle: references/04-compilador-de-prompts.md §4.0
+  formato: "una sola multitoma Seedance 2.5, 12 s, 9 tomas con corte seco de 1,0–1,4 s + sala final de 3 s"
+  orden: "pizza (rúcula, cornicione, jamón, porción) → pasta (salteado, emplatado) → paella → cerveza → sala"
+  camara: "un movimiento profesional con nombre distinto por toma: dolly-in que frena, slider macro, rack focus, tilt de gimbal, whip en mano, grúa a cenital, slider bajo, arco corto, planeo FPV en sala"
+  sonido: "diegético de Seedance por acción; música con pulso en montaje"
+  receta: produccion/da-tonino/recetas/reel_multitoma.yaml

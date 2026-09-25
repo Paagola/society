@@ -37,6 +37,7 @@ Texto para el campo `lighting`:
 
 > "Natural window daylight, neutral white balance around 5000K so the linen reads off-white, never orange. Directional key with soft edges; the room gently lifts the shadows so they keep detail."
 
+- **Neutra de color, no plana de forma** [MEDIDO 25/09/2026]: en cocina, proceso y fuego, luz *low-key* dura y motivada con negros profundos y brillos especulares. El párrafo de arriba es para la sala y el plato servido. → [`08-firma-de-rodaje-real.md`](08-firma-de-rodaje-real.md) §3
 - **Termómetro rápido:** el mantel o cualquier blanco de referencia debe leerse blanco roto. Si se ve crema o naranja, la temperatura se ha ido.
 - **Luz direccional de bordes suaves:** ni plana ni de flash.
 - **Sombras con detalle:** la sala las levanta; no se cierran a negro.
@@ -45,7 +46,8 @@ Texto para el campo `lighting`:
 ## 3. Bokeh, fondo y profundidad de campo
 
 - **Bokeh gris parduzco, nunca dorado:** *"background bokeh neutral grey-brown, not golden."* El dorado es un cliché de stock y en Seedance arrastra toda la temperatura del plano.
-- **f/4 con 85 mm** para platos (`lens_mm 85, aperture_f 4.0, iso 200`). La textura se resuelve en el plano de foco. La regla de coherencia de `knowledge/05` §3.3 sigue valiendo: si el fondo está lejos, se desenfoca aunque la apertura sea f/4.
+- **Vídeo y planos de acción** [MEDIDO 25/09/2026]: plano de foco fino con nombre (f/1.8–2.8), no f/4. → [`08-firma-de-rodaje-real.md`](08-firma-de-rodaje-real.md) §2
+- **Still de catálogo: f/4 con 85 mm** para platos (`lens_mm 85, aperture_f 4.0, iso 200`). La textura se resuelve en el plano de foco. La regla de coherencia de `knowledge/05` §3.3 sigue valiendo: si el fondo está lejos, se desenfoca aunque la apertura sea f/4.
 - **Qué plano se queda nítido:** dilo siempre. *"The whole plate in sharp focus, background falling into soft bokeh"*. "Blurry background" a secas puede desenfocar también el plato (OSideMedia [COMUNIDAD]).
 
 ## 4. Asignación positiva del color

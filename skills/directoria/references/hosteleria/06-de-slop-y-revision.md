@@ -65,7 +65,8 @@ Un clip generado no es un rodaje: cada fotograma se genera por separado y puede 
 2. **Comparación con el keyframe:** temperatura y luminancia (→ [`02-luz-y-color.md`](02-luz-y-color.md) §7).
 3. **Paso a paso en el plano héroe:** manos (número de dedos y manos, quién las lleva), recuento de piezas, forma del plato, vajilla y fondo que cambian, texto que aparece.
 4. **Continuidad entre tomas:** mismo número de piezas, misma orientación (en el clip del chuletón, el hueso cambió de orientación en la toma 3), mismo fondo (en ese mismo clip pasó de claro a madera oscura) [OBSERVADO].
-5. **Filtro Society:** ¿notaría un cliente que entra en el local alguna diferencia con lo que vio?
+5. **Firma de rodaje:** `skills/openmontage/scripts/medir_realismo.py` y las preguntas de `08` §12 (¿algo flota, cae sin estela, se repite idéntico?).
+6. **Filtro Society:** ¿notaría un cliente que entra en el local alguna diferencia con lo que vio?
 
 ## 5. Catálogo de fallos de vídeo
 
@@ -81,6 +82,10 @@ Un clip generado no es un rodaje: cada fotograma se genera por separado y puede 
 | Andar deslizándose | El modelo anima la apariencia de andar, no la física | *"heel lands first, strict left-right alternation, one foot always on the ground"* |
 | Cadencia a saltos | Seedance rellena con fotogramas repetidos | Indicar la cadencia en el texto (*"runs at 24 fps, no frame is repeated"*); si falla en el héroe, regenerar |
 | Deriva cálida y oscura | Sesgo del modelo y referencias cálidas | Bloque PRESERVE + asignación positiva del color |
+| Objeto que flota o cae despacio y nítido | El modelo anima la apariencia, no la gravedad; sin obturación nombrada no hay estela | Cláusula PHYSICS de `08` §5 (gravedad, estela 180°, se posa plano); si falla 2 veces, dos estados y un sonido |
+| Piezas idénticas (rigatoni, hojas, sésamo) | El modelo repite la misma forma | *"irregular pieces, no two identical"* en PHYSICS |
+| Todo el encuadre en foco | Apertura no nombrada o f/4 en vídeo | CAPTURE con plano de foco nombrado (`08` §2) |
+| El mismo fondo o vapor en planos distintos | «Restaurante moody» por defecto del modelo | Fondo real distinto por plano desde el inventario (`08` §7) |
 | Rótulos o música no pedidos | El modelo los añade por defecto | Seedance 2.5: *"Pure video, no subtitles, no background music"*, repetido al final |
 | Una sola toma cuando se pedía montaje | El modelo no entiende que haya cortes | *"This must be a multi-shot sequence with visible hard cuts"*, más `Shot N` / `Cut to` |
 | Montaje cuando se pedía una sola toma | Seedance 2.5 tiende a cortar por su cuenta | *"One continuous shot, no cuts of any kind"* y una ruta de cámara que no justifique cortes; si sigue fallando, clips de 10–15 s |

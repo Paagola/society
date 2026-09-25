@@ -1,0 +1,58 @@
+import React from 'react';
+import {AbsoluteFill, Img, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {Bubble, Headline, Paper} from '../components';
+import {COPY} from '../copy';
+import {C, EASE_OUT, FONT, PAD, tween} from '../theme';
+import {useWide} from '../format';
+
+
+// Los tres planes, como tarjetas de la app en modo oscuro.
+export const Planes: React.FC = () => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const {titular, lista} = COPY.planes;
+  const wide = useWide();
+  const CARD_H = wide ? 250 : 270;
+  return (
+    <AbsoluteFill>
+      <Paper dark />
+      <Headline lines={titular} size={300} at={2} stagger={6} color={C.papel} style={{position: 'absolute', left: PAD - 4, top: wide ? 150 : 130}} />
+      {lista.map((p, i) => {
+        const at = 14 + i * 8;
+        const x = tween(f, at, at + 22, [1100, 0], EASE_OUT);
+        const hot = i === 1;
+        const pulse = hot ? spring({frame: f - 70, fps, config: {damping: 10, stiffness: 160}}) : 0;
+        const bg = hot ? C.cobalto : C.papel;
+        const ink = hot ? C.papel : C.tinta;
+        return (
+          <div
+            key={p.nombre}
+            style={{
+              position: 'absolute',
+              left: wide ? 760 : PAD,
+              right: PAD,
+              top: (wide ? 150 : 720) + i * (CARD_H + (wide ? 28 : 32)),
+              height: CARD_H,
+              borderRadius: 30,
+              background: bg,
+              display: 'flex',
+              gap: 28,
+              padding: 22,
+              boxSizing: 'border-box',
+              transform: `translateX(${x}px) scale(${1 + 0.035 * pulse})`,
+            }}
+          >
+            <Img src={staticFile(`img/${p.img}`)} style={{width: 226, height: 226, objectFit: 'cover', borderRadius: 18}} />
+            <div style={{flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 10}}>
+              <div style={{fontFamily: FONT.display, fontSize: 130, lineHeight: 0.92, color: ink, filter: 'url(#tinta)'}}>{p.nombre}</div>
+            </div>
+            <svg width={34} height={30} viewBox="0 0 24 20" fill="none" stroke={ink} strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" style={{alignSelf: 'flex-end'}}>
+              <path d="M2 10 H21 M13 2 L21 10 L13 18" />
+            </svg>
+          </div>
+        );
+      })}
+      <Bubble x={wide ? 1560 : 700} y={wide ? 400 : 1000} at={74} size={30} rot={6} bg={C.mostaza} fg={C.tinta} text="Recomendado" tail="right" />
+    </AbsoluteFill>
+  );
+};

@@ -20,7 +20,7 @@ Catálogo **en vivo** del MCP de Higgsfield (`models_explore(action:"list", type
 | Necesidad | Modelo | Parámetros a fijar siempre |
 |---|---|---|
 | Plano complejo, multitoma, cámara móvil, física, varios keyframes | **`seedance_2_5`** | `mode:"omni_reference"`, `resolution`, `duration`, `aspect_ratio:"9:16"`, `generate_audio:false` si el sonido va en montaje |
-| Plano sencillo con movimiento contenido, desde un fotograma inicial | `kling3_0` | `mode:"pro"`, `sound:"off"` si el sonido va en montaje, `aspect_ratio:"9:16"` |
+| Plano sencillo con movimiento contenido, desde un fotograma inicial | ~~`kling3_0`~~ **obsoleto (25/09/2026): `seedance_2_5` 720p + ByteDance pro** | `mode:"pro"`, `sound:"off"` si el sonido va en montaje, `aspect_ratio:"9:16"` |
 | Necesito 4K nativo | `seedance_2_0` | `mode:"std"` (obligatorio para 1080p/4K), `resolution:"4k"` |
 | Persona que habla con audio sincronizado | `wan2_7` o `sync_so` (lipsync sobre un clip existente) | Ver §4 |
 | Transferir un movimiento real grabado (camarero, cocinero) a otro sujeto | `hf_mult_motion_control` (Genjutsu) | Roles `image_references` + `video_references` |

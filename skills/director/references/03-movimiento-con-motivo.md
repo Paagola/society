@@ -16,6 +16,8 @@ Cuándo se mueve la cámara, cuánto y hacia dónde. Reúne la regla de Fincher 
 
 ---
 
+> **Corrección [MEDIDO 25/09/2026]:** *restraint* no es cámara muerta. En el reel de Da Tonino v3, 5 planos con la cámara quieta y el movimiento añadido en montaje se leían como plantilla; la referencia rodada se mueve en casi todos los planos, a mano, acompañando el gesto. En planos de proceso: cámara en mano o gimbal con microtemblor y un motivo. → `directoria/references/hosteleria/08-firma-de-rodaje-real.md` §4
+
 ## 1. La cámara tiene que tener un motivo
 
 Regla de Fincher: todo movimiento responde a **"¿qué ha cambiado?"**. Si nada ha cambiado, la cámara no se mueve (y se da vida al plano en montaje o con el movimiento propio de la escena).
