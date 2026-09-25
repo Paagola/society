@@ -59,7 +59,7 @@ const musicVolume = (f: number) =>
   interpolate(
     f,
     [0, 10, REEL_IN - 12, REEL_IN + 4, REEL_OUT - 20, REEL_OUT + 10, PROMO_FRAMES - 40, PROMO_FRAMES],
-    [0, 0.8, 0.8, 0, 0, 0.8, 0.8, 0],
+    [0, 1, 1, 0, 0, 1, 1, 0],
     {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
   );
 
