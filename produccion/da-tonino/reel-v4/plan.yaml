@@ -156,3 +156,13 @@ incidencia_kling:
   cancelacion: "No hay herramienta de cancelación en el MCP; los trabajos se cobraron."
   correccion: "Kling marcado como obsoleto en README §9, skills/README, CLAUDE.md, higgsfield, director-reels y perfiles."
   saldo_tras_incidencia: 131.77
+  descarte: "Víctor (2026-09-25) descarta por completo los 6 clips de Kling: tienen deformidades y no tienen tomas rápidas. No se usan ni como relleno ni como referencia."
+
+# Reglas que salen del descarte (para la tanda Seedance)
+ruta_seedance:
+  modelo: "Seedance 2.5 · 720p · omni_reference · 9:16 · con audio"
+  entrada: "solo imágenes aprobadas como start_image; no se generan imágenes nuevas"
+  aprobadas: [819b7da7, ad4338f4, d68d1d5f, 6ef88286, 84a4353e, f1e1b0d2, c3b14697, 44676d3d, 3def1863]
+  tomas_rapidas: "cada clip se pide como multitoma con cortes secos de 0,6–1,0 s; en montaje ningún plano pasa de 1,2 s salvo el héroe final"
+  reescalado: "ByteDance pro a 1080×1920 solo de las tomas aprobadas"
+  gasto: "preflight de coste y OK de Víctor antes de lanzar nada"
