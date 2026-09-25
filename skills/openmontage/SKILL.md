@@ -9,6 +9,8 @@ metadata:
 
 # OpenMontage y montaje que retiene
 
+> **Regla cero, obligatoria antes de cualquier otra:** todo lo que se produzca tiene que parecer rodado, no generado. Lee y aplica [`../README.md`](../README.md) (firma de rodaje real: material real primero, plano de foco con nombre, luz con fuente, cámara y física con peso, un verbo de manos por plano, corte seco, sonido obligatorio y revisión con `medir_realismo.py`). Detalle: `directoria/references/hosteleria/08-firma-de-rodaje-real.md`.
+
 Esta skill toma los clips aprobados y los convierte en una pieza que **se ve entera y se reenvía**, que es lo que premia Instagram. También documenta OpenMontage, la herramienta de montaje por agentes que usa la agencia (AGPL-3.0: uso interno, **no se integra en Society**; el producto monta con Remotion propio).
 
 > **Lo que manda, medido:** en un reel de comida, un corte plano sin editar puntuó en Virality Predictor lo mismo que un montaje completo (40/38). El montaje sube la activación visual (+16 % en t=0) y baja la divagación, pero **el techo lo pone el material y el mensaje**: acción real en el fotograma 1, más elementos en el encuadre, una cara, un motivo para reenviar. Montar bien es obligatorio; esperar que el montaje salve un material plano es un error.

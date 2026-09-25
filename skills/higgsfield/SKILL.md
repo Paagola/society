@@ -4,10 +4,12 @@ description: 'Operativa de Higgsfield para Society: qué modelo o herramienta us
 license: 'Contenido propio + adaptaciones de fuentes MIT y CC BY 4.0 (ver "Fuentes")'
 metadata:
   author: victor-society
-  version: "2.0.0"
+  version: "2.1.0"
 ---
 
 # Higgsfield
+
+> **Regla cero, obligatoria antes de cualquier otra:** todo lo que se produzca tiene que parecer rodado, no generado. Lee y aplica [`../README.md`](../README.md) (firma de rodaje real: material real primero, plano de foco con nombre, luz con fuente, cámara y física con peso, un verbo de manos por plano, corte seco, sonido obligatorio y revisión con `medir_realismo.py`). Detalle: `directoria/references/hosteleria/08-firma-de-rodaje-real.md`.
 
 La skill que convierte "quiero este plano" en **una llamada correcta, presupuestada y registrada**. No decide la estética (`directoria`) ni la cinematografía (`director`); decide la herramienta exacta, los parámetros y el coste, y evita los errores que ya se han pagado.
 

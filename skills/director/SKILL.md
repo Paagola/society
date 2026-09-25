@@ -9,6 +9,8 @@ metadata:
 
 # Director
 
+> **Regla cero, obligatoria antes de cualquier otra:** todo lo que se produzca tiene que parecer rodado, no generado. Lee y aplica [`../README.md`](../README.md) (firma de rodaje real: material real primero, plano de foco con nombre, luz con fuente, cámara y física con peso, un verbo de manos por plano, corte seco, sonido obligatorio y revisión con `medir_realismo.py`). Detalle: `directoria/references/hosteleria/08-firma-de-rodaje-real.md`.
+
 La skill que **decide la pieza** y **coordina** a las demás. Convierte un brief en conceptos, los conceptos en una lista de planos que funciona como contrato, y lleva cada plano por `directoria` → `higgsfield` → `openmontage` con puertas de aprobación en los puntos donde un error cuesta dinero.
 
 > **El error que existe para evitar:** una pieza donde cada plano es fotorrealista y está bien iluminado, pero el conjunto aburre: todos los planos con el mismo tamaño, el mismo movimiento y la misma duración, sin una razón para seguir mirando ni para reenviarla. **Un plano bonito sin dramaturgia es papel pintado.** Y en hostelería hay un segundo error: pedir al modelo movimientos de cámara que recorren la comida y la deforman. El movimiento amplio se hace en montaje.
