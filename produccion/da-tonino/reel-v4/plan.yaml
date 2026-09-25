@@ -218,4 +218,15 @@ montaje_v6:
   medicion: montaje/medicion-v6.txt
   coste_creditos: 0
   estado: entregado   # Víctor, 25/09/2026: «ok»
+  virality_predictor:
+    job_id: d4d8e7b2-9eda-4eab-8d76-52067db1ab3e
+    media: cfc5c21c-d47a-4dad-bd11-42a23f87cc92
+    scores: {global: 48, gancho: 34, viral: 46, sostenimiento: 95, implicacion: 43}
+    visual_por_segundo: [0.53, 0.54, 0.55, 0.57, 0.58, 0.60, 0.61, 0.60, 0.60, 0.56, 0.53, 0.48, 0.43, 0.36]
+    divagacion_por_segundo: [0.63, 0.63, 0.63, 0.62, 0.61, 0.59, 0.58, 0.57, 0.55, 0.54, 0.51, 0.50, 0.52, 0.54]
+    lectura: "la atención sube con los platos (pico visual en el s 6) y cae en el cierre de 4,2 s (sala + logo); la divagación es máxima en el arranque (gancho 34)"
+  feedback_victor:
+    - "La edición le ha gustado muchísimo; sobre todo la luminosidad (sala en luz de cena)."
+    - "Porción de pizza (3,4–4,7 s): coger la porción debería ser más rápido o verse más cerca; se nota un poco IA."
+    - "Rigatoni: el final de su toma podría ir algo más rápido."
 

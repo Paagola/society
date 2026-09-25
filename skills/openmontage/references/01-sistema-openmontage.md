@@ -13,6 +13,8 @@ Qué es OpenMontage, cómo se gobierna y cómo se usa para producir piezas de So
 7. Modo plantilla frente a modo atelier
 8. Presupuesto y configuración
 9. Restricciones de Society sobre OpenMontage
+10. Revisar una pieza ya aprobada (revisión de `edit`)
+11. Composiciones propias en `remotion-composer`
 
 ---
 
@@ -119,3 +121,40 @@ Del prompt de producción de Torre de Vega (vigente). **Mandan sobre cualquier v
 - **Entregables:** vídeo 1080×1920 (Remotion) o clips + EDL + SRT + voz (After Effects); guion en el formato del cliente; registro de intentos; aprendizajes **propuestos**, nunca escritos directamente en las reglas.
 
 Para piezas con los modelos de Higgsfield, la ruta de generación la marca la skill `higgsfield`; OpenMontage entra en guion, escenas y composición.
+
+## 10. Revisar una pieza ya aprobada (revisión de `edit`)
+
+Validado el 25/09/2026 con Da Tonino v6 (proyecto `projects/da-tonino-reel-v6`, aprobado por Víctor). Sirve cuando una pieza ya entregada, aunque se montara fuera de OpenMontage, necesita un cambio de edición (sonido, rótulos, logo, un plano) **sin regenerar nada**.
+
+1. **Entorno:** OpenMontage trae su propio Python en `.venv`. Usar `.venv/Scripts/python.exe` con `PYTHONPATH=.` desde `C:\Users\victo\OpenMontage`. El Python del sistema no tiene `jsonschema` y `lib/checkpoint.py` falla al importarse.
+2. **Proyecto:** `from lib.checkpoint import init_project; init_project('<cliente>-reel-vN', title=..., pipeline_type='hybrid')`. El pipeline es `hybrid` porque el metraje aprobado es el ancla. Los medios van en `assets/` y las entregas en `renders/`. La carpeta `projects/` está en el `.gitignore` de OpenMontage.
+3. **Importar las etapas anteriores:** `edit` no avanza si `idea`, `script`, `scene_plan` y `assets` no están `completed` y aprobadas (`_enforce_stage_prerequisites`). Se escriben con `write_checkpoint(..., status="completed", human_approved=True)` y en `metadata` se deja de dónde salen y quién las aprobó (p. ej., `plan.yaml` de Society). No se inventa una aprobación: solo se importa lo que el cliente ya aprobó.
+4. **Esquemas que muerden** (`schemas/artifacts/`):
+   - `scene_plan.scenes[].type` solo admite `talking_head`, `broll`, `animation`, `character_scene`, `diagram`, `text_card`, `transition`, `generated` y `screen_recording`. Un plano de Seedance es `generated`.
+   - `decision_log.category` no incluye `approval_policy`, aunque lo cite `AGENT_GUIDE.md`. Valen `pipeline_selection`, `render_runtime_selection`, `music_source`, `playbook_override`, `fallback_decision`…
+   - `edit_decisions` exige `render_runtime` (`remotion`, `hyperframes` o `ffmpeg`) y no admite campos fuera del esquema. Las notas propias van en `metadata` (`anchor_cut_notes`, `layer_order`, `overlay_windows`, `variant_edit_rules`).
+5. **La edición:** en `cuts`, un corte por plano con los tiempos medidos (`select='gt(scene,0.2)'`) y `source` apuntando al máster aprobado. Lo que cambia va en `audio`, en `overlays` o en el `source` del plano rehecho, y cada cambio se explica en `reason` y en el `decision_log`.
+6. **Puertas:** con `checkpoint_policy="manual_all"`, `edit` se escribe `awaiting_human`, se presenta y **se termina el turno**. Después se escriben `edit` y `compose` como `completed` con `human_approved=True`. `compose` lleva un `render_report` con las rutas de `renders/`.
+7. **Componer sin reencodar:** `tools/video/video_compose.py` reencoda. Si el cliente ha aprobado la imagen, se compone con ffmpeg (`-c:v copy`), se registra como `render_runtime_selection` y se comprueba con `framemd5 -map 0:v` que la imagen no ha cambiado.
+8. **Tablero:** `python -m backlot open <proyecto>` abre el tablero en `http://127.0.0.1:4750/p/<proyecto>`. Es opcional: si falla, se sigue.
+9. **Cuidado con git en el repo de Society:** una limpieza de historial (`reset`, `clean`, `stash`) borra los archivos sin versionar. Se trabaja en `projects/` de OpenMontage o en el scratchpad y solo se copia al repo lo aprobado.
+
+Scripts de referencia: `projects/da-tonino-reel-v6/escribir_etapas.py` (importación y edición) y `revision_tipografia.py` (segunda revisión de `edit`: sustituir un logo incrustado).
+
+## 11. Composiciones propias en `remotion-composer`
+
+- **`HosteleriaReelSpeed`** (`remotion-composer/src/HosteleriaReelSpeed.tsx`, registrada en `Root.tsx`; creada el 25/09/2026). Parte de `TorreDeVegaReelFX` y añade:
+  - velocidad por corte (`rate`). Varios subcortes seguidos de la misma fuente con `transitionIn: "cut"` forman una rampa de velocidad sin salto;
+  - `snap` (empuje rápido en los primeros `snapFrames`, con desenfoque de movimiento);
+  - `shakeAt` (sacudida en el impacto);
+  - fuentes configurables (`fonts.serif` y `fonts.sans`);
+  - placa final (un plano sin `src` es negro).
+
+  Las props se generan desde una EDL en Python (ejemplo: `pruebas/reel-da-tonino-2026-09-25/montaje/edl_velocidad.py`) y se renderiza con:
+
+  ```bash
+  npx remotion render src/index.tsx HosteleriaReelSpeed out.mp4 --props=props.json --codec=h264 --crf=14
+  ```
+
+  Sirve para rescatar en montaje un clip que salió lento (R-VEL-01, `03` §4).
+- **`TorreDeVegaReelFX`**: whips, zoom, flash, corte de choque, grano, viñeta y títulos con tracking. Es la base de la anterior.

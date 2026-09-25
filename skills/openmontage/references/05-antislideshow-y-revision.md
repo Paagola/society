@@ -92,6 +92,11 @@ Informa por plano de duración, parte del encuadre en foco, movimiento e irregul
 - **Fotogramas de revisión:** apertura, revelación y cierre (`cinematic/compose-director`).
 - **Grade por escena, no global:** se renderiza un fotograma de cada plano, se mira y se corrige. Rangos medidos en interiores de hostelería (AE): plano cálido ya bien expuesto → *exposure* 0,10–0,14, *gamma* 1,06, *vibrance* 30–36; fondo oscuro con sujeto claro → 0,18–0,22; luz plana → 0,26–0,30 con *vibrance* 42–55. En la ráfaga del gancho, el grade sube un escalón.
 - ⚠️ **Choque con la regla de luz neutra:** los perfiles de grade de OpenMontage (`cinematic_warm` 0,85, etc.) no se aplican encima de comida sin comprobar que el mantel sigue blanco roto (skill `directoria`, `hosteleria/02`).
+- **Receta «sala de día → luz de cena»** (Da Tonino v5/v6, aprobada y muy valorada por Víctor el 25/09/2026). La sala real se fotografió de día; la pieza es de luz de cena. Nace en la v5: curva `0/0 0.2/0.16 0.5/0.46 0.8/0.76 1/0.93` + `colortemperature` 4500 K al 35 % + viñeta (brillo medio 101 → 38; R/B 1,29 → 1,52; un primer intento a 18 y 2,05 quedó demasiado oscuro y naranja). En la v6 se congeló en una LUT reutilizable:
+  - `produccion/da-tonino/reel-v4/montaje/v6-sonido/sala_v5.cube` (1D por canal) + `vignette=angle=0.93` **en RGB** + `gblur=sigma=0.7` (4K) + `noise=c0s=5:c0f=t+u`;
+  - resultado medido frente a la v5: luminancia 39,2 / 39,0; R/B 1,55 / 1,53.
+  - **Cómo se iguala un etalonaje que no está documentado:** parejas de fotogramas fuente/máster del mismo plano → máscara real de `vignette` medida sobre un fotograma gris (probar ángulos: 0,80–0,99) → curva por canal = mediana de máster/máscara por valor de fuente → **bucle cerrado con renders reales de ffmpeg** hasta que cuadren la luminancia y la relación R/B. En YUV, `vignette` solo oscurece la luma y la imagen se calienta; hay que aplicarla en RGB.
+  - Con otro local no se copia la LUT: se repite el método con sus fotos.
 - **Marca:** se cumplen las reglas vigentes del cliente. El estilo aprobado para otro cliente no se hereda.
 - **Filtro Society:** ¿notaría un cliente que entra en el local alguna diferencia con lo que vio en el reel?
 - **Texto del cliente:** el copy es suyo. Se propone marcado como propuesta y no se inventan afirmaciones (premios, antigüedad, "el mejor de…").
