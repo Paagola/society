@@ -1,0 +1,32 @@
+# medir_realismo.py sobre da-tonino-reel-v4.mp4 (montaje final, 2026-09-25, sandbox de Higgsfield)
+== da-tonino-reel-v4.mp4
+inicio    fin   dur  foco %  mov px  irreg
+   0.0    1.7   1.7      25    8.73  29.53
+   1.7    2.6   0.9      29    3.96   1.21
+   2.6    3.5   0.9      13    2.51   0.91
+   3.5    4.9   1.4      32    1.85   1.83
+   4.9    7.2   2.3      18    4.54  18.43
+   7.2    8.1   0.9      20    1.75   0.43
+   8.1    9.5   1.4      18    0.15   0.36
+   9.5   12.2   2.7      22    2.22   1.79
+  12.2   14.6   2.4      11    0.00   0.00
+
+Resumen                      valor    objetivo        estado
+  Duración media de plano (s)       1.6   0.4–1.2       REVISAR
+  Encuadre en foco (%)             20.9   8–25       ok
+  Movimiento de cámara (px)         2.9   1–9       ok
+  Negro, percentil 1                1.1   0–3.5       ok
+  Blanco, percentil 99            226.3   220–255       ok
+  Audio, RMS                     4264.0   1500–20000       ok
+  Planos con cámara quieta            2   0–2          ok
+  Transiciones (indicativo)           0   0            ok
+  Nitidez media (informativo)     902.6
+  Saturación media (inform.)      141.3
+
+# Lectura
+# - «Duración media 1,6 s» incluye la cartela (2,4 s) y une dos tomas (4,9–7,2 s: salteado + emplatado).
+#   Cortes reales por detección de escena de ffmpeg: 1,58 · 2,42 · 3,38 · 4,71 · 5,96 · 7,00 · 7,92 · 9,38 s
+#   → tomas de 1,58 / 0,83 / 0,96 / 1,33 / 1,25 / 1,04 / 0,92 / 1,46 s + sala 2,66 s + cartela 2,4 s.
+# - Primera pasada con grano en croma: saturación 97 → 144 y fundido a cartela detectado como transición.
+#   Corregido: grano solo en luma y corte seco a la cartela.
+# - Sonoridad integrada: −15,4 LUFS.

@@ -178,3 +178,12 @@ reel_seedance_unico:
   preset_rechazado: "IN THE DARK (24bae836), se generó literal"
   estado: aprobado  # Víctor, 2026-09-25: «me gusta»
   siguiente: "revisión de Víctor → reescalado ByteDance pro de la toma aprobada → montaje en sandbox (grade, grano, música con pulso, cartela «Da Tonino · Ristorante · Reserva tu mesa») → medir_realismo.py"
+
+reescalado:
+  job_id: 8fe46ec7-f8cf-4f16-a30d-63cbf12aad0d
+  params: {provider: bytedance, preset: aigc, resolution: 1080p, fps: 24}
+montaje:
+  media_id: e7c65767-aab5-4a5c-8328-750417fa3d8d
+  detalle: montaje/README.md
+  medicion: montaje/medicion.txt
+  estado: entregado  # pendiente de visto bueno final de Víctor y música al publicar
