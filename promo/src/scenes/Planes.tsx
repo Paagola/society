@@ -4,20 +4,22 @@ import {Body, Bubble, Headline, Paper} from '../components';
 import {COPY} from '../copy';
 import {C, EASE_OUT, FONT, PAD, tween} from '../theme';
 import {Folio} from './Folio';
+import {useWide} from '../format';
 
-const CARD_H = 270;
 
 // Los tres planes, como tarjetas de la app en modo oscuro.
 export const Planes: React.FC = () => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const {titular, lista} = COPY.planes;
+  const wide = useWide();
+  const CARD_H = wide ? 250 : 270;
   return (
     <AbsoluteFill>
       <Paper dark />
       <Folio page={7} dark />
-      <Headline lines={titular} size={300} at={2} stagger={6} color={C.papel} style={{position: 'absolute', left: PAD - 4, top: 130}} />
-      <Body size={34} color={C.papel} style={{position: 'absolute', right: PAD, top: 330, width: 360, textAlign: 'right', opacity: tween(f, 14, 26)}}>
+      <Headline lines={titular} size={300} at={2} stagger={6} color={C.papel} style={{position: 'absolute', left: PAD - 4, top: wide ? 150 : 130}} />
+      <Body size={34} color={C.papel} style={{position: 'absolute', ...(wide ? {left: PAD, top: 720, width: 540} : {right: PAD, top: 330, width: 360, textAlign: 'right'}), opacity: tween(f, 14, 26)}}>
         De tu ficha de Google a los reels. Tú eliges hasta dónde.
       </Body>
       {lista.map((p, i) => {
@@ -32,9 +34,9 @@ export const Planes: React.FC = () => {
             key={p.nombre}
             style={{
               position: 'absolute',
-              left: PAD,
+              left: wide ? 760 : PAD,
               right: PAD,
-              top: 720 + i * (CARD_H + 32),
+              top: (wide ? 150 : 720) + i * (CARD_H + (wide ? 28 : 32)),
               height: CARD_H,
               borderRadius: 30,
               background: bg,
@@ -58,7 +60,7 @@ export const Planes: React.FC = () => {
           </div>
         );
       })}
-      <Bubble x={700} y={1000} at={74} size={30} rot={6} bg={C.mostaza} fg={C.tinta} text="Recomendado" tail="right" />
+      <Bubble x={wide ? 1560 : 700} y={wide ? 400 : 1000} at={74} size={30} rot={6} bg={C.mostaza} fg={C.tinta} text="Recomendado" tail="right" />
     </AbsoluteFill>
   );
 };

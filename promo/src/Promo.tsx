@@ -3,6 +3,7 @@ import {AbsoluteFill} from 'remotion';
 import {linearTiming, TransitionSeries} from '@remotion/transitions';
 import type {TransitionPresentation} from '@remotion/transitions';
 import {InkDefs} from './components';
+import {WideContext} from './format';
 import {C, EASE} from './theme';
 import {band, sheet} from './transitions';
 import {Portada} from './scenes/Portada';
@@ -39,7 +40,8 @@ const T: {p: TransitionPresentation<Record<string, unknown>>; d: number}[] = [
 
 export const PROMO_FRAMES = SCENES.reduce((a, s) => a + s.d, 0) - T.reduce((a, t) => a + t.d, 0);
 
-export const Promo: React.FC = () => (
+export const Promo: React.FC<{wide: boolean}> = ({wide}) => (
+  <WideContext.Provider value={wide}>
   <AbsoluteFill style={{background: C.papel}}>
     <InkDefs />
     <TransitionSeries>
@@ -53,4 +55,5 @@ export const Promo: React.FC = () => (
       ))}
     </TransitionSeries>
   </AbsoluteFill>
+  </WideContext.Provider>
 );

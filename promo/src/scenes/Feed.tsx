@@ -4,6 +4,7 @@ import {Body, Brush, Headline, Line, Paper} from '../components';
 import {COPY} from '../copy';
 import {C, FONT, PAD, tween} from '../theme';
 import {Folio} from './Folio';
+import {useWide} from '../format';
 
 const TILE = 300;
 const GAP = 18;
@@ -91,23 +92,28 @@ export const Feed: React.FC = () => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const zoom = 1 + tween(f, 30, 160, [0, 0.05], (t) => t);
+  const wide = useWide();
   const gridW = TILE * 3 + GAP * 2;
+  // En apaisado la cuadrícula va a la derecha, algo más pequeña.
+  const k = wide ? 0.88 : 1;
+  const gx = wide ? 1920 - PAD - (gridW * k) / 2 - gridW / 2 : (1080 - gridW) / 2;
+  const gy = wide ? 150 + (gridW * k) / 2 - gridW / 2 : 620;
   return (
     <AbsoluteFill>
       <Paper />
       <Folio page={5} />
-      <Headline lines={COPY.feed.titular} size={240} at={4} stagger={6} style={{position: 'absolute', left: PAD - 4, top: 130}} />
-      <Body size={32} style={{position: 'absolute', right: PAD, top: 450, width: 330, textAlign: 'right', opacity: tween(f, 18, 30)}}>
+      <Headline lines={COPY.feed.titular} size={wide ? 250 : 240} at={4} stagger={6} style={{position: 'absolute', left: PAD - 4, top: wide ? 200 : 130}} />
+      <Body size={32} style={{position: 'absolute', ...(wide ? {left: PAD, top: 700, width: 520} : {right: PAD, top: 450, width: 330, textAlign: 'right'}), opacity: tween(f, 18, 30)}}>
         Posts, carruseles, historias y reels con criterio.
       </Body>
       <div
         style={{
           position: 'absolute',
-          left: (1080 - gridW) / 2,
-          top: 620,
+          left: gx,
+          top: gy,
           width: gridW,
           height: gridW,
-          transform: `scale(${zoom})`,
+          transform: `scale(${zoom * k})`,
         }}
       >
         {TILES.map((tile, i) => {

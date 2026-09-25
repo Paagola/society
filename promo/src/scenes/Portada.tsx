@@ -4,10 +4,12 @@ import {Body, Bubble, Cutout, Headline, Label, Logo, Paper, Sparkle, StarSticker
 import {COPY} from '../copy';
 import {C, PAD, tween} from '../theme';
 import {Folio} from './Folio';
+import {useWide} from '../format';
 
 // Portada de revista: «TU BAR merece QUE LO VEAN.» con la mano y la copa cruzando el titular.
 export const Portada: React.FC = () => {
   const f = useCurrentFrame();
+  const wide = useWide();
   // Deriva lenta de cámara para que la portada respire.
   const zoom = 1 + tween(f, 0, 130, [0, 0.035], (t) => t);
   const [l1, l2, l3] = COPY.portada.titular;
@@ -15,24 +17,24 @@ export const Portada: React.FC = () => {
     <AbsoluteFill>
       <Paper />
       <AbsoluteFill style={{transform: `scale(${zoom})`}}>
-        <Logo size={118} at={4} style={{position: 'absolute', left: PAD, top: 150}} />
-        <Bubble x={760} y={176} at={30} size={40} rot={-6} />
+        <Logo size={wide ? 100 : 118} at={4} style={{position: 'absolute', left: PAD, top: wide ? 130 : 150}} />
+        <Bubble x={wide ? 1560 : 760} y={wide ? 150 : 176} at={30} size={40} rot={-6} />
 
         <Headline
           lines={[{...l1, scale: 1.55}, l2, {...l3, scale: 0.84}]}
-          size={236}
+          size={wide ? 184 : 236}
           at={12}
           stagger={7}
-          style={{position: 'absolute', left: PAD - 6, top: 360}}
+          style={{position: 'absolute', left: PAD - 6, top: wide ? 290 : 360}}
         />
 
-        <Cutout src="mano-copa-v2.png" x={450} y={1130} width={680} at={34} from={[260, 520]} rot={-6} />
+        <Cutout src="mano-copa-v2.png" x={wide ? 1060 : 450} y={wide ? 170 : 1130} width={wide ? 780 : 680} at={34} from={wide ? [520, 200] : [260, 520]} rot={-6} />
 
-        <Sparkle x={930} y={470} size={120} at={44} seed={1} />
-        <Sparkle x={130} y={1180} size={90} at={52} seed={2} />
-        <Sparkle x={420} y={1250} size={60} at={58} seed={3} />
+        <Sparkle x={wide ? 1000 : 930} y={wide ? 330 : 470} size={120} at={44} seed={1} />
+        <Sparkle x={wide ? 1790 : 130} y={wide ? 900 : 1180} size={90} at={52} seed={2} />
+        <Sparkle x={wide ? 1060 : 420} y={wide ? 700 : 1250} size={60} at={58} seed={3} />
 
-        <div style={{position: 'absolute', left: PAD, top: 1560, width: 470}}>
+        <div style={{position: 'absolute', left: PAD, top: wide ? 872 : 1560, width: wide ? 900 : 470}}>
           <Label size={20} style={{opacity: tween(f, 50, 62), marginBottom: 14}}>
             En este número
           </Label>
@@ -40,7 +42,7 @@ export const Portada: React.FC = () => {
             {COPY.portada.entradilla}
           </Body>
         </div>
-        <StarSticker x={250} y={1400} size={210} at={68} lines={['Nuevo']} rot={-12} />
+        <StarSticker x={wide ? 900 : 250} y={wide ? 700 : 1400} size={wide ? 180 : 210} at={68} lines={['Nuevo']} rot={-12} />
       </AbsoluteFill>
       <Folio page={1} />
       {/* Filete cobalto lateral: lomo de la revista */}

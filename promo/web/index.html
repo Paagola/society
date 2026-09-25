@@ -1,0 +1,80 @@
+<title>Society en movimiento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@1,800&family=Schibsted+Grotesk:wght@400;500;700&family=Space+Mono:wght@700&display=swap">
+<style>
+  /* Una sola apariencia a propósito: el papel de la identidad de Society. */
+  :root {
+    --papel: #ECE8DC;
+    --tinta: #141414;
+    --cobalto: #2440E0;
+    --mostaza: #F5C518;
+    --linea: #141414;
+    --suave: #4a4740;
+    color-scheme: light;
+  }
+  body {
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: "Schibsted Grotesk", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.45;
+  }
+  .hoja { max-width: 1240px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 48px); padding-block: 28px 64px; }
+  .folio {
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-family: "Space Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    border-bottom: 3px solid var(--linea); padding-bottom: 10px;
+  }
+  h1 {
+    margin: 36px 0 8px; font-family: Anton, Impact, "Arial Narrow", sans-serif; font-weight: 400;
+    font-size: clamp(64px, 12vw, 150px); line-height: .9; text-transform: uppercase; text-wrap: balance;
+  }
+  h1 em {
+    display: block; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 800;
+    text-transform: none; font-size: .78em; letter-spacing: -.03em; line-height: 1.05;
+  }
+  .trazo { width: min(420px, 70%); height: 14px; background: var(--cobalto); border-radius: 2px 40px 40px 2px; transform: rotate(-1.5deg); margin: 6px 0 22px; }
+  .entrada { max-width: 62ch; font-size: 19px; color: var(--suave); margin: 0 0 36px; }
+  .videos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
+  figure { margin: 0; display: grid; gap: 12px; }
+  video { width: 100%; max-width: 100%; display: block; background: var(--tinta); border: 3px solid var(--tinta); border-radius: 6px; }
+  .v916 video { aspect-ratio: 9 / 16; }
+  .v169 video { aspect-ratio: 16 / 9; }
+  figcaption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+  .etiqueta { font-family: "Space Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+  .uso { color: var(--suave); font-size: 15px; }
+  .chip {
+    display: inline-block; background: var(--mostaza); color: var(--tinta); font-family: Anton, Impact, sans-serif;
+    font-size: 15px; letter-spacing: .02em; padding: 4px 10px; border-radius: 4px; transform: rotate(-3deg);
+  }
+  .notas { margin-top: 48px; border-top: 3px solid var(--linea); padding-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .notas h2 { margin: 0 0 6px; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 26px; text-transform: uppercase; }
+  .notas p { margin: 0; color: var(--suave); font-size: 15px; max-width: 45ch; }
+  code { font-family: "Space Mono", ui-monospace, monospace; font-size: .85em; }
+  @media (max-width: 760px) { .videos { grid-template-columns: 1fr; } .v916 { max-width: 360px; } }
+</style>
+
+<main class="hoja">
+  <div class="folio"><span>Society · Nº 01 · Otoño 2026</span><span>Vídeo promocional · 44 s</span></div>
+
+  <h1>Society <em>en movimiento.</em></h1>
+  <div class="trazo" aria-hidden="true"></div>
+  <p class="entrada">El mismo vídeo en dos formatos, con la identidad editorial de Society: papel, cobalto y mostaza, Anton con cursiva, recortes con trama y pegatinas. Ocho páginas de revista, de la portada al botón Empezar.</p>
+
+  <section class="videos">
+    <figure class="v916">
+      <video src="society-promo-9x16.mp4" controls playsinline muted preload="metadata" poster="poster-9x16.jpg"></video>
+      <figcaption><span class="etiqueta">9:16 · 1080 × 1920</span><span class="uso">Reels e historias</span></figcaption>
+    </figure>
+    <figure class="v169">
+      <video src="society-promo-16x9.mp4" controls playsinline muted preload="metadata" poster="poster-16x9.jpg"></video>
+      <figcaption><span class="etiqueta">16:9 · 1920 × 1080</span><span class="uso">Web, YouTube y presentaciones <span class="chip">Nuevo</span></span></figcaption>
+    </figure>
+  </section>
+
+  <section class="notas">
+    <div><h2>Sin audio</h2><p>Falta la música con licencia o el sonido original. El montaje ya deja pausas marcadas para cortar a ritmo.</p></div>
+    <div><h2>Textos editables</h2><p>Todo el texto está en <code>promo/src/copy.ts</code>. Los datos del local son de relleno, como en la guía.</p></div>
+    <div><h2>Versión web</h2><p>Estos vídeos están comprimidos para verse aquí. Los originales a resolución completa están en la carpeta <code>promo/</code> del repositorio.</p></div>
+  </section>
+</main>
