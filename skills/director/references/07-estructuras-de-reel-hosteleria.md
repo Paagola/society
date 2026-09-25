@@ -91,4 +91,6 @@ Pregunta de control: ¿resuelve un plan? CTA: «Mándaselo a quien vienes».
 - **Nueve cortes de 1,2 s de producto bonito** sin razón para quedarse.
 - **Producto genérico con pie intercambiable** ("la calidad de nuestras carnes").
 - **"¡AVISO!" sin aviso detrás.**
+- **Cerrar repitiendo un plano ya visto** o con una placa estática de más de 1,2 s: la activación cae en los últimos segundos. El CTA va sobre el último plano con acción.
+- **Abrir con un plano de reposo aunque sea ancho** (el plato ya servido, la sala quieta): el gancho necesita la acción física más fuerte del material en el fotograma 1.
 - **Esperar que el montaje salve un material plano:** el techo lo pone el material (acción, elementos, persona, mensaje).

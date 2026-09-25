@@ -11,6 +11,7 @@ Por qué la luz cálida delata a la IA en comida, cómo impedir que el modelo de
 5. Luz motivada: cuándo sí hay calidez
 6. Paletas por tipo de cocina
 7. Cómo medirlo
+8. Estilo "estudio de fotografía" y una sola luminosidad por pieza (R-LUZ-01)
 
 ---
 
@@ -114,3 +115,45 @@ PRESERVE EXPOSURE AND COLOUR: same brightness and white balance as the reference
 ```
 
 Va siempre acompañado de la cláusula de asignación positiva de §4 (→ [`04-bloques-de-prompt.md`](04-bloques-de-prompt.md) §2).
+
+## 8. Estilo "estudio de fotografía" y una sola luminosidad por pieza (R-LUZ-01) [MEDIDO, 25/09/2026]
+
+### 8.1 Qué quiere decir el cliente con "como un estudio de fotografía"
+
+No habla del plato ni del encuadre: habla de **la luminosidad de toda la fotografía**. El fondo está oscurecido y **el único sitio donde vive la luz es el protagonista**, igual que en un estudio profesional con un foco sobre el producto y el resto del set sin luz.
+
+**Imagen patrón:** keyframe K4 de Da Tonino, rigatoni saltando en la sartén (`84a4353e-e0e3-46d3-b370-c05c49f9dad7`, `pruebas/reel-da-tonino-2026-09-25/keyframes/K4-rigatoni.jpg`). Medido a 180×320:
+
+| Métrica | Valor | Qué significa |
+|---|---|---|
+| Luminancia mediana | **25** (de 255) | El fotograma, en conjunto, es oscuro |
+| p5 / p95 / p99 | 3 / 115 / 178 | Negros profundos; las luces no llegan a quemarse (solo el 1 % > 180) |
+| Píxeles en sombra (< 40) | **65 %** | Dos tercios del encuadre están casi negros |
+| Sujeto frente a fondo | **2,5×** más luz en la zona sartén+pasta | La mirada va sola al protagonista |
+| Alimento frente al resto | **4,1×** (pasta 133 frente a 33) | El alimento es lo más brillante del encuadre |
+| Relación rojo/azul | 1,24 | El balance de blancos sigue **neutro**: oscuro no quiere decir naranja |
+
+Cómo está construida la luz (observado):
+
+- **Una sola fuente dura de contra/lateral** que recorta el vapor, la salsa y los bordes de la pasta. La cara del fondo que da a cámara no recibe luz.
+- **El fondo existe, pero 1,5–2 pasos por debajo:** el acero, la campana y el fogón se leen como formas, sin detalle que compita.
+- **Únicas luces en el fondo:** puntos pequeños (bombillas, la llama azul), que dan profundidad sin iluminar el set.
+- **Nada blanco ni brillante fuera del sujeto.**
+
+Texto para el campo `lighting` cuando el brief pide este estilo:
+
+> "Studio product lighting: a single hard neutral key (about 5000K) from behind and to the side of the subject, rim-lighting its edges and the steam. The subject is the brightest thing in the frame; the background sits two stops darker, readable as shapes but with no competing detail, lit only by a few small practical bulbs as points. Deep blacks, no fill on the background, highlights never clipped. Neutral white balance, not orange."
+
+**Excepción a §2:** en este estilo, "las sombras con detalle" y "la sala levanta las sombras" **no se aplican al fondo**, que va a negro a propósito. Sigue valiendo todo lo demás: temperatura neutra, sin naranja y luces sin quemar.
+
+### 8.2 Regla: una sola luminosidad por pieza
+
+**Si una pieza (o una campaña) elige un estilo de luz, todas sus imágenes y vídeos van con ese estilo. Mezclar luminosidades destruye la inversión:** la pieza deja de parecer una producción y se lee como material de fuentes distintas.
+
+- **Caso Da Tonino, v3 [MEDIDO]:** mezcla dos mundos. Los planos de cocina (K2–K4) son de estudio, con mediana de 25–65 y 41–65 % de sombras. Los de sala (K1 y K5) son de luz de día, con mediana de 142–145 y 8–10 % de sombras. El salto es de ~2,5 pasos en cada corte sala↔cocina. Es exactamente lo que este punto prohíbe.
+- **Puerta A (director):** el estilo de luz se decide **una vez** para toda la pieza y queda escrito en el prefijo global de la lista de planos. Si la referencia es de estudio, todos los planos son de estudio, **incluidos los de sala**: la sala se retrata como un set, con el plato iluminado y el comedor en penumbra con las lámparas del local como puntos.
+- **Puerta C (hoja de contactos):** antes de animar nada se mide la **mediana de luminancia y el % de sombras (< 40)** de todos los keyframes. Tolerancia propuesta: mediana dentro de ±40 % de la del keyframe patrón y % de sombras a ±15 puntos (**hipótesis**, a validar). Un keyframe fuera del rango se regenera, no se "arregla en montaje".
+- **Montaje:** el grade puede igualar pequeñas diferencias, pero **no** convierte un plano de luz de día en uno de estudio. Oscurecer un fondo iluminado da un plano sucio, no de estudio.
+- **Medición:** con el mismo script de §7 (luminancia mediana, p5, p95, % < 40) sobre cada keyframe y sobre 1 fotograma por toma del vídeo.
+- **Qué medir para comparar la coherencia: el fondo, no la media global.** Un macro o un primer plano llena el encuadre de comida y sube la mediana global sin cambiar el estilo (en una serie de estudio coherente, la mediana global va de 6 a 53). La luminosidad del estilo la da el **fondo**: se mide la mediana de la zona sin sujeto (p. ej., el tercio reservado al texto) y debe quedar en el mismo rango en todas las piezas (en esa serie, 4–14). Una imagen con el fondo fuera de rango (una ventana con luz de día, un rótulo de la calle iluminado) se regenera.
+- **Aviso en el prompt de sala:** "night, the street windows are black glass, no daylight, the pendant lamps are the only light sources". Sin esa frase, el modelo copia la luz de día de la foto real del local.

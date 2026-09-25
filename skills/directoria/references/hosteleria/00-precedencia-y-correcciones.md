@@ -84,6 +84,19 @@ La base DirectorIA nació para publicidad de belleza, moda y perfume (el caso Bl
 - **Base heredada:** un clip de 4–6 s lleva un único beat principal (`knowledge/06` §1).
 - **No es una contradicción:** sigue valiendo **por toma**. La multitoma de Seedance 2.5 (varias tomas en una generación, con el corte escondido en un gesto rápido) es un montaje dentro del clip: cada toma conserva su único beat. → [`07-recreacion-de-referencia.md`](07-recreacion-de-referencia.md)
 
+### 2.10 Restraint frente a la energía de un reel de referencia (R-VEL-01, 25/09/2026) [MEDIDO]
+
+- **Base heredada:** *"el cine es restraint"*: un beat, cámara fija o empuje del 3–4 %, hold (`knowledge/06`, `director/03` §5).
+- **Corrección:** **cuando hay un reel de referencia, su energía de movimiento manda sobre el restraint.** El restraint es el valor por defecto **sin** referencia, no un techo.
+- **Evidencia (Da Tonino, 25/09/2026):** una multitoma escrita con "locked-off, very slow push-in of 3-5 cm, hold, tiny settle" salió con un movimiento mediano entre fotogramas de 2,17 frente a 5,25 de la referencia (2,4× menos), p90 de 3,4 frente a 12,6 y un **1 % de fotogramas con movimiento rápido frente al 40 %**. La referencia cortaba cada ~0,6 s; la multitoma, cada 3 s. El cliente la rechazó: "los movimientos son muy lentos". 105 cr gastados en un clip técnicamente correcto pero con el ritmo equivocado.
+- **Cómo se aplica:** → [`07-recreacion-de-referencia.md`](07-recreacion-de-referencia.md) §7.
+
+### 2.11 Luz por defecto frente a estilo de estudio (R-LUZ-01, 25/09/2026)
+
+- **Regla de `02` §2:** luz de día neutra y sombras con detalle, que la sala levanta.
+- **Precisión:** si el brief o la referencia piden un **estilo de estudio de fotografía** (fondo oscurecido, solo el protagonista iluminado; patrón medido: mediana 25, 65 % de sombras, sujeto 2,5× el fondo), el fondo va a negro a propósito. Se mantiene la temperatura neutra.
+- **Regla nueva:** una sola luminosidad por pieza o campaña; ninguna imagen ni vídeo con otra. → [`02-luz-y-color.md`](02-luz-y-color.md) §8
+
 ## 3. Conflictos con fuentes públicas
 
 | Fuente pública | Qué dice | Decisión |

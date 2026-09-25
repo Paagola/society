@@ -10,6 +10,7 @@ Cómo analizar un reel de referencia (Pinterest, Instagram, TikTok) y convertirl
 4. Velocidad escrita en el prompt
 5. Multitoma con cortes escondidos
 6. Estilo dron: el clip del nigiri
+7. Igualar la energía de la referencia (R-VEL-01)
 
 ---
 
@@ -17,7 +18,7 @@ Cómo analizar un reel de referencia (Pinterest, Instagram, TikTok) y convertirl
 
 1. **`ffprobe`:** resolución, fps y duración.
 2. **Cortes:** `select='gt(scene,0.25)'`, y para los cortes suaves, un umbral de 0,1.
-3. **Movimiento:** diferencia media entre fotogramas consecutivos a 90×160 px. Los picos son los gestos rápidos y su anchura da la duración.
+3. **Movimiento (obligatorio, R-VEL-01):** diferencia media entre fotogramas consecutivos a 90×160 px en gris, quitando los cortes (diferencia > 40). Se anotan **mediana, p90 y % de fotogramas por encima de 6**: son la *energía objetivo* que el prompt y el montaje tienen que igualar (§7). Los picos son los gestos rápidos y su anchura da la duración.
 4. **Tiras de fotogramas** a 5–10 fps alrededor de cada pico, para medir cuánto se desplaza cada objeto y en cuánto tiempo.
 5. **Luz:** luminancia mediana, percentiles 5 y 95, relación rojo/azul y saturación, en 5 fotogramas.
 6. **Cinco aspectos por plano** (taxonomía que usa OpenMontage en su analista de referencias): sujeto, movimiento del sujeto, escena, encuadre y cámara.
@@ -77,6 +78,35 @@ Los gestos de precisión van más lentos (0,4–0,6 s) que las entradas y salida
 - Keyframe hecho con las reglas nuevas (luz neutra, ficha de texturas): trabajo `ccb41958-16f7-4ba8-872c-fe0ffcd80f00`, aprobado.
 - Para planos FPV/POV sin sujeto visible, añadir el bloque "THE CAMERA IS INVISIBLE" de [`../knowledge/11-fpv-camara-invisible-y-fuerza-compartida.md`](../knowledge/11-fpv-camara-invisible-y-fuerza-compartida.md) §4 (sin cuerpo de dron, sin sombra y sin reflejo de la cámara).
 
+## 7. Igualar la energía de la referencia (R-VEL-01) [MEDIDO, 25/09/2026]
+
+**Caso Da Tonino.** Referencia: anuncio de cocina *low-key* de 12,9 s, 14 cortes a 0,25 y 18 a 0,1 (~0,6 s por plano), masa lanzada al aire, queso que cae, carne que se voltea, llamaradas. Recreación: multitoma de Seedance 2.5 de 15 s en 5 tomas de 3 s, keyframes muy fieles y color estable. **Rechazada por lenta.**
+
+| Métrica (90×160, sin cortes) | Referencia | Multitoma | Ratio |
+|---|---|---|---|
+| Movimiento mediano | 5,25 | 2,17 | 0,41 |
+| p90 | 12,6 | 3,4 | 0,27 |
+| % fotogramas > 6 | 40 % | 1 % | — |
+
+**Causa: el prompt, no el modelo.** Pedía cámara *locked-off* con empuje de 3–5 cm, "hold", "tiny settle, no bounce", gestos de 1 s y "the pizza itself does not move". Seedance hizo exactamente eso. Se aplicó el restraint por defecto (`knowledge/06`) a una referencia que era energía pura.
+
+**Reglas nuevas:**
+
+1. **La energía de la referencia es un requisito del contrato de planos.** En la puerta B, cada plano lleva su energía objetivo (mediana y p90 de la referencia, §1.3). Sin referencia, manda el restraint de siempre.
+2. **Vocabulario prohibido en el prompt cuando la referencia es rápida:** *locked-off, very slow, slow push-in, hold, settle, gently, barely, tiny, subtle*. Cada una de estas palabras frena el clip.
+3. **Una acción rápida y repetible por toma, no un gesto seguido de un hold.** La ventana de 3 s por toma sigue vigente (§5); lo que cambia es el contenido: la acción se **repite** o **encadena** dentro de la ventana para que el montaje pueda sacar 2–3 cortes de 0,4–0,7 s. Ejemplos con números:
+   - *"the dough is slapped onto the counter from 30 cm in 0.2s, flour explodes outward; then tossed 40 cm up, spinning, and caught in 0.5s; repeat"*
+   - *"a fistful of rocket is thrown down from 50 cm and hits the pizza in 0.25s, leaves bouncing"*
+   - *"the pan is flicked hard: the rigatoni jump 25 cm in 0.2s and fall back in 0.3s; flick again at 1.8s"*
+4. **Cámara con la velocidad de la referencia**, escrita con distancia y tiempo: *"snap push-in of 25 cm in 0.4s, ending on…"*, *"fast tilt down following the falling leaves, 40 cm in 0.3s"*, *"quick lateral slide of 30 cm in 0.5s"*. El movimiento rápido va sobre **manos, harina, fuego, sartén y caída de ingredientes** (sujetos que no se deforman o cuya deformación es natural). El plato terminado en reposo sigue con un movimiento corto, porque las órbitas y los macros sobre comida blanda la deforman (`higgsfield/04` §5).
+5. **Acelerar en el prompt, no fiarlo solo al montaje:** Seedance tiende a la cámara lenta en acciones rápidas [COMUNIDAD]. Siempre *"real-time speed, fast and energetic, no slow motion"* y, si la referencia usa rampas, *"speed ramp: fast, a 0.3s slow-motion beat on the impact, fast again"*.
+6. **Montaje (skill `openmontage`, `03` §4):** cortes de 0,4–0,8 s como la referencia, aceleración de 1,25–2× en los tramos de transición, cámara lenta solo en el impacto, y transiciones de movimiento (*whip* o corte en la acción) si la referencia las usa.
+7. **Validar la energía antes de pagar la toma buena:** una prueba a 480p (3 cr/s) de la toma de más riesgo, 5 s = 15 cr, medida con el script de §1.3. Si la mediana queda por debajo de ~0,8× la de la referencia, se reescribe el prompt antes de generar a 720p (**umbral: hipótesis**, a validar en próximos casos).
+
+**Rescate sin regenerar (medido):** el mismo clip montado en OpenMontage con velocidad por corte (tramos a 2–3×, acción a 1–1,2×, *snap zooms*, whips, flash y sacudida en el impacto, cortes de 0,7 s de media) llegó a mediana 4,23 / p90 12,6 / 36 % rápidos, un 0,81× de la mediana de la referencia, con 0 cr (skill `openmontage`, `03` §4). **Orden de preferencia:** escribir bien la energía en el prompt (reglas 2–5) → si el clip ya existe, rescatarlo en montaje antes de pagar otra generación.
+
+**Lo que sí funcionó y se conserva:** los keyframes anclados a las fotos reales (el local reconocible tras regenerar el de la sala), la cláusula PRESERVE (deriva máxima de R/B de +0,08 por toma) y los cortes de la multitoma exactamente en las ventanas pedidas (2,75 · 5,67 · 8,71 · 11,75 s).
+
 ## Registro de trabajos del 24/09/2026
 
 | Trabajo | ID | Resultado |
@@ -90,3 +120,12 @@ Los gestos de precisión van más lentos (0,4–0,6 s) que las entradas y salida
 | Keyframe nigiri con reglas nuevas | `ccb41958-16f7-4ba8-872c-fe0ffcd80f00` | Aprobado |
 | Multitoma dron (720p, 6 s) → ByteDance | `85694624-d4b5-466f-87fc-8ca0a8b6b841` → `2818f819-cc8e-415a-baa6-2cd989ac5c77` | Gustó; 44,12 cr en total. Calidad de ByteDance medida después en la A/B del 24/09 (`03` §4) |
 | A/B gambas 720p → ByteDance pro / `aigc` / Topaz; 1080p nativo de control | `3a044024…` → `1f0f8ad9…` / `a1f61ceb…` / `758e7871…`; `83dfa696…` | ByteDance pro, el más nítido (71 % del keyframe); `pruebas/ab-reescalado-720p-2026-09-24/` |
+
+## Registro de trabajos del 25/09/2026 (Da Tonino)
+
+| Trabajo | ID | Resultado |
+|---|---|---|
+| Keyframes K1–K5 (pedido `nano_banana_pro`, **servido `nano_banana_2`**) | `dd02f906…` (K1 descartado: paredes grises), `333d4a32…` (K1 sala), `cec08eef…` (masa), `819b7da7…` (rúcula), `84a4353e…` (rigatoni), `a1a4dc83…` (paella) | Aprobados; ~12 cr |
+| Multitoma Seedance 2.5, 15 s, 720p, 5 tomas | `326abb72-c40f-4f8b-9c14-50d5304ca72f` | Preset «IN THE DARK» declinado; 105 cr; cortes exactos y color estable, **rechazada por lenta** (§7) |
+| ByteDance pro `aigc` 1080p | `38aa8f1d-386b-432c-94a3-84dc68851848` | 1080×1920 H.264; preflight 1 cr |
+| Montaje v2 con velocidad (OpenMontage) | `pruebas/reel-da-tonino-2026-09-25/da-tonino-reel-v2.mp4` | 11,2 s; energía 0,81× la de la referencia; 0 cr |

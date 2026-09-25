@@ -12,6 +12,7 @@ Revisión de la lista de planos **antes de la puerta B**, es decir, antes de gas
 6. Continuidad
 7. Hostelería y Society
 8. Señales de que "se va a sentir IA"
+9. Curva de retención (Virality Predictor)
 
 ---
 
@@ -46,11 +47,14 @@ Revisión de la lista de planos **antes de la puerta B**, es decir, antes de gas
 - [ ] **Nada de órbita ni macro recorriendo comida blanda;** empujes amplios en montaje.
 - [ ] Nada de *handheld* ni *static camera* a secas: recorrido mecánico cuantificado.
 - [ ] Sin trucos de fantasía (levitación, purpurina, objetos que giran solos).
+- [ ] **Cada gesto de manos es un gesto de oficio con resultado (R-GESTO-01):** verbo del oficio real + qué le pasa al alimento + estado final. Nada de tocar, presionar o "presentar" sin transformar (caso Da Tonino: cinco dedos apoyados en la masa → toma eliminada; lo correcto era coger, estirar y moldear). → `directoria/hosteleria/05` §3.1
+- [ ] **Con referencia, la energía del plano iguala la de la referencia (R-VEL-01).** → `03` §9
 
 ## 5. Gancho y plano héroe
 
 - [ ] **Fotograma 1 con acción ya empezada** y rótulo desde el principio.
 - [ ] El primer plano abre **ancho, con información** (medido: +10 % de activación frente al cerrado).
+- [ ] **El gancho es el plano con la acción física más fuerte de todo el material** (algo que cae, salta, se lanza, se corta o se vierte en el fotograma 1). Ancho y con información, pero con acción: un plato que simplemente se posa o un plano de sala en reposo no engancha. Si la acción más fuerte está en un plano cerrado, se abre con ella y la información va en el rótulo.
 - [ ] Primer plano de 2–2,5 s; el ritmo rápido después del segundo 3.
 - [ ] El momento que justifica ver la pieza está **al principio**, no como premio final.
 - [ ] El plano héroe es visualmente distinto de sus vecinos (otro tamaño u otro movimiento).
@@ -64,6 +68,7 @@ Revisión de la lista de planos **antes de la puerta B**, es decir, antes de gas
 - [ ] Geografía escrita en una frase y dirección de movimiento mantenida (eje).
 - [ ] Recursos con grado de fidelidad; variantes de estado con su propia entrada.
 - [ ] Las duraciones suman exactamente la duración final.
+- [ ] **Una sola luminosidad en toda la pieza (R-LUZ-01):** el estilo de luz (p. ej., estudio: fondo oscurecido y solo el protagonista iluminado) está en el prefijo global y todos los keyframes tienen una mediana y un % de sombras dentro de la tolerancia. Mezclar sala de día con cocina de estudio destruye la inversión. → `directoria/hosteleria/02` §8
 
 ## 7. Hostelería y Society
 
@@ -88,3 +93,17 @@ Si aparece cualquiera, se corrige antes de la puerta B:
 - Un solo plato aislado en todos los planos, sin sala, sin manos, sin personas (medido: más elementos en el encuadre = más activación).
 - Tres tomas metidas en 5 s de multitoma.
 - Ninguna fuente de sonido pensada.
+
+## 9. Curva de retención (Virality Predictor)
+
+Reglas para que la activación no caiga a lo largo de la pieza. Se comprueban en la lista de planos (puerta B) y se verifican sobre el montaje (puerta E) leyendo `values_by_frame`, nunca solo el titular.
+
+- [ ] **Cada plano tiene una acción física.** La activación la pone el material (algo cambia de estado en cada plano), no los efectos de montaje: transiciones, grade y microcortes sobre material quieto no suben la métrica.
+- [ ] **El último tercio es tan activo como el primero.** Ningún plano de reposo de más de ~1 s a partir del 60 % de la duración; la pausa antes del impacto, como mucho 0,5 s.
+- [ ] **No se repite un plano ya visto para cerrar.** La repetición se lee como relleno y la activación cae. El cierre es un plano nuevo o el momento culminante.
+- [ ] **Placa final de 1,2 s como máximo**, o el CTA y la marca **sobre el último plano de comida con acción**, no sobre negro. Una placa estática larga es el tramo que más baja la activación visual.
+- [ ] **Divagación (Default Mode) baja en t=0.** Si es el valor más alto de la curva en el primer segundo, el gancho no retiene: se cambia el plano de apertura, no el efecto.
+- [ ] **Lectura de la curva:** cada segundo de `values_by_frame` se cruza con la EDL para saber qué plano provoca cada caída. El plano del pico de `visual_occipital` es candidato a abrir. Umbral de control (**hipótesis**): la activación visual de los 3 últimos segundos no baja del 80 % del pico.
+- [ ] **Referencias de puntuación** (proxys, no garantía): gancho < 30 = arranque débil; global ≥ 50 = material con acción. Se compara siempre contra la mejor versión anterior del mismo cliente.
+- [ ] **Máximo 2 iteraciones de montaje** contra el predictor. Si no mejora, la palanca está en el material (acción, elementos en encuadre, persona, mensaje) o en la luz (una sola luminosidad, `06` §6), no en el corte.
+

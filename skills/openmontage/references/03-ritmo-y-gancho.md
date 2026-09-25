@@ -41,6 +41,8 @@ Consecuencia para el montaje: se optimiza para que **lo vean entero y lo reenví
 | Reordenado por dato + ráfaga de microcortes | 24 | 39 | 37 | 0,429 |
 | + gancho de texto en pantalla | 25 | 40 | 38 | 0,437 |
 
+**Da Tonino v3** (25/09/2026; multitoma de Seedance con acción, montada con velocidad por corte, 10 s, sin audio) [MEDIDO]: global **51**, gancho **38**, viral **48**, sostenimiento 96, visual en t=0 **0,600**. Mejora a todas las versiones de Torre de Vega. La diferencia está en el **material** (acción física en cada toma: rúcula que cae, pasta que salta, socarrat) y en la energía del corte, no en los efectos. La activación visual cae del 0,62 al 0,35 en los últimos 4 s: plano largo de reposo, repetición del héroe y placa de 2,2 s. **Cierre más corto: placa de ≤ 1,2 s o CTA sobre el último plano.**
+
 **Un corte plano sin editar puntúa igual que un montaje completo.** Lo que sí mejora el montaje: activación visual en t=0 (+16 %), activación global media (+4,4 %), divagación mental (Default Mode) a la baja y red del lenguaje (+3,6 % al meter texto).
 
 **Otros hallazgos medidos del mismo trabajo:**
@@ -95,6 +97,8 @@ La promesa del gancho **se cumple en los 5 primeros segundos**: un gancho falso 
 **Presupuesto de tempo** [COMUNIDAD, OSideMedia]: a unos 4–6 s por corte de media, con **un único plano héroe más largo (6–8 s)**. Cortes aproximados: ≤15 s → ~3; ~20 s → 4–5; ~30 s → ~6. Las duraciones de los cortes **suman exactamente** la duración final.
 
 **Ritmo de short-form** (OpenMontage `short-form.md`, fuentes de la industria sin metodología publicada): cambio visual cada 1–3 s, ningún plano estático de más de 3 s, 20–40 cortes por minuto, rampa de velocidad de 1,2–1,5× en la preparación y 1,0× en el momento clave.
+
+**Con reel de referencia (R-VEL-01, 25/09/2026) [MEDIDO]:** la escalera se calibra con **su** duración media de plano y **su** energía de movimiento, no con estas tablas. Caso Da Tonino: la referencia cortaba cada ~0,6 s con un 40 % de fotogramas rápidos; montar el material a 1–2,5 s por corte con empujes suaves dio una pieza "muy lenta" para el cliente. Si el material generado viene lento, el montaje lo compensa con: **cortes de 0,3–0,7 s**, **aceleración de 1,5–2,5×** en los tramos sin impacto (la comida en reposo aguanta bien la aceleración), **cámara lenta solo en el impacto** (0,3–0,5 s), **empujes digitales rápidos** (10–20 % en 0,3 s, *snap zoom*) en lugar de lentos, **whip o desenfoque de movimiento** en las costuras y cortes en el beat de la música. Se mide la energía del montaje con el mismo script que la referencia (`directoria/hosteleria/07` §1.3) antes de entregar. **Herramienta:** composición `HosteleriaReelSpeed` de OpenMontage (`remotion-composer/src/HosteleriaReelSpeed.tsx`): `rate` por corte (sub-cortes encadenados sobre la misma fuente = rampa sin salto), `snap`, `shakeAt`, whips, zoom, flash, fuentes configurables y placa final. EDL de ejemplo: `pruebas/reel-da-tonino-2026-09-25/montaje/edl_velocidad.py`. **Resultado medido:** la misma multitoma lenta pasó de mediana 2,17 / p90 3,4 / 1 % de fotogramas rápidos a **4,23 / 12,6 / 36 %** (referencia: 5,25 / 12,6 / 40 %) solo con montaje, 0 cr.
 
 **Conciliación:** en un reel de comida de 10–15 s, estas cifras son compatibles si "cambio visual" incluye el movimiento dentro del plano (el empujar y tirar de montaje, el vapor, la mano). Planos de 1–2,5 s con movimiento vivo, un plano héroe de 2,5–4 s y una pausa antes del plato final.
 

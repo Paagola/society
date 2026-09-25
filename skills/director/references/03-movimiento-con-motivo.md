@@ -12,6 +12,7 @@ Cuándo se mueve la cámara, cuánto y hacia dónde. Reúne la regla de Fincher 
 6. Duración de plano por tipo
 7. Planos largos: dos contratos de física
 8. Copiar un movimiento real
+9. Con referencia, su energía manda (R-VEL-01)
 
 ---
 
@@ -112,3 +113,14 @@ Se elige uno según si el plano es una inspección secuencial o una tormenta sim
 - **Lo que una referencia de vídeo transmite bien:** mundo, materiales, física, carácter de la cámara, nivel de producción, grade. **Lo que no:** continuar exactamente desde su último fotograma o la identidad de una persona (para eso, imagen de referencia).
 - **Regla:** el prompt manda en la acción; la referencia manda en la textura y la sensación.
 - **Genjutsu** (`hf_mult_motion_control`): transfiere el movimiento **real grabado** del camarero o del cocinero a otro sujeto. Es la vía más fiel a "nada inventado" (skill `higgsfield`).
+
+## 9. Con referencia, su energía manda (R-VEL-01) [MEDIDO, 25/09/2026]
+
+El restraint de §5 es el valor por defecto **cuando no hay referencia**. Cuando el cliente trae un reel y dice "algo así", **la velocidad de ese reel es parte del encargo**, igual que su luz o su gancho.
+
+- **Caso Da Tonino:** referencia de cocina con cortes cada ~0,6 s y un 40 % de fotogramas con movimiento rápido; la multitoma se escribió con cámara fija, empujes de 3–5 cm y *holds*, y salió con un 1 %. Movimiento mediano 2,4 veces menor. El cliente la rechazó por lenta.
+- **En la puerta A:** el análisis de la referencia incluye su energía medida (mediana, p90 y % > 6; `directoria/hosteleria/07` §1.3) y la duración media de plano.
+- **En la puerta B:** cada ficha de plano lleva su **energía objetivo**, y la columna *Cámara* se escribe con la velocidad de la referencia (*snap push-in 25 cm in 0.4s*), no con el restraint.
+- **Qué se mueve rápido:** manos, harina, fuego, sartén, ingredientes que caen o se lanzan. **Qué no:** el plato terminado en reposo (órbitas y macros lo deforman, `02` §10). La energía se consigue con la acción y el corte, no rodeando la comida.
+- **Contrato de acción:** una acción rápida y repetible por toma (lanzar, golpear, voltear, echar) en lugar de un gesto y un *hold*, para que el montaje saque 2–3 cortes de 0,4–0,7 s de cada ventana de 3 s.
+- **Pregunta de control añadida:** *¿este plano, puesto al lado de la referencia, se ve igual de rápido?* Si no, se reescribe antes de gastar.

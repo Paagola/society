@@ -55,6 +55,16 @@ Frases de partida en inglés. Hay que adaptarlas a la luz neutra (§8) y añadir
 
 Regla de la base heredada: **un único gesto breve y quietud después**. Cada nuevo agarre es otra ocasión para que la mano se deforme. Si aparecen manos de personas distintas, que sean de personas distintas de verdad (géneros, edades), como exige la ficha de Torre de Vega.
 
+### 3.1 Todo movimiento tiene que tener sentido (R-GESTO-01, 25/09/2026)
+
+**Regla:** cada gesto de la pieza tiene que ser el que haría un profesional para **conseguir algo** con el alimento. Si el gesto no cambia el estado del producto hacia un resultado reconocible, sobra, aunque la toma esté bien renderizada.
+
+- **Caso Da Tonino (rechazado por el cliente):** el prompt pedía *"the gloved hands press the fingertips into the dough in two firm presses"*. El modelo lo cumplió: cinco dedos apoyados sobre un disco de masa que no cambia. No tiene sentido: **un pizzaiolo coge la masa, la estira y la moldea** (la abre del centro hacia el borde, la pasa de mano a mano, la golpea contra la encimera y la gira). La toma se quitó del montaje. El error estaba en el prompt, que describía una pose en vez de un trabajo.
+- **Cómo se escribe:** verbo de oficio + qué le pasa al alimento + estado final visible. Mal: *"presses the dough"*, *"touches the pizza"*, *"moves the pan"*. Bien: *"lifts the dough ball off the floured counter, stretches it over both knuckles, turning it a quarter turn each time, until it is a 30 cm disc with a raised rim"*; *"flicks the pan so the rigatoni flip and land coated in sauce"*.
+- **Gestos de oficio de referencia** (usar el que corresponda al plato real y confirmarlo con el cliente): pizza → coger, estirar sobre los nudillos, golpear, abrir con los dedos del centro al borde dejando el cornicione, girar, pasar a la pala; pasta → saltear para ligar la salsa, emplatar con pinzas en nido; arroz → rascar el socarrat, servir con la paleta; carne → marcar, voltear, cortar contra la fibra; cóctel → medir, agitar, colar, decorar.
+- **Pregunta de revisión (puerta D):** *¿un cocinero del local reconocería este gesto como suyo? ¿Qué ha cambiado en el alimento al terminar el gesto?* Si la respuesta es "nada", la toma no se usa. En montaje no se puede arreglar un gesto sin sentido: solo se puede quitar.
+- **Dónde falla más:** manos que tocan sin agarrar, que presionan sin transformar, que "presentan" el plato moviéndose en el aire, y mezclas de técnicas (amasar pan cuando es pizza). Se revisa junto con el recuento de manos (`06` §4).
+
 ## 4. Trucos de estilismo
 
 - **Brillo estratégico:** aceite o glaseado donde la luz lo pueda coger, sin que parezca grasiento.

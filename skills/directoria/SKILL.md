@@ -37,7 +37,8 @@ La lista cerrada de correcciones a la base heredada (luz cálida por defecto, 4K
 8. **Comida real como ancla:** foto real del plato + ficha de texturas 3×3 en cada keyframe y en el vídeo. Imagen a vídeo desde keyframe anclado; el texto a vídeo solo para pruebas que no se publican. → `hosteleria/01` §3
 9. **Luz neutra de unos 5000 K y color asignado en positivo** en comida y salas, salvo luz motivada que pida el brief. → `hosteleria/02`
 10. **La proporción nace en la imagen de inicio:** keyframe en 9:16 **y** `aspect_ratio:"9:16"` explícito en el vídeo. → `hosteleria/03` §1
-11. **Restraint en movimiento:** un beat principal por toma, cámara con un único movimiento y un punto final nombrado. Si en la imagen no se mueve nada, el plano se resuelve en montaje. → `knowledge/06`, `hosteleria/04` §2
+11. **Restraint en movimiento:** un beat principal por toma, cámara con un único movimiento y un punto final nombrado. Si en la imagen no se mueve nada, el plano se resuelve en montaje. → `knowledge/06`, `hosteleria/04` §2. **Excepción R-VEL-01 (25/09/2026):** si hay un reel de referencia, su energía de movimiento medida manda sobre el restraint: acciones rápidas con distancia y tiempo, sin *locked-off*, *slow* ni *hold* → `hosteleria/07` §7
+11 bis. **Gestos con sentido (R-GESTO-01, 25/09/2026):** cada acción de manos es el gesto real del oficio y cambia el alimento hacia un resultado visible (coger, estirar y moldear la masa; nunca apoyar cinco dedos). Sin resultado, la toma se quita. → `hosteleria/05` §3.1
 12. **No fabricar:** lo que no se puede inferir se omite; lo que no está verificado se marca `(verificar)`.
 
 ## Ficha del cliente antes de generar

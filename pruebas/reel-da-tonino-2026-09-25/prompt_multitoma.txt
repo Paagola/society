@@ -1,0 +1,17 @@
+A 15-second vertical restaurant film in five shots with hard cuts. Shot 1 is @Image 1. Shot 2 is @Image 2. Shot 3 is @Image 3. Shot 4 is @Image 4. Shot 5 is @Image 5. Each image is the first frame of its shot and defines that shot's food, hands, tableware, room and light exactly; do not mix elements between shots.
+
+PRESERVE TEXTURE: every surface keeps the exact texture of its reference image in every frame: blistered leopard-charred pizza crust with flour dust, matte dough, veined rocket leaves, ridged rigatoni, individual rice grains. Textures never soften, smear or become smoother over time.
+PRESERVE EXPOSURE AND COLOUR: each shot keeps the brightness and white balance of its reference image. Dining-room shots stay in neutral window daylight around 5000K with white tablecloths and ochre walls; kitchen shots stay low-key with a black background and white flour. Do not warm up, darken or add an orange cast. Warm tones live only in the crust, the sauces, the rice and the small light bulbs.
+SHARPNESS: motion blur only on what moves fast; food at rest stays tack sharp.
+
+[Shot 1, 0-3s] Dining room. The hand in the dark sleeve finishes setting the pizza down on the kraft placemat: the plate lands flat in the first 0.4s with a tiny settle, no bounce; the hand slides out of frame to the right in 0.4s; the rocket leaves tremble once. Hold on the pizza. The glass of beer does not move.
+[Shot 2, 3-6s] Kitchen. The two black-gloved hands press the fingertips into the dough in two firm presses, 2 cm deep, pushing the air toward the rim; flour puffs up around the fingers and drifts through the back light. The dough disc keeps its round shape and size. Only these two hands, both from the same cook.
+[Shot 3, 6-9s] Kitchen pass. The black-gloved hand opens and the rocket leaves fall 30 cm onto the prosciutto in about 0.6s, landing and settling; steam rises slowly off the crust. The pizza itself does not move or change.
+[Shot 4, 9-12s] Stove. The black-gloved hand flicks the pan once: the airborne rigatoni fall back into the pan in 0.5s and the sauce folds over them; the pan settles on the blue flame; steam rises. The same number of rigatoni, same shape and colour.
+[Shot 5, 12-15s] Dining room. The hand in the dark sleeve lifts the spoon of rice 6 cm higher in 1s, showing the golden socarrat underneath, then holds; dense steam rises from the paella pan, backlit by the window. The mussels, prawns and lemon wedges stay exactly in place.
+
+CAMERA: every shot is locked-off on a tripod with one very slow push-in of only 3-5 cm over its 3 seconds, ending on the food a little larger in frame; no orbit, no handheld shake. Cuts happen on the fastest part of the motion so the motion blur hides them. Real-time speed, no slow motion, no speed ramp.
+
+Only the hands described in each shot; no faces, no extra people. Pure video, no subtitles, no text, no logos, no background music.
+
+Shot on a full-frame cinema camera, 35-50mm, f/4, neutral daylight colour in the dining room and hard neutral back light in the kitchen, photographic realism.

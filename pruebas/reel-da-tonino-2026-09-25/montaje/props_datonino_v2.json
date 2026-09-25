@@ -1,0 +1,191 @@
+{
+ "shots": [
+  {
+   "id": "1a_aterriza",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 0.0,
+   "duration": 0.85,
+   "rate": 1.0,
+   "transitionIn": "cut",
+   "scale": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "1b_snap_pizza",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 0.85,
+   "duration": 0.7,
+   "rate": 2.5,
+   "transitionIn": "cut",
+   "scale": [
+    1.0,
+    1.22
+   ],
+   "snap": true,
+   "snapFrames": 7
+  },
+  {
+   "id": "3a_mano",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 5.75,
+   "duration": 0.275,
+   "rate": 2.0,
+   "transitionIn": "whip-left",
+   "scale": [
+    1.1,
+    1.14
+   ]
+  },
+  {
+   "id": "3b_cae",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 6.3,
+   "duration": 0.913,
+   "rate": 1.15,
+   "transitionIn": "cut",
+   "scale": [
+    1.14,
+    1.2
+   ],
+   "shakeAt": [
+    0.62
+   ]
+  },
+  {
+   "id": "3c_snap_jamon",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 7.35,
+   "duration": 0.417,
+   "rate": 3.0,
+   "transitionIn": "cut",
+   "scale": [
+    1.2,
+    1.4
+   ],
+   "snap": true,
+   "snapFrames": 7
+  },
+  {
+   "id": "4a_sarten",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 8.8,
+   "duration": 0.5,
+   "rate": 3.0,
+   "transitionIn": "zoom",
+   "scale": [
+    1.0,
+    1.05
+   ]
+  },
+  {
+   "id": "4b_salto",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 10.3,
+   "duration": 0.7,
+   "rate": 1.0,
+   "transitionIn": "cut",
+   "scale": [
+    1.05,
+    1.1
+   ],
+   "shakeAt": [
+    0.05
+   ]
+  },
+  {
+   "id": "4c_cae",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 11.0,
+   "duration": 0.389,
+   "rate": 1.8,
+   "transitionIn": "cut",
+   "scale": [
+    1.25,
+    1.18
+   ],
+   "snap": true,
+   "snapFrames": 5
+  },
+  {
+   "id": "5a_paella",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 11.8,
+   "duration": 0.4,
+   "rate": 2.5,
+   "transitionIn": "flash",
+   "scale": [
+    1.0,
+    1.1
+   ],
+   "snap": true,
+   "snapFrames": 7
+  },
+  {
+   "id": "5b_socarrat",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 12.8,
+   "duration": 1.4,
+   "rate": 1.5,
+   "transitionIn": "cut",
+   "scale": [
+    1.1,
+    1.16
+   ]
+  },
+  {
+   "id": "6_heroe_pizza",
+   "src": "datonino/multitoma_1080p.mp4",
+   "from": 1.1,
+   "duration": 1.3,
+   "rate": 1.0,
+   "transitionIn": "whip-right",
+   "scale": [
+    1.18,
+    1.26
+   ]
+  },
+  {
+   "id": "7_placa",
+   "duration": 2.2,
+   "transitionIn": "cut"
+  }
+ ],
+ "fonts": {
+  "serif": "datonino/serif.ttf",
+  "sans": "datonino/sans.ttf"
+ },
+ "titles": [
+  {
+   "text": "DA TONINO · RISTORANTE",
+   "start": 0,
+   "end": 1.7,
+   "y": 330,
+   "font": "sans",
+   "fontSize": 34
+  },
+  {
+   "text": "Masa, fuego y mesa",
+   "start": 0,
+   "end": 1.7,
+   "y": 405,
+   "font": "serif",
+   "fontSize": 88
+  }
+ ],
+ "brand": {
+  "start": 7.844,
+  "end": 10.044,
+  "y": 780,
+  "title": "Da Tonino",
+  "subtitle": "RISTORANTE",
+  "lines": [
+   "Reserva tu mesa",
+   "MÁNDASELO A QUIEN TE DEBE UNA CENA"
+  ]
+ },
+ "grain": 0.05,
+ "vignette": 0.3,
+ "fadeOutFrames": 8
+}
