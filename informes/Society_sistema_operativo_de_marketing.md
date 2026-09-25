@@ -263,7 +263,7 @@ Los seis departamentos del vídeo, traducidos a lo que un hostelero reconoce. Lo
 
 | Módulo | Equivale en el vídeo a | Hace | Tecnología (README §9) |
 |---|---|---|---|
-| **Investigación** | Research & Intelligence | Tendencias locales, festivos, competencia agregada, síntesis de señales | Modelo de planificación + fuentes públicas |
+| **Investigación** | Research & Intelligence | Radar de nicho: reels, posts e historias del nicho, puntuados, analizados y clasificados en patrones; festivos y tendencias locales. Diseño completo en el [radar de nicho](Society_radar_de_nicho.md) | Modelo de planificación + API de Meta + analizador de vídeo |
 | **Contenido** | Content Engine | Captions, hooks, guiones y variantes; comprueba reglas de marca, hashtags y alérgenos | Modelo de planificación |
 | **Estudio creativo** | Creative Studio | Imágenes desde fotos reales, vídeo por contrato de plano, voz | Nano Banana Pro, Kling 3.0 / Seedance 2.5, ElevenLabs |
 | **Montaje** | Creative Studio (vídeo por código) | Plantillas, rótulos, subtítulos y render | Remotion en worker Linux |
