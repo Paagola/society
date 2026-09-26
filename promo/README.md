@@ -6,6 +6,14 @@ Vídeo vertical (1080 × 1920) y apaisado (1920 × 1080), 30 fps, 57,1 s, hecho 
 
 **Uso:** privado. No publicar hasta cerrar lo que queda en «Pendiente».
 
+**Anuncios de Víctor** (composiciones `SocietyAnuncio`, `SocietyPizza` y `SocietyPizzaStartup` de `src/Root.tsx`): los renders están en [`renders/`](renders/), fuera de `out/`, que no se sube al repositorio.
+
+| Archivo | Composición | Fecha |
+| --- | --- | --- |
+| [`society-anuncio-la-147.mp4`](renders/society-anuncio-la-147.mp4) | Anuncio «La 1:47» | 25/09/2026 |
+| [`society-anuncio-pizza.mp4`](renders/society-anuncio-pizza.mp4) | `SocietyPizza` (`npm run render:pizza`) | 26/09/2026 |
+| [`society-anuncio-pizza-startup.mp4`](renders/society-anuncio-pizza-startup.mp4) | `SocietyPizzaStartup` (`npm run render:startup`) | 26/09/2026 |
+
 ## Escenas
 
 Toda la pieza va sobre **una sola rejilla musical** (132,983 BPM, [`src/timeline.json`](src/timeline.json)): cada pase de página, cada foto que cae, cada sello y cada titular entra en un tiempo de la música. La marca no aparece hasta la ruptura, y ahí solo como firma.
