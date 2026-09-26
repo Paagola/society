@@ -7,17 +7,20 @@ import {useWide} from '../format';
 
 const K = COPY.apertura;
 
-// Duraciones (fotogramas a 30 fps) de cada fase de la apertura.
-// Nada de marca todavía: el turno real, tal cual, hasta la ruptura.
-export const A = {gancho: 75, rigatoni: 68, paella: 68, hueco: 96, ruptura: 84};
+// Duraciones (fotogramas a 30 fps) de cada fase de la apertura, pase incluido. Desde la fusión con la
+// v3 (27/09/2026) salen de la rejilla musical (src/timeline.json: cortes en los tiempos 0, 6, 10, 14,
+// 20 y 26); si se mueven los cortes, hay que recalcularlas. Nada de marca todavía: el turno real, tal
+// cual, hasta la ruptura.
+export const A = {gancho: 89, rigatoni: 68, paella: 68, hueco: 97, ruptura: 98};
 
 // ---------------------------------------------------------------------------
 // 1 · Gancho: el reel real ya en marcha, a pantalla completa, con su propio
-// sonido — sin marco de móvil, sin logo. La acción física más fuerte que hay.
+// sonido — sin marco de móvil, sin logo. La acción física más fuerte que hay. El vídeo va silenciado:
+// su sonido está en la banda sonora (scripts/banda_sonora.py, clave «gancho» de la rejilla).
 // ---------------------------------------------------------------------------
 export const Gancho: React.FC = () => (
   <AbsoluteFill style={{background: C.tinta}}>
-    <OffthreadVideo src={staticFile('video/reel-v6.mp4')} endAt={A.gancho} volume={1} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+    <OffthreadVideo src={staticFile('video/reel-v6.mp4')} endAt={A.gancho} volume={0} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
   </AbsoluteFill>
 );
 

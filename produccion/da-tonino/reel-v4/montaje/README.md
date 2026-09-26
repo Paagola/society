@@ -43,7 +43,7 @@
 
 Aprobada por Víctor el 25/09/2026. Hecha como **revisión de la etapa `edit` del pipeline `hybrid` de OpenMontage** (proyecto `projects/da-tonino-reel-v6`, política `manual_all`): idea, guion, planos y recursos se importan de la v5 aprobada y solo se toca la edición. 0 créditos de Higgsfield.
 
-1. **Sonido E quitado** (toma de la porción, 3,57–4,57 s). Víctor lo eligió entre 5 candidatos localizados con Demucs `htdemucs_ft` ([`v6-sonido/candidatos/`](v6-sonido/candidatos/), espectrograma incluido). Estaba colado en el stem `other`, que también lleva la canción, así que no se podía quitar el stem:
+1. **Sonido E quitado** (toma de la porción, 3,57–4,57 s). Víctor lo eligió entre 5 candidatos localizados con Demucs `htdemucs_ft`. Los candidatos y el espectrograma se retiraron del repositorio en la limpieza del 26/09/2026; queda la comparación antes y después en [`v6-sonido/candidatos/E_antes.wav`](v6-sonido/candidatos/E_antes.wav) y [`E_despues.wav`](v6-sonido/candidatos/E_despues.wav). Estaba colado en el stem `other`, que también lleva la canción, así que no se podía quitar el stem:
    - método b del prompt: puerta espectral guiada por el stem. Se resta **de la mezcla original** lo que en `other` sobresale más de 1,25 veces de su suelo local (percentil 20 por bin en 0,5 s), solo dentro del tramo y con fundidos de 18 ms ([`v6-sonido/quitar_E.py`](v6-sonido/quitar_E.py));
    - agudos (> 1,5 kHz) del tramo: 55,9 → 48,0 dB; el tramo en total baja solo 0,9 dB (la canción sigue);
    - fuera del tramo, el audio es **idéntico bit a bit** a la v5; el golpe de la cerveza y el apagado no cambian;
@@ -56,4 +56,8 @@ Aprobada por Víctor el 25/09/2026. Hecha como **revisión de la etapa `edit` de
    - máster 4K `4a51f618-7bbc-4cb2-aa4a-26e65bb8fb14` (2160×3840, 13,54 s, 69 Mb/s);
    - copia para Instagram `cfc5c21c-d47a-4dad-bd11-42a23f87cc92` (1080×1920, 7,1 Mb/s), también en [`v6-sonido/da-tonino-reel-v6-1080.mp4`](v6-sonido/da-tonino-reel-v6-1080.mp4).
 5. **Medición** ([`medicion-v6.txt`](medicion-v6.txt)): 325 fotogramas y 0 errores de descodificación en las dos entregas; foco 20,6 %, negro 0,7 y audio correctos. «Transición» a 13,2 s, blanco p99 201 y duración media salen del fundido y del cierre pedidos (el blanco baja de 215 a 201 porque el logo nuevo es más fino).
+6. **Archivos de la carpeta** [`v6-sonido/`](v6-sonido/):
+   - `quitar_E.py` escribe `audio_v6_premaster.wav`, que se guarda como [`audio_v6.wav`](v6-sonido/audio_v6.wav);
+   - material de partida: [`seedance_original.mp4`](v6-sonido/seedance_original.mp4) (multitoma de Seedance sin montar) y [`v5_1080.mp4`](v6-sonido/v5_1080.mp4);
+   - la copia de 1080 es el reel que usa la promo (`promo/public/video/reel-v6.mp4`).
 
