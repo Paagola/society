@@ -38,3 +38,12 @@
    - foco 20,9 %, negro 0,6 y audio correctos;
    - «transición a 9,5 s» y blanco p99 215 salen del fundido final pedido;
    - la duración media incluye el cierre de 4,2 s.
+
+## v6 (entrega vigente) · sin el sonido de la porción
+
+Carpeta [`v6-sonido/`](v6-sonido/). Solo cambia el audio del v5; la imagen es la misma.
+
+- **Método** ([`quitar_E.py`](v6-sonido/quitar_E.py)): puerta espectral limitada en banda y tiempo. El stem `other` de Demucs (`sep/htdemucs_ft/v5_audio/`) localiza el sonido colado y esa parte se resta de la mezcla original (`v5_audio.wav`), solo entre 3,57 y 4,57 s y con fundidos de 18 ms. Fuera de ese tramo el audio queda idéntico bit a bit.
+- **Salidas:** el script escribe `audio_v6_premaster.wav`, que se guarda como [`audio_v6.wav`](v6-sonido/audio_v6.wav), y la comparación antes y después en [`candidatos/E_antes.wav`](v6-sonido/candidatos/E_antes.wav) y [`candidatos/E_despues.wav`](v6-sonido/candidatos/E_despues.wav).
+- **Entrega:** [`da-tonino-reel-v6-1080.mp4`](v6-sonido/da-tonino-reel-v6-1080.mp4) (v5 1080 + `audio_v6.wav`). Es el reel que usa la promo (`promo/public/video/reel-v6.mp4`).
+- **Material de partida:** [`seedance_original.mp4`](v6-sonido/seedance_original.mp4) (multitoma de Seedance sin montar) y [`v5_1080.mp4`](v6-sonido/v5_1080.mp4).

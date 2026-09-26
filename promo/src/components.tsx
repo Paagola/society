@@ -73,18 +73,22 @@ export const Headline: React.FC<{
   size: number;
   at: number;
   stagger?: number;
+  // Fotograma de entrada de cada línea (sustituye a at + stagger); sirve para ponerlas en tiempos de la música.
+  ats?: number[];
+  dur?: number;
   out?: number;
   color?: string;
   align?: 'left' | 'center' | 'right';
   style?: React.CSSProperties;
-}> = ({lines, size, at, stagger = 5, out, color = C.tinta, align = 'left', style}) => (
+}> = ({lines, size, at, stagger = 5, ats, dur, out, color = C.tinta, align = 'left', style}) => (
   <div style={{display: 'flex', flexDirection: 'column', alignItems: align === 'left' ? 'flex-start' : align === 'right' ? 'flex-end' : 'center', ...style}}>
     {lines.map((l, i) => {
       const s = size * (l.scale ?? 1);
       return (
         <Reveal
           key={i}
-          at={at + i * stagger}
+          at={ats?.[i] ?? at + i * stagger}
+          dur={dur}
           out={out === undefined ? undefined : out + i * 2}
           style={{
             // Hueco arriba para tildes y abajo para descendentes, compensado con margen.
@@ -125,40 +129,6 @@ export const Headline: React.FC<{
         </Reveal>
       );
     })}
-  </div>
-);
-
-// Etiqueta en mono pequeña.
-export const Label: React.FC<{children: React.ReactNode; color?: string; size?: number; style?: React.CSSProperties}> = ({
-  children,
-  color = C.tinta,
-  size = 24,
-  style,
-}) => (
-  <div
-    style={{
-      fontFamily: FONT.mono,
-      fontWeight: 700,
-      fontSize: size,
-      letterSpacing: '0.08em',
-      textTransform: 'uppercase',
-      lineHeight: 1.3,
-      color,
-      ...style,
-    }}
-  >
-    {children}
-  </div>
-);
-
-export const Body: React.FC<{children: React.ReactNode; color?: string; size?: number; style?: React.CSSProperties}> = ({
-  children,
-  color = C.tinta,
-  size = 34,
-  style,
-}) => (
-  <div style={{fontFamily: FONT.ui, fontWeight: 500, fontSize: size, lineHeight: 1.28, letterSpacing: '-0.01em', color, ...style}}>
-    {children}
   </div>
 );
 
@@ -367,6 +337,53 @@ export const PillSticker: React.FC<{x: number; y: number; at: number; size?: num
   );
 };
 
+// Etiqueta grande troquelada (Anton en una píldora): «CASO REAL · DA TONINO», «REAL», «LISTA»…
+// Sustituye a los pies de foto en mono, que en el móvil no se leían.
+export const Tag: React.FC<{
+  x: number;
+  y: number;
+  at: number;
+  text: string;
+  size?: number;
+  rot?: number;
+  bg?: string;
+  fg?: string;
+  anchor?: 'left' | 'center';
+}> = ({x, y, at, text, size = 60, rot = -3, bg = C.mostaza, fg = C.tinta, anchor = 'left'}) => {
+  const slap = useSlap(at, rot);
+  if (!slap.visible) return null;
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: x,
+        top: y,
+        transform: `${anchor === 'center' ? 'translateX(-50%) ' : ''}${slap.transform}`,
+        transformOrigin: anchor === 'center' ? '50% 50%' : '0 50%',
+        opacity: slap.opacity,
+        filter: DIECUT,
+      }}
+    >
+      <div
+        style={{
+          background: bg,
+          color: fg,
+          fontFamily: FONT.display,
+          fontSize: size,
+          lineHeight: 1,
+          letterSpacing: '0.02em',
+          textTransform: 'uppercase',
+          whiteSpace: 'nowrap',
+          padding: `${size * 0.16}px ${size * 0.34}px ${size * 0.12}px`,
+          borderRadius: size * 0.18,
+        }}
+      >
+        {text}
+      </div>
+    </div>
+  );
+};
+
 // Punto mostaza de esquina.
 export const Dot: React.FC<{x: number; y: number; size: number; at: number; color?: string}> = ({x, y, size, at, color = C.mostaza}) => {
   const f = useCurrentFrame();
@@ -485,92 +502,6 @@ export const Cutout: React.FC<{
   );
 };
 
-// Móvil plano con barra de estado, como en las pantallas de la guía.
-export const Phone: React.FC<{
-  width: number;
-  dark?: boolean;
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-}> = ({width, dark = false, children, style}) => {
-  const h = width * 2.06;
-  const ink = dark ? C.papel : C.tinta;
-  return (
-    <div
-      style={{
-        width,
-        height: h,
-        borderRadius: width * 0.15,
-        background: C.tinta,
-        padding: width * 0.032,
-        boxSizing: 'border-box',
-        position: 'relative',
-        ...style,
-      }}
-    >
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          borderRadius: width * 0.125,
-          overflow: 'hidden',
-          position: 'relative',
-        }}
-      >
-        <Paper dark={dark} />
-        <div
-          style={{
-            position: 'absolute',
-            top: width * 0.03,
-            left: '50%',
-            width: width * 0.3,
-            height: width * 0.085,
-            marginLeft: -width * 0.15,
-            borderRadius: width,
-            background: C.tinta,
-            zIndex: 10,
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            top: width * 0.045,
-            left: width * 0.1,
-            right: width * 0.09,
-            display: 'flex',
-            justifyContent: 'space-between',
-            fontFamily: FONT.ui,
-            fontWeight: 700,
-            fontSize: width * 0.042,
-            color: ink,
-            zIndex: 11,
-          }}
-        >
-          <span>9:41</span>
-          <span style={{display: 'flex', gap: width * 0.012, alignItems: 'flex-end'}}>
-            {[0.4, 0.6, 0.8, 1].map((k) => (
-              <span key={k} style={{width: width * 0.009, height: width * 0.03 * k, background: ink, borderRadius: 2}} />
-            ))}
-            <span
-              style={{
-                marginLeft: width * 0.02,
-                width: width * 0.06,
-                height: width * 0.03,
-                border: `2px solid ${ink}`,
-                borderRadius: 4,
-                padding: 1,
-                boxSizing: 'border-box',
-              }}
-            >
-              <span style={{display: 'block', width: '80%', height: '100%', background: ink, borderRadius: 2}} />
-            </span>
-          </span>
-        </div>
-        <div style={{position: 'absolute', inset: 0}}>{children}</div>
-      </div>
-    </div>
-  );
-};
-
 // Botón principal: píldora mostaza con texto tinta y flecha.
 export const Button: React.FC<{label: string; size: number; press?: number; style?: React.CSSProperties; bg?: string; fg?: string; border?: string}> = ({
   label,
@@ -606,23 +537,3 @@ export const Button: React.FC<{label: string; size: number; press?: number; styl
     </svg>
   </div>
 );
-
-// Texto que se escribe letra a letra, con cursor.
-export const Typed: React.FC<{text: string; at: number; cps?: number; cursor?: boolean; style?: React.CSSProperties}> = ({
-  text,
-  at,
-  cps = 18,
-  cursor = true,
-  style,
-}) => {
-  const f = useCurrentFrame();
-  const {fps} = useVideoConfig();
-  const n = Math.max(0, Math.min(text.length, Math.floor(((f - at) / fps) * cps)));
-  const blink = cursor && Math.floor(f / 8) % 2 === 0;
-  return (
-    <span style={style}>
-      {text.slice(0, n)}
-      <span style={{opacity: blink ? 1 : 0, fontWeight: 400}}>|</span>
-    </span>
-  );
-};
