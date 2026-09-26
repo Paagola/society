@@ -17,6 +17,10 @@ Director de arte y *prompt engineer* de imagen y vídeo hiperrealista para hoste
 
 **Límites con otras skills.** `director` decide qué planos hay, con qué ángulo y en qué orden, y llama a esta skill plano a plano. `higgsfield` decide el modelo exacto, los parámetros y el coste. `openmontage` monta. `marketing-hosteleria` decide el objetivo de la pieza. Esta skill escribe el prompt y revisa el resultado.
 
+## Aperturas visuales
+
+Cuando dirección entregue un hook de [`hooks-society`](../hooks-society/SKILL.md), prepara el keyframe con la acción ya iniciada y conserva una acción principal con estado final visible. Adapta el fragmento de movimiento a las referencias aprobadas, la luz, el foco y las restricciones del cliente. Un rótulo no resuelve un gesto confuso. Si la acción revela material no documentado, devuelve la condición pendiente a dirección; no inventes interior, utensilios ni espacios.
+
 ## Precedencia
 
 1. La regla escrita del cliente (ficha del restaurante, correcciones fechadas).
@@ -39,15 +43,10 @@ La lista cerrada de correcciones a la base heredada (luz cálida por defecto, 4K
 8. **Comida real como ancla:** foto real del plato + ficha de texturas 3×3 en cada keyframe y en el vídeo. Imagen a vídeo desde keyframe anclado; el texto a vídeo solo para pruebas que no se publican. → `hosteleria/01` §3
 9. **Luz neutra de unos 5000 K y color asignado en positivo** en comida y salas, salvo luz motivada que pida el brief. → `hosteleria/02`
 10. **La proporción nace en la imagen de inicio:** keyframe en 9:16 **y** `aspect_ratio:"9:16"` explícito en el vídeo. → `hosteleria/03` §1
-<<<<<<< HEAD
-11. **Restraint en movimiento:** un beat principal por toma, cámara con un único movimiento y un punto final nombrado. Si en la imagen no se mueve nada, el plano se resuelve en montaje. → `knowledge/06`, `hosteleria/04` §2. **Excepción R-VEL-01 (25/09/2026):** si hay un reel de referencia, su energía de movimiento medida manda sobre el restraint: acciones rápidas con distancia y tiempo, sin *locked-off*, *slow* ni *hold* → `hosteleria/07` §7
-11 bis. **Gestos con sentido (R-GESTO-01, 25/09/2026):** cada acción de manos es el gesto real del oficio y cambia el alimento hacia un resultado visible (coger, estirar y moldear la masa; nunca apoyar cinco dedos). Sin resultado, la toma se quita. → `hosteleria/05` §3.1
-12. **No fabricar:** lo que no se puede inferir se omite; lo que no está verificado se marca `(verificar)`.
-=======
 11. **Firma de rodaje real** [MEDIDO 25/09/2026]: en vídeo, plano de foco fino con nombre, luz con fuente y contraste, cámara con peso, física con desenfoque de movimiento y un verbo de manos por plano. Todo nítido, plano y quieto es la firma de la IA. → `hosteleria/08`
-12. **Restraint en movimiento:** un beat principal por toma, cámara con un único movimiento y un punto final nombrado. Restraint no es cámara muerta: en proceso, cámara en mano con microtemblor (`hosteleria/08` §4). → `knowledge/06`, `hosteleria/04` §2
+12. **Restraint en movimiento:** un beat principal por toma, cámara con un único movimiento y un punto final nombrado. Si en la imagen no se mueve nada, el plano se resuelve en montaje. Restraint no es cámara muerta: en proceso, cámara en mano con microtemblor (`hosteleria/08` §4). → `knowledge/06`, `hosteleria/04` §2. **Excepción R-VEL-01 (25/09/2026):** si hay un reel de referencia, su energía de movimiento medida manda sobre el restraint: acciones rápidas con distancia y tiempo, sin *locked-off*, *slow* ni *hold* → `hosteleria/07` §7
+12 bis. **Gestos con sentido (R-GESTO-01, 25/09/2026):** cada acción de manos es el gesto real del oficio y cambia el alimento hacia un resultado visible (coger, estirar y moldear la masa; nunca apoyar cinco dedos). Sin resultado, la toma se quita. → `hosteleria/05` §3.1
 13. **No fabricar:** lo que no se puede inferir se omite; lo que no está verificado se marca `(verificar)`.
->>>>>>> 2c4e6fc8c2c88bf2843bc4ad582e9e8849f11b34
 
 ## Ficha del cliente antes de generar
 
@@ -93,7 +92,7 @@ Lote de keyframes (2K, 9:16). Se revisa textura, luz y fidelidad **antes** de an
 Orden PRESERVE → MOTION → CAMERA → GRADE → NEGATIVE → coda, con los bloques CAPTURE, LIGHT low-key, PHYSICS y HANDS de `hosteleria/08` §11 en los planos de acción. Sintaxis de Seedance 2.5 si toca (`hosteleria/04` §3). Checklist de `knowledge/06` §8 y la de autorreparación de fallos (`hosteleria/06` §5).
 
 ### 6 · Generar
-Lo ejecuta `higgsfield`: preflight de coste, parámetros explícitos (resolución, proporción, duración), lotes pequeños. **Regla R-RES-01 (24/09/2026):** Seedance 2.5 se genera a 720p y solo la toma aprobada se reescala a 1080×1920 con ByteDance pro; el 1080p nativo queda para los clientes que lo exijan por escrito (`hosteleria/03` §3.1). Borrador opcional a 480p con el mismo prompt.
+Lo ejecuta `higgsfield`: preflight de coste, parámetros explícitos (resolución, proporción, duración), lotes pequeños. **Regla R-RES-01 (24/09/2026):** Seedance 2.5 se genera a 720p y solo la toma aprobada se reescala con ByteDance pro a **2K y 60 fps** (R-RES-02, 25/09/2026; copia de publicación a 1080×1920 a 60 fps); el 1080p nativo queda para los clientes que lo exijan por escrito (`hosteleria/03` §3.1). Borrador opcional a 480p con el mismo prompt.
 
 ### 7 · Revisar → **PUERTA B**
 `ffprobe`, `cropdetect`, fotogramas duplicados, temperatura y luminancia frente al keyframe, y revisión fotograma a fotograma del plano héroe (`hosteleria/06` §4). Se registra el modelo pedido y el servido, los parámetros efectivos y el coste real. Se decide si el fallo es sistemático (cambiar una variable) o aleatorio (repetir tiradas).

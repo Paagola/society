@@ -84,7 +84,6 @@ La base DirectorIA nació para publicidad de belleza, moda y perfume (el caso Bl
 - **Base heredada:** un clip de 4–6 s lleva un único beat principal (`knowledge/06` §1).
 - **No es una contradicción:** sigue valiendo **por toma**. La multitoma de Seedance 2.5 (varias tomas en una generación, con el corte escondido en un gesto rápido) es un montaje dentro del clip: cada toma conserva su único beat. → [`07-recreacion-de-referencia.md`](07-recreacion-de-referencia.md)
 
-<<<<<<< HEAD
 ### 2.10 Restraint frente a la energía de un reel de referencia (R-VEL-01, 25/09/2026) [MEDIDO]
 
 - **Base heredada:** *"el cine es restraint"*: un beat, cámara fija o empuje del 3–4 %, hold (`knowledge/06`, `director/03` §5).
@@ -97,8 +96,8 @@ La base DirectorIA nació para publicidad de belleza, moda y perfume (el caso Bl
 - **Regla de `02` §2:** luz de día neutra y sombras con detalle, que la sala levanta.
 - **Precisión:** si el brief o la referencia piden un **estilo de estudio de fotografía** (fondo oscurecido, solo el protagonista iluminado; patrón medido: mediana 25, 65 % de sombras, sujeto 2,5× el fondo), el fondo va a negro a propósito. Se mantiene la temperatura neutra.
 - **Regla nueva:** una sola luminosidad por pieza o campaña; ninguna imagen ni vídeo con otra. → [`02-luz-y-color.md`](02-luz-y-color.md) §8
-=======
-### 2.10 Firma de rodaje real [MEDIDO 25/09/2026]
+
+### 2.12 Firma de rodaje real [MEDIDO 25/09/2026]
 
 Comparación del reel de Da Tonino v3 con un reel de producto rodado (`pruebas/2026-09-25_da-tonino-v3-frente-a-referencia/`). Tres reglas anteriores, aplicadas a todos los planos, producían el aspecto de catálogo que delata la IA. Se corrigen **para vídeo y planos de acción**; el detalle está en [`08-firma-de-rodaje-real.md`](08-firma-de-rodaje-real.md).
 
@@ -106,7 +105,11 @@ Comparación del reel de Da Tonino v3 con un reel de producto rodado (`pruebas/2
 - **`02` §2 «la sala levanta las sombras» → matizado.** El balance de blancos sigue neutro; el contraste no se aplana. En cocina, proceso y fuego, luz *low-key* dura y motivada. Medido: negro p1 5,8 frente a 1,8; blanco p99 194 frente a 234.
 - **Prefijo `director/04` §2 «Motorised slider moves only, no handheld» → sustituido.** Cámara en mano o gimbal con microtemblor en proceso; slider solo en el plano héroe. Medido: 5 planos quietos frente a 2. **Límite:** seguimiento con intención de pequeña amplitud, nunca temblor genérico ni recorrido sobre la comida; si la ficha del cliente prohíbe la cámara en mano (Torre de Vega), manda la ficha.
 - **Nuevo:** física con peso y obturación de 180° (desenfoque de movimiento), un verbo de manos por plano, un solo mundo visual, corte seco sin transiciones de efecto y sonido obligatorio.
->>>>>>> 2c4e6fc8c2c88bf2843bc4ad582e9e8849f11b34
+
+### 2.13 Destino del reescalado de vídeo (R-RES-02, 25/09/2026)
+
+- **Antes:** R-RES-01 reescalaba a 1080×1920 a 24 fps ("nunca más de 30 fps"), y una línea posterior de `skills/README.md` subía a 4K.
+- **Ahora (decisión de Víctor):** ByteDance pro a **2K y 60 fps** desde el 720p original; copia de publicación a 1080×1920 a 60 fps y montaje a 60 fps. Se asume el coste doble por pasar de 30 fps. Detalle y revisión: `03` §3.1.
 
 ## 3. Conflictos con fuentes públicas
 

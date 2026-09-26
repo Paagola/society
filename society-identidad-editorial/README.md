@@ -169,10 +169,20 @@ Línea gruesa con extremos redondeados, en tinta (papel en modo oscuro): inicio,
 
 «La Taberna del Patio», «Calle Mayor, 12», «Madrid», las alcachofas y los textos de ejemplo son ilustrativos. Hay que sustituirlos por datos reales antes de usar las piezas.
 
+## Prototipo y manual de la app
+
+[`diseno-web/index.html`](diseno-web/index.html) (26/09/2026) sustituye a las imágenes como referencia de la app. Abre en un prototipo navegable con las siete pantallas del Figma (el alta completa) y cinco pantallas propuestas para las pestañas (Inicio, Semana, Resultados, Local y Perfil), cada una con su ficha de funcionamiento. Debajo están los tokens de color en modo oscuro y claro, la escala tipográfica, los recursos, los componentes con todos sus estados, los flujos, lo que incluye cada plan y las decisiones pendientes (D1 a D13).
+
+Cambios que fija respecto a esta guía: el modo oscuro pasa a ser el principal, las pantallas no llevan cabecera de marca, la pestaña activa es una pastilla cobalto con icono blanco (el cobalto sobre tinta da 2,53:1), los titulares van en Anton sin deformar y se propone un color de error. Es una maqueta: el código de la app lo escribe Víctor.
+
+**Versión estudio (v2, 27/09/2026):** [`diseno-web/estudio.html`](diseno-web/estudio.html) es la misma app con patrones de apps hechas por estudios de diseño: tarjetas grandes con foto y píldoras de cristal, botones redondos, chips de filtro, barra de cifras, «desliza para empezar», barra de pestañas flotante, recorte en diagonal y rombo con cifra. Usa los mismos cuatro colores con otro reparto: papel de fondo, tinta en tarjetas, barras y botones, cobalto como bloque de marca y mostaza solo en el pomo del botón y en los avisos. Trae la comparación pantalla a pantalla con la v1 y un modo oscuro. Está pendiente elegir entre las dos versiones o mezclarlas.
+
+Se abre con doble clic en el navegador (las fuentes vienen de Google Fonts, así que necesita conexión). `sistema.css` tiene los tokens y las piezas; `estudio.css`, lo que cambia en la v2; `pagina.css`, la envoltura; `app.js`, el comportamiento de los dos prototipos; `img/`, las fotos y pegatinas en WebP (las `v2-*` salen de `pantallas/_assets/original` con `procesar.py`, y las `v1-*` son capturas de la v1 para comparar).
+
 ## Pendiente
 
-1. Probar la serif cursiva real (Playfair Display o DM Serif Display) junto a Anton y elegir.
+1. Probar la serif cursiva real (Playfair Display o DM Serif Display) junto a Anton y elegir. Hecho en el prototipo: Playfair Display.
 2. Construir el logotipo A y el símbolo D en vector.
-3. Pegatinas e iconos en vector.
-4. Tokens de color y tipografía para la app (modo claro y oscuro).
-5. Fijar la barra de pestañas y pasar las pantallas a diseño final.
+3. Pegatinas e iconos en vector. Iconos y destello hechos en el prototipo; las pegatinas siguen en imagen.
+4. ~~Tokens de color y tipografía para la app (modo claro y oscuro).~~ Hechos en `diseno-web/sistema.css`.
+5. ~~Fijar la barra de pestañas y pasar las pantallas a diseño final.~~ Barra fijada (Inicio, Local, Semana, Resultados, Perfil); decisiones abiertas en el prototipo, sección «Pendiente».

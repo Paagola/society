@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prototipo de Society</title>
+<meta name="description" content="Colores, tipografía, componentes, pantallas navegables y funcionamiento de la app Society, definidos en código a partir del Figma del 26/09/2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="sistema.css">
+<link rel="stylesheet" href="pagina.css">
+</head>
+<body>
+
+<!-- Iconos: línea de 2,2 en rejilla de 24, extremos redondeados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-estado" viewBox="0 0 76 13"><g fill="currentColor"><rect x="0" y="8.5" width="3.2" height="4.5" rx="1"/><rect x="5" y="6" width="3.2" height="7" rx="1"/><rect x="10" y="3" width="3.2" height="10" rx="1"/><rect x="15" y="0" width="3.2" height="13" rx="1"/></g><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M26 4.7A11 11 0 0 1 42 4.7"/><path d="M29 7.9A6.8 6.8 0 0 1 39 7.9"/></g><circle cx="34" cy="11.3" r="1.8" fill="currentColor"/><rect x="48" y=".5" width="24" height="12" rx="3.6" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="1.2"/><rect x="50" y="2.5" width="20" height="8" rx="2" fill="currentColor"/><rect x="73.5" y="4.3" width="1.6" height="4.4" rx=".8" fill="currentColor" fill-opacity=".5"/></symbol>
+  <symbol id="i-atras" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4 7 12l8 8"/></symbol>
+  <symbol id="i-cerrar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+  <symbol id="i-buscar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M14 5l7 7-7 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s-7-6.3-7-11.8a7 7 0 0 1 14 0c0 5.5-7 11.8-7 11.8z"/><circle cx="12" cy="9.7" r="2.6"/></symbol>
+  <symbol id="i-pin-lleno" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12 21.5s-7-6.3-7-11.8a7 7 0 0 1 14 0c0 5.5-7 11.8-7 11.8zM12 7.1a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 1 0 0-5.2z"/></symbol>
+  <symbol id="i-corazon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20.5s-8.5-5.2-8.5-11.2A4.8 4.8 0 0 1 12 6.4a4.8 4.8 0 0 1 8.5 2.9c0 6-8.5 11.2-8.5 11.2z"/></symbol>
+  <symbol id="i-comentario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20.6 16.4A9 9 0 1 0 17 19.9l4.5 1.1z"/></symbol>
+  <symbol id="i-enviar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M22 3 2.5 10.5l7.5 3L13 21zM10 13.5 22 3"/></symbol>
+  <symbol id="i-guardar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5.5 3h13v18L12 15.5 5.5 21z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 2h-3.5v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9a6.5 6.5 0 1 0 5.5 6.4V8.7a8.3 8.3 0 0 0 4.9 1.6V6.8a4.9 4.9 0 0 1-4.9-4.8z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M18.2 2.2h3.4l-7.4 8.5 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.9 2.2h7l4.8 6.4zm-1.2 18h1.9L7.1 4.1H5.1z"/></symbol>
+  <symbol id="i-inicio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"><path d="M3.5 10.5 12 3.5l8.5 7V20a1 1 0 0 1-1 1h-4.8v-6h-5.4v6H4.5a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-calendario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M7 13.5h2M11 13.5h2M15 13.5h2M7 17h2M11 17h2"/></symbol>
+  <symbol id="i-resultados" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 21v-7M9.7 21V10M14.3 21v-8.5M19 21V5.5"/></symbol>
+  <symbol id="i-perfil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="8" r="4.3"/><path d="M4 21.5a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></symbol>
+  <symbol id="i-mas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M12 5.5v13M5.5 12h13"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-estrella" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3.2 2.7 5.6 6.1.8-4.5 4.2 1.1 6L12 16.9l-5.4 2.9 1.1-6-4.5-4.2 6.1-.8z"/></symbol>
+  <symbol id="i-camara" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8.5a2 2 0 0 1 2-2h2L9.5 4h5L16 6.5h2a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-carta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol>
+  <symbol id="i-globo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+  <symbol id="i-lapiz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m4 20 1-4.5L15.5 5a2.1 2.1 0 0 1 3 3L8 18.5zM13.5 7l3 3"/></symbol>
+  <symbol id="i-alerta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.8 21.5 20h-19zM12 10v4.2"/><circle cx="12" cy="17.2" r=".9" fill="currentColor"/></symbol>
+  <symbol id="i-campana" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 17v-6a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21h4"/></symbol>
+  <symbol id="i-subir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-bajar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-puntos" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="19" r="1.9"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5l11 7-11 7z"/></symbol>
+  <symbol id="i-personas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2a5 5 0 0 1 5.5 5"/></symbol>
+  <symbol id="i-tarjeta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></symbol>
+  <symbol id="i-voz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+  <symbol id="i-salir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10"/></symbol>
+  <symbol id="i-pincel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 3.5a2.1 2.1 0 0 1 3 3L13 15l-3.5.5.5-3.5zM9.5 15.5c-1.5 0-3 1-3 3 0 1.2-1 2-2.5 2 1 1 2.5 1.5 4 1.5 2.5 0 4-1.6 4-3.5"/></symbol>
+  <symbol id="i-reel-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3" fill="currentColor"/><path d="M8 2.5v4M16 2.5v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M10 10.5l5.5 3.2-5.5 3.2z" fill="#2440E0"/></symbol>
+  <symbol id="i-destello" viewBox="0 0 40 52"><path d="M20 1Q24 21 39 26 24 31 20 51 16 31 1 26 16 21 20 1Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></symbol>
+  <symbol id="p-recomendado" viewBox="0 0 150 64"><g stroke="#F5C518" stroke-width="3.4" stroke-linecap="round" fill="none"><path d="M4 16l10 4M2 32h11M6 48l9-6M136 14l10-5M138 30h11M136 46l10 5"/></g><polygon transform="translate(15 2)" fill="#F5C518" points="118.0,30.0 106.5,33.3 115.7,38.2 102.8,39.8 108.8,45.7 95.5,45.4 98.0,51.9 85.4,49.8 84.1,56.4 73.2,52.5 68.3,58.7 60.0,53.5 51.7,58.7 46.8,52.5 35.9,56.4 34.6,49.8 22.0,51.9 24.5,45.4 11.2,45.7 17.2,39.8 4.3,38.2 13.5,33.3 2.0,30.0 13.5,26.7 4.3,21.8 17.2,20.2 11.2,14.3 24.5,14.6 22.0,8.1 34.6,10.2 35.9,3.6 46.8,7.5 51.7,1.3 60.0,6.5 68.3,1.3 73.2,7.5 84.1,3.6 85.4,10.2 98.0,8.1 95.5,14.6 108.8,14.3 102.8,20.2 115.7,21.8 106.5,26.7"/><text x="75" y="37.5" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="14.5" font-style="italic" fill="#141414" letter-spacing=".2">RECOMENDADO</text></symbol>
+  <symbol id="i-ampliar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+  <symbol id="i-subrayado" viewBox="0 0 100 21"><path fill="#2440E0" d="M2 17C30 9 65 4 98 2c1.6 0 2 2.2.4 3C66 8.5 34 13.5 4.5 20 1 20.6 0 18 2 17z"/></symbol>
+</svg>
+
+<header class="barra">
+  <div class="envoltura barra__dentro">
+    <a class="logo" href="#prototipo" aria-label="Society, volver al prototipo">Society<svg viewBox="0 0 100 21" preserveAspectRatio="none" aria-hidden="true"><use href="#i-subrayado"/></svg></a>
+    <nav aria-label="Secciones del manual">
+      <ul>
+        <li><a href="#prototipo">Prototipo</a></li>
+        <li><a href="#tablero">Tablero</a></li>
+        <li><a href="#cambios">Cambios</a></li>
+        <li><a href="#color">Color</a></li>
+        <li><a href="#letras">Letras</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#piezas">Piezas</a></li>
+        <li><a href="#flujos">Flujos</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#pendiente">Pendiente</a></li>
+      </ul>
+    </nav>
+    <a class="enlace-version" data-v2="https://claude.ai/artifact/VHK8miELq2HPeQqBr25Rma" href="estudio.html">Ver la v2</a>
+  </div>
+</header>
+
+<main>
+
+<section class="escenario" id="prototipo" aria-label="Prototipo de la app">
+  <div class="envoltura escenario__rejilla">
+    <div class="escenario__lado">
+      <p class="antetitulo">Society · prototipo de la app · v1 · 26/09/2026</p>
+      <h1 class="escenario__titulo"><span class="a">SOCIETY</span> <span class="b">en tu mano</span></h1>
+      <p class="escenario__entrada">Tócala como si fuera la app: los botones, los interruptores, el texto y los estilos funcionan, y lo que eliges en una pantalla se ve en las demás. Cada pantalla trae su ficha: qué hace y por qué.</p>
+      <span class="conmutador" role="group" aria-label="Modo de la app"><button type="button" data-modo="oscuro" aria-pressed="true">Modo oscuro</button><button type="button" data-modo="claro" aria-pressed="false">Modo claro</button></span>
+      <nav class="lista-pantallas" aria-label="Pantallas del prototipo">
+        <div>
+          <p class="etq">El alta · tu Figma</p>
+          <ol>
+            <li><button type="button" data-ver="bienvenida" aria-current="true"><span class="n">01</span>Bienvenida</button></li>
+            <li><button type="button" data-ver="busca"><span class="n">02</span>Busca tu local</button></li>
+            <li><button type="button" data-ver="conecta"><span class="n">03</span>Conecta tus redes</button></li>
+            <li><button type="button" data-ver="plan"><span class="n">04</span>Tu plan</button></li>
+            <li><button type="button" data-ver="que-hay-hoy"><span class="n">05</span>¿Qué hay hoy?</button></li>
+            <li><button type="button" data-ver="estilo"><span class="n">06</span>Elige el estilo</button></li>
+            <li><button type="button" data-ver="asi-queda"><span class="n">07</span>Así queda</button></li>
+          </ol>
+        </div>
+        <div>
+          <p class="etq">El día a día · propuesta</p>
+          <ol>
+            <li><button type="button" data-ver="inicio"><span class="n">01</span>Inicio</button></li>
+            <li><button type="button" data-ver="semana"><span class="n">02</span>Semana</button></li>
+            <li><button type="button" data-ver="resultados"><span class="n">03</span>Resultados</button></li>
+            <li><button type="button" data-ver="local"><span class="n">04</span>Local</button></li>
+            <li><button type="button" data-ver="perfil"><span class="n">05</span>Perfil</button></li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+    <div class="escenario__movil" id="escenario-movil">
+      <div class="movil" id="movil">
+          <div class="pantalla app" id="pantalla-bienvenida" data-pantalla="bienvenida" data-cinta="390 × 844 · Figma 01-bienvenida 7" data-grupo="alta" data-nombre="01 · Bienvenida" role="group" aria-label="Pantalla: Bienvenida">
+            <div class="estado"></div>
+            <button class="entrar" type="button" data-ir="inicio">Entrar</button>
+            <h1 class="titular" style="position:absolute; top:88px; left:20px">
+              <span class="t-anton" style="--t:128px">TU BAR</span>
+              <span class="t-acento" style="--t:80px">merece</span>
+              <span class="t-anton" style="--t:72px">QUE LO VEAN.</span>
+            </h1>
+            <img src="img/mano-copa.webp" alt="" width="720" height="670" style="position:absolute; left:100px; top:384px; width:345px; height:auto">
+            <svg class="rayos" viewBox="0 0 70 70" style="left:50px; top:462px; width:70px" aria-hidden="true"><path d="M4 8 42 12M20 54 48 28M64 36l2 30" stroke="#2440E0" stroke-width="5.5" stroke-linecap="round" fill="none"/></svg>
+            <div class="abajo abajo--puntos"><button class="boton boton--principal boton--ancho" type="button" data-ir="busca">Empezar</button></div>
+            <div class="paginacion" role="img" aria-label="Paso 1 de 3"><span aria-current="step"></span><span></span><span></span></div>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-busca" data-pantalla="busca" data-cinta="390 × 844 · Figma 01-bienvenida 8" data-grupo="alta" data-nombre="02 · Busca tu local" role="group" aria-label="Pantalla: Busca tu local">
+            <div class="estado"></div>
+            <h1 class="titular" style="position:absolute; top:88px; left:20px">
+              <span class="t-anton" style="--t:128px">BUSCA</span>
+              <span class="t-acento" style="--t:80px; margin-left:58px">tu local</span>
+            </h1>
+            <img class="pegatina" src="img/flecha-pincel.webp" alt="" width="320" height="214" style="left:3px; top:218px; width:86px; transform:rotate(88deg)">
+            <div style="position:absolute; top:300px; left:20px; right:20px">
+              <label class="buscador"><svg aria-hidden="true"><use href="#i-buscar"/></svg><input id="busca-local" type="search" value="Madrid" autocomplete="off" placeholder="Nombre de tu bar o tu calle" aria-label="Busca tu local por nombre o calle" data-buscador><button class="buscador__borrar" type="button" aria-label="Borrar la búsqueda" data-borrar><svg aria-hidden="true"><use href="#i-cerrar"/></svg></button></label>
+              <div data-resultados style="margin-top:16px">
+                <button class="local-resultado" type="button" data-abrir="google"><img src="img/taberna-color.webp" alt="Fachada de La Taberna del Patio" width="760" height="430"><span class="local-resultado__cuerpo"><span class="local-resultado__nombre">La Taberna del Patio</span><svg class="local-resultado__ir" aria-hidden="true"><use href="#i-flecha"/></svg><span class="local-resultado__dir"><svg aria-hidden="true"><use href="#i-pin"/></svg>Calle Mayor, 12</span></span></button>
+                <div class="es-cargando" aria-hidden="true" style="margin-top:6px">
+                  <span class="vacio-fila"><span class="vacio-fila__punto"></span><span class="vacio-fila__lineas"><span></span><span></span></span><svg><use href="#i-chevron"/></svg></span>
+                  <span class="vacio-fila"><span class="vacio-fila__punto"></span><span class="vacio-fila__lineas"><span></span><span></span></span><svg><use href="#i-chevron"/></svg></span>
+                  <span class="vacio-fila"><span class="vacio-fila__punto"></span><span class="vacio-fila__lineas"><span></span><span></span></span><svg><use href="#i-chevron"/></svg></span>
+                </div>
+              </div>
+              <p class="ayuda-app" data-ayuda hidden>Escribe el nombre de tu bar o tu calle. Buscamos a partir de tres letras.</p>
+            </div>
+            <div class="velo" hidden data-velo></div>
+            <div class="hoja" hidden data-hoja="google" role="dialog" aria-label="Conecta la ficha de Google">
+              <p class="hoja__titulo"><span class="t-anton">¿ES</span><span class="t-acento">tuyo?</span></p>
+              <p class="hoja__precio">La Taberna del Patio · Calle Mayor, 12</p>
+              <ul class="hoja__lista"><li><svg aria-hidden="true"><use href="#i-check"/></svg>Conecta su ficha de Google para tener al día horarios, fotos y publicaciones.</li><li><svg aria-hidden="true"><use href="#i-check"/></svg>Nada se publica ni se responde sin tu OK.</li></ul>
+              <button class="boton boton--principal boton--ancho" type="button" data-ir="conecta">Conectar con Google</button>
+              <button class="boton boton--sobre-claro boton--ancho" type="button" data-cerrar-hoja style="margin-top:10px">No es mi local</button>
+            </div>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-conecta" data-pantalla="conecta" data-cinta="390 × 844 · Figma 01-bienvenida 9" data-grupo="alta" data-nombre="03 · Conecta tus redes" role="group" aria-label="Pantalla: Conecta tus redes">
+            <div class="estado"></div>
+            <h1 class="titular" style="position:absolute; top:88px; left:20px">
+              <span class="t-anton" style="--t:108px">CONECTA</span>
+              <span class="t-acento" style="--t:73px">tus redes</span>
+            </h1>
+            <img class="pegatina" src="img/destellos-mostaza.webp" alt="" width="260" height="251" style="left:318px; top:220px; width:62px">
+            <div style="position:absolute; top:290px; left:20px; right:20px; display:grid; gap:18px">
+              <div class="red" data-estado="conectada"><svg class="red__logo" aria-hidden="true"><use href="#i-instagram"/></svg><span><span class="red__nombre">Instagram</span><span class="red__texto">Comparte tus mejores momentos y atrae más gente.</span><span class="red__estado">Conectada como @tu_local</span></span><button class="interruptor" type="button" role="switch" aria-checked="true" aria-label="Instagram"></button></div>
+              <div class="red" data-estado="sin-conectar"><svg class="red__logo" aria-hidden="true"><use href="#i-tiktok"/></svg><span><span class="red__nombre">TikTok</span><span class="red__texto">Haz que tu bar se descubra de forma diferente.</span><span class="red__estado"></span></span><button class="interruptor" type="button" role="switch" aria-checked="false" aria-label="TikTok"></button></div>
+              <div class="red" data-estado="sin-conectar"><svg class="red__logo" aria-hidden="true"><use href="#i-facebook"/></svg><span><span class="red__nombre">Facebook</span><span class="red__texto">Mantén a tu comunidad siempre al día.</span><span class="red__estado"></span></span><button class="interruptor" type="button" role="switch" aria-checked="false" aria-label="Facebook"></button></div>
+              <div class="red" data-estado="sin-conectar"><svg class="red__logo" aria-hidden="true"><use href="#i-x"/></svg><span><span class="red__nombre">X (Twitter)</span><span class="red__texto">Habla, comparte, conecta.</span><span class="red__estado"></span></span><button class="interruptor" type="button" role="switch" aria-checked="false" aria-label="X"></button></div>
+            </div>
+            <div class="abajo"><button class="boton boton--principal boton--ancho" type="button" data-ir="plan">Siguiente</button></div>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-plan" data-pantalla="plan" data-cinta="390 × 844 · Figma 02-tu-plan 3" data-grupo="alta" data-nombre="04 · Tu plan" role="group" aria-label="Pantalla: Tu plan">
+            <div class="estado"></div>
+            <button class="atras" type="button" data-ir="conecta" aria-label="Atrás"><svg aria-hidden="true"><use href="#i-atras"/></svg></button>
+            <h1 class="titular" style="position:absolute; top:100px; left:20px"><span class="titular__fila"><span class="t-anton" style="--t:128px">TU</span><span class="t-acento t-acento--plan" style="--t:80px">PLAN</span></span></h1>
+            <div style="position:absolute; top:232px; left:14px; right:14px; display:grid; gap:16px">
+              <button class="plan" type="button" data-plan="local"><span><span class="plan__icono"><svg aria-hidden="true"><use href="#i-pin-lleno"/></svg></span><span class="plan__nombre">LOCAL</span><span class="plan__texto">Haz que te encuentren en el barrio y atrae a más gente cerca de ti.</span></span><img class="plan__foto" src="img/bar-esquina.webp" alt="" width="360" height="327"></button>
+              <button class="plan plan--destacado" type="button" data-plan="redes"><span><span class="plan__icono"><svg aria-hidden="true"><use href="#i-instagram"/></svg></span><span class="plan__nombre">REDES</span><span class="plan__texto">Crea contenido que conecta, genera conversación y lleva más gente a tu bar.</span></span><img class="plan__foto" src="img/movil-mano.webp" alt="" width="300" height="261"><svg class="pegatina-recomendado" viewBox="0 0 150 64" aria-hidden="true"><use href="#p-recomendado"/></svg></button>
+              <button class="plan" type="button" data-plan="reels"><span><span class="plan__icono"><svg aria-hidden="true"><use href="#i-reel-cal"/></svg></span><span class="plan__nombre">REELS</span><span class="plan__texto">Vídeos cortos, gran alcance. Muestra lo mejor de tu bar en segundos.</span></span><img class="plan__foto" src="img/coctel.webp" alt="" width="300" height="261"><svg class="plan__play" viewBox="0 0 30 30" aria-hidden="true"><path d="M8 5 25 15 8 25z" fill="#2440E0" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg></button>
+            </div>
+            <div class="velo" hidden data-velo></div>
+            <div class="hoja" hidden data-hoja="plan" role="dialog" aria-label="Detalle del plan"></div>
+            <div class="aviso" hidden data-aviso><span class="aviso__icono"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span data-aviso-texto></span></div>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-que-hay-hoy" data-pantalla="que-hay-hoy" data-cinta="390 × 844 · Figma 03-que-hay-hoy 2" data-grupo="alta" data-nombre="05 · ¿Qué hay hoy?" role="group" aria-label="Pantalla: ¿Qué hay hoy?">
+            <div class="estado"></div>
+            <h1 class="titular" style="position:absolute; top:100px; left:20px">
+              <span class="t-anton" style="--t:96px">¿QUÉ HAY</span>
+              <span class="t-acento" style="--t:93px">hoy?</span>
+            </h1>
+            <svg class="destello" viewBox="0 0 40 52" style="left:280px; top:204px; width:46px" aria-hidden="true"><use href="#i-destello"/></svg>
+            <div style="position:absolute; top:312px; left:20px; right:20px">
+              <label class="campo es-activo"><textarea id="texto-hoy" maxlength="300" rows="2" aria-label="¿Qué hay hoy? Cuéntalo en una frase" placeholder="Ej.: hoy tenemos alcachofas a la brasa" data-texto-hoy>Hoy tenemos alcachofas
+a la brasa</textarea><span class="campo__contador"><span data-contador>33</span>/300</span></label>
+              <button class="foto-plato" type="button" style="margin-top:34px" aria-label="Cambiar la foto del plato" data-nota="Aquí se abre la cámara o la galería."><img src="img/alcachofas-trama.webp" alt="Foto real del plato: alcachofas a la brasa" width="700" height="326"><span class="foto-plato__mas"><svg aria-hidden="true"><use href="#i-mas"/></svg></span></button>
+              <div class="chips" role="radiogroup" aria-label="Formato" style="margin-top:32px"><button class="chip" type="button" role="radio" aria-checked="true" data-formato="post">4:5</button><button class="chip" type="button" role="radio" aria-checked="false" data-formato="historia">Historia</button></div>
+            </div>
+            <div class="abajo"><button class="boton boton--principal boton--ancho" type="button" data-ir="estilo" data-requiere-texto>Siguiente</button></div>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-estilo" data-pantalla="estilo" data-cinta="390 × 844 · Figma 04-elige-el-estilo 2" data-grupo="alta" data-nombre="06 · Elige el estilo" role="group" aria-label="Pantalla: Elige el estilo">
+            <div class="estado"></div>
+            <button class="atras" type="button" data-ir="que-hay-hoy" aria-label="Atrás"><svg aria-hidden="true"><use href="#i-atras"/></svg></button>
+            <h1 class="titular" style="position:absolute; top:100px; left:20px">
+              <span class="t-anton" style="--t:112px">ELIGE</span>
+              <span class="t-acento" style="--t:73px">el estilo</span>
+            </h1>
+            <svg class="destello" viewBox="0 0 40 52" style="left:290px; top:180px; width:38px" aria-hidden="true"><use href="#i-destello"/></svg>
+            <div class="estilos" role="radiogroup" aria-label="Estilo de la pieza" style="position:absolute; top:282px; left:20px; right:20px">
+              <button class="estilo" type="button" role="radio" aria-checked="true" data-estilo="papel"><span class="lamina" data-estilo="papel"></span><span class="estilo__etiqueta"><svg aria-hidden="true"><use href="#i-check"/></svg>Póster de papel</span></button>
+              <button class="estilo" type="button" role="radio" aria-checked="false" data-estilo="cobalto"><span class="lamina" data-estilo="cobalto"></span><span class="estilo__etiqueta"><svg aria-hidden="true"><use href="#i-check"/></svg>Póster cobalto</span></button>
+              <button class="estilo" type="button" role="radio" aria-checked="false" data-estilo="foto"><span class="lamina" data-estilo="foto"></span><span class="estilo__etiqueta"><svg aria-hidden="true"><use href="#i-check"/></svg>Foto</span></button>
+              <button class="estilo" type="button" role="radio" aria-checked="false" data-estilo="feed"><span class="lamina" data-estilo="feed"></span><span class="estilo__etiqueta"><svg aria-hidden="true"><use href="#i-check"/></svg>Feed</span></button>
+            </div>
+            <div class="abajo"><button class="boton boton--principal boton--ancho" type="button" data-ir="asi-queda">Siguiente</button></div>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-asi-queda" data-pantalla="asi-queda" data-cinta="390 × 844 · Figma 05-asi-queda 2" data-grupo="alta" data-nombre="07 · Así queda" role="group" aria-label="Pantalla: Así queda">
+            <div class="estado"></div>
+            <button class="atras" type="button" data-ir="estilo" aria-label="Atrás"><svg aria-hidden="true"><use href="#i-atras"/></svg></button>
+            <h1 class="titular" style="position:absolute; top:100px; left:20px"><span class="titular__fila"><span class="t-anton" style="--t:96px">ASÍ</span><span class="t-acento" style="--t:72px">queda</span></span></h1>
+            <img class="pegatina" src="img/sol-mostaza.webp" alt="" width="200" height="194" style="left:214px; top:82px; width:46px">
+            <div style="position:absolute; top:198px; left:0; right:0">
+              <article class="post" data-formato="post" aria-label="Vista previa de la publicación">
+                <div class="lamina" data-estilo="papel"></div>
+                <span class="post__progreso"></span>
+                <div class="post__cabecera"><span class="post__avatar">T</span><span class="post__usuario">tu_local</span><svg class="post__mas" aria-hidden="true"><use href="#i-puntos"/></svg></div>
+                <div class="post__acciones" aria-hidden="true"><svg><use href="#i-corazon"/></svg><svg><use href="#i-comentario"/></svg><svg><use href="#i-enviar"/></svg><svg><use href="#i-guardar"/></svg></div>
+                <p class="post__texto"><b>tu_local</b> <span data-pie-texto>Hoy tenemos alcachofas a la brasa.</span> Sabor, temporada y buena compañía.</p>
+                <p class="post__etiquetas">#Society #Alcachofas #Hoy</p>
+              </article>
+            </div>
+            <div class="abajo"><button class="boton boton--secundario" type="button" data-ir="que-hay-hoy">Editar</button><button class="boton boton--principal" type="button" data-abrir="publicar">Publicar</button></div>
+            <div class="velo" hidden data-velo></div>
+            <div class="hoja" hidden data-hoja="publicar" role="dialog" aria-label="Cuándo se publica">
+              <p class="hoja__titulo"><span class="t-anton">¿CUÁNDO</span><span class="t-acento">sale?</span></p>
+              <div class="opciones" role="radiogroup" aria-label="Cuándo">
+                <button class="opcion" type="button" role="radio" aria-checked="true" data-cuando="ahora"><span>Ahora<small>En Instagram, en @tu_local</small></span><span class="opcion__marca"></span></button>
+                <button class="opcion" type="button" role="radio" aria-checked="false" data-cuando="programar"><span>Programar<small>Jueves 1 de octubre, 19:30</small></span><span class="opcion__marca"></span></button>
+              </div>
+              <ul class="hoja__lista">
+                <li><svg aria-hidden="true"><use href="#i-check"/></svg>Texto y plato confirmados por ti</li>
+                <li><svg aria-hidden="true"><use href="#i-check"/></svg>3 hashtags de 5 posibles</li>
+                <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sin etiqueta de IA: la foto es real</li>
+              </ul>
+              <button class="boton boton--principal boton--ancho" type="button" data-publicar><span class="boton__texto">Publicar ahora</span></button>
+            </div>
+            <div class="aviso" hidden data-aviso><span class="aviso__icono"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span data-aviso-texto></span></div>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-inicio" data-pantalla="inicio" data-cinta="390 × 844 · propuesta · datos de ejemplo" data-grupo="app" data-nombre="Inicio" role="group" aria-label="Pantalla: Inicio">
+            <div class="estado"></div>
+            <div class="pantalla__desliza">
+              <h1 class="titular"><span class="t-anton" style="--t:128px">HOY</span><span class="t-acento" style="--t:62px">para tu bar</span></h1>
+              <section class="destacada" style="margin-top:24px">
+                <p class="destacada__titulo">2 PIEZAS ESPERAN TU OK</p>
+                <p class="destacada__texto">Y el plan de un reel. Sin tu OK no se publica nada; tienes hasta el miércoles a las 20:00.</p>
+                <button class="boton boton--sobre-cobalto boton--pequeno" type="button" data-ir="semana">Revisar</button>
+              </section>
+              <div style="display:grid; gap:10px; margin-top:20px">
+                <button class="boton boton--principal boton--ancho" type="button" data-ir="que-hay-hoy"><svg aria-hidden="true"><use href="#i-mas"/></svg>¿Qué hay hoy?</button>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+                  <button class="boton boton--secundario boton--pequeno" type="button" data-nota="Crear desde un plato de tu carta: por diseñar (D13).">Desde un plato</button>
+                  <button class="boton boton--secundario boton--pequeno" type="button" data-nota="Crear a partir de un reel de referencia: por diseñar (D13).">Desde un reel</button>
+                </div>
+              </div>
+              <p class="etiqueta-seccion" style="margin-top:28px">Lo próximo</p>
+              <div style="display:grid; gap:10px">
+                <div class="pieza"><div class="pieza__mini"><div class="lamina" data-estilo="papel"></div></div><div><span class="pieza__cuando">Jueves 1 · 19:30 · Post</span><span class="pieza__titulo">Alcachofas a la brasa</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--ok">Necesita tu OK</span><button class="pieza__accion" type="button" data-aprobar>Aprobar</button></div></div></div>
+                <div class="pieza"><div class="pieza__mini"><img src="img/bar-esquina.webp" alt="" width="360" height="327"></div><div><span class="pieza__cuando">Viernes 2 · 13:00 · Historia</span><span class="pieza__titulo">La terraza, abierta</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--ok">Necesita tu OK</span><button class="pieza__accion" type="button" data-aprobar>Aprobar</button></div></div></div>
+              </div>
+              <p class="etiqueta-seccion" style="margin-top:28px">La semana pasada</p>
+              <button class="fila" type="button" data-ir="resultados"><span class="fila__icono fila__icono--aviso"><svg aria-hidden="true"><use href="#i-resultados"/></svg></span><span><span class="fila__titulo">Tu mejor post, 1,8 × tu mediana</span><span class="fila__detalle">En envíos por alcance · Alcachofas a la brasa</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            </div>
+            <nav class="pestanas" data-activa="inicio" aria-label="Secciones"></nav>
+            <span class="indicador-inicio"></span>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-semana" data-pantalla="semana" data-cinta="390 × 844 · propuesta · datos de ejemplo" data-grupo="app" data-nombre="Semana" role="group" aria-label="Pantalla: Semana">
+            <div class="estado"></div>
+            <div class="pantalla__desliza">
+              <h1 class="titular"><span class="titular__fila"><span class="t-anton" style="--t:112px">TU</span><span class="t-acento" style="--t:68px">semana</span></span></h1>
+              <p class="etiqueta-seccion" style="margin:20px 0 10px">Del 28 de septiembre al 4 de octubre</p>
+              <div class="dias" role="group" aria-label="Filtrar por día">
+                <button class="dia" type="button" data-dia="28" aria-pressed="false"><span class="dia__letra">L</span><span class="dia__num">28</span><span class="dia__punto"></span></button>
+                <button class="dia dia--con" type="button" data-dia="29" aria-pressed="false"><span class="dia__letra">M</span><span class="dia__num">29</span><span class="dia__punto"></span></button>
+                <button class="dia" type="button" data-dia="30" aria-pressed="false"><span class="dia__letra">X</span><span class="dia__num">30</span><span class="dia__punto"></span></button>
+                <button class="dia dia--con" type="button" data-dia="1" aria-pressed="false"><span class="dia__letra">J</span><span class="dia__num">1</span><span class="dia__punto"></span></button>
+                <button class="dia dia--con" type="button" data-dia="2" aria-pressed="false"><span class="dia__letra">V</span><span class="dia__num">2</span><span class="dia__punto"></span></button>
+                <button class="dia dia--con" type="button" data-dia="3" aria-pressed="false"><span class="dia__letra">S</span><span class="dia__num">3</span><span class="dia__punto"></span></button>
+                <button class="dia dia--con" type="button" data-dia="4" aria-pressed="false"><span class="dia__letra">D</span><span class="dia__num">4</span><span class="dia__punto"></span></button>
+              </div>
+              <p class="semana__modo">Apruebas la semana entera. <button type="button" data-ir="perfil">Cambiar</button></p>
+              <div style="display:grid; gap:10px">
+                <div class="pieza" data-dia="29"><div class="pieza__mini"><img src="img/taberna-color.webp" alt="" width="760" height="430"></div><div><span class="pieza__cuando">Martes 29 · 13:00 · Post</span><span class="pieza__titulo">Horario de otoño</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--publicada"><svg aria-hidden="true"><use href="#i-check"/></svg>Publicada</span></div></div></div>
+                <div class="pieza" data-dia="1"><div class="pieza__mini"><div class="lamina" data-estilo="papel"></div></div><div><span class="pieza__cuando">Jueves 1 · 19:30 · Post</span><span class="pieza__titulo">Alcachofas a la brasa</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--ok">Necesita tu OK</span><button class="pieza__accion" type="button" data-aprobar>Aprobar</button></div></div></div>
+                <div class="pieza" data-dia="2"><div class="pieza__mini"><img src="img/bar-esquina.webp" alt="" width="360" height="327"></div><div><span class="pieza__cuando">Viernes 2 · 13:00 · Historia</span><span class="pieza__titulo">La terraza, abierta</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--ok">Necesita tu OK</span><button class="pieza__accion" type="button" data-aprobar>Aprobar</button></div></div></div>
+                <div class="pieza" data-dia="3"><div class="pieza__mini"><img src="img/coctel.webp" alt="" width="300" height="261"></div><div><span class="pieza__cuando">Sábado 3 · 20:30 · Reel</span><span class="pieza__titulo">El cóctel de la casa</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--plan">Revisa el plan</span><button class="pieza__accion" type="button" data-nota="Aquí se revisan los fotogramas clave y el plan del reel antes de animarlo (G1). Por diseñar.">Revisar</button></div></div></div>
+                <div class="pieza" data-dia="4"><div class="pieza__mini"><div class="lamina" data-estilo="cobalto"></div></div><div><span class="pieza__cuando">Domingo 4 · 12:00 · Historia</span><span class="pieza__titulo">Abrimos a las 12</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--preparando">Preparando</span></div></div></div>
+              </div>
+              <p class="nota-app" data-sin-piezas hidden>Nada programado este día.</p>
+              <button class="boton boton--principal boton--ancho" type="button" style="margin-top:18px" data-aprobar-todo>Aprobar la semana (2)</button>
+            </div>
+            <nav class="pestanas" data-activa="semana" aria-label="Secciones"></nav>
+            <span class="indicador-inicio"></span>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-resultados" data-pantalla="resultados" data-cinta="390 × 844 · propuesta · cifras de ejemplo" data-grupo="app" data-nombre="Resultados" role="group" aria-label="Pantalla: Resultados">
+            <div class="estado"></div>
+            <div class="pantalla__desliza">
+              <h1 class="titular"><span class="t-anton" style="--t:128px">LO QUE</span><span class="t-acento" style="--t:72px">funciona</span></h1>
+              <p class="etiqueta-seccion" style="margin:22px 0 10px">Semana del 21 al 27 de septiembre</p>
+              <div class="cifras">
+                <div class="cifra"><span class="cifra__nombre">Envíos</span><span class="cifra__valor">31</span><span class="cifra__delta"><svg aria-hidden="true"><use href="#i-subir"/></svg>+42 %</span></div>
+                <div class="cifra"><span class="cifra__nombre">Guardados</span><span class="cifra__valor">22</span><span class="cifra__delta"><svg aria-hidden="true"><use href="#i-subir"/></svg>+10 %</span></div>
+                <div class="cifra"><span class="cifra__nombre">Alcance</span><span class="cifra__valor">1.240</span><span class="cifra__delta"><svg aria-hidden="true"><use href="#i-bajar"/></svg>−6 %</span></div>
+              </div>
+              <p class="nota-app">Frente a la mediana de tus 8 últimas piezas del mismo formato.</p>
+              <section class="destacada" style="margin-top:14px">
+                <p class="etiqueta-dest">Mejor pieza · Post</p>
+                <div style="display:grid; grid-template-columns:56px 1fr; gap:12px; align-items:center">
+                  <div class="pieza__mini"><div class="lamina" data-estilo="papel"></div></div>
+                  <div><p class="destacada__titulo" style="font-size:26px">ALCACHOFAS A LA BRASA</p><span class="estado-pieza" style="margin-top:8px; background:var(--papel); color:var(--cobalto)"><svg aria-hidden="true"><use href="#i-estrella"/></svg>Ganadora</span></div>
+                </div>
+                <div class="medidor" role="img" aria-label="Envíos por alcance: 1,8 veces tu mediana" title="Envíos por alcance: 1,8 × tu mediana"><span class="medidor__valor" style="width:72%"></span><span class="medidor__mediana" style="left:40%"></span></div>
+                <div class="medidor__ejes"><span>Envíos por alcance</span><span>1,8 × tu mediana</span></div>
+                <p class="medidor__nota">La raya es tu mediana. Gana la pieza que llega a 1,5 ×.</p>
+              </section>
+              <p class="etiqueta-seccion" style="margin-top:24px">Aprendido</p>
+              <div class="aprendido"><b>Los posts que dicen el precio se guardan más.</b><span>Señal candidata: se ha cumplido 2 semanas de 3. Si se repite, pasa a regla.</span></div>
+              <p class="nota-app" style="margin-top:14px">Próxima medición: +72 h, el jueves.</p>
+            </div>
+            <nav class="pestanas" data-activa="resultados" aria-label="Secciones"></nav>
+            <span class="indicador-inicio"></span>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-local" data-pantalla="local" data-cinta="390 × 844 · propuesta · datos de ejemplo" data-grupo="app" data-nombre="Local" role="group" aria-label="Pantalla: Local">
+            <div class="estado"></div>
+            <div class="pantalla__desliza">
+              <h1 class="titular"><span class="titular__fila"><span class="t-anton" style="--t:128px">TU</span><span class="t-acento" style="--t:92px">local</span></span></h1>
+              <div class="ficha-local" style="margin-top:20px"><img src="img/taberna-color.webp" alt="Fachada de La Taberna del Patio" width="760" height="430"><div class="ficha-local__cuerpo"><span class="ficha-local__nombre">La Taberna del Patio</span><span class="ficha-local__dir">Calle Mayor, 12 · Madrid</span><div class="ficha-local__pie"><span>Abierto · cierra a las 00:00</span><span class="marca-estado">Google: asistida</span></div></div></div>
+              <div style="margin-top:6px">
+                <button class="fila" type="button"><span class="fila__icono fila__icono--aviso"><svg aria-hidden="true"><use href="#i-estrella"/></svg></span><span><span class="fila__titulo">Reseñas</span><span class="fila__detalle">3 nuevas · 2 respuestas por aprobar</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-carta"/></svg></span><span><span class="fila__titulo">Carta</span><span class="fila__detalle">14 platos · 2 sin foto real</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-reloj"/></svg></span><span><span class="fila__titulo">Horarios</span><span class="fila__detalle">Añade el cierre del 12 de octubre</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-camara"/></svg></span><span><span class="fila__titulo">Material real</span><span class="fila__detalle">Faltan 2 tomas de las alcachofas</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-globo"/></svg></span><span><span class="fila__titulo">Otros sitios</span><span class="fila__detalle">TripAdvisor: pendiente de acceso</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+              </div>
+              <button class="boton boton--principal boton--ancho" type="button" style="margin-top:18px" data-nota="La lista de reseñas con sus borradores de respuesta está por diseñar.">Responder reseñas (2)</button>
+            </div>
+            <nav class="pestanas" data-activa="local" aria-label="Secciones"></nav>
+            <span class="indicador-inicio"></span>
+          </div>
+          <div class="pantalla app" hidden id="pantalla-perfil" data-pantalla="perfil" data-cinta="390 × 844 · propuesta · datos de ejemplo" data-grupo="app" data-nombre="Perfil" role="group" aria-label="Pantalla: Perfil">
+            <div class="estado"></div>
+            <div class="pantalla__desliza">
+              <h1 class="titular"><span class="titular__fila"><span class="t-anton" style="--t:128px">TU</span><span class="t-acento" style="--t:73px">cuenta</span></span></h1>
+              <section class="destacada" style="margin-top:20px">
+                <p class="etiqueta-dest">Tu plan</p>
+                <p class="destacada__titulo" style="font-size:48px">REDES</p>
+                <p class="destacada__texto">Incluye Local. Se renueva el 26 de octubre.</p>
+                <button class="boton boton--sobre-cobalto boton--pequeno" type="button" data-ir="plan">Cambiar plan</button>
+              </section>
+              <div style="margin-top:6px">
+                <button class="fila" type="button" data-ir="conecta"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-instagram"/></svg></span><span><span class="fila__titulo">Redes conectadas</span><span class="fila__detalle">Instagram · @tu_local</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button" data-ir="estilo"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-pincel"/></svg></span><span><span class="fila__titulo">Estilo de marca</span><span class="fila__detalle">Póster de papel · desde el 26/09/2026</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button" style="opacity:.55"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-voz"/></svg></span><span><span class="fila__titulo">Voz de la marca</span><span class="fila__detalle">Incluida en el plan Reels</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-calendario"/></svg></span><span><span class="fila__titulo">Ciclo semanal</span><span class="fila__detalle">Lunes a las 10:00</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span><span class="fila__titulo">Modo de aprobación</span><span class="fila__detalle">Apruebas la semana entera</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-campana"/></svg></span><span><span class="fila__titulo">Avisos</span><span class="fila__detalle">Por correo</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-personas"/></svg></span><span><span class="fila__titulo">Personas con acceso</span><span class="fila__detalle">Solo tú</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-tarjeta"/></svg></span><span><span class="fila__titulo">Pagos y facturas</span><span class="fila__detalle">Con Stripe</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button" data-ir="bienvenida"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-salir"/></svg></span><span><span class="fila__titulo">Cerrar sesión</span></span><span></span></button>
+              </div>
+            </div>
+            <nav class="pestanas" data-activa="perfil" aria-label="Secciones"></nav>
+            <span class="indicador-inicio"></span>
+          </div>
+      </div>
+      <div class="escenario__pie">
+        <button class="redondo" type="button" data-paso="-1" aria-label="Pantalla anterior"><svg aria-hidden="true"><use href="#i-atras"/></svg></button>
+        <span class="escenario__cinta" data-cinta aria-live="polite"></span>
+        <button class="redondo" type="button" data-paso="1" aria-label="Pantalla siguiente"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+        <button class="redondo" type="button" data-completa aria-label="Ver a pantalla completa" title="Pantalla completa"><svg aria-hidden="true"><use href="#i-ampliar"/></svg></button>
+      </div>
+    </div>
+    <aside class="escenario__ficha" aria-label="Qué hace esta pantalla">
+        <article class="ficha" data-para="bienvenida">
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>Alta · paso 1 de 3</p>
+          <h3><span class="a">BIENVENIDA</span></h3>
+          <p class="ficha__para">Primera pantalla. Dice en una frase qué gana el bar y lleva a empezar el alta.</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «TU BAR <em>merece</em> QUE LO VEAN.» (Anton 128, Playfair 80 y Anton 72). Recorte de mano con cóctel en trama que se cruza con el botón, con tres rayos cobalto. Botón EMPEZAR y paginación de tres puntos, el primero en mostaza.</dd></div>
+            <div><dt>Qué hace</dt><dd><ul><li><b>EMPEZAR</b> abre «Crear cuenta» (correo; pantalla por diseñar) y sigue a Busca tu local.</li><li><b>Entrar</b>, arriba a la derecha, es para quien ya tiene cuenta y lleva a Inicio. <span class="origen origen--propuesta">Propuesta</span></li></ul></dd></div>
+            <div><dt>Estados</dt><dd>Una sola: no tiene datos que cargar. Sin conexión, EMPEZAR avisa arriba: «No hay conexión. Revisa los datos o el wifi».</dd></div>
+            <div><dt>Datos</dt><dd>Ninguno. La cuenta se crea en el paso siguiente (Supabase Auth, README §8).</dd></div>
+            <div><dt>Planes</dt><dd>Todos.</dd></div>
+            <div><dt>Frente a tu Figma</dt><dd>Igual, con el botón normalizado (52 de alto, a 62 del borde por la paginación) y el acceso «Entrar» añadido: sin él, quien ya tiene cuenta no tiene por dónde entrar.</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="busca" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>Alta · paso 2 de 3</p>
+          <h3><span class="a">BUSCA</span> <span class="b">tu local</span></h3>
+          <p class="ficha__para">Encuentra el negocio para no tener que teclear nombre, dirección, teléfono ni horarios, y conecta su ficha de Google.</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «BUSCA <em>tu local</em>» (128 y 80) con la flecha de pincel señalando el buscador. Buscador, el resultado más probable en mostaza con la foto a color y, debajo, filas de carga mientras llegan más.</dd></div>
+            <div><dt>Qué hace</dt><dd><ul><li>Busca por nombre o calle desde la tercera letra, con 300 ms de espera entre teclas. La X vacía el campo. <span class="origen origen--propuesta">Propuesta</span></li><li><b>Tocar tu local</b> abre la hoja «¿ES <em>tuyo?</em>»: CONECTAR CON GOOGLE pide el permiso de gestión de la ficha (flujo §5.2) y sigue a Conecta tus redes. «No es mi local» cierra la hoja. <span class="origen origen--propuesta">Propuesta</span></li><li>Si la API de Google todavía no está aprobada, el alta sigue y la ficha se lleva en gestión asistida (flujo §4.2). <span class="origen origen--doc">Doc</span></li></ul></dd></div>
+            <div><dt>Estados</dt><dd><ul><li><b>Vacío:</b> sin resultados ni filas; frase de ayuda debajo del buscador (prueba a borrar el texto).</li><li><b>Buscando:</b> filas de esqueleto que laten.</li><li><b>Resultados:</b> el más probable en mostaza; el resto, en filas con nombre y dirección.</li><li><b>Sin resultados:</b> «No encontramos "…"» y un botón secundario AÑADIR A MANO (nombre, dirección y teléfono).</li><li><b>Error de red:</b> aviso arriba y REINTENTAR.</li></ul></dd></div>
+            <div><dt>Datos</dt><dd>Restaurante y Ubicación (nombre, dirección, teléfono, horarios); Ficha de Google. De dónde salen los resultados está sin decidir <span class="origen origen--pendiente">D9</span>.</dd></div>
+            <div><dt>Planes</dt><dd>Todos: la ficha de Google entra en los tres (flujo §4.3).</dd></div>
+            <div><dt>Frente a tu Figma</dt><dd>Igual en lo visible. Se añade la hoja de Google, que no estaba en ninguna pantalla. La tarjeta es mostaza porque tocar tu local es la acción de la pantalla; por eso esta pantalla no lleva botón mostaza.</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="conecta" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>Alta · paso 3 de 3</p>
+          <h3><span class="a">CONECTA</span> <span class="b">tus redes</span></h3>
+          <p class="ficha__para">Da permiso a Society para publicar y leer las estadísticas en las redes del local.</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «CONECTA <em>tus redes</em>» (108 y 73) con la pegatina de destellos mostaza. Cuatro filas de red con logo, nombre, qué aporta e interruptor. Botón SIGUIENTE.</dd></div>
+            <div><dt>Qué hace</dt><dd><ul><li><b>Encender</b> abre el permiso de la red. En Instagram: <code>instagram.com/oauth/authorize</code> con los permisos del plan; el código dura una hora y el permiso largo, 60 días (flujo §5.2). <span class="origen origen--doc">Doc</span></li><li>Mientras la red contesta, «Conectando…». Si da el permiso, se enciende y dice la cuenta. Si se cancela, vuelve a apagado sin error.</li><li><b>Apagar</b> pide confirmación («Society dejará de publicar en Instagram») y retira el permiso.</li><li><b>SIGUIENTE</b> necesita al menos una red en los planes Redes y Reels.</li></ul></dd></div>
+            <div><dt>Estados</dt><dd>Sin conectar, conectando, conectada, caducada y próximamente (todas en <a href="#pieza-red">Fila de red</a>). Prueba a tocar los interruptores.</dd></div>
+            <div><dt>Datos</dt><dd>Cuenta social. Los permisos se guardan cifrados, por restaurante, y la app nunca los recibe (flujo §5.2).</dd></div>
+            <div><dt>Planes</dt><dd>Redes y Reels. El plan Local no usa redes <span class="origen origen--pendiente">D3</span>.</dd></div>
+            <div><dt>Frente a tu Figma</dt><dd>En Figma los cuatro interruptores salen encendidos; aquí solo Instagram, porque encendido significa conectado. Qué redes además de Instagram habrá en enero está sin decidir <span class="origen origen--pendiente">D4</span>.</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="plan" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>Alta · elección de plan</p>
+          <h3><span class="a">TU</span> <span class="b">plan</span></h3>
+          <p class="ficha__para">Elegir cuánto hace Society por el local. Los planes se suman: Redes incluye Local y Reels incluye Redes (README §5).</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «TU <em>PLAN</em>» (Anton 128 y Playfair 620 a 80). Tres tarjetas: LOCAL y REELS en papel; REDES en cobalto con la pegatina RECOMENDADO. Fotos de ambiente en trama.</dd></div>
+            <div><dt>Qué hace</dt><dd><ul><li><b>Tocar una tarjeta</b> abre su hoja: qué incluye, precio y ELEGIR. Prueba con REDES.</li><li><b>ELEGIR</b> lleva al pago con Stripe Checkout, fuera de la app. Solo el aviso firmado de Stripe activa el plan, nunca la vuelta del navegador (flujo §5.1). Mientras, «Confirmando el pago…». <span class="origen origen--doc">Doc</span></li><li>Con Local se va a Inicio; con Redes o Reels, a crear la primera pieza.</li></ul></dd></div>
+            <div><dt>Estados</dt><dd><ul><li><b>Alta:</b> como se ve, con flecha atrás.</li><li><b>Cambiar de plan</b> (desde Perfil): la tarjeta actual dice «Tu plan» y las demás, CAMBIAR.</li><li><b>Pago pendiente o fallido:</b> Stripe en <code>past_due</code> avisa y frena generaciones nuevas; <code>canceled</code> o <code>unpaid</code> retiran el acceso (flujo §5.1).</li></ul></dd></div>
+            <div><dt>Datos</dt><dd>Plan y Suscripción.</dd></div>
+            <div><dt>Planes</dt><dd>Los tres. RECOMENDADO va en Redes porque es el núcleo del desarrollo hasta enero (README §4). <span class="origen origen--propuesta">Propuesta</span></dd></div>
+            <div><dt>Frente a tu Figma</dt><dd>Sin barra de pestañas y con flecha atrás, como en la referencia original: es un paso del alta. Nombres Local, Redes y Reels del Figma; el README los tiene como provisionales <span class="origen origen--pendiente">D7</span>. Precio y cuotas sin decidir <span class="origen origen--pendiente">D8</span>.</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="que-hay-hoy" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>Alta · primera pieza · y en la app, crear</p>
+          <h3><span class="a">¿QUÉ HAY</span> <span class="b">hoy?</span></h3>
+          <p class="ficha__para">El dueño cuenta en una frase qué tiene hoy y sube la foto real. Es la entrada «comunicar una novedad» (README §6). En el alta sirve para enseñar el resultado desde el primer día.</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «¿QUÉ HAY <em>hoy?</em>» (96 y 93) con destello cobalto. Campo de texto con contador, foto del plato en trama con botón +, formato (4:5 o Historia) y SIGUIENTE.</dd></div>
+            <div><dt>Qué hace</dt><dd><ul><li><b>Texto:</b> de 1 a 300 caracteres. Lo que escribes pasa al pie de la publicación en Así queda (pruébalo).</li><li><b>Foto:</b> + abre la cámara o la galería. Es obligatoria: sin foto real no hay pieza (flujo §2). Society revisa que el plato se vea entero y nítido y, si no, pide una toma concreta (flujo §5.3). <span class="origen origen--doc">Doc</span></li><li><b>Formato:</b> 4:5 es el post del feed (1080 × 1350); Historia, 9:16. Cambia la vista previa de Así queda.</li><li><b>Reel no se ofrece:</b> los reels salen del ciclo semanal del plan Reels, con su revisión del plan antes de animar.</li><li><b>SIGUIENTE</b> se desactiva si no hay texto o foto.</li><li>Precios, fechas y alérgenos que aparezcan en el texto los confirma el dueño antes de publicar (flujo §2).</li></ul></dd></div>
+            <div><dt>Estados</dt><dd><ul><li><b>Vacío:</b> campo con ejemplo en gris y foto vacía con borde discontinuo (<a href="#pieza-foto">Foto del plato</a>).</li><li><b>Subiendo la foto:</b> la zona late.</li><li><b>Foto rechazada:</b> aviso concreto debajo.</li><li><b>Límite de texto:</b> borde rojo a los 300.</li></ul></dd></div>
+            <div><dt>Contexto</dt><dd>En el alta no hay salida: es un paso obligado. Dentro de la app lleva una X arriba a la derecha que vuelve a Inicio. <span class="origen origen--propuesta">Propuesta</span></dd></div>
+            <div><dt>Datos</dt><dd>Brief de pieza y Recurso (con origen «real»).</dd></div>
+            <div><dt>Planes</dt><dd>Redes y Reels.</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="estilo" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>Alta · estilo de marca · y en la app, crear</p>
+          <h3><span class="a">ELIGE</span> <span class="b">el estilo</span></h3>
+          <p class="ficha__para">Elegir cómo se ve la pieza, con muestras hechas con el plato que se acaba de subir. En el alta, la elección queda guardada como estilo de la marca, con fecha y alcance (flujo §4.1, paso 9).</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «ELIGE <em>el estilo</em>» (112 y 73) con destello. Cuatro opciones en rejilla de 2 × 2 y SIGUIENTE.</dd></div>
+            <div><dt>Los cuatro estilos</dt><dd><ul><li><b>Póster de papel:</b> papel arrugado, titular Anton en tinta, el plato en trama y destellos cobalto.</li><li><b>Póster cobalto:</b> fondo cobalto a sangre, titular en papel y el plato virado a cobalto.</li><li><b>Foto:</b> la foto real a color, sin nada encima. Es la que abre el apetito.</li><li><b>Feed:</b> titular sobre papel con dos versiones del plato, cobalto y trama. Qué quiere decir «Feed» está por confirmar <span class="origen origen--pendiente">D5</span>.</li></ul></dd></div>
+            <div><dt>Qué hace</dt><dd>Elección única: la elegida lleva la etiqueta en cobalto con ✓. Cambia la vista previa de Así queda (pruébalo). SIGUIENTE lleva a Así queda.</dd></div>
+            <div><dt>Estados</dt><dd><b>Generando muestras:</b> Society hace las cuatro con tu plato y cada muestra late hasta que llega. <b>Error en una muestra:</b> se puede elegir entre las demás.</dd></div>
+            <div><dt>Datos</dt><dd>Regla de marca versionada: estilo, fecha, motivo y alcance (cliente o pieza). Una elección nueva no borra la anterior (flujo §2).</dd></div>
+            <div><dt>Frente a tu Figma</dt><dd>Muestras hechas con el mismo plato en lugar de fotos sueltas; «Póster cobalt» pasa a «Póster cobalto»; ELIGE en Anton sin estirar <span class="origen origen--pendiente">D1</span>. En tu Figma la elegida es el póster cobalto; el prototipo arranca en papel para que Así queda coincida con tu Figma.</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="asi-queda" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>Alta · primera pieza · y en la app, aprobar</p>
+          <h3><span class="a">ASÍ</span> <span class="b">queda</span></h3>
+          <p class="ficha__para">Ver la pieza tal y como la verá la gente en Instagram antes de publicarla. Tocar PUBLICAR es la aprobación del dueño: la puerta G2 del informe de producción (§7).</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «ASÍ <em>queda</em>» (96 y 72) con el sol mostaza. La publicación con cabecera de la cuenta, lámina a su tamaño real, acciones de Instagram (solo dibujo), texto y hashtags. Botones EDITAR y PUBLICAR.</dd></div>
+            <div><dt>Qué hace</dt><dd><ul><li><b>EDITAR</b> vuelve a ¿Qué hay hoy? con todo relleno; la flecha atrás, al estilo.</li><li><b>PUBLICAR</b> abre la hoja «¿CUÁNDO <em>sale?</em>»: Ahora o Programar (día y hora), con la lista de comprobación. Pruébalo.</li><li>Al publicar: aviso «Publicado en Instagram» y a Inicio. Al programar: «Programada para el jueves a las 19:30» y la pieza aparece en Semana.</li></ul></dd></div>
+            <div><dt>Reglas</dt><dd><ul><li>Cinco hashtags como mucho y música con licencia (README §11). <span class="origen origen--doc">Doc</span></li><li>La etiqueta de IA se decide en el brief de la pieza; si hay imagen fotorrealista generada o alterada, se declara (README §11).</li><li>Sin aprobación no se publica nunca; el silencio no aprueba (README §6).</li></ul></dd></div>
+            <div><dt>Estados</dt><dd><b>Publicando:</b> el botón gira. <b>Publicado:</b> aviso. <b>No confirmado:</b> «No hemos podido confirmar la publicación. Lo comprobamos antes de volver a intentarlo»; nunca se reenvía a ciegas (informe 05 §4).</dd></div>
+            <div><dt>Datos</dt><dd>Pieza publicada. Instagram crea un contenedor que caduca a las 24 horas si no se publica, con 100 publicaciones por cuenta y día como límite (flujo §5.9).</dd></div>
+            <div><dt>Frente a tu Figma</dt><dd>La lámina se ve a 4:5 de verdad (312 × 390), así que la publicación es algo más estrecha que en tu Figma. La cuenta es «tu_local» arriba y en el pie; en Figma decía «Tu local» arriba y «society» abajo. Los hashtags siguen como en Figma <span class="origen origen--pendiente">D6</span>.</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="inicio" hidden>
+          <p class="ficha__meta"><span class="origen origen--propuesta">Propuesta</span>Pestaña Inicio</p>
+          <h3><span class="a">HOY</span> <span class="b">para tu bar</span></h3>
+          <p class="ficha__para">Lo que el dueño tiene que hacer hoy, arriba; lo demás, a un toque. El título viene de tu referencia original en modo oscuro.</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «HOY <em>para tu bar</em>». Tarjeta cobalto con lo que espera su OK. Botón principal ¿QUÉ HAY HOY? y dos entradas secundarias. «Lo próximo» con las dos piezas siguientes. El mejor resultado de la semana pasada.</dd></div>
+            <div><dt>Qué hace</dt><dd><ul><li><b>REVISAR</b> abre Semana.</li><li><b>¿QUÉ HAY HOY?</b> abre crear, ahora con X para salir.</li><li>Las tres entradas de creación son las del README §6: ¿Qué hay hoy? es «comunicar una novedad»; <b>Desde un plato</b> elige un plato del catálogo y <b>Desde un reel</b> parte de un reel de referencia (plan Reels). Esas dos pantallas están por diseñar <span class="origen origen--pendiente">D13</span>.</li><li><b>APROBAR</b> en una pieza la pasa a Programada ahí mismo.</li></ul></dd></div>
+            <div><dt>Estados</dt><dd><ul><li><b>Nada pendiente:</b> desaparece la tarjeta cobalto.</li><li><b>Alta sin terminar:</b> en su lugar sale «Completa tu local: 3 de 7», con lo que falta (datos, carta con alérgenos, material real, catálogo, diagnóstico, estrategia, activación). No bloquea nada (flujo §4.2).</li><li><b>Plan Local:</b> sin creación de piezas; la tarjeta principal son las reseñas por responder.</li></ul></dd></div>
+            <div><dt>Datos</dt><dd>Pieza (estado y fecha), Calendario, Captura de métricas. Cifras de ejemplo, no reales.</dd></div>
+            <div><dt>Planes</dt><dd>Todos, con el contenido del plan.</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="semana" hidden>
+          <p class="ficha__meta"><span class="origen origen--propuesta">Propuesta</span>Pestaña Semana</p>
+          <h3><span class="a">TU</span> <span class="b">semana</span></h3>
+          <p class="ficha__para">El calendario de la semana y las aprobaciones. Sin el OK del dueño no se publica nada (flujo §7).</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «TU <em>semana</em>». Tira de siete días con un punto en los que tienen piezas. El modo de aprobación. Una tarjeta por pieza: miniatura, cuándo y formato, título, estado y acción. APROBAR LA SEMANA.</dd></div>
+            <div><dt>Qué hace</dt><dd><ul><li><b>Tocar un día</b> filtra; tocarlo otra vez quita el filtro. Pruébalo.</li><li><b>APROBAR</b> pasa la pieza a Programada.</li><li><b>REVISAR</b> en un reel abre el lote de fotogramas clave y el plan antes de animar (puerta G1, informe 05 §7).</li><li><b>APROBAR LA SEMANA</b> aprueba todo lo que espera OK de una vez.</li><li>Tocar la tarjeta abre la pieza como en Así queda, con EDITAR y DESCARTAR.</li></ul></dd></div>
+            <div><dt>Modos</dt><dd>Semana completa, pieza a pieza o revisar el guion antes del vídeo (flujo §4.1, paso 11). Se cambian en Perfil. <span class="origen origen--doc">Doc</span></dd></div>
+            <div><dt>Plazos</dt><dd>Aviso a las 24 horas de esperar OK; a las 72 horas, o antes si llega la fecha, la pieza se archiva o se reprograma (informe 05 §4). <span class="origen origen--doc">Doc</span></dd></div>
+            <div><dt>Datos</dt><dd>Calendario, Brief de pieza, Proyecto, Evaluación y decisión del dueño. Piezas de ejemplo.</dd></div>
+            <div><dt>Planes</dt><dd>Todos. En Local, las piezas son publicaciones de la ficha de Google; los reels, solo en Reels.</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="resultados" hidden>
+          <p class="ficha__meta"><span class="origen origen--propuesta">Propuesta</span>Pestaña Resultados</p>
+          <h3><span class="a">LO QUE</span> <span class="b">funciona</span></h3>
+          <p class="ficha__para">Qué ha funcionado, comparado con lo normal del propio local y nunca con cifras absolutas (estrategia de redes §7).</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «LO QUE <em>funciona</em>». Tres cifras de la semana con su variación frente a la mediana. La mejor pieza con un medidor frente a la mediana. Lo aprendido y su estado. Cuándo es la próxima medición.</dd></div>
+            <div><dt>Reglas</dt><dd><ul><li>Se compara con la mediana de las 8 últimas piezas del mismo formato. <span class="origen origen--doc">Doc</span></li><li>Ganadora: 1,5 × la mediana en su métrica principal sin empeorar las demás.</li><li>Dos semanas de tres es una señal candidata, no una regla (cerebro estratégico).</li><li>Mediciones a +24 h, +72 h, +7 días y +28 días; las historias, antes de que caduquen a las 24 h (flujo §5.11).</li><li>Orden de importancia: reservas, luego envíos y guardados, visionado, me gusta y, al final, seguidores.</li></ul></dd></div>
+            <div><dt>Cómo se dibuja</dt><dd>Cifras en Anton sobre tarjeta; la variación lleva flecha y signo, no solo color. El medidor usa una sola escala de 0 a 2,5 ×: la mediana cae al 40 % y la pieza, al 72 %. Sin gráficos de doble eje.</dd></div>
+            <div><dt>Estados</dt><dd><b>Sin datos todavía:</b> «Primera medición en 24 h». <b>Pocas piezas:</b> hasta tener 8 del mismo formato, se enseñan las cifras sin comparar.</dd></div>
+            <div><dt>Datos</dt><dd>Captura de métricas, Métrica diaria de cuenta, Patrón aprendido. Todas las cifras de la pantalla son de ejemplo.</dd></div>
+            <div><dt>Planes</dt><dd>Todos. En Local, lo que pasa en la ficha de Google (flujo §6.3).</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="local" hidden>
+          <p class="ficha__meta"><span class="origen origen--propuesta">Propuesta</span>Pestaña Local</p>
+          <h3><span class="a">TU</span> <span class="b">local</span></h3>
+          <p class="ficha__para">La ficha de Google y todo lo que es del local y no cambia cada semana: reseñas, carta, horarios, material real y otros sitios.</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «TU <em>local</em>». La ficha con foto, nombre, dirección, horario de hoy y estado de la conexión con Google. Cinco filas y RESPONDER RESEÑAS.</dd></div>
+            <div><dt>Qué hace</dt><dd><ul><li><b>Reseñas:</b> lista con un borrador de respuesta en cada una; el dueño lo aprueba, lo edita o lo descarta.</li><li><b>Carta:</b> platos con nombre, ración, precio y alérgenos confirmados por el dueño, y su foto maestra (flujo §5.3).</li><li><b>Horarios:</b> semanal y cierres especiales, que se publican en Google.</li><li><b>Material real:</b> pide tomas concretas por plato (tres cuartos, cenital y detalle) y del local (mesa, sala y fachada) (flujo §4.1).</li><li><b>Otros sitios:</b> TripAdvisor y similares.</li></ul></dd></div>
+            <div><dt>Reglas</dt><dd>Society nunca genera, filtra ni condiciona reseñas; Google prohíbe incentivos y el Real Decreto-ley 24/2021 sanciona las falsas (README §11). Toda respuesta la aprueba el dueño. <span class="origen origen--doc">Doc</span></dd></div>
+            <div><dt>Estados de la ficha</dt><dd><b>Conectada</b>; <b>asistida</b>, mientras la API de Google no esté aprobada y una persona la lleva con ayuda de Society; <b>sin conectar</b>.</dd></div>
+            <div><dt>Datos</dt><dd>Ficha de Google, Horario especial, Reseña, Respuesta a reseña, Producto, Recurso, Ficha externa. Datos de ejemplo.</dd></div>
+            <div><dt>Planes</dt><dd>Todos; «Otros sitios», desde Redes. Qué sitios cubre está por decidir (README §14.2).</dd></div>
+          </dl>
+        </article>
+        <article class="ficha" data-para="perfil" hidden>
+          <p class="ficha__meta"><span class="origen origen--propuesta">Propuesta</span>Pestaña Perfil</p>
+          <h3><span class="a">TU</span> <span class="b">cuenta</span></h3>
+          <p class="ficha__para">Cuenta, plan, conexiones y cómo trabaja Society para este local. Aquí no hay acción principal, así que no hay mostaza.</p>
+          <dl>
+            <div><dt>Qué hay</dt><dd>Titular «TU <em>cuenta</em>». Tarjeta cobalto del plan actual con CAMBIAR PLAN. Nueve filas de ajustes.</dd></div>
+            <div><dt>Qué hace</dt><dd><ul><li><b>Cambiar plan</b> abre Tu plan con flecha atrás.</li><li><b>Redes conectadas</b> abre Conecta tus redes.</li><li><b>Estilo de marca</b> abre Elige el estilo; guardar crea una versión nueva y la anterior se conserva (flujo §2).</li><li><b>Ciclo semanal:</b> día y hora en que arranca la semana. El valor por defecto está sin decidir <span class="origen origen--pendiente">D10</span>.</li><li><b>Modo de aprobación:</b> semana completa, pieza a pieza o guion antes del vídeo.</li><li><b>Avisos:</b> canal de avisos (correo con Resend; README §8).</li><li><b>Pagos y facturas</b> abre el portal de Stripe.</li><li><b>Cerrar sesión</b> vuelve a la bienvenida.</li></ul></dd></div>
+            <div><dt>Estados</dt><dd><b>Voz</b> se ve atenuada fuera del plan Reels y explica qué plan la incluye. <b>Permiso caducado</b> pone un aviso rojo en Redes conectadas.</dd></div>
+            <div><dt>Datos</dt><dd>Restaurante, Miembro, Suscripción, Cuenta social, Regla de marca, Voz de marca, Configuración del ciclo. Datos de ejemplo.</dd></div>
+            <div><dt>Planes</dt><dd>Todos.</dd></div>
+          </dl>
+        </article>
+    </aside>
+  </div>
+</section>
+
+<section class="seccion" id="tablero">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">EL</span> <span class="b">tablero</span></h2>
+      <p class="seccion__nota">Todas las pantallas a la vez, como en el lienzo de Figma. Arriba, las siete de tu Figma, que son el alta completa; abajo, las cinco del día a día que faltaban. Toca una para abrirla en el prototipo.</p>
+    </div>
+    <div class="tablero-cabeza"><h3>El alta · tu Figma</h3><span class="origen origen--figma">Figma</span></div>
+    <div class="tablero" data-tablero="alta"></div>
+    <div class="tablero-cabeza"><h3>El día a día · propuesta</h3><span class="origen origen--propuesta">Propuesta</span></div>
+    <div class="tablero" data-tablero="app"></div>
+    <ul class="leyenda leyenda--fila" aria-label="Qué significa cada etiqueta">
+      <li><span class="origen origen--figma">Figma</span><span>Tal cual está en tu Figma.</span></li>
+      <li><span class="origen origen--doc">Doc</span><span>Sale del README o de un informe; se cita dónde.</span></li>
+      <li><span class="origen origen--propuesta">Propuesta</span><span>Decisión mía para cerrar un hueco. Por confirmar.</span></li>
+      <li><span class="origen origen--pendiente">Pendiente</span><span>Sin decidir. No se inventa: se marca.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="seccion" id="cambios">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">LO QUE</span> <span class="b">cambia</span></h2>
+      <p class="seccion__nota">Tu Figma frente a las SVG del 23 de septiembre (<code>pantallas/_svg</code>), y lo que he tenido que decidir para que el sistema no tenga dos respuestas a la misma pregunta.</p>
+    </div>
+
+    <h3 class="sub">Lo que cambiaste <span class="b">y se adopta</span></h3>
+    <ul class="cambios">
+      <li class="cambio"><h3>Todo en modo oscuro</h3><p>Antes solo la bienvenida y Tu plan iban en tinta. <b>Ahora las siete.</b> El oscuro pasa a ser el modo principal; el claro queda definido como secundario.</p><div class="cambio__pie"><span class="origen origen--figma">Figma</span></div></li>
+      <li class="cambio"><h3>Sin cabecera de marca</h3><p>Fuera el logo «Society» y el bocadillo <b>@society</b> de todas las pantallas. El titular sube y es lo primero que se ve.</p><div class="cambio__pie"><span class="origen origen--figma">Figma</span></div></li>
+      <li class="cambio"><h3>El alta empieza en tres pasos</h3><p>Bienvenida → Busca tu local → Conecta tus redes (01-bienvenida 7, 8 y 9), con la <b>paginación de tres puntos</b>. Después, Tu plan y la primera pieza.</p><div class="cambio__pie"><span class="origen origen--figma">Figma</span></div></li>
+      <li class="cambio"><h3>Tu local, en mostaza</h3><p>El resultado de la búsqueda pasa de cobalto a <b>mostaza con la foto a color</b>, y una flecha de pincel cobalto señala el buscador.</p><div class="cambio__pie"><span class="origen origen--figma">Figma</span></div></li>
+      <li class="cambio"><h3>Destellos mostaza</h3><p>En Conecta tus redes, la pegatina de <b>destellos mostaza</b> sustituye al destello de trazo cobalto.</p><div class="cambio__pie"><span class="origen origen--figma">Figma</span></div></li>
+      <li class="cambio"><h3>Dos formatos al crear</h3><p>¿Qué hay hoy? pierde la X y el chip «Reel»: <b>solo 4:5 e Historia</b>.</p><div class="cambio__pie"><span class="origen origen--figma">Figma</span></div></li>
+      <li class="cambio"><h3>Sol sobre «queda»</h3><p>Así queda estrena el <b>sol mostaza</b> y la publicación ya no es de «society» sino de <b>«Tu local»</b>.</p><div class="cambio__pie"><span class="origen origen--figma">Figma</span></div></li>
+      <li class="cambio"><h3>Rayos cobalto</h3><p>En la bienvenida, los rayos junto al cóctel pasan de papel a <b>cobalto</b>.</p><div class="cambio__pie"><span class="origen origen--figma">Figma</span></div></li>
+      <li class="cambio"><h3>Tu plan, limpio</h3><p>Sin el asterisco, el logo «society» ni el lema en Space Mono. <b>Space Mono ya no sale en la app.</b></p><div class="cambio__pie"><span class="origen origen--figma">Figma</span></div></li>
+    </ul>
+
+    <h3 class="sub">Lo que corrijo <span class="b">o propongo</span></h3>
+    <ul class="cambios">
+      <li class="cambio"><h3>Pestaña activa legible</h3><p>En Figma, «Inicio» activo es texto cobalto sobre tinta: <b>2,53:1</b>, por debajo del 3:1 que pide un icono. Pasa a una <b>pastilla cobalto con icono blanco</b> y la etiqueta en papel.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span><a class="ir-ficha" href="#pieza-pestanas">Ver la pieza</a></div></li>
+      <li class="cambio"><h3>Titulares sin estirar</h3><p>En Figma están escalados a mano: <b>BUSCA a 1,3× de ancho, ELIGE a 1,9×</b>. Aquí Anton va siempre sin deformar, con una escala de cuatro tamaños. ELIGE queda más estrecho que en tu Figma.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span><a class="ir-ficha" href="#d1">Decisión D1</a></div></li>
+      <li class="cambio"><h3>Tu plan, sin pestañas</h3><p>Tu plan es un paso del alta: en la referencia original llevaba flecha atrás y ninguna barra. Las pestañas llevarían a secciones vacías, así que <b>la barra aparece al terminar el alta</b>.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span></div></li>
+      <li class="cambio"><h3>Un solo botón</h3><p>Figma mezcla «SIGUIENTE», «Siguiente →», «Editar» y «Publicar», con alturas de 48 a 61. Queda uno: <b>mayúsculas, Schibsted 800 a 17, 52 de alto y a 40 del borde</b>.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span><a class="ir-ficha" href="#pieza-boton">Ver la pieza</a></div></li>
+      <li class="cambio"><h3>El interruptor conecta</h3><p>En Conecta tus redes, encender una red <b>abre su permiso</b>; no es una preferencia. Empieza apagado y se enciende cuando la red devuelve el acceso.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span><span class="origen origen--doc">Doc</span></div></li>
+      <li class="cambio"><h3>Falta Google</h3><p>La ficha de Google hace falta en los tres planes (flujo §4.3) y no salía en ninguna pantalla. Se pide al tocar tu local en <b>Busca tu local</b>.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span><span class="origen origen--doc">Doc</span></div></li>
+      <li class="cambio"><h3>Muestras con tu plato</h3><p>Cada miniatura de Elige el estilo es <b>el estilo aplicado al plato que acabas de subir</b> (flujo §5.4). En Figma eran fotos sueltas, una de jamón en «Póster cobalt», que pasa a <b>«Póster cobalto»</b>.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span><span class="origen origen--doc">Doc</span></div></li>
+      <li class="cambio"><h3>Vista previa exacta</h3><p>Así queda respeta el formato: <b>4:5 se ve a 4:5</b> y la historia, a 9:16. El nombre de la cuenta es el mismo arriba y en el pie.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span></div></li>
+      <li class="cambio"><h3>«Local» con su pin</h3><p>La pestaña «Local» llevaba la lupa de «Buscar» de la referencia antigua. Pasa al <b>pin</b>, el mismo de la tarjeta LOCAL.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span></div></li>
+      <li class="cambio"><h3>Color de error</h3><p>La guía no tenía. <b>#FF6A4D</b> sobre tinta (6,51:1) y <b>#B8321C</b> sobre papel (5,30:1), siempre con icono y texto.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span><a class="ir-ficha" href="#d11">Decisión D11</a></div></li>
+      <li class="cambio"><h3>Salida al crear</h3><p>En el alta, ¿Qué hay hoy? no lleva X porque es un paso obligado. <b>Dentro de la app sí</b>, arriba a la derecha.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span></div></li>
+      <li class="cambio"><h3>Una flecha, con permiso</h3><p>La guía prohibía garabatos y tu Figma usa la flecha de pincel. Regla nueva: <b>una flecha como mucho, y solo para señalar lo que hay que tocar</b>.</p><div class="cambio__pie"><span class="origen origen--propuesta">Propuesta</span><a class="ir-ficha" href="#d2">Decisión D2</a></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="seccion" id="color">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">EL</span> <span class="b">color</span></h2>
+      <p class="seccion__nota">Cuatro colores de marca y un reparto fijo: el más llamativo ocupa siempre la parte más pequeña. Los contrastes están calculados con la fórmula de WCAG 2.2, no a ojo.</p>
+    </div>
+
+    <div class="paleta">
+      <div class="color color--tinta"><div><div class="color__nombre">TINTA</div><div class="color__uso">60 %. Fondo de todas las pantallas, con la textura de papel oscuro. Texto sobre papel y sobre mostaza.</div></div><div class="color__dato">#141414 · rgb 20 20 20<br>--tinta</div></div>
+      <div class="color color--papel"><div><div class="color__nombre">PAPEL</div><div class="color__uso">30 %. Titulares y texto sobre el fondo. Las superficies usan su tono claro, tarjeta #F4F1E8.</div></div><div class="color__dato">#ECE8DC · rgb 236 232 220<br>--papel</div></div>
+      <div class="color color--cobalto"><div><div class="color__nombre">COBALTO</div><div class="color__uso">Lo destacado y lo elegido. Nunca como texto sobre tinta.</div></div><div class="color__dato">#2440E0<br>--cobalto</div></div>
+      <div class="color color--mostaza"><div><div class="color__nombre">MOSTAZA</div><div class="color__uso">La acción. Una por pantalla.</div></div><div class="color__dato">#F5C518<br>--mostaza</div></div>
+    </div>
+
+    <div class="reparto" role="img" aria-label="Reparto del color en una pantalla: tinta 60 %, papel 30 %, cobalto 7 %, mostaza 3 %">
+      <span style="width:60%; background:var(--tinta); color:var(--papel)">TINTA 60</span>
+      <span style="width:30%; background:var(--papel); color:var(--tinta)">PAPEL 30</span>
+      <span style="width:7%; background:var(--cobalto); color:var(--blanco)">7</span>
+      <span style="width:3%; background:var(--mostaza); color:var(--tinta)"></span>
+    </div>
+    <div class="reparto__pie"><span>Reparto de una pantalla oscura.</span><span>Cobalto 7 %: tarjetas destacadas, chips, interruptores, pestaña activa.</span><span>Mostaza 3 %: un botón o tu local, más una pegatina como mucho.</span></div>
+
+    <h3 class="sub">Neutros <span class="b">derivados</span></h3>
+    <p class="texto texto--2">Salen de la paleta para resolver lo que la guía no cubría: textos secundarios, huecos de carga, estados pulsados y error. Cada uno tiene un solo uso.</p>
+    <div class="neutros">
+      <div class="neutro"><i style="background:#F4F1E8"></i><div><b>Tarjeta</b><code>#F4F1E8</code><br>Campos, filas y tarjetas sobre tinta. 16,31:1 con tinta.</div></div>
+      <div class="neutro"><i style="background:#A8A397"></i><div><b>Papel suave</b><code>#A8A397</code><br>Texto secundario sobre tinta. 7,33:1.</div></div>
+      <div class="neutro"><i style="background:#5E5A52"></i><div><b>Tinta suave</b><code>#5E5A52</code><br>Texto secundario sobre papel. 5,60:1.</div></div>
+      <div class="neutro"><i style="background:#CFC9BC"></i><div><b>Esqueleto</b><code>#CFC9BC</code><br>Filas de carga en Busca tu local.</div></div>
+      <div class="neutro"><i style="background:#5A5A58"></i><div><b>Apagado</b><code>#5A5A58</code><br>Puntos de paginación inactivos. Solo decorativo.</div></div>
+      <div class="neutro"><i style="background:#8E8A80"></i><div><b>Interruptor apagado</b><code>#8E8A80</code><br>Pista del interruptor sin encender, sobre tarjeta.</div></div>
+      <div class="neutro"><i style="background:#DDB10E"></i><div><b>Mostaza pulsada</b><code>#DDB10E</code><br>Botón principal mientras se toca. 9,10:1 con tinta.</div></div>
+      <div class="neutro"><i style="background:#1C33B8"></i><div><b>Cobalto pulsado</b><code>#1C33B8</code><br>Chip o tarjeta cobalto mientras se toca.</div></div>
+      <div class="neutro"><i style="background:#FF6A4D"></i><div><b>Error sobre tinta</b> <span class="origen origen--propuesta">Propuesta</span><br><code>#FF6A4D</code> · 6,51:1.</div></div>
+      <div class="neutro"><i style="background:#B8321C"></i><div><b>Error sobre papel</b> <span class="origen origen--propuesta">Propuesta</span><br><code>#B8321C</code> · 5,30:1 con tarjeta.</div></div>
+    </div>
+
+    <h3 class="sub">Tokens <span class="b">de uso</span></h3>
+    <p class="texto texto--2">Las pantallas nunca usan un color de marca a pelo: usan estos nombres. Cambiar de modo es cambiar el valor del token, no la pieza.</p>
+    <div class="tabla-caja">
+      <table class="tabla">
+        <thead><tr><th>Token</th><th>Modo oscuro (principal)</th><th>Modo claro</th><th>Dónde</th></tr></thead>
+        <tbody>
+          <tr><td><code>fondo</code></td><td>Tinta + textura papel oscuro</td><td>Papel + textura papel</td><td>Fondo de todas las pantallas</td></tr>
+          <tr><td><code>texto</code></td><td>Papel</td><td>Tinta</td><td>Titulares y texto sobre el fondo</td></tr>
+          <tr><td><code>texto-2</code></td><td>#A8A397</td><td>#5E5A52</td><td>Pestañas inactivas, detalles de fila</td></tr>
+          <tr><td><code>superficie</code></td><td>Tarjeta, sin borde</td><td>Tarjeta con borde #D8D3C6</td><td>Campo, filas de redes, planes, piezas, publicación</td></tr>
+          <tr><td><code>texto-superficie</code></td><td>Tinta</td><td>Tinta</td><td>Todo lo que va dentro de una superficie</td></tr>
+          <tr><td><code>destacado</code></td><td>Cobalto</td><td>Cobalto</td><td>Plan recomendado, lo elegido, interruptor encendido, pestaña activa</td></tr>
+          <tr><td><code>texto-destacado</code></td><td>Blanco</td><td>Blanco</td><td>Texto sobre cobalto (7,28:1)</td></tr>
+          <tr><td><code>accion</code></td><td>Mostaza</td><td>Mostaza</td><td>Botón principal o tarjeta de tu local. Una por pantalla</td></tr>
+          <tr><td><code>texto-accion</code></td><td>Tinta</td><td>Tinta</td><td>Texto sobre mostaza (11,30:1)</td></tr>
+          <tr><td><code>contorno</code></td><td>Papel</td><td>Cobalto</td><td>Botón secundario, chip sin elegir, etiqueta de estilo</td></tr>
+          <tr><td><code>contorno-medio</code></td><td>Papel al 62 %</td><td>#8E8A80</td><td>Borde del buscador</td></tr>
+          <tr><td><code>contorno-suave</code></td><td>Papel al 16 %</td><td>Tinta al 14 %</td><td>Separadores y borde de la barra de pestañas</td></tr>
+          <tr><td><code>esqueleto</code></td><td>#CFC9BC</td><td>#D8D3C6</td><td>Filas de carga</td></tr>
+          <tr><td><code>error</code></td><td>#FF6A4D</td><td>#B8321C</td><td>Avisos de error, siempre con icono <span class="origen origen--propuesta">Propuesta</span></td></tr>
+          <tr><td><code>foco</code></td><td>Papel</td><td>Cobalto</td><td>Anillo de foco del teclado, 2 px a 3 px de distancia</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Contraste <span class="b">medido</span></h3>
+    <div class="tabla-caja">
+      <table class="tabla">
+        <thead><tr><th>Par</th><th>Muestra</th><th>Contraste</th><th>Veredicto</th><th>Uso</th></tr></thead>
+        <tbody>
+          <tr><td>Papel sobre tinta</td><td><span class="muestra-par" style="background:#141414;color:#ECE8DC">Aa</span></td><td class="num">15,04:1</td><td><span class="veredicto"><svg aria-hidden="true"><use href="#i-check"/></svg>Todo</span></td><td>Titulares y texto de la app</td></tr>
+          <tr><td>Tinta sobre tarjeta</td><td><span class="muestra-par" style="background:#F4F1E8;color:#141414">Aa</span></td><td class="num">16,31:1</td><td><span class="veredicto"><svg aria-hidden="true"><use href="#i-check"/></svg>Todo</span></td><td>Campos, filas, publicación</td></tr>
+          <tr><td>Blanco sobre cobalto</td><td><span class="muestra-par" style="background:#2440E0;color:#fff">Aa</span></td><td class="num">7,28:1</td><td><span class="veredicto"><svg aria-hidden="true"><use href="#i-check"/></svg>Todo</span></td><td>Chips y etiquetas elegidas</td></tr>
+          <tr><td>Papel sobre cobalto</td><td><span class="muestra-par" style="background:#2440E0;color:#ECE8DC">Aa</span></td><td class="num">5,94:1</td><td><span class="veredicto"><svg aria-hidden="true"><use href="#i-check"/></svg>Todo</span></td><td>Tarjeta REDES, tarjetas destacadas</td></tr>
+          <tr><td>Cobalto sobre tarjeta</td><td><span class="muestra-par" style="background:#F4F1E8;color:#2440E0">Aa</span></td><td class="num">6,45:1</td><td><span class="veredicto"><svg aria-hidden="true"><use href="#i-check"/></svg>Todo</span></td><td>Hashtags, «Conectada», acciones de pieza</td></tr>
+          <tr><td>Tinta sobre mostaza</td><td><span class="muestra-par" style="background:#F5C518;color:#141414">Aa</span></td><td class="num">11,30:1</td><td><span class="veredicto"><svg aria-hidden="true"><use href="#i-check"/></svg>Todo</span></td><td>Texto del botón principal y de tu local</td></tr>
+          <tr><td>Papel suave sobre tinta</td><td><span class="muestra-par" style="background:#141414;color:#A8A397">Aa</span></td><td class="num">7,33:1</td><td><span class="veredicto"><svg aria-hidden="true"><use href="#i-check"/></svg>Todo</span></td><td>Texto secundario</td></tr>
+          <tr><td>Mostaza sobre cobalto</td><td><span class="muestra-par" style="background:#2440E0;color:#F5C518">Aa</span></td><td class="num">4,47:1</td><td><span class="veredicto">Solo grande</span></td><td>Pegatinas y titulares de más de 24 px</td></tr>
+          <tr><td>Punto apagado sobre tinta</td><td><span class="muestra-par" style="background:#141414;color:#5A5A58">●</span></td><td class="num">2,67:1</td><td><span class="veredicto">Adorno</span></td><td>Puntos inactivos: el activo, mostaza, lleva la información</td></tr>
+          <tr><td>Cobalto sobre tinta</td><td><span class="muestra-par" style="background:#141414;color:#2440E0">Aa</span></td><td class="num">2,53:1</td><td><span class="veredicto"><svg aria-hidden="true"><use href="#i-cerrar"/></svg>Nunca texto</span></td><td>Solo superficie (pastilla, tarjeta) o adorno (destello, rayos)</td></tr>
+          <tr><td>Mostaza sobre papel</td><td><span class="muestra-par" style="background:#ECE8DC;color:#F5C518">Aa</span></td><td class="num">1,33:1</td><td><span class="veredicto"><svg aria-hidden="true"><use href="#i-cerrar"/></svg>Nunca</span></td><td>Ni texto ni trazo fino sobre papel</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Sí <span class="b">y</span> no</h3>
+    <div class="si-no">
+      <div class="ejemplo"><div class="ejemplo__lienzo app"><span class="boton boton--principal" style="width:200px">Siguiente</span></div><p><b><svg aria-hidden="true"><use href="#i-check"/></svg>Un botón mostaza, texto tinta</b>La acción de la pantalla, abajo y a todo el ancho.</p></div>
+      <div class="ejemplo"><div class="ejemplo__lienzo app" style="grid-auto-flow:column; gap:8px"><span class="boton boton--principal boton--pequeno">Editar</span><span class="boton boton--principal boton--pequeno">Publicar</span></div><p><b><svg aria-hidden="true"><use href="#i-cerrar"/></svg>Dos mostazas juntas</b>Si hay dos acciones, la segunda va con contorno.</p></div>
+      <div class="ejemplo"><div class="ejemplo__lienzo"><span style="font:700 22px var(--f-ui); color:#2440E0">Conectada</span></div><p><b><svg aria-hidden="true"><use href="#i-cerrar"/></svg>Cobalto como texto en tinta</b>2,53:1. Sobre tinta, el cobalto es fondo y encima va papel o blanco.</p></div>
+      <div class="ejemplo"><div class="ejemplo__lienzo"><span style="padding:8px 14px; border-radius:999px; background:#2440E0; color:#fff; font:700 15px var(--f-ui)">Conectada</span></div><p><b><svg aria-hidden="true"><use href="#i-check"/></svg>Cobalto como superficie</b>Pastilla cobalto con texto blanco: 7,28:1.</p></div>
+      <div class="ejemplo"><div class="ejemplo__lienzo" style="background:#F5C518"><span style="font:400 30px var(--f-titular); color:#141414">FONDO MOSTAZA</span></div><p><b><svg aria-hidden="true"><use href="#i-cerrar"/></svg>Mostaza a sangre</b>Como fondo grande recuerda a otras marcas y apaga la acción.</p></div>
+      <div class="ejemplo"><div class="ejemplo__lienzo"><svg viewBox="0 0 40 52" style="width:40px; color:#2440E0" aria-hidden="true"><use href="#i-destello"/></svg></div><p><b><svg aria-hidden="true"><use href="#i-check"/></svg>Destello cobalto como adorno</b>No es texto ni control: el contraste no aplica.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" id="letras">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">LAS</span> <span class="b">letras</span></h2>
+      <p class="seccion__nota">Tres familias en la app y una cuarta solo para piezas de marca. Todas son de Google Fonts con licencia SIL Open Font License: sirven en la app, en la web y en papel.</p>
+    </div>
+    <div class="familias">
+      <div class="familia"><p class="etq">Titulares</p><p class="familia__muestra" style="font:400 64px/.86 var(--f-titular)">ANTON</p><h3>Anton, 400</h3><p>Grotesca condensada y pesada. Titulares de pantalla, nombres de plan, cifras y titulares de las piezas. Siempre en mayúsculas en la app.</p></div>
+      <div class="familia"><p class="etq">Acento</p><p class="familia__muestra" style="font:italic 900 58px/.9 var(--f-acento)">cursiva</p><h3>Playfair Display Italic, 900</h3><p>El tramo humano de cada titular. En minúscula, salvo «PLAN», que va en versalita a peso 620.</p></div>
+      <div class="familia"><p class="etq">Interfaz</p><p class="familia__muestra" style="font:700 44px/1 var(--f-ui)">Schibsted</p><h3>Schibsted Grotesk, 400 a 800</h3><p>Todo lo que se lee de corrido o se toca: botones, campos, filas, textos y pestañas.</p></div>
+      <div class="familia"><p class="etq">Solo marca</p><p class="familia__muestra" style="font:400 26px/1.2 var(--f-mono)">TU BAR.<br>TU COMUNIDAD.</p><h3>Space Mono, 400</h3><p>Rótulos pequeños de piezas de marca. Salió de la app al quitar el lema de Tu plan.</p></div>
+    </div>
+
+    <h3 class="sub">Escala <span class="b">de la app</span></h3>
+    <p class="texto texto--2">Medidas en puntos sobre una pantalla de 390 de ancho. El margen lateral es de 20, así que el ancho útil es de 350.</p>
+    <div class="escala">
+      <div class="escala__fila"><div class="escala__dato"><b>titular-xl</b>Anton 128 · interlínea 0,86</div><div class="escala__muestra" style="font:400 128px/.86 var(--f-titular)">BUSCA</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>titular-l</b>Anton 112 · 0,86</div><div class="escala__muestra" style="font:400 112px/.86 var(--f-titular)">ELIGE</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>titular-m</b>Anton 96 · 0,86</div><div class="escala__muestra" style="font:400 96px/.86 var(--f-titular)">¿QUÉ HAY</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>titular-s</b>Anton 72 · 0,86</div><div class="escala__muestra" style="font:400 72px/.86 var(--f-titular)">QUE LO VEAN.</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>acento</b>Playfair 900 cursiva, de 62 a 93 según la línea · 0,9</div><div class="escala__muestra" style="font:italic 900 80px/.9 var(--f-acento)">tu local</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>titulo-tarjeta</b>Anton 48 · 0,86</div><div class="escala__muestra" style="font:400 48px/.86 var(--f-titular)">REDES</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>cifra</b>Anton 32 · cifras tabulares</div><div class="escala__muestra" style="font:400 32px/.9 var(--f-titular)">1.240</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>boton</b>Schibsted 800 · 17 · mayúsculas · +0,03 em</div><div class="escala__muestra" style="font:800 17px/1 var(--f-ui); letter-spacing:.03em">SIGUIENTE</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>titulo-fila</b>Schibsted 700 · 17</div><div class="escala__muestra" style="font:700 17px/1.2 var(--f-ui)">Instagram</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>campo</b>Schibsted 400 · 17 · 1,5</div><div class="escala__muestra" style="font:400 17px/1.5 var(--f-ui)">Hoy tenemos alcachofas a la brasa</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>texto</b>Schibsted 400–500 · 12,6 a 15 · 1,3</div><div class="escala__muestra" style="font:500 13px/1.3 var(--f-ui)">Haz que te encuentren en el barrio y atrae a más gente cerca de ti.</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>etiqueta</b>Schibsted 700 · 12 · mayúsculas · +0,08 em</div><div class="escala__muestra" style="font:700 12px/1 var(--f-ui); letter-spacing:.08em">LO PRÓXIMO</div></div>
+      <div class="escala__fila"><div class="escala__dato"><b>pestaña</b>Schibsted 500 · 10,5 (700 la activa)</div><div class="escala__muestra" style="font:500 10.5px/1 var(--f-ui)">Resultados</div></div>
+    </div>
+
+    <h3 class="sub">Cómo se escribe <span class="b">un titular</span></h3>
+    <div class="regla-titular">
+      <div>
+        <ol class="texto">
+          <li><strong>Mayúsculas en Anton y un solo tramo en cursiva</strong> en Playfair 900, en minúscula. El tramo puede ser una o dos palabras («tu local», «el estilo»), nunca más.</li>
+          <li><strong>Cada línea en mayúsculas llena los 350 de ancho útil</strong>, con el mayor paso de la escala que quepa, y como mucho 128. Si la pantalla necesita sitio para el contenido, se baja un paso.</li>
+          <li><strong>Interlínea apretada:</strong> 0,86 en Anton y 0,9 en la cursiva. Las líneas casi se tocan.</li>
+          <li><strong>Nunca estirar ni comprimir.</strong> Anton no tiene versión ancha; deformarla engorda los trazos verticales y adelgaza los horizontales.</li>
+          <li><strong>Punto final si es una afirmación:</strong> «QUE LO VEAN.» Las preguntas llevan sus dos signos: «¿QUÉ HAY <em>hoy?</em>».</li>
+          <li>Empieza a <strong>88 del borde superior</strong>, o a 100 si la pantalla tiene flecha atrás.</li>
+        </ol>
+      </div>
+      <div class="si-no" style="grid-template-columns:1fr 1fr">
+        <div class="ejemplo"><div class="ejemplo__lienzo" style="height:150px; justify-items:start; color:var(--papel)"><span style="font:400 76px/.86 var(--f-titular)">ELIGE</span></div><p><b><svg aria-hidden="true"><use href="#i-check"/></svg>Anton tal cual</b>Aquí, a 112 en la pantalla.</p></div>
+        <div class="ejemplo"><div class="ejemplo__lienzo" style="height:150px; justify-items:start; color:var(--papel); overflow:hidden"><span style="font:400 48px/.86 var(--f-titular); display:inline-block; transform:scaleX(1.9); transform-origin:left">ELIGE</span></div><p><b><svg aria-hidden="true"><use href="#i-cerrar"/></svg>Estirada 1,9×</b>Como en tu Figma. Ver D1.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" id="recursos">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">LOS</span> <span class="b">recursos</span></h2>
+      <p class="seccion__nota">Textura, fotografía, pegatinas e iconos. Regla de reparto: <strong>un adorno por pantalla</strong> fuera de la pieza que se publica, y la mostaza como adorno solo si no compite con el botón.</p>
+    </div>
+
+    <h3 class="sub">Textura <span class="b">y</span> foto</h3>
+    <div class="recursos">
+      <div class="recurso"><div class="recurso__lienzo"></div><div><b>Papel oscuro</b>Fondo de todas las pantallas. <code>img/papel-oscuro.webp</code>, 780 × 1688, a sangre.</div></div>
+      <div class="recurso"><div class="recurso__lienzo recurso__lienzo--papel"></div><div><b>Papel arrugado</b>Fondo de las láminas de papel y del modo claro.</div></div>
+      <div class="recurso"><div class="recurso__lienzo"><img src="img/bar-esquina.webp" alt="Terraza de bar en trama de semitono" width="360" height="327"></div><div><b>Trama en blanco y negro</b>Fotos de ambiente en tarjetas, con borde rasgado. Contraste alto y grano visible.</div></div>
+      <div class="recurso"><div class="recurso__lienzo"><img src="img/taberna-color.webp" alt="Fachada de una taberna, foto a color" width="760" height="430" style="max-height:none; width:100%; height:100%; object-fit:cover"></div><div><b>Color</b>Solo donde hay que reconocer algo real: tu local al buscarlo y el estilo «Foto», que tiene que abrir el apetito.</div></div>
+      <div class="recurso"><div class="recurso__lienzo"><img src="img/mano-copa.webp" alt="Mano con cóctel recortada, en trama" width="720" height="670"></div><div><b>Recorte</b>Mano con copa, taza o móvil, sin fondo. Se cruza con el titular.</div></div>
+      <div class="recurso"><div class="recurso__lienzo recurso__lienzo--papel"><img src="img/plato-trama.webp" alt="Plato de alcachofas en trama" width="720" height="481"></div><div><b>Plato en trama</b>El plato real del cliente, recortado y tramado para el póster de papel.</div></div>
+    </div>
+
+    <h3 class="sub">Pegatinas <span class="b">y trazos</span></h3>
+    <div class="recursos">
+      <div class="recurso"><div class="recurso__lienzo"><svg viewBox="0 0 40 52" style="width:46px; color:#2440E0" aria-hidden="true"><use href="#i-destello"/></svg></div><div><b>Destello cobalto</b>Vector, trazo de 2,6. Junto a la cursiva del titular. En ¿Qué hay hoy?, Elige el estilo y dentro de las láminas.</div></div>
+      <div class="recurso"><div class="recurso__lienzo"><img src="img/destellos-mostaza.webp" alt="" width="260" height="251" style="max-height:96px"></div><div><b>Destellos mostaza</b>Pegatina troquelada. Conecta tus redes.</div></div>
+      <div class="recurso"><div class="recurso__lienzo"><img src="img/sol-mostaza.webp" alt="" width="200" height="194" style="max-height:70px"></div><div><b>Sol mostaza</b>Pegatina pequeña sobre la cursiva. Así queda.</div></div>
+      <div class="recurso"><div class="recurso__lienzo"><img src="img/flecha-pincel.webp" alt="" width="320" height="214" style="max-height:80px; transform:rotate(88deg)"></div><div><b>Flecha de pincel</b>Señala lo que hay que tocar. Una por pantalla como mucho. Busca tu local. <span class="origen origen--pendiente">D2</span></div></div>
+      <div class="recurso"><div class="recurso__lienzo"><svg viewBox="0 0 70 70" style="width:70px" aria-hidden="true"><path d="M4 8 42 12M20 54 48 28M64 36l2 30" stroke="#2440E0" stroke-width="5.5" stroke-linecap="round" fill="none"/></svg></div><div><b>Rayos</b>Tres trazos que salen del objeto. Cobalto en la bienvenida, mostaza alrededor de RECOMENDADO.</div></div>
+      <div class="recurso"><div class="recurso__lienzo"><svg viewBox="0 0 150 64" style="width:150px" aria-hidden="true"><use href="#p-recomendado"/></svg></div><div><b>RECOMENDADO</b>Estrella de puntas mostaza con Anton inclinada en tinta. Solo en el plan que se recomienda.</div></div>
+    </div>
+    <p class="texto texto--2" style="margin-top:14px">El banco completo, con 23 recursos, está en <code>society-identidad-editorial/recursos-graficos/</code>.</p>
+    <img src="img/muestrario-oscuro.webp" alt="Muestrario de los recursos gráficos sobre fondo oscuro: destellos, pegatinas, recortes en trama, bocadillo, círculo, flecha, rayos, asterisco, papel rasgado, cinta, sello, pin y corazón" width="1300" height="1040" loading="lazy" style="display:block; width:100%; max-width:760px; border-radius:14px; margin-top:8px">
+
+    <h3 class="sub">Iconos</h3>
+    <p class="texto texto--2">Línea de 2 a 2,4 en una rejilla de 24, extremos y esquinas redondeados, en el color del texto. En la app se dibujan entre 22 y 26. Los logos de redes son aproximados: en el diseño final se usan los oficiales con sus normas.</p>
+    <div class="iconos">
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-inicio"/></svg>inicio</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-pin"/></svg>pin · local</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-calendario"/></svg>semana</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-resultados"/></svg>resultados</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-perfil"/></svg>perfil</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-atras"/></svg>atrás</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-cerrar"/></svg>cerrar</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-buscar"/></svg>buscar</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-flecha"/></svg>ir</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-chevron"/></svg>abrir fila</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-mas"/></svg>añadir</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-check"/></svg>hecho</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-alerta"/></svg>aviso</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-reloj"/></svg>horario</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-estrella"/></svg>reseñas</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-carta"/></svg>carta</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-camara"/></svg>material</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-globo"/></svg>otros sitios</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-pincel"/></svg>estilo</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-voz"/></svg>voz</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-campana"/></svg>avisos</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-personas"/></svg>personas</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-tarjeta"/></svg>pagos</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-salir"/></svg>salir</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-corazon"/></svg>me gusta</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-comentario"/></svg>comentar</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-enviar"/></svg>enviar</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-guardar"/></svg>guardar</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>TikTok</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-facebook"/></svg>Facebook</div>
+      <div class="icono-celda"><svg aria-hidden="true"><use href="#i-x"/></svg>X</div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" id="piezas">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">LAS</span> <span class="b">piezas</span></h2>
+      <p class="seccion__nota">Cada componente con todos sus estados, sobre el fondo real de la app. Son las mismas piezas que montan las pantallas: lo que cambia aquí cambia allí. Se pueden tocar.</p>
+    </div>
+
+    <article class="pieza-doc" id="pieza-boton">
+      <div>
+        <h3>BOTÓN</h3>
+        <p>Uno principal por pantalla, en mostaza. Si hay una segunda acción, va con contorno y a la izquierda.</p>
+        <dl>
+          <dt>Alto</dt><dd>52; el pequeño, 38</dd>
+          <dt>Ancho</dt><dd>Todo el ancho útil, o mitad y mitad con 18 de separación</dd>
+          <dt>Sitio</dt><dd>A 40 del borde inferior; a 62 si hay paginación debajo</dd>
+          <dt>Texto</dt><dd>Schibsted 800, 17, mayúsculas. Un verbo que dice lo que pasa: EMPEZAR, SIGUIENTE, PUBLICAR</dd>
+          <dt>Pulsado</dt><dd>#DDB10E y escala 0,98</dd>
+          <dt>Cargando</dt><dd>El texto se oculta y gira un círculo; no admite un segundo toque</dd>
+          <dt>Desactivado</dt><dd>Papel al 12 % y texto al 42 %. Encima o debajo se dice qué falta</dd>
+        </dl>
+      </div>
+      <div class="banco app">
+        <div class="banco__caso banco__caso--ancho"><small>Principal</small><button class="boton boton--principal boton--ancho" type="button">Siguiente</button></div>
+        <div class="banco__caso banco__caso--ancho"><small>Pulsado</small><span class="boton boton--principal boton--ancho es-pulsado">Siguiente</span></div>
+        <div class="banco__caso banco__caso--ancho"><small>Cargando</small><span class="boton boton--principal boton--ancho es-cargando"><span class="boton__texto">Publicar</span></span></div>
+        <div class="banco__caso banco__caso--ancho"><small>Desactivado</small><button class="boton boton--principal boton--ancho" type="button" disabled>Siguiente</button></div>
+        <div class="banco__caso banco__caso--ancho"><small>Secundario y principal</small><span style="display:flex; gap:18px"><button class="boton boton--secundario" style="flex:1" type="button">Editar</button><button class="boton boton--principal" style="flex:1" type="button">Publicar</button></span></div>
+        <div class="banco__caso"><small>Pequeño sobre cobalto</small><span style="display:block; padding:14px; border-radius:12px; background:var(--cobalto)"><span class="boton boton--sobre-cobalto boton--pequeno">Revisar</span></span></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-chip">
+      <div>
+        <h3>CHIP DE FORMATO</h3>
+        <p>Elección única entre formatos. Funciona como un grupo de radio: siempre hay uno elegido.</p>
+        <dl>
+          <dt>Medidas</dt><dd>42 de alto, 106 de ancho mínimo, pastilla</dd>
+          <dt>Elegido</dt><dd>Cobalto con texto blanco, sin borde</dd>
+          <dt>Sin elegir</dt><dd>Contorno de 1,5 en papel; en claro, cobalto</dd>
+          <dt>No disponible</dt><dd>Contorno y texto al 42 %. Al tocarlo explica qué plan lo incluye</dd>
+          <dt>Teclado</dt><dd>Flechas para moverse, espacio para elegir</dd>
+        </dl>
+      </div>
+      <div class="banco app">
+        <div class="banco__caso"><small>Elegido y sin elegir</small><span role="radiogroup" aria-label="Formato de ejemplo" style="display:flex; gap:12px"><button class="chip" role="radio" aria-checked="true" type="button">4:5</button><button class="chip" role="radio" aria-checked="false" type="button">Historia</button></span></div>
+        <div class="banco__caso"><small>No disponible</small><span class="chip es-desactivado" style="display:inline-flex; align-items:center; justify-content:center">Reel</span></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-interruptor">
+      <div>
+        <h3>INTERRUPTOR</h3>
+        <p>Conecta una red. Encenderlo abre el permiso de esa red; el interruptor no se da por encendido hasta que la red responde que sí.</p>
+        <dl>
+          <dt>Medidas</dt><dd>55 × 30, bola blanca de 22</dd>
+          <dt>Encendido</dt><dd>Cobalto</dd>
+          <dt>Apagado</dt><dd>#8E8A80</dd>
+          <dt>Conectando</dt><dd>La bola gira en el centro mientras la red contesta</dd>
+          <dt>Accesible</dt><dd><code>role="switch"</code>, <code>aria-checked</code> y el nombre de la red en la etiqueta</dd>
+        </dl>
+      </div>
+      <div class="banco app">
+        <div class="banco__caso"><small>Apagado</small><button class="interruptor" type="button" role="switch" aria-checked="false" aria-label="Interruptor de ejemplo apagado"></button></div>
+        <div class="banco__caso"><small>Encendido</small><button class="interruptor" type="button" role="switch" aria-checked="true" aria-label="Interruptor de ejemplo encendido"></button></div>
+        <div class="banco__caso"><small>Conectando</small><span class="interruptor es-cargando" style="display:block"></span></div>
+        <div class="banco__caso"><small>No disponible</small><button class="interruptor" type="button" role="switch" aria-checked="false" disabled aria-label="Interruptor de ejemplo no disponible"></button></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-campo">
+      <div>
+        <h3>CAMPO DE TEXTO</h3>
+        <p>Lo que el dueño cuenta con sus palabras. Hasta 300 caracteres, con contador a la vista.</p>
+        <dl>
+          <dt>Superficie</dt><dd>Tarjeta, radio 16, relleno 20 arriba y a los lados</dd>
+          <dt>Activo</dt><dd>Borde cobalto de 2</dd>
+          <dt>Texto</dt><dd>Schibsted 400, 17, interlínea 1,5; ejemplo en tinta suave</dd>
+          <dt>Contador</dt><dd>13, tinta suave, cifras tabulares</dd>
+          <dt>Límite</dt><dd>Borde y contador en rojo, con aviso debajo que dice qué hacer</dd>
+        </dl>
+      </div>
+      <div class="banco app">
+        <div class="banco__caso banco__caso--ancho"><small>Vacío</small><label class="campo"><textarea id="demo-campo-vacio" rows="2" placeholder="Ej.: hoy tenemos alcachofas a la brasa" aria-label="Campo de ejemplo vacío"></textarea><span class="campo__contador">0/300</span></label></div>
+        <div class="banco__caso banco__caso--ancho"><small>Activo</small><label class="campo es-activo"><textarea id="demo-campo-activo" rows="2" aria-label="Campo de ejemplo activo">Hoy tenemos alcachofas a la brasa</textarea><span class="campo__contador">33/300</span></label></div>
+        <div class="banco__caso banco__caso--ancho"><small>En el límite</small><span style="display:block"><label class="campo es-error"><textarea id="demo-campo-limite" rows="2" aria-label="Campo de ejemplo en el límite">Hoy tenemos alcachofas a la brasa con aceite de la casa y sal en escamas, y las servimos hasta que se acaben…</textarea><span class="campo__contador">300/300</span></label><span class="campo__aviso"><svg aria-hidden="true"><use href="#i-alerta"/></svg>Has llegado a 300. Recorta para añadir más.</span></span></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-buscador">
+      <div>
+        <h3>BUSCADOR</h3>
+        <p>Busca el local por nombre o por calle. Empieza a buscar a partir de tres letras.</p>
+        <dl>
+          <dt>Medidas</dt><dd>48 de alto, pastilla, lupa de 22 a 16 del borde</dd>
+          <dt>Borde</dt><dd>Papel al 62 %; papel entero mientras se escribe</dd>
+          <dt>Texto</dt><dd>Schibsted 600, 17</dd>
+          <dt>Borrar</dt><dd>La X aparece en cuanto hay texto y vacía el campo</dd>
+        </dl>
+      </div>
+      <div class="banco app">
+        <div class="banco__caso banco__caso--ancho"><small>Con texto</small><label class="buscador"><svg aria-hidden="true"><use href="#i-buscar"/></svg><input id="demo-buscar-lleno" type="search" value="Madrid" aria-label="Buscador de ejemplo"><span class="buscador__borrar" aria-hidden="true"><svg><use href="#i-cerrar"/></svg></span></label></div>
+        <div class="banco__caso banco__caso--ancho"><small>Vacío</small><label class="buscador"><svg aria-hidden="true"><use href="#i-buscar"/></svg><input id="demo-buscar-vacio" type="search" placeholder="Nombre de tu bar o tu calle" aria-label="Buscador de ejemplo vacío"></label></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-local">
+      <div>
+        <h3>TU LOCAL</h3>
+        <p>El resultado más probable de la búsqueda. Es la acción de la pantalla, por eso va en mostaza y la pantalla no tiene botón.</p>
+        <dl>
+          <dt>Superficie</dt><dd>Mostaza, radio 12, foto a color de 142 con 3 de margen</dd>
+          <dt>Texto</dt><dd>Nombre en Schibsted 500, 20; dirección en 400, 15 con pin</dd>
+          <dt>Pulsado</dt><dd>#DDB10E y escala 0,985</dd>
+          <dt>Cargando</dt><dd>Filas de esqueleto: círculo de 40 y dos barras que laten</dd>
+        </dl>
+      </div>
+      <div class="banco app">
+        <div class="banco__caso banco__caso--ancho" style="max-width:350px"><small>Resultado</small><button class="local-resultado" type="button"><img src="img/taberna-color.webp" alt="Fachada de La Taberna del Patio" width="760" height="430"><span class="local-resultado__cuerpo"><span class="local-resultado__nombre">La Taberna del Patio</span><svg class="local-resultado__ir" aria-hidden="true"><use href="#i-flecha"/></svg><span class="local-resultado__dir"><svg aria-hidden="true"><use href="#i-pin"/></svg>Calle Mayor, 12</span></span></button></div>
+        <div class="banco__caso banco__caso--ancho es-cargando" style="max-width:350px"><small>Cargando más</small><span style="display:block; width:100%"><span class="vacio-fila"><span class="vacio-fila__punto"></span><span class="vacio-fila__lineas"><span></span><span></span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></span><span class="vacio-fila"><span class="vacio-fila__punto"></span><span class="vacio-fila__lineas"><span></span><span></span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></span></span></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-plan">
+      <div>
+        <h3>TARJETA DE PLAN</h3>
+        <p>Un plan por tarjeta: icono, nombre, una frase y una foto de ambiente. La recomendada va en cobalto con su pegatina.</p>
+        <dl>
+          <dt>Medidas</dt><dd>176 de alto mínimo, radio 13, foto de 160 × 150</dd>
+          <dt>Nombre</dt><dd>Anton 48</dd>
+          <dt>Icono</dt><dd>Círculo de 46: cobalto con icono blanco; en la destacada, papel con icono cobalto</dd>
+          <dt>Al tocar</dt><dd>Abre la hoja del plan con lo que incluye</dd>
+        </dl>
+      </div>
+      <div class="banco app">
+        <div class="banco__caso banco__caso--ancho" style="max-width:362px"><small>Normal</small><button class="plan" type="button"><span><span class="plan__icono"><svg aria-hidden="true"><use href="#i-pin-lleno"/></svg></span><span class="plan__nombre">LOCAL</span><span class="plan__texto">Haz que te encuentren en el barrio y atrae a más gente cerca de ti.</span></span><img class="plan__foto" src="img/bar-esquina.webp" alt="" width="360" height="327"></button></div>
+        <div class="banco__caso banco__caso--ancho" style="max-width:362px; padding-top:10px"><small>Recomendada</small><button class="plan plan--destacado" type="button"><span><span class="plan__icono"><svg aria-hidden="true"><use href="#i-instagram"/></svg></span><span class="plan__nombre">REDES</span><span class="plan__texto">Crea contenido que conecta, genera conversación y lleva más gente a tu bar.</span></span><img class="plan__foto" src="img/movil-mano.webp" alt="" width="300" height="261"><svg class="pegatina-recomendado" viewBox="0 0 150 64" aria-hidden="true"><use href="#p-recomendado"/></svg></button></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-red">
+      <div>
+        <h3>FILA DE RED</h3>
+        <p>Una red social: logo, nombre, qué aporta y su interruptor. Cuando está conectada, la frase se cambia por la cuenta.</p>
+        <dl>
+          <dt>Medidas</dt><dd>88 de alto mínimo, radio 12, logo de 36</dd>
+          <dt>Estados</dt><dd>Sin conectar, conectando, conectada, caducada y próximamente</dd>
+          <dt>Caducada</dt><dd>El permiso de Instagram dura 60 días y Society lo renueva solo; si falla, se pide volver a conectar (flujo §5.2)</dd>
+        </dl>
+      </div>
+      <div class="banco app" style="display:grid; gap:12px">
+        <div class="red" data-estado="sin-conectar"><svg class="red__logo" aria-hidden="true"><use href="#i-tiktok"/></svg><span><span class="red__nombre">TikTok</span><span class="red__texto">Haz que tu bar se descubra de forma diferente.</span><span class="red__estado"></span></span><button class="interruptor" type="button" role="switch" aria-checked="false" aria-label="Conectar TikTok (ejemplo)"></button></div>
+        <div class="red" data-estado="conectando"><svg class="red__logo" aria-hidden="true"><use href="#i-facebook"/></svg><span><span class="red__nombre">Facebook</span><span class="red__texto">Mantén a tu comunidad siempre al día.</span><span class="red__estado">Conectando…</span></span><span class="interruptor es-cargando" style="display:block"></span></div>
+        <div class="red" data-estado="conectada"><svg class="red__logo" aria-hidden="true"><use href="#i-instagram"/></svg><span><span class="red__nombre">Instagram</span><span class="red__texto">Comparte tus mejores momentos y atrae más gente.</span><span class="red__estado">Conectada como @tu_local</span></span><button class="interruptor" type="button" role="switch" aria-checked="true" aria-label="Desconectar Instagram (ejemplo)"></button></div>
+        <div class="red" data-estado="caducada"><svg class="red__logo" aria-hidden="true"><use href="#i-instagram"/></svg><span><span class="red__nombre">Instagram</span><span class="red__texto"></span><span class="red__estado">El permiso ha caducado. Vuelve a conectar.</span></span><button class="interruptor" type="button" role="switch" aria-checked="false" aria-label="Volver a conectar Instagram (ejemplo)"></button></div>
+        <div class="red" data-estado="proximamente"><svg class="red__logo" aria-hidden="true"><use href="#i-x"/></svg><span><span class="red__nombre">X (Twitter)</span><span class="red__texto"></span><span class="red__estado">Próximamente</span></span><button class="interruptor" type="button" role="switch" aria-checked="false" disabled aria-label="X, próximamente"></button></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-estilo">
+      <div>
+        <h3>OPCIÓN DE ESTILO</h3>
+        <p>Una muestra del estilo aplicada al plato real del cliente, con su etiqueta debajo. Elección única.</p>
+        <dl>
+          <dt>Medidas</dt><dd>Muestra de 168 de alto, radio 6; etiqueta de 32</dd>
+          <dt>Elegida</dt><dd>Etiqueta cobalto con ✓, así no depende solo del color</dd>
+          <dt>Sin elegir</dt><dd>Etiqueta con contorno papel</dd>
+          <dt>Generando</dt><dd>La muestra late hasta que llega; si una falla, se puede elegir entre las demás</dd>
+        </dl>
+      </div>
+      <div class="banco app">
+        <div class="banco__caso" style="width:166px"><small>Elegida</small><span class="estilo" aria-checked="true" style="width:100%"><span class="lamina" data-estilo="papel"></span><span class="estilo__etiqueta"><svg aria-hidden="true"><use href="#i-check"/></svg>Póster de papel</span></span></div>
+        <div class="banco__caso" style="width:166px"><small>Sin elegir</small><span class="estilo" aria-checked="false" style="width:100%"><span class="lamina" data-estilo="cobalto"></span><span class="estilo__etiqueta"><svg aria-hidden="true"><use href="#i-check"/></svg>Póster cobalto</span></span></div>
+        <div class="banco__caso es-cargando" style="width:166px"><small>Generando</small><span class="estilo" style="width:100%"><span class="lamina" style="height:168px; border-radius:6px; background:var(--esqueleto); animation:latir 1.2s ease-in-out infinite"></span><span class="estilo__etiqueta">Foto</span></span></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-foto">
+      <div>
+        <h3>FOTO DEL PLATO</h3>
+        <p>La foto real del plato. Es obligatoria: sin foto real no hay pieza.</p>
+        <dl>
+          <dt>Medidas</dt><dd>164 de alto, radio 16, todo el ancho</dd>
+          <dt>Con foto</dt><dd>Se ve en trama; el botón + la cambia</dd>
+          <dt>Vacía</dt><dd>Borde discontinuo y «Añade la foto del plato»</dd>
+          <dt>Rechazada</dt><dd>Aviso concreto: «Se ve cortado. Haz otra desde arriba»</dd>
+        </dl>
+      </div>
+      <div class="banco app">
+        <div class="banco__caso banco__caso--ancho" style="max-width:350px"><small>Con foto</small><span class="foto-plato"><img src="img/alcachofas-trama.webp" alt="Alcachofas a la brasa en trama" width="700" height="326"><span class="foto-plato__mas"><svg aria-hidden="true"><use href="#i-mas"/></svg></span></span></div>
+        <div class="banco__caso banco__caso--ancho" style="max-width:350px"><small>Vacía</small><span class="foto-plato foto-plato--vacia"><span class="foto-plato__mas" style="top:42%"><svg aria-hidden="true"><use href="#i-camara"/></svg></span><span class="foto-plato__pie">Añade la foto del plato</span></span></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-post">
+      <div>
+        <h3>VISTA PREVIA</h3>
+        <p>La pieza como la verá la gente en Instagram, al tamaño exacto de su formato. Los iconos de me gusta, comentar, enviar y guardar son solo dibujo.</p>
+        <dl>
+          <dt>4:5</dt><dd>Lámina de 312 × 390 (1080 × 1350 al publicar), cabecera de 44, texto en dos líneas y hashtags en cobalto</dd>
+          <dt>Historia</dt><dd>9:16 de 214 × 380, con barra de progreso y la cuenta encima; sin pie</dd>
+          <dt>Cuenta</dt><dd>Avatar y usuario de la cuenta conectada, iguales arriba y en el pie</dd>
+          <dt>Hashtags</dt><dd>Cinco como mucho (README §11)</dd>
+        </dl>
+      </div>
+      <div class="banco app" style="align-items:flex-start">
+        <div class="banco__caso"><small>4:5</small><article class="post" data-formato="post" data-fijo><div class="lamina" data-estilo="cobalto"></div><span class="post__progreso"></span><div class="post__cabecera"><span class="post__avatar">T</span><span class="post__usuario">tu_local</span><svg class="post__mas" aria-hidden="true"><use href="#i-puntos"/></svg></div><div class="post__acciones" aria-hidden="true"><svg><use href="#i-corazon"/></svg><svg><use href="#i-comentario"/></svg><svg><use href="#i-enviar"/></svg><svg><use href="#i-guardar"/></svg></div><p class="post__texto"><b>tu_local</b> Hoy tenemos alcachofas a la brasa. Sabor, temporada y buena compañía.</p><p class="post__etiquetas">#Society #Alcachofas #Hoy</p></article></div>
+        <div class="banco__caso"><small>Historia</small><article class="post" data-formato="historia" data-fijo><div class="lamina" data-estilo="foto"></div><span class="post__progreso"></span><div class="post__cabecera"><span class="post__avatar">T</span><span class="post__usuario">tu_local</span><svg class="post__mas" aria-hidden="true"><use href="#i-puntos"/></svg></div></article></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-estados">
+      <div>
+        <h3>ESTADO DE UNA PIEZA</h3>
+        <p>Dónde está cada publicación. Cada estado tiene forma y texto propios, no solo color. El detalle de cada uno está en <a href="#flujos">Cómo se usa</a>.</p>
+        <dl>
+          <dt>Medidas</dt><dd>24 de alto, Schibsted 700 a 11,5</dd>
+          <dt>Dónde</dt><dd>Sobre superficies claras: tarjetas de pieza en Inicio y Semana</dd>
+        </dl>
+      </div>
+      <div class="banco app" style="background:var(--tarjeta); color:var(--tinta); gap:12px">
+        <span class="estado-pieza estado-pieza--ok">Necesita tu OK</span>
+        <span class="estado-pieza estado-pieza--plan">Revisa el plan</span>
+        <span class="estado-pieza estado-pieza--preparando">Preparando</span>
+        <span class="estado-pieza estado-pieza--programada"><svg aria-hidden="true"><use href="#i-reloj"/></svg>Programada</span>
+        <span class="estado-pieza estado-pieza--publicada"><svg aria-hidden="true"><use href="#i-check"/></svg>Publicada</span>
+        <span class="estado-pieza estado-pieza--parada"><svg aria-hidden="true"><use href="#i-alerta"/></svg>Parada</span>
+        <span class="estado-pieza estado-pieza--archivada">Archivada</span>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-pestanas">
+      <div>
+        <h3>BARRA DE PESTAÑAS</h3>
+        <p>Cinco secciones fijas abajo. Aparece al terminar el alta.</p>
+        <dl>
+          <dt>Medidas</dt><dd>64 de alto con el indicador de inicio; borde superior papel al 16 %</dd>
+          <dt>Activa</dt><dd>Pastilla cobalto de 54 × 28 con icono blanco; etiqueta papel en 700</dd>
+          <dt>Inactiva</dt><dd>Icono y etiqueta en papel suave</dd>
+          <dt>Por qué</dt><dd>En Figma la activa era texto cobalto sobre tinta: 2,53:1, ilegible en la calle</dd>
+        </dl>
+      </div>
+      <div class="banco app" style="padding:0; overflow:hidden">
+        <div style="position:relative; width:100%; max-width:390px; height:64px; margin:0 auto"><nav class="pestanas" data-activa="semana" aria-label="Barra de pestañas de ejemplo" style="position:absolute"></nav></div>
+      </div>
+    </article>
+
+    <article class="pieza-doc" id="pieza-hoja">
+      <div>
+        <h3>HOJA Y AVISO</h3>
+        <p>La hoja sube desde abajo para decidir algo sin salir de la pantalla; el velo oscurece el resto y cerrarla es tocar fuera. El aviso baja arriba para confirmar lo que ha pasado y se va solo a los 3 segundos.</p>
+        <dl>
+          <dt>Hoja</dt><dd>Tarjeta, radio 26 arriba, asa de 40 × 5, 34 de margen inferior</dd>
+          <dt>Aviso</dt><dd>Tarjeta, radio 14, icono en círculo cobalto; frase en pasado: «Publicado en Instagram»</dd>
+        </dl>
+      </div>
+      <div class="banco app" style="align-items:flex-start">
+        <div class="banco__caso banco__caso--ancho" style="max-width:390px"><small>Aviso</small><span class="aviso" style="position:relative; inset:auto; animation:none"><span class="aviso__icono"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Publicado en Instagram. Primera medición en 24 h.</span></div>
+        <div class="banco__caso banco__caso--ancho" style="max-width:390px"><small>Hoja</small><div class="hoja" style="position:relative; animation:none; border-radius:26px"><p class="hoja__titulo"><span class="t-anton">REDES</span></p><p class="hoja__precio" style="margin-bottom:8px">Todo lo de Local, y además:</p><ul class="hoja__lista"><li><svg aria-hidden="true"><use href="#i-check"/></svg>Posts, carruseles e historias en Instagram</li><li><svg aria-hidden="true"><use href="#i-check"/></svg>Tus fichas en otros sitios, como TripAdvisor</li></ul><span class="boton boton--principal boton--ancho">Elegir redes</span></div></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<section class="seccion" id="flujos">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">CÓMO</span> <span class="b">se usa</span></h2>
+      <p class="seccion__nota">Los recorridos completos, con lo que ya tiene pantalla y lo que falta por diseñar. El orden de los pasos es el orden real.</p>
+    </div>
+
+    <h3 class="sub">El alta</h3>
+    <p class="texto texto--2">Tu Figma cubre del paso 1 al 10. Lo que va después sale del flujo de la aplicación (§4.1) y no bloquea: se completa desde Inicio.</p>
+    <ol class="pasos">
+      <li class="paso paso--figma"><span class="origen origen--figma">Figma</span><h4>Bienvenida</h4><p>Qué gana el bar, en una frase.</p></li>
+      <li class="paso"><span class="origen origen--propuesta">Propuesta</span><h4>Crear cuenta</h4><p>Correo y contraseña o enlace por correo. Va antes de conectar nada: los permisos se guardan por restaurante. Por diseñar.</p></li>
+      <li class="paso paso--figma"><span class="origen origen--figma">Figma</span><h4>Busca tu local</h4><p>Nombre, dirección y horarios sin teclearlos.</p></li>
+      <li class="paso"><span class="origen origen--propuesta">Propuesta</span><h4>Ficha de Google</h4><p>Hoja «¿ES <em>tuyo?</em>». Sin API aprobada, gestión asistida.</p></li>
+      <li class="paso paso--figma"><span class="origen origen--figma">Figma</span><h4>Conecta tus redes</h4><p>Permiso de Instagram y, si se decide, de las demás.</p></li>
+      <li class="paso paso--figma"><span class="origen origen--figma">Figma</span><h4>Tu plan</h4><p>Local, Redes o Reels, con su hoja.</p></li>
+      <li class="paso"><span class="origen origen--doc">Doc</span><h4>Pago</h4><p>Stripe Checkout, fuera de la app. Solo el aviso firmado activa el plan.</p></li>
+      <li class="paso paso--figma"><span class="origen origen--figma">Figma</span><h4>¿Qué hay hoy?</h4><p>Primera pieza: una frase y la foto real.</p></li>
+      <li class="paso paso--figma"><span class="origen origen--figma">Figma</span><h4>Elige el estilo</h4><p>Queda como estilo de la marca, con fecha.</p></li>
+      <li class="paso paso--figma"><span class="origen origen--figma">Figma</span><h4>Así queda</h4><p>Se publica o se programa. Entra en la app.</p></li>
+      <li class="paso"><span class="origen origen--doc">Doc</span><h4>Completa tu local</h4><p>Datos, horarios y cierres, carta con precios y alérgenos, material real y catálogo. Por diseñar.</p></li>
+      <li class="paso"><span class="origen origen--doc">Doc</span><h4>Diagnóstico</h4><p>Ficha, web, coherencia de datos y línea base de las 12 últimas piezas.</p></li>
+      <li class="paso"><span class="origen origen--doc">Doc</span><h4>Estrategia</h4><p>Novedades del trimestre y objetivo; Society propone calendario y reparto.</p></li>
+      <li class="paso"><span class="origen origen--doc">Doc</span><h4>Prueba de voz</h4><p>Solo en Reels: voces diciendo una frase del negocio con platos y precios.</p></li>
+      <li class="paso"><span class="origen origen--doc">Doc</span><h4>Activación</h4><p>Día y hora del ciclo, modo de aprobación y canal de avisos.</p></li>
+    </ol>
+
+    <h3 class="sub">Crear <span class="b">una pieza</span></h3>
+    <ol class="pasos">
+      <li class="paso paso--figma"><h4>¿Qué hay hoy?</h4><p>Frase de hasta 300 caracteres, foto real y formato.</p></li>
+      <li class="paso paso--figma"><h4>Elige el estilo</h4><p>Cuatro muestras con tu plato. Por defecto, el de la marca.</p></li>
+      <li class="paso paso--figma"><h4>Así queda</h4><p>La pieza a tamaño real. EDITAR o PUBLICAR.</p></li>
+      <li class="paso"><h4>¿Cuándo sale?</h4><p>Ahora o programada. Es la aprobación del dueño (G2).</p></li>
+      <li class="paso"><h4>Publicada</h4><p>Aviso y la pieza pasa a Semana.</p></li>
+      <li class="paso"><h4>Medida</h4><p>A +24 h, +72 h, +7 d y +28 d. Sale en Resultados.</p></li>
+    </ol>
+
+    <h3 class="sub">La semana <span class="b">tipo</span></h3>
+    <p class="texto texto--2">Propuesta del flujo de la aplicación (§6.1). El día y la hora los elige cada restaurante. En cobalto, lo que hace el dueño.</p>
+    <div class="semana-tipo">
+      <div class="dia-tipo"><b>L</b><p><strong>Arranca el ciclo</strong> con las cuotas, el calendario y las métricas de la semana anterior. Plan de la semana y briefs.</p></div>
+      <div class="dia-tipo"><b>M</b><p><strong>Producción</strong> de cada plano por su ruta y <strong>verificación</strong> con bloqueos directos.</p></div>
+      <div class="dia-tipo dia-tipo--dueno"><b>X</b><p><strong>Tu OK:</strong> la semana entera o pieza a pieza. Aviso a las 24 h.</p></div>
+      <div class="dia-tipo"><b>J</b><p><strong>Publicación</strong> programada, automática o asistida.</p></div>
+      <div class="dia-tipo"><b>V</b><p><strong>Publicación.</strong> Primeras mediciones a +24 h; las historias, antes de que caduquen.</p></div>
+      <div class="dia-tipo"><b>S</b><p><strong>Publicación.</strong> Mediciones a +72 h.</p></div>
+      <div class="dia-tipo"><b>D</b><p><strong>Publicación.</strong> El lunes siguiente llega el informe y lo aprendido alimenta el plan nuevo.</p></div>
+    </div>
+
+    <h3 class="sub">Estados <span class="b">de una pieza</span></h3>
+    <div class="tabla-caja">
+      <table class="tabla">
+        <thead><tr><th>En la app</th><th>Estado interno (informe 05 §4)</th><th>Qué puede hacer el dueño</th><th>Cómo se ve</th></tr></thead>
+        <tbody>
+          <tr><td>Preparando</td><td>Producción: reservado, enviando, aceptado, resultado, revisión</td><td>Nada; ver el avance</td><td><span class="banco app" style="display:inline-flex; padding:6px; background:var(--tarjeta); border-radius:8px"><span class="estado-pieza estado-pieza--preparando">Preparando</span></span></td></tr>
+          <tr><td>Revisa el plan</td><td>Puerta G1: fotogramas clave y plan antes de animar (reels)</td><td>Aprobar o pedir cambios</td><td><span class="banco app" style="display:inline-flex; padding:6px; background:var(--tarjeta); border-radius:8px"><span class="estado-pieza estado-pieza--plan">Revisa el plan</span></span></td></tr>
+          <tr><td>Necesita tu OK</td><td>Puerta G2: render, texto, canal y fecha</td><td>Aprobar, editar o descartar</td><td><span class="banco app" style="display:inline-flex; padding:6px; background:var(--tarjeta); border-radius:8px"><span class="estado-pieza estado-pieza--ok">Necesita tu OK</span></span></td></tr>
+          <tr><td>Programada</td><td><code>aprobada</code></td><td>Cambiar la fecha o anular</td><td><span class="banco app" style="display:inline-flex; padding:6px; background:var(--tarjeta); border-radius:8px"><span class="estado-pieza estado-pieza--programada"><svg aria-hidden="true"><use href="#i-reloj"/></svg>Programada</span></span></td></tr>
+          <tr><td>Publicada</td><td><code>publicada</code> y medición pendiente o completa</td><td>Ver sus resultados</td><td><span class="banco app" style="display:inline-flex; padding:6px; background:var(--tarjeta); border-radius:8px"><span class="estado-pieza estado-pieza--publicada"><svg aria-hidden="true"><use href="#i-check"/></svg>Publicada</span></span></td></tr>
+          <tr><td>Parada</td><td><code>bloqueada_por_proveedor</code>, <code>bloqueada_por_presupuesto</code>, <code>rechazada_por_fidelidad</code></td><td>Leer el motivo; subir material si se pide</td><td><span class="banco app" style="display:inline-flex; padding:6px; background:var(--tarjeta); border-radius:8px"><span class="estado-pieza estado-pieza--parada"><svg aria-hidden="true"><use href="#i-alerta"/></svg>Parada</span></span></td></tr>
+          <tr><td>Archivada</td><td><code>archivada</code> o <code>cancelada</code>; sin OK en 72 h</td><td>Reprogramar</td><td><span class="banco app" style="display:inline-flex; padding:6px; background:var(--tarjeta); border-radius:8px"><span class="estado-pieza estado-pieza--archivada">Archivada</span></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" id="planes">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">QUÉ HACE</span> <span class="b b--sola">cada plan</span></h2>
+      <p class="seccion__nota">Los planes se suman (README §5, decisión del 15/09/2026). Nombres del Figma; precios y cuotas sin decidir.</p>
+    </div>
+    <div class="tabla-caja">
+      <table class="tabla tabla--matriz">
+        <thead><tr><th>Función</th><th>Local</th><th>Redes</th><th>Reels</th><th>Dónde</th></tr></thead>
+        <tbody>
+          <tr><td>Datos del negocio, horarios y carta</td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td>Local</td></tr>
+          <tr><td>Ficha de Google: fotos, publicaciones y métricas</td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td>Local</td></tr>
+          <tr><td>Borradores de respuesta a reseñas</td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td>Local · en el plan Local, según el flujo §6.3; el README lo deja abierto</td></tr>
+          <tr><td>Diagnóstico al empezar</td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td>Inicio</td></tr>
+          <tr><td>Material real</td><td>Fotos</td><td>Fotos y clips</td><td>Fotos y clips</td><td>Local</td></tr>
+          <tr><td>Posts, carruseles e historias en Instagram</td><td class="no">—</td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td>Crear, Semana</td></tr>
+          <tr><td>Otros sitios (TripAdvisor y similares)</td><td class="no">—</td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td>Local · qué sitios, por decidir</td></tr>
+          <tr><td>Estilo de marca con muestras de tu plato</td><td class="no">—</td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td>Elige el estilo</td></tr>
+          <tr><td>Vídeo generado</td><td class="no">—</td><td>Muy poco, para historias</td><td>Sí, es lo principal</td><td>Semana</td></tr>
+          <tr><td>Reels al mes</td><td class="no">—</td><td class="no">—</td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td>Semana · cuántos, por decidir</td></tr>
+          <tr><td>Prueba de voz</td><td class="no">—</td><td>Opcional</td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td>Perfil</td></tr>
+          <tr><td>Ciclo semanal con tu aprobación</td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td><span class="si" role="img" aria-label="Sí"><svg><use href="#i-check"/></svg></span></td><td>Semana</td></tr>
+          <tr><td>Resultados</td><td>Acciones de la ficha</td><td>Redes y ficha</td><td>Redes y ficha</td><td>Resultados</td></tr>
+          <tr><td>Precio y cuotas</td><td colspan="3"><span class="origen origen--pendiente">Pendiente</span> README §5</td><td>Tu plan</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Qué resuelve <span class="b">cada pestaña</span></h3>
+    <div class="tabla-caja">
+      <table class="tabla">
+        <thead><tr><th>Pestaña</th><th>Pregunta del dueño</th><th>Funciones</th></tr></thead>
+        <tbody>
+          <tr><td>Inicio</td><td>¿Qué tengo que hacer hoy?</td><td>Lo que espera tu OK, crear (tres entradas), lo próximo, el mejor resultado, completar el alta</td></tr>
+          <tr><td>Local</td><td>¿Está bien lo de mi local?</td><td>Ficha de Google, reseñas y respuestas, carta y alérgenos, horarios y cierres, material real, otros sitios</td></tr>
+          <tr><td>Semana</td><td>¿Qué se publica y cuándo?</td><td>Calendario, aprobar pieza a pieza o la semana, revisar el plan de los reels, reprogramar</td></tr>
+          <tr><td>Resultados</td><td>¿Está sirviendo?</td><td>Cifras frente a tu mediana, mejor pieza, aprendizajes, informe semanal</td></tr>
+          <tr><td>Perfil</td><td>¿Cómo está montado?</td><td>Plan y pagos, redes conectadas, estilo y voz de marca, ciclo, modo de aprobación, avisos, personas</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" id="pendiente">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">LO QUE</span> <span class="b">falta</span> <span class="a">DECIDIR</span></h2>
+      <p class="seccion__nota">Lo que esta página no decide por ti. Mientras no se cierre, la página enseña lo indicado en cada punto.</p>
+    </div>
+    <ol class="decisiones">
+      <li class="decision" id="d1"><span class="decision__id">D1</span><div><h3>ELIGE estirado</h3><p>En tu Figma, ELIGE está a 1,9 × de ancho. Aquí va en Anton sin deformar, a 112. Si quieres un titular ancho, lo limpio es una segunda familia con versión ancha, no estirar Anton.</p></div></li>
+      <li class="decision" id="d2"><span class="decision__id">D2</span><div><h3>La flecha de pincel</h3><p>La guía de identidad prohíbe garabatos y flechas. Tu Figma la usa en Busca tu local. Propuesta: permitir una por pantalla, solo para señalar lo que hay que tocar.</p></div></li>
+      <li class="decision" id="d3"><span class="decision__id">D3</span><div><h3>Orden del alta</h3><p>Conecta tus redes va antes de Tu plan, y el plan Local no usa redes. O Tu plan pasa delante, o Conecta tus redes lleva «Ahora no» para quien elija Local.</p></div></li>
+      <li class="decision" id="d4"><span class="decision__id">D4</span><div><h3>Redes además de Instagram</h3><p>El README lo deja por definir (§4.1) y hasta enero solo hay integración prevista con Instagram. Si se confirma, TikTok, Facebook y X salen como «Próximamente».</p></div></li>
+      <li class="decision" id="d5"><span class="decision__id">D5</span><div><h3>Qué es el estilo «Feed»</h3><p>Aquí se dibuja como titular sobre papel con dos versiones del plato. Falta saber si es eso, un carrusel o una lámina pensada para la cuadrícula del perfil.</p></div></li>
+      <li class="decision" id="d6"><span class="decision__id">D6</span><div><h3>#Society en las piezas de los clientes</h3><p>Tu Figma lo pone en los hashtags de una publicación del local. Es publicidad de Society en la cuenta del cliente y ocupa uno de los cinco hashtags permitidos.</p></div></li>
+      <li class="decision" id="d7"><span class="decision__id">D7</span><div><h3>Nombres de los planes</h3><p>Local, Redes y Reels en tu Figma; «Presencia en Google», «Presencia + redes» y «Completo con reels», provisionales, en el README (§5).</p></div></li>
+      <li class="decision" id="d8"><span class="decision__id">D8</span><div><h3>Precio y cuotas</h3><p>Precio mensual, alta aparte o no, y cuántas publicaciones, historias y reels entran en cada plan (README §5 y §14.2).</p></div></li>
+      <li class="decision" id="d9"><span class="decision__id">D9</span><div><h3>De dónde sale «Busca tu local»</h3><p>Una búsqueda de lugares de Google o la propia ficha de Business Profile. No está verificado qué permite cada una ni su coste.</p></div></li>
+      <li class="decision" id="d10"><span class="decision__id">D10</span><div><h3>Ciclo por defecto</h3><p>Día y hora en que arranca la semana si el dueño no elige (flujo §12). Perfil enseña «Lunes a las 10:00» como ejemplo.</p></div></li>
+      <li class="decision" id="d11"><span class="decision__id">D11</span><div><h3>Color de error</h3><p>#FF6A4D sobre tinta y #B8321C sobre papel, siempre con icono y texto. Hace falta para campos, permisos caducados y piezas paradas.</p></div></li>
+      <li class="decision" id="d12"><span class="decision__id">D12</span><div><h3>Modo claro</h3><p>Queda definido y se puede probar en Pantallas. Falta decidir si la app lo ofrece o es solo oscura.</p></div></li>
+      <li class="decision" id="d13"><span class="decision__id">D13</span><div><h3>Crear desde un plato y desde un reel</h3><p>Las otras dos entradas de creación del README (§6) no tienen pantalla todavía.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <p><strong>Fuentes:</strong> tu Figma del 26/09/2026 (captura), <code>society-identidad-editorial/README.md</code>, <code>pantallas/_svg/build.py</code>, <code>README.md</code> (§4, §5, §6, §8, §11 y §14), <code>informes/Society_flujo_de_la_aplicacion.md</code>, <code>informes/higgsfield/05-automatizacion-de-produccion.md</code> e <code>informes/Society_estrategia_redes_y_retroalimentacion.md</code>.</p>
+    <p>Esta página es la maqueta de la especificación, no código de la app: la app la programa Víctor a partir de estos valores. «La Taberna del Patio», «Calle Mayor, 12», «@tu_local», los platos y todas las cifras de las pantallas propuestas son datos de ejemplo.</p>
+  </div>
+</footer>
+
+
+<script src="app.js"></script>
+</body>
+</html>

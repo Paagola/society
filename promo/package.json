@@ -5,18 +5,27 @@
   "scripts": {
     "studio": "remotion studio src/index.ts",
     "render": "remotion render src/index.ts SocietyPromo out/society-promo.mp4",
-    "still": "remotion still src/index.ts SocietyPromo out/frame.png"
+    "still": "remotion still src/index.ts SocietyPromo out/frame.png",
+    "render:pizza": "remotion render src/index.ts SocietyPizza out/society-anuncio-pizza.mp4 --gl=angle --crf=16",
+    "render:startup": "remotion render src/index.ts SocietyPizzaStartup out/society-anuncio-pizza-startup.mp4 --gl=angle --crf=16"
   },
   "dependencies": {
+    "@react-three/fiber": "9.8.1",
     "@remotion/cli": "^4.0.528",
     "@remotion/fonts": "^4.0.528",
+    "@remotion/three": "4.0.528",
     "@remotion/transitions": "^4.0.528",
+    "delaunator": "5.1.0",
+    "gsap": "3.15.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "remotion": "^4.0.528"
+    "remotion": "^4.0.528",
+    "three": "0.186.1"
   },
   "devDependencies": {
+    "@types/delaunator": "^5.0.3",
     "@types/react": "^19.3.0",
+    "@types/three": "^0.186.0",
     "typescript": "^7.0.2"
   }
 }

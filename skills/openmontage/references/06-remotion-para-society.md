@@ -21,7 +21,7 @@ Gratis para personas individuales, **organizaciones con ánimo de lucro de hasta
 
 ## 2. Estructura de un reel en Remotion
 
-- **Composición:** 1080×1920, 30 fps (o 24 si el material es de 24), duración en fotogramas = suma de planos − solapes de transición.
+- **Composición:** 1080×1920 a **60 fps** cuando el material viene del reescalado estándar (R-RES-02, `directoria/references/hosteleria/03` §3.1); 30 fps (o 24) solo si todo el material es de esa cadencia, duración en fotogramas = suma de planos − solapes de transición.
 - **Capas, de abajo arriba:** clips de vídeo → grade por plano → overlays (rótulos, filete, logo) → subtítulos → audio (voz, música, efectos).
 - **Todo dentro de la zona segura de Reels** (→ [`04-texto-subtitulos-y-audio.md`](04-texto-subtitulos-y-audio.md) §1).
 

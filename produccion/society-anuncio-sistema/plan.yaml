@@ -1,0 +1,36 @@
+# Anuncio «El sistema» — fuente de verdad de la producción (skill director-reels + regla cero).
+# Segundo anuncio de Society, aparte de «La 1:47» (produccion/society-anuncio/). Empezado el 2026-09-26.
+reel:
+  id: anuncio_society_sistema_v1
+  cliente: society
+  fecha: 2026-09-26
+  estado: estilo                   # fotogramas de estilo para aprobar antes de animar
+
+brief:
+  pieza: "Anuncio vertical que enseña el proceso entero como un sistema funcionando, no como una app de móvil"
+  referencia: "vídeo de Framer (Downloads/2zyGmnAWVTTdkv4LY1mFKgEdhg.mp4): un solo plano con transiciones y efectos, cámara que hace zoom sobre la interfaz, cursor"
+  decisiones_victor:
+    - "Anuncio aparte; «La 1:47» se queda (2026-09-26)"
+    - "Cursor de ratón, como en la referencia"
+    - "No enseñar el móvil: vender un sistema en conjunto, no una app"
+    - "Nada de muchos vídeos reales: un conjunto de transiciones y efectos en un mismo plano"
+    - "Estética de la identidad de la app, pero no su estética exacta"
+  historia: "foto cutre (3 me gusta) → qué contar → Society la convierte con criterio de agencia → post, reel e historia → se programa (viernes 20:30) → la misma pizza con 962 me gusta (cifra ilustrativa) → el sistema entero → PUBLICA menos, LLENA MÁS."
+  cta: "firma Society + «tu agencia con IA»"
+
+estilo:
+  lienzo: "fondo casi negro con retícula de puntos; nodos con halo cobalto; texto papel; mostaza solo en «Crear» y en «Viernes · 20:30»; Anton + una palabra en Playfair cursiva"
+  codigo: promo/src/sistema/        # lienzo.tsx (mundo, cámara, cursor) y Storyboard.tsx (10 tomas, composición SistemaStoryboard)
+  fotogramas_higgsfield:
+    - {archivo: estilo/01-gancho-1080.png, job_id: 6e9dbd05-0f91-41ba-aea2-390e32c6ed25}
+    - {archivo: estilo/02-proceso-1080.png, job_id: 05553761-e337-41ec-ba82-631d44c51b0d}
+    - {archivo: estilo/03-sistema-1080.png, job_id: 66c461ab-60d2-43fe-ab91-5f9387d346e6}
+    - {archivo: estilo/04-tira-1080.png, job_id: f26ddae4-712c-4012-bf61-334e3482d8c8, nota: "la toma 04 escribe «Guión»; la forma correcta es «Guion» (en el vídeo lo escribe el código)"}
+  modelo: "gpt_image_2_5 (flare), quality high, 2k; referencias: los fotogramas de Storyboard.tsx para la composición y el cartel cobalto de la identidad solo para paleta y tipografía"
+  coste_creditos: 11               # 4 × 2,75, medido en transacciones
+  saldo: "37,57 → 4,57 el 2026-09-26; 22 cr de la diferencia son 8 generaciones GPT Image 2.5 del 25/09 a las 20:09-20:14 que no salieron de esta sesión"
+
+pendiente:
+  - "Aprobación de Víctor del estilo antes de animar"
+  - "Los me gusta y la cuenta «tu_restaurante» son ilustrativos: no son datos de Da Tonino"
+  - "En el vídeo, las fotos son las reales (móvil y estudio de Da Tonino), no las redibujadas por la IA de estos fotogramas"

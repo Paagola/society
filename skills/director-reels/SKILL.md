@@ -18,6 +18,10 @@ skill les entrega un paquete cerrado (sección 9).
 sustituye el desarrollo del TFG. Los contratos y registros que produce sí sirven como evidencia para
 diseñar el modelo de datos de la aplicación.
 
+## Gancho visual de la primera toma
+
+Después del inventario de verdad, consulta [`hooks-society`](../hooks-society/SKILL.md): el gancho es un gesto, movimiento o revelación legible sin texto. Su selector local entrega candidatas con anclas y motivos de descarte. Compila la elegida al contrato de plano vigente y completa encuadre, óptica, luz, fuente y sonido; no pegues su JSON parcial como `plan.yaml`. La toma abre la única generación multitoma indicada en `../README.md`; no se genera un vídeo por candidata.
+
 ## La idea que manda
 
 La creatividad vive en la **dirección** (qué momento, desde dónde, con qué movimiento, cómo se corta), no

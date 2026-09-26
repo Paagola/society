@@ -1,15 +1,18 @@
 # Skills de producción de Society
 
-Seis skills trabajan juntas para producir contenido de hostelería:
+Siete skills trabajan juntas para producir contenido de hostelería:
 
 | Skill | Hace |
 |---|---|
 | [`marketing-hosteleria`](marketing-hosteleria/SKILL.md) | Decide qué publicar y para qué (brief, objetivo, medición) |
+| [`hooks-society`](hooks-society/SKILL.md) | Diseña la primera toma con 24 hooks visuales: gesto, cámara, estado final, referencias y selector local |
 | [`director`](director/SKILL.md) | Decide la pieza: conceptos, lista de planos, puertas A–E |
 | [`director-reels`](director-reels/SKILL.md) | Produce un reel concreto de principio a fin: plan YAML, inventario de verdad, contratos de plano, keyframes, clips, revisión y paquete de montaje |
 | [`directoria`](directoria/SKILL.md) | Escribe los prompts de imagen y vídeo y revisa el resultado |
 | [`higgsfield`](higgsfield/SKILL.md) | Elige modelo y parámetros, calcula coste y ejecuta |
 | [`openmontage`](openmontage/SKILL.md) | Monta, pone sonido y revisa antes de entregar |
+
+La apertura visual se elige después del inventario de verdad con [`hooks-society`](hooks-society/SKILL.md). Su salida es un contrato parcial para dirección, no una generación independiente ni una integración ya implementada en la aplicación. Revisión y fuentes: [`auditoría 2026-09-26`](hooks-society/references/auditoria-2026-09-26.md).
 
 ---
 
@@ -21,7 +24,7 @@ La regla completa, con bloques de prompt y umbrales, está en [`directoria/refer
 
 ### Ruta de vídeo única (2026-09-25)
 
-Todo clip se genera con **Seedance 2.5 a 720p** (`mode:"omni_reference"`, `aspect_ratio:"9:16"`) y solo la toma aprobada se reescala con **ByteDance pro** (preset `aigc`) **a 4K (2160×3840) desde el 720p original**: máster en 4K y copia a 1080×1920 para publicar (Víctor, 25/09/2026; sustituye al 1080 de R-RES-01, `directoria/references/hosteleria/03` §3.1). **Kling 3.0 no se usa**, aunque alguna referencia antigua de estas skills lo siga nombrando: donde choquen, manda esta línea.
+Todo clip se genera con **Seedance 2.5 a 720p** (`mode:"omni_reference"`, `aspect_ratio:"9:16"`) y solo la toma aprobada se reescala con **ByteDance pro** (preset `aigc`) **a 2K y 60 fps desde el 720p original**: máster en 2K a 60 fps y copia a 1080×1920 a 60 fps para publicar; el montaje también va a 60 fps (regla R-RES-02, Víctor, 25/09/2026; sustituye al 1080 de R-RES-01 y al 4K anterior, `directoria/references/hosteleria/03` §3.1). Por encima de 30 fps el reescalado cuesta el doble: preflight siempre. **Kling 3.0 no se usa**, aunque alguna referencia antigua de estas skills lo siga nombrando: donde choquen, manda esta línea.
 
 **El reel entero sale de una sola generación multitoma** (Víctor, 2026-09-25), no de un clip por plano. En una llamada van todas las imágenes aprobadas como `image_references` (@Image 1…n, hasta 9) y el prompt las recorre en orden:
 

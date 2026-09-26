@@ -37,9 +37,17 @@ Consecuencias para producción:
 
 Primero la calidad; el coste solo desempata.
 
-### 3.1 Regla obligatoria: Seedance a 720p + ByteDance pro
+### 3.1 Regla obligatoria: Seedance a 720p + ByteDance pro a 2K y 60 fps
 
-> **REGLA R-RES-01 · vigente desde el 24/09/2026 · aprobada por Víctor.** Todo clip de Seedance 2.5 se genera a **720p** y, **solo cuando la toma está aprobada**, se reescala a **1080×1920 con ByteDance pro**. El 1080p nativo deja de ser el estándar.
+> **REGLA R-RES-02 · vigente desde el 25/09/2026 · decisión de Víctor.** La toma aprobada se reescala con ByteDance pro a **2K** (no a 4K) y a **60 fps**, siempre desde el 720p original. Máster en 2K a 60 fps y copia a 1080×1920 **también a 60 fps** para publicar. Sustituye al destino de R-RES-01 (1080p, 24 fps, "nunca más de 30 fps") y a la línea de 4K del 25/09 en `skills/README.md`; el resto de R-RES-01 (generar a 720p, reescalar solo lo aprobado) sigue vigente.
+>
+> **Lo que implica:**
+> - **Coste:** por encima de 30 fps ByteDance cobra el doble [OFICIAL, esquema de `upscale_video`]. El preflight con `get_cost` es obligatorio en cada toma; el coste real a 2K y 60 fps está **sin medir** (el dato de 1,21 cr por 6 s es de 1080p a 24 fps).
+> - **Fotogramas inventados:** Seedance entrega 24 fps, así que a 60 fps más de la mitad de los fotogramas los crea el reescalador por interpolación. En la revisión se miran a velocidad normal y fotograma a fotograma los gestos rápidos (manos, fritura, líquidos, humo): si aparecen formas que se deshacen o estelas raras, esa toma se reescala a 30 fps y se registra el caso.
+> - **Montaje a 60 fps:** la composición de Remotion/OpenMontage y el render final van a 60 fps; si se monta a 24 o 30, los 60 fps se pierden y se ha pagado el doble para nada. El metraje real del local que venga a 24/25/30 fps se deja como está dentro de la línea de 60 (no se interpola).
+> - **Dimensiones:** 2K en 9:16 debería dar 1440×2560 **[SIN VERIFICAR]**; se confirma con `ffprobe` en el primer reescalado y se corrige aquí.
+>
+> **REGLA R-RES-01 · vigente desde el 24/09/2026 · aprobada por Víctor (destino sustituido por R-RES-02).** Todo clip de Seedance 2.5 se genera a **720p** y, **solo cuando la toma está aprobada**, se reescala con **ByteDance pro**. El 1080p nativo deja de ser el estándar.
 >
 > **Motivo [MEDIDO, `pruebas/ab-reescalado-720p-2026-09-24/`]:** con el mismo keyframe y el mismo prompt, 720p + ByteDance pro conservó el **71 %** del detalle del keyframe, frente al **31 %** del 1080p nativo, con un coste de 43,21 cr frente a 72 por 6 s, y sale en H.264. Se adopta por calidad; el ahorro es una consecuencia.
 
@@ -47,9 +55,10 @@ Primero la calidad; el coste solo desempata.
 
 1. **Generar** con `resolution:"720p"` escrito en la llamada (el valor por defecto también es 720p, pero la resolución siempre va explícita), `mode:"omni_reference"`, `aspect_ratio:"9:16"` y `generate_audio:false`.
 2. **Revisar a 720p (PUERTA D):** movimiento, continuidad, manos, recuento de piezas y **primer fotograma frente al keyframe** (`omni_reference` no lo fija, §5). Los defectos de contenido se ven igual a 720p; **las tomas descartadas no se reescalan**.
-3. **Reescalar solo la toma aprobada** con `generate_video`: `model:"bytedance_video_upscale"`, `model_version:"pro"`, `preset:"aigc"`, `resolution:"1080p"`, `fps` igual al del clip (24; nunca más de 30, porque el coste se duplica) y el clip como `video_references`. Preflight con `get_cost` (skill `higgsfield`, `references/01` §5.2).
+3. **Reescalar solo la toma aprobada** con `generate_video`: `model:"bytedance_video_upscale"`, `model_version:"pro"`, `preset:"aigc"`, `resolution:"2k"`, `fps:60` (R-RES-02; el coste se duplica y va asumido) y el clip como `video_references`. Preflight con `get_cost` (skill `higgsfield`, `references/01` §5.2).
 4. **Revisar el reescalado:**
-   - `ffprobe` debe dar 1080×1920, H.264 y la misma duración que el clip.
+   - `ffprobe` debe dar 2K en 9:16, `r_frame_rate` 60/1, H.264 y la misma duración que el clip.
+   - Gestos rápidos fotograma a fotograma: sin formas que se deshagan por la interpolación (R-RES-02).
    - `cropdetect` sin bandas (1072 es un falso positivo, §5).
    - Comparar con el keyframe (no con el 720p) las **tramas regulares** (tejidos, rejillas, vetas), porque ByteDance tiende a exagerarlas.
 5. **Si el reescalado falla** (sobreenfoque visible, halos, textura inventada): ByteDance `aigc` **standard** con la misma toma (0,12 cr). Si también falla, **1080p nativo** para ese plano, y se registra el caso: cuenta como contraejemplo de la regla.
@@ -67,7 +76,7 @@ Primero la calidad; el coste solo desempata.
 | Uso | Método | Motivo |
 |---|---|---|
 | Borradores y pruebas de movimiento complicado | 480p (opcional) | Los fallos que obligan a repetir (piezas que cambian, cámara que tiembla, continuidad rota) se ven igual a 480p. Útil cuando se prevén muchas tomas; si no, se genera directamente a 720p |
-| **Cualquier clip de Seedance 2.5 para entregar** | **720p + ByteDance pro** (R-RES-01) | Medido: más detalle que el 1080p nativo con un 40 % menos de coste |
+| **Cualquier clip de Seedance 2.5 para entregar** | **720p + ByteDance pro a 2K y 60 fps** (R-RES-01 + R-RES-02) | Medido a 1080p: más detalle que el 1080p nativo con un 40 % menos de coste. 2K y 60 fps, decisión de Víctor del 25/09 |
 | Excepción por regla del cliente | 1080p nativo | Solo si la ficha del cliente lo exige |
 | Imagen fija de producción | Nano Banana Pro 2K, 9:16 | Estándar medido (2 cr). 4K solo para el héroe o impresión |
 

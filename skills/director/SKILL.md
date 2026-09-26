@@ -20,20 +20,13 @@ La skill que **decide la pieza** y **coordina** a las demás. Convierte un brief
 1. **Primero la historia, luego el plano:** fórmula de escena, cinco anclajes y un arco que encaje con el brief (novedad con fecha → final abierto; proceso → cadena causal; plato estrella → momento culminante). → `references/01`
 2. **Cada plano hace un trabajo** (emoción, acción o presión) y lleva **tres detalles físicos** (presión del entorno, microacción, sonido o motivo). Si no, se elimina. → `references/01` §2–3
 3. **Lenguaje preciso:** tamaño, ángulo, movimiento, óptica y luz con nombre; nada de "cinematic". → `references/02`
-<<<<<<< HEAD
-4. **La cámara se mueve por un motivo**, con un movimiento dominante, recorrido y tiempo en números y un punto final. En comida: recorrido mecánico pequeño; lo amplio, en montaje. Si hay reel de referencia, su velocidad medida manda sobre el restraint. → `references/03` (§9), `references/02` §10
-5. **El fotograma 1 ya tiene la acción física más fuerte del material y rótulo**, abre ancho, y el momento que justifica la pieza va al principio. → `references/06` §5
+4. **La cámara se mueve por un motivo**, con un movimiento dominante, recorrido y tiempo en números y un punto final. En comida: recorrido mecánico pequeño; lo amplio, en montaje. En planos de proceso, cámara en mano que acompaña el gesto; nada de recorridos macro sobre comida blanda. Si hay reel de referencia, su velocidad medida manda sobre el restraint. → `references/03` (§9), `references/02` §10
+5. **El fotograma 1 ya tiene la acción visual más fuerte compatible con el material**; el gesto o movimiento se entiende sin voz ni texto. El rótulo es opcional según el brief; el momento que justifica la pieza va al principio. → `references/06` §5
 6. **Variedad real:** 3+ tamaños de plano, ninguna racha de 3 cortes iguales en tamaño y movimiento, duraciones escalonadas. → `references/06` §3
-7. **Nada inventado:** todo sale del inventario real del local; si hay metraje real, se usa.
-8. **La curva de atención no cae:** acción física en cada plano, gancho con la acción más fuerte del material, último tercio sin reposos, sin repetir planos para cerrar y placa final de ≤ 1,2 s (o el CTA sobre el último plano). Se verifica con Virality Predictor leyendo `values_by_frame`. → `references/06` §9
-=======
-4. **La cámara se mueve por un motivo**, con un movimiento dominante, recorrido y tiempo en números y un punto final. En comida: recorrido pequeño sobre el plato; en planos de proceso, cámara en mano que acompaña el gesto; nada de recorridos macro sobre comida blanda. → `references/03`, `references/02` §10
-5. **El fotograma 1 ya tiene acción y rótulo**, abre ancho, y el momento que justifica la pieza va al principio. → `references/06` §5
-6. **Variedad real:** 3+ tamaños de plano, ninguna racha de 3 cortes iguales en tamaño y movimiento, duraciones escalonadas. → `references/06` §3
-7. **Nada inventado y material real primero:** todo sale del inventario real del local. Para planos de manos, fuego o proceso se **pide** una sesión corta con el móvil antes de generar (`directoria/references/hosteleria/08` §13).
+7. **Nada inventado y material real primero:** todo sale del inventario real del local; si hay metraje real, se usa. Para planos de manos, fuego o proceso se **pide** una sesión corta con el móvil antes de generar (`directoria/references/hosteleria/08` §13).
 8. **Firma de rodaje real** [MEDIDO 25/09/2026]: plano de foco fino, luz con fuente y contraste, cámara con peso, física con desenfoque de movimiento, un verbo de manos por plano, un solo mundo visual. → `directoria/references/hosteleria/08`
->>>>>>> 2c4e6fc8c2c88bf2843bc4ad582e9e8849f11b34
-9. **Pregunta de control:** *¿alguien del barrio le reenviaría esto a otra persona?* Si no, se replantea antes de gastar.
+9. **La curva de atención no cae:** acción física en cada plano, gancho con la acción más fuerte del material, último tercio sin reposos, sin repetir planos para cerrar y placa final de ≤ 1,2 s (o el CTA sobre el último plano). Se verifica con Virality Predictor leyendo `values_by_frame`. → `references/06` §9
+10. **Pregunta de control:** *¿alguien del barrio le reenviaría esto a otra persona?* Si no, se replantea antes de gastar.
 
 ## Flujo con puertas
 
@@ -42,6 +35,8 @@ Llega de `marketing-hosteleria` (objetivo, situación de consumo, motivo de env�
 
 ### 2 · Inventario de verdad
 Fotos y metraje reales del plato y del local, personas con permiso, reglas numeradas del cliente (si dos chocan, manda la más reciente y concreta, y se enumeran en la puerta A). Metraje real de fuego o brasa → no se genera.
+
+Después del inventario, usa [`hooks-society`](../hooks-society/SKILL.md) para elegir hasta tres aperturas visuales compatibles. Recibe primer fotograma, una acción, consecuencia, cámara, referencias y condiciones pendientes; integra la elegida en el concepto y completa su contrato. Un fragmento de movimiento no autoriza a generar ni sustituye el resto de la pieza.
 
 ### 3 · Conceptos → **PUERTA A**
 2–3 conceptos con **arcos o mecanismos distintos** (no variaciones de estilo), cada uno con sus cinco anclajes, la estructura de partida (`references/07`) y el coste estimado (`higgsfield`). Si hay reel de referencia: análisis en 5 aspectos por plano (`openmontage`, `references/07`). Se recomienda uno con su motivo.
@@ -53,14 +48,10 @@ Prefijo de estilo global, glosario de recursos con grado de fidelidad y una fich
 Por cada plano generado, `directoria` escribe el prompt de imagen (textura, luz, escala, recuento) y `higgsfield` lo ejecuta. Hoja de contactos completa antes de animar nada.
 
 ### 6 · Clips → **PUERTA D**
-`directoria` escribe el prompt de vídeo (bloques PRESERVE + movimiento de esta lista) y `higgsfield` lo ejecuta. Revisión técnica y fotograma a fotograma. Multitoma de Seedance 2.5 con ventanas de 3 s o más por toma.
+`directoria` escribe el prompt de vídeo (bloques PRESERVE + movimiento de esta lista) y `higgsfield` lo ejecuta. Revisión técnica y fotograma a fotograma. Una generación multitoma del Reel conforme a la ruta vigente de `../README.md`: tomas orientativas de 0,8–1,4 s, con cierre ajustable; sustituye la indicación anterior de 3 s o más por toma.
 
 ### 7 · Montaje → **PUERTA E**
-<<<<<<< HEAD
-`openmontage` monta con la lista: gancho, escalera de ritmo, transiciones, rótulos, audio, auditoría antislideshow, revisión técnica. Virality Predictor sobre el montaje: se lee la curva por segundo contra la EDL y se corrige el plano que provoca cada caída (máximo 2 iteraciones; `references/06` §9).
-=======
-`openmontage` monta con la lista: gancho, escalera de ritmo, corte seco, rótulos, **sonido obligatorio**, grade y grano comunes, auditoría antislideshow y `scripts/medir_realismo.py`.
->>>>>>> 2c4e6fc8c2c88bf2843bc4ad582e9e8849f11b34
+`openmontage` monta con la lista: gancho, escalera de ritmo, corte seco, rótulos, **sonido obligatorio**, grade y grano comunes, auditoría antislideshow, revisión técnica y `scripts/medir_realismo.py`. Virality Predictor sobre el montaje: se lee la curva por segundo contra la EDL y se corrige el plano que provoca cada caída (máximo 2 iteraciones; `references/06` §9).
 
 ### 8 · Publicar, medir y aprender
 `marketing-hosteleria` publica y mide. Los aprendizajes se **proponen**; entran en las reglas solo con aprobación y con fecha. → `references/05`

@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prototipo Society v2</title>
+<meta name="description" content="Versión estudio del prototipo de Society: los mismos colores reordenados con patrones de apps de estudio de diseño.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="sistema.css">
+<link rel="stylesheet" href="pagina.css">
+<link rel="stylesheet" href="estudio.css">
+</head>
+<body data-app-modo="claro">
+
+<!-- Iconos: línea de 2,2 en rejilla de 24, extremos redondeados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-estado" viewBox="0 0 76 13"><g fill="currentColor"><rect x="0" y="8.5" width="3.2" height="4.5" rx="1"/><rect x="5" y="6" width="3.2" height="7" rx="1"/><rect x="10" y="3" width="3.2" height="10" rx="1"/><rect x="15" y="0" width="3.2" height="13" rx="1"/></g><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M26 4.7A11 11 0 0 1 42 4.7"/><path d="M29 7.9A6.8 6.8 0 0 1 39 7.9"/></g><circle cx="34" cy="11.3" r="1.8" fill="currentColor"/><rect x="48" y=".5" width="24" height="12" rx="3.6" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="1.2"/><rect x="50" y="2.5" width="20" height="8" rx="2" fill="currentColor"/><rect x="73.5" y="4.3" width="1.6" height="4.4" rx=".8" fill="currentColor" fill-opacity=".5"/></symbol>
+  <symbol id="i-atras" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4 7 12l8 8"/></symbol>
+  <symbol id="i-cerrar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+  <symbol id="i-buscar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M14 5l7 7-7 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s-7-6.3-7-11.8a7 7 0 0 1 14 0c0 5.5-7 11.8-7 11.8z"/><circle cx="12" cy="9.7" r="2.6"/></symbol>
+  <symbol id="i-pin-lleno" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12 21.5s-7-6.3-7-11.8a7 7 0 0 1 14 0c0 5.5-7 11.8-7 11.8zM12 7.1a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 1 0 0-5.2z"/></symbol>
+  <symbol id="i-corazon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20.5s-8.5-5.2-8.5-11.2A4.8 4.8 0 0 1 12 6.4a4.8 4.8 0 0 1 8.5 2.9c0 6-8.5 11.2-8.5 11.2z"/></symbol>
+  <symbol id="i-comentario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20.6 16.4A9 9 0 1 0 17 19.9l4.5 1.1z"/></symbol>
+  <symbol id="i-enviar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M22 3 2.5 10.5l7.5 3L13 21zM10 13.5 22 3"/></symbol>
+  <symbol id="i-guardar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5.5 3h13v18L12 15.5 5.5 21z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 2h-3.5v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9a6.5 6.5 0 1 0 5.5 6.4V8.7a8.3 8.3 0 0 0 4.9 1.6V6.8a4.9 4.9 0 0 1-4.9-4.8z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M18.2 2.2h3.4l-7.4 8.5 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.9 2.2h7l4.8 6.4zm-1.2 18h1.9L7.1 4.1H5.1z"/></symbol>
+  <symbol id="i-inicio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"><path d="M3.5 10.5 12 3.5l8.5 7V20a1 1 0 0 1-1 1h-4.8v-6h-5.4v6H4.5a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-calendario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M7 13.5h2M11 13.5h2M15 13.5h2M7 17h2M11 17h2"/></symbol>
+  <symbol id="i-resultados" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 21v-7M9.7 21V10M14.3 21v-8.5M19 21V5.5"/></symbol>
+  <symbol id="i-perfil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="8" r="4.3"/><path d="M4 21.5a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></symbol>
+  <symbol id="i-mas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M12 5.5v13M5.5 12h13"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-estrella" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3.2 2.7 5.6 6.1.8-4.5 4.2 1.1 6L12 16.9l-5.4 2.9 1.1-6-4.5-4.2 6.1-.8z"/></symbol>
+  <symbol id="i-camara" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8.5a2 2 0 0 1 2-2h2L9.5 4h5L16 6.5h2a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-carta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol>
+  <symbol id="i-globo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+  <symbol id="i-lapiz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m4 20 1-4.5L15.5 5a2.1 2.1 0 0 1 3 3L8 18.5zM13.5 7l3 3"/></symbol>
+  <symbol id="i-alerta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.8 21.5 20h-19zM12 10v4.2"/><circle cx="12" cy="17.2" r=".9" fill="currentColor"/></symbol>
+  <symbol id="i-campana" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 17v-6a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21h4"/></symbol>
+  <symbol id="i-subir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-bajar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-puntos" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="19" r="1.9"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5l11 7-11 7z"/></symbol>
+  <symbol id="i-personas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2a5 5 0 0 1 5.5 5"/></symbol>
+  <symbol id="i-tarjeta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></symbol>
+  <symbol id="i-voz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+  <symbol id="i-salir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10"/></symbol>
+  <symbol id="i-pincel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 3.5a2.1 2.1 0 0 1 3 3L13 15l-3.5.5.5-3.5zM9.5 15.5c-1.5 0-3 1-3 3 0 1.2-1 2-2.5 2 1 1 2.5 1.5 4 1.5 2.5 0 4-1.6 4-3.5"/></symbol>
+  <symbol id="i-reel-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3" fill="currentColor"/><path d="M8 2.5v4M16 2.5v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M10 10.5l5.5 3.2-5.5 3.2z" fill="#2440E0"/></symbol>
+  <symbol id="i-destello" viewBox="0 0 40 52"><path d="M20 1Q24 21 39 26 24 31 20 51 16 31 1 26 16 21 20 1Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></symbol>
+  <symbol id="p-recomendado" viewBox="0 0 150 64"><g stroke="#F5C518" stroke-width="3.4" stroke-linecap="round" fill="none"><path d="M4 16l10 4M2 32h11M6 48l9-6M136 14l10-5M138 30h11M136 46l10 5"/></g><polygon transform="translate(15 2)" fill="#F5C518" points="118.0,30.0 106.5,33.3 115.7,38.2 102.8,39.8 108.8,45.7 95.5,45.4 98.0,51.9 85.4,49.8 84.1,56.4 73.2,52.5 68.3,58.7 60.0,53.5 51.7,58.7 46.8,52.5 35.9,56.4 34.6,49.8 22.0,51.9 24.5,45.4 11.2,45.7 17.2,39.8 4.3,38.2 13.5,33.3 2.0,30.0 13.5,26.7 4.3,21.8 17.2,20.2 11.2,14.3 24.5,14.6 22.0,8.1 34.6,10.2 35.9,3.6 46.8,7.5 51.7,1.3 60.0,6.5 68.3,1.3 73.2,7.5 84.1,3.6 85.4,10.2 98.0,8.1 95.5,14.6 108.8,14.3 102.8,20.2 115.7,21.8 106.5,26.7"/><text x="75" y="37.5" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="14.5" font-style="italic" fill="#141414" letter-spacing=".2">RECOMENDADO</text></symbol>
+  <symbol id="i-ampliar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+  <symbol id="i-doble" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 6 6 6-6 6M12 6l6 6-6 6"/></symbol>
+  <symbol id="i-subrayado" viewBox="0 0 100 21"><path fill="#2440E0" d="M2 17C30 9 65 4 98 2c1.6 0 2 2.2.4 3C66 8.5 34 13.5 4.5 20 1 20.6 0 18 2 17z"/></symbol>
+</svg>
+
+<header class="barra">
+  <div class="envoltura barra__dentro">
+    <a class="logo" href="#prototipo" aria-label="Society, volver al prototipo">Society<svg viewBox="0 0 100 21" preserveAspectRatio="none" aria-hidden="true"><use href="#i-subrayado"/></svg></a>
+    <nav aria-label="Secciones">
+      <ul>
+        <li><a href="#prototipo">Prototipo</a></li>
+        <li><a href="#tablero">Tablero</a></li>
+        <li><a href="#cambia">Qué cambia</a></li>
+        <li><a href="#comparar">Comparar</a></li>
+      </ul>
+    </nav>
+    <a class="enlace-version" data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW" href="index.html">Ver la v1</a>
+  </div>
+</header>
+
+<main>
+
+<section class="escenario" id="prototipo" aria-label="Prototipo de la app, versión estudio">
+  <div class="envoltura escenario__rejilla">
+    <div class="escenario__lado">
+      <p class="antetitulo">Society · prototipo v2 · 27/09/2026</p>
+      <h1 class="escenario__titulo"><span class="a">SOCIETY</span> <span class="b">de estudio</span></h1>
+      <p class="escenario__entrada">La misma app con la forma de una app de estudio: fondo claro, tarjetas grandes con foto, píldoras y botones redondos. Mismos cuatro colores, otro reparto. Se toca igual que la v1.</p>
+      <span class="conmutador" role="group" aria-label="Modo de la app"><button type="button" data-modo="claro" aria-pressed="true">Modo claro</button><button type="button" data-modo="oscuro" aria-pressed="false">Modo oscuro</button></span>
+      <nav class="lista-pantallas" aria-label="Pantallas del prototipo">
+        <div>
+          <p class="etq">El alta · desde tu Figma</p>
+          <ol>
+            <li><button type="button" data-ver="bienvenida" aria-current="true"><span class="n">01</span>Bienvenida</button></li>
+            <li><button type="button" data-ver="busca"><span class="n">02</span>Busca tu local</button></li>
+            <li><button type="button" data-ver="conecta"><span class="n">03</span>Conecta tus redes</button></li>
+            <li><button type="button" data-ver="plan"><span class="n">04</span>Tu plan</button></li>
+            <li><button type="button" data-ver="que-hay-hoy"><span class="n">05</span>¿Qué hay hoy?</button></li>
+            <li><button type="button" data-ver="estilo"><span class="n">06</span>Elige el estilo</button></li>
+            <li><button type="button" data-ver="asi-queda"><span class="n">07</span>Así queda</button></li>
+          </ol>
+        </div>
+        <div>
+          <p class="etq">El día a día · propuesta</p>
+          <ol>
+            <li><button type="button" data-ver="inicio"><span class="n">01</span>Inicio</button></li>
+            <li><button type="button" data-ver="semana"><span class="n">02</span>Semana</button></li>
+            <li><button type="button" data-ver="resultados"><span class="n">03</span>Resultados</button></li>
+            <li><button type="button" data-ver="local"><span class="n">04</span>Local</button></li>
+            <li><button type="button" data-ver="perfil"><span class="n">05</span>Perfil</button></li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+    <div class="escenario__movil" id="escenario-movil">
+      <div class="movil" id="movil">
+          <!-- 01 · BIENVENIDA -->
+          <div class="pantalla app pantalla--oscura-arriba" id="pantalla-bienvenida" data-pantalla="bienvenida" data-cinta="v2 · desde Figma 01-bienvenida 7" data-grupo="alta" data-nombre="01 · Bienvenida" role="group" aria-label="Pantalla: Bienvenida">
+            <div class="estado"></div>
+            <div class="heroe2"></div>
+            <svg class="rayos" viewBox="0 0 70 70" style="left:34px; top:238px; width:62px" aria-hidden="true"><path d="M4 8 42 12M20 54 48 28M64 36l2 30" stroke="#F5C518" stroke-width="5.5" stroke-linecap="round" fill="none"/></svg>
+            <img src="img/mano-copa.webp" alt="" width="720" height="670" style="position:absolute; left:74px; top:146px; width:350px">
+            <button class="vidrio" type="button" data-ir="inicio" style="position:absolute; top:58px; right:16px; border:0; cursor:pointer">Ya tengo cuenta</button>
+            <div class="bloque2" style="top:478px">
+              <span class="etiqueta2">Agencia de marketing para hostelería</span>
+              <h1 class="titulo2 titulo2--grande"><span class="a">TU BAR</span> <span class="b">merece</span><br><span class="a">QUE LO VEAN.</span></h1>
+              <p class="entrada2">Contenido real de tu local, publicado y medido cada semana. Tú solo das el OK.</p>
+            </div>
+            <div class="progreso2" style="position:absolute; left:22px; bottom:122px" role="img" aria-label="Paso 1 de 3"><span aria-current="step"></span><span></span><span></span></div>
+            <button class="deslizar" type="button" data-ir="busca"><span class="deslizar__pomo"><svg aria-hidden="true"><use href="#i-doble"/></svg></span><span class="deslizar__texto">Desliza para empezar</span><span class="deslizar__pista" aria-hidden="true"><svg><use href="#i-chevron"/></svg><svg><use href="#i-chevron"/></svg></span></button>
+          </div>
+
+          <!-- 02 · BUSCA TU LOCAL -->
+          <div class="pantalla app" hidden id="pantalla-busca" data-pantalla="busca" data-cinta="v2 · desde Figma 01-bienvenida 8" data-grupo="alta" data-nombre="02 · Busca tu local" role="group" aria-label="Pantalla: Busca tu local">
+            <div class="estado"></div>
+            <div class="cabecera2"><button class="circulo" type="button" data-ir="bienvenida" aria-label="Atrás"><svg aria-hidden="true"><use href="#i-atras"/></svg></button><div class="progreso2" role="img" aria-label="Paso 2 de 3"><span></span><span aria-current="step"></span><span></span></div><span class="hueco"></span></div>
+            <div class="bloque2" style="top:118px">
+              <h1 class="titulo2"><span class="a">BUSCA</span> <span class="b">tu local</span></h1>
+              <p class="entrada2">Lo encontramos en Google y rellenamos tus datos por ti.</p>
+              <label class="buscador" style="margin-top:18px"><svg aria-hidden="true"><use href="#i-buscar"/></svg><input id="busca-local" type="search" value="Madrid" autocomplete="off" placeholder="Nombre de tu bar o tu calle" aria-label="Busca tu local por nombre o calle" data-buscador><button class="buscador__borrar" type="button" aria-label="Borrar la búsqueda" data-borrar><svg aria-hidden="true"><use href="#i-cerrar"/></svg></button></label>
+              <div class="fila-chips" style="margin-top:14px" role="group" aria-label="Tipo de local">
+                <button class="dia chip2" type="button" data-dia="" aria-pressed="true">Todo</button>
+                <button class="dia chip2" type="button" data-dia="bar" aria-pressed="false">Bares</button>
+                <button class="dia chip2" type="button" data-dia="restaurante" aria-pressed="false">Restaurantes</button>
+                <button class="dia chip2" type="button" data-dia="cafe" aria-pressed="false">Cafeterías</button>
+              </div>
+              <div data-resultados style="margin-top:16px">
+                <button class="tarjeta2" type="button" data-abrir="google" style="height:290px">
+                  <img class="tarjeta2__foto" src="img/v2-taberna.webp" alt="Fachada de La Taberna del Patio" width="1000" height="565">
+                  <span class="tarjeta2__arriba"><span class="vidrio"><svg aria-hidden="true"><use href="#i-pin"/></svg>Calle Mayor, 12</span></span>
+                  <span class="tarjeta2__abajo"><span class="tarjeta2__nombre">LA TABERNA<br>DEL PATIO</span><span class="tarjeta2__fila"><span class="vidrio">Madrid</span><span class="pomo"><svg aria-hidden="true"><use href="#i-flecha"/></svg></span></span></span>
+                </button>
+                <div class="es-cargando" aria-hidden="true" style="margin-top:6px"><span class="vacio-fila"><span class="vacio-fila__punto"></span><span class="vacio-fila__lineas"><span></span><span></span></span><svg><use href="#i-chevron"/></svg></span></div>
+              </div>
+              <p class="ayuda-app" data-ayuda hidden>Escribe el nombre de tu bar o tu calle. Buscamos a partir de tres letras.</p>
+            </div>
+            <div class="velo" hidden data-velo></div>
+            <div class="hoja" hidden data-hoja="google" role="dialog" aria-label="Conecta la ficha de Google">
+              <p class="hoja__titulo"><span class="t-anton">¿ES</span><span class="t-acento">tuyo?</span></p>
+              <p class="hoja__precio">La Taberna del Patio · Calle Mayor, 12</p>
+              <ul class="hoja__lista"><li><svg aria-hidden="true"><use href="#i-check"/></svg>Conecta su ficha de Google para tener al día horarios, fotos y publicaciones.</li><li><svg aria-hidden="true"><use href="#i-check"/></svg>Nada se publica ni se responde sin tu OK.</li></ul>
+              <button class="boton boton--principal boton--ancho" type="button" data-ir="conecta">Conectar con Google</button>
+              <button class="boton boton--sobre-claro boton--ancho" type="button" data-cerrar-hoja style="margin-top:10px">No es mi local</button>
+            </div>
+          </div>
+
+          <!-- 03 · CONECTA TUS REDES -->
+          <div class="pantalla app" hidden id="pantalla-conecta" data-pantalla="conecta" data-cinta="v2 · desde Figma 01-bienvenida 9" data-grupo="alta" data-nombre="03 · Conecta tus redes" role="group" aria-label="Pantalla: Conecta tus redes">
+            <div class="estado"></div>
+            <div class="cabecera2"><button class="circulo" type="button" data-ir="busca" aria-label="Atrás"><svg aria-hidden="true"><use href="#i-atras"/></svg></button><div class="progreso2" role="img" aria-label="Paso 3 de 3"><span></span><span></span><span aria-current="step"></span></div><span class="hueco"></span></div>
+            <img class="pegatina" src="img/destellos-mostaza.webp" alt="" width="260" height="251" style="left:330px; top:100px; width:46px">
+            <div class="bloque2" style="top:118px">
+              <h1 class="titulo2"><span class="a">CONECTA</span> <span class="b">tus redes</span></h1>
+              <p class="entrada2">Publicamos y medimos donde está tu clientela.</p>
+              <div style="display:grid; gap:10px; margin-top:20px">
+                <div class="red" data-estado="conectada"><svg class="red__logo" aria-hidden="true"><use href="#i-instagram"/></svg><span><span class="red__nombre">Instagram</span><span class="red__texto">Comparte tus mejores momentos y atrae más gente.</span><span class="red__estado">Conectada como @tu_local</span></span><button class="interruptor" type="button" role="switch" aria-checked="true" aria-label="Instagram"></button></div>
+                <div class="red" data-estado="sin-conectar"><svg class="red__logo" aria-hidden="true"><use href="#i-tiktok"/></svg><span><span class="red__nombre">TikTok</span><span class="red__texto">Haz que tu bar se descubra de forma diferente.</span><span class="red__estado"></span></span><button class="interruptor" type="button" role="switch" aria-checked="false" aria-label="TikTok"></button></div>
+                <div class="red" data-estado="sin-conectar"><svg class="red__logo" aria-hidden="true"><use href="#i-facebook"/></svg><span><span class="red__nombre">Facebook</span><span class="red__texto">Mantén a tu comunidad siempre al día.</span><span class="red__estado"></span></span><button class="interruptor" type="button" role="switch" aria-checked="false" aria-label="Facebook"></button></div>
+                <div class="red" data-estado="sin-conectar"><svg class="red__logo" aria-hidden="true"><use href="#i-x"/></svg><span><span class="red__nombre">X (Twitter)</span><span class="red__texto">Habla, comparte, conecta.</span><span class="red__estado"></span></span><button class="interruptor" type="button" role="switch" aria-checked="false" aria-label="X"></button></div>
+              </div>
+            </div>
+            <div class="abajo"><button class="boton boton--principal boton--ancho" type="button" data-ir="plan">Siguiente</button></div>
+          </div>
+
+          <!-- 04 · TU PLAN -->
+          <div class="pantalla app" hidden id="pantalla-plan" data-pantalla="plan" data-cinta="v2 · desde Figma 02-tu-plan 3" data-grupo="alta" data-nombre="04 · Tu plan" role="group" aria-label="Pantalla: Tu plan">
+            <div class="estado"></div>
+            <div class="cabecera2"><button class="circulo" type="button" data-ir="conecta" aria-label="Atrás"><svg aria-hidden="true"><use href="#i-atras"/></svg></button><span class="cabecera2__titulo">Planes</span><span class="hueco"></span></div>
+            <div class="bloque2" style="top:118px">
+              <h1 class="titulo2"><span class="a">TU</span> <span class="b">plan</span></h1>
+              <p class="entrada2">Se suman: Redes incluye Local, y Reels incluye Redes. Toca uno para ver qué trae.</p>
+              <div class="carrusel2" style="margin-top:14px" aria-label="Planes">
+                <button class="plan tarjeta2" type="button" data-plan="local">
+                  <img class="tarjeta2__foto" src="img/v2-bar.webp" alt="" width="760" height="567">
+                  <span class="tarjeta2__arriba"><span class="vidrio">Plan 1</span></span>
+                  <span class="tarjeta2__abajo"><span class="tarjeta2__nombre" style="font-size:54px">LOCAL</span><span class="tarjeta2__texto">Haz que te encuentren en el barrio y atrae a más gente cerca de ti.</span><span class="tarjeta2__fila"><span class="vidrio"><svg aria-hidden="true"><use href="#i-pin"/></svg>Google</span><span class="pomo pomo--claro"><svg aria-hidden="true"><use href="#i-flecha"/></svg></span></span></span>
+                </button>
+                <button class="plan plan--destacado tarjeta2" type="button" data-plan="redes">
+                  <img src="img/v2-mano-movil.webp" alt="" width="620" height="732" style="position:absolute; z-index:-2; right:-34px; top:40px; width:236px; height:auto">
+                  <svg class="pegatina-recomendado" viewBox="0 0 150 64" aria-hidden="true"><use href="#p-recomendado"/></svg>
+                  <span class="tarjeta2__arriba"><span class="vidrio">Plan 2</span></span>
+                  <span class="tarjeta2__abajo"><span class="tarjeta2__nombre" style="font-size:54px">REDES</span><span class="tarjeta2__texto">Crea contenido que conecta, genera conversación y lleva más gente a tu bar.</span><span class="tarjeta2__fila"><span class="vidrio"><svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram + Google</span><span class="pomo"><svg aria-hidden="true"><use href="#i-flecha"/></svg></span></span></span>
+                </button>
+                <button class="plan tarjeta2" type="button" data-plan="reels">
+                  <img class="tarjeta2__foto" src="img/v2-coctel.webp" alt="" width="760" height="760">
+                  <span class="tarjeta2__arriba"><span class="vidrio">Plan 3</span><span class="circulo circulo--vidrio" style="width:40px; height:40px"><svg aria-hidden="true"><use href="#i-play"/></svg></span></span>
+                  <span class="tarjeta2__abajo"><span class="tarjeta2__nombre" style="font-size:54px">REELS</span><span class="tarjeta2__texto">Vídeos cortos, gran alcance. Muestra lo mejor de tu bar en segundos.</span><span class="tarjeta2__fila"><span class="vidrio"><svg aria-hidden="true"><use href="#i-reloj"/></svg>Vídeo cada mes</span><span class="pomo pomo--claro"><svg aria-hidden="true"><use href="#i-flecha"/></svg></span></span></span>
+                </button>
+              </div>
+              <div class="progreso2" style="justify-content:center" role="img" aria-label="Tres planes"><span aria-current="step"></span><span></span><span></span></div>
+            </div>
+            <div class="velo" hidden data-velo></div>
+            <div class="hoja" hidden data-hoja="plan" role="dialog" aria-label="Detalle del plan"></div>
+            <div class="aviso" hidden data-aviso><span class="aviso__icono"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span data-aviso-texto></span></div>
+          </div>
+
+          <!-- 05 · ¿QUÉ HAY HOY? -->
+          <div class="pantalla app" hidden id="pantalla-que-hay-hoy" data-pantalla="que-hay-hoy" data-cinta="v2 · desde Figma 03-que-hay-hoy 2" data-grupo="alta" data-nombre="05 · ¿Qué hay hoy?" role="group" aria-label="Pantalla: ¿Qué hay hoy?">
+            <div class="estado"></div>
+            <div class="cabecera2"><button class="circulo" type="button" data-ir="plan" aria-label="Atrás"><svg aria-hidden="true"><use href="#i-atras"/></svg></button><span class="etiqueta2" style="margin:0">Primera pieza</span><span class="hueco"></span></div>
+            <div class="bloque2" style="top:118px">
+              <h1 class="titulo2"><span class="a">¿QUÉ HAY</span> <span class="b">hoy?</span></h1>
+              <button class="tarjeta2 tarjeta2--sin-velo" type="button" style="height:232px; margin-top:18px" aria-label="Cambiar la foto del plato" data-nota="Aquí se abre la cámara o la galería.">
+                <img class="tarjeta2__foto" src="img/alcachofas-color.webp" alt="Foto real del plato: alcachofas a la brasa" width="580" height="600">
+                <span class="tarjeta2__arriba"><span class="vidrio vidrio--claro"><svg aria-hidden="true"><use href="#i-check"/></svg>Foto real</span></span>
+                <span class="pomo" style="position:absolute; right:14px; bottom:14px"><svg aria-hidden="true"><use href="#i-camara"/></svg></span>
+              </button>
+              <label class="campo es-activo" style="margin-top:14px"><textarea id="texto-hoy" maxlength="300" rows="2" aria-label="¿Qué hay hoy? Cuéntalo en una frase" placeholder="Ej.: hoy tenemos alcachofas a la brasa" data-texto-hoy>Hoy tenemos alcachofas
+a la brasa</textarea><span class="campo__contador"><span data-contador>33</span>/300</span></label>
+              <div class="chips" role="radiogroup" aria-label="Formato" style="margin-top:14px"><button class="chip" type="button" role="radio" aria-checked="true" data-formato="post">4:5 · Post</button><button class="chip" type="button" role="radio" aria-checked="false" data-formato="historia">Historia</button></div>
+            </div>
+            <div class="abajo"><button class="boton boton--principal boton--ancho" type="button" data-ir="estilo" data-requiere-texto>Siguiente</button></div>
+          </div>
+
+          <!-- 06 · ELIGE EL ESTILO -->
+          <div class="pantalla app" hidden id="pantalla-estilo" data-pantalla="estilo" data-cinta="v2 · desde Figma 04-elige-el-estilo 2" data-grupo="alta" data-nombre="06 · Elige el estilo" role="group" aria-label="Pantalla: Elige el estilo">
+            <div class="estado"></div>
+            <div class="cabecera2"><button class="circulo" type="button" data-ir="que-hay-hoy" aria-label="Atrás"><svg aria-hidden="true"><use href="#i-atras"/></svg></button><span class="etiqueta2" style="margin:0">Estilo de marca</span><span class="hueco"></span></div>
+            <div class="bloque2" style="top:118px">
+              <h1 class="titulo2"><span class="a">ELIGE</span> <span class="b">el estilo</span></h1>
+              <div class="post post--vista" data-formato="post" style="margin:18px auto 0"><div class="lamina" data-estilo="papel"></div></div>
+              <div class="estilos2" role="radiogroup" aria-label="Estilo de la pieza" style="margin-top:22px">
+                <button class="estilo" type="button" role="radio" aria-checked="true" data-estilo="papel"><span class="lamina" data-estilo="papel"></span><span class="estilo__etiqueta"><svg aria-hidden="true"><use href="#i-check"/></svg>Papel</span></button>
+                <button class="estilo" type="button" role="radio" aria-checked="false" data-estilo="cobalto"><span class="lamina" data-estilo="cobalto"></span><span class="estilo__etiqueta"><svg aria-hidden="true"><use href="#i-check"/></svg>Cobalto</span></button>
+                <button class="estilo" type="button" role="radio" aria-checked="false" data-estilo="foto"><span class="lamina" data-estilo="foto"></span><span class="estilo__etiqueta"><svg aria-hidden="true"><use href="#i-check"/></svg>Foto</span></button>
+                <button class="estilo" type="button" role="radio" aria-checked="false" data-estilo="feed"><span class="lamina" data-estilo="feed"></span><span class="estilo__etiqueta"><svg aria-hidden="true"><use href="#i-check"/></svg>Feed</span></button>
+              </div>
+            </div>
+            <div class="abajo"><button class="boton boton--principal boton--ancho" type="button" data-ir="asi-queda">Siguiente</button></div>
+          </div>
+
+          <!-- 07 · ASÍ QUEDA -->
+          <div class="pantalla app" hidden id="pantalla-asi-queda" data-pantalla="asi-queda" data-cinta="v2 · desde Figma 05-asi-queda 2" data-grupo="alta" data-nombre="07 · Así queda" role="group" aria-label="Pantalla: Así queda">
+            <div class="estado"></div>
+            <div class="cabecera2"><button class="circulo" type="button" data-ir="estilo" aria-label="Atrás"><svg aria-hidden="true"><use href="#i-atras"/></svg></button><span class="cabecera2__titulo">Vista previa</span><button class="circulo" type="button" aria-label="Más opciones" data-nota="Guardar como borrador o descartar: por diseñar."><svg aria-hidden="true"><use href="#i-puntos"/></svg></button></div>
+            <img class="pegatina" src="img/sol-mostaza.webp" alt="" width="200" height="194" style="left:224px; top:104px; width:36px">
+            <div class="bloque2" style="top:116px">
+              <h1 class="titulo2"><span class="a">ASÍ</span> <span class="b">queda</span></h1>
+            </div>
+            <div style="position:absolute; top:172px; left:0; right:0">
+              <article class="post" data-formato="post" aria-label="Vista previa de la publicación">
+                <div class="lamina" data-estilo="papel"></div>
+                <span class="post__progreso"></span>
+                <div class="post__cabecera"><span class="post__avatar">T</span><span class="post__usuario">tu_local</span><svg class="post__mas" aria-hidden="true"><use href="#i-puntos"/></svg></div>
+                <div class="post__acciones" aria-hidden="true"><svg><use href="#i-corazon"/></svg><svg><use href="#i-comentario"/></svg><svg><use href="#i-enviar"/></svg><svg><use href="#i-guardar"/></svg></div>
+                <p class="post__texto"><b>tu_local</b> <span data-pie-texto>Hoy tenemos alcachofas a la brasa.</span> Sabor, temporada y buena compañía.</p>
+                <p class="post__etiquetas">#Society #Alcachofas #Hoy</p>
+              </article>
+            </div>
+            <div class="abajo abajo--con-circulo"><button class="circulo" type="button" data-ir="que-hay-hoy" aria-label="Editar"><svg aria-hidden="true"><use href="#i-lapiz"/></svg></button><button class="boton boton--principal" type="button" data-abrir="publicar">Publicar</button></div>
+            <div class="velo" hidden data-velo></div>
+            <div class="hoja" hidden data-hoja="publicar" role="dialog" aria-label="Cuándo se publica">
+              <p class="hoja__titulo"><span class="t-anton">¿CUÁNDO</span><span class="t-acento">sale?</span></p>
+              <div class="opciones" role="radiogroup" aria-label="Cuándo">
+                <button class="opcion" type="button" role="radio" aria-checked="true" data-cuando="ahora"><span>Ahora<small>En Instagram, en @tu_local</small></span><span class="opcion__marca"></span></button>
+                <button class="opcion" type="button" role="radio" aria-checked="false" data-cuando="programar"><span>Programar<small>Jueves 1 de octubre, 19:30</small></span><span class="opcion__marca"></span></button>
+              </div>
+              <ul class="hoja__lista">
+                <li><svg aria-hidden="true"><use href="#i-check"/></svg>Texto y plato confirmados por ti</li>
+                <li><svg aria-hidden="true"><use href="#i-check"/></svg>3 hashtags de 5 posibles</li>
+                <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sin etiqueta de IA: la foto es real</li>
+              </ul>
+              <button class="boton boton--principal boton--ancho" type="button" data-publicar><span class="boton__texto">Publicar ahora</span></button>
+            </div>
+            <div class="aviso" hidden data-aviso><span class="aviso__icono"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span data-aviso-texto></span></div>
+          </div>
+
+          <!-- INICIO -->
+          <div class="pantalla app" hidden id="pantalla-inicio" data-pantalla="inicio" data-cinta="v2 · propuesta · datos de ejemplo" data-grupo="app" data-nombre="Inicio" role="group" aria-label="Pantalla: Inicio">
+            <div class="estado"></div>
+            <div class="pantalla__desliza">
+              <div class="cabecera2 cabecera2--flujo">
+                <span class="pildora"><span class="pildora__icono"><svg aria-hidden="true"><use href="#i-instagram"/></svg></span>Plan Redes</span>
+                <span style="display:flex; gap:10px"><button class="circulo" type="button" aria-label="Avisos" data-nota="2 piezas esperan tu OK."><svg aria-hidden="true"><use href="#i-campana"/></svg><span class="circulo__punto"></span></button><button class="circulo circulo--foto" type="button" data-ir="perfil" aria-label="Perfil"><img src="img/taberna-color.webp" alt="" width="760" height="430"></button></span>
+              </div>
+              <h1 class="titulo2"><span class="a">HOY</span> <span class="b">para tu bar</span></h1>
+              <div class="fila-chips" style="margin-top:16px" role="group" aria-label="Filtrar piezas">
+                <button class="dia chip2" type="button" data-dia="" aria-pressed="true">Todo</button>
+                <button class="dia chip2" type="button" data-dia="ok" aria-pressed="false">Tu OK · 2</button>
+                <button class="dia chip2" type="button" data-dia="plan" aria-pressed="false">Planes de reel</button>
+                <button class="dia chip2" type="button" data-dia="pub" aria-pressed="false">Publicadas</button>
+              </div>
+              <div class="pieza pieza--grande" data-dia="ok" style="margin-top:16px">
+                <div class="lamina" data-estilo="papel"></div>
+                <div class="tarjeta2__abajo"><span class="tarjeta2__nombre">ALCACHOFAS A LA BRASA</span><div class="tarjeta2__fila"><span style="display:flex; gap:6px; align-items:center"><span class="estado-pieza estado-pieza--ok">Necesita tu OK</span><span class="vidrio" style="height:30px">Jue 1 · 19:30 · Post</span></span><button class="pomo" type="button" data-aprobar aria-label="Aprobar la pieza"><svg aria-hidden="true"><use href="#i-check"/></svg></button></div></div>
+              </div>
+              <div class="seccion2"><h2>LO PRÓXIMO</h2><span>Desliza</span></div>
+              <div class="carrusel2" style="padding-bottom:8px">
+                <div class="pieza carta2 tarjeta2" data-dia="ok"><img class="tarjeta2__foto" src="img/v2-bar.webp" alt="" width="760" height="567"><span class="tarjeta2__arriba"><span class="estado-pieza estado-pieza--ok">Tu OK</span></span><span class="tarjeta2__abajo"><span class="tarjeta2__nombre">LA TERRAZA, ABIERTA</span><span class="vidrio">Vie 2 · Historia</span></span></div>
+                <div class="pieza carta2 tarjeta2" data-dia="plan"><img class="tarjeta2__foto" src="img/v2-coctel.webp" alt="" width="760" height="760"><span class="tarjeta2__arriba"><span class="estado-pieza estado-pieza--plan">Revisa el plan</span></span><span class="tarjeta2__abajo"><span class="tarjeta2__nombre">EL CÓCTEL DE LA CASA</span><span class="vidrio">Sáb 3 · Reel</span></span></div>
+                <div class="pieza carta2 tarjeta2" data-dia="pub"><img class="tarjeta2__foto" src="img/v2-taberna.webp" alt="" width="1000" height="565"><span class="tarjeta2__arriba"><span class="estado-pieza estado-pieza--programada"><svg aria-hidden="true"><use href="#i-check"/></svg>Publicada</span></span><span class="tarjeta2__abajo"><span class="tarjeta2__nombre">HORARIO DE OTOÑO</span><span class="vidrio">Mar 29 · Post</span></span></div>
+              </div>
+              <div class="seccion2"><h2>LA SEMANA PASADA</h2><span>Frente a tu mediana</span></div>
+              <button class="cifras2" type="button" data-ir="resultados"><span><b>31</b><small>Envíos <svg aria-hidden="true"><use href="#i-subir"/></svg>42 %</small></span><span><b>22</b><small>Guardados <svg aria-hidden="true"><use href="#i-subir"/></svg>10 %</small></span><span><b>1.240</b><small>Alcance <svg aria-hidden="true"><use href="#i-bajar"/></svg>6 %</small></span></button>
+              <div style="position:relative; height:260px; margin-top:26px">
+                <span class="etiqueta2">Tu mejor post</span>
+                <p class="titulo2" style="margin:0"><span class="a" style="font-size:36px">ALCACHOFAS<br>A LA BRASA</span></p>
+                <p class="entrada2" style="max-width:150px">Se ha compartido 1,8 veces más que tu mediana.</p>
+                <button class="sesgado" type="button" data-ir="resultados" style="margin-top:14px"><span>VER</span><svg aria-hidden="true"><use href="#i-flecha"/></svg></button>
+                <div class="rombo" style="right:-96px; top:18px"><img src="img/alcachofas-color.webp" alt="" width="580" height="600"></div>
+                <span class="rombo__cifra" style="right:16px; bottom:24px">1,8<small>×</small></span>
+              </div>
+            </div>
+            <nav class="pestanas" data-activa="inicio" data-crear aria-label="Secciones"></nav>
+            <span class="indicador-inicio"></span>
+          </div>
+
+          <!-- SEMANA -->
+          <div class="pantalla app" hidden id="pantalla-semana" data-pantalla="semana" data-cinta="v2 · propuesta · datos de ejemplo" data-grupo="app" data-nombre="Semana" role="group" aria-label="Pantalla: Semana">
+            <div class="estado"></div>
+            <div class="pantalla__desliza">
+              <div class="cabecera2 cabecera2--flujo"><span class="pildora pildora--solo-texto">28 sep – 4 oct</span><button class="circulo" type="button" aria-label="Cambiar de semana" data-nota="Cambiar de semana: por diseñar."><svg aria-hidden="true"><use href="#i-calendario"/></svg></button></div>
+              <h1 class="titulo2"><span class="a">TU</span> <span class="b">semana</span></h1>
+              <div class="dias" role="group" aria-label="Filtrar por día" style="margin-top:18px">
+                <button class="dia" type="button" data-dia="28" aria-pressed="false"><span class="dia__letra">L</span><span class="dia__num">28</span><span class="dia__punto"></span></button>
+                <button class="dia dia--con" type="button" data-dia="29" aria-pressed="false"><span class="dia__letra">M</span><span class="dia__num">29</span><span class="dia__punto"></span></button>
+                <button class="dia" type="button" data-dia="30" aria-pressed="false"><span class="dia__letra">X</span><span class="dia__num">30</span><span class="dia__punto"></span></button>
+                <button class="dia dia--con" type="button" data-dia="1" aria-pressed="false"><span class="dia__letra">J</span><span class="dia__num">1</span><span class="dia__punto"></span></button>
+                <button class="dia dia--con" type="button" data-dia="2" aria-pressed="false"><span class="dia__letra">V</span><span class="dia__num">2</span><span class="dia__punto"></span></button>
+                <button class="dia dia--con" type="button" data-dia="3" aria-pressed="false"><span class="dia__letra">S</span><span class="dia__num">3</span><span class="dia__punto"></span></button>
+                <button class="dia dia--con" type="button" data-dia="4" aria-pressed="false"><span class="dia__letra">D</span><span class="dia__num">4</span><span class="dia__punto"></span></button>
+              </div>
+              <p class="semana__modo">Apruebas la semana entera. <button type="button" data-ir="perfil">Cambiar</button></p>
+              <div style="display:grid; gap:10px">
+                <div class="pieza" data-dia="29"><div class="pieza__mini"><img src="img/taberna-color.webp" alt="" width="760" height="430"></div><div><span class="pieza__cuando">Martes 29 · 13:00 · Post</span><span class="pieza__titulo">Horario de otoño</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--publicada"><svg aria-hidden="true"><use href="#i-check"/></svg>Publicada</span></div></div></div>
+                <div class="pieza" data-dia="1"><div class="pieza__mini"><div class="lamina" data-estilo="papel"></div></div><div><span class="pieza__cuando">Jueves 1 · 19:30 · Post</span><span class="pieza__titulo">Alcachofas a la brasa</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--ok">Necesita tu OK</span><button class="pieza__accion" type="button" data-aprobar>Aprobar</button></div></div></div>
+                <div class="pieza" data-dia="2"><div class="pieza__mini"><img src="img/v2-bar.webp" alt="" width="760" height="567"></div><div><span class="pieza__cuando">Viernes 2 · 13:00 · Historia</span><span class="pieza__titulo">La terraza, abierta</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--ok">Necesita tu OK</span><button class="pieza__accion" type="button" data-aprobar>Aprobar</button></div></div></div>
+                <div class="pieza" data-dia="3"><div class="pieza__mini"><img src="img/v2-coctel.webp" alt="" width="760" height="760"></div><div><span class="pieza__cuando">Sábado 3 · 20:30 · Reel</span><span class="pieza__titulo">El cóctel de la casa</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--plan">Revisa el plan</span><button class="pieza__accion" type="button" data-nota="Aquí se revisan los fotogramas clave y el plan del reel antes de animarlo (G1). Por diseñar.">Revisar</button></div></div></div>
+                <div class="pieza" data-dia="4"><div class="pieza__mini"><div class="lamina" data-estilo="cobalto"></div></div><div><span class="pieza__cuando">Domingo 4 · 12:00 · Historia</span><span class="pieza__titulo">Abrimos a las 12</span><div class="pieza__pie"><span class="estado-pieza estado-pieza--preparando">Preparando</span></div></div></div>
+              </div>
+              <p class="nota-app" data-sin-piezas hidden>Nada programado este día.</p>
+              <button class="boton boton--principal boton--ancho" type="button" style="margin-top:18px" data-aprobar-todo>Aprobar la semana (2)</button>
+            </div>
+            <nav class="pestanas" data-activa="semana" data-crear aria-label="Secciones"></nav>
+            <span class="indicador-inicio"></span>
+          </div>
+
+          <!-- RESULTADOS -->
+          <div class="pantalla app" hidden id="pantalla-resultados" data-pantalla="resultados" data-cinta="v2 · propuesta · cifras de ejemplo" data-grupo="app" data-nombre="Resultados" role="group" aria-label="Pantalla: Resultados">
+            <div class="estado"></div>
+            <div class="pantalla__desliza">
+              <div class="cabecera2 cabecera2--flujo"><span class="pildora pildora--solo-texto">21 – 27 sep</span><button class="circulo" type="button" aria-label="Compartir el informe" data-nota="Compartir el informe semanal: por diseñar."><svg aria-hidden="true"><use href="#i-enviar"/></svg></button></div>
+              <h1 class="titulo2"><span class="a">LO QUE</span> <span class="b">funciona</span></h1>
+              <div class="fila-chips" style="margin-top:16px" role="group" aria-label="Periodo">
+                <button class="dia chip2" type="button" data-dia="" aria-pressed="true">Semana</button>
+                <button class="dia chip2" type="button" data-dia="mes" aria-pressed="false">Mes</button>
+                <button class="dia chip2" type="button" data-dia="trimestre" aria-pressed="false">Trimestre</button>
+              </div>
+              <div class="cifras2" style="margin-top:16px"><span><b>31</b><small>Envíos <svg aria-hidden="true"><use href="#i-subir"/></svg>42 %</small></span><span><b>22</b><small>Guardados <svg aria-hidden="true"><use href="#i-subir"/></svg>10 %</small></span><span><b>1.240</b><small>Alcance <svg aria-hidden="true"><use href="#i-bajar"/></svg>6 %</small></span></div>
+              <p class="nota-app">Frente a la mediana de tus 8 últimas piezas del mismo formato.</p>
+              <section class="destacada" style="margin-top:16px">
+                <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; align-items:center">
+                  <div class="pieza__mini" style="width:88px; height:110px; border-radius:16px"><div class="lamina" data-estilo="papel" style="width:88px; height:110px"></div></div>
+                  <div><p class="etiqueta-dest">Mejor pieza · Post</p><p class="destacada__titulo" style="font-size:26px">ALCACHOFAS A LA BRASA</p><span class="marca-ganadora" style="margin-top:10px"><svg aria-hidden="true"><use href="#i-estrella"/></svg>Ganadora</span></div>
+                </div>
+                <div class="medidor" role="img" aria-label="Envíos por alcance: 1,8 veces tu mediana" title="Envíos por alcance: 1,8 × tu mediana"><span class="medidor__valor" style="width:72%"></span><span class="medidor__mediana" style="left:40%"></span></div>
+                <div class="medidor__ejes"><span>Envíos por alcance</span><span>1,8 × tu mediana</span></div>
+                <p class="medidor__nota">La raya es tu mediana. Gana la pieza que llega a 1,5 ×.</p>
+              </section>
+              <div class="aprendido" style="margin-top:14px"><p class="etiqueta-dest" style="margin:0">Aprendido</p><b>Los posts que dicen el precio se guardan más.</b><span>Señal candidata: se ha cumplido 2 semanas de 3. Si se repite, pasa a regla.</span></div>
+              <p class="nota-app" style="margin-top:14px">Próxima medición: +72 h, el jueves.</p>
+            </div>
+            <nav class="pestanas" data-activa="resultados" data-crear aria-label="Secciones"></nav>
+            <span class="indicador-inicio"></span>
+          </div>
+
+          <!-- LOCAL -->
+          <div class="pantalla app pantalla--oscura-arriba" hidden id="pantalla-local" data-pantalla="local" data-cinta="v2 · propuesta · datos de ejemplo" data-grupo="app" data-nombre="Local" role="group" aria-label="Pantalla: Local">
+            <div class="estado"></div>
+            <div class="pantalla__desliza">
+              <div class="foto-local2">
+                <img src="img/v2-taberna.webp" alt="Fachada de La Taberna del Patio" width="1000" height="565">
+                <div class="cabecera2" style="z-index:2"><span class="vidrio"><svg aria-hidden="true"><use href="#i-pin"/></svg>Tu ficha de Google</span><button class="circulo circulo--vidrio" type="button" aria-label="Editar la ficha" data-nota="Editar datos, horarios y fotos de la ficha: por diseñar."><svg aria-hidden="true"><use href="#i-lapiz"/></svg></button></div>
+              </div>
+              <div class="solapa2"><div class="cifras2"><span><b>3</b><small>Reseñas nuevas</small></span><span><b>14</b><small>Platos</small></span><span><b>ASISTIDA</b><small>Google</small></span></div></div>
+              <span class="etiqueta2" style="margin-top:22px">Tu local</span>
+              <h1 class="titulo2"><span class="a" style="font-size:38px">LA TABERNA DEL PATIO</span></h1>
+              <p class="entrada2" style="margin-top:6px">Calle Mayor, 12 · Madrid · Abierto, cierra a las 00:00</p>
+              <div class="grupo2" style="margin-top:16px">
+                <button class="fila" type="button"><span class="fila__icono fila__icono--aviso"><svg aria-hidden="true"><use href="#i-estrella"/></svg></span><span><span class="fila__titulo">Reseñas</span><span class="fila__detalle">3 nuevas · 2 respuestas por aprobar</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-carta"/></svg></span><span><span class="fila__titulo">Carta</span><span class="fila__detalle">14 platos · 2 sin foto real</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-reloj"/></svg></span><span><span class="fila__titulo">Horarios</span><span class="fila__detalle">Añade el cierre del 12 de octubre</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-camara"/></svg></span><span><span class="fila__titulo">Material real</span><span class="fila__detalle">Faltan 2 tomas de las alcachofas</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-globo"/></svg></span><span><span class="fila__titulo">Otros sitios</span><span class="fila__detalle">TripAdvisor: pendiente de acceso</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+              </div>
+              <button class="boton boton--principal boton--ancho" type="button" style="margin-top:18px" data-nota="La lista de reseñas con sus borradores de respuesta está por diseñar.">Responder reseñas (2)</button>
+            </div>
+            <nav class="pestanas" data-activa="local" data-crear aria-label="Secciones"></nav>
+            <span class="indicador-inicio"></span>
+          </div>
+
+          <!-- PERFIL -->
+          <div class="pantalla app" hidden id="pantalla-perfil" data-pantalla="perfil" data-cinta="v2 · propuesta · datos de ejemplo" data-grupo="app" data-nombre="Perfil" role="group" aria-label="Pantalla: Perfil">
+            <div class="estado"></div>
+            <div class="pantalla__desliza">
+              <div class="cabecera2 cabecera2--flujo"><span class="cabecera2__titulo">Tu cuenta</span><button class="circulo" type="button" aria-label="Más opciones" data-nota="Idioma, ayuda y datos legales: por diseñar."><svg aria-hidden="true"><use href="#i-puntos"/></svg></button></div>
+              <span class="avatar2"><img src="img/taberna-color.webp" alt="" width="760" height="430"></span>
+              <p class="titulo2" style="margin:16px 0 0; text-align:center"><span class="a" style="font-size:30px">LA TABERNA DEL PATIO</span></p>
+              <p class="entrada2" style="margin:4px auto 0; text-align:center">@tu_local · Madrid</p>
+              <div style="display:flex; justify-content:center; gap:8px; margin-top:14px"><span class="pildora"><span class="pildora__icono"><svg aria-hidden="true"><use href="#i-instagram"/></svg></span>Plan Redes</span><button class="chip2" type="button" data-ir="plan" style="height:46px">Cambiar plan</button></div>
+              <div class="cifras2" style="margin-top:18px"><span><b>LUN 10:00</b><small>Ciclo semanal</small></span><span><b>SEMANA</b><small>Aprobación</small></span><span><b>PAPEL</b><small>Estilo</small></span></div>
+              <div class="grupo2" style="margin-top:18px">
+                <button class="fila" type="button" data-ir="conecta"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-instagram"/></svg></span><span><span class="fila__titulo">Redes conectadas</span><span class="fila__detalle">Instagram · @tu_local</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button" data-ir="estilo"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-pincel"/></svg></span><span><span class="fila__titulo">Estilo de marca</span><span class="fila__detalle">Póster de papel · desde el 26/09/2026</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button" style="opacity:.55"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-voz"/></svg></span><span><span class="fila__titulo">Voz de la marca</span><span class="fila__detalle">Incluida en el plan Reels</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-campana"/></svg></span><span><span class="fila__titulo">Avisos</span><span class="fila__detalle">Por correo</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-personas"/></svg></span><span><span class="fila__titulo">Personas con acceso</span><span class="fila__detalle">Solo tú</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+              </div>
+              <div class="grupo2">
+                <button class="fila" type="button"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-tarjeta"/></svg></span><span><span class="fila__titulo">Pagos y facturas</span><span class="fila__detalle">Con Stripe</span></span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+                <button class="fila" type="button" data-ir="bienvenida"><span class="fila__icono"><svg aria-hidden="true"><use href="#i-salir"/></svg></span><span><span class="fila__titulo">Cerrar sesión</span></span><span></span></button>
+              </div>
+            </div>
+            <nav class="pestanas" data-activa="perfil" data-crear aria-label="Secciones"></nav>
+            <span class="indicador-inicio"></span>
+          </div>
+
+      </div>
+      <div class="escenario__pie">
+        <button class="redondo" type="button" data-paso="-1" aria-label="Pantalla anterior"><svg aria-hidden="true"><use href="#i-atras"/></svg></button>
+        <span class="escenario__cinta" data-cinta aria-live="polite"></span>
+        <button class="redondo" type="button" data-paso="1" aria-label="Pantalla siguiente"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+        <button class="redondo" type="button" data-completa aria-label="Ver a pantalla completa" title="Pantalla completa"><svg aria-hidden="true"><use href="#i-ampliar"/></svg></button>
+      </div>
+    </div>
+    <aside class="escenario__ficha" aria-label="Qué cambia en esta pantalla">
+        <article class="ficha" data-para="bienvenida">
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>01 · Bienvenida · versión estudio</p>
+          <h3><span class="a">BIENVENIDA</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd>El <b>recorte en diagonal</b> de la app de cursos: el bloque cobalto se corta en diagonal y la mano con el cóctel lo cruza. El <b>desliza para empezar</b> de la app NFT: píldora oscura con el pomo mostaza, que se arrastra o se toca.</dd></div>
+            <div><dt>Color</dt><dd>Cobalto como bloque de marca, papel abajo, tinta en la píldora y mostaza solo en el pomo y los rayos.</dd></div>
+            <div><dt>Tipo</dt><dd>Etiqueta en Anton sobre el titular, titular a 54 en lugar de 128 y paginación en guion.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-bienvenida" href="index.html#app-bienvenida">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="busca" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>02 · Busca tu local · versión estudio</p>
+          <h3><span class="a">BUSCA TU LOCAL</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd>Buscador en píldora y <b>chips de filtro</b> de la app NFT. El resultado pasa a <b>tarjeta grande con foto</b> y píldoras de cristal; el pomo mostaza es la acción.</dd></div>
+            <div><dt>Color</dt><dd>Papel de fondo, la foto a color manda, mostaza en el pomo.</dd></div>
+            <div><dt>Funciona</dt><dd>Igual que en la v1: al tocar tu local se abre la hoja de Google.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-busca" href="index.html#app-busca">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="conecta" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>03 · Conecta tus redes · versión estudio</p>
+          <h3><span class="a">CONECTA TUS REDES</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd>Filas redondeadas con el logo en círculo. La red conectada pasa a <b>tarjeta oscura</b>: se ve de un vistazo qué está conectado.</dd></div>
+            <div><dt>Color</dt><dd>Tinta para lo conectado, cobalto en el interruptor, mostaza en «Conectada como…».</dd></div>
+            <div><dt>Funciona</dt><dd>Igual que en la v1: toca los interruptores.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-conecta" href="index.html#app-conecta">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="plan" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>04 · Tu plan · versión estudio</p>
+          <h3><span class="a">TU PLAN</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd><b>Carrusel</b> de la app de cursos, con la siguiente tarjeta asomando. Redes va en cobalto con la mano recortada, como la tarjeta del personaje de la app NFT.</dd></div>
+            <div><dt>Color</dt><dd>Local y Reels en tinta con foto en trama; Redes en cobalto con RECOMENDADO en mostaza.</dd></div>
+            <div><dt>Funciona</dt><dd>Desliza el carrusel y toca un plan: se abre su hoja.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-plan" href="index.html#app-plan">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="que-hay-hoy" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>05 · ¿Qué hay hoy? · versión estudio</p>
+          <h3><span class="a">¿QUÉ HAY HOY?</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd>La foto real pasa a ser la protagonista: <b>tarjeta grande a color</b> con la píldora «Foto real». Los formatos son chips de filtro.</dd></div>
+            <div><dt>Color</dt><dd>Papel, la foto a color y tinta en el chip elegido. El campo activo sigue con borde cobalto.</dd></div>
+            <div><dt>Funciona</dt><dd>Lo que escribes sale en el pie de Así queda.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-que-hay-hoy" href="index.html#app-que-hay-hoy">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="estilo" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>06 · Elige el estilo · versión estudio</p>
+          <h3><span class="a">ELIGE EL ESTILO</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd><b>Vista grande y selector de miniaturas</b> debajo, como los filtros de una app de fotos. La elegida lleva anillo.</dd></div>
+            <div><dt>Color</dt><dd>Las cuatro láminas conservan su estilo; la interfaz se queda en papel y tinta.</dd></div>
+            <div><dt>Funciona</dt><dd>Toca una miniatura: cambia la vista grande y la vista previa de Así queda.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-estilo" href="index.html#app-estilo">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="asi-queda" hidden>
+          <p class="ficha__meta"><span class="origen origen--figma">Figma</span>07 · Así queda · versión estudio</p>
+          <h3><span class="a">ASÍ QUEDA</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd>Cabecera con <b>botones redondos</b> y título centrado. Abajo, <b>círculo para editar y píldora para publicar</b>, como la barra de compra de la app NFT.</dd></div>
+            <div><dt>Color</dt><dd>La publicación va en blanco roto, como Instagram; tinta y mostaza solo en la barra.</dd></div>
+            <div><dt>Funciona</dt><dd>PUBLICAR abre la hoja «¿CUÁNDO <em>sale?</em>».</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-asi-queda" href="index.html#app-asi-queda">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="inicio" hidden>
+          <p class="ficha__meta"><span class="origen origen--propuesta">Propuesta</span>Inicio · versión estudio</p>
+          <h3><span class="a">INICIO</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd>Cabecera de la app NFT: <b>píldora del plan, campana con aviso y avatar</b>. Chips de filtro, tarjeta grande con la pieza que espera tu OK, <b>carrusel</b> de lo próximo y <b>barra de cifras</b>. Abajo, el mejor post en <b>rombo con la cifra grande</b> y botón sesgado, de la app de cursos.</dd></div>
+            <div><dt>Barra</dt><dd>Pestañas en una <b>píldora flotante</b> con el botón de crear, mostaza, en el centro.</dd></div>
+            <div><dt>Funciona</dt><dd>Filtra con los chips y aprueba con el pomo de la tarjeta.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-inicio" href="index.html#app-inicio">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="semana" hidden>
+          <p class="ficha__meta"><span class="origen origen--propuesta">Propuesta</span>Semana · versión estudio</p>
+          <h3><span class="a">SEMANA</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd>Días en píldoras, tarjetas redondeadas con sombra suave y el botón principal con pomo.</dd></div>
+            <div><dt>Color</dt><dd>Día elegido en tinta con punto mostaza; los días con piezas llevan punto cobalto.</dd></div>
+            <div><dt>Funciona</dt><dd>Igual que en la v1: filtra por día y aprueba.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-semana" href="index.html#app-semana">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="resultados" hidden>
+          <p class="ficha__meta"><span class="origen origen--propuesta">Propuesta</span>Resultados · versión estudio</p>
+          <h3><span class="a">RESULTADOS</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd><b>Barra de cifras oscura</b> de la app NFT y chips de periodo. La mejor pieza en cobalto con la marca «Ganadora» en mostaza; lo aprendido, en tinta.</dd></div>
+            <div><dt>Cifras</dt><dd>Son de ejemplo. Las reglas de comparación no cambian respecto a la v1.</dd></div>
+            <div><dt>Funciona</dt><dd>Los chips de periodo solo cambian de estado en el prototipo.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-resultados" href="index.html#app-resultados">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="local" hidden>
+          <p class="ficha__meta"><span class="origen origen--propuesta">Propuesta</span>Local · versión estudio</p>
+          <h3><span class="a">LOCAL</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd>El detalle de la app NFT: <b>foto a sangre arriba</b>, botones de cristal y la barra de cifras montada encima. Ajustes agrupados en una tarjeta.</dd></div>
+            <div><dt>Color</dt><dd>Foto a color, tinta en la barra, cobalto solo en el aviso de reseñas.</dd></div>
+            <div><dt>Funciona</dt><dd>Las filas avisan de lo que queda por diseñar.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-local" href="index.html#app-local">ficha de la v1</a>.</p>
+        </article>
+        <article class="ficha" data-para="perfil" hidden>
+          <p class="ficha__meta"><span class="origen origen--propuesta">Propuesta</span>Perfil · versión estudio</p>
+          <h3><span class="a">PERFIL</span></h3>
+          <dl>
+            <div><dt>De dónde sale</dt><dd>Avatar grande con anillo cobalto, píldora del plan y <b>barra de cifras</b> con la configuración de la semana. Ajustes en dos grupos.</dd></div>
+            <div><dt>Color</dt><dd>Sin mostaza: aquí no hay acción principal.</dd></div>
+            <div><dt>Funciona</dt><dd>Cambiar plan, Redes y Estilo llevan a sus pantallas.</dd></div>
+          </dl>
+          <p class="ficha__v1">Qué hace cada botón, sus estados y sus datos no cambian: están en la <a data-v1="https://claude.ai/artifact/Pfr5AdLi7MwbNUcHdKzekW#app-perfil" href="index.html#app-perfil">ficha de la v1</a>.</p>
+        </article>
+    </aside>
+  </div>
+</section>
+
+<section class="seccion" id="tablero">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">EL</span> <span class="b">tablero</span></h2>
+      <p class="seccion__nota">Las doce pantallas de la versión estudio a la vez. Toca una para abrirla en el prototipo.</p>
+    </div>
+    <div class="tablero-cabeza"><h3>El alta · desde tu Figma</h3><span class="origen origen--figma">Figma</span></div>
+    <div class="tablero" data-tablero="alta"></div>
+    <div class="tablero-cabeza"><h3>El día a día · propuesta</h3><span class="origen origen--propuesta">Propuesta</span></div>
+    <div class="tablero" data-tablero="app"></div>
+  </div>
+</section>
+
+<section class="seccion" id="cambia">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">QUÉ</span> <span class="b">cambia</span></h2>
+      <p class="seccion__nota">Tus dos referencias son apps de estudio: fondo claro, piezas oscuras y un solo color de marca en bloques. Aquí se aplica eso con la paleta de Society y sin tocar lo que hace cada pantalla.</p>
+    </div>
+
+    <h3 class="sub">El color, <span class="b">reordenado</span></h3>
+    <div class="reparto" role="img" aria-label="Reparto del color en la versión estudio: papel 60 %, tinta 30 %, cobalto 7 %, mostaza 3 %">
+      <span style="width:60%; background:var(--papel); color:var(--tinta)">PAPEL 60 · FONDO</span>
+      <span style="width:30%; background:var(--tinta); color:var(--papel)">TINTA 30 · PIEZAS</span>
+      <span style="width:7%; background:var(--cobalto); color:var(--blanco)">7</span>
+      <span style="width:3%; background:var(--mostaza); color:var(--tinta)"></span>
+    </div>
+    <div class="reparto__pie"><span><b>Papel</b> pasa a ser el fondo, como el blanco de las referencias.</span><span><b>Tinta</b> va en tarjetas, barras, botones y en lo elegido, como su negro.</span><span><b>Cobalto</b> es el bloque de marca (arriba de la bienvenida, plan Redes, mejor pieza) y la pestaña activa, como su rojo.</span><span><b>Mostaza</b> queda para lo que se agarra (el pomo de los botones), el aviso de la campana y RECOMENDADO.</span></div>
+    <p class="texto texto--2" style="margin-top:16px">En la v1, tinta era el fondo y mostaza el botón. El modo oscuro no se pierde: el conmutador del prototipo lo enseña con estas mismas piezas.</p>
+
+    <h3 class="sub">Los patrones <span class="b">de estudio</span></h3>
+    <ul class="patrones">
+      <li class="patron"><p class="etq">App NFT</p><h3>Tarjeta grande con foto</h3><p>Esquinas de 28, foto a sangre, velo oscuro abajo y píldoras de cristal encima. Busca tu local, Tu plan, Inicio.</p></li>
+      <li class="patron"><p class="etq">App NFT</p><h3>Botones redondos</h3><p>Círculos de 46 para atrás, avisos, editar y más. Sobre foto, de cristal.</p></li>
+      <li class="patron"><p class="etq">App NFT</p><h3>Chips de filtro</h3><p>Píldoras de 40; la elegida en tinta. Busca, Inicio, Resultados y el formato.</p></li>
+      <li class="patron"><p class="etq">App NFT</p><h3>Barra de cifras</h3><p>Píldora oscura con tres datos y separadores. Inicio, Resultados, Local y Perfil.</p></li>
+      <li class="patron"><p class="etq">App NFT</p><h3>Desliza para empezar</h3><p>Píldora de 66 con pomo mostaza que se arrastra hasta el final. Se puede tocar también. Bienvenida.</p></li>
+      <li class="patron"><p class="etq">App NFT</p><h3>Botón con pomo</h3><p>El botón principal es una píldora tinta de 62 con un círculo mostaza y flecha a la derecha. Todas las pantallas.</p></li>
+      <li class="patron"><p class="etq">App NFT</p><h3>Barra de pestañas flotante</h3><p>Píldora tinta separada de los bordes, pestaña activa en cobalto con su nombre y crear en el centro.</p></li>
+      <li class="patron"><p class="etq">App de cursos</p><h3>Recorte en diagonal</h3><p>Bloque de color cortado en diagonal y una figura recortada que lo cruza. Bienvenida.</p></li>
+      <li class="patron"><p class="etq">App de cursos</p><h3>Rombo con cifra</h3><p>Foto dentro de un cuadrado girado 45° que se sale de la pantalla, con una cifra grande encima. Inicio.</p></li>
+      <li class="patron"><p class="etq">App de cursos</p><h3>Etiqueta y titular condensado</h3><p>Etiqueta gris en Anton sobre titulares de 46 a 54. Anton ya era la letra de Society.</p></li>
+      <li class="patron"><p class="etq">App de cursos</p><h3>Botón sesgado</h3><p>Botón en Anton inclinado 10°, para acciones dentro de un bloque. Inicio.</p></li>
+      <li class="patron"><p class="etq">App de cursos</p><h3>Carrusel y paginación en guion</h3><p>Tarjetas en fila con la siguiente asomando, y el paso actual como un guion largo. Tu plan, Inicio y el alta.</p></li>
+    </ul>
+
+    <h3 class="sub">Lo que se queda <span class="b">y lo que no</span></h3>
+    <div class="regla-titular">
+      <ul class="texto">
+        <li><strong>Se queda:</strong> los cuatro colores, Anton con la cursiva de Playfair, la trama de las fotos, el papel, los destellos, el sol, la pegatina RECOMENDADO y las cuatro láminas.</li>
+        <li><strong>Se queda:</strong> todo lo que hace cada pantalla, las hojas, los avisos y los estados.</li>
+      </ul>
+      <ul class="texto">
+        <li><strong>Cambia:</strong> el titular deja de ocupar media pantalla (de 128 a 46–54) y la foto pasa a ser la protagonista.</li>
+        <li><strong>Cambia:</strong> el botón principal ya no es mostaza a sangre: es tinta con el pomo mostaza. La regla de «una mostaza por pantalla» sigue cumpliéndose.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" id="comparar">
+  <div class="envoltura">
+    <div class="seccion__cabeza">
+      <h2 class="seccion__titulo"><span class="a">V1</span> <span class="b">frente a</span> <span class="a">V2</span></h2>
+      <p class="seccion__nota">A la izquierda, la v1 editorial tal como está publicada; a la derecha, la misma pantalla en la versión estudio.</p>
+    </div>
+    <div class="comparar">
+      <div class="par">
+        <p class="par__titulo">Bienvenida</p>
+        <figure><img src="img/v1-bienvenida.webp" alt="Bienvenida en la v1, editorial oscura" width="390" height="844" loading="lazy"><figcaption>v1 · editorial</figcaption></figure>
+        <figure><div data-copia="bienvenida"></div><figcaption>v2 · estudio</figcaption></figure>
+      </div>
+      <div class="par">
+        <p class="par__titulo">Busca tu local</p>
+        <figure><img src="img/v1-busca.webp" alt="Busca tu local en la v1, editorial oscura" width="390" height="844" loading="lazy"><figcaption>v1 · editorial</figcaption></figure>
+        <figure><div data-copia="busca"></div><figcaption>v2 · estudio</figcaption></figure>
+      </div>
+      <div class="par">
+        <p class="par__titulo">Tu plan</p>
+        <figure><img src="img/v1-plan.webp" alt="Tu plan en la v1, editorial oscura" width="390" height="844" loading="lazy"><figcaption>v1 · editorial</figcaption></figure>
+        <figure><div data-copia="plan"></div><figcaption>v2 · estudio</figcaption></figure>
+      </div>
+      <div class="par">
+        <p class="par__titulo">Así queda</p>
+        <figure><img src="img/v1-asi-queda.webp" alt="Así queda en la v1, editorial oscura" width="390" height="844" loading="lazy"><figcaption>v1 · editorial</figcaption></figure>
+        <figure><div data-copia="asi-queda"></div><figcaption>v2 · estudio</figcaption></figure>
+      </div>
+      <div class="par">
+        <p class="par__titulo">Inicio</p>
+        <figure><img src="img/v1-inicio.webp" alt="Inicio en la v1, editorial oscura" width="390" height="844" loading="lazy"><figcaption>v1 · editorial</figcaption></figure>
+        <figure><div data-copia="inicio"></div><figcaption>v2 · estudio</figcaption></figure>
+      </div>
+      <div class="par">
+        <p class="par__titulo">Resultados</p>
+        <figure><img src="img/v1-resultados.webp" alt="Resultados en la v1, editorial oscura" width="390" height="844" loading="lazy"><figcaption>v1 · editorial</figcaption></figure>
+        <figure><div data-copia="resultados"></div><figcaption>v2 · estudio</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <p><strong>Referencias:</strong> las dos capturas de apps de estudio que pasaste el 27/09/2026 (una app de cursos en rojo y una de coleccionables NFT en blanco y negro). Solo se toman patrones de composición; ni textos, ni imágenes, ni marcas.</p>
+    <p>Maqueta de la especificación, no código de la app. Las fotos y recortes salen de <code>pantallas/_assets/original</code> y <code>recursos-graficos</code>; «La Taberna del Patio», «@tu_local», los platos y las cifras son datos de ejemplo.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

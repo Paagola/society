@@ -1,0 +1,233 @@
+# Plan de Reel — fuente de verdad de la producción (skill director-reels + regla cero).
+# Anuncio propio de Society. Empezado de cero el 2026-09-25 a petición de Víctor.
+reel:
+  id: anuncio_society_v1
+  cliente: society                 # la marca propia; el material real es del caso Da Tonino (perfiles/da-tonino.yaml)
+  fecha: 2026-09-25
+  estado: montaje                  # 25/09: se montó B («La 1:47», montaje_b). 26/09: Víctor pide A con cambios → montaje_a
+
+# ── Etapa 1 · Brief ────────────────────────────────────────────────────────
+brief:
+  pieza: "Anuncio de Society, vertical 9:16: el hostelero se reconoce en un problema que le creamos y la solución llega a través de la app"
+  objetivo: reenvio
+  motivo_para_reenviar: "Un hostelero se reconoce y se lo manda a su socio o a otro hostelero: «mira, somos nosotros»"
+  reel_de_referencia: "ninguno; estética: society-identidad-editorial (NADIE VA a donde NO VE · PUBLICA menos, LLENA MÁS)"
+  metraje_real_disponible: [promo/public/video/reel-v6.mp4]
+  estilo_de_luz: "comida: luz de cena del perfil de Da Tonino; mundo del problema: trama de semitono en blanco y negro de la identidad"
+  duracion_orientativa_s: 28
+  voz_en_off: false                # la historia se entiende sin sonido: el texto la lleva
+  cta: "ninguno de venta; firma Society + «tu agencia con IA»"
+  presupuesto_creditos: 20         # saldo 43,57 el 2026-09-25
+
+# Datos que crean el problema (con fuente; no se afirma nada sin ella)
+datos:
+  - {dato: "El 75 % consulta la carta y el 73 % las opiniones antes de reservar", fuente: "TheFork lab, más de 6.000 usuarios, España, jul. 2026 (InfoHoreca)", ruta: informes/Society_auditoria_estrategica_y_mejoras.md, uso: "solo en pantalla con la fuente visible"}
+  - {dato: "Trabajo que el cliente quiere resolver: imagen actual, atractiva y fiel mientras está en el servicio, sin organizar cada publicación ni perder el control", fuente: "hipótesis del estudio de mercado, sin entrevistas", ruta: informes/estudio-mercado/01-estudio-de-mercado.md, uso: "guía del guion, no se cita"}
+
+# ── Etapa 2 · Inventario de verdad ────────────────────────────────────────
+verdad:
+  anclas:
+    - {id: pizza, descripcion: "napolitana de jamón crudo y rúcula; foto de móvil con caña y mantel kraft", fotos: [promo/public/caso/real-pizza.jpg, produccion/da-tonino/reel-v4/referencias/pizza.jpg], dificultad: media}
+    - {id: sala, descripcion: "sala de Da Tonino: sillas verde salvia, lámparas cono negras, palmeras", fotos: [promo/public/caso/real-sala.jpg], dificultad: media}
+    - {id: rigatoni, descripcion: "rigatoni en salsa rosa, mantel de cuadros verdes", fotos: [promo/public/caso/real-rigatoni.jpg], dificultad: media}
+    - {id: paella, descripcion: "paella de marisco en paellera de acero", fotos: [promo/public/caso/real-paella.jpg], dificultad: alta}
+  metraje_real:
+    - ruta: promo/public/video/reel-v6.mp4
+      contenido: "reel v6 de Da Tonino aprobado (= Downloads/final.mp4), 1080×1920, 24 fps, 13,54 s, con sonido"
+      duracion_s: 13.54
+      tramos_utiles: ["0.0-0.6 rúcula cayendo", "0.6-1.5 jamón", "1.5-2.5 cornicione", "3.5-4.6 porción con hilo de queso", "7.0-8.0 paella", "8.0-9.4 caña", "9.4-9.9 sala sin logo"]
+      usos_previos: [promo v2, promo v3]
+  piezas_aprobadas:
+    - {ruta: "promo/public/caso/lamina-01.jpg … lamina-07.jpg", que_es: "carrusel «Anatomía de una pizza»"}
+    - {ruta: promo/public/caso/gen-07-historia-estudio.jpg, que_es: "la pizza real con luz de estudio (historia)"}
+  recursos_de_marca:
+    - {ruta: society-identidad-editorial/recursos-graficos/06-recorte-mano-movil.png, que_es: "mano con móvil en modo cámara, trama B/N"}
+    - {ruta: society-identidad-editorial/recursos-graficos/05-recorte-mano-cafe.png, que_es: "mano con café, trama B/N"}
+    - {ruta: promo/public/img/movil-mano.png, que_es: "mano con móvil en bar, semitono"}
+  invenciones_recurrentes: ["cocina oscura con dos bombillas (v3)", "vapor idéntico en todos los platos (v3)"]
+  no_existe:
+    - "la cocina real de Da Tonino: la del reel es generada y no se presenta como real"
+    - "el dueño de Da Tonino: el hostelero del anuncio es anónimo (manos, sin cara)"
+    - "reservas o cifras de Instagram de Da Tonino: no se afirma nada de sus resultados"
+
+# ── Etapa 3 · Tratamiento ─────────────────────────────────────────────────
+tratamiento:
+  motivo_para_reenviar: "El hostelero se reconoce en el problema y se lo manda a otro: «somos nosotros»"
+  momento_heroe: "La foto de móvil de la pizza convertida en la misma pizza a su altura: antes y después con material real"
+  emocion: ["la pizza real en acción, con su sonido", "la foto del móvil, plana, con la caña delante", "el pulgar que bloquea el móvil sin publicar", "la misma pizza con luz de estudio"]
+  foco_sensorial: "vista: el contraste entre lo que es el local y cómo se ve en el móvil"
+  motivo_visual: "color = lo que el local es; blanco y negro = lo que se ve de él en redes"
+  curva_de_ritmo: "gancho real de 2-2,5 s → problema en planos de 1,2-2 s → giro → solución a pulso → firma de 1,2 s como máximo"
+  cierre: "PUBLICA menos, LLENA MÁS. y firma Society, sin botón ni precio"
+
+# Reglas visuales de la pieza (Víctor: «muy estético y visual, sin cosas pequeñas»)
+reglas_visuales:
+  - "Una idea por pantalla: un titular enorme (Anton + una palabra en Playfair cursiva) y/o una imagen a sangre o de al menos el 75 % del encuadre"
+  - "Nada por debajo de ~60 px en 1080 de ancho, salvo la línea de fuente de un dato (≥ 32 px, 2 s)"
+  - "Sin interfaz pequeña, tarjetas, anillos ni carruseles 3D; la app aparece una sola vez y en grande"
+  - "Pases: corte seco al pulso y bandas de color sólidas; nada de 3D, desenfoque, destello ni zoom"
+  - "Zona segura de Reels: titulares entre y=250 y y=1450; nada importante en los 420 px de abajo ni en los 150 px de la derecha"
+  - "Comida siempre a color; el mundo del problema en semitono B/N (regla de la identidad)"
+  - "Society no aparece hasta el giro; la firma final es legible y dura 1,2 s como máximo"
+
+# ── Etapa 4 · Conceptos → PUERTA A ────────────────────────────────────────
+conceptos:
+  - id: A
+    mecanismo: "M2 pregunta al espectador (contraste realidad / móvil)"
+    titulo: "La pizza que nadie vio"
+    protagonista: "el plato"
+    fotograma_1: "La rúcula cayendo sobre la pizza (reel real) + «ESTA PIZZA es de DIEZ.»"
+    arco: "la pizza real → su foto de móvil → 3 de cada 4 miran antes de reservar → NADIE VA a donde NO VE → la misma foto en Society → a su altura → reel, carrusel, historia → PUBLICA menos, LLENA MÁS. → firma"
+    planos_generados: 0
+    coste_est_creditos: 0
+    storyboard: puerta-a/storyboard-A-la-pizza-que-nadie-vio.jpg
+    respuesta_pregunta_control: "Sí, con matices: todo hostelero tiene esa foto en el móvil"
+    puntuacion: {reenvio: 2, gancho: 3, riesgo: 3, coste: 2, novedad: 2, encaje: 2}   # 14
+  - id: B
+    mecanismo: "Punto de vista del hostelero (M8 adaptado): el ritual del cierre"
+    titulo: "La 1:47"
+    protagonista: "el hostelero (anónimo, solo manos)"
+    fotograma_1: "La rúcula cayendo sobre la pizza (reel real, a color) + «22:15»"
+    arco: "servicio a color → persiana a las 01:47 en B/N → cocina cerrada, Instagram pendiente → ¿y hoy qué publico? → ¿esto? → mañana → NADIE VA a donde NO VE → 9:00, con el café, tu semana lista (vuelve el color) → de tu misma foto → reel, carrusel, historia → PUBLICA menos, LLENA MÁS. → 01:47, esta vez nada pendiente → firma"
+    planos_generados: 3             # persiana, sillas sobre las mesas, pulgar que bloquea el móvil (semitono B/N)
+    coste_est_creditos: 8           # 3 × 2 cr + un reintento; preflight antes de generar
+    storyboard: puerta-a/storyboard-B-la-1-47.jpg
+    respuesta_pregunta_control: "Sí: es su noche, contada tal cual"
+    puntuacion: {reenvio: 3, gancho: 3, riesgo: 2, coste: 2, novedad: 2, encaje: 2}   # 14
+  - id: C
+    mecanismo: "Comparación (arco de conflicto): dos aceras"
+    titulo: "El de enfrente"
+    protagonista: "la calle"
+    fotograma_1: "Terraza llena al otro lado de la calle (imagen generada) + «EL DE ENFRENTE, lleno.»"
+    arco: "enfrente lleno → el tuyo no → ¿cocina mejor? → no, publica mejor → tú cocinas así → y lo enseñas así → ahora igual que cocinas → reel, carrusel, historia → PUBLICA menos, LLENA MÁS. → y ahora, la tuya → firma"
+    planos_generados: 3             # terrazas con gente, sin caras
+    coste_est_creditos: 10
+    storyboard: puerta-a/storyboard-C-el-de-enfrente.jpg
+    respuesta_pregunta_control: "Sí, pero por pique; puede leerse como promesa de llenar el local"
+    puntuacion: {reenvio: 3, gancho: 1, riesgo: 1, coste: 2, novedad: 2, encaje: 1}   # 10
+concepto_elegido: A               # Víctor, 2026-09-26, con cambios plano a plano (antes B, 2026-09-25: su montaje sigue en montaje_b)
+
+# ── Etapas 5-6 · Planos generados (keyframes en semitono B/N) ──────────────
+# Solo lo que no existe como material: el mundo del cierre. La comida y la sala son reales (reel v6, fotos, carrusel).
+generaciones:
+  - {id: K-P3, tipo: imagen, planos: [persiana], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, params: {resolution: 2k, aspect_ratio: "9:16"}, referencias: [{ruta: promo/public/img/movil-mano.png, rol: "estilo de trama", fidelidad: atributo, excluir: "sujeto"}, {ruta: promo/public/img/bar-esquina.png, rol: "estilo de trama", fidelidad: atributo, excluir: "sujeto"}], coste_creditos: 2, job_id: 9d541d02-38b3-4647-9e46-afad0eeb3611, estado: aprobado, archivo: promo/public/anuncio/persiana.jpg}
+  - {id: K-P4, tipo: imagen, planos: [sillas], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, params: {resolution: 2k, aspect_ratio: "9:16"}, coste_creditos: 2, job_id: 454b481e-e9f5-46df-8a88-3b0095460f87, estado: aprobado, archivo: promo/public/anuncio/sillas.jpg}
+  - {id: K-P8, tipo: imagen, planos: [bloqueo], modelo: nano_banana_pro, modelo_devuelto: nano_banana_2, params: {resolution: 2k, aspect_ratio: "9:16"}, coste_creditos: 2, job_id: 051b15ff-5190-4af1-9f19-30fcded760e1, estado: aprobado, archivo: promo/public/anuncio/bloqueo.jpg}
+  # Revisión (director): trama real, manos sin cara, sin texto ni logos, tercio superior libre; la persiana con estela en el borde.
+  # Coste medido: 6 cr (saldo 43,57 → 37,57).
+
+# ── Etapa 9 · Montaje de B, «La 1:47» (Remotion) ──────────────────────────
+montaje_b:
+  composicion: promo/src/anuncio/Anuncio.tsx   # id SocietyAnuncio, 1080×1920, 30 fps, 911 fotogramas (30,4 s)
+  semana: >-
+    Víctor (25/09/2026) rechazó la alternancia vídeo / post: el reel ocupa todo el alto y el post (4:5)
+    no, y cada salto a franjas negras se veía barato. Rehecho como «Tu semana, lista» día a día, cada
+    formato en su marco: LUNES, el reel (3 cortes a pantalla completa) · MIÉRCOLES, el carrusel
+    (láminas como piezas impresas sobre papel que el pulgar pasa en el golpe, con la siguiente asomando)
+    · VIERNES, la historia (foto limpia de estudio 06-mesa a pantalla completa).
+  excepciones_medidor: >-
+    medir_realismo.py (hecho para reels de comida rodada): duración media 1,5 s y foco 30 % son a
+    propósito (carteles con texto que hay que leer; la trama y la tipografía cuentan como «foco»);
+    negro p1 7,6 por el color tinta #141414 de la marca y los carteles en papel; las «transiciones de
+    desenfoque» son falsos positivos (solo hay cortes secos y un barrido de color). Se corrigió lo real:
+    más movimiento con motivo en los planos quietos (persiana que baja, avance en sillas y móvil).
+  rejilla: "musica.m4a a ~132,5 BPM (medido): todo corte cae en un tiempo; b(k) en promo/src/anuncio/guion.ts"
+  sonido:
+    musica: "canción del reel (promo/public/audio/musica.m4a): suena en el servicio, se corta en seco al bajar la persiana y vuelve un tiempo después de la notificación"
+    efectos: "sintetizados, sonido propio (promo/public/audio/anuncio/*.wav): persiana, deslizar, bloqueo, golpe, notificación, toque"
+    ambiente: "local vacío de noche, bajo el tramo en blanco y negro"
+    nota: "Higgsfield no ofrece efectos de sonido fuera de su flujo de juegos; si hay biblioteca con licencia, sustituir los sintetizados"
+  entrega: promo/out/society-anuncio-la-147.mp4
+  pendiente:
+    - "Permiso de Da Tonino para que su foto de móvil salga como «antes» en un anuncio público de Society (verificar)"
+    - "Etiqueta de IA al publicar (art. 50 del Reglamento de IA; «AI info» de Meta): hay imágenes generadas"
+
+# ── Etapa 9 · Montaje de A, «La pizza que nadie vio» (Remotion) ───────────
+# Víctor, 26/09/2026: le gusta el storyboard A y pide cambios plano a plano. Durante el montaje añade: la bola
+# se cierra hacia delante y por fuera se ve el dorso del papel («como una envoltura real»), la foto tiene que
+# parecer papel (no lisa) y sin bordes blancos, y el rasgado de las piezas de la persiana se extiende al resto
+# de imágenes. Resultado: todo el anuncio es papel recortado; la pizza real es lo único que va en vídeo.
+# Segunda ronda (26/09): carrusel más grande, la bola se tira hacia abajo, el paso de «LA MISMA foto» a
+# «A SU ALTURA» enseña el proceso (planchar, reencuadrar, luz) y la mano del café vuelve a su fondo transparente.
+# Tercera ronda (26/09): «EN EL MÓVIL, de CUATRO.» y «LA MISMA foto.» no convencían por cómo se veía la foto:
+# era pequeña, flotaba en un fondo vacío y tenía manchas claras (un fallo del generador de la textura, ya
+# corregido). Ahora va limpia, a 1,3× (≈ 990 px), girada −5° y pisando el pie del titular, igual en los dos
+# planos para que se lea que es la misma foto; lo «malo» de la foto lo cuenta su contenido, no un filtro.
+montaje_a:
+  composicion: promo/src/pizza/Pizza.tsx   # id SocietyPizza, 1080×1920, 30 fps, 775 fotogramas (25,9 s)
+  render: "cd promo && npm run render:pizza   (usa --gl=angle: la hoja que se arruga es WebGL con three.js)"
+  entrega: promo/out/society-anuncio-pizza.mp4
+  rejilla: "musica.m4a a ~132,5 BPM: todo corte cae en un tiempo (b(k) y PLANO en promo/src/pizza/guion.ts)"
+  planos:
+    - {n: 1, texto: "ESTA PIZZA es de DIEZ.", que: "rúcula del reel en 4K a cámara lenta (0,37x, interpolada); «DIEZ» queda detrás de las hojas que caen (capa de hojas recortada por su verde)"}
+    - {n: 2, texto: "EN EL MÓVIL, de CUATRO.", que: "clic de cámara y la foto del móvil como recorte de papel pequeño y rasgado; se arruga hacia dentro (la foto queda dentro, por fuera el dorso), coge impulso y se tira hacia abajo, fuera de cuadro"}
+    - {n: 3, texto: "3 DE CADA 4 miran la carta ANTES DE RESERVAR.", que: "la mano con el móvil (recurso de la identidad) con una carta en pantalla: platos del material real de Da Tonino, todos «sin foto», pestaña «Fotos (0)»; fuente del dato visible"}
+    - {n: 4, texto: "NADIE VA a donde NO VE.", que: "persiana.jpg por partes, como collage: interior, la chapa que baja, la persona que llega y tira de ella"}
+    - {n: 5, texto: "LA MISMA foto.", que: "la persiana se levanta y aparece el cobalto de Society; la bola del plano 2 cae, bota y se abre con las marcas de los pliegues; vuelve la música. Después, el proceso a la vista (tiempos 25-28): la foto se plancha (desaparecen los pliegues), se reencuadra en vertical con marcas de recorte hasta que su pizza ocupa el sitio y el tamaño de la de estudio, y una barra de luz sube desde abajo y la convierte; la barra se para a media foto para que se vea la misma pizza partida en antes y después"}
+    - {n: 6, texto: "por fin, A SU ALTURA.", que: "la misma pizza, ya con luz de estudio, a sangre y con un empuje lento"}
+    - {n: 7, texto: "UN REEL.", que: "cuatro cortes al pulso del reel v6 dentro de un recorte; sale deslizando como un carrusel"}
+    - {n: 8, texto: "UN CARRUSEL.", que: "láminas 01, 02, 03 y 07 en el anillo de la referencia de Víctor (26/09), a 720 × 900 la de delante; avanza una lámina por tiempo; píldora «DESLIZA»"}
+    - {n: 9, texto: "UNA HISTORIA.", que: "la historia ya publicada, en vertical: paella a cámara lenta, «PAELLA de marisco» con la tipografía del carrusel, enlace «RESERVA TU MESA» e interfaz de Instagram"}
+    - {n: 10, texto: "PUBLICA menos, LLENA MÁS.", que: "cartel de la marca y la mano del café, recorte con su fondo transparente (sin papel detrás)"}
+    - {n: 11, texto: "Society · tu agencia con IA", que: "cada letra recortada de una página del propio anuncio (papel, foto del móvil, lámina, mostaza, persiana, cobalto, carta), pegada en su golpe"}
+  transiciones: >-
+    Cada pase es el gesto de lo que se cuenta: clic de cámara (dos fotogramas en negro) → el recorte se
+    arruga y se tira hacia abajo → el recorte de la mano se coloca sobre la página → la persiana se monta
+    por piezas → la persiana se levanta y deja ver Society → la bola vuelve y se abre → se plancha, se
+    reencuadra y la barra de luz la convierte («a su altura») → el reel se desliza como un carrusel → la historia se coloca → las letras se pegan. Sin fundidos ni
+    desenfoques; el único 3D es el papel que se arruga y el anillo del carrusel, los dos pedidos por Víctor.
+  sonido:
+    musica: "musica.m4a mientras la pizza es real; se corta en seco con el clic y vuelve cuando cae la bola (b21), desde el mismo punto de la canción"
+    efectos: "sintetizados, sonido propio (promo/public/audio/pizza/*.wav): clic, arrugar, lanzar, caer, abrir, alisar, encuadre, escanear, pegar ×3; y de B: persiana, golpe, desliza, toque"
+    ambiente: "local vacío de noche bajo el tramo sin música"
+    niveles_medidos: "música −16/−18 dB de media; tramo sin música −24/−30 dB; pico −0,6 dBFS"
+  herramientas: "produccion/society-anuncio/scripts/: rasgado.py (el rasgado), foto_papel.py (la hoja 3D), piezas_rasgadas.py, capas.py (cámara lenta, hojas, persiana, pantalla, paella), sonidos.py"
+  coste_creditos: 0                # nada generado: todo sale de material ya aprobado o del propio código
+  excepciones_medidor: >-
+    medir_realismo.py (26/09): duración media 1,5 s y foco 29,8 % a propósito (carteles con texto que hay que
+    leer; la trama, el papel y la tipografía cuentan como «foco»); negro p1 16 por la tinta #141414 y la textura
+    de papel oscuro; 10 «planos quietos» porque son piezas de papel sobre la mesa (con temblor de stop-motion
+    y empujes lentos); las 3 «transiciones de desenfoque» (9,6 s, 19,7 s y 22,4 s) son falsos positivos: la
+    bola abriéndose y dos fondos lisos. Blanco p99 234 y audio RMS 4.377, bien.
+    Tras la segunda ronda (26/09): media 1,7 s, foco 34,5 %, negro p1 17,4, cámara 1,5 px (bien); el aviso
+    de «destello» a 18,7 s es el corte seco del carrusel cobalto a la página crema de la historia.
+  sin_verificar:
+    - "La carta es genérica (sin nombre del local ni precios): «Fotos (0)» y «sin foto» son ilustrativos, no el estado real de la ficha de Da Tonino"
+    - "La historia es una maqueta: «Da Tonino · 2 h» y el enlace de reserva no son una publicación real; avatar = foto real de la sala (falta el logo del local)"
+  pendiente:
+    - "Permiso de Da Tonino para que su foto de móvil salga como «antes» en un anuncio público de Society (verificar)"
+    - "Etiqueta de IA al publicar (art. 50 del Reglamento de IA; «AI info» de Meta): hay imágenes generadas (persiana, pizza de estudio, láminas)"
+
+# ── Etapa 9 · Versión startup de A (Remotion + GSAP) ──────────────────────
+# Víctor, 26/09/2026: «¿podrías utilizar greensock/gsap-skills para hacer un vídeo muchísimo más profesional
+# y más con estética de startup?». Eligió «misma historia, otro look» y fijó los colores: fondos oscuros y
+# algunos en azul, letras en blanco, azul para letras solo sobre fondo blanco y el amarillo muy de vez en cuando.
+montaje_a_startup:
+  composicion: promo/src/startup/Startup.tsx   # id SocietyPizzaStartup, 1080×1920, 30 fps, 775 fotogramas (25,9 s)
+  render: "cd promo && npm run render:startup   (usa --gl=angle)"
+  entrega: promo/out/society-anuncio-pizza-startup.mp4
+  convive_con: "la versión de papel (montaje_a, promo/out/society-anuncio-pizza.mp4) no se toca"
+  herramientas:
+    skills: "greensock/gsap-skills (MIT, commit aed9cfd): gsap-core, gsap-timeline, gsap-plugins"
+    gsap: "gsap 3.15.0 (gratis con todos sus plugins): SplitText, DrawSVG, CustomEase"
+    tecnica: "cada acto construye una línea de tiempo en pausa y en cada fotograma se coloca en frame / fps (promo/src/startup/gsap.ts); el render es determinista"
+    tipografia: "Geist y Geist Mono (Vercel, OFL), en promo/public/fonts"
+  actos:
+    - {tiempos: "0-10", que: "la pizza real a cámara lenta con un «10» enorme detrás de las hojas; clic: la imagen se congela, la cámara se aleja hasta que es la pantalla de un móvil, el marcador baja contando hasta 4 y aparece la foto real en la app de Fotos; el hostelero la borra y cae a la papelera"}
+    - {tiempos: "10-20", que: "el mismo móvil pasa a la carta (platos sin foto, «Fotos (0)»); «3 de cada 4» con tres de cuatro círculos encendidos y la fuente; baja una persiana de 16 lamas que encajan en la retícula: «Nadie va a donde no ve.»"}
+    - {tiempos: "20-32", que: "la persiana sube y aparece el azul de Society; la foto borrada vuelve como tarjeta: «La misma foto.»; proceso con píldoras (encuadre, luz, color): la ventana pasa a vertical, un deslizador de antes y después se para a medias y la ventana se abre a pantalla completa: «Por fin, a su altura.»"}
+    - {tiempos: "32-46", que: "la foto se encoge hasta la tarjeta del reel (cortes del reel real con la interfaz de Reels); el reel sale deslizando y entra el carrusel en anillo sobre azul; se dibuja el aro de historias y se abre la historia publicada"}
+    - {tiempos: "46-57", que: "«Publica menos, llena más.» sobre azul con el único amarillo (subrayado dibujado) y las tres piezas en abanico; firma: cada letra de «Society» lleva dentro una foto del anuncio y luego se vuelve blanca; «tu agencia con IA»"}
+  sonido: "la misma música y rejilla que la versión de papel (se corta con el clic, vuelve cuando aterriza la foto); efectos de interfaz sintetizados: tic, pop, clic, toque, arrugar (el borrado de iOS), persiana, escanear"
+  niveles_medidos: "música −15,7/−18,1 dB de media; tramo sin música −25,4 dB; pico −1,3 dBFS"
+  excepciones_medidor: >-
+    medir_realismo.py (26/09): foco 24,5 % y cámara 2,4 px, bien. Duración media 1,8 s y 6 planos quietos
+    porque son titulares e interfaz que hay que leer; negro p1 9,5 por el fondo #0A0A0C; las 3 «transiciones
+    de desenfoque» (18,8 s, 21,0 s y 24,0 s) son falsos positivos de fondos lisos (historia, azul y firma).
+  cambio_de_texto: "«DIEZ» y «CUATRO» pasan a «10» y «4» para que el marcador pueda contar; el resto de textos es el mismo"
+
+aprendizajes_propuestos:
+  - "En un anuncio propio de Society el gancho también sale del material real del caso: abrir con una imagen generada quieta puntúa 1 en la rúbrica (lo vimos en la primera versión de B)."
+  - "No alternar corte a corte piezas de 9:16 y de 4:5: el salto a franjas negras se lee barato. Cada formato en su marco y en su tramo; el 4:5, sobre papel como pieza impresa (Víctor, 25/09/2026)."
+  - "Un lenguaje material para toda la pieza (aquí, papel recortado y rasgado) conecta los planos mejor que los pases de efecto: cada transición es lo que haría ese papel (arrugarse, tirarse, abrirse, pegarse) (Víctor, 26/09/2026)."
+  - "Si algo se arruga, se cierra hacia delante y enseña el dorso, como una envoltura real; y un recorte sin margen blanco, con fibra clara en el borde, se lee como recortado (Víctor, 26/09/2026)."

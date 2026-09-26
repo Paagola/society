@@ -16,7 +16,7 @@ Qué hace que un reel de comida parezca **rodado** y no generado, con los bloque
 - sombras levantadas por la sala (`02` §2);
 - «slider motorizado, sin cámara en mano» (prefijo de `director/04` §2).
 
-La corrección está fechada en [`00-precedencia-y-correcciones.md`](00-precedencia-y-correcciones.md) §2.10. Se mantienen:
+La corrección está fechada en [`00-precedencia-y-correcciones.md`](00-precedencia-y-correcciones.md) §2.12. Se mantienen:
 - el balance de blancos neutro;
 - la ficha de texturas;
 - el ancla real;

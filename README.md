@@ -197,7 +197,7 @@ Decisiones revisadas el 22/09/2026. El registro de capacidades de producción ma
 |---|---|---|
 | Planificación, prompts, revisión y dirección de edición | GPT-6 Astra (API de OpenAI) | Propuesta |
 | Generación y edición de imágenes | Nano Banana Pro (`gemini-3-pro-image`, Gemini API); marca SynthID en toda salida | Propuesta |
-| **Vídeo · todos los planos** | **Seedance 2.5 a 720p + reescalado ByteDance pro a 1080×1920** (regla R-RES-01, 24/09/2026). Kling 3.0 ya no se usa (Víctor, 25/09/2026) | **Ruta única vigente** (2026-09-25). La ruta Kling 3.0 para planos simples del 15/09 queda **obsoleta** |
+| **Vídeo · todos los planos** | **Seedance 2.5 a 720p + reescalado ByteDance pro a 2K y 60 fps** (reglas R-RES-01 del 24/09 y R-RES-02 del 25/09/2026; copia de publicación a 1080×1920 a 60 fps). Kling 3.0 ya no se usa (Víctor, 25/09/2026) | **Ruta única vigente** (2026-09-25). La ruta Kling 3.0 para planos simples del 15/09 queda **obsoleta** |
 | **Vídeo · acciones complejas** | **Seedance 2.5**: manos, cubiertos, cortes e interacciones; clips de 4 a 30 s, fotograma final y audio opcional | **Ruta para planos difíciles**. Resolución (720p o 1080p) y proveedor (fal o Higgsfield) pendientes |
 | Alternativas de vídeo documentadas | Seedance 2.0, Veo 3.1 | Solo si un ensayo concreto lo justifica |
 | Voz en off | ElevenLabs (API; voces de español de España) | Propuesta principal, pendiente de una prueba a ciegas frente a Azure, Gemini TTS y Qwen3-TTS ([informe de voces](informes/Society_voces_y_subtitulos.md)) |
@@ -349,6 +349,9 @@ Este es el único índice vigente. Los documentos históricos conservan evidenci
 | Navegación | [informes/higgsfield/README.md](informes/higgsfield/README.md) |
 | Encargo para GPT-6 Astra · Unificar el proyecto Society y diseñar su cerebro creativo-estratégico | [prompts/gpt6-astra-limpieza-y-sistema-creativo.md](prompts/gpt6-astra-limpieza-y-sistema-creativo.md) |
 | Prompt para Higgsfield · Bocetos de la app Society | [prompts/higgsfield-bocetos-app-society.md](prompts/higgsfield-bocetos-app-society.md) |
+| Guía de identidad visual de Society | [society-identidad-editorial/README.md](society-identidad-editorial/README.md) |
+| Prototipo navegable y manual de la app (12 pantallas, color, letras, piezas, flujos y planes; maqueta, no código de la app) | [society-identidad-editorial/diseno-web/index.html](society-identidad-editorial/diseno-web/index.html) |
+| Prototipo v2, versión estudio (mismos colores con otro reparto y patrones de apps de estudio; comparación con la v1) | [society-identidad-editorial/diseno-web/estudio.html](society-identidad-editorial/diseno-web/estudio.html) |
 | Prompt — Reel de Torre de Vega con OpenMontage | [prompts/openmontage-reel-torre-de-vega.md](prompts/openmontage-reel-torre-de-vega.md) |
 | Prompt — Da Tonino v5: quitar el sonido de la pizza con OpenMontage | [prompts/openmontage-da-tonino-quitar-sonido-pizza.md](prompts/openmontage-da-tonino-quitar-sonido-pizza.md) |
 | Plan de pruebas — analizador de vídeos de referencia | [pruebas/analizador-video-referencia/plan-de-pruebas.md](pruebas/analizador-video-referencia/plan-de-pruebas.md) |

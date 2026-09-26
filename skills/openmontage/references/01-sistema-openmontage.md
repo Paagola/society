@@ -106,6 +106,8 @@ output:
   default_crf: 23
 ```
 
+⚠️ En Society, el render va a **1080×1920 y 60 fps** (vertical y con la cadencia del reescalado, regla R-RES-02, `directoria/references/hosteleria/03` §3.1). No se deja el 30 fps por defecto: se tirarían la mitad de los fotogramas que se han pagado.
+
 Para una pieza de cliente: `budget.mode: cap`, `total_usd` = presupuesto del brief, `single_action_approval_usd: 0.50`. Los límites por pipeline (presupuesto, tiempo máximo, revisiones) viven en su `executive-producer.md`. `max_wall_time_minutes: 12`: Seedance puede tardar más, y **una espera no es un fallo**. Se guarda el `job_id`, no se relanza y se reanuda desde el checkpoint.
 
 ## 9. Restricciones de Society sobre OpenMontage

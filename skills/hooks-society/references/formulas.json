@@ -1,0 +1,522 @@
+[
+  {
+    "name": "Detalle revelador",
+    "goal": "descubrimiento",
+    "mechanism": "Curiosidad concreta sobre una parte visible.",
+    "visual": "Abrir con {detalle} claramente visible; recuperar contexto enseguida. {plano}",
+    "payoff": "Nombrar el detalle y mostrar su relación con {criterio}.",
+    "check": "La relación que expliques debe ser cierta para este ejemplo.",
+    "templates": [
+      "Mira {detalle} antes de decidir sobre {tema}.",
+      "¿Qué te cuenta {detalle} sobre {objeto}?",
+      "En {tema}, empieza por observar {criterio}.",
+      "Hay una pista a la vista: {detalle}.",
+      "Acércate: aquí se entiende {criterio}.",
+      "La próxima vez que veas {objeto}, fíjate en {detalle}.",
+      "¿Te habías fijado en {detalle} al elegir {tema}?",
+      "Vamos a mirar {objeto} desde un detalle concreto.",
+      "Si solo miras el conjunto, te pierdes {detalle}.",
+      "Este plano permite juzgar algo concreto: {criterio}."
+    ]
+  },
+  {
+    "name": "Pregunta útil",
+    "goal": "consideracion",
+    "mechanism": "Una duda que afecta a una decisión real.",
+    "visual": "{plano} Añadir la pregunta en una sola línea legible.",
+    "payoff": "Responder {decision} con un criterio concreto y una limitación.",
+    "check": "No prometer una respuesta universal; declarar para quién sirve.",
+    "templates": [
+      "¿Cómo decidir {decision} sin guiarte solo por la foto?",
+      "¿Qué mirarías primero al elegir {tema}?",
+      "¿Te ayuda esta prueba a decidir {decision}?",
+      "¿Qué cambia cuando lo importante es {criterio}?",
+      "¿Qué necesitas saber sobre {tema} antes de elegir?",
+      "¿Encaja {objeto} con lo que buscas para {momento}?",
+      "¿Elegirías igual después de ver {detalle}?",
+      "¿Qué pregunta harías antes de probar {objeto}?",
+      "¿Cómo influye {limite} en tu elección?",
+      "¿Qué te falta ver para decidir {decision}?"
+    ]
+  },
+  {
+    "name": "Problema concreto",
+    "goal": "consideracion",
+    "mechanism": "Reconocimiento de una fricción cotidiana.",
+    "visual": "Mostrar un ejemplo real del problema si existe; identificar una recreación como tal. {plano}",
+    "payoff": "Explicar cómo evaluar o evitar {problema} sin garantizar resultados.",
+    "check": "No fingir un fallo de un competidor ni un testimonio.",
+    "templates": [
+      "¿Te preocupa {problema}? Mira este detalle antes de elegir.",
+      "Cuando aparece {problema}, conviene revisar {criterio}.",
+      "Para hablar de {tema}, empecemos por una duda: {problema}.",
+      "Una comprobación útil si quieres evitar {problema}.",
+      "Antes de culpar a {objeto}, revisa {limite}.",
+      "¿El problema es {problema}? Vamos a mirar el caso completo.",
+      "Si te has encontrado con {problema}, esta comparación puede ayudarte.",
+      "Pongamos nombre a la duda sobre {tema}: {problema}.",
+      "Para valorar {objeto}, no pases por alto {criterio}.",
+      "¿Y si empezamos por resolver tu duda sobre {criterio}?"
+    ]
+  },
+  {
+    "name": "Demostración inmediata",
+    "goal": "confianza",
+    "mechanism": "La apertura ya entrega una parte del valor.",
+    "visual": "{plano} Mantener la acción continua lo suficiente para que pueda entenderse.",
+    "payoff": "Mostrar {accion} y explicar qué demuestra y qué no.",
+    "check": "Una demostración concreta no demuestra superioridad general.",
+    "templates": [
+      "Vamos a {accion}; puedes verlo sin saltarte ningún paso clave.",
+      "Aquí tienes {objeto} en una prueba sencilla.",
+      "Mira el proceso antes de escuchar la explicación sobre {tema}.",
+      "Así se ve {criterio} en este ejemplo concreto.",
+      "Primero la prueba de {tema}; después, la explicación.",
+      "Te enseño {objeto} tal como aparece en esta toma.",
+      "Observa qué ocurre al {accion}.",
+      "Vamos a comprobar {criterio} con un ejemplo visible.",
+      "Este es el plano que necesitas para valorar {objeto}.",
+      "Puedes juzgar {detalle} viendo esta demostración."
+    ]
+  },
+  {
+    "name": "Comparación honesta",
+    "goal": "consideracion",
+    "mechanism": "Dos opciones observables con un criterio compartido.",
+    "visual": "Presentar {comparacion} con encuadres comparables y etiquetas claras.",
+    "payoff": "Comparar sobre {criterio}; explicar diferencias de contexto.",
+    "check": "No cambiar iluminación, escala o condiciones para favorecer una opción.",
+    "templates": [
+      "Ponemos frente a frente {comparacion}.",
+      "Antes de elegir {tema}, compara {comparacion}.",
+      "La diferencia se entiende mejor viendo {comparacion}.",
+      "¿Qué cambia entre {comparacion}? Mira {criterio}.",
+      "Dos formas de mirar {objeto}; un mismo criterio.",
+      "Compara {comparacion} antes de quedarte con una impresión.",
+      "¿Se ve igual? Ahora fíjate en {detalle}.",
+      "Para esta comparación de {tema}, vamos a mantener el mismo encuadre.",
+      "Una comparación de {tema} que puedes juzgar por ti mismo.",
+      "No elijas todavía: falta ver {comparacion}."
+    ]
+  },
+  {
+    "name": "Proceso invisible",
+    "goal": "confianza",
+    "mechanism": "Acceso al trabajo que normalmente queda fuera de plano.",
+    "visual": "Abrir durante una acción real del proceso. {plano}",
+    "payoff": "Mostrar preparación, ejecución y comprobación vinculadas a {criterio}.",
+    "check": "Usar proceso propio y real; no inventar tiempos ni artesanía.",
+    "templates": [
+      "Antes de {accion}, hay una preparación que merece verse.",
+      "Esto también forma parte de {tema}, aunque no salga en la foto final.",
+      "Vamos detrás del resultado para entender {objeto}.",
+      "El trabajo sobre {detalle} empieza antes de esta toma.",
+      "¿Qué ocurre justo antes de {accion}?",
+      "Hoy seguimos {objeto} durante una parte de su proceso.",
+      "Dejamos visible la preparación de {tema}.",
+      "Esta comprobación de {criterio} sucede antes del resultado final.",
+      "Abre el proceso de {tema} conmigo, paso a paso.",
+      "Lo que hay que preparar para {accion} en este caso."
+    ]
+  },
+  {
+    "name": "Resultado y recorrido",
+    "goal": "descubrimiento",
+    "mechanism": "Un resultado visible plantea cómo se llegó a él.",
+    "visual": "Enseñar {objeto} terminado y volver al paso que lo explica.",
+    "payoff": "Reconstruir el proceso verdadero hasta ese mismo resultado.",
+    "check": "El antes y el después pertenecen al mismo caso.",
+    "templates": [
+      "Este es el resultado de {tema}; ahora volvamos al comienzo.",
+      "¿Cómo llegamos a este punto con {objeto}?",
+      "Ya ves {detalle}. Falta saber cómo se consiguió.",
+      "Del primer paso a {objeto}: te enseño el recorrido.",
+      "Empezamos por el final para explicar {criterio}.",
+      "Esta toma de {tema} tiene un proceso detrás.",
+      "El resultado está a la vista; la decisión fue sobre {limite}.",
+      "Ahora que ves {objeto}, mira el paso anterior.",
+      "La historia de {tema} empieza antes de esta imagen.",
+      "Te enseño el resultado de {tema} y el paso que conviene comparar."
+    ]
+  },
+  {
+    "name": "Criterio profesional",
+    "goal": "confianza",
+    "mechanism": "Explicar una elección con razones observables.",
+    "visual": "Una persona del equipo señala {detalle}; sin títulos inventados.",
+    "payoff": "Relacionar una decisión concreta con {criterio} y sus límites.",
+    "check": "La persona debe tener el rol que se le atribuye.",
+    "templates": [
+      "Para evaluar {tema}, empezaría por {criterio}.",
+      "La pregunta que haría al ver {objeto} es esta.",
+      "Antes de {accion}, comprueba {detalle}.",
+      "Te explico qué estoy mirando en {objeto}.",
+      "Este criterio ayuda a hablar de {tema} con más precisión.",
+      "Para decidir {decision}, separa gusto y necesidad.",
+      "Un detalle observable de {tema} vale más que varios adjetivos.",
+      "¿Cómo explicaría esta elección sobre {objeto}?",
+      "La decisión sobre {tema} depende también de {limite}.",
+      "Vamos a justificar esta elección usando {criterio}."
+    ]
+  },
+  {
+    "name": "Lista de comprobación",
+    "goal": "guardar",
+    "mechanism": "Convertir una decisión en pasos recuperables.",
+    "visual": "Mostrar {objeto} y tres casillas que el contenido realmente desarrolla.",
+    "payoff": "Entregar una lista breve y aplicable al caso.",
+    "check": "El número anunciado debe coincidir con los puntos entregados.",
+    "templates": [
+      "Tres comprobaciones antes de elegir {tema}.",
+      "Para decidir {decision}, empieza por estas dos preguntas.",
+      "Una lista corta para evaluar {objeto}.",
+      "Dos detalles que puedes revisar al {accion}.",
+      "Antes de tu próxima elección de {tema}, revisa esto.",
+      "Tu comprobación rápida de {tema} empieza aquí.",
+      "Tres preguntas para adaptar {objeto} a {momento}.",
+      "Ordena tu elección de {tema} con esta lista.",
+      "Lo que conviene tener claro antes de {accion}.",
+      "Una lista para que {criterio} no se quede fuera de la decisión."
+    ]
+  },
+  {
+    "name": "Principiante",
+    "goal": "educacion",
+    "mechanism": "Reducir incertidumbre sin avergonzar al espectador.",
+    "visual": "Mostrar {objeto} completo, antes de acercarse a {detalle}.",
+    "payoff": "Definir un término y aplicar una sola comprobación.",
+    "check": "Evitar jerga innecesaria y no asumir ignorancia del cliente.",
+    "templates": [
+      "Si estás empezando con {tema}, mira primero esto.",
+      "Para entender {objeto}, no necesitas aprenderlo todo de golpe.",
+      "Tu primera decisión sobre {tema} puede empezar por {criterio}.",
+      "¿Primera vez eligiendo {tema}? Te enseño qué mirar.",
+      "Vamos a explicar {detalle} con una imagen.",
+      "Una introducción práctica a {tema}, usando un caso real.",
+      "Empieza aquí si dudas sobre {decision}.",
+      "Antes de aprender los nombres, mira {comparacion}.",
+      "Esta es una forma sencilla de observar {objeto}.",
+      "Para empezar con {tema}, hazte esta pregunta sobre tu uso."
+    ]
+  },
+  {
+    "name": "Objeción y encaje",
+    "goal": "consideracion",
+    "mechanism": "Ayudar a decidir si la oferta encaja.",
+    "visual": "{plano} Mostrar también la limitación, sin esconderla.",
+    "payoff": "Dar una condición de encaje y otra de descarte.",
+    "check": "No prometer compatibilidad, disponibilidad o adaptación sin confirmar.",
+    "templates": [
+      "Antes de elegir {objeto}, comprueba si encaja contigo.",
+      "¿Te interesa {tema}, pero te frena {limite}?",
+      "Para {momento}, esta es la pregunta que falta.",
+      "Puede gustarte {objeto} y no encajar con lo que necesitas.",
+      "Si buscas {beneficio}, revisa esto antes de decidir.",
+      "Elegir {tema} también consiste en reconocer sus límites.",
+      "¿Cuándo tendría sentido elegir {objeto}?",
+      "Mira esta condición antes de decidir {decision}.",
+      "Hablemos de la duda que deja fuera la foto de {tema}.",
+      "Para saber si {objeto} te conviene, empecemos por tu prioridad."
+    ]
+  },
+  {
+    "name": "Situación reconocible",
+    "goal": "compartir",
+    "mechanism": "Una escena cotidiana sirve de entrada.",
+    "visual": "Representar {momento} con material real; si es una escena guionizada, no llamarla testimonio.",
+    "payoff": "Resolver la decisión de la escena sin inventar una experiencia de cliente.",
+    "check": "Separar escena ilustrativa y caso real.",
+    "templates": [
+      "Llega {momento} y toca decidir {decision}.",
+      "Cuando te encargan decidir {decision}, empiezas por aquí.",
+      "El momento en que todos miran {objeto} y nadie se decide.",
+      "Tienes una duda sobre {tema} y esta imagen la hace más concreta.",
+      "Cuando la conversación sobre {tema} acaba en «depende».",
+      "Preparas {momento}; esta comprobación puede ahorrarte dudas.",
+      "Ese instante antes de {accion} también cuenta.",
+      "Cuando lo que buscas es {beneficio}, mira {detalle}.",
+      "Decidir {decision} parece sencillo hasta que aparece {limite}.",
+      "Una escena para quienes dudan ante {objeto}."
+    ]
+  },
+  {
+    "name": "Identidad e intención",
+    "goal": "descubrimiento",
+    "mechanism": "Reconocer una preferencia legítima del espectador.",
+    "visual": "{plano} Enfocar el atributo que importa al público mencionado.",
+    "payoff": "Conectar la preferencia con una decisión verificable.",
+    "check": "No atribuir estatus, personalidad o valor moral a una compra.",
+    "templates": [
+      "Para {publico}: mira {detalle}.",
+      "Si valoras {criterio}, esta parte te interesa.",
+      "¿Te importa {beneficio}? Empecemos por la prueba.",
+      "Una pregunta para {publico} antes de elegir.",
+      "Si tu prioridad es {criterio}, observa {objeto} así.",
+      "Para quienes disfrutan entendiendo {tema}, aquí hay un detalle.",
+      "Si miras {objeto} con curiosidad, acércate a {detalle}.",
+      "Esto es para {publico} que quieren decidir con más información.",
+      "¿Eres de fijarte en {detalle}? Mira esta toma.",
+      "Si eliges pensando en {momento}, revisa {limite}."
+    ]
+  },
+  {
+    "name": "Preferencia y debate",
+    "goal": "conversacion",
+    "mechanism": "Dos preferencias defendibles abren una conversación.",
+    "visual": "Presentar {comparacion}; evitar votaciones sin mostrar las opciones.",
+    "payoff": "Exponer una razón válida por opción y preguntar por el criterio personal.",
+    "check": "No disfrazar una preferencia de hecho probado.",
+    "templates": [
+      "Al elegir {tema}, ¿qué pesa más para ti?",
+      "En este caso de {tema}, yo miraría primero {criterio}. ¿Y tú?",
+      "¿Qué detalle de {objeto} te haría cambiar de elección?",
+      "¿Compartes este criterio para decidir {decision}?",
+      "Mira {comparacion}: ¿en qué te fijarías?",
+      "No todos buscamos lo mismo en {tema}. Esta es la diferencia.",
+      "¿Elegirías {objeto} por su aspecto o por este detalle?",
+      "Vamos a debatir una decisión concreta sobre {tema}.",
+      "¿Qué priorizas cuando aparece {limite}?",
+      "Esta preferencia sobre {tema} tiene una razón; te la enseño."
+    ]
+  },
+  {
+    "name": "Expectativa y contexto",
+    "goal": "educacion",
+    "mechanism": "Corregir una impresión mostrando información adicional.",
+    "visual": "Abrir con un encuadre parcial de {objeto} y revelar su contexto real.",
+    "payoff": "Explicar qué faltaba en la primera impresión.",
+    "check": "No fabricar un mito ni atribuir una creencia a todo el mundo.",
+    "templates": [
+      "Una foto de {tema} no explica por sí sola {criterio}.",
+      "Antes de sacar conclusiones sobre {objeto}, falta este plano.",
+      "Lo que parece igual en {tema} puede necesitar más contexto.",
+      "¿Cambiarías de opinión al ver {detalle} de cerca?",
+      "La primera impresión de {objeto} deja una pregunta abierta.",
+      "Este encuadre de {tema} no te estaba mostrando todo.",
+      "Para entender {objeto}, salgamos un momento del plano de detalle.",
+      "Lo que ves de {tema} depende también de cómo lo enseñamos.",
+      "Añadamos contexto a esta imagen de {objeto}.",
+      "Antes de decir «ya lo entiendo», mira {comparacion}."
+    ]
+  },
+  {
+    "name": "Límites y honestidad",
+    "goal": "confianza",
+    "mechanism": "Aclarar qué puede demostrar el contenido.",
+    "visual": "{plano} Mantener visible cualquier limitación relevante.",
+    "payoff": "Declarar alcance del ejemplo y una condición que puede cambiarlo.",
+    "check": "No convertir un caso en garantía ni ocultar lo que contradiga la promesa.",
+    "templates": [
+      "Esta prueba de {tema} tiene un límite que conviene conocer.",
+      "Te enseño {objeto}, pero también lo que este plano no demuestra.",
+      "Para hablar de {criterio}, necesito mostrarte algo más.",
+      "Este ejemplo de {tema} no responde a todas las situaciones.",
+      "Hay una condición antes de prometer {beneficio}.",
+      "Lo que puedo comprobar de {objeto} es esto.",
+      "Antes de recomendar {tema}, revisaría {limite}.",
+      "Si cambia {limite}, la elección también puede cambiar.",
+      "Sobre {tema}, prefiero empezar por una limitación concreta.",
+      "Mira la prueba de {objeto} y decide con su contexto."
+    ]
+  },
+  {
+    "name": "Valor explicado",
+    "goal": "conversion",
+    "mechanism": "Hacer visible qué recibe el cliente.",
+    "visual": "Mostrar {objeto} y los componentes reales de la oferta, sin precios inventados.",
+    "payoff": "Desglosar inclusiones, condiciones y precio vigente si se menciona.",
+    "check": "Confirmar oferta, impuestos y condiciones aplicables antes de usar cifras.",
+    "templates": [
+      "Antes de comparar precios de {tema}, mira qué incluye cada opción.",
+      "¿Qué estás eligiendo cuando eliges {objeto}?",
+      "El valor de {tema} se entiende mejor con este desglose.",
+      "Esta parte de {objeto} también forma parte de la elección.",
+      "Para comparar {tema}, pon las mismas condiciones sobre la mesa.",
+      "¿Qué necesitas realmente para {momento}?",
+      "Decidir {decision} empieza por saber qué recibes.",
+      "Antes de pedir más, comprueba si buscas {beneficio}.",
+      "La oferta de {tema}, explicada con un ejemplo visible.",
+      "Mira el conjunto antes de valorar {objeto} por un solo detalle."
+    ]
+  },
+  {
+    "name": "Ocasión de uso",
+    "goal": "conversion",
+    "mechanism": "Vincular la propuesta con una situación concreta.",
+    "visual": "Comenzar en la situación {momento}; introducir {objeto} en uso real.",
+    "payoff": "Explicar cuándo encaja la propuesta y cómo dar el siguiente paso.",
+    "check": "No atribuir servicios o usos que la oferta no contempla.",
+    "templates": [
+      "Una idea de {tema} para {momento}.",
+      "Si estás preparando {momento}, mira esta opción.",
+      "¿Encaja {objeto} en tu próximo plan?",
+      "Para {momento}, conviene pensar primero en {criterio}.",
+      "Esta elección de {tema} empieza por el plan, no por la foto.",
+      "Lo que revisaría sobre {objeto} antes de {momento}.",
+      "Tu plan cambia la forma de decidir {decision}.",
+      "¿Y si organizas {momento} alrededor de lo que necesitas?",
+      "Una comprobación de {tema} antes de cerrar el plan.",
+      "Piensa en {momento}; ahora mira {detalle}."
+    ]
+  },
+  {
+    "name": "Participación con respuesta",
+    "goal": "conversacion",
+    "mechanism": "Invitar a observar antes de revelar.",
+    "visual": "Mostrar {objeto} con la información necesaria para responder.",
+    "payoff": "Dar respuesta o criterios dentro de la pieza, no solo en comentarios.",
+    "check": "No retener una respuesta útil como chantaje de interacción.",
+    "templates": [
+      "Mira {objeto}: ¿qué comprobarías antes de elegir?",
+      "Antes de explicarlo, ¿qué observas en {detalle}?",
+      "Elige qué mirar primero: {comparacion}.",
+      "Haz una predicción sobre {criterio}; después vemos la prueba.",
+      "¿Qué pregunta te sugiere esta imagen de {tema}?",
+      "Pausa aquí si quieres comparar {comparacion} por tu cuenta.",
+      "¿Qué detalle cambiarías de {objeto} para tu caso?",
+      "Antes de {accion}, decide en qué te vas a fijar.",
+      "Busca una pista sobre {criterio} en esta toma.",
+      "Te toca observar {objeto}; después lo comentamos."
+    ]
+  },
+  {
+    "name": "Microhistoria",
+    "goal": "descubrimiento",
+    "mechanism": "Una decisión genera un pequeño arco narrativo.",
+    "visual": "Abrir en el momento de decidir sobre {objeto}.",
+    "payoff": "Contar situación, decisión y resultado verificables.",
+    "check": "Usar una historia documentada; si es ficción, identificarla.",
+    "templates": [
+      "La historia de este ejemplo de {tema} empieza con una decisión.",
+      "Todo estaba preparado para {accion}; quedaba comprobar un detalle.",
+      "Había que decidir {decision}. Empezamos por esta pregunta.",
+      "Para entender {objeto}, te cuento la elección que hubo antes.",
+      "El momento clave de este proceso de {tema} fue una comprobación.",
+      "De la duda sobre {criterio} a una decisión concreta.",
+      "Esta escena de {tema} se entiende mejor desde el principio.",
+      "Lo interesante de {objeto} está en cómo se tomó la decisión.",
+      "El plan era {beneficio}; vamos a ver el recorrido.",
+      "Una pregunta sobre {tema} nos lleva hasta esta imagen."
+    ]
+  },
+  {
+    "name": "Restricción creativa",
+    "goal": "educacion",
+    "mechanism": "Resolver una tarea con una condición visible.",
+    "visual": "Mostrar {limite} y el resultado posible con ese contexto.",
+    "payoff": "Explicar una elección práctica y su coste o renuncia.",
+    "check": "No fingir una restricción ni exagerar ahorro o rapidez.",
+    "templates": [
+      "Para elegir {tema}, tenemos una condición: {limite}.",
+      "¿Cómo decidir {decision} cuando manda {limite}?",
+      "Vamos a trabajar con lo que hay y revisar {criterio}.",
+      "Esta elección de {tema} tiene una restricción concreta.",
+      "El reto es {beneficio}, teniendo en cuenta {limite}.",
+      "Antes de cambiar {objeto}, mira qué limita esta decisión.",
+      "¿Qué priorizarías en {tema} con esta condición?",
+      "Una forma de pensar {tema} cuando no todo es posible.",
+      "La solución para este caso empieza por reconocer {limite}.",
+      "Hoy decidimos sobre {objeto} con una prioridad clara."
+    ]
+  },
+  {
+    "name": "Cambio de una variable",
+    "goal": "educacion",
+    "mechanism": "Aislar una modificación para facilitar la comparación.",
+    "visual": "Presentar dos versiones reales de {objeto}, identificando la variable modificada.",
+    "payoff": "Mostrar resultado y factores que no se controlaron.",
+    "check": "No afirmar causalidad si cambiaron varias cosas o no hay medición.",
+    "templates": [
+      "En este ejemplo de {tema}, cambiamos una sola cosa.",
+      "¿Qué pasa con {criterio} al modificar este detalle?",
+      "La comparación de {tema} empieza con una variable identificada.",
+      "Mira {objeto} antes y después de este ajuste.",
+      "Para entender {criterio}, probemos una modificación concreta.",
+      "Este cambio en {tema} se puede observar en la imagen.",
+      "Dos versiones de {objeto}; te enseño qué hemos cambiado.",
+      "Vamos a separar el cambio de {tema} del resto del proceso.",
+      "¿Mantendrías este ajuste de {objeto} después de ver la comparación?",
+      "Observa {detalle}: aquí es donde vamos a comparar el cambio."
+    ]
+  },
+  {
+    "name": "Sin voz",
+    "goal": "descubrimiento",
+    "mechanism": "Una acción comprensible sostiene la apertura.",
+    "visual": "{plano} Sin voz; rótulo breve opcional y sonido real de la acción cuando exista.",
+    "payoff": "Entregar una consecuencia visible y recuperar contexto.",
+    "check": "La acción debe entenderse también sin audio; no usar clips ajenos inconexos.",
+    "templates": [
+      "{objeto}: míralo antes de leer la explicación.",
+      "Solo una acción para empezar: {accion}.",
+      "Este plano de {tema} empieza con algo que puedes observar.",
+      "Sin presentación: vamos directamente a {detalle}.",
+      "La imagen de {objeto} abre la conversación.",
+      "Sigue el movimiento hasta ver {criterio}.",
+      "Una toma para observar {objeto} con calma.",
+      "Mira primero {detalle}; la explicación viene después.",
+      "Deja que el plano muestre {comparacion}.",
+      "La apertura de {tema} ya está ocurriendo."
+    ]
+  },
+  {
+    "name": "Plano y sonido",
+    "goal": "descubrimiento",
+    "mechanism": "Sincronizar una acción y su consecuencia sonora real.",
+    "visual": "{plano} Grabar el sonido real del gesto; si no lo hay, usar ambiente sin inventar una prueba sonora.",
+    "payoff": "Mostrar la acción completa y explicar solo lo que puede observarse.",
+    "check": "No atribuir al sonido calidad, frescura o rendimiento que no demuestra.",
+    "templates": [
+      "Escucha el momento de {accion}.",
+      "Esta toma de {tema} también tiene sonido.",
+      "Mira {objeto} y escucha lo que ocurre en el plano.",
+      "El sonido acompaña esta comprobación de {criterio}.",
+      "Una imagen y su sonido real: así empieza {tema}.",
+      "Antes de la música, escucha esta parte del proceso de {tema}.",
+      "El gesto de {accion}, con su ambiente original.",
+      "¿Qué añade el sonido a esta imagen de {objeto}?",
+      "Vamos a observar {detalle} sin tapar el ambiente.",
+      "La escena de {tema} empieza por un gesto que puedes seguir."
+    ]
+  },
+  {
+    "name": "Contexto local",
+    "goal": "compartir",
+    "mechanism": "Dar relevancia a una decisión próxima al público.",
+    "visual": "Mostrar {objeto} y una referencia real del negocio, sin inventar ubicación.",
+    "payoff": "Entregar un dato local confirmado y la razón práctica para usarlo.",
+    "check": "Sustituir cualquier ubicación, horario o disponibilidad por datos verificados.",
+    "templates": [
+      "Si buscas {tema} cerca, empieza por esta comprobación.",
+      "Una pregunta útil antes de elegir {tema} en tu zona.",
+      "Tu próximo plan de {momento} merece este vistazo.",
+      "Antes de desplazarte por {tema}, confirma este detalle.",
+      "La próxima vez que compares opciones de {tema}, mira {criterio}.",
+      "Para {publico} de la zona, aquí hay algo que comprobar.",
+      "¿Este ejemplo de {tema} encaja con vuestro próximo plan?",
+      "Mira {objeto} antes de proponer el sitio o la opción al grupo.",
+      "Una forma de decidir {decision} con información del negocio.",
+      "Si vas a recomendar {tema}, comparte también el contexto."
+    ]
+  },
+  {
+    "name": "Prueba y documentación",
+    "goal": "confianza",
+    "mechanism": "Mostrar la base de una afirmación en lugar de declararla.",
+    "visual": "{plano} Añadir el documento o registro pertinente con datos privados ocultos.",
+    "payoff": "Enseñar {prueba} Indicar fecha, alcance y límites.",
+    "check": "No inventar reseñas, ventas, premios, encuestas ni resultados.",
+    "templates": [
+      "¿Cómo respaldamos esta afirmación sobre {tema}?",
+      "Antes de hablar de {beneficio}, veamos la prueba disponible.",
+      "Sobre {objeto}, esto es lo que podemos mostrar.",
+      "Este ejemplo de {tema} viene con su contexto.",
+      "Para comprobar {criterio}, necesitamos algo más que una frase.",
+      "Mira la evidencia antes de valorar {objeto}.",
+      "¿Qué podemos concluir de esta prueba de {tema}?",
+      "Esta es la información que acompaña a {objeto}.",
+      "La afirmación sobre {tema} y la prueba, juntas.",
+      "Vamos a distinguir lo observado de lo supuesto en {tema}."
+    ]
+  }
+]

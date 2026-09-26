@@ -51,13 +51,13 @@ La skill que convierte "quiero este plano" en **una llamada correcta, presupuest
 | `nano_banana_pro` | `resolution`, `aspect_ratio` |
 | `gpt_image_2_5` | `resolution`, `quality` (por defecto low) |
 | `marketing_studio_video` | `aspect_ratio:"9:16"` (por defecto 16:9), `mode` |
-| `upscale_video` (ByteDance) | `width` y `height` del vídeo fuente, `preset`, `resolution`, `fps` ≤ 30 (más fps duplica el coste) |
-| `bytedance_video_upscale` (con `generate_video`) | `model_version:"pro"`, `preset:"aigc"`, `resolution:"1080p"` (por defecto 2K), vídeo en `video_references`. **Reescalador recomendado** (`references/01` §5.2) |
+| `upscale_video` (ByteDance) | `width` y `height` del vídeo fuente, `preset`, `resolution`, `fps` (60 en Society por R-RES-02; por encima de 30 el coste se duplica) |
+| `bytedance_video_upscale` (con `generate_video`) | `model_version:"pro"`, `preset:"aigc"`, `resolution:"2k"`, `fps:60` (regla R-RES-02, 25/09/2026), vídeo en `video_references`. **Reescalador recomendado** (`references/01` §5.2) |
 
 ## Precios de referencia (créditos del plan, medidos)
 
 - Seedance 2.5 `omni_reference`, sin audio: **480p 3 cr/s · 720p 7 cr/s · 1080p 12 cr/s** (24/09/2026).
-- Nano Banana Pro 2K: **2 cr por imagen**. Kling 3.0 pro: 1,75 cr/s. ByteDance `aigc` 6 s: 0,12 cr; **ByteDance pro 6 s: 1,21 cr**. Topaz: 3–9 cr por clip.
+- Nano Banana Pro 2K: **2 cr por imagen**. Kling 3.0 pro: 1,75 cr/s. ByteDance `aigc` 6 s: 0,12 cr; **ByteDance pro 6 s: 1,21 cr** (a 1080p y 24 fps; a 2K y 60 fps está sin medir y como mínimo es el doble). Topaz: 3–9 cr por clip.
 - **Regla R-RES-01 (24/09/2026):** Seedance 2.5 se genera a 720p y solo la toma aprobada se reescala con ByteDance pro. En la A/B dio más detalle que el 1080p nativo (71 % frente al 31 % del keyframe) por 43,21 cr frente a 72. 1080p nativo solo si el cliente lo exige por escrito (skill `directoria`, `hosteleria/03` §3.1).
 - Reel tipo: **156 cr con R-RES-01**, 229 cr a 1080p nativo. Cliente con 3 reels por semana: 2.028 cr/mes, 949 menos que a 1080p nativo. Precio mínimo de un plan: `(coste + 0,25) / 0,57338` (`references/03` §3–4).
 

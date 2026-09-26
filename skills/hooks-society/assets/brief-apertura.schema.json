@@ -1,0 +1,333 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Brief para selección editorial de apertura, versión 2",
+  "description": "Diseño de intercambio para herramientas de skills. No es una API de Society implementada ni un plan listo para generar.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "restaurant_id",
+    "entry",
+    "objective",
+    "target_subject",
+    "scheduled_for",
+    "duration_s",
+    "fps",
+    "profile_version",
+    "forbidden_elements",
+    "recent_patterns",
+    "catalogue_subjects",
+    "assets",
+    "facts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "restaurant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entry": {
+      "enum": [
+        "plato",
+        "novedad",
+        "referencia"
+      ]
+    },
+    "objective": {
+      "enum": [
+        "presentar_producto",
+        "visitas",
+        "difusion",
+        "confianza"
+      ]
+    },
+    "target_subject": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scheduled_for": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "duration_s": {
+      "type": "number",
+      "minimum": 6,
+      "maximum": 30
+    },
+    "fps": {
+      "type": "integer",
+      "minimum": 24,
+      "maximum": 120
+    },
+    "profile_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "forbidden_elements": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "recent_patterns": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "catalogue_subjects": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "reference": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "analysis_verified": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "permission": {
+          "enum": [
+            "analysis_only",
+            "production"
+          ]
+        },
+        "transfer": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "ritmo",
+              "orden",
+              "encuadre",
+              "mecanismo",
+              "camara"
+            ]
+          }
+        }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "restaurant_id",
+          "source",
+          "subject_id",
+          "roles",
+          "elements",
+          "kind",
+          "provenance",
+          "permission",
+          "review_state",
+          "path"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "restaurant_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "valid_from": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "valid_until": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "subject_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "kind": {
+            "enum": [
+              "image",
+              "video"
+            ]
+          },
+          "provenance": {
+            "enum": [
+              "real",
+              "generated",
+              "external"
+            ]
+          },
+          "permission": {
+            "enum": [
+              "production",
+              "analysis_only",
+              "unknown",
+              "revoked"
+            ]
+          },
+          "review_state": {
+            "enum": [
+              "reviewed",
+              "pending",
+              "rejected"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "restaurant_id",
+          "source",
+          "key",
+          "value",
+          "subjects",
+          "confirmed"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "restaurant_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "valid_from": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "valid_until": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subjects": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "confirmed": {
+            "type": "boolean"
+          },
+          "event_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "key": {
+                  "const": "fecha_evento"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "event_at"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "entry": {
+            "const": "referencia"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "reference"
+        ],
+        "properties": {
+          "reference": {
+            "type": "object",
+            "required": [
+              "analysis_verified",
+              "source",
+              "permission",
+              "transfer"
+            ],
+            "properties": {
+              "analysis_verified": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

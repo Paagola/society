@@ -10,7 +10,7 @@ import {At, Phone3D, PhotoCard, Seal, SCREEN, Stage, Stamp} from '../three';
 const K = COPY.caso;
 
 // Duraciones de cada página del caso (fotogramas a 30 fps).
-export const D = {intro: 96, fotos: 140, crea: 176, aprueba: 140, reel: 330, carrusel: 156, resultado: 150};
+export const D = {intro: 96, fotos: 140, crea: 176, aprueba: 140, reel: 330, carrusel: 156, historia: 160, resultado: 150};
 
 // Número de paso en cobalto + titular, arriba a la izquierda (o columna izquierda en 16:9).
 const Title: React.FC<{num: string; lines: Line[]; color?: string; o?: number}> = ({num, lines, color = C.tinta, o = 1}) => {
@@ -147,15 +147,18 @@ export const Crea: React.FC = () => {
         {GENERADAS.map((g, i) => {
           const a = (i * 360) / n;
           const facing = Math.cos(((a + ry) * Math.PI) / 180);
+          // Solo se ve dentro de ±60° de cara a cámara: pasado ese ángulo una tarjeta plana
+          // se ve de canto (tumbada), no en profundidad. Mejor menos tarjetas y más grandes.
+          const vis = Math.max(0, (facing - 0.5) / 0.5);
           const idx = g.ok ? -1 : k++;
           const stampAt = 66 + idx * 5;
           const stamp = g.ok ? 0 : spring({frame: f - stampAt, fps, config: {damping: 12, stiffness: 200}});
           const drop = g.ok ? 0 : tween(f, stampAt + 26, stampAt + 50, [0, 1], EASE);
           return (
             <At key={g.src} ry={a} s={grow}>
-              <div style={{transform: `translateZ(${R}px) translateY(${drop * 900}px) rotateX(${drop * -50}deg)`, opacity: (0.35 + 0.65 * Math.max(0, facing)) * (1 - drop)}}>
-                <PhotoCard src={g.src} w={250} h={330} dark angle={a + ry}>
-                  <Stamp text={K.crea.descartada} p={stamp} size={40} />
+              <div style={{transform: `translateZ(${R}px) translateY(${drop * 900}px) rotateX(${drop * -50}deg)`, opacity: vis * (1 - drop)}}>
+                <PhotoCard src={g.src} w={300} h={396} dark angle={a + ry}>
+                  <Stamp text={K.crea.descartada} p={stamp} size={44} />
                 </PhotoCard>
               </div>
             </At>
@@ -248,7 +251,7 @@ const LAMINAS = ['01', '02', '03', '04', '05', '06', '07'].map((n) => `lamina-${
 export const Carrusel: React.FC = () => {
   const f = useCurrentFrame();
   const wide = useWide();
-  const cw = wide ? 420 : 560;
+  const cw = wide ? 460 : 600;
   const ch = Math.round(cw * 1.25);
   let c = 0;
   for (let i = 0; i < 6; i++) c += tween(f, 22 + i * 18, 36 + i * 18, [0, 1], EASE);
@@ -261,9 +264,11 @@ export const Carrusel: React.FC = () => {
           const d = i - c;
           const ad = Math.abs(d);
           const sg = Math.sign(d);
-          const x = d * (wide ? 150 : 170) + sg * Math.min(ad, 1) * (wide ? 200 : 250);
+          const x = d * (wide ? 160 : 185) + sg * Math.min(ad, 1) * (wide ? 210 : 260);
+          // Giro más suave (28° máx, antes 52°) y menos retroceso en Z: una lámina girada
+          // a 52° de canto se ve tumbada, no en profundidad. Se prioriza que se lea grande.
           return (
-            <At key={src} x={x} z={-ad * 260 - (1 - enter) * 1500} ry={-Math.max(-1, Math.min(1, d)) * 52} o={ad > 3.4 ? 0 : enter}>
+            <At key={src} x={x} z={-ad * 190 - (1 - enter) * 1500} ry={-Math.max(-1, Math.min(1, d)) * 28} o={ad > 2.6 ? 0 : enter}>
               <div style={{boxShadow: '0 40px 80px rgba(20,20,20,.35)'}}>
                 <PhotoCard src={src} w={cw} h={ch} border={0} angle={d * 30} />
               </div>
@@ -272,6 +277,47 @@ export const Carrusel: React.FC = () => {
         })}
       </Stage>
       <Title num={K.carrusel.num} lines={K.carrusel.titular} />
+    </AbsoluteFill>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// 06 · Y la historia: dos carteles a toda pantalla — problema y solución —, en 2D y a
+// sangre, sin escenario 3D: la foto real es grande, plana y de golpe, como un post de
+// society-identidad-editorial. Corte seco entre los dos, sin fundido.
+// ---------------------------------------------------------------------------
+const HIST_CUT = 78;
+
+export const Historia: React.FC = () => {
+  const f = useCurrentFrame();
+  const wide = useWide();
+  const base = f < HIST_CUT ? 10 : HIST_CUT + 10;
+  const rise = tween(f, base, base + 24, [110, 0], EASE_OUT);
+  const fade = tween(f, base + 4, base + 22);
+  const photoBox = {position: 'absolute' as const, right: wide ? PAD : 60, bottom: wide ? 90 : 140, transform: `translateY(${rise}px)`, opacity: fade};
+
+  if (f < HIST_CUT) {
+    return (
+      <AbsoluteFill>
+        <Paper />
+        <Title num={K.historia.num} lines={K.historia.problema} />
+        <div style={photoBox}>
+          <PhotoCard src="real-sala.jpg" w={wide ? 620 : 760} h={wide ? 750 : 950} caption="Real · sala" />
+        </div>
+        <Sparkle x={wide ? 1720 : 140} y={wide ? 200 : 760} size={90} at={20} seed={31} />
+      </AbsoluteFill>
+    );
+  }
+
+  return (
+    <AbsoluteFill>
+      <Paper tint={C.cobalto} />
+      <Title num={K.historia.num} lines={K.historia.solucion} color={C.papel} />
+      <div style={photoBox}>
+        <PhotoCard src="gen-07-historia-estudio.jpg" w={wide ? 620 : 740} h={wide ? 750 : 920} dark caption="Estudio · pizza" />
+      </div>
+      <StarSticker x={wide ? 1660 : 840} y={wide ? 880 : 1660} size={wide ? 190 : 220} at={HIST_CUT + 26} lines={['Más', 'mesas']} rot={-9} />
+      <Sparkle x={wide ? 300 : 140} y={wide ? 820 : 1500} size={80} at={HIST_CUT + 16} color={C.papel} seed={32} />
     </AbsoluteFill>
   );
 };

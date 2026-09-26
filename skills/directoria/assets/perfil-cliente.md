@@ -65,7 +65,7 @@
 - Fotos del local (sala, barra, fachada, mesa montada): __________________
 - Luz real de la sala:    [ neutra de ventana (default ~5000 K) | cálida motivada: ________ | mezcla ]
 - Reglas numeradas del cliente (ruta): ______________________________
-- Resolución exigida por el cliente: [ estándar de Society: 720p + ByteDance pro → 1080p (R-RES-01) | exige 1080p nativo por escrito ]
+- Resolución exigida por el cliente: [ estándar de Society: 720p + ByteDance pro → 2K a 60 fps (R-RES-01 + R-RES-02) | exige 1080p nativo por escrito ]
 - Metraje real disponible (rutas): __________________________________
 - Lo que nunca se muestra: __________________________________________
 

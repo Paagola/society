@@ -1,0 +1,1836 @@
+[
+  {
+    "id": "VH01",
+    "version": "2.0.0",
+    "nombre": "El plato aterriza",
+    "mecanismo": "contacto y asentamiento",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "producto",
+        "roles": [
+          "producto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "mesa",
+        "roles": [
+          "mesa"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "restaurant",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "El plato ya entra por un lateral, a pocos centímetros de apoyarse. Se reconoce la comida y la mesa.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "El plato ya entra por un lateral, a pocos centímetros de apoyarse. Se reconoce la comida y la mesa.",
+    "accion_principal": "Una mano termina de bajar el plato, lo apoya y se retira. Un solo gesto continuo.",
+    "estado_final": "Plato apoyado y estable; comida y vajilla conservan forma y cantidad.",
+    "camara": "Slider lateral corto que acompaña la entrada y frena al apoyar; foco en el borde delantero del plato.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "medio",
+    "prompt_movimiento_en": "The plate is already moving into frame. One hand lowers it the final few centimetres onto the referenced table, makes firm contact, then withdraws. A short lateral slider move follows and settles at contact. The dish keeps its exact shape, garnish and tableware. Real-time weight and natural motion blur.",
+    "criterios_rechazo": [
+      "El plato levita",
+      "Mano cruza vajilla",
+      "Comida se reorganiza al tocar la mesa"
+    ],
+    "alternativa": "VH21 si el contacto falla; usar metraje real de servicio si existe.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH02",
+    "version": "2.0.0",
+    "nombre": "La porción se levanta",
+    "mecanismo": "peso y anticipación",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "porcion",
+        "roles": [
+          "porcion_visible"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "producto",
+        "roles": [
+          "producto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "Una porción ya separada está sujeta por el borde o utensilio; las superficies visibles están documentadas.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Una porción ya separada está sujeta por el borde o utensilio; las superficies visibles están documentadas.",
+    "accion_principal": "Elevar unos centímetros la porción con un movimiento breve; dejar que su forma responda al peso sin exagerarlo.",
+    "estado_final": "Porción sostenida, unida al mismo utensilio o mano, sin alimentos nuevos ni hilos inventados.",
+    "camara": "Tilt de gimbal ascendente que acompaña la porción, con el plato aún como referencia espacial.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "The already separated, referenced portion is lifted a short distance in one continuous gesture. Follow it with a small upward gimbal tilt, keeping the original plate visible. Preserve the documented underside and filling. The portion has weight, settles naturally and remains securely supported. Do not add cheese strands.",
+    "criterios_rechazo": [
+      "Interior no documentado",
+      "El queso aparece sin referencia",
+      "Porción aumenta de tamaño"
+    ],
+    "alternativa": "VH01 si solo existe foto del plato entero; solicitar referencia de la porción.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH03",
+    "version": "2.0.0",
+    "nombre": "Hojas que caen y se posan",
+    "mecanismo": "caída con consecuencia",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "producto",
+        "roles": [
+          "producto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "ingrediente",
+        "roles": [
+          "ingrediente"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto",
+      "ingrediente"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "La mano acaba de soltar unas hojas del ingrediente confirmado sobre el plato; ya están en caída.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "La mano acaba de soltar unas hojas del ingrediente confirmado sobre el plato; ya están en caída.",
+    "accion_principal": "Las hojas caen, giran brevemente, contactan con la comida y se quedan en ella.",
+    "estado_final": "Hojas apoyadas con orientación variada; nada suspendido ni repetido como un sello.",
+    "camara": "Dolly-in corto que frena cuando las hojas aterrizan; foco sobre la zona de llegada.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "medio",
+    "prompt_movimiento_en": "A single hand has just released the confirmed garnish above the referenced dish. The leaves fall quickly under gravity, turn irregularly, land and settle. A short dolly-in stops at their landing. Preserve the original ingredients and quantities apart from this confirmed addition. Natural motion blur only on falling leaves.",
+    "criterios_rechazo": [
+      "Hojas flotantes",
+      "Hojas idénticas",
+      "Ingrediente no confirmado"
+    ],
+    "alternativa": "VH24 para detalle sin añadir ingredientes.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH04",
+    "version": "2.0.0",
+    "nombre": "El vaso toca la mesa",
+    "mecanismo": "impacto suave",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "bebida",
+        "roles": [
+          "bebida"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "mesa",
+        "roles": [
+          "mesa"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "restaurant",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "Vaso sostenido a poca altura de la superficie, con contacto inminente.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Vaso sostenido a poca altura de la superficie, con contacto inminente.",
+    "accion_principal": "La mano apoya el vaso y sale del encuadre; el líquido se estabiliza con una oscilación pequeña.",
+    "estado_final": "Base en contacto, nivel de líquido constante y vaso sin deformaciones.",
+    "camara": "Arco muy corto alrededor del vaso, sin exponer un fondo no documentado; foco en base y contacto.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "medio",
+    "prompt_movimiento_en": "One hand places the referenced glass onto the table and withdraws. The base makes clear contact; the liquid makes one small settling movement without changing level. A very short camera arc stays within the documented setting. Preserve glass geometry, markings and drink colour.",
+    "criterios_rechazo": [
+      "Líquido sube sin causa",
+      "Cristal se dobla",
+      "Dedos quedan pegados"
+    ],
+    "alternativa": "VH20 si el vaso ofrece profundidad de foco; metraje real si está disponible.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH05",
+    "version": "2.0.0",
+    "nombre": "El tenedor recoge pasta corta",
+    "mecanismo": "acción de utensilio",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "pasta",
+        "roles": [
+          "pasta_corta"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "utensilio",
+        "roles": [
+          "utensilio"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "Un tenedor ya sujeta una pequeña cantidad de pasta corta identificada; el plato permanece visible.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Un tenedor ya sujeta una pequeña cantidad de pasta corta identificada; el plato permanece visible.",
+    "accion_principal": "Levantar el tenedor con un recorrido breve y mantener la porción; no girarla como espaguetis.",
+    "estado_final": "Mismo número aproximado de piezas, mismo tipo de pasta y mismo utensilio.",
+    "camara": "Tilt ascendente pequeño que sigue el utensilio, sin órbita sobre la comida.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "The fork already holds a small serving of the referenced short pasta. Lift it a short distance in one clear motion. A small upward tilt follows the fork while the plate stays in frame. Preserve the pasta shape and sauce; no twirling, no new strands and no extra utensils.",
+    "criterios_rechazo": [
+      "Rigatoni se convierte en espagueti",
+      "Utensilio atraviesa la mano",
+      "Salsa se transforma en queso"
+    ],
+    "alternativa": "VH01; pedir toma real si el tenedor falla repetidamente.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH06",
+    "version": "2.0.0",
+    "nombre": "Una vuelta de pasta larga",
+    "mecanismo": "giro de oficio",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "pasta",
+        "roles": [
+          "pasta_larga"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "utensilio",
+        "roles": [
+          "utensilio"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "El tenedor ya está en contacto con pasta larga real identificada; no empieza en un plato vacío.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "El tenedor ya está en contacto con pasta larga real identificada; no empieza en un plato vacío.",
+    "accion_principal": "Una sola vuelta corta recoge pasta y termina antes de una elevación compleja.",
+    "estado_final": "Bocado recogido alrededor del tenedor; resto del plato conserva forma y volumen.",
+    "camara": "Cámara cercana con seguimiento mínimo del gesto; foco en contacto tenedor-pasta.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "The fork is already touching the referenced long pasta. Make one short, deliberate turn to gather a bite, then stop. Keep the plate and remaining strands stable. The camera makes a minimal motivated follow, focused on the fork contact. No second gesture or large lift.",
+    "criterios_rechazo": [
+      "Pasta se multiplica",
+      "Mano cambia de agarre",
+      "Giro interminable"
+    ],
+    "alternativa": "Metraje real o VH24; no aplicar a pasta corta.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH07",
+    "version": "2.0.0",
+    "nombre": "Un hilo de salsa cae",
+    "mecanismo": "vertido y expansión",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "producto",
+        "roles": [
+          "producto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "salsa",
+        "roles": [
+          "salsa"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "recipiente",
+        "roles": [
+          "recipiente_vertido"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto",
+      "ingrediente"
+    ],
+    "elementos_necesarios": [
+      "liquido"
+    ],
+    "apertura": "Un hilo de salsa confirmada ya cae desde el recipiente referenciado hacia el plato.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Un hilo de salsa confirmada ya cae desde el recipiente referenciado hacia el plato.",
+    "accion_principal": "El vertido forma una pequeña zona de salsa y termina de manera visible.",
+    "estado_final": "Salsa apoyada en la comida, recipiente deja de verter; sin atravesar sólidos.",
+    "camara": "Slider lateral leve siguiendo el punto de impacto, no el recorrido completo del recipiente.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "A thin stream of the confirmed sauce is already falling from the referenced container onto the dish. The sauce spreads locally on contact, then the stream ends. Follow the impact point with a small lateral slider move. Preserve viscosity, colour, food geometry and a physically plausible amount.",
+    "criterios_rechazo": [
+      "Chorro atraviesa comida",
+      "Salsa de ingrediente desconocido",
+      "Cambio de viscosidad"
+    ],
+    "alternativa": "VH03 con ingrediente sólido confirmado o VH24.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH08",
+    "version": "2.0.0",
+    "nombre": "Cuchara que levanta arroz",
+    "mecanismo": "textura y peso",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "arroz",
+        "roles": [
+          "arroz"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "utensilio",
+        "roles": [
+          "utensilio"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "La cuchara está parcialmente dentro de la capa de arroz, con una porción ya recogida.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "La cuchara está parcialmente dentro de la capa de arroz, con una porción ya recogida.",
+    "accion_principal": "Levantar una pequeña porción una sola vez, sin afirmar que revela socarrat no documentado.",
+    "estado_final": "Arroz sostenido por la cuchara y resto estable; ninguna pieza de marisco aparece o desaparece.",
+    "camara": "Seguimiento corto ascendente, foco en cuchara y borde del plato.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "The referenced spoon already contains a small portion of rice from the dish. Lift it gently in one short motion. Keep all visible seafood and garnish in their original positions. Follow the spoon with a small upward tilt. No invented crust, no new ingredients and no floating grains.",
+    "criterios_rechazo": [
+      "Socarrat inventado",
+      "Marisco desaparece",
+      "Granos suspendidos"
+    ],
+    "alternativa": "VH21 o metraje real del gesto.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH09",
+    "version": "2.0.0",
+    "nombre": "Leche entra en el café",
+    "mecanismo": "contraste de líquidos",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "cafe",
+        "roles": [
+          "cafe"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "jarra",
+        "roles": [
+          "jarra"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto",
+      "ingrediente"
+    ],
+    "elementos_necesarios": [
+      "liquido",
+      "manos"
+    ],
+    "apertura": "La leche confirmada ya cae desde la jarra hacia una taza real de café; se ve el punto de contacto.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "La leche confirmada ya cae desde la jarra hacia una taza real de café; se ve el punto de contacto.",
+    "accion_principal": "Un vertido corto crea una forma simple y termina; no exigir una figura compleja no referenciada.",
+    "estado_final": "Superficie coherente y cantidad plausible; taza y asa no cambian.",
+    "camara": "Plano de tres cuartos con microseguimiento; foco en el contacto de los líquidos.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "A short stream of the confirmed milk pours from the referenced jug into the coffee. Show the light liquid meeting the dark surface and forming a simple swirl, then end the pour. Keep cup, handle, rim and liquid volume consistent. Small camera follow, no elaborate latte-art figure.",
+    "criterios_rechazo": [
+      "Taza cambia de forma",
+      "Dibujo complejo aparece de golpe",
+      "Leche no confirmada"
+    ],
+    "alternativa": "VH04 para la bebida servida.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH10",
+    "version": "2.0.0",
+    "nombre": "La extracción empieza",
+    "mecanismo": "nacimiento del producto",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "extraccion",
+        "roles": [
+          "extraccion"
+        ],
+        "kinds": [
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [],
+    "apertura": "El café está a punto de salir en un clip real de la máquina del negocio.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "El café está a punto de salir en un clip real de la máquina del negocio.",
+    "accion_principal": "Recortar para que las primeras gotas o el flujo empiecen inmediatamente.",
+    "estado_final": "Flujo y taza siguen perteneciendo a la misma toma real.",
+    "camara": "Conservar cámara real; reencuadre moderado sin ocultar máquina o taza.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "bajo_con_metraje",
+    "prompt_movimiento_en": "EDIT ONLY: use the real extraction clip. Start just before the first visible drops, preserve continuity and the original machine. Do not synthesize or replace the extraction. Keep the useful action inside the opening shot.",
+    "criterios_rechazo": [
+      "Máquina inventada",
+      "Café o taza sustituidos",
+      "Demora inicial sin acción"
+    ],
+    "alternativa": "VH04 con taza referenciada; pedir clip si la máquina debe aparecer.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH11",
+    "version": "2.0.0",
+    "nombre": "El corte revela el interior",
+    "mecanismo": "revelación física",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "corte",
+        "roles": [
+          "corte"
+        ],
+        "kinds": [
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos",
+      "corte"
+    ],
+    "apertura": "El filo ya está en contacto con el alimento, en un vídeo real que permite ver el resultado.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "El filo ya está en contacto con el alimento, en un vídeo real que permite ver el resultado.",
+    "accion_principal": "Completar el tramo del corte que separa las partes y revela el interior.",
+    "estado_final": "Interior visible y pieza de origen reconocible, sin saltar a otro alimento.",
+    "camara": "Conservar eje de cámara del clip real y evitar un corte antes de la revelación.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "bajo_con_metraje",
+    "prompt_movimiento_en": "EDIT ONLY: use the real cutting footage. Begin with the blade already in contact and keep the actual separation visible. Preserve the same piece, its real interior and the original action. Do not regenerate the inside of the food.",
+    "criterios_rechazo": [
+      "Interior generado como prueba",
+      "Cambio de pieza",
+      "Revelación llega después del hook"
+    ],
+    "alternativa": "VH02 con porción documentada; VH24 si solo hay exterior.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH12",
+    "version": "2.0.0",
+    "nombre": "El pan se abre",
+    "mecanismo": "fractura y textura",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "pan",
+        "roles": [
+          "pan_abierto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "producto",
+        "roles": [
+          "producto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "Dos manos ya sujetan una hogaza con la apertura iniciada; la miga está documentada en otra referencia.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Dos manos ya sujetan una hogaza con la apertura iniciada; la miga está documentada en otra referencia.",
+    "accion_principal": "Separar las mitades un poco más en una sola acción y detenerse con la miga visible.",
+    "estado_final": "Dos mitades reconocibles, miga consistente, sin vapor o elasticidad añadidos.",
+    "camara": "Dolly-out corto para conservar ambas mitades en cuadro; foco en la separación.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "Two hands hold the referenced bread with the split already started. Pull the halves a small distance apart in one deliberate gesture, revealing only the documented crumb. A short pull-back keeps both halves visible. No invented steam, elastic dough or duplicated fingers.",
+    "criterios_rechazo": [
+      "Miga desconocida",
+      "Pan se estira como queso",
+      "Dedos duplicados"
+    ],
+    "alternativa": "Metraje real o VH24 del exterior.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH13",
+    "version": "2.0.0",
+    "nombre": "La porción de tarta sale",
+    "mecanismo": "oculto a visible",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "porcion",
+        "roles": [
+          "porcion_visible"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "producto",
+        "roles": [
+          "producto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "utensilio",
+        "roles": [
+          "utensilio"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "La espátula ya está debajo de una porción separada; todas sus capas están referenciadas.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "La espátula ya está debajo de una porción separada; todas sus capas están referenciadas.",
+    "accion_principal": "Desplazar la porción unos centímetros fuera del conjunto sin cortar ni deformar capas.",
+    "estado_final": "Porción apoyada en espátula con capas estables y hueco consistente en la tarta.",
+    "camara": "Slider lateral acompasado con la salida; foco en las capas documentadas.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "The spatula is already under the separated, documented cake slice. Move the slice a short distance outward while keeping every layer rigid and consistent. Follow with a small lateral slider move. The remaining cake keeps its shape and the gap stays consistent.",
+    "criterios_rechazo": [
+      "Relleno nuevo",
+      "Porción flotante",
+      "Hueco se cierra solo"
+    ],
+    "alternativa": "VH24 si solo hay foto exterior; solicitar una referencia cortada.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH14",
+    "version": "2.0.0",
+    "nombre": "La bola de helado se deposita",
+    "mecanismo": "apoyo y liberación",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "helado",
+        "roles": [
+          "helado"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "utensilio",
+        "roles": [
+          "utensilio"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "recipiente",
+        "roles": [
+          "recipiente"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "Una bola ya formada está sobre la cuchara, muy cerca de la tarrina o recipiente real.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Una bola ya formada está sobre la cuchara, muy cerca de la tarrina o recipiente real.",
+    "accion_principal": "Depositar la bola y retirar el utensilio en un gesto corto.",
+    "estado_final": "Bola apoyada con deformación pequeña y plausible; nada suspendido.",
+    "camara": "Tilt descendente corto siguiendo el contacto; foco en base de la bola.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "The scoop already holds one formed ball of the referenced ice cream just above the real container. Lower it, release it onto the surface and withdraw the utensil. Follow with a small downward tilt. Preserve flavour colour and texture; no floating ball or instant melting.",
+    "criterios_rechazo": [
+      "Bola flota",
+      "Helado líquido de repente",
+      "Utensilio se fusiona"
+    ],
+    "alternativa": "VH24 de textura; metraje real para el servicio completo.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH15",
+    "version": "2.0.0",
+    "nombre": "La tapa deja ver el plato",
+    "mecanismo": "revelación por oclusión",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "cerrado",
+        "roles": [
+          "producto_con_tapa"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "abierto",
+        "roles": [
+          "producto_sin_tapa"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos",
+      "tapa"
+    ],
+    "apertura": "La tapa ya está ligeramente levantada y el producto documentado asoma por el hueco.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "La tapa ya está ligeramente levantada y el producto documentado asoma por el hueco.",
+    "accion_principal": "Elevar la tapa lo justo para descubrir el plato; sin vapor añadido por defecto.",
+    "estado_final": "Producto y recipiente coinciden con la referencia abierta.",
+    "camara": "Cámara a tres cuartos con pequeño dolly-in que se detiene al revelar.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "The lid is already partly lifted above the referenced container. Raise it just enough to reveal the documented dish underneath. Make a short dolly-in that settles at the reveal. Preserve lid, container and food exactly. Do not invent steam or hidden ingredients.",
+    "criterios_rechazo": [
+      "Contenido no referenciado",
+      "Recipiente cambia",
+      "Tapa atraviesa comida"
+    ],
+    "alternativa": "VH01 sin tapa si no hay ambos estados.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH16",
+    "version": "2.0.0",
+    "nombre": "La llama responde al gesto",
+    "mecanismo": "cambio luminoso real",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "fuego",
+        "roles": [
+          "fuego"
+        ],
+        "kinds": [
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "fuego"
+    ],
+    "apertura": "La acción del cocinero y la reacción del fuego están a punto de coincidir en un clip real.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "La acción del cocinero y la reacción del fuego están a punto de coincidir en un clip real.",
+    "accion_principal": "Comenzar justo antes del aumento real de llama y conservar su causa.",
+    "estado_final": "La llama vuelve al nivel que muestra ese clip, sin amplificarla artificialmente.",
+    "camara": "Conservar el movimiento real que acompaña la acción; no añadir un giro imposible.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "bajo_con_metraje",
+    "prompt_movimiento_en": "EDIT ONLY: use the actual cooking clip. Keep the real cause and response of the flame in the same opening shot. Preserve the original scale of the fire and the real equipment. Do not synthesize, enlarge or extend the flame.",
+    "criterios_rechazo": [
+      "Fuego prohibido por el perfil",
+      "Llama generada sin causa",
+      "Cocina ajena"
+    ],
+    "alternativa": "VH01; no fabricar un horno para obtener impacto.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH17",
+    "version": "2.0.0",
+    "nombre": "La espátula gira la pieza",
+    "mecanismo": "cambio de cara real",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "volteo",
+        "roles": [
+          "volteo"
+        ],
+        "kinds": [
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "La espátula ya ha tomado contacto con el alimento en el clip real.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "La espátula ya ha tomado contacto con el alimento en el clip real.",
+    "accion_principal": "Mantener el tramo donde gira y se apoya la pieza.",
+    "estado_final": "La cara que aparece es la real y el alimento aterriza en la misma superficie.",
+    "camara": "Seguir cámara del metraje; sin un corte que esconda el aterrizaje.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "bajo_con_metraje",
+    "prompt_movimiento_en": "EDIT ONLY: use the actual turning action, from established spatula contact to the landing. Preserve both real surfaces of the food and the true cooking setup. Do not regenerate the hidden side or replace the landing.",
+    "criterios_rechazo": [
+      "Cara oculta inventada",
+      "Comida atraviesa plancha",
+      "Aterrizaje fuera de plano"
+    ],
+    "alternativa": "VH24 del acabado si falta vídeo.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH18",
+    "version": "2.0.0",
+    "nombre": "La masa se estira una vez",
+    "mecanismo": "deformación con causa",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "masa",
+        "roles": [
+          "masa_cruda"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "La masa cruda está sujeta con el agarre de oficio y la tensión ya es visible.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "La masa cruda está sujeta con el agarre de oficio y la tensión ya es visible.",
+    "accion_principal": "Un estiramiento corto cambia su forma y termina; no añadir lanzar, girar y amasar a la vez.",
+    "estado_final": "Masa más extendida sobre la misma superficie, sin agujeros o ingredientes nuevos.",
+    "camara": "Seguimiento lateral breve de la mano dominante; foco en la zona de tensión.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "The hands already hold the referenced raw dough with a plausible working grip. Perform one short controlled stretch, then settle the dough onto the same surface. Follow the dominant hand with a small lateral move. Preserve the dough amount and texture; no toss, spin or extra kneading.",
+    "criterios_rechazo": [
+      "Masa inferida desde pizza cocinada",
+      "Dedos sin función",
+      "Varios gestos en una toma"
+    ],
+    "alternativa": "Solicitar metraje real de masa; VH01 si solo existe plato cocinado.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH19",
+    "version": "2.0.0",
+    "nombre": "Un ingrediente rueda y frena",
+    "mecanismo": "trayectoria y parada",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "ingrediente",
+        "roles": [
+          "ingrediente_redondo"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "superficie",
+        "roles": [
+          "mesa"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "restaurant",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto",
+      "ingrediente"
+    ],
+    "elementos_necesarios": [],
+    "apertura": "Un ingrediente redondo confirmado ya rueda sobre una superficie real, cerca de su destino.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Un ingrediente redondo confirmado ya rueda sobre una superficie real, cerca de su destino.",
+    "accion_principal": "Recorrer una distancia corta y perder velocidad hasta detenerse.",
+    "estado_final": "Ingrediente apoyado y estable, sin choque espectacular ni transformación.",
+    "camara": "Travelling lateral corto a la altura de la superficie, sin revelar entorno no documentado.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "medio",
+    "prompt_movimiento_en": "One confirmed round ingredient is already rolling a short distance on the referenced surface. Follow it laterally at surface level as it slows naturally and comes to rest. Preserve its size, texture and shape. No bouncing, floating, transformation or additional objects.",
+    "criterios_rechazo": [
+      "Ingrediente rueda contra gravedad",
+      "Escala cambia",
+      "No pertenece al producto"
+    ],
+    "alternativa": "VH03 si hay caída compatible o VH24.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH20",
+    "version": "2.0.0",
+    "nombre": "El foco descubre el héroe",
+    "mecanismo": "revelación óptica",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "capas",
+        "roles": [
+          "capas_foco"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [],
+    "apertura": "Un elemento real cercano ocupa primer término y el producto ya se reconoce parcialmente al fondo.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Un elemento real cercano ocupa primer término y el producto ya se reconoce parcialmente al fondo.",
+    "accion_principal": "Un único cambio de foco lleva la atención desde ese elemento al plato.",
+    "estado_final": "Producto nítido y primer término desenfocado; ninguna cosa cambia de sitio.",
+    "camara": "Rack focus único con cámara de recorrido mínimo; no combinar órbita ni zoom de efecto.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "bajo_medio",
+    "prompt_movimiento_en": "Both foreground and hero dish are present in the reference. Perform one decisive rack focus from the near element to the hero dish, with only minimal camera drift. Objects remain stationary and unchanged. End with the dish sharp and the foreground optically soft.",
+    "criterios_rechazo": [
+      "Desenfoque digital tapa todo",
+      "No hay profundidad real en referencia",
+      "Cambio de producto al enfocar"
+    ],
+    "alternativa": "VH21 si solo existe una capa legible.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH21",
+    "version": "2.0.0",
+    "nombre": "Entrada lateral al plato",
+    "mecanismo": "paralaje con contexto",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "contexto",
+        "roles": [
+          "producto_contexto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [],
+    "apertura": "El producto está visible desde el inicio junto a referencias de mesa que permiten leer profundidad.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "El producto está visible desde el inicio junto a referencias de mesa que permiten leer profundidad.",
+    "accion_principal": "Un desplazamiento lateral breve cambia la relación entre primer término y plato.",
+    "estado_final": "El plato sigue reconocible y no se han inventado lados o fondos nuevos.",
+    "camara": "Slider lateral de recorrido corto, a altura de mesa; termina sobre un detalle visible, sin atravesar comida blanda.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "bajo_medio",
+    "prompt_movimiento_en": "The dish is already clearly visible in its referenced table setting. Make one short lateral slider move at table height, creating restrained parallax with existing foreground objects. End on a documented detail. Preserve geometry and do not reveal unreferenced parts of the room or travel across soft food.",
+    "criterios_rechazo": [
+      "Se convierte en zoom digital",
+      "Mesa o plato se deforman",
+      "Aparece cocina fuera de referencia"
+    ],
+    "alternativa": "Reencuadre de metraje real; no prolongar una foto inmóvil sin motivo.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH22",
+    "version": "2.0.0",
+    "nombre": "Un objeto sale y revela",
+    "mecanismo": "oclusor motivado",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "oclusor",
+        "roles": [
+          "oclusor"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "producto",
+        "roles": [
+          "producto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "Un objeto real y autorizado tapa parte del producto, que ya asoma en el encuadre.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Un objeto real y autorizado tapa parte del producto, que ya asoma en el encuadre.",
+    "accion_principal": "Una mano aparta el oclusor en una dirección y deja ver el plato.",
+    "estado_final": "El oclusor sale; el producto detrás coincide con su referencia completa.",
+    "camara": "Cámara con seguimiento leve del gesto que se detiene sobre el plato; sin transición añadida.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "medio_alto",
+    "prompt_movimiento_en": "A referenced foreground object partly obscures the documented dish. One hand moves the object out of the way in a single direction, revealing the same dish behind it. Make a slight motivated camera follow and settle on the food. No morphing or artificial transition.",
+    "criterios_rechazo": [
+      "Objeto no anclado",
+      "Plato cambia durante oclusión",
+      "Mano sin causa"
+    ],
+    "alternativa": "VH24 para revelar por encuadre sin objetos extra.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH23",
+    "version": "2.0.0",
+    "nombre": "La mesa recibe el último plato",
+    "mecanismo": "acumulación en un gesto",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "catalogo",
+        "roles": [
+          "producto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "catalogue",
+        "min_count": 2,
+        "distinct_subjects": true,
+        "provenance": "real"
+      },
+      {
+        "slot": "mesa",
+        "roles": [
+          "mesa"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "restaurant",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto",
+      "seleccion_carta"
+    ],
+    "elementos_necesarios": [
+      "manos"
+    ],
+    "apertura": "Una mesa referenciada ya contiene parte del pedido; un último plato confirmado está entrando.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Una mesa referenciada ya contiene parte del pedido; un último plato confirmado está entrando.",
+    "accion_principal": "Una mano coloca solo ese último plato y completa una composición realista.",
+    "estado_final": "Todos los productos conservan identidad, escala y espacio; la mesa no se llena por apariciones.",
+    "camara": "Dolly-out corto acompaña la llegada y muestra el conjunto documentado.",
+    "duracion_toma_s": 1.4,
+    "riesgo_generativo": "alto",
+    "prompt_movimiento_en": "The referenced table already holds the confirmed dishes. One hand brings in only the final documented plate and sets it down. A short pull-back reveals the completed arrangement. Keep every dish, plate count and scale consistent. Nothing appears by itself or transforms between dishes.",
+    "criterios_rechazo": [
+      "Composición no cabe en mesa",
+      "Platos aparecen solos",
+      "Pack o raciones inventados"
+    ],
+    "alternativa": "VH01 con un solo plato; no fusionar platos para ampliar catálogo.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  },
+  {
+    "id": "VH24",
+    "version": "2.0.0",
+    "nombre": "De textura al plato",
+    "mecanismo": "revelación de escala",
+    "objetivos": [
+      "presentar_producto",
+      "visitas",
+      "difusion",
+      "confianza"
+    ],
+    "entradas": [
+      "plato",
+      "novedad",
+      "referencia"
+    ],
+    "requisitos_activos": [
+      {
+        "slot": "detalle",
+        "roles": [
+          "detalle"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      },
+      {
+        "slot": "producto",
+        "roles": [
+          "producto"
+        ],
+        "kinds": [
+          "image",
+          "video"
+        ],
+        "scope": "target",
+        "min_count": 1,
+        "distinct_subjects": false,
+        "provenance": "real"
+      }
+    ],
+    "requisitos_hechos": [
+      "nombre_producto"
+    ],
+    "elementos_necesarios": [],
+    "apertura": "Una textura real visible ocupa parte del cuadro, con una pista suficiente para reconocer comida.",
+    "promesa": "La acción visual se entiende sin voz, rótulo ni explicación. Una recreación anclada no se presenta como registro documental.",
+    "primer_fotograma": "Una textura real visible ocupa parte del cuadro, con una pista suficiente para reconocer comida.",
+    "accion_principal": "La cámara se retira brevemente y revela el plato completo documentado.",
+    "estado_final": "El espectador entiende a qué plato pertenece la textura antes de pasar a la segunda toma.",
+    "camara": "Dolly-out corto desde el detalle hacia el encuadre general ya disponible; no órbita ni macro viajando por la superficie.",
+    "duracion_toma_s": 1.2,
+    "riesgo_generativo": "bajo_medio",
+    "prompt_movimiento_en": "Start close to the documented food texture, with a recognisable food cue still visible. Make one short pull-back to reveal the same complete dish shown in the wider reference. Preserve texture, plate shape and setting. Do not orbit, travel across the food surface or reveal an unknown interior.",
+    "criterios_rechazo": [
+      "Textura irreconocible sin recompensa",
+      "La retirada descubre otro plato",
+      "Intro lenta sin cambio legible"
+    ],
+    "alternativa": "VH21 o VH01 si el detalle carece de calidad suficiente.",
+    "rotulos_candidatos": [],
+    "tipo_promesa": "publicitaria_generada_o_metraje_real",
+    "estado_evidencia": "hipotesis_visual_sin_ensayo_de_retencion",
+    "fuentes": [
+      "LOCAL-REGLA-CERO",
+      "LOCAL-MOTOR",
+      "WEB-RUNWAY-I2V",
+      "WEB-TIKTOK-FB"
+    ],
+    "coste": "Pendiente de cotización del Reel completo; no generar 24 variantes.",
+    "caducidad": "Revisar anclas, perfil y capacidad del proveedor antes de producir."
+  }
+]
