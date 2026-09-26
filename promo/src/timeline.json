@@ -1,0 +1,82 @@
+{
+  "_nota": "Rejilla musical de la promo v3. La leen src/timing.ts (animación) y scripts/banda_sonora.py (mezcla). Tiempos en «tiempos» (negras) del pulso de la banda sonora.",
+  "bpm": 132.983,
+  "t0": 0.01,
+  "fps": 30,
+  "cuts": {
+    "Portada": 0,
+    "Problema": 8,
+    "Marca": 20,
+    "CasoIntro": 26,
+    "Fotos": 32,
+    "Crea": 40,
+    "Aprueba": 48,
+    "Carrusel": 56,
+    "Reel": 64,
+    "Resultado": 96,
+    "Planes": 106,
+    "Cierre": 112
+  },
+  "final": 120,
+  "tail_s": 2.0,
+  "reel": {
+    "file": "video/reel-v6.mp4",
+    "screen_on_beat": 67,
+    "start_from_s": 0.2333,
+    "downbeat_s": 0.681,
+    "downbeat_beat": 68,
+    "bpm": 132.983
+  },
+  "music": {
+    "file": "audio/loyalty-freak-music-cant-stop-my-feet.mp3",
+    "src_bpm": 129.994,
+    "src_t0": 0.0247,
+    "segments": [
+      {
+        "src_bar": 0,
+        "bars": 16,
+        "beat": 0,
+        "nota": "introducción y groove hasta la entrada del reel"
+      },
+      {
+        "src_bar": 24,
+        "bars": 1,
+        "beat": 64,
+        "fade_out_s": 0.045,
+        "nota": "corte sin bajo con barrido: el móvil entra y la cámara se mete en la pantalla"
+      },
+      {
+        "src_bar": 24,
+        "bars": 1,
+        "beat": 88,
+        "hp": 250,
+        "env_in": 1.4,
+        "gain": 0.6,
+        "nota": "el mismo barrido, bajo y filtrado, bajo la cartela del reel mientras la cámara sale"
+      },
+      {
+        "src_bar": 25,
+        "bars": 1,
+        "beat": 92,
+        "hp": 110,
+        "env_in": 1.6,
+        "gain": 0.85,
+        "nota": "remontada bajo el final del reel, entra filtrada",
+        "env_floor": 0.5
+      },
+      {
+        "src_bar": 26,
+        "bars": 6,
+        "beat": 96,
+        "nota": "vuelve el groove completo en el resultado"
+      },
+      {
+        "src_bar": 92,
+        "bars": 2,
+        "beat": 120,
+        "tail": true,
+        "nota": "acorde final de la canción, se apaga en la cola"
+      }
+    ]
+  }
+}

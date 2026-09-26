@@ -4,7 +4,10 @@
   "type": "module",
   "scripts": {
     "studio": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts SocietyPromo out/society-promo.mp4",
+    "audio": "python3 scripts/banda_sonora.py",
+    "render": "remotion render src/index.ts SocietyPromo out/society-promo-9x16-muda.mp4 --muted --crf=19 --x264-preset=slow",
+    "render:wide": "remotion render src/index.ts SocietyPromoWide out/society-promo-16x9-muda.mp4 --muted --crf=18 --x264-preset=slow",
+    "export": "python3 scripts/exportar.py",
     "still": "remotion still src/index.ts SocietyPromo out/frame.png"
   },
   "dependencies": {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Img, OffthreadVideo, staticFile} from 'remotion';
+import {Img, OffthreadVideo, Sequence, staticFile} from 'remotion';
 import {C, FONT} from './theme';
 
 // ---------------------------------------------------------------------------
@@ -72,8 +72,11 @@ export const PhotoCard: React.FC<{
   angle?: number;
   border?: number;
   dark?: boolean;
+  // Recorte dentro del marco: ampliación y punto de anclaje (p. ej. para dejar fuera a un comensal).
+  zoom?: number;
+  origin?: string;
   children?: React.ReactNode;
-}> = ({src, w, h, caption, angle = 0, border, dark = false, children}) => {
+}> = ({src, w, h, caption, angle = 0, border, dark = false, zoom = 1, origin = '50% 50%', children}) => {
   const b = border ?? Math.round(w * 0.045);
   const foot = caption ? Math.round(w * 0.13) : b;
   return (
@@ -87,7 +90,9 @@ export const PhotoCard: React.FC<{
         borderRadius: 6,
       }}
     >
-      <Img src={staticFile(`caso/${src}`)} style={{position: 'absolute', left: b, top: b, width: w, height: h, objectFit: 'cover', borderRadius: 2}} />
+      <div style={{position: 'absolute', left: b, top: b, width: w, height: h, overflow: 'hidden', borderRadius: 2}}>
+        <Img src={staticFile(`caso/${src}`)} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${zoom})`, transformOrigin: origin}} />
+      </div>
       {caption && (
         <div
           style={{
@@ -194,7 +199,11 @@ export const Phone3D: React.FC<{
   startFrom?: number;
   volume?: number;
   angle?: number;
-}> = ({video, startFrom = 0, volume = 1, angle = 0}) => {
+  // Fotograma local en que se enciende la pantalla (antes, cristal negro con reflejo).
+  onAt?: number;
+  // 0–1: cuánto se ven la isla y el brillo; se apagan cuando la cámara está dentro de la pantalla.
+  chrome?: number;
+}> = ({video, startFrom = 0, volume = 1, angle = 0, onAt = 0, chrome = 1}) => {
   const W = SCREEN.w + BEZEL * 2;
   const H = SCREEN.h + BEZEL * 2;
   const R = 150;
@@ -216,17 +225,21 @@ export const Phone3D: React.FC<{
         style={{
           position: 'absolute',
           inset: 0,
-          borderRadius: R,
+          borderRadius: R * (0.3 + 0.7 * chrome),
           background: C.tinta,
           transform: `translateZ(${DEPTH / 2}px)`,
           backfaceVisibility: 'hidden',
           boxShadow: 'inset 0 0 0 4px #3a3a3a',
         }}
       >
-        <div style={{position: 'absolute', left: BEZEL, top: BEZEL, width: SCREEN.w, height: SCREEN.h, borderRadius: R - BEZEL, overflow: 'hidden', background: '#000'}}>
-          <OffthreadVideo src={staticFile(video)} startFrom={startFrom} volume={volume} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
-          <div style={{position: 'absolute', top: 36, left: '50%', width: 300, height: 88, marginLeft: -150, borderRadius: 60, background: '#000'}} />
-          <Sheen angle={angle} />
+        <div style={{position: 'absolute', left: BEZEL, top: BEZEL, width: SCREEN.w, height: SCREEN.h, borderRadius: (R - BEZEL) * chrome, overflow: 'hidden', background: '#000'}}>
+          <Sequence from={onAt} layout="none">
+            <OffthreadVideo src={staticFile(video)} startFrom={startFrom} volume={volume} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+          </Sequence>
+          <div style={{position: 'absolute', top: 36, left: '50%', width: 300, height: 88, marginLeft: -150, borderRadius: 60, background: '#000', opacity: chrome}} />
+          <div style={{position: 'absolute', inset: 0, opacity: chrome}}>
+            <Sheen angle={angle} />
+          </div>
         </div>
       </div>
     </div>
