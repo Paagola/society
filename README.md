@@ -287,6 +287,8 @@ Propuesta alineada con el calendario del [informe de viabilidad §11.2](informes
 | 2026-09-15 | Hasta enero, el desarrollo se centra en contenido para redes | Sección 4 |
 | 2026-09-15 | Society tendrá una cuenta propia en redes con contenido generado por la app | Sección 4.1 |
 | 2026-09-15 | Tres planes acumulativos: Google → + redes (historias, posts y otros sitios) → + reels | Sección 5 |
+| 2026-09-27 | **Logotipo oficial**: «Society» en letras recortadas de papeles distintos + «tu agencia con IA», sobre tinta (la firma de «La pizza que nadie vio») | [Logotipos](society-identidad-editorial/logos/LEEME.md) · `promo/src/marca/Logo.tsx` |
+| 2026-09-27 | **Vídeos propios en papel recortado y stop-motion**, cortados de forma automática y montados en Remotion, sin generar vídeo | [Skill papel-stopmotion](skills/papel-stopmotion/SKILL.md) |
 | 2026-09-25 | **Una sola ruta de vídeo**: Seedance 2.5 a 720p + reescalado ByteDance pro; Kling 3.0 deja de usarse | Sección 9 |
 | 2026-09-15 | ~~**Modelo de vídeo por tipo de acción**: Kling 3.0 en planos simples y Seedance 2.5 en manos, cubiertos y cortes~~ (obsoleto desde el 25/09) | Sección 9 y [aprendizajes del reel](base-conocimiento-torre-de-vega/08-reel-chuleton-2026-09-15/aprendizajes-reel-chuleton.md) |
 | 2026-09-14 | Una sola tecnología de interfaz (React + TypeScript o Angular), no ambas | [Viabilidad §7.1](informes/Society_diseno_y_viabilidad.md) |

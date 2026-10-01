@@ -1,5 +1,18 @@
 # Exploración de logotipos e iconos de app
 
+## Logotipo oficial (27/09/2026)
+
+![Logotipo oficial](society-logo-oficial.png)
+
+Víctor lo fija como logotipo oficial de Society. Es la firma del final de «La pizza que nadie vio»: «Society» con cada letra recortada de un papel distinto, como una nota de recortes, y debajo «tu agencia con IA» en la cursiva, todo sobre tinta.
+
+- Las letras son S cobalto en Playfair sobre papel crudo, o sobre foto, c sobre tinta, i sobre mostaza, e sobre chapa, t sobre cobalto e y sobre blanco.
+- Cada recorte tiene el borde rasgado con fibra clara y un giro propio.
+- **Fuente única:** [`promo/src/marca/Logo.tsx`](../../promo/src/marca/Logo.tsx), el componente `LogoSociety`. Lo usan la firma del anuncio de la pizza y los vídeos de papel.
+- **Imagen fija:** `society-logo-oficial.png` (1080 × 1080). Se regenera con `npm run logo` desde `promo/`.
+
+Todo lo que sigue es la exploración anterior, que queda como histórico.
+
 Generado el 25/09/2026 con Higgsfield, modelo `gpt_image_2_5` (calidad alta, 2K), 2,75 cr por imagen y 11 cr en total. Siguen la paleta y la tipografía de la [guía de identidad](../README.md): papel, cobalto, mostaza al 10 % y tinta; condensada negra + serif cursiva; textura de imprenta.
 
 Son imágenes generadas y sirven de **referencia de estilo, no de piezas finales**. El logotipo que se elija hay que redibujarlo en vector.

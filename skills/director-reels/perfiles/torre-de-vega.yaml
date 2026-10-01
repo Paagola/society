@@ -26,16 +26,15 @@ fuentes:
 formato:
   aspect_ratio: "9:16"
   salida: "1080x1920"
-  video_resolucion_min: 1080p        # innegociable: nunca 720p ni reescalado
+  video_resolucion: 480p             # Víctor, 01/10/2026: todos los vídeos a 480p y sin reescalado
   imagen_resolucion: 2k              # regla 12 de imagen: 2K, nunca 4K
   max_referencias_imagen: 4          # la atención se diluye pasadas 3-4
 
 modelos:
-  simple: [seedance_2_5]             # 2026-09-25: Kling 3.0 obsoleto; Seedance 2.5 720p + ByteDance pro
+  simple: [seedance_2_5]             # Kling 3.0 obsoleto (25/09); Seedance 2.5 a 480p sin reescalado (01/10/2026)
   compleja: [seedance_2_5]           # manos, cubiertos, cortes, líquidos
   prohibidos: [minimax_hailuo]       # regla 15 de vídeo
   sin_end_image: [veo3_1]            # regla 16 de vídeo
-  kling_duracion_por_defecto: 3      # regla 2 de vídeo
   preset_conocido:                   # regla 7 de vídeo
     nombre: "IN THE DARK"
     declined_preset_id: "24bae836-2c4a-48e0-89b6-49fcc0b21612"

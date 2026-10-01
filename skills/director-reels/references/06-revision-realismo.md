@@ -17,22 +17,25 @@ Orden: keyframes (barato de corregir) → clips (caro) → montaje (lo revisa la
 ## 1. Revisión de keyframes
 
 Pon **cada keyframe junto a sus fotos reales** y recorre la lista. Un fallo aquí se arregla con «un
-solo cambio»; en vídeo costaría el clip entero.
+solo cambio»; en vídeo costaría el clip entero. Para cada ancla del plano, repasa su ficha campo a
+campo (`01` §1.1): forma y medida, color, acabado y detalle distintivo.
 
 | Defecto | Cómo verlo | Regla |
 |---|---|---|
 | Objeto sin ancla (mueble, lámpara, planta, decoración) | Compara con la foto real de esa zona | 1 |
 | Ancla cambiada (talla de la silla, relieve del plato, forma de la copa) | Superposición con la foto real | 1 |
+| Color o acabado del ancla cambiado (blanco roto que sale blanco puro, porcelana mate que sale brillante, cristal liso que sale tallado) | Campos de color y acabado de la ficha, junto a la foto real | 1 |
 | Logo, emblema o texto en mantel, plato, copa o botella | Zoom al 100 % en telas y etiquetas | 24 |
 | Manchas, migas, gotas | Hoja de contactos de todas las tomas a la vez: las manchas destacan, la trama no | 25 |
 | Algo debajo del plato | Borde inferior del plato | 26 |
 | Plato comido, copa vacía | — | 15 |
 | Blancos amarillentos | Manteles, platos, visillos | 9ter |
 | Aspecto HDR de inmobiliaria | Todo igual de nítido y luminoso, nada cae en sombra | 9quinquies |
-| Escala rara (copas enormes, platos pequeños) | Relación con la mano o la silla | — |
+| Escala rara (copas enormes, platos pequeños, objeto agrandado para llenar un plano cerrado) | Relación con la mano o la silla; medida de la ficha | — |
 | Manos: dedos, uñas, joyería | Recorte a tamaño real | 6, 13 |
 | Mano no pedida | P3 del Reel 09 | — |
 | Ángulo repetido con otro keyframe | Todos los keyframes juntos | variedad de ángulos |
+| Luz o grade distinto al del resto de keyframes de la pieza (sin paso motivado) | Todos los keyframes juntos en la hoja de contactos | un mundo visual (`directoria/references/hosteleria/08` §7) |
 | La acción no está empezada | ¿Se puede confundir con una foto fija? | 12 |
 | Sin sitio para el rótulo | ¿Queda limpio el tercio o la banda prevista? | — |
 

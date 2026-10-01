@@ -1,0 +1,76 @@
+{
+  "clip": "hook-720p.mp4",
+  "formato": {
+    "ancho": 720,
+    "alto": 1280,
+    "fps": 24.0,
+    "duracion_s": 5.042,
+    "codec": "h264",
+    "audio": true
+  },
+  "camara": {
+    "desplazamiento_imagen_px": [
+      13.4,
+      -15.9
+    ],
+    "escala_total_pct": 9.93,
+    "energia_por_medio_segundo": [
+      13.66,
+      6.11,
+      4.37,
+      7.87,
+      4.95,
+      3.81,
+      20.11,
+      7.69,
+      4.94
+    ],
+    "temblor_px": 2.738,
+    "quieta": false,
+    "nota": "px medidos a 270 de ancho; desplazamiento negativo en x = la imagen va a la izquierda (la cámara a la derecha); escala positiva = acercamiento"
+  },
+  "actividad": {
+    "diferencia_media_inicio": 14.64,
+    "diferencia_media_final": 5.58,
+    "area_que_cambia": 0.326,
+    "rejilla_3x3": [
+      [
+        0.46,
+        0.87,
+        0.71
+      ],
+      [
+        0.57,
+        1.0,
+        0.56
+      ],
+      [
+        0.23,
+        0.23,
+        0.19
+      ]
+    ]
+  },
+  "deriva": {
+    "inicio": {
+      "mae": 25.77,
+      "correlacion": 0.75
+    }
+  },
+  "hoja_contactos": "revision\\hook-720p_hoja.jpg",
+  "avisos": [
+    "resolución 720×1280 ≠ 1080×1920: reescalar/recortar en montaje y comprobar que no es un 720p",
+    "por debajo de 1080p reales: no cumple la regla de resolución",
+    "temblor 2.74 px: movimiento irregular, lee como handheld (regla 11)",
+    "el primer fotograma se aparta del keyframe: ¿otro encuadre, otro grade o recorte? (MAE 25.8, correlación 0.75)"
+  ],
+  "umbrales": {
+    "temblor_px": 0.35,
+    "arranque_mad": 1.5,
+    "congelada_area": 0.05,
+    "camara_quieta_px": 0.25,
+    "en_marcha_px": 0.25,
+    "deriva_mae": 18.0,
+    "deriva_ncc": 0.85
+  }
+}

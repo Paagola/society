@@ -80,7 +80,8 @@ Si falta alguno, pregunta en un solo mensaje.
 ### 2 · Inventario de verdad
 
 Rellena `verdad:` antes de pensar ideas. Recorre las carpetas de fotos y metraje del cliente y registra:
-anclas por objeto (mantel, vajilla, silla, lámpara, copa…) con sus rutas, metraje real con su contenido y
+anclas por objeto (mantel, vajilla, silla, lámpara, copa…) con sus rutas y su ficha fija (forma y medida,
+color, acabado, detalle), metraje real con su contenido y
 sus usos previos, e invenciones recurrentes del modelo. Comprueba que cada ruta existe.
 → `references/01-escalera-de-realidad.md` §1
 

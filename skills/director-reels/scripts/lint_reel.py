@@ -72,8 +72,9 @@ def duracion(plano) -> float | None:
 FUEGO = re.compile(r"\b(fuego|brasa|brasas|llama|llamas|humo|fire|flame|flames|embers|smoke)\b", re.I)
 PROHIBIDAS_SIEMPRE = ["8k", "hyperrealistic", "hyper-realistic", "masterpiece", "trending on"]
 NEGADORES = ("no", "not", "never", "without", "nor")
-BLOQUES_VIDEO = ["PRESERVE", "MOTION", "CAMERA", "FILM GRADE", "NEGATIVE"]
-CODA = "photographic realism, no text."
+# Anatomía del prompt de vídeo (director/references/08 §4, 01/10/2026)
+BLOQUES_VIDEO = ["CREATIVE CONCEPT", "VISUAL IDENTITY", "REFERENCES", "SEQUENCE",
+                 "TRANSITIONS", "CAMERA", "SOUND", "QUALITY CONTROL"]
 CAMPOS_IMAGEN = ["subject_identity", "realism", "environment", "lighting", "camera",
                  "composition", "imperfections", "palette", "mood", "negatives"]
 
@@ -88,8 +89,8 @@ def termino_no_negado(texto: str, termino: str) -> bool:
     return False
 
 
-def bloque_negativo(prompt: str) -> str:
-    m = re.search(r"NEGATIVE\s*:?(.*)", prompt, re.S)
+def bloque_control(prompt: str) -> str:
+    m = re.search(r"QUALITY CONTROL\s*:?(.*)", prompt, re.S)
     return m.group(1) if m else ""
 
 
@@ -104,8 +105,6 @@ def comprobar_estructura(plan, inf: Informe):
     for campo in ("pieza", "objetivo", "motivo_para_reenviar", "reel_de_referencia", "estilo_de_luz", "cta"):
         if not str(brief.get(campo) or "").strip():
             inf.e("E02", f"brief.{campo}", "campo vacío: pregunta al cliente antes de seguir")
-    if not brief.get("presupuesto_creditos"):
-        inf.w("W16", "brief.presupuesto_creditos", "sin presupuesto: no se puede controlar el gasto")
 
 
 def comprobar_rutas(plan, raiz: Path | None, inf: Informe):
@@ -254,8 +253,6 @@ def comprobar_generaciones(plan, perfil, inf: Informe):
     neg_obl = perfil.get("negativos_obligatorios") or {}
     neg_cond = perfil.get("negativos_condicionales") or {}
     planos = {p.get("id"): p for p in lista(plan.get("planos"))}
-    presupuesto = (plan.get("brief") or {}).get("presupuesto_creditos") or 0
-    total = 0.0
 
     for g in lista(plan.get("generaciones")):
         gid = g.get("id")
@@ -263,7 +260,6 @@ def comprobar_generaciones(plan, perfil, inf: Informe):
         modelo = str(g.get("modelo") or "")
         params = g.get("params") or {}
         prompt = str(g.get("prompt") or "")
-        total += float(g.get("coste_est_creditos") or 0)
         etiquetas = set()
         for pid in lista(g.get("planos")):
             etiquetas |= set(lista((planos.get(pid) or {}).get("contiene")))
@@ -280,38 +276,30 @@ def comprobar_generaciones(plan, perfil, inf: Informe):
         if tipo == "video":
             if str(params.get("aspect_ratio")) != fmt.get("aspect_ratio", "9:16"):
                 inf.e("E20", gid, f"aspect_ratio «{params.get('aspect_ratio')}»: el vídeo no lo deduce de la imagen")
-            minimo = fmt.get("video_resolucion_min", "1080p")
-            if modelo.startswith("kling"):
-                if str(params.get("mode")) not in ("pro", "4k"):
-                    inf.e("E21", gid, f"Kling en modo «{params.get('mode')}»: 1080p exige pro (o 4k)")
-                dur_def = modelos_cfg.get("kling_duracion_por_defecto")
-                if dur_def and params.get("duration") not in (None, dur_def) and not g.get("justificacion_duracion"):
-                    inf.w("W04", gid, f"Kling con duration {params.get('duration')} (por defecto {dur_def}, regla 2)")
-            elif str(params.get("resolution")) != minimo:
-                inf.e("E21", gid, f"resolución «{params.get('resolution')}»: mínimo {minimo}")
+            resolucion = fmt.get("video_resolucion", "480p")
+            if str(params.get("resolution")) != resolucion:
+                inf.e("E21", gid, f"resolución «{params.get('resolution')}»: la ruta vigente es {resolucion}")
             if params.get("end_image") and modelo in lista(modelos_cfg.get("sin_end_image")):
                 inf.e("E16", gid, f"{modelo} no admite end_image")
             if not externo:
                 pos = [prompt.find(b) for b in BLOQUES_VIDEO]
                 if any(x < 0 for x in pos) or pos != sorted(pos):
                     faltan = [b for b, x in zip(BLOQUES_VIDEO, pos) if x < 0]
-                    inf.e("E22", gid, "bloques PRESERVE → MOTION → CAMERA → FILM GRADE → NEGATIVE "
+                    inf.e("E22", gid, "bloques " + " → ".join(BLOQUES_VIDEO) + " "
                           + (f"(faltan {faltan})" if faltan else "(orden incorrecto)"))
-                if not prompt.strip().lower().endswith(CODA):
-                    inf.e("E23", gid, "el prompt debe terminar en «Photographic realism, no text.»")
                 frase = camara_cfg.get("frase_obligatoria")
                 bloqueada = all(((planos.get(pid) or {}).get("camara") or {}).get("movimiento") == "bloqueada"
                                 for pid in lista(g.get("planos")))
                 if frase and not bloqueada and frase.lower() not in prompt.lower():
                     inf.e("E28", gid, f"CAMERA sin «{frase}»: la cámara debe moverse de principio a fin")
-                neg = bloque_negativo(prompt)
+                neg = bloque_control(prompt)
                 requeridos = list(lista(neg_obl.get("video")))
                 for et in etiquetas:
                     requeridos += lista((neg_cond.get("video") or {}).get(et))
                 faltan = [r for r in requeridos if not contiene_alguna(neg + " " + prompt, r)]
                 if faltan:
                     inf.e("E24", gid, f"faltan negativos validados: {faltan} (regla 9quater)")
-                texto_sin_neg = prompt[: prompt.find("NEGATIVE")] if "NEGATIVE" in prompt else prompt
+                texto_sin_neg = prompt[: prompt.find("QUALITY CONTROL")] if "QUALITY CONTROL" in prompt else prompt
                 for termino in lista(camara_cfg.get("prohibido")):
                     if termino_no_negado(texto_sin_neg, termino):
                         inf.e("E25", gid, f"«{termino}» pedido como movimiento: prohibido (reglas 5 y 11)")
@@ -354,12 +342,6 @@ def comprobar_generaciones(plan, perfil, inf: Informe):
         for termino in PROHIBIDAS_SIEMPRE:
             if termino in prompt.lower():
                 inf.e("E25", gid, f"«{termino}» no aporta nada y empuja al look de render")
-
-    if presupuesto:
-        if total > presupuesto:
-            inf.e("E30", "generaciones", f"coste estimado {total:.2f} > presupuesto {presupuesto}")
-        elif total > 0.8 * presupuesto:
-            inf.w("W07", "generaciones", f"coste estimado {total:.2f} por encima del 80 % del presupuesto")
 
 
 def comprobar_novedad(plan, historial, inf: Informe):

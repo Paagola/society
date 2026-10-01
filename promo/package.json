@@ -10,7 +10,11 @@
     "export": "python3 scripts/exportar.py",
     "still": "remotion still src/index.ts SocietyPromo out/frame.png",
     "render:pizza": "remotion render src/index.ts SocietyPizza out/society-anuncio-pizza.mp4 --gl=angle --crf=16",
-    "render:startup": "remotion render src/index.ts SocietyPizzaStartup out/society-anuncio-pizza-startup.mp4 --gl=angle --crf=16"
+    "render:startup": "remotion render src/index.ts SocietyPizzaStartup out/society-anuncio-pizza-startup.mp4 --gl=angle --crf=16",
+    "render:recortado": "remotion render src/index.ts SocietyRecortado out/society-terraza-recortada.mp4 --crf=16",
+    "render:como-funciona": "remotion render src/index.ts SocietyComoFunciona out/society-como-funciona.mp4 --crf=18",
+    "logo": "remotion still src/index.ts SocietyLogo ../society-identidad-editorial/logos/society-logo-oficial.png --frame=50",
+    "render:agencia": "remotion render src/index.ts SocietyAgencia out/society-agencia.mp4 --crf=18 --timeout=120000"
   },
   "dependencies": {
     "@react-three/fiber": "9.8.1",

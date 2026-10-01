@@ -7,26 +7,47 @@ reel:
   id: reel_NN_nombre
   cliente: torre-de-vega          # nombre del archivo en perfiles/
   fecha: 2026-MM-DD
-  estado: brief                   # brief | verdad | conceptos | planos | keyframes | clips | montaje | publicado
+  estado: brief                   # brief | referencia | conceptos | planos | verdad | keyframes | clips | montaje | publicado
 
-# ── Etapa 1 ───────────────────────────────────────────────────────────────
+# ── Etapa 1 · brief único: estrategia (marketing-hosteleria, references/07 §3) + producción ──
 brief:
   pieza: ""
-  objetivo: ""                    # retencion | reenvio | seguidores
+  objetivo: ""                    # descubrimiento | consideracion | conversion | relacion (uno)
+  situacion_de_consumo: ""        # p. ej. "hay una novedad con fecha"
+  audiencia: ""                   # seguidores | no_seguidores | ambas
   motivo_para_reenviar: ""        # fecha, novedad o aviso real; o "ninguno"
+  hipotesis: ""                   # si X, la métrica Y supera Z, porque…
+  variable_probada: ""            # una por pieza
+  metrica_y_umbral: ""            # p. ej. "shares/reach > 0,40 % a 7 días"
+  guardarrailes: []               # p. ej. "reels_skip_rate <= 68 %"
+  cta: ""                         # con acción medible
+  condicion_de_publicacion: normal  # normal | prueba | colaborativa | promocionada
+  fecha_y_franja: ""
+  pie_hashtags_ubicacion: ""      # como máximo 5 hashtags
+  audio: ""                       # original | biblioteca permitida | sin música
+  etiqueta_ia: ""                 # si | no, con motivo
+  dependencias: []
   reel_de_referencia: ""          # URL, ruta o "ninguno"
   metraje_real_disponible: []     # rutas
-  estilo_de_luz: ""               # clave de perfil.estilos_de_luz (dramatico | natural_difusa)
+  estilo_de_luz: ""               # luminosidad de la pieza: la medida en el reel de referencia o la del selector (estudio | natural | calida | …); la ficha solo guarda la del local por defecto
   duracion_orientativa_s: 12
   voz_en_off: false
-  cta: ""
-  presupuesto_creditos: 0
 
-# ── Etapa 2 · references/01 ───────────────────────────────────────────────
+# ── Etapa 2 · análisis del reel de referencia (directoria hosteleria/07 §1, director/references/08 §3) ──
+referencia:
+  cortes_s: []                    # umbral 0,25 y 0,1
+  energia: {mediana: 0, p90: 0, pct_rapidos: 0}
+  picos_audio_s: []               # dónde cortar, cámara lenta o rápida, transiciones y efectos
+  luz: {mediana: 0, p5: 0, p95: 0, rojo_azul: 0, saturacion: 0, pct_sombras: 0}
+  cinco_aspectos: []              # por plano: sujeto, movimiento, escena, encuadre, cámara
+  se_copia: []
+  no_se_copia: []
+
+# ── Etapa 6 · anclas reales: se buscan después del guion (references/01) ──
 verdad:
   anclas: []
   #  - id: copa_vino
-  #    descripcion: "copa de cristal fino, balón ancho, tallo largo"
+  #    descripcion: "copa de vino, unos 22 cm de alto · transparente · cristal fino y liso · balón ancho, tallo largo"   # forma y medida · color · material y acabado · detalle (01 §1.1)
   #    fotos: [imagenes/vinos/copa-vino-grande.jpg]
   #    dificultad: baja            # baja | media | alta
   metraje_real: []
@@ -48,11 +69,13 @@ tratamiento:
   curva_de_ritmo: ""
   cierre: ""
 
-# ── Etapa 4 · references/02 §2-§4 ─────────────────────────────────────────
+# ── Etapa 4 · references/02 §2-§4 y director/references/08 ────────────────
 conceptos: []
 #  - id: C1
 #    mecanismo: M1                 # catálogo de references/02
 #    titulo: ""
+#    concepto_creativo: ""         # frase con nombre, p. ej. "A TASTE ABOVE THE ORDINARY"
+#    transiciones: []              # vocabulario de esta pieza; no repetir el del reel anterior
 #    fotograma_1: ""
 #    arco: ""
 #    planos_generados: 0
@@ -65,7 +88,7 @@ concepto_elegido: ""
 planos: []
 #  - id: P1
 #    funcion: gancho               # gancho | desarrollo | heroe | prueba | cierre
-#    t: [0.0, 2.4]
+#    t: [0.0, 2.4]                 # duración libre: la que pida el guion
 #    escalon: L0                   # L0 | L1 | L2 | L3 | L4
 #    justificacion_escalon: ""     # obligatorio desde L2
 #    fuente: {tipo: real, ruta: "", tramo: "0.0-2.4"}   # tipo: real | generado
@@ -83,7 +106,8 @@ planos: []
 #    beats:
 #      - {t: "0.0-1.2s", accion: "", estado_final: ""}
 #    transicion: {entrada: "", salida: ""}
-#    rotulo: ""
+#    rotulo: ""                    # opcional según el concepto; puede ir dentro del vídeo
+#    efectos: []                   # cámara lenta o rápida, morphing, 3D, partículas… si el concepto los pide
 #    criterios_rechazo: []
 #    coste_est_creditos: 0
 
@@ -95,7 +119,7 @@ generaciones: []
 #    params: {resolution: 2k, aspect_ratio: "9:16"}
 #    referencias:
 #      - {ruta: "", rol: "", fidelidad: completa, excluir: ""}   # completa | parcial | atributo | guia
-#    prompt: ""
+#    prompt: ""                    # vídeo: anatomía de director/references/08 §4
 #    coste_est_creditos: 0
 #    estado: pendiente             # pendiente | generado | aprobado | descartado
 #    job_id: ""

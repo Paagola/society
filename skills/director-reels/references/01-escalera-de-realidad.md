@@ -29,10 +29,22 @@ práctico lo demostró: sin fotos específicas del mantel y la vajilla, el model
 ```yaml
 anclas:
   - id: copa_vino
-    descripcion: "copa de cristal fino, balón ancho, tallo largo"
+    descripcion: "copa de vino, unos 22 cm de alto · transparente · cristal fino y liso · balón ancho, tallo largo"
     fotos: [imagenes/vinos/copa-vino-grande.jpg]
     dificultad: baja          # baja | media | alta (alta = el modelo la inventa a menudo)
 ```
+
+**La descripción es una ficha fija, no una frase libre.** Siempre los mismos campos y en el mismo orden,
+separados por «·»:
+
+1. **Forma y medida** aproximada en cm (si no se conoce, se pide al cliente o se escribe «sin medir»).
+2. **Color** tal como sale en la foto real (blanco roto no es blanco puro).
+3. **Material y acabado:** mate, brillo, esmerilado, liso, con relieve.
+4. **Detalle distintivo:** lo que hace reconocible ese objeto y no otro (talla, relieve del ala, forma del pie).
+
+La ficha se copia **literal** en cada prompt y en cada regeneración (regla 9quater). Resumirla o
+reescribirla entre planos es una de las vías por las que el objeto cambia. Los mismos campos sirven de
+lista en la revisión del keyframe (`06` §1).
 
 Reglas:
 
@@ -42,6 +54,17 @@ Reglas:
   (si no, el modelo lo duplica).
 - Marca `dificultad: alta` los objetos que el modelo ya inventó al menos una vez. Si vuelve a pasar, el
   plano sale del guion en lugar de seguir gastando (lección del botellero en el Reel 09).
+- **Hoja del objeto con fotos reales, nunca generada.** Una foto suelta enseña un solo lado y el modelo
+  se inventa el resto. Si un plano necesita un ángulo del objeto que no está en las fotos, o el ancla es
+  `dificultad: alta`, se piden al cliente 3-4 fotos del mismo objeto hechas con el móvil: de frente, de
+  tres cuartos, de perfil y un detalle del relieve o del acabado. Con luz uniforme, fondo liso y sin
+  filtros ni modo retrato, porque el modelo toma el color de la foto. Van todas en `fotos:` y se pasan
+  juntas como un solo objeto. **No se genera con IA una hoja multiángulo a partir de una foto:** las
+  vistas que no se ven serían inventadas y contaminarían todo el lote (regla 14 de imagen).
+
+> Ficha fija y hoja del objeto: adaptadas de `sim-event-skill`, una skill de fotos de producto para
+> tienda online revisada el 2026-09-28 (no indica autor ni licencia). Allí la hoja multiángulo se genera
+> con IA; aquí se hace con fotos reales por la regla de nada inventado.
 
 ### 1.2 Metraje real
 

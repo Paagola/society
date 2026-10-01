@@ -84,6 +84,21 @@ the direction of the light; nothing else from @image4 may appear.
   exactly one chair.»*
 - Nunca «@images 1 to 3 define the room»: una línea por referencia.
 - Máximo 3-4 referencias.
+- La `<descripción física del ancla>` es su ficha fija (`01` §1.1), copiada literal.
+
+**Referencia de luz (opcional, sin medir en Society).** Si el bloque de luz literal no basta y los
+keyframes de una misma pieza salen con luces distintas, el keyframe héroe ya aprobado puede entrar como
+una referencia más, solo para la luz:
+
+```text
+@image4 is the approved hero frame of this film and governs ONLY the direction, the colour temperature
+and the contrast of the light; do not take its background, objects, food or framing.
+```
+
+Ocupa uno de los 3-4 huecos y es una imagen generada, así que nunca rige objetos ni comida. El riesgo es
+que copie su fondo (fallo F8 de `directoria/references/hosteleria/08`, «fondos distintos por plano»): si
+pasa, se quita. Pruébalo en un plano y anota el resultado en el registro (`07`) antes de usarlo como
+costumbre. Idea adaptada de `sim-event-skill` (fotos de producto, revisada el 2026-09-28).
 
 ### 2.2 El resto de campos
 
@@ -106,6 +121,15 @@ Pasa la imagen ya generada como `@image1` y abre `environment` así:
 ```text
 THE ONE CHANGE: <el único arreglo>. Everything else is unchanged from @image1.
 ```
+
+Escribe el arreglo con el campo de la ficha que falló, en positivo y nombrando el error que sustituye:
+
+```text
+THE ONE CHANGE: the plate rim is soft-gloss off-white porcelain with its raised scroll pattern, not
+bright glossy white and not plain. Everything else is unchanged from @image1.
+```
+
+Solo se refuerza ese campo; el resto del prompt no se toca.
 
 En `subject_identity`, lista todo lo que debe seguir idéntico. Si el modelo repone el mismo defecto dos
 veces, deja de gastar: parche de píxel sobre textura regular, o el plano sale.
@@ -350,7 +374,7 @@ Registra el plano como parcialmente generado.
 | **Vapor** | Solo si el keyframe ya lo muestra: *thin steam rises slowly from the hot dish and drifts to the left* | Pedirlo sobre un plato frío (no sale) |
 | **Luz de sala** | *the sconces glow steadily as small warm accents*; *the bulbs hold a constant glow* | «magical glow», bombillas que parpadean |
 | **Sala vacía** | *nothing in the room moves; only the camera travels* | Gente que pasa (se inventa) |
-| **Escala** | Dimensiones reales cuando importan: *a 28 cm white plate*, *a large wine glass about 22 cm tall* | Copas gigantes por falta de medida |
+| **Escala** | Dimensiones reales cuando importan: *a 28 cm white plate*, *a large wine glass about 22 cm tall*. En plano cerrado: *the glass keeps its true size next to the hand; the camera moves closer instead* | Copas gigantes por falta de medida; objeto agrandado para llenar el encuadre |
 
 Fuego, brasa y humo no están en esta tabla porque no se generan (regla 22).
 

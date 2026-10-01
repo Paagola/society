@@ -10,9 +10,21 @@ import {PapelPrueba} from './pizza/Prueba';
 import {Pizza} from './pizza/Pizza';
 import {DURACION as DURACION_PIZZA} from './pizza/guion';
 import {Startup, DURACION_STARTUP} from './startup/Startup';
+import {Recortado, DURACION_RECORTADO} from './recortado/Recortado';
+import {ComoFunciona, DURACION_COMO_FUNCIONA} from './recorte/guiones/ComoFunciona';
+import {LogoOficial} from './marca/LogoOficial';
+import {Agencia, DURACION_AGENCIA} from './agencia/Agencia';
 
 export const Root: React.FC = () => (
   <>
+    {/* «Tu agencia con IA»: de 3 «me gusta» al panel de Society, papel + startup, cámara sobre un solo lienzo (28/09/2026) */}
+    <Composition id="SocietyAgencia" component={Agencia} durationInFrames={DURACION_AGENCIA} fps={FPS} width={W} height={H} />
+    {/* «Así funciona Society»: vídeo explicativo en papel con el motor de recorte automático (27/09/2026), vertical */}
+    <Composition id="SocietyComoFunciona" component={ComoFunciona} durationInFrames={DURACION_COMO_FUNCIONA} fps={FPS} width={W} height={H} />
+    {/* Logotipo oficial (fotograma fijo para la identidad) */}
+    <Composition id="SocietyLogo" component={LogoOficial} durationInFrames={60} fps={FPS} width={1080} height={1080} />
+    {/* «La terraza que se llena»: escena de papel cortada en piezas y montada en stop-motion (27/09/2026), vertical */}
+    <Composition id="SocietyRecortado" component={Recortado} durationInFrames={DURACION_RECORTADO} fps={FPS} width={W} height={H} />
     {/* «La pizza que nadie vio», versión startup con GSAP (26/09/2026), vertical */}
     <Composition id="SocietyPizzaStartup" component={Startup} durationInFrames={DURACION_STARTUP} fps={FPS} width={W} height={H} />
     {/* Anuncio «La pizza que nadie vio» (concepto A con los cambios del 26/09/2026), vertical */}

@@ -148,13 +148,15 @@ En Society el "usuario" es un restaurante y el perfil es **la ficha del cliente*
 
 > **¿Qué 3–5 platos o bebidas quieres que salgan más? ¿Me mandas fotos reales de cada uno desde varios ángulos y de cerca?**
 
-Captura: la **ficha de producto** de cada plato héroe (3–4 ángulos + 3 macros de textura). Con esas fotos se monta la ficha de texturas 3×3 (`references/hosteleria/01` §3–4). Explica el porqué: "Sin fotos reales la comida sale de plástico: el modelo inventa la textura y no hay reescalado que la arregle". Las fotos de móvil valen; las imágenes generadas por IA, no.
+Captura: la **ficha de producto** de cada plato héroe (3–4 ángulos + 3 macros de textura). Con esas fotos se monta la ficha de texturas 3×3 (`references/hosteleria/01` §3–4). Explica el porqué: "Sin fotos reales la comida sale de plástico: el modelo inventa la textura y no hay reescalado que la arregle". Las fotos de móvil valen; las imágenes generadas por IA, no. Pide que vengan **sin filtros ni modo retrato**: el modelo toma el color de la foto.
 
 ### Pregunta 9 — El local
 
 > **¿Me mandas fotos del local: sala, barra, fachada y la mesa tal como la montáis?**
 
 Captura: el **inventario de verdad** del local (mobiliario, vajilla, mantelería, decoración). Regla: nada que no esté en estas fotos puede aparecer en una pieza.
+
+Para el plato, la copa y cualquier objeto que vaya a salir en plano cerrado, pide además **3–4 fotos del mismo objeto**: de frente, de tres cuartos, de perfil y un detalle del relieve o del acabado, con luz uniforme, fondo liso y sin filtros. Es su hoja de referencia real: una foto suelta enseña un solo lado y el modelo inventa el resto. Nunca se sustituye por una hoja generada con IA (`director-reels/references/01` §1.1).
 
 ### Pregunta 10 — La luz real
 
