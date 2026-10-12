@@ -11,10 +11,14 @@
             "id": "840bd3051dc993fa",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "informes/Society_ded_app_movil.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Society_ded_app_movil"
             }
           }
         ]
@@ -42,7 +46,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "Explorador de archivos"
             }
           },
           {
@@ -175,17 +179,19 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Crear nueva base": false
     }
   },
   "active": "840bd3051dc993fa",
   "lastOpenFiles": [
+    "skills/marketing-hosteleria/references/instagram-kb/RESOLVER.md",
+    "informes/Society_ded_app_movil.md",
     "promo/node_modules/delaunator/index.d.ts",
     "promo/node_modules/@types/three/examples/jsm/tsl/lighting/data/PointLightDataNode.d.ts",
     "promo/node_modules/@types/three/examples/jsm/tsl/lighting/data/HemisphereLightDataNode.d.ts",
@@ -196,7 +202,6 @@
     "promo/node_modules/@types/three/examples/jsm/inspector/extensions/tsl-graph/TSLGraphLoader.d.ts",
     "promo/node_modules/@types/three/examples/jsm/inspector/extensions/color-grading/ColorGrading.d.ts",
     "promo/node_modules/@types/three/src/nodes/functions/BSDF/V_GGX_SmithCorrelated.d.ts",
-    "promo/node_modules/@types/three/src/renderers/webgl-fallback/utils/WebGLCapabilities.d.ts",
     "promo/node_modules/@types/three/README.md",
     "skills/hooks-society/references/integracion-reels.md",
     "skills/hooks-society/references/hooks-visuales.md",
@@ -230,7 +235,6 @@
     "promo/node_modules/use-sync-external-store/README.md",
     "promo/node_modules/@types/react-reconciler/README.md",
     "promo/node_modules/its-fine/README.md",
-    "promo/node_modules/react-use-measure/README.md",
-    "promo/node_modules/buffer/README.md"
+    "promo/node_modules/react-use-measure/README.md"
   ]
 }
