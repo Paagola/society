@@ -528,9 +528,9 @@ const camI = trk([
 // Coordenadas de pantalla (punta del cursor); [t, x, y, f]
 const RUTA_TU = [
   [0, 960, 1640],
-  [0.06, 880, 1470, 2.6],    // a la tecla +
+  [0.06, 845, 1345, 2.6],    // a la tecla +
   [0.75, 700, 1300, 1.6],
-  [1.2, 560, 1290, 2.4],     // al cristal
+  [1.2, 520, 1255, 2.4],     // al cristal
   [1.66, 260, 2080, 1.4],    // se va
   [15.2, 1140, 1800, 0],
   [15.25, 640, 1484, 1.6],   // a «Aprobar la semana»
@@ -541,7 +541,7 @@ const RUTA_TU = [
 const RUTA_SO = [
   [0, 1180, 1500],
   [2.15, 1180, 1500, 0],
-  [2.2, 590, 1330, 1.6],     // a «Mejorar foto»
+  [2.2, 565, 1424, 1.6],     // a «Mejorar foto»
   [3.08, 860, 1680, 1.0],
   [7.0, 1150, 1450, 0],
   ...SUELTAS.flatMap((r) => [[r - 0.46, 800, 1080, 3.2], [r - AGARRE + 0.01, 400, 1080, 4.2]]),  // arrastres de la rueda hacia la izquierda
@@ -583,7 +583,7 @@ const CAPS = [
   [9.5, 11.5, 'Sobre tu foto', 'Sin tocar<br>la foto original.'],
   [11.5, 14.0, 'Con cualquier cocina', 'Etxebarri, Disfrutar,<br>St. JOHN.'],
   [14.0, 16.5, '05 — Calendario', 'Y te planifica<br>la semana.'],
-  [17.5, 19.0, 'Society', 'Tu agencia de marketing<br>con IA.'],
+  [17.5, 19.0, 'Society', 'Tu agencia de<br>marketing con IA.'],
 ];
 CAPS.forEach(([a, b, l, t, s, claro], i) => {
   let w = 0;
@@ -716,7 +716,7 @@ function seek(tAbs) {
     cam($('objG'), camG(t));
     cG.forEach((c, i) => {
       const t0 = T_CAEN[i];
-      pintaCarpeta(c, { st: 0.25 * suave((t - t0 + 0.2) / 0.2) * (1 - suave((t - t0 - 0.9) / 0.4)), drop: t >= t0 ? t - t0 : null, meta: t >= t0 + 0.38 ? [1, t - t0 - 0.38] : [0, 9] });
+      pintaCarpeta(c, { st: 0.3 * suave((t - t0 + 0.2) / 0.2) + 0.7 * S(t - t0 - 0.55, 1.6, 0.62), drop: t >= t0 ? t - t0 : null, meta: t >= t0 + 0.38 ? [1, t - t0 - 0.38] : [0, 9] });
     });
     const ka = suave((t - 15.3) / 0.25);
     $('aprobar').style.opacity = ka.toFixed(3);
