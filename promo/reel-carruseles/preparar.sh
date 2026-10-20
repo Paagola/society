@@ -1,31 +1,32 @@
 #!/usr/bin/env bash
-# Trae el material del reel a assets/ (no se sube al repositorio):
-#   - las 18 diapositivas de los carruseles (ZIP de Higgsfield, comprobado con SHA-256)
-#   - el clip de la mascota hecho con Seedance 2.5 a partir de la diapositiva 1·6, en fotogramas
-#   - la música: «Electro Dreams» de Arulo (Mixkit, licencia gratuita de uso comercial)
+# Trae el material del reel v2 a assets/ (no se sube al repositorio):
+#   - assets/reel/real_E1.jpg  foto original del chuletón de Etxebarri (Ryan Snyder, CC BY 2.0), recortada a 4:5
+#   - assets/reel/raw_E1.jpg, raw_E2.jpg  tomas profesionales sin texto (Higgsfield)
+#   - assets/posts/*.jpg       los 17 posts terminados (1080 × 1350)
+#   - assets/reel/logo.png     logotipo oficial
+#   - assets/musica.mp3        «Electro Dreams» de Arulo (Mixkit, licencia gratuita de uso comercial)
 # Desde el contenedor de Claude, Higgsfield da 403; se ejecuta en un ordenador normal
 # o en el sandbox de Higgsfield.
 set -euo pipefail
 cd "$(dirname "$0")"
-mkdir -p assets/slides assets/mascota out
+mkdir -p assets/reel assets/posts out
 ln -sfn ../public/fonts fonts 2>/dev/null || true
 
-ZIP_URL="https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/5b8eade9-16ba-49d6-8bb6-1802d1fb07ae.zip"
-ZIP_SHA="52196248bc82b9c1e7674d529150167b7ae9b05e25884a234cc09181d8325a1b"
-CLIP_URL="https://d8j0ntlcm91z4.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/hf_20261020_184001_0cfc6e54-06e3-4fab-bded-9780c9913fc0.mp4"
+H=https://d8j0ntlcm91z4.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO
+POSTS_ZIP="https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/29cd5b4e-f39d-4d01-9893-2c490e5f4027.zip"
+REAL="https://commons.wikimedia.org/wiki/Special:FilePath/Etxebarri_Beef_chop_(14468258749).jpg?width=1920"
 MUSICA_URL="https://assets.mixkit.co/music/190/190.mp3"
 
 tmp=$(mktemp -d)
-curl -fsSL -o "$tmp/c.zip" "$ZIP_URL"
-echo "$ZIP_SHA  $tmp/c.zip" | sha256sum -c -
-unzip -q -o "$tmp/c.zip" -d "$tmp/z"
-for c in 1 2 3; do
-  d=$(ls -d "$tmp"/z/carrusel_0${c}_*)
-  for f in "$d"/0*.png; do cp "$f" "assets/slides/c${c}_$(basename "$f")"; done
-done
-curl -fsSL -o assets/mascota.mp4 "$CLIP_URL"
-rm -f assets/mascota/*.jpg
-ffmpeg -v error -i assets/mascota.mp4 -q:v 2 assets/mascota/%04d.jpg
+curl -fsSL -A "SocietyReel/1.0" -o "$tmp/real.jpg" "$REAL"
+convert "$tmp/real.jpg" -gravity center -crop 4:5 +repage -resize 1080x1350\! -quality 92 assets/reel/real_E1.jpg
+curl -fsSL -o "$tmp/e1.png" "$H/hf_20261020_120353_49ee9c90-7321-48e0-a7ae-839336055820.png"
+convert "$tmp/e1.png" -gravity center -crop 1843x2304+0+0 +repage -resize 1080x1350\! -quality 92 assets/reel/raw_E1.jpg
+curl -fsSL -o "$tmp/e2.png" "$H/hf_20261020_120352_9c8c4685-2a50-43c8-b2d2-b983777769b5.png"
+convert "$tmp/e2.png" -quality 92 assets/reel/raw_E2.jpg
+curl -fsSL -o "$tmp/p.zip" "$POSTS_ZIP"
+unzip -q -o "$tmp/p.zip" -d assets/posts
+cp ../../society-identidad-editorial/logos/society-logo-oficial.png assets/reel/logo.png
 curl -fsSL -o assets/musica.mp3 "$MUSICA_URL"
 rm -rf "$tmp"
-echo "diapositivas: $(ls assets/slides | wc -l) · fotogramas del clip: $(ls assets/mascota | wc -l)"
+echo "posts: $(ls assets/posts | wc -l)"

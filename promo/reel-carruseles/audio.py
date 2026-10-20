@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Banda sonora del reel: 8 compases de la música desde un tiempo fuerte medido,
+"""Banda sonora del reel: 10 compases de la música desde un tiempo fuerte medido,
 más los sonidos de interfaz sintetizados y colocados por su pico medido.
 
     python3 audio.py assets/musica.mp3 out/banda.wav [--inicio 64.0]
@@ -17,7 +17,7 @@ from scipy.signal import butter, sosfilt
 SR = 48000
 BPM = 120
 B = 60 / BPM
-DUR = 32 * B
+DUR = 40 * B
 
 
 def carga(ruta):
@@ -113,11 +113,13 @@ def campana(notas=(1318.5, 1975.5), fuerza=1.0):
 
 
 # ───────── Guion de sonidos (mismos tiempos que reel.html) ─────────
-CLICS = [[0.44, 0.52], [1.92, 2.00], [5.92, 6.00], [6.44, 6.50], [6.94, 7.00], [8.94, 9.00],
-         [9.94, 10.00], [10.44, 10.50], [10.94, 11.00], [11.94, 12.00], [13.44, 13.50], [14.44, 14.50]]
-SUELTAS = [2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 12.5, 13.0]
-CAMBIOS = [0.52, 1.00, 1.50, 2.00, 3.50, 6.00, 7.50, 8.86, 9.50, 11.00, 12.00, 13.50, 14.50, 15.50]
-TECLAS = [13.66 + i * 0.055 for i in range(6)]
+CLICS = [[0.44, 0.52], [1.92, 2.00], [2.94, 3.00], [15.94, 16.02]]
+SUELTAS = [7.75, 8.25, 8.75, 9.25]
+CAMBIOS = [0.52, 1.00, 1.50, 2.00, 7.00, 9.42, 9.55, 11.50, 14.00, 16.50, 17.50, 19.00]
+LETRAS = [4.25 + i * 0.375 for i in range(5)] + [10.0 + i * 0.25 for i in range(5)]
+RAFAGA = [11.5 + i * 0.25 for i in range(1, 10)]
+CAEN = [14.5, 14.75, 15.0]
+TECLAS = [6.05 + i * 0.014 * 4 for i in range(12)]
 
 
 def eventos():
@@ -130,14 +132,19 @@ def eventos():
         ev.append((r, barrido()))                  # el pico del barrido cae en la suelta
         ev.append((r, golpe(140, 0.05, 0.5)))
     for t in CAMBIOS:
-        ev.append((t, golpe(110 if t not in (2.0, 12.0, 6.0) else 80, 0.10, 0.9)))
+        ev.append((t, golpe(110 if t not in (2.0, 9.55, 17.5) else 80, 0.10, 0.9)))
+    for t in LETRAS:                               # cada letra que aterriza
+        ev.append((t + 0.07, golpe(70, 0.14, 1.0)))
+        ev.append((t + 0.07, clic(0.6, 1500)))
+    for t in RAFAGA:                               # cortes de la ráfaga
+        ev.append((t, clic(0.55, 2900)))
+    for t in CAEN:
+        ev.append((t + 0.12, golpe(150, 0.06, 0.6)))
     for t in TECLAS:
         ev.append((t, tecla()))
+    ev.append((3.0, barrido(0.5, 0.8)))                  # escaneo
     ev.append((1.02, campana((1567.98, 2349.3), 0.8)))   # check
-    ev.append((14.95, campana()))                        # aviso
-    ev.append((9.00, clic(1.0, 3200)))                   # interruptor
-    for k, t in enumerate(np.linspace(7.90, 8.30, 7)):   # muescas del deslizador, de 1 a 7
-        ev.append((t, clic(0.35 + 0.05 * k, 2600 + 120 * k)))
+    ev.append((16.75, campana()))                        # aviso
     return ev
 
 
@@ -151,7 +158,7 @@ def main():
     bpm, t0 = rejilla(x, inicio)
     a = int(round(t0 * SR))
     n = int(round(DUR * SR))
-    # 8 compases a su tempo; la diferencia con 120 BPM es de 3 ms en 16 s
+    # 10 compases a su tempo; la diferencia con 120 BPM es de 4 ms en 20 s
     m = x[a - int(0.004 * SR): a - int(0.004 * SR) + n].astype(np.float64)
     # micro fundidos para que el bucle no haga clic
     f = int(0.006 * SR)
