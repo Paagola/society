@@ -6,7 +6,7 @@ Fecha: 2026-10-20. Encargo de Víctor: una demostración artística de Society q
 
 | Qué | Dónde |
 |---|---|
-| Reel final, 1080 × 1920, 60 fps, 20 s, con sonido | [society-reel-v4.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/c4f5bc3a-3ca6-4dfd-9345-c0ba51f8a827.mp4) (28,1 MB) · [portada](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/7bd8ff50-0a7f-4aaf-9aaa-6160415ce81e.jpg) |
+| Reel final, 1080 × 1920, 60 fps, 20 s, con sonido | [society-reel-v4.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/bbba76bf-3977-44cb-b1cf-a823ec403ca1.mp4) (28,1 MB) · [portada](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/7bd8ff50-0a7f-4aaf-9aaa-6160415ce81e.jpg) |
 | Fuente del reel | [`reel.html`](reel.html): todo se calcula desde el tiempo en `seek(t)`; cumple el contrato de onetake (`__seek`, `__ready`, `__meta`) |
 | Movimiento y render | [onetake](https://github.com/feitangyuan/onetake) (commit `4157581`): `lib/motion.js` para los muelles, `morphRect`, `hop`, `gather`, `seal`, `letterDrop`, `wordRise`, `liftOut`, `shake`; `scripts/render.py` con obturador de 180° promediado en luz lineal; `scripts/probe.py` para la continuidad |
 | Capas de FUEGO | [`capas.py`](capas.py): recorta las letras del post E1 terminado en dos PNG transparentes |
@@ -20,7 +20,7 @@ Para rehacerlo con Python 3 (numpy, scipy, Pillow, playwright), ImageMagick y ff
 ```bash
 cd promo/reel-carruseles
 bash preparar.sh                       # material + onetake en assets/onetake + capas de FUEGO
-python3 audio.py assets/musica.mp3 out/banda-v4.wav --inicio 64.0
+python3 audio.py assets/musica-techno.wav out/banda-v4.wav --inicio 32.0
 python3 assets/onetake/scripts/probe.py reel.html --width 1080 --height 1920 --fps 15
 python3 assets/onetake/scripts/render.py reel.html --out out/society-reel-v4.mp4 \
         --width 1080 --height 1920 --fps 60 --samples 6 --sfx out/banda-v4.wav
@@ -62,14 +62,14 @@ Con el método de onetake, cada tramo nace del anterior: algo sobrevive al paso 
 
 ## Música y sonido
 
-- **Música:** «Electro Dreams» de Arulo, de [Mixkit](https://mixkit.co/free-stock-music/tag/house/) ([pista](https://assets.mixkit.co/music/190/190.mp3)), con la *Mixkit Stock Music Free License*: uso comercial gratuito en vídeos, sin atribución obligatoria; no se puede redistribuir la pista suelta, por eso no va al repositorio. Tramo de 10 compases desde la entrada fuerte del minuto 1:04 (tempo medido 120,0 BPM).
+- **Música:** «Deep Techno Ambience» de Alejandro Magaña, de [Mixkit](https://mixkit.co/free-stock-music/tag/techno/) ([pista](https://assets.mixkit.co/music/134/134.mp3)), con la *Mixkit Stock Music Free License*: uso comercial gratuito en vídeos, sin atribución obligatoria; no se puede redistribuir la pista suelta, por eso no va al repositorio. Se pasa de 125 a 120 BPM (`atempo=0.96`) para que cuadre con el montaje y se usan 10 compases desde el tramo más brillante (segundo 32 de la pista ya ajustada). Sustituye a «Electro Dreams» de la primera versión v4, que no pegaba.
 - **Sonidos de interfaz** sintetizados en `audio.py`: clics, barridos en cada viaje (la foto, la rueda, Axpe, la carpeta del lunes, el sello), golpes en la llegada y el acople de las capas, en cada letra de «PLAZA» y del logotipo y en cada aterrizaje de la mascota, tic en cada corte de la ráfaga y campanitas de la foto recibida, el aviso y el lema. Cada sonido se coloca por su pico medido.
 - **Mezcla:** música al 78 %, interfaz por encima, RMS a −15 dBFS y limitador suave con techo a −3,2 dBFS.
 
 ## Reglas del proyecto
 
 - **Nada inventado:** la única foto «del cliente» es la original del chuletón de Etxebarri en Wikimedia (Ryan Snyder, CC BY 2.0). Como la v4 quita los textos pequeños de pantalla, **el crédito tiene que ir en el texto de la publicación**: «Foto original: Ryan Snyder, CC BY 2.0 (Wikimedia Commons)». Las de Disfrutar y St. JOHN no salen como «antes». Los datos de los posts salen de las webs oficiales ([`posts.md`](posts.md)). La semana no lleva cifras y «lista para publicar» respeta que la publicación es asistida (README raíz §6).
-- **Regla cero (firma de rodaje real):** no se aplica, a propósito: es una pieza de diseño de movimiento de interfaz (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se pasa igualmente: dentro de objetivo el enfoque (21,4 %), el punto blanco (242,3) y el volumen (RMS 5296,1). Marca REVISAR la duración media de plano (1,6 s, porque la toma continua cuenta como un plano largo), el movimiento de cámara (0,4 px), el punto negro (13,6), 8 planos con cámara quieta y 1 «transición» que es el desenfoque de movimiento. Es lo esperable en una pieza de interfaz sin rodaje. SHA-256 del vídeo: `3e7e447f0fa231894f88d4707a33b7c0948379e660394b2cede57c579cdf6170`.
+- **Regla cero (firma de rodaje real):** no se aplica, a propósito: es una pieza de diseño de movimiento de interfaz (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se pasa igualmente: dentro de objetivo el enfoque (21,4 %), el punto blanco (242,3) y el volumen (RMS 5296,1). Marca REVISAR la duración media de plano (1,6 s, porque la toma continua cuenta como un plano largo), el movimiento de cámara (0,4 px), el punto negro (13,6), 8 planos con cámara quieta y 1 «transición» que es el desenfoque de movimiento. Es lo esperable en una pieza de interfaz sin rodaje. Medido sobre el v4 con la música anterior; en la versión techno solo cambia la banda sonora. SHA-256 del vídeo con techno: `c607878262a693950c5a7b4a87a8c16eaccdbfc74da0be16058ec60fb02c4b92`.
 - **Revisión de onetake (`verify_promo.py`):** pasan la continuidad (1,00), las ráfagas y las curvas (pico de 377 px por fotograma, con obturador). No pasan dos puntos, a sabiendas: el **reposo** (onetake pide un 25 % de fotogramas totalmente quietos y un tramo de 1 s; aquí el fondo deriva y la mascota respira todo el rato, porque el encargo pedía que todo se moviera y captase la atención) y el **audio** (pide un 15 % de silencio, que no existe con música de fondo; el pico queda en −1,8 dBFS tras el AAC).
 - **Coste del reel v4:** 0 créditos (todo se dibuja en el navegador).
 
