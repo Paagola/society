@@ -24,7 +24,7 @@
   #outer { position: absolute; width: 0; height: 0; }
   .c { position: absolute; left: 50%; top: 50%; }
   .row { display: flex; align-items: center; }
-  .card { position: absolute; left: 0; top: 0; width: 760px; height: 950px; }
+  .card { position: absolute; width: 760px; height: 950px; }
   .card img, img.cubre { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .chip { position: absolute; left: 30px; top: 30px; height: 56px; padding: 0 22px; border-radius: 28px; display: flex; align-items: center; gap: 12px;
           font-size: 26px; font-weight: 600; background: rgba(20,20,20,.72); color: #fff; backdrop-filter: blur(8px); }
@@ -92,7 +92,7 @@
       <div id="L_rafaga" class="card c"></div>
       <div id="contador" class="chip" style="left:auto;right:30px">01 / 17</div>
       <!-- 9 · semana -->
-      <div id="L_semana" class="c" style="width:900px;height:1060px;margin:-530px 0 0 -450px">
+      <div id="L_semana" class="c" style="width:900px;height:1060px">
         <div style="position:absolute;left:56px;top:52px;font-family:Anton;font-size:30px;letter-spacing:.06em;color:var(--cobalto)">SEMANA 43</div>
         <div style="position:absolute;left:56px;top:96px;font-family:Playfair;font-style:italic;font-weight:700;font-size:64px;letter-spacing:-0.5px">Tu semana</div>
         <div id="cols"></div>
@@ -106,7 +106,7 @@
         <span>Tu semana, lista para publicar.</span>
       </div>
       <!-- 11 · logo -->
-      <div id="L_logo" class="c" style="width:760px;height:760px;margin:-380px 0 0 -380px">
+      <div id="L_logo" class="c" style="width:760px;height:760px">
         <img src="assets/reel/logo.png" style="width:760px;height:760px;display:block">
       </div>
     </div>
@@ -304,12 +304,12 @@ const NOTAS = [
 NOTAS.forEach(([a, b, t], i) => $('notas').insertAdjacentHTML('beforeend', `<div id="nota${i}" class="nota">${t}</div>`));
 // [archivo, entra, sale, x centro, alto, giro]
 const MASC = [
-  ['thumbs-up', 1.0, 1.9, 870, 400, 4],
-  ['thinking', 2.06, 2.96, 900, 420, -3],
-  ['pointing', 3.04, 3.96, 905, 430, 0],
-  ['crouch', 7.06, 9.44, 900, 330, 2],
-  ['sitting', 16.56, 17.46, 860, 360, 0],
-  ['thumbs-up', 17.56, 18.9, 880, 420, -4],
+  ['thumbs-up', 1.0, 1.9, 900, 340, 4],
+  ['thinking', 2.06, 2.96, 960, 300, -3],
+  ['pointing', 3.04, 3.96, 960, 300, 0],
+  ['crouch', 7.06, 9.44, 975, 240, 2],
+  ['sitting', 16.56, 17.46, 860, 340, 0],
+  ['thumbs-up', 17.56, 18.9, 930, 320, -4],
 ];
 MASC.forEach(([f], i) => $('mascotas').insertAdjacentHTML('beforeend', `<img id="ms${i}" class="masc" src="mascota/${f}.png">`));
 
