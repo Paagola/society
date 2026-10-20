@@ -385,7 +385,7 @@ Este es el único índice vigente. Los documentos históricos conservan evidenci
 | Society: auditoría crítica y propuesta de empresa más sólida | [informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md](informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md) |
 | Navegación | [informes/estudio-mercado/README.md](informes/estudio-mercado/README.md) |
 | Nueva API de Higgsfield y encaje técnico en Society | [informes/higgsfield/02-api-y-arquitectura.md](informes/higgsfield/02-api-y-arquitectura.md) |
-| Reel de Society v2: del plato del cliente al carrusel, una forma que muta, 20 s a 120 BPM, y los 17 posts (2026-10-20) | [promo/reel-carruseles/README.md](promo/reel-carruseles/README.md) |
+| Reel de Society v3: del plato del cliente al carrusel con un punto de vista por tramo, carpeta de cristal, rueda de posts y cursores con etiqueta, 20 s a 120 BPM, y los 17 posts (2026-10-20) | [promo/reel-carruseles/README.md](promo/reel-carruseles/README.md) |
 
 ### Histórico
 

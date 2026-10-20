@@ -618,7 +618,7 @@ function seek(tAbs) {
       st: estA(t),
       drop: t < 2.0 && t >= T_CAE ? t - T_CAE : null,
       meta: t >= T_CAE + 0.38 && t < 2.0 ? [1, t - T_CAE - 0.38] : [0, 9],
-      ent: t >= 19.0 ? t - 19.0 : 9,
+      ent: t >= 19.0 ? t - 18.85 : 9,
       px, py,
       pulsaTecla: t > T_SUBE && t < T_SUBE + 0.12 ? 0.93 : 1,
     });
@@ -666,12 +666,12 @@ function seek(tAbs) {
     $('ruedaEje').style.transform = `rotateX(${(7 * vista).toFixed(3)}deg) rotateZ(${(-2 * vista).toFixed(3)}deg) translateZ(${(-m * DRUM).toFixed(2)}px)`;
     for (let i = 0; i < N; i++) {
       const d = i - pos, el = $('rw' + i);
-      const llega = S(t - 7.0 - i * 0.018, 2.6, 0.7);           // las tarjetas salen del centro al anillo
+      const llega = S(t - 6.92 - i * 0.018, 2.6, 0.7);           // las tarjetas salen del centro al anillo
       el.style.transform = place(d * (360 / N) + spin * (1 - m), d * STEP, RING_R * llega, m);
       el.style.opacity = (m > 0.5 && Math.abs(d) > CULL ? 0 : clamp(llega * 3)).toFixed(3);
       el.firstChild.style.transform = `scale(${lerp(RING_SCALE * (0.4 + 0.6 * llega), 1, m).toFixed(4)})`;
     }
-    const kt = suave((t - 7.1) / 0.25) * (1 - m);
+    const kt = suave((t - 7.0) / 0.22) * (1 - m);
     $('ruedaTit').style.opacity = kt.toFixed(3);
     $('ruedaTit').style.filter = kt < 0.99 ? `blur(${((1 - kt) * 8).toFixed(2)}px)` : 'none';
     // índice en cinta: el título del post de delante queda en el centro
