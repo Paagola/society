@@ -32,5 +32,6 @@ unzip -q -o "$tmp/p.zip" -d assets/posts
 cp ../../society-identidad-editorial/logos/society-logo-oficial.png assets/reel/logo.png
 curl -fsSL -o assets/musica.mp3 "$MUSICA_URL"
 rm -rf "$tmp"
+python3 capas.py                # capas de letras del post E1 para el reel v4
 [ -d assets/onetake ] || { git clone -q https://github.com/feitangyuan/onetake.git assets/onetake && git -C assets/onetake checkout -q 4157581; }
 echo "posts: $(ls assets/posts | wc -l)"
