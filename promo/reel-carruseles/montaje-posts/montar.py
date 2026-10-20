@@ -16,8 +16,8 @@ html,body{margin:0;width:1856px;height:2304px;overflow:hidden;background:#000}
 .a{position:absolute;white-space:nowrap}
 .an{font-family:AN;font-weight:700;letter-spacing:-0.01em;line-height:.9}
 .b{font-family:B;font-weight:800;letter-spacing:-0.035em;line-height:.82;font-variation-settings:"opsz" 96,"wdth" 75}
-.m{font-family:M;font-size:38px;letter-spacing:.02em;line-height:1.4}
-.c{font-family:C;font-size:44px;line-height:1.35}
+.m{font-family:AN;font-weight:500;font-size:44px;letter-spacing:0;line-height:1.25}
+.c{font-family:CA;font-weight:400;font-size:46px;line-height:1.3}
 .ca{font-family:CA;font-weight:700;letter-spacing:-0.01em;line-height:1}
 .h{font-family:H;font-weight:500;line-height:1}
 .ink{color:#141414;mix-blend-mode:multiply}
@@ -36,11 +36,11 @@ P = {}
 
 # ───── Etxebarri 02 · plaza de Axpe: «PLAZA» pintado en el suelo mojado
 P['E2'] = foto('../../assets/raw/E2.png') + f"""
-<div class="a m hueso" style="left:70px;top:40px;color:#151515">ASADOR ETXEBARRI — AXPE</div>
+<div class="a m hueso" style="left:70px;top:40px;color:#151515">Asador Etxebarri, Axpe</div>
 <div class="a m" style="right:70px;top:40px;color:#151515">02/06</div>
 <div class="a an ink" style="left:66px;top:105px;font-size:132px">Un pueblo, una plaza,<br>una parrilla.</div>
 <div style="position:absolute;left:-200px;top:1340px;width:2256px;height:964px;perspective:1100px;perspective-origin:50% 0%">
-  <div class="an" style="position:absolute;left:0;right:0;bottom:120px;text-align:center;font-size:760px;color:#F4F1EA;opacity:.78;transform:rotateX(64deg);transform-origin:50% 100%;letter-spacing:.02em">PLAZA</div>
+  <div class="an" style="position:absolute;left:0;right:0;bottom:120px;text-align:center;font-size:780px;color:#F6F3EC;opacity:1;font-weight:700;transform:rotateX(64deg);transform-origin:50% 100%;letter-spacing:.02em">PLAZA</div>
 </div>
 <div class="a m hueso" style="left:70px;top:2150px;color:#F4F1EA">Bittor Arguinzoniz enciende las brasas con leña<br>cada mañana desde 1990.</div>
 """
@@ -54,7 +54,7 @@ reloj = svg("""
  <path d="M0,-108 L0,-96 M108,0 L96,0 M0,108 L0,96 M-108,0 L-96,0" stroke-width="5"/>
 </g>""")
 P['E6'] = foto('../../assets/raw/E6.png') + reloj + f"""
-<div class="a m ink" style="left:70px;top:40px">ASADOR ETXEBARRI — AXPE</div>
+<div class="a m ink" style="left:70px;top:40px">Asador Etxebarri, Axpe</div>
 <div class="a m ink" style="right:70px;top:40px">06/06</div>
 <div class="a an ink" style="left:90px;top:470px;font-size:210px">Solo a<br>mediodía.</div>
 <div class="a m ink" style="right:80px;top:2060px;text-align:right">Cierra lunes y martes.<br>Reserva por solicitud · asadoretxebarri.com<br><span style="opacity:.7;font-size:30px">{AVISO}</span></div>
@@ -66,7 +66,7 @@ P['D1'] = foto('../../assets/raw/D1.png') + f"""
 <div class="a b ink" style="left:968px;top:1225px;font-size:330px">SIN</div>
 <div class="a b ink" style="left:968px;top:1505px;font-size:330px">MIRAR.</div>
 <div class="a b ink" style="left:60px;top:1240px;font-size:640px;font-weight:700">?</div>
-<div class="a m ink" style="left:205px;top:420px;transform-origin:0 0;transform:rotate(90deg);font-size:40px">DISFRUTAR — BARCELONA</div>
+<div class="a m ink" style="left:205px;top:420px;transform-origin:0 0;transform:rotate(90deg);font-size:40px">Disfrutar, Barcelona</div>
 <div class="a m ink" style="left:64px;top:2030px">Disfrutar aconseja elegir<br>el menú sin verlo.<br><span style="font-size:28px;opacity:.7">{AVISO}</span></div>
 <div class="a m" style="left:1010px;top:2190px;color:#f2f0eb;opacity:.85">01/06</div>
 <div class="a m" style="left:1600px;top:2190px;color:#f2f0eb;opacity:.85">desliza →</div>
@@ -79,7 +79,7 @@ hilo = svg("""
  C1010,1795 1010,1900 990,2010 C980,2070 1000,2112 1040,2116 L1790,2116"
  fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" opacity=".95"/>""")
 P['D2'] = foto('../../assets/raw/D2.png') + hilo + f"""
-<div class="a m" style="left:1060px;top:40px;color:#FFF6EC">DISFRUTAR — BARCELONA</div>
+<div class="a m" style="left:1060px;top:40px;color:#FFF6EC">Disfrutar, Barcelona</div>
 <div class="a m" style="right:70px;top:40px;color:#FFF6EC">02/06</div>
 <div class="a m" style="left:1060px;top:140px;color:#FFF6EC;font-size:34px">La entrada se inspira en la forja<br>del Mercat del Ninot y en los<br>colores cerámicos de Miró.</div>
 <div class="a an ink" style="left:1040px;top:1720px;font-size:128px">La cerámica<br>es el hilo<br>conductor.</div>
@@ -89,7 +89,7 @@ P['D2'] = foto('../../assets/raw/D2.png') + hilo + f"""
 P['D3'] = foto('../../assets/raw/D3.png') + f"""
 <div class="a b" style="left:24px;top:70px;font-size:430px;color:#141414">PANCHINO</div>
 <div class="f" style="background-image:url(../../assets/raw/D3_rec.png)"></div>
-<div class="a m ink" style="left:70px;top:40px">DISFRUTAR — BARCELONA</div>
+<div class="a m ink" style="left:70px;top:40px">Disfrutar, Barcelona</div>
 <div class="a m ink" style="right:70px;top:40px">03/06</div>
 <div class="a b ink" style="left:70px;top:1800px;font-size:150px">de caviar.</div>
 <div class="a m ink" style="left:74px;top:1960px">Un clásico de la casa,<br>en el menú Classic.</div>
@@ -102,7 +102,7 @@ anillo = svg("""
 <path d="M880,1990 C840,1950 790,1930 740,1932" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
 <path d="M880,1990 L872,1958 M880,1990 L850,1994" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>""")
 P['D4'] = foto('../../assets/raw/D4.png') + anillo + f"""
-<div class="a m ink" style="left:70px;top:40px">DISFRUTAR — BARCELONA</div>
+<div class="a m ink" style="left:70px;top:40px">Disfrutar, Barcelona</div>
 <div class="a m ink" style="right:70px;top:40px">04/06</div>
 <div class="a b ink" style="left:60px;top:110px;font-size:330px">Sorprender</div>
 <div class="a m ink" style="left:70px;top:430px;font-size:42px">es esencial. — «Sorprendre és un sentiment essencial.»</div>
@@ -117,7 +117,7 @@ cotas = svg("""
  <path d="M250,548 L120,548"/>
 </g><circle cx="120" cy="548" r="8" fill="#141414"/>""")
 P['D5'] = foto('../../assets/raw/D5.png') + cotas + f"""
-<div class="a m ink" style="left:70px;top:40px">DISFRUTAR — BARCELONA</div>
+<div class="a m ink" style="left:70px;top:40px">Disfrutar, Barcelona</div>
 <div class="a m ink" style="right:70px;top:40px">05/06</div>
 <div class="a m ink" style="left:1300px;top:500px">celosía</div>
 <div class="a m ink" style="left:262px;top:520px">luz natural</div>
@@ -129,7 +129,7 @@ P['D5'] = foto('../../assets/raw/D5.png') + cotas + f"""
 herb = svg("""<path d="M420,800 C640,1000 900,1340 1080,1640" fill="none" stroke="#141414" stroke-width="3" style="mix-blend-mode:multiply"/>
 <circle cx="1080" cy="1640" r="9" fill="#141414"/>""")
 P['D6'] = foto('../../assets/raw/D6.png') + herb + f"""
-<div class="a m ink" style="left:70px;top:40px">DISFRUTAR — BARCELONA</div>
+<div class="a m ink" style="left:70px;top:40px">Disfrutar, Barcelona</div>
 <div class="a m ink" style="right:70px;top:40px">06/06</div>
 <div class="a an ink" style="left:70px;top:140px;font-size:180px">Villarroel 163,<br>Barcelona.</div>
 <div class="a ink" style="left:74px;top:560px;font-family:CAI;font-size:84px">Olea europaea</div>
