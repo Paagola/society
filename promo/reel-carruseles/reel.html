@@ -2,132 +2,213 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Society · reel v2</title>
+<title>Society · reel v3</title>
 <!--
-  Reel v2, 20 s (10 compases a 120 BPM) en 1080 × 1920. Una sola forma que muta y cuenta el flujo
-  de Society: la foto del móvil del cliente → la foto profesional → el texto que cae en 3D → el
-  carrusel → los 17 posts → la semana planificada → el logo. Todo sale de seek(t): sin transiciones
-  CSS, sin temporizadores y sin estado entre fotogramas. Guion: README.md.
+  Reel v3, 20 s (10 compases a 120 BPM) en 1080 × 1920. El flujo de Society contado con cambios de
+  punto de vista en cada tramo: la carpeta de cristal donde el cliente suelta su foto, la foto vista
+  desde la mesa, el escaneo, las letras vistas desde abajo, la rueda de posts, la plaza de Axpe vista
+  desde arriba, una ráfaga con un ángulo por corte, la semana en carpetas y el logo.
+  Los componentes de interfaz (cursor con etiqueta, carpeta de cristal y rueda de trabajos) están
+  rehechos aquí a partir de los que pasó Víctor, para poder moverlos fotograma a fotograma.
+  Todo sale de seek(t): sin transiciones CSS, sin temporizadores y sin estado entre fotogramas.
 -->
 <style>
   @font-face { font-family: Geist; src: url(fonts/Geist.woff2) format('woff2'); font-weight: 100 900; }
   @font-face { font-family: GeistMono; src: url(fonts/GeistMono.woff2) format('woff2'); }
-  @font-face { font-family: Anton; src: url(fonts/Anton.woff2) format('woff2'); }
-  @font-face { font-family: Playfair; src: url(fonts/PlayfairDisplay-italic.woff2) format('woff2'); font-style: italic; font-weight: 400 900; }
   @font-face { font-family: AN; src: url(fuentes/ArchivoNarrow.ttf); font-weight: 400 700; }
+  @font-face { font-family: Anton; src: url(fonts/Anton.woff2) format('woff2'); }
   :root { --papel: #ECE8DC; --tinta: #141414; --cobalto: #2440E0; --mostaza: #F5C518; --gris: #8A8780; }
   html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--papel); }
   body { font-family: Geist, system-ui, sans-serif; color: var(--tinta); -webkit-font-smoothing: antialiased; }
   #stage { position: absolute; inset: 0; overflow: hidden; background: var(--papel); }
-  #world { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 0 0; }
-  #shape { position: absolute; overflow: hidden; box-sizing: border-box; }
-  #outer { position: absolute; width: 0; height: 0; }
-  .c { position: absolute; left: 50%; top: 50%; }
-  .row { display: flex; align-items: center; }
-  .card { position: absolute; width: 760px; height: 950px; }
-  .card img, img.cubre { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  .chip { position: absolute; left: 30px; top: 30px; height: 56px; padding: 0 22px; border-radius: 28px; display: flex; align-items: center; gap: 12px;
-          font-size: 26px; font-weight: 600; background: rgba(20,20,20,.72); color: #fff; backdrop-filter: blur(8px); }
-  .punto { width: 12px; height: 12px; border-radius: 6px; }
-  #cursor { position: absolute; left: 0; top: 0; width: 46px; height: 46px; transform-origin: 6px 4px; }
+  #mesa { position: absolute; inset: -200px; opacity: .12;
+          background-image: radial-gradient(#141414 1.6px, transparent 2px); background-size: 32px 32px; }
+  .esc { position: absolute; inset: 0; visibility: hidden; }
+  .obj { position: absolute; left: 540px; top: 1040px; }
+  img { display: block; }
   svg { overflow: visible; }
-  .cap { position: absolute; left: 0; right: 0; top: 150px; text-align: center; }
-  .cap .n { font-family: Anton; font-size: 54px; color: var(--cobalto); letter-spacing: .02em; display: block; margin-bottom: 6px; }
-  .cap .t { font-family: Playfair; font-style: italic; font-weight: 700; font-size: 66px; line-height: 1.05; letter-spacing: -0.5px; }
-  .cap .s { font-family: Geist; font-size: 30px; font-weight: 500; color: #55524c; margin-top: 14px; display: block; }
-  .nota { position: absolute; left: 0; right: 0; bottom: 64px; text-align: center; font-size: 24px; font-weight: 500; color: #8A8780; letter-spacing: .2px; }
-  .masc { position: absolute; transform-origin: 50% 100%; }
-  .letra { position: absolute; font-family: Anton; color: #EDE7DD; line-height: 1; transform-origin: 50% 60%; }
+
+  /* ── tarjeta de foto ── */
+  .tarjeta { width: 760px; height: 950px; border-radius: 40px; overflow: hidden; background: #fff;
+             box-shadow: 0 40px 90px -30px rgba(20,20,20,.45), 0 0 0 1px rgba(20,20,20,.06); }
+  .tarjeta > img, .capaimg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+  .chip { position: absolute; left: 28px; top: 28px; height: 58px; padding: 0 22px; border-radius: 29px; display: flex; align-items: center; gap: 14px;
+          font-size: 25px; font-weight: 550; letter-spacing: -.01em; color: #fff; white-space: nowrap;
+          background: rgba(20,20,22,.42); backdrop-filter: blur(14px) saturate(1.4);
+          box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 0 0 1px rgba(255,255,255,.12); }
+  .chip .m { font-family: GeistMono; font-size: 18px; letter-spacing: .08em; color: rgba(255,255,255,.66); }
+  .punto { width: 12px; height: 12px; border-radius: 6px; flex: none; }
+  .letra { position: relative; font-family: Anton; color: #EDE7DD; line-height: 1; font-size: 360px; letter-spacing: -0.01em; transform-origin: 50% 60%; }
+
+  /* ── carpeta de cristal (rehecha de glass-folder-cards) ── */
+  .gf { position: absolute; font-family: Geist, system-ui, sans-serif; isolation: isolate; }
+  .gf-stage { position: absolute; left: 0; top: 0; width: 340px; height: 272px; transform-origin: 0 0; }
+  .gf-tilt { position: absolute; inset: 0; }
+  .gf-shadow { position: absolute; left: 18px; right: 18px; bottom: -6px; height: 60px; border-radius: 40px; background: rgba(16,18,24,.34); filter: blur(22px); }
+  .gf[data-tone=dark] .gf-shadow { background: rgba(0,0,0,.62); }
+  .gf-back { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(180deg,#f3f3f4 0%,#e3e3e6 100%); }
+  .gf[data-tone=dark] .gf-back { background: linear-gradient(180deg,#2a2a2e 0%,#121214 100%); }
+  .gf-art { position: absolute; left: -12px; top: -12px; width: 364px; height: 296px; max-width: none; object-fit: cover; }
+  .gf-sheen { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 22%), radial-gradient(120% 80% at 80% 0%,rgba(255,255,255,.16),rgba(255,255,255,0) 60%); }
+  .gf-rim { position: absolute; left: 0; top: 0; overflow: visible; fill: none; }
+  .gf-back-rim { width: 340px; height: 272px; }
+  .gf-back-rim path { stroke: rgba(255,255,255,.45); stroke-width: 1; }
+  .gf[data-tone=dark] .gf-back-rim path { stroke: rgba(255,255,255,.16); }
+  .gf-files { position: absolute; inset: 0; z-index: 5; clip-path: inset(-400px -400px 10px -400px); }
+  .gf-sheet { box-sizing: border-box; position: absolute; left: 34px; top: 96px; width: 272px; height: 184px; border-radius: 16px; overflow: hidden;
+              background: #1a1a1d; transform-origin: 50% 100%;
+              box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 0 0 .5px rgba(0,0,0,.1), 0 10px 26px -8px rgba(10,12,20,.28); }
+  .gf-sheet img { position: absolute; left: 0; top: 0; width: 272px; height: 184px; object-fit: cover; }
+  .gf-sheet::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,0) 34%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
+  .gf-sheet-head { position: absolute; left: 14px; right: 14px; top: 11px; z-index: 1; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; white-space: nowrap; }
+  .gf-sheet-name { font-size: 12.5px; font-weight: 560; letter-spacing: -.005em; color: #fafafa; }
+  .gf-sheet-meta { font-family: GeistMono; font-size: 10px; letter-spacing: .02em; color: rgba(250,250,250,.66); }
+  .gf-front { position: absolute; left: 0; top: 74px; width: 340px; height: 198px; z-index: 10; backdrop-filter: blur(22px) saturate(1.5); transform-origin: 50% 100%; }
+  .gf-tint { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.5) 42%,rgba(252,252,252,.93) 100%); }
+  .gf[data-tone=dark] .gf-tint { background: linear-gradient(180deg,rgba(18,18,20,.18) 0%,rgba(14,14,16,.62) 46%,rgba(8,8,10,.94) 100%); }
+  .gf-spec { position: absolute; inset: 0; mix-blend-mode: soft-light; opacity: .9; }
+  .gf[data-tone=dark] .gf-spec { mix-blend-mode: screen; opacity: .16; }
+  .gf-front-rim { width: 340px; height: 198px; }
+  .gf-front-rim path { stroke-width: 2.4; }
+  .gf[data-tone=dark] .gf-front-rim { opacity: .55; }
+  .gf-label { position: absolute; z-index: 2; left: 28px; bottom: 32px; display: flex; flex-direction: column; gap: 4px; color: #141416; }
+  .gf[data-tone=dark] .gf-label { color: #f5f5f7; }
+  .gf-title { font-size: 18px; font-weight: 500; line-height: 1.15; letter-spacing: -.012em; white-space: nowrap; }
+  .gf-meta { font-family: GeistMono; font-size: 12px; letter-spacing: .03em; opacity: .55; white-space: nowrap; height: 15px; position: relative; }
+  .gf-meta span { position: absolute; left: 0; top: 0; }
+  .gf-key { box-sizing: border-box; position: absolute; right: 22px; bottom: 22px; z-index: 12; width: 58px; height: 58px; border-radius: 18px; display: grid; place-items: center; color: #fff;
+            background: radial-gradient(120% 90% at 50% 0%,#3a3a3f 0%,#121214 55%,#050506 100%);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -3px 8px rgba(0,0,0,.7), 0 0 0 1px rgba(0,0,0,.75), 0 14px 22px -8px rgba(0,0,0,.55), 0 3px 6px -2px rgba(0,0,0,.35); }
+  .gf-key svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+
+  /* ── rueda de posts (rehecha de works-wheel) ── */
+  #rueda { position: absolute; inset: 0; }
+  #ruedaEje { position: absolute; left: 540px; top: 1010px; transform-style: preserve-3d; }
+  .rw { position: absolute; backface-visibility: hidden; }
+  .rw > span { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border-radius: 14px; background: #ddd;
+               box-shadow: 0 18px 40px -18px rgba(20,20,20,.35); }
+  .rw img { width: 100%; height: 100%; object-fit: cover; }
+  #ruedaTit { position: absolute; left: 0; right: 0; top: 1010px; transform: translateY(-50%); text-align: center; font-size: 88px; font-weight: 600; letter-spacing: -.04em; }
+  #indice { position: absolute; right: 30px; top: 610px; text-align: right; font-size: 21px; line-height: 1.72; color: #8A8780; list-style: none; margin: 0; padding: 0; letter-spacing: -.01em; }
+
+  /* ── ráfaga, aviso, logo ── */
+  .post { width: 760px; height: 950px; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(20,20,20,.5); }
+  .post img { width: 100%; height: 100%; object-fit: cover; }
+  #contador { position: absolute; right: 40px; top: 1610px; font-family: GeistMono; font-size: 26px; letter-spacing: .08em; color: #141414; }
+  #aprobar { position: absolute; left: 50%; top: 1420px; width: 760px; height: 112px; margin-left: -380px; border-radius: 56px; background: var(--cobalto); color: #fff;
+             display: flex; align-items: center; justify-content: center; gap: 16px; font-size: 36px; font-weight: 600; letter-spacing: -.02em;
+             box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 20px 40px -16px rgba(36,64,224,.6); }
+  #aviso { position: absolute; left: 50%; top: 0; display: flex; align-items: center; gap: 24px; padding: 26px 46px 26px 26px; border-radius: 999px; white-space: nowrap;
+           background: rgba(22,22,24,.78); backdrop-filter: blur(24px) saturate(1.6); color: #fff;
+           box-shadow: inset 0 1px 0 rgba(255,255,255,.16), 0 0 0 1px rgba(255,255,255,.08), 0 30px 60px -20px rgba(0,0,0,.55); }
+  #aviso .t { font-size: 38px; font-weight: 600; letter-spacing: -.025em; }
+  #aviso .m { font-family: GeistMono; font-size: 20px; letter-spacing: .08em; color: rgba(255,255,255,.6); margin-top: 6px; }
+  #logo { width: 760px; height: 760px; border-radius: 56px; overflow: hidden; background: rgb(26,26,26); box-shadow: 0 50px 100px -30px rgba(20,20,20,.55); }
+  #logo img { width: 760px; height: 760px; }
+
+  /* ── rótulos de arriba ── */
+  .cap { position: absolute; left: 70px; right: 70px; top: 150px; visibility: hidden; }
+  .cap .l { font-family: GeistMono; font-size: 22px; letter-spacing: .14em; text-transform: uppercase; color: #8A8780; display: block; margin-bottom: 22px; }
+  .cap .t { font-size: 76px; font-weight: 600; line-height: 1.0; letter-spacing: -.045em; }
+  .cap .t span { display: inline-block; white-space: pre; }
+  .cap .s { font-size: 30px; font-weight: 500; letter-spacing: -.015em; color: #6c6962; margin-top: 18px; display: block; }
+  .cap.claro .t { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.35); }
+  .cap.claro .l, .cap.claro .s { color: rgba(255,255,255,.78); }
+  .nota { position: absolute; left: 0; right: 0; bottom: 60px; text-align: center; font-family: GeistMono; font-size: 18px; letter-spacing: .06em; text-transform: uppercase; color: #8A8780; visibility: hidden; }
+  .masc { position: absolute; transform-origin: 50% 100%; visibility: hidden; }
+
+  /* ── cursor con etiqueta (rehecho de animate-ui) ── */
+  .cur { position: absolute; left: 0; top: 0; visibility: hidden; }
+  .cur svg { width: 56px; height: 56px; display: block; transform-origin: 3px 5px; }
+  .cur path { stroke: #fff; stroke-width: 2.2; paint-order: stroke; stroke-linejoin: round; }
+  .cur .eti { position: absolute; left: 0; top: 0; padding: 8px 18px; border-radius: 12px; font-size: 27px; font-weight: 500; letter-spacing: -.01em; white-space: nowrap; }
 </style>
 </head>
 <body>
 <div id="stage">
-  <div id="world">
-    <div id="shape">
-      <!-- 1 · botón -->
-      <div id="L_boton" class="c row" style="gap:20px;white-space:nowrap;color:#fff;font-size:42px;font-weight:600;letter-spacing:-0.5px">
-        <svg width="40" height="40" viewBox="0 0 40 40"><path d="M20 28V8M11 16l9-9 9 9M7 31h26" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Sube la foto de tu plato</span>
+  <div id="mesa"></div>
+
+  <!-- A · carpeta del cliente -->
+  <div id="escA" class="esc"><div id="objA" class="obj"></div></div>
+
+  <!-- B/C · la foto: del móvil a la toma profesional, letras y post -->
+  <div id="escB" class="esc">
+    <div id="objB" class="obj tarjeta">
+      <img src="assets/reel/real_E1.jpg">
+      <div id="crudo" style="position:absolute;inset:0">
+        <img class="capaimg" src="assets/reel/raw_E1.jpg">
+        <div id="letrasE1" style="position:absolute;left:-15px;top:30px;display:flex;white-space:nowrap"></div>
+        <div id="pieE1" style="position:absolute;left:30px;top:872px;font-family:GeistMono;font-size:20px;line-height:1.3;color:#EDE7DD;white-space:pre"></div>
       </div>
-      <!-- 2 · carga y 3 · check -->
-      <svg id="L_carga" class="c" width="70" height="70" viewBox="-35 -35 70 70"><circle r="27" fill="none" stroke="#ffffff33" stroke-width="7"/><path id="arco" d="" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg>
-      <svg id="L_check" class="c" width="70" height="70" viewBox="-35 -35 70 70"><path id="checkpath" d="M-19 1 L-6 14 L20 -13" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1"/></svg>
-      <!-- 4 · isla -->
-      <div id="L_isla" class="c row" style="gap:22px;white-space:nowrap;color:#fff">
-        <img src="assets/reel/real_E1.jpg" style="width:84px;height:84px;object-fit:cover;border-radius:22px;display:block">
-        <div style="display:flex;flex-direction:column;gap:2px">
-          <span style="font-size:22px;color:#ffffff99;font-weight:500;letter-spacing:1px">SOCIETY</span>
-          <span style="font-size:34px;font-weight:600;letter-spacing:-0.4px">Foto recibida</span>
-        </div>
-        <div id="islaPunto" class="punto" style="width:24px;height:24px;border-radius:12px;background:var(--cobalto);margin-left:14px"></div>
-      </div>
-      <!-- 5 · foto del cliente → foto profesional → letras → post -->
-      <div id="L_foto" class="card c"><img src="assets/reel/real_E1.jpg"></div>
-      <div id="L_raw" class="card c"><img src="assets/reel/raw_E1.jpg">
-        <div id="letrasE1" style="position:absolute;inset:0"></div>
-        <div id="pieE1" style="position:absolute;left:30px;top:880px;font-family:GeistMono;font-size:20px;color:#EDE7DD;white-space:pre"></div>
-      </div>
-      <div id="escaneo" style="position:absolute;left:0;height:6px;background:var(--cobalto)"></div>
-      <div id="chipFoto" class="chip"><span class="punto" style="background:#fff"></span>Tu foto · móvil</div>
-      <div id="chipPro" class="chip" style="background:var(--cobalto)"><span class="punto" style="background:#fff"></span>Con Society</div>
-      <div id="pildora" class="row" style="position:absolute;height:84px;padding:0 38px;border-radius:42px;background:#fff;color:var(--tinta);font-size:32px;font-weight:650;gap:14px;white-space:nowrap">
+      <img id="postE1" class="capaimg" src="assets/posts/E1.jpg">
+      <div id="escaneo" style="position:absolute;left:0;width:100%;height:6px;background:var(--cobalto);box-shadow:0 0 30px 6px rgba(36,64,224,.55)"></div>
+      <div id="chipFoto" class="chip"><span class="punto" style="background:#fff"></span>Tu foto<span class="m">MÓVIL</span></div>
+      <div id="chipPro" class="chip" style="background:rgba(36,64,224,.78)"><span class="punto" style="background:#fff"></span>Con Society<span class="m">PRO</span></div>
+      <div id="pildora" style="position:absolute;left:50%;top:812px;height:84px;padding:0 36px;border-radius:42px;background:#fff;color:#141414;display:flex;align-items:center;gap:14px;
+           font-size:31px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 18px 40px -12px rgba(20,20,20,.45)">
         <span class="punto" style="width:16px;height:16px;border-radius:8px;background:var(--cobalto)"></span>Mejorar foto
       </div>
-      <!-- 6 · carrusel -->
-      <div id="L_tira" class="c"><div id="tira" class="row" style="position:absolute;left:0;top:0"></div></div>
-      <!-- 7 · «PLAZA» sobre la foto original de Axpe -->
-      <div id="L_e2" class="card c" style="background:#2b3035">
-        <div id="e2" style="position:absolute;left:0;top:0;width:1856px;height:2304px;transform-origin:0 0">
-          <img src="assets/reel/raw_E2.jpg" style="position:absolute;left:0;top:0;width:1856px;height:2304px">
-          <div style="position:absolute;left:70px;top:40px;font-family:AN;font-weight:500;font-size:44px;color:#151515">Asador Etxebarri, Axpe</div>
-          <div style="position:absolute;right:70px;top:40px;font-family:AN;font-weight:500;font-size:44px;color:#151515">02/06</div>
-          <div id="e2tit" style="position:absolute;left:66px;top:105px;font-family:AN;font-weight:700;font-size:132px;line-height:.9;color:#141414;white-space:nowrap"></div>
-          <div style="position:absolute;left:-200px;top:1340px;width:2256px;height:964px;perspective:1100px;perspective-origin:50% 0%">
-            <div id="plaza" style="position:absolute;left:0;right:0;bottom:230px;height:780px;transform:rotateX(64deg);transform-origin:50% 100%;transform-style:preserve-3d"></div>
-          </div>
-          <div id="e2pie" style="position:absolute;left:70px;top:2150px;font-family:AN;font-weight:500;font-size:44px;line-height:1.25;color:#F4F1EA">Bittor Arguinzoniz enciende las brasas con leña<br>cada mañana desde 1990.</div>
+    </div>
+  </div>
+
+  <!-- D · rueda de posts -->
+  <div id="escD" class="esc">
+    <div id="rueda"><div id="ruedaEje"></div></div>
+    <div id="ruedaTit">17 posts</div>
+    <ol id="indice"></ol>
+  </div>
+
+  <!-- E · «PLAZA» sobre la foto original de Axpe -->
+  <div id="escE" class="esc">
+    <div id="objE" class="obj tarjeta" style="background:#2b3035">
+      <div id="e2" style="position:absolute;left:0;top:0;width:1856px;height:2304px;transform-origin:0 0">
+        <img src="assets/reel/raw_E2.jpg" style="position:absolute;left:0;top:0;width:1856px;height:2304px">
+        <div style="position:absolute;left:70px;top:40px;font-family:AN;font-weight:500;font-size:44px;color:#151515">Asador Etxebarri, Axpe</div>
+        <div style="position:absolute;right:70px;top:40px;font-family:AN;font-weight:500;font-size:44px;color:#151515">02/06</div>
+        <div id="e2tit" style="position:absolute;left:66px;top:105px;font-family:AN;font-weight:700;font-size:132px;line-height:.9;color:#141414;white-space:nowrap"></div>
+        <div style="position:absolute;left:-200px;top:1340px;width:2256px;height:964px;perspective:1100px;perspective-origin:50% 0%">
+          <div id="plaza" style="position:absolute;left:0;right:0;bottom:230px;height:780px;transform:rotateX(64deg);transform-origin:50% 100%;transform-style:preserve-3d"></div>
         </div>
-      </div>
-      <!-- 8 · ráfaga de posts -->
-      <div id="L_rafaga" class="card c"></div>
-      <div id="contador" class="chip" style="left:auto;right:30px">01 / 17</div>
-      <!-- 9 · semana -->
-      <div id="L_semana" class="c" style="width:900px;height:1060px">
-        <div style="position:absolute;left:56px;top:52px;font-family:Anton;font-size:30px;letter-spacing:.06em;color:var(--cobalto)">SEMANA 43</div>
-        <div style="position:absolute;left:56px;top:96px;font-family:Playfair;font-style:italic;font-weight:700;font-size:64px;letter-spacing:-0.5px">Tu semana</div>
-        <div id="cols"></div>
-        <div id="aprobar" class="row" style="position:absolute;left:56px;right:56px;top:900px;height:104px;border-radius:52px;background:var(--cobalto);color:#fff;justify-content:center;font-size:36px;font-weight:650;gap:16px">
-          Aprobar la semana
-        </div>
-      </div>
-      <!-- 10 · aviso -->
-      <div id="L_aviso" class="c row" style="gap:22px;white-space:nowrap;color:#fff;font-size:36px;font-weight:600;letter-spacing:-0.4px">
-        <svg width="66" height="66" viewBox="-33 -33 66 66"><circle r="33" fill="#2440E0"/><path id="avisoCheck" d="M-13 1 L-4 10 L14 -9" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1"/></svg>
-        <span>Tu semana, lista para publicar.</span>
-      </div>
-      <!-- 11 · logo -->
-      <div id="L_logo" class="c" style="width:760px;height:760px">
-        <img src="assets/reel/logo.png" style="width:760px;height:760px;display:block">
+        <div id="e2pie" style="position:absolute;left:70px;top:2150px;font-family:AN;font-weight:500;font-size:44px;line-height:1.25;color:#F4F1EA">Bittor Arguinzoniz enciende las brasas con leña<br>cada mañana desde 1990.</div>
       </div>
     </div>
-    <!-- fuera del recorte: puntos del carrusel -->
-    <div id="outer"><div id="puntos" class="row" style="position:absolute;left:0;top:520px;gap:14px;transform:translateX(-50%)"></div></div>
   </div>
-  <!-- pantalla: rótulos, mascota, notas -->
+
+  <!-- F · ráfaga -->
+  <div id="escF" class="esc">
+    <div id="objF" class="obj post"></div>
+    <div id="contador">06 / 17</div>
+  </div>
+
+  <!-- G · la semana en carpetas, aviso -->
+  <div id="escG" class="esc">
+    <div id="objG" class="obj" style="width:1040px;height:330px"></div>
+    <div id="aprobar">Aprobar la semana
+      <svg width="30" height="30" viewBox="0 0 30 30"><path d="M6 15h17M16 8l7 7-7 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+  <div id="aviso">
+    <svg width="76" height="76" viewBox="-38 -38 76 76"><circle r="38" fill="#2440E0"/><path id="avisoCheck" d="M-15 1 L-5 11 L16 -10" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1"/></svg>
+    <div><div class="t">Tu semana, lista para publicar.</div><div class="m">3 POSTS · LUN · MIÉ · VIE</div></div>
+  </div>
+
+  <!-- I · logo -->
+  <div id="escI" class="esc"><div id="objI" class="obj"><div id="logo"><img src="assets/reel/logo.png"></div></div></div>
+
+  <!-- pantalla -->
   <div id="caps"></div>
   <div id="notas"></div>
   <div id="mascotas"></div>
-  <svg id="cursor" viewBox="0 0 46 46"><path d="M6 4 L6 36 L14.5 28 L20 40.5 L25.5 38 L20 26 L32 26 Z" fill="#141414" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg>
+  <div id="curTu" class="cur"><svg viewBox="0 0 40 40"><path fill="#141414" d="M1.8 4.4 7 36.2c.3 1.8 2.6 2.3 3.6.8l3.9-5.7c1.7-2.5 4.5-4.1 7.5-4.3l6.9-.5c1.8-.1 2.5-2.4 1.1-3.5L5 2.5c-1.4-1.1-3.5 0-3.3 1.9Z"/></svg><div class="eti" style="background:#141414;color:#ECE8DC">Tú</div></div>
+  <div id="curSo" class="cur"><svg viewBox="0 0 40 40"><path fill="#2440E0" d="M1.8 4.4 7 36.2c.3 1.8 2.6 2.3 3.6.8l3.9-5.7c1.7-2.5 4.5-4.1 7.5-4.3l6.9-.5c1.8-.1 2.5-2.4 1.1-3.5L5 2.5c-1.4-1.1-3.5 0-3.3 1.9Z"/></svg><div class="eti" style="background:#2440E0;color:#fff">Society</div></div>
 </div>
 
 <script>
 // ───────────── Rejilla ─────────────
 const BPM = 120, B = 60 / BPM, BEATS = 40, DUR = BEATS * B;      // 20 s, 10 compases
-const W = 1080, H = 1920, CX = 540, CY = 1010;
-const COBALTO = [36, 64, 224], TINTA = [20, 20, 20], BLANCO = [255, 255, 255], LOGO = [26, 26, 26];
-const CW = 760, CH = 950;
+const W = 1080, H = 1920;
 
-// ───────────── Muelles (respuesta al escalón, forma cerrada) ─────────────
+// ───────────── Muelles y curvas ─────────────
 function S(t, f = 3, z = 0.86) {
   if (t <= 0) return 0;
   const w = 2 * Math.PI * f;
@@ -135,182 +216,385 @@ function S(t, f = 3, z = 0.86) {
   const wd = w * Math.sqrt(1 - z * z);
   return 1 - Math.exp(-z * w * t) * (Math.cos(wd * t) + (z * w / wd) * Math.sin(wd * t));
 }
-// Suma de un muelle por cambio de objetivo; envuelve el bucle.
+// Suma de un muelle por cambio de objetivo; f = 0 es un corte seco. Envuelve el bucle.
 function pista(keys, f0 = 3, z0 = 0.86) {
   const ev = (t) => {
     let v = keys[0][1];
     for (let i = 1; i < keys.length; i++) {
       const [ti, vi, fi, zi] = keys[i];
-      v += (vi - keys[i - 1][1]) * S(t - ti, fi ?? f0, zi ?? z0);
+      const f = fi ?? f0;
+      v += (vi - keys[i - 1][1]) * (f === 0 ? (t >= ti ? 1 : 0) : S(t - ti, f, zi ?? z0));
     }
     return v;
   };
   const fin = keys[keys.length - 1][1];
   return (t) => ev(t) + (ev(t + DUR) - fin);
 }
+// Pista de varias propiedades: cada clave lleva solo lo que cambia
+function trk(keys, f0 = 2, z0 = 0.86) {
+  const props = Object.keys(keys[0][1]), ps = {};
+  for (const p of props) {
+    let cur;
+    ps[p] = pista(keys.map((k) => { if (k[1][p] !== undefined) cur = k[1][p]; return [k[0], cur, k[2], k[3]]; }), f0, z0);
+  }
+  return (t) => { const o = {}; for (const p of props) o[p] = ps[p](t); return o; };
+}
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const lerp = (a, b, k) => a + (b - a) * k;
 const suave = (x) => { x = clamp(x); return x * x * (3 - 2 * x); };
-const rgb = (c) => `rgb(${c.map((v) => Math.round(clamp(v, 0, 255))).join(',')})`;
 const $ = (id) => document.getElementById(id);
 const env = (t) => ((t % DUR) + DUR) % DUR;
-
-// Cambio de contenido con desenfoque corto
-function capa(t, a, b, opts = {}) {
-  const ent = opts.ent ?? 0.16, sal = opts.sal ?? 0.12;
-  if (a <= b) return Math.min(suave((t - a) / ent), 1 - suave((t - (b - 0.04)) / sal));
-  return t >= a ? suave((t - a) / ent) : 1 - suave((t - (b - 0.04)) / sal);   // cruza el bucle
+const dentro = (t, a, b) => (a <= b ? t >= a && t < b : t >= a || t < b);
+// cubic-bezier de CSS
+function bez(x1, y1, x2, y2) {
+  const c = (a, b, t) => 3 * a * t * (1 - t) ** 2 + 3 * b * t * t * (1 - t) + t ** 3;
+  return (x) => {
+    if (x <= 0) return 0; if (x >= 1) return 1;
+    let lo = 0, hi = 1;
+    for (let i = 0; i < 30; i++) { const m = (lo + hi) / 2; if (c(x1, x2, m) < x) lo = m; else hi = m; }
+    return c(y1, y2, (lo + hi) / 2);
+  };
 }
-function pinta(el, k, centro = true) {
-  el.style.opacity = k.toFixed(3);
-  el.style.visibility = k <= 0.001 ? 'hidden' : 'visible';
-  const blur = (1 - k) * 14;
-  el.style.filter = blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : 'none';
-  el.style.transform = (centro ? 'translate(-50%,-50%) ' : '') + `scale(${(0.94 + 0.06 * k).toFixed(4)})`;
+const EASE = bez(0.2, 0.8, 0.2, 1);
+// Animación por claves [fracción, valor] con la curva en cada tramo
+function claves(p, ks, curva = EASE) {
+  if (p <= ks[0][0]) return ks[0][1];
+  for (let i = 1; i < ks.length; i++) if (p <= ks[i][0]) {
+    const [a, va] = ks[i - 1], [b, vb] = ks[i];
+    return lerp(va, vb, curva((p - a) / (b - a)));
+  }
+  return ks[ks.length - 1][1];
 }
 const ver = (el, k) => { el.style.opacity = k.toFixed(3); el.style.visibility = k <= 0.001 ? 'hidden' : 'visible'; };
+const mostrar = (el, si) => { el.style.visibility = si ? 'visible' : 'hidden'; };
 
-// ───────────── Estados de la forma ─────────────
-const E = [
-  [0.00, 560, 150, 75, TINTA],     // botón
-  [0.52, 150, 150, 75, TINTA],     // carga
-  [1.00, 150, 150, 75, COBALTO],   // check
-  [1.50, 620, 134, 67, TINTA],     // isla
-  [2.00, CW, CH, 44, BLANCO],      // foto del cliente
-  [9.42, 700, 875, 44, BLANCO],    //   pulso
-  [9.55, CW, CH, 44, BLANCO],      // Axpe
-  [14.00, 900, 1060, 56, BLANCO],  // semana
-  [16.50, 720, 134, 67, TINTA],    // aviso
-  [17.50, 760, 760, 56, LOGO],     // logo
-  [19.00, 560, 150, 75, TINTA],    // vuelta al botón
-];
-const pW = pista(E.map((e) => [e[0], e[1]]), 3.2);
-const pH = pista(E.map((e) => [e[0], e[2]]), 3.2);
-const pR = pista(E.map((e) => [e[0], e[3]]), 3.2);
-const pC = [0, 1, 2].map((c) => pista(E.map((e) => [e[0], e[4][c]]), 4, 1));
-const zoomDe = (w, h) => Math.min(2.2, 0.84 * W / w, 0.62 * H / h);
-const pZ = pista(E.map((e) => [e[0], Math.log(zoomDe(e[1], e[2]))]), 1.7, 0.92);
-// Giro 3D de la tarjeta: al escribir el post y al pintar «PLAZA»
-const pRX = pista([[0, 0], [4.00, 16, 2.2], [6.80, 0, 2.4], [9.60, 9, 2.2], [11.30, 0, 2.6]]);
-const pRY = pista([[0, 0], [4.00, -14, 2.2], [6.80, 0, 2.4], [9.60, 6, 2.2], [11.30, 0, 2.6]]);
-
-// ───────────── Cursor ─────────────
-const REPOSO = [320, 560];
-const AGARRE = 0.18;
-const arrastre = (r) => [[r - 0.38, 250, 120], [r - AGARRE + 0.01, -170, 140, 5.5]];
-const SUELTAS = [7.75, 8.25, 8.75, 9.25];
-const RUTA = [
-  [0, ...REPOSO],
-  [0.10, 150, 30],                    // al botón
-  [0.70, 240, 170],
-  [1.62, 220, 18],                    // a la isla
-  [2.30, 40, 392],                    // a «Mejorar foto»
-  [3.20, 330, 560],                   // se aparta
-  ...SUELTAS.flatMap(arrastre),       // carrusel
-  [9.45, 330, 580],
-  [15.40, 60, 452],                   // a «Aprobar la semana»
-  [16.40, 240, 200],
-  [18.70, ...REPOSO],
-];
-const pX = pista(RUTA.map((r) => [r[0], r[1], r[3]]), 3.0, 1);
-const pY = pista(RUTA.map((r) => [r[0], r[2], r[3]]), 3.0, 1);
-const CLICS = [[0.44, 0.52], [1.92, 2.00], [2.94, 3.00], [15.94, 16.02]];
-const ARRASTRES = SUELTAS.map((r) => [r - AGARRE, r]);
-const pPulsa = (() => {
-  const keys = [[0, 1]];
-  for (const [a, b] of CLICS.concat(ARRASTRES).sort((p, q) => p[0] - q[0])) { keys.push([a, 0.82, 9, 0.9]); keys.push([b, 1, 7, 0.8]); }
-  return pista(keys);
-})();
-// La forma se hunde un poco con cada clic y late con cada corte de la ráfaga
-const RAFAGA = ['S1', 'D1', 'D3', 'S5', 'E5', 'D2', 'S3', 'E6', 'D4', 'S4'];
-const T_RAF = 11.5, P_RAF = 0.25;
-const pHunde = (() => {
-  const keys = [[0, 1]];
-  for (const [a, b] of CLICS) { keys.push([a, 0.965, 9, 0.9]); keys.push([b, 1, 6, 0.7]); }
-  for (let i = 1; i < RAFAGA.length; i++) { const t = T_RAF + i * P_RAF; keys.push([t, 0.975, 12, 0.9]); keys.push([t + 0.04, 1, 7, 0.75]); }
-  return pista(keys);
-})();
-
-// ───────────── Letras de «FUEGO» que caen sobre la foto profesional ─────────────
-const FUEGO = 'FUEGO', T_FUEGO = 4.25, P_FUEGO = 0.375;
-{
-  // mismo encuadre que el post terminado: palabra a todo el ancho, arriba, letras juntas
-  const fila = document.createElement('div');
-  fila.style.cssText = `position:absolute;left:${-0.02 * CW}px;top:30px;display:flex;white-space:nowrap`;
-  FUEGO.split('').forEach((c, i) => {
-    const el = document.createElement('div');
-    el.className = 'letra'; el.id = 'fl' + i; el.textContent = c;
-    el.style.position = 'relative'; el.style.fontSize = '360px'; el.style.letterSpacing = '-0.01em';
-    fila.appendChild(el);
-  });
-  $('letrasE1').appendChild(fila);
+// Cámara: el objeto gira y se acerca alrededor de su centro (el punto de fuga)
+const CAM0 = { x: 0, y: 0, z: 0, rx: 0, ry: 0, rz: 0, s: 1 };
+function cam(el, c, p = 1800, extra = '') {
+  el.style.transform = `translate(-50%,-50%) perspective(${p}px) translate3d(${c.x.toFixed(2)}px,${c.y.toFixed(2)}px,${c.z.toFixed(2)}px) ` +
+    `rotateX(${c.rx.toFixed(3)}deg) rotateY(${c.ry.toFixed(3)}deg) rotateZ(${c.rz.toFixed(3)}deg) scale(${c.s.toFixed(4)}) ${extra}`;
 }
+
+// ───────────── Arte líquido de las carpetas (createArtJob de glass-folder-cards, en JS) ─────────────
+function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6d2b79f5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+function hexToRgb(h) { h = h.replace('#', ''); const n = parseInt(h, 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
+function makeFbm(seed) {
+  const r = rng(seed), perm = new Uint8Array(512), grad = new Float32Array(512), p = [];
+  for (let i = 0; i < 256; i++) p.push(i);
+  for (let i = 255; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [p[i], p[j]] = [p[j], p[i]]; }
+  for (let i = 0; i < 512; i++) perm[i] = p[i & 255];
+  for (let i = 0; i < 256; i++) { const a = r() * Math.PI * 2; grad[i * 2] = Math.cos(a); grad[i * 2 + 1] = Math.sin(a); }
+  const noise = (x, y) => {
+    const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi, X = xi & 255, Y = yi & 255;
+    const h00 = perm[X + perm[Y]] * 2, h10 = perm[X + 1 + perm[Y]] * 2, h01 = perm[X + perm[Y + 1]] * 2, h11 = perm[X + 1 + perm[Y + 1]] * 2;
+    const d00 = grad[h00] * xf + grad[h00 + 1] * yf, d10 = grad[h10] * (xf - 1) + grad[h10 + 1] * yf;
+    const d01 = grad[h01] * xf + grad[h01 + 1] * (yf - 1), d11 = grad[h11] * (xf - 1) + grad[h11 + 1] * (yf - 1);
+    const u = xf * xf * xf * (xf * (xf * 6 - 15) + 10), v = yf * yf * yf * (yf * (yf * 6 - 15) + 10);
+    return d00 + u * (d10 - d00) + v * (d01 - d00 + u * (d11 - d01 - d10 + d00));
+  };
+  return (x, y, oct) => { let s = 0, amp = 0.5; for (let i = 0; i < oct; i++) { s += amp * noise(x, y); const nx = 1.6 * x + 1.2 * y + 7.1; y = -1.2 * x + 1.6 * y + 3.3; x = nx; amp *= 0.5; } return s; };
+}
+function arte(w, h, rec, seed) {
+  const stops = rec.colors.map((c, i) => ({ t: i / (rec.colors.length - 1), c: hexToRgb(c) }));
+  const scale = rec.scale, warp = rec.warp, gloss = rec.gloss, veins = rec.veins, fbm = makeFbm(seed * 977 + 13), r = rng(seed + 1);
+  const ox = r() * 50, oy = r() * 50, ang = rec.angle + (r() - 0.5) * 0.5, ca = Math.cos(ang), sa = Math.sin(ang), m = Math.min(w, h);
+  const F = new Float32Array(w * h), Q = new Float32Array(w * h);
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const u = (x - w / 2) / m, v = (y - h / 2) / m;
+    const px = (u * ca - v * sa) * scale + ox, py = (u * sa + v * ca) * scale + oy;
+    const qx = fbm(px, py, 3), qy = fbm(px + 5.2, py + 1.3, 3);
+    const rx = fbm(px + warp * qx + 1.7, py + warp * qy + 9.2, 3), ry = fbm(px + warp * qx + 8.3, py + warp * qy + 2.8, 3);
+    F[y * w + x] = fbm(px + warp * rx, py + warp * ry, 4); Q[y * w + x] = Math.hypot(qx, qy);
+  }
+  const sm = Array.from(F.filter((_, i) => i % 7 === 0)).sort((a, b) => a - b);
+  const lo = sm[Math.floor(sm.length * 0.02)], hi = sm[Math.floor(sm.length * 0.98)], k = 1 / (hi - lo || 1), slope = k * m * 0.012;
+  const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+  const g = cv.getContext('2d'), im = g.createImageData(w, h), px = im.data;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const i = y * w + x; let t = clamp((F[i] - lo) * k); let j = 1;
+    while (j < stops.length - 1 && stops[j].t < t) j++;
+    const a = stops[j - 1], b = stops[j]; let f = clamp((t - a.t) / (b.t - a.t || 1)); f = f * f * (3 - 2 * f);
+    const gx = (F[x < w - 1 ? i + 1 : i] - F[x > 0 ? i - 1 : i]) * slope, gy = (F[y < h - 1 ? i + w : i] - F[y > 0 ? i - w : i]) * slope;
+    const nd = (gx * 0.55 + gy * 0.65 + 0.52) / Math.sqrt(gx * gx + gy * gy + 1);
+    const spec = Math.pow(Math.max(nd, 0), 24) * gloss * 255, silk = 1 + 0.035 * Math.sin(t * 150 + Q[i] * 24);
+    const vein = veins * Math.max(0, 1 - Math.abs(Q[i] - 0.42) * 14) * 0.6, lit = (0.82 + 0.28 * nd) * silk * (1 - vein);
+    for (let c = 0; c < 3; c++) px[i * 4 + c] = (a.c[c] + (b.c[c] - a.c[c]) * f) * lit + spec;
+    px[i * 4 + 3] = 255;
+  }
+  g.putImageData(im, 0, 0);
+  return cv.toDataURL('image/jpeg', 0.92);
+}
+// Receta con la paleta de Society: cobalto y mostaza plegados sobre tinta y papel
+const SOCIETY_ART = { colors: ['#0e1016', '#18267a', '#2440E0', '#9aa8f2', '#ECE8DC', '#F5C518', '#a8770c'], scale: 0.72, warp: 3.2, angle: -0.5, gloss: 0.5, veins: 0.45 };
+const ARTES = [3, 11, 7, 19].map((s) => arte(364, 296, SOCIETY_ART, s));
+
+// ───────────── Carpeta de cristal ─────────────
+const GW = 340, GH = 272, HEAD = 54;
+const BACK_PATH = 'M0 56A22 22 0 0 1 22 34L146 34C170 34 172 0 198 0L318 0A22 22 0 0 1 340 22L340 250A22 22 0 0 1 318 272L22 272A22 22 0 0 1 0 250Z';
+const FH = GH - 74;
+const FRONT_PATH = `M0 22A22 22 0 0 1 22 0L118 0C144 0 146 32 172 32L318 32A22 22 0 0 1 340 54L340 ${FH - 22}A22 22 0 0 1 318 ${FH}L22 ${FH}A22 22 0 0 1 0 ${FH - 22}Z`;
+// reposo, encima (hover) y abierta, como en el CSS original
+const POSE = [
+  { hinge: 0, lift: 42, spread: 0, fan: 0, stack: 15 },
+  { hinge: -11, lift: -34, spread: 8, fan: 1.4, stack: 10 },
+  { hinge: -24, lift: -96, spread: 40, fan: 5, stack: 30 },
+];
+function pose(v) {
+  const [a, b, k] = v < 1 ? [POSE[0], POSE[1], v] : [POSE[1], POSE[2], v - 1];
+  const o = {}; for (const p in a) o[p] = lerp(a[p], b[p], k); return o;
+}
+let uid = 0;
+function carpeta({ label, metas, tone = 'light', art, file, width }) {
+  const id = 'gf' + (uid++), k = width / GW;
+  const el = document.createElement('div');
+  el.className = 'gf'; el.dataset.tone = tone;
+  el.style.width = width + 'px'; el.style.height = (GH + HEAD) * k + 'px';
+  el.innerHTML = `
+    <div class="gf-stage" style="transform:translateY(${HEAD * k}px) scale(${k})"><div class="gf-tilt">
+      <div class="gf-shadow"></div>
+      <div class="gf-back" style="clip-path:path('${BACK_PATH}')"><img class="gf-art" src="${art}"><div class="gf-sheen"></div></div>
+      <svg class="gf-rim gf-back-rim" viewBox="0 0 340 272"><path d="${BACK_PATH}"/></svg>
+      <div class="gf-files">${file ? `<div class="gf-sheet"><img src="${file.img}"><span class="gf-sheet-head"><span class="gf-sheet-name">${file.name}</span><span class="gf-sheet-meta">${file.meta}</span></span></div>` : ''}</div>
+      <div class="gf-front" style="clip-path:path('${FRONT_PATH}')">
+        <div class="gf-tint"></div>
+        <div class="gf-spec"></div>
+        <svg class="gf-rim gf-front-rim" viewBox="0 0 340 ${FH}"><defs><linearGradient id="${id}r" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".35" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity=".12"/></linearGradient></defs>
+          <path d="${FRONT_PATH}" stroke="url(#${id}r)"/></svg>
+        <div class="gf-label"><span class="gf-title">${label}</span><span class="gf-meta">${metas.map((m) => `<span>${m}</span>`).join('')}</span></div>
+      </div>
+      <div class="gf-key"><svg viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15"/></svg></div>
+    </div></div>`;
+  const q = (s) => el.querySelector(s);
+  return { el, k, tilt: q('.gf-tilt'), back: q('.gf-back'), rim: q('.gf-back-rim'), sheet: q('.gf-sheet'), front: q('.gf-front'), spec: q('.gf-spec'),
+           key: q('.gf-key'), glyph: q('.gf-key svg'), shadow: q('.gf-shadow'), metas: [...el.querySelectorAll('.gf-meta span')] };
+}
+// Un fotograma de la carpeta. st: estado 0-2 · drop: segundos desde que cae el archivo (o null)
+// · meta: índice del texto de abajo y segundos desde el cambio · ent: 0-1 del montaje de entrada · px, py: luz y paralaje
+function pintaCarpeta(c, { st, drop = null, meta = [0, 9], ent = 9, px = 0, py = 0, pulsaTecla = 1 }) {
+  const P = pose(st);
+  c.tilt.style.transform = `perspective(1400px) rotateX(${(py * -3).toFixed(3)}deg) rotateY(${(px * 4).toFixed(3)}deg)`;
+  c.front.style.transform = `perspective(760px) rotateX(${P.hinge.toFixed(3)}deg)`;
+  c.spec.style.background = `radial-gradient(260px 200px at ${(50 + px * 46).toFixed(1)}% ${(30 + py * 40).toFixed(1)}%, rgba(255,255,255,.5), rgba(255,255,255,0) 70%)`;
+  // archivo: cae (gf-drop, .85 s) y luego sigue la pose
+  if (c.sheet) {
+    const vis = drop !== null && drop >= 0;
+    mostrar(c.sheet, vis);
+    if (vis) {
+      const p = drop / 0.85;
+      const dy = claves(p, [[0, -190], [0.72, 10], [1, 0]]), dr = claves(p, [[0, -9], [0.72, 1], [1, 0]]);
+      c.sheet.style.opacity = claves(p, [[0, 0], [0.35, 1]]).toFixed(3);
+      c.sheet.style.transform = `translate(1.6px, ${(P.lift + dy).toFixed(2)}px) rotate(${(-0.7 + dr).toFixed(3)}deg)`;
+    }
+    // el panel cede bajo el archivo (gf-bump, .7 s con .38 s de retraso)
+    const pb = drop === null ? 1 : (drop - 0.38) / 0.7;
+    const sx = claves(pb, [[0, 1], [0.35, 1.018], [0.7, 0.996], [1, 1]]), sy = claves(pb, [[0, 1], [0.35, 0.975], [0.7, 1.006], [1, 1]]);
+    c.front.style.scale = `${sx.toFixed(4)} ${sy.toFixed(4)}`;
+  }
+  // el contador rueda (gf-roll)
+  const [mi, md] = meta;
+  c.metas.forEach((m, i) => {
+    const on = i === mi ? suave(md / 0.5) : (i === mi - 1 ? 1 - suave(md / 0.2) : 0);
+    m.style.opacity = on.toFixed(3);
+    m.style.transform = `translateY(${(i === mi ? (1 - EASE(md / 0.5)) * 7 : 0).toFixed(2)}px)`;
+    m.style.filter = i === mi && md < 0.5 ? `blur(${((1 - EASE(md / 0.5)) * 3).toFixed(2)}px)` : 'none';
+  });
+  // entrada: la carpeta se monta sola (fondo, archivos, cristal, tecla)
+  const eb = EASE(ent / 0.9), ef = EASE((ent - 0.3) / 0.7), ek = S(ent - 0.55, 2.2, 0.55);
+  c.back.style.translate = c.rim.style.translate = `0 ${((1 - eb) * 22).toFixed(2)}px`;
+  c.back.style.opacity = c.rim.style.opacity = eb.toFixed(3);
+  c.front.style.translate = `0 ${((1 - ef) * 46).toFixed(2)}px`; c.front.style.opacity = ef.toFixed(3);
+  c.shadow.style.opacity = eb.toFixed(3);
+  c.key.style.opacity = clamp(ek * 1.4).toFixed(3);
+  c.key.style.transform = `scale(${((0.6 + 0.4 * ek) * pulsaTecla).toFixed(4)})`;
+}
+
+// ───────────── A · la carpeta del cliente ─────────────
+const T_SUBE = 0.44, T_CAE = 0.52, T_ABRE = 1.5;
+const cA = carpeta({ label: 'Etxebarri', metas: ['0 fotos', '1 foto'], art: ARTES[0], width: 820,
+  file: { img: 'assets/reel/real_E1.jpg', name: 'Foto del plato', meta: 'JPG · MÓVIL' } });
+$('objA').appendChild(cA.el);
+const camA = trk([
+  [0, { ...CAM0, rx: 16, ry: -20, y: 40 }],
+  [0.1, { ry: -9 }, 0.45, 1],                          // órbita lenta mientras sube la foto
+  [1.55, { rx: 34, ry: 0, s: 1.75, y: 330 }, 1.25, 0.9],  // se abre: grúa arriba y hacia el archivo
+  [18.95, { rx: 62, ry: 0, rz: -18, s: 1.45, y: -60 }, 0],   // corte: vista cenital
+  [19.0, { rx: 16, ry: -20, rz: 0, s: 1, y: 40 }, 1.2, 0.9],
+]);
+const estA = pista([[0, 0.6], [0.05, 1, 2.4, 0.7], [1.5, 2, 1.6, 0.62], [18.95, 0, 0], [19.6, 0.6, 1.6, 0.8]]);
+
+// ───────────── B/C · la foto ─────────────
+const FUEGO = 'FUEGO', T_FUEGO = 4.25, P_FUEGO = 0.375;
+FUEGO.split('').forEach((c, i) => $('letrasE1').insertAdjacentHTML('beforeend', `<div class="letra" id="fl${i}">${c}</div>`));
 const PIE_E1 = 'Asador Etxebarri, Axpe\nTodo pasa por el fuego.';
-// ───────────── «PLAZA» que cae sobre el suelo de Axpe ─────────────
+const camB = trk([
+  [2.0, { ...CAM0, rx: 54, rz: -16, s: 0.92, y: 60 }],     // la foto sobre la mesa, vista desde arriba
+  [2.02, { rx: 6, rz: -3, s: 0.96, y: 0 }, 1.3, 0.9],
+  [2.62, { rx: 0, rz: 0, s: 1 }, 1.8, 0.95],
+  [3.5, { s: 1.16, y: 40 }, 0.7, 1],                      // tras el escaneo, se acerca a la carne
+  [4.0, { rx: -40, ry: -32, rz: 0, s: 0.82, y: 60 }, 0],  // corte: desde abajo
+  [4.02, { rx: -14, s: 0.9, y: 30 }, 0.9, 0.95],
+  [6.0, { rx: 0, ry: 0, rz: -5, s: 2.35, x: 420, y: -960 }, 0], // corte: primerísimo plano del pie
+  [6.02, { rz: -2, s: 2.2, x: 395, y: -900 }, 1.4, 1],
+  [6.5, { rx: 0, ry: 22, rz: 0, s: 0.9, x: 0, y: 0 }, 0],      // corte: plano general
+  [6.52, { ry: 0, s: 1 }, 2.2, 0.8],
+]);
+// órbita continua mientras caen las letras
+const orbitaC = (t) => (t >= 4.0 && t < 6.0 ? (t - 4.0) * 30 : 0);
+
+// ───────────── D · rueda de posts ─────────────
+const RUEDA = [['E1', 'Fuego'], ['E3', 'Gamba roja'], ['E4', 'Anchoa'], ['E5', 'Humo'], ['E6', 'Mediodía'], ['E2', 'Plaza'],
+  ['D1', 'Sin mirar'], ['D2', 'Celosía'], ['D3', 'Panchino'], ['D4', 'Sorprender'], ['D5', 'Sala blanca'], ['D6', 'Olivo'],
+  ['S1', 'Tuétano'], ['S3', 'Eccles cake'], ['S4', 'Rarebit'], ['S5', 'Del morro'], ['S6', '1994']];
+const N = RUEDA.length;
+const CARD_H = 720, CARD_W = 576, STEP = 40, DRUM = 2.22 * CARD_H, LENS = 2.7 * CARD_H, RING_R = 400, BOW = 1.82 * CARD_H, CULL = 1.6;
+const RING_SCALE = clamp(((2 * Math.PI * RING_R) / N) * 0.82 / CARD_W, 0.16, 1);
+$('rueda').style.perspective = LENS + 'px';
+$('ruedaEje').innerHTML = RUEDA.map(([p], i) => `<div class="rw" id="rw${i}" style="width:${CARD_W}px;height:${CARD_H}px;margin-left:${-CARD_W / 2}px;margin-top:${-CARD_H / 2}px"><span><img src="assets/posts/${p}.jpg"></span></div>`).join('');
+$('indice').innerHTML = RUEDA.map(([, n], i) => `<li id="ix${i}">${n}</li>`).join('');
+const SUELTAS = [7.75, 8.25, 8.75, 9.25], AGARRE = 0.2;
+const giro = pista([[0, 0], ...SUELTAS.map((r, i) => [r - AGARRE + 0.04, i + 1, 1.9, 0.92])]);
+const bowAt = (d) => -BOW * (1 - Math.cos(d * Math.PI / 180));
+function place(ringDeg, drumDeg, ringR, m) {
+  return `translateX(${(m * bowAt(drumDeg)).toFixed(2)}px) rotateZ(${((1 - m) * ringDeg).toFixed(3)}deg) translateY(${(-(1 - m) * ringR).toFixed(2)}px) ` +
+         `rotateX(${(m * drumDeg).toFixed(3)}deg) translateZ(${(m * DRUM).toFixed(2)}px)`;
+}
+
+// ───────────── E · Axpe ─────────────
 const PLAZA = 'PLAZA', T_PLAZA = 10.0, P_PLAZA = 0.25;
 {
-  const cont = $('plaza');
   const fila = document.createElement('div');
   fila.style.cssText = 'position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:center;transform-style:preserve-3d;font-family:AN;font-weight:700;font-size:780px;line-height:.9;letter-spacing:.02em;color:#F6F3EC';
   PLAZA.split('').forEach((c, i) => { const s = document.createElement('span'); s.id = 'pl' + i; s.textContent = c; s.style.display = 'inline-block'; fila.appendChild(s); });
-  cont.appendChild(fila);
+  $('plaza').appendChild(fila);
 }
 const TIT_E2 = ['Un', 'pueblo,', 'una', 'plaza,', '<br>una', 'parrilla.'];
-$('e2tit').innerHTML = TIT_E2.map((w, i) => `<span id="tw${i}">${w.replace('<br>', '')}</span>`).map((s, i) => (TIT_E2[i].startsWith('<br>') ? '<br>' : (i ? ' ' : '')) + s).join('');
-$('e2').style.transform = `translate(${(CW - 1856 * CH / 2304) / 2}px,0) scale(${CH / 2304})`;
+$('e2tit').innerHTML = TIT_E2.map((w, i) => (w.startsWith('<br>') ? '<br>' : (i ? ' ' : '')) + `<span id="tw${i}">${w.replace('<br>', '')}</span>`).join('');
+$('e2').style.transform = `translate(${(760 - 1856 * 950 / 2304) / 2}px,0) scale(${950 / 2304})`;
+const camE = trk([
+  [9.5, { ...CAM0, rx: 58, rz: 24, s: 0.78, y: 120 }],   // desde arriba, la tarjeta en la mesa
+  [9.52, { rx: 30, rz: 8, s: 0.86, y: 60 }, 0.9, 0.95],
+  [10.1, { rx: 6, rz: 0, s: 0.98, y: 0 }, 0.8, 1],        // la grúa baja mientras cae «PLAZA»
+  [11.05, { rx: 0, s: 1.1, y: 40 }, 0.8, 1],
+]);
 
-// ───────────── Carrusel ─────────────
-const TIRA = { ids: ['E1', 'E3', 'E4', 'E5', 'E6'], a: 7.0, b: 9.5 };
-$('tira').innerHTML = TIRA.ids.map((s) => `<img src="assets/posts/${s}.jpg" style="width:${CW}px;height:${CH}px;flex:none;display:block">`).join('');
-$('puntos').innerHTML = TIRA.ids.map((_, i) => `<div id="pt${i}" style="width:14px;height:14px;border-radius:7px;background:#141414"></div>`).join('');
-function posTira(t) {
-  let x = 0;
-  for (const r of SUELTAS) {
-    const p = r - AGARRE;
-    if (t >= p && t < r) x += (pX(t) - pX(p));
-    if (t >= r) { const dx = pX(r) - pX(p); const k = S(t - r, 4.4, 0.9); x += -CW * k + dx * (1 - k); }
-  }
-  return x;
-}
-// ───────────── Ráfaga ─────────────
-$('L_rafaga').innerHTML = RAFAGA.map((s, i) => `<img id="rf${i}" src="assets/posts/${s}.jpg">`).join('');
-// ───────────── Semana ─────────────
-const DIAS = [['Lun', 'E2'], ['Mié', 'D3'], ['Vie', 'S5']];
-DIAS.forEach(([d, p], i) => {
-  const x = 56 + i * 270;
-  $('cols').insertAdjacentHTML('beforeend',
-    `<div style="position:absolute;left:${x}px;top:210px;width:248px;font-size:30px;font-weight:600;color:#8A8780">${d}</div>
-     <div style="position:absolute;left:${x}px;top:262px;width:248px;height:600px;border-radius:28px;background:#F1EEE6"></div>
-     <img id="sem${i}" src="assets/posts/${p}.jpg" style="position:absolute;left:${x + 14}px;top:280px;width:220px;height:275px;border-radius:16px;object-fit:cover;box-shadow:0 14px 30px rgba(20,20,20,.18);transform-origin:50% 0">
-     <div id="hora${i}" style="position:absolute;left:${x + 14}px;top:574px;font-size:26px;font-weight:600;color:#141414">${['13:00', '20:30', '12:00'][i]} · listo</div>`);
+// ───────────── F · ráfaga, un ángulo por corte ─────────────
+const RAFAGA = ['S1', 'D1', 'D3', 'S5', 'D2', 'S3', 'E6', 'D4', 'S4', 'D6'];
+const T_RAF = 11.5, P_RAF = 0.25;
+$('objF').innerHTML = RAFAGA.map((s, i) => `<img id="rf${i}" src="assets/posts/${s}.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`).join('');
+const ANGULOS = [   // [desde, hasta]
+  [{ ry: -38, s: 0.92 }, { ry: -26, s: 0.95 }],
+  [{ rx: 50, rz: -12, s: 0.9 }, { rx: 40, rz: -8, s: 0.92 }],
+  [{ s: 1.6, x: -80, y: -120 }, { s: 1.5, x: -60, y: -100 }],
+  [{ ry: 34, rz: 3 }, { ry: 22, rz: 2 }],
+  [{ rx: -24, rz: 9, s: 0.95 }, { rx: -16, rz: 6, s: 0.97 }],
+  [{ s: 0.74, rz: -5 }, { s: 0.82, rz: -3 }],
+  [{ rx: -34, s: 0.9, y: 60 }, { rx: -24, s: 0.92, y: 40 }],
+  [{ ry: -30, rz: -7 }, { ry: -18, rz: -4 }],
+  [{ s: 1.45, y: 160, rz: 2 }, { s: 1.35, y: 130, rz: 1 }],
+  [{ rx: 24, ry: 22, s: 0.9 }, { rx: 0, ry: 0, s: 0.96 }],
+];
+
+// ───────────── G · la semana en carpetas ─────────────
+const DIAS = [['Lunes', 'E2', '13:00'], ['Miércoles', 'D5', '20:30'], ['Viernes', 'S6', '12:00']];
+const T_CAEN = [14.5, 14.75, 15.0];
+const cG = DIAS.map(([d, p, h], i) => {
+  const c = carpeta({ label: d, metas: ['Sin post', h + ' · listo'], tone: i === 1 ? 'dark' : 'light', art: ARTES[i + 1], width: 320,
+    file: { img: `assets/posts/${p}.jpg`, name: d.slice(0, 3), meta: 'POST · 4:5' } });
+  c.el.style.left = (i * 360) + 'px'; c.el.style.top = '0px';
+  $('objG').appendChild(c.el);
+  return c;
 });
+const camG = trk([
+  [14.0, { ...CAM0, rx: 22, ry: -16, s: 2.1, x: 760, y: 120 }],  // muy cerca del lunes
+  [14.02, { s: 1.95, x: 700, y: 100 }, 1.2, 1],
+  [14.62, { ry: 0, s: 1.85, x: 0, y: 90 }, 1.9, 0.9],           // travelling al miércoles
+  [14.87, { ry: 14, s: 1.8, x: -680, y: 90 }, 1.9, 0.9],        // y al viernes
+  [15.25, { rx: 12, ry: 0, s: 0.98, x: 0, y: -40 }, 1.2, 0.92], // se abre el plano
+]);
+const T_APRUEBA = 15.94;
 
-// ───────────── Rótulos, notas y mascota (pantalla) ─────────────
+// ───────────── I · logo ─────────────
+const camI = trk([
+  [17.5, { ...CAM0, rx: 18, ry: 42, s: 0.84 }],
+  [17.52, { rx: 0, ry: 0, s: 1 }, 0.95, 0.9],
+]);
+
+// ───────────── Cursores ─────────────
+// Coordenadas de pantalla (punta del cursor); [t, x, y, f]
+const RUTA_TU = [
+  [0, 960, 1640],
+  [0.06, 880, 1470, 2.6],    // a la tecla +
+  [0.75, 700, 1300, 1.6],
+  [1.2, 560, 1290, 2.4],     // al cristal
+  [1.66, 260, 2080, 1.4],    // se va
+  [15.2, 1140, 1800, 0],
+  [15.25, 640, 1484, 1.6],   // a «Aprobar la semana»
+  [16.2, 1150, 1700, 1.2],
+  [18.9, 1140, 1900, 0],
+  [19.3, 960, 1640, 1.0, 1],
+];
+const RUTA_SO = [
+  [0, 1180, 1500],
+  [2.15, 1180, 1500, 0],
+  [2.2, 590, 1330, 1.6],     // a «Mejorar foto»
+  [3.08, 860, 1680, 1.0],
+  [7.0, 1150, 1450, 0],
+  ...SUELTAS.flatMap((r) => [[r - 0.46, 700, 1380, 3.2], [r - AGARRE + 0.01, 700, 1060, 4.2]]),  // arrastres de la rueda hacia arriba
+  [9.35, 860, 1500, 1.4],
+];
+const ruta = (R) => ({ x: pista(R.map((r) => [r[0], r[1], r[3], r[4] ?? 1]), 3, 1), y: pista(R.map((r) => [r[0], r[2], r[3], r[4] ?? 1]), 3, 1) });
+const rTu = ruta(RUTA_TU), rSo = ruta(RUTA_SO);
+const VIS_TU = [[19.3, 1.8], [15.2, 16.6]], VIS_SO = [[2.15, 3.9], [7.05, 9.48]];
+const CLICS_TU = [[T_SUBE, T_SUBE + 0.08], [T_ABRE, T_ABRE + 0.08], [T_APRUEBA, T_APRUEBA + 0.08]];
+const CLICS_SO = [[2.94, 3.0], ...SUELTAS.map((r) => [r - AGARRE, r])];
+const pulsa = (C) => { const k = [[0, 1]]; for (const [a, b] of C) { k.push([a, 0.84, 9, 0.9]); k.push([b, 1, 7, 0.8]); } return pista(k); };
+const pTu = pulsa(CLICS_TU), pSo = pulsa(CLICS_SO);
+function pintaCursor(el, r, p, vis, t) {
+  let k = 0;
+  for (const [a, b] of vis) {
+    const d = a <= b ? (t >= a - 0.01 && t < b + 0.2) : (t >= a - 0.01 || t < b + 0.2);
+    if (d) { const ta = env(t - a), tb = env(t - b); k = Math.min(suave(ta / 0.18), ta < tb ? 1 : 1 - suave(tb / 0.15)); }
+  }
+  el.style.visibility = k > 0.001 ? 'visible' : 'hidden';
+  el.style.opacity = k.toFixed(3);
+  const x = r.x(t), y = r.y(t), sc = p(t) * (0.6 + 0.4 * k);
+  el.style.transform = `translate(${(x - 3).toFixed(1)}px, ${(y - 5).toFixed(1)}px)`;
+  el.firstChild.style.transform = `scale(${sc.toFixed(4)})`;
+  // la etiqueta sigue al cursor con un poco de retraso (CursorFollow: abajo, al final)
+  const lx = r.x(t - 0.06) - x, ly = r.y(t - 0.06) - y;
+  el.lastChild.style.transform = `translate(${(34 + lx).toFixed(1)}px, ${(58 + ly).toFixed(1)}px) scale(${(0.7 + 0.3 * k).toFixed(3)})`;
+}
+
+// ───────────── Rótulos, notas y mascota ─────────────
+// [entra, sale, etiqueta, frase, subtítulo, claro]
 const CAPS = [
-  [19.0, 1.5, '', 'De la foto del móvil<br>al post listo.'],
-  [1.5, 3.0, '01', 'Subes la foto de tu plato.'],
-  [3.0, 4.0, '02', 'La IA la deja profesional.', 'Mismo plato. Nada inventado.'],
-  [4.0, 7.0, '03', 'Escribe y diseña el post.'],
-  [7.0, 9.5, '04', 'Monta el carrusel entero.'],
-  [9.5, 11.5, '', 'Sobre tu foto,<br>sin tocarla.'],
-  [11.5, 14.0, '', 'Con cualquier cocina.'],
-  [14.0, 17.5, '05', 'Y te planifica la semana.'],
-  [17.5, 19.0, '', 'Tu agencia de marketing<br>con IA.'],
+  [19.0, 0.9, 'Society', 'De la foto del móvil<br>al post listo.'],
+  [0.9, 2.0, '01 — Tú', 'Subes la foto<br>de tu plato.'],
+  [2.0, 4.0, '02 — Society', 'La deja profesional.', 'Mismo plato. Nada inventado.'],
+  [4.0, 6.0, '03 — Diseño', 'Escribe y diseña<br>el post.'],
+  [6.0, 6.5, '03 — Diseño', 'Escribe y diseña<br>el post.', '', 1],
+  [6.5, 7.0, '03 — Diseño', 'Escribe y diseña<br>el post.'],
+  [7.0, 9.5, '04 — Carrusel', 'Monta todos<br>tus posts.'],
+  [9.5, 11.5, 'Sobre tu foto', 'Sin tocar<br>la foto original.'],
+  [11.5, 14.0, 'Con cualquier cocina', 'Etxebarri, Disfrutar,<br>St. JOHN.'],
+  [14.0, 16.5, '05 — Calendario', 'Y te planifica<br>la semana.'],
+  [17.5, 19.0, 'Society', 'Tu agencia de marketing<br>con IA.'],
 ];
-CAPS.forEach(([a, b, n, t, s], i) => $('caps').insertAdjacentHTML('beforeend',
-  `<div id="cap${i}" class="cap">${n ? `<span class="n">${n}</span>` : ''}<div class="t">${t}</div>${s ? `<span class="s">${s}</span>` : ''}</div>`));
+CAPS.forEach(([a, b, l, t, s, claro], i) => {
+  let w = 0;
+  const frase = t.split('<br>').map((lin) => lin.split(' ').map((p) => `<span data-w="${w++}">${p} </span>`).join('')).join('<br>');
+  $('caps').insertAdjacentHTML('beforeend', `<div id="cap${i}" class="cap${claro ? ' claro' : ''}"><span class="l">${l}</span><div class="t">${frase}</div>${s ? `<span class="s">${s}</span>` : ''}</div>`);
+});
 const NOTAS = [
-  [1.5, 3.5, 'Foto original: Ryan Snyder (CC BY 2.0) · ejemplo, propuesta no oficial'],
-  [3.5, 17.5, 'Ejemplos con restaurantes reales · propuestas no oficiales'],
+  [0.9, 3.5, 'Foto original: Ryan Snyder (CC BY 2.0) · ejemplo'],
+  [3.5, 17.5, 'Restaurantes reales · propuestas no oficiales'],
 ];
-NOTAS.forEach(([a, b, t], i) => $('notas').insertAdjacentHTML('beforeend', `<div id="nota${i}" class="nota">${t}</div>`));
+NOTAS.forEach(([, , t], i) => $('notas').insertAdjacentHTML('beforeend', `<div id="nota${i}" class="nota">${t}</div>`));
 // [archivo, entra, sale, x centro, alto, giro]
 const MASC = [
-  ['thumbs-up', 1.0, 1.9, 900, 340, 4],
-  ['thinking', 2.06, 2.96, 960, 300, -3],
-  ['pointing', 3.04, 3.96, 960, 300, 0],
-  ['crouch', 7.06, 9.44, 975, 240, 2],
-  ['sitting', 16.56, 17.46, 860, 340, 0],
+  ['thumbs-up', 1.12, 1.95, 930, 300, 4],
+  ['pointing', 3.04, 3.96, 950, 280, 0],
   ['thumbs-up', 17.56, 18.9, 930, 320, -4],
 ];
 MASC.forEach(([f], i) => $('mascotas').insertAdjacentHTML('beforeend', `<img id="ms${i}" class="masc" src="mascota/${f}.png">`));
@@ -318,152 +602,176 @@ MASC.forEach(([f], i) => $('mascotas').insertAdjacentHTML('beforeend', `<img id=
 // ───────────── seek(t) ─────────────
 function seek(tAbs) {
   const t = env(tAbs);
-  const w = pW(t), h = pH(t), r = pR(t), col = pC.map((p) => p(t)), hunde = pHunde(t);
-  // la tarjeta acompaña un poco al cursor en los arrastres
-  let dx = 0, rot = 0;
-  for (const [a, b] of ARRASTRES) {
-    if (t >= a && t < b) { const d = pX(t) - pX(a); dx += d * 0.06; rot += d * 0.004; }
-    if (t >= b) { const d = pX(b) - pX(a); const k = 1 - S(t - b, 3, 0.7); dx += d * 0.06 * k; rot += d * 0.004 * k; }
+
+  // A · carpeta del cliente (19.0 → 2.0, cruza el bucle)
+  const enA = dentro(t, 19.0, 2.0);
+  mostrar($('escA'), enA);
+  if (enA) {
+    const c = camA(t);
+    cam($('objA'), c);
+    const px = clamp((rTu.x(t) - 540) / 420, -1, 1) * (t < 1.7 ? 1 : 0), py = clamp((rTu.y(t) - 1060) / 400, -1, 1) * (t < 1.7 ? 1 : 0);
+    pintaCarpeta(cA, {
+      st: estA(t),
+      drop: t < 2.0 && t >= T_CAE ? t - T_CAE : null,
+      meta: t >= T_CAE + 0.38 && t < 2.0 ? [1, t - T_CAE - 0.38] : [0, 9],
+      ent: t >= 19.0 ? t - 19.0 : 9,
+      px, py,
+      pulsaTecla: t > T_SUBE && t < T_SUBE + 0.12 ? 0.93 : 1,
+    });
   }
-  const sh = $('shape');
-  sh.style.width = w + 'px'; sh.style.height = h + 'px';
-  sh.style.left = (CX - w / 2 + dx) + 'px'; sh.style.top = (CY - h / 2) + 'px';
-  sh.style.borderRadius = r + 'px';
-  sh.style.background = rgb(col);
-  sh.style.transform = `perspective(2200px) rotateX(${pRX(t).toFixed(3)}deg) rotateY(${pRY(t).toFixed(3)}deg) scale(${hunde.toFixed(4)}) rotate(${rot.toFixed(3)}deg)`;
-  const claro = col[0] > 200;
-  sh.style.boxShadow = `0 ${Math.round(h * 0.03 + 18)}px ${Math.round(h * 0.06 + 40)}px rgba(20,20,20,${claro ? 0.12 : 0.18})`;
-  $('outer').style.left = (CX + dx) + 'px'; $('outer').style.top = CY + 'px';
 
-  // Cámara
-  const z = Math.exp(pZ(t));
-  $('world').style.transform = `translate(${CX - CX * z}px, ${CY - CY * z}px) scale(${z.toFixed(5)})`;
+  // B/C · la foto (2.0 → 7.0)
+  const enB = t >= 2.0 && t < 7.0;
+  mostrar($('escB'), enB);
+  if (enB) {
+    const c = camB(t); c.ry += orbitaC(t);
+    const tor = t < 3.0 ? (1 - S(t - 2.0, 1.6, 0.7)) * -4 : 0;    // la foto del móvil entra torcida
+    c.rz += tor;
+    cam($('objB'), c);
+    // escaneo: la toma profesional aparece de arriba abajo bajo la línea cobalto
+    const ke = suave((t - 3.0) / 0.5);
+    $('crudo').style.clipPath = t < 3.0 ? 'inset(0 0 100% 0)' : `inset(0 0 ${((1 - ke) * 100).toFixed(2)}% 0)`;
+    const esc = $('escaneo');
+    esc.style.top = (ke * 950 - 3) + 'px';
+    esc.style.opacity = t > 2.98 && t < 3.56 ? Math.min(1, (t - 2.98) / 0.04, (3.56 - t) / 0.06) : 0;
+    ver($('chipFoto'), t < 3.0 ? suave((t - 2.15) / 0.2) * (1 - suave((t - 2.9) / 0.1)) : 0);
+    ver($('chipPro'), t >= 3.3 && t < 4.0 ? suave((t - 3.3) / 0.2) : 0);
+    const kp = t < 3.06 ? suave((t - 2.3) / 0.2) * (1 - suave((t - 3.0) / 0.06)) : 0;
+    ver($('pildora'), kp);
+    $('pildora').style.transform = `translateX(-50%) scale(${((0.9 + 0.1 * kp) * (t > 2.94 && t < 3.0 ? 0.94 : 1)).toFixed(4)})`;
+    // letras: cada una cae desde la cámara y se asienta con muelle
+    FUEGO.split('').forEach((_, i) => {
+      const t0 = T_FUEGO + i * P_FUEGO, el = $('fl' + i);
+      const k = S(t - t0, 3.6, 0.62);
+      el.style.opacity = t >= t0 - 0.02 ? clamp((t - t0 + 0.02) / 0.06) : 0;
+      el.style.transform = `translate(${((1 - k) * (i - 2) * 60).toFixed(1)}px, ${((1 - k) * -120).toFixed(1)}px) scale(${(1 + (1 - k) * 1.6).toFixed(4)}) rotate(${((1 - k) * (i % 2 ? 9 : -9)).toFixed(2)}deg)`;
+      el.style.filter = k < 0.97 ? `blur(${((1 - k) * 10).toFixed(2)}px)` : 'none';
+    });
+    const nPie = clamp(Math.floor((t - 6.05) / 0.013), 0, PIE_E1.length);
+    $('pieE1').textContent = t > 6.05 ? PIE_E1.slice(0, nPie) : '';
+    ver($('postE1'), suave((t - 6.86) / 0.12));
+  }
 
-  // Botón, carga, check, isla
-  pinta($('L_boton'), capa(t, 19.02, 0.52));
-  pinta($('L_carga'), capa(t, 0.56, 1.0));
-  $('arco').setAttribute('d', arco(t));
-  pinta($('L_check'), capa(t, 1.0, 1.5));
-  $('checkpath').style.strokeDashoffset = (1 - suave((t - 1.02) / 0.22)).toFixed(3);
-  pinta($('L_isla'), capa(t, 1.56, 2.0));
-  $('islaPunto').style.transform = `scale(${1 + 0.35 * Math.max(0, Math.sin((t - 1.56) * Math.PI * 4)) * (t > 1.56 && t < 2 ? 1 : 0)})`;
+  // D · rueda (7.0 → 9.5)
+  const enD = t >= 7.0 && t < 9.5;
+  mostrar($('escD'), enD);
+  if (enD) {
+    const tr = giro(t), m = clamp(tr), pos = Math.max(0, tr - 1);
+    const spin = (t - 7.0) * 14;                               // el anillo gira despacio
+    const vista = suave((t - 7.6) / 0.6);
+    $('ruedaEje').style.transform = `rotateY(${(-10 * vista).toFixed(3)}deg) translateZ(${(-m * DRUM).toFixed(2)}px)`;
+    for (let i = 0; i < N; i++) {
+      const d = i - pos, el = $('rw' + i);
+      const llega = S(t - 7.0 - i * 0.018, 2.6, 0.7);           // las tarjetas salen del centro al anillo
+      el.style.transform = place(d * (360 / N) + spin * (1 - m), d * STEP, RING_R * llega, m);
+      el.style.opacity = (m > 0.5 && Math.abs(d) > CULL ? 0 : clamp(llega * 3)).toFixed(3);
+      el.firstChild.style.transform = `scale(${lerp(RING_SCALE * (0.4 + 0.6 * llega), 1, m).toFixed(4)})`;
+    }
+    const kt = suave((t - 7.1) / 0.25) * (1 - m);
+    $('ruedaTit').style.opacity = kt.toFixed(3);
+    $('ruedaTit').style.filter = kt < 0.99 ? `blur(${((1 - kt) * 8).toFixed(2)}px)` : 'none';
+    const act = clamp(Math.round(pos), 0, N - 1);
+    $('indice').style.opacity = suave((t - 7.2) / 0.3).toFixed(3);
+    for (let i = 0; i < N; i++) { const li = $('ix' + i), on = m > 0.5 && i === act; li.style.color = on ? '#141414' : ''; li.style.fontWeight = on ? 600 : 400; }
+  }
 
-  // Foto del cliente: entra torcida como una foto de móvil y se endereza
-  const kf = capa(t, 2.04, 3.56);
-  pinta($('L_foto'), kf);
-  const tor = (1 - S(t - 2.0, 2.4, 0.7)) * -4;
-  $('L_foto').style.transform += ` rotate(${tor.toFixed(3)}deg)`;
-  // Escaneo: la foto profesional se descubre de arriba abajo bajo una línea cobalto
-  const ke = suave((t - 3.0) / 0.5);
-  const kraw = t >= 3.0 && t < 7.2 ? 1 - suave((t - 7.06) / 0.12) : 0;
-  const lr = $('L_raw');
-  lr.style.visibility = kraw > 0.001 ? 'visible' : 'hidden'; lr.style.opacity = kraw;
-  lr.style.transform = 'translate(-50%,-50%)';
-  lr.style.clipPath = `inset(0 0 ${((1 - ke) * 100).toFixed(2)}% 0)`;
-  const esc = $('escaneo');
-  esc.style.width = w + 'px'; esc.style.top = (ke * h - 3) + 'px';
-  esc.style.opacity = t > 2.98 && t < 3.56 ? Math.min(1, (t - 2.98) / 0.04, (3.56 - t) / 0.06) : 0;
-  ver($('chipFoto'), capa(t, 2.10, 3.0));
-  ver($('chipPro'), capa(t, 3.30, 4.1));
-  const pil = $('pildora');
-  const kp = capa(t, 2.30, 3.06);
-  ver(pil, kp);
-  pil.style.left = (w / 2) + 'px'; pil.style.top = (h / 2 + 392) + 'px';
-  pil.style.transform = `translate(-50%,-50%) scale(${(0.9 + 0.1 * kp) * (t > 2.94 && t < 3.0 ? 0.94 : 1)})`;
-  // Letras: cada una cae desde la cámara y se asienta con muelle
-  FUEGO.split('').forEach((_, i) => {
-    const t0 = T_FUEGO + i * P_FUEGO, el = $('fl' + i);
-    const k = S(t - t0, 3.6, 0.62);
-    const vis = t >= t0 - 0.02 ? clamp((t - t0 + 0.02) / 0.06) : 0;
-    el.style.opacity = vis;
-    el.style.transform = `translate(${((1 - k) * (i - 2) * 60).toFixed(1)}px, ${((1 - k) * -120).toFixed(1)}px) scale(${(1 + (1 - k) * 1.6).toFixed(4)}) rotate(${((1 - k) * (i % 2 ? 9 : -9)).toFixed(2)}deg)`;
-    el.style.filter = k < 0.97 ? `blur(${((1 - k) * 10).toFixed(2)}px)` : 'none';
-  });
-  const nPie = clamp(Math.floor((t - 6.05) / 0.014), 0, PIE_E1.length);
-  $('pieE1').textContent = t > 6.05 ? PIE_E1.slice(0, nPie) : '';
+  // E · Axpe (9.5 → 11.5)
+  const enE = t >= 9.5 && t < 11.5;
+  mostrar($('escE'), enE);
+  if (enE) {
+    cam($('objE'), camE(t));
+    TIT_E2.forEach((_, i) => { const k = suave((t - (9.62 + i * 0.05)) / 0.12); const s = $('tw' + i); s.style.opacity = k; s.style.filter = k < 0.99 ? `blur(${(1 - k) * 8}px)` : 'none'; });
+    PLAZA.split('').forEach((_, i) => {
+      const t0 = T_PLAZA + i * P_PLAZA, s = $('pl' + i);
+      const k = S(t - t0, 3.4, 0.55);
+      s.style.opacity = t >= t0 - 0.02 ? clamp((t - t0 + 0.02) / 0.05) : 0;
+      s.style.transform = `translateZ(${((1 - k) * 900).toFixed(1)}px) rotateX(${((1 - k) * -50).toFixed(2)}deg)`;
+    });
+    $('e2pie').style.opacity = suave((t - 11.15) / 0.15);
+  }
 
-  // Carrusel con los posts terminados
-  const kt = capa(t, 7.0, 9.42, { ent: 0.14 });
-  if (t >= 6.8 && t < 7.2) {            // el post terminado aparece nítido sobre el montaje
-    const lt = $('L_tira'); ver(lt, suave((t - 6.88) / 0.16)); lt.style.filter = 'none'; lt.style.transform = 'translate(-50%,-50%)';
-  } else pinta($('L_tira'), kt);
-  $('tira').style.transform = `translate(${-CW / 2 + posTira(t)}px, ${-CH / 2}px)`;
-  const idx = clamp(-posTira(t) / CW, 0, TIRA.ids.length - 1);
-  TIRA.ids.forEach((_, i) => {
-    const k = clamp(1 - Math.abs(idx - i));
-    const p = $('pt' + i); p.style.width = (14 + 26 * k) + 'px'; p.style.opacity = 0.25 + 0.75 * k;
-  });
-  ver($('puntos'), capa(t, 7.1, 9.42));
+  // F · ráfaga (11.5 → 14.0)
+  const enF = t >= T_RAF && t < 14.0;
+  mostrar($('escF'), enF);
+  if (enF) {
+    const i = clamp(Math.floor((t - T_RAF) / P_RAF), 0, RAFAGA.length - 1), u = (t - T_RAF - i * P_RAF) / P_RAF;
+    const [a, b] = ANGULOS[i], c = { ...CAM0 };
+    for (const p in c) c[p] = lerp(a[p] ?? CAM0[p], b[p] ?? CAM0[p], EASE(u));
+    cam($('objF'), c);
+    RAFAGA.forEach((_, j) => mostrar($('rf' + j), j === i));
+    $('contador').textContent = `${String(6 + i).padStart(2, '0')} / 17`;
+  }
 
-  // Axpe: el título palabra a palabra y «PLAZA» letra a letra sobre el suelo
-  pinta($('L_e2'), capa(t, 9.56, 11.56));
-  TIT_E2.forEach((_, i) => { const k = suave((t - (9.72 + i * 0.05)) / 0.12); const s = $('tw' + i); s.style.opacity = k; s.style.filter = k < 0.99 ? `blur(${(1 - k) * 8}px)` : 'none'; });
-  PLAZA.split('').forEach((_, i) => {
-    const t0 = T_PLAZA + i * P_PLAZA, s = $('pl' + i);
-    const k = S(t - t0, 3.4, 0.55);
-    s.style.opacity = t >= t0 - 0.02 ? clamp((t - t0 + 0.02) / 0.05) : 0;
-    s.style.transform = `translateZ(${((1 - k) * 900).toFixed(1)}px) rotateX(${((1 - k) * -50).toFixed(2)}deg)`;
-  });
-  $('e2pie').style.opacity = suave((t - 11.15) / 0.15);
-
-  // Ráfaga: un post por corchea
-  const kr = capa(t, T_RAF, 14.0, { ent: 0.06 });
-  pinta($('L_rafaga'), kr);
-  const ir = clamp(Math.floor((t - T_RAF) / P_RAF), 0, RAFAGA.length - 1);
-  RAFAGA.forEach((_, i) => { $('rf' + i).style.visibility = i === ir && kr > 0.001 ? 'visible' : 'hidden'; });
-  const cnt = $('contador');
-  ver(cnt, capa(t, T_RAF + 0.05, 13.96, { ent: 0.08 }));
-  cnt.textContent = `${String(Math.min(17, 7 + ir + 1)).padStart(2, '0')} / 17`;
-
-  // Semana: las tres miniaturas caen en su día
-  const ks = capa(t, 14.04, 16.5);
-  pinta($('L_semana'), ks);
-  DIAS.forEach((_, i) => {
-    const t0 = 14.5 + i * 0.25, k = S(t - t0, 3.4, 0.62), m = $('sem' + i);
-    m.style.opacity = t >= t0 ? clamp((t - t0) / 0.06) : 0;
-    m.style.transform = `translateY(${((1 - k) * -360).toFixed(1)}px) rotate(${((1 - k) * (i - 1) * 8).toFixed(2)}deg)`;
-    $('hora' + i).style.opacity = suave((t - t0 - 0.3) / 0.15);
-  });
-  $('aprobar').style.transform = `scale(${t > 15.94 && t < 16.02 ? 0.95 : 1})`;
-  $('aprobar').style.opacity = suave((t - 15.2) / 0.2);
-
-  // Aviso y logo
-  pinta($('L_aviso'), capa(t, 16.54, 17.5));
+  // G · semana (14.0 → 17.5, con el aviso encima desde 16.5)
+  const enG = t >= 14.0 && t < 17.5;
+  mostrar($('escG'), enG);
+  if (enG) {
+    cam($('objG'), camG(t));
+    cG.forEach((c, i) => {
+      const t0 = T_CAEN[i];
+      pintaCarpeta(c, { st: 0.25 * suave((t - t0 + 0.2) / 0.2) * (1 - suave((t - t0 - 0.9) / 0.4)), drop: t >= t0 ? t - t0 : null, meta: t >= t0 + 0.38 ? [1, t - t0 - 0.38] : [0, 9] });
+    });
+    const ka = suave((t - 15.3) / 0.25);
+    $('aprobar').style.opacity = ka.toFixed(3);
+    $('aprobar').style.transform = `translateY(${((1 - S(t - 15.3, 2.6, 0.7)) * 60).toFixed(1)}px) scale(${t > T_APRUEBA && t < T_APRUEBA + 0.08 ? 0.95 : 1})`;
+    // con el aviso, la semana se queda detrás desenfocada
+    const kb = suave((t - 16.5) / 0.3);
+    $('escG').style.filter = kb > 0.001 ? `blur(${(kb * 14).toFixed(2)}px)` : 'none';
+    $('escG').style.opacity = (1 - 0.35 * kb).toFixed(3);
+  }
+  // aviso: baja desde arriba como una notificación
+  const ta = t - 16.5, kav = t >= 16.5 && t < 17.5 ? S(ta, 2.2, 0.7) : 0;
+  ver($('aviso'), t >= 16.5 && t < 17.5 ? 1 : 0);
+  $('aviso').style.transform = `translate(-50%, ${lerp(-220, 900, kav).toFixed(1)}px) perspective(1400px) rotateX(${((1 - kav) * 30).toFixed(2)}deg) rotateZ(${((1 - kav) * -6).toFixed(2)}deg) scale(${(1 + 0.04 * Math.max(0, Math.sin(Math.max(0, ta - 0.2) * 6)) * (ta < 0.7 ? 1 : 0)).toFixed(4)})`;
   $('avisoCheck').style.strokeDashoffset = (1 - suave((t - 16.75) / 0.22)).toFixed(3);
-  pinta($('L_logo'), capa(t, 17.56, 19.0));
 
-  // Rótulos y notas
-  CAPS.forEach(([a, b], i) => pinta($('cap' + i), capa(t, a + 0.04, b), false));
-  NOTAS.forEach(([a, b], i) => ver($('nota' + i), capa(t, a + 0.04, b)));
-  // Mascota: sale desde abajo con muelle y se va hundiéndose
-  MASC.forEach(([, a, b, x, alto, giro], i) => {
+  // I · logo (17.5 → 19.0)
+  const enI = t >= 17.5 && t < 19.0;
+  mostrar($('escI'), enI);
+  if (enI) cam($('objI'), camI(t));
+
+  // mesa: un poco de paralaje con la cámara de cada tramo
+  const par = enA ? camA(t) : enG ? camG(t) : CAM0;
+  $('mesa').style.transform = `translate(${(-par.ry * 2 - par.x * 0.08).toFixed(1)}px, ${(par.rx * 2 - par.y * 0.08).toFixed(1)}px)`;
+
+  // Rótulos: las palabras entran (gf-roll) y el rótulo sale desenfocado
+  CAPS.forEach(([a, b], i) => {
+    const el = $('cap' + i), on = dentro(t, a, b) || dentro(t, b, b + 0.12);
+    mostrar(el, on);
+    if (!on) return;
+    const ta = env(t - a), tb = env(t - b), sale = dentro(t, b, b + 0.12) ? suave(tb / 0.12) : 0;
+    const prev = CAPS[i - 1] ?? CAPS[CAPS.length - 1];
+    const mismo = prev[3] === CAPS[i][3] && prev[1] === a;   // mismo texto que el anterior: sin entrada
+    el.querySelectorAll('[data-w]').forEach((s) => {
+      const k = mismo ? 1 : EASE((ta - 0.06 - s.dataset.w * 0.045) / 0.32);
+      s.style.opacity = (k * (1 - sale)).toFixed(3);
+      s.style.transform = `translateY(${((1 - k) * 18).toFixed(2)}px)`;
+      const bl = (1 - k) * 8 + sale * 10;
+      s.style.filter = bl > 0.05 ? `blur(${bl.toFixed(2)}px)` : 'none';
+    });
+    const ext = mismo ? 1 : suave((ta - 0.02) / 0.2);
+    el.querySelector('.l').style.opacity = (ext * (1 - sale)).toFixed(3);
+    const sub = el.querySelector('.s'); if (sub) sub.style.opacity = (suave((ta - 0.35) / 0.25) * (1 - sale)).toFixed(3);
+  });
+  NOTAS.forEach(([a, b], i) => ver($('nota' + i), dentro(t, a, b) ? 1 : 0));
+  MASC.forEach(([, a, b, x, alto, giroM], i) => {
     const el = $('ms' + i);
-    const ent = S(t - a, 3.2, 0.62), sal = S(t - b, 4, 1);
-    const k = clamp(ent - sal, -0.2, 1.2);
-    const vis = t > a - 0.01 && t < b + 0.3 ? 1 : 0;
+    const k = clamp(S(t - a, 3.2, 0.62) - S(t - b, 4, 1), -0.2, 1.2);
     el.style.height = alto + 'px';
     el.style.left = (x - alto * 0.32) + 'px'; el.style.top = (H - 70 - alto) + 'px';
-    el.style.visibility = vis ? 'visible' : 'hidden';
-    el.style.transform = `translateY(${((1 - k) * (alto + 120)).toFixed(1)}px) rotate(${(giro * k).toFixed(2)}deg)`;
+    mostrar(el, t > a - 0.01 && t < b + 0.3);
+    el.style.transform = `translateY(${((1 - k) * (alto + 120)).toFixed(1)}px) rotate(${(giroM * k).toFixed(2)}deg)`;
   });
 
-  // Cursor en pantalla: tamaño fijo, posición transformada por la cámara
-  const wx = CX + dx + pX(t), wy = CY + pY(t);
-  const sx = CX + (wx - CX) * z, sy = CY + (wy - CY) * z;
-  $('cursor').style.transform = `translate(${sx - 6}px, ${sy - 4}px) scale(${(1.6 * pPulsa(t)).toFixed(4)})`;
-}
-
-function arco(t) {
-  const a0 = (t - 0.56) * 2 * Math.PI * 1.6 - Math.PI / 2;
-  const len = 0.6 + 0.9 * suave((t - 0.56) / 0.4);
-  const a1 = a0 + len * 1.2;
-  const R = 27, p = (a) => `${(R * Math.cos(a)).toFixed(2)} ${(R * Math.sin(a)).toFixed(2)}`;
-  return `M${p(a0)} A${R} ${R} 0 ${len * 1.2 > Math.PI ? 1 : 0} 1 ${p(a1)}`;
+  // Cursores
+  pintaCursor($('curTu'), rTu, pTu, VIS_TU, t);
+  pintaCursor($('curSo'), rSo, pSo, VIS_SO, t);
 }
 
 // API para el renderizador
 async function seekListo(t) { seek(t); }
-window.REEL = { DUR, BPM, seek, seekListo, preparaVideo: () => {},
+const rect = (sel) => { const r = document.querySelector(sel).getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2, r.width, r.height].map(Math.round); };
+window.REEL = { DUR, BPM, seek, seekListo, rect, preparaVideo: () => {},
   listo: () => document.fonts.ready.then(() => Promise.all([...document.images].map((im) => im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; })))) };
 seek(0);
 </script>
