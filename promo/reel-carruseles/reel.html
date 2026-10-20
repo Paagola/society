@@ -234,14 +234,16 @@ const pHunde = (() => {
 // ───────────── Letras de «FUEGO» que caen sobre la foto profesional ─────────────
 const FUEGO = 'FUEGO', T_FUEGO = 4.25, P_FUEGO = 0.375;
 {
-  // mismo encuadre que el post terminado: palabra a todo el ancho, arriba
-  const anchos = [0.22, 0.215, 0.205, 0.215, 0.235], x0 = -0.03; let x = x0;
+  // mismo encuadre que el post terminado: palabra a todo el ancho, arriba, letras juntas
+  const fila = document.createElement('div');
+  fila.style.cssText = `position:absolute;left:${-0.02 * CW}px;top:30px;display:flex;white-space:nowrap`;
   FUEGO.split('').forEach((c, i) => {
     const el = document.createElement('div');
     el.className = 'letra'; el.id = 'fl' + i; el.textContent = c;
-    el.style.left = (x * CW) + 'px'; el.style.top = '38px'; el.style.fontSize = '330px';
-    $('letrasE1').appendChild(el); x += anchos[i];
+    el.style.position = 'relative'; el.style.fontSize = '360px'; el.style.letterSpacing = '-0.01em';
+    fila.appendChild(el);
   });
+  $('letrasE1').appendChild(fila);
 }
 const PIE_E1 = 'Asador Etxebarri, Axpe\nTodo pasa por el fuego.';
 // ───────────── «PLAZA» que cae sobre el suelo de Axpe ─────────────
