@@ -1,0 +1,8 @@
+{"marca": "dis", "prefijo": "disfrutar", "slides": [
+ {"n": 1, "img": "raw_1.png", "tinta": "oscura", "barra": 0, "barra_abajo": true, "titular": "ELIGE\nSIN MIRAR.", "texto": "Disfrutar recomienda escoger el menú sin leerlo antes. Desliza.", "aviso": "Propuesta creativa no oficial · Society"}, 
+ {"n": 2, "img": "raw_2.png", "barra": 140, "titular": "La cerámica\nes el hilo\nconductor.", "texto": "La entrada se inspira en la forja del Mercat del Ninot y en los colores cerámicos de Miró."}, 
+ {"n": 3, "img": "raw_3.png", "tinta": "oscura", "barra": 0, "barra_abajo": true, "titular": "Panchino\nde caviar.", "texto": "Un clásico de la casa, en el menú Classic."}, 
+ {"n": 4, "img": "raw_4.png", "tinta": "oscura", "y": 130, "size": 104, "titular": "Sorprender\nes esencial."}, 
+ {"n": 5, "img": "raw_5.png", "tinta": "oscura", "barra": 140, "titular": "Una sala\nblanca.", "texto": "Inspirada en los pueblos de pescadores del Mediterráneo."}, 
+ {"n": 6, "img": "raw_6.png", "tinta": "oscura", "y": 150, "size": 104, "titular": "Villarroel 163,\nBarcelona.", "texto": "Frente al Mercat del Ninot. Menús Classic y Festival. Reservas en disfrutarbarcelona.com", "aviso": "Propuesta creativa no oficial · Society", "caja": true}
+]}

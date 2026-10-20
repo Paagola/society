@@ -1,0 +1,12 @@
+{"marca": "etx", "prefijo": "etxebarri", "slides": [
+ {"n": 1, "img": "raw_1.png", "y": 130, "size": 116, "titular": "Todo pasa\npor el fuego.", "texto": "Asador Etxebarri. Axpe, Bizkaia.", "scrims": [[[0, 0, 1080, 520], 0.55], [[0, 1260, 1080, 1350], 0.5]], "aviso": "Propuesta creativa no oficial · Society"}, 
+ {"n": 2, "img": "raw_2.png", "y": 690, "size": 96, "cabecera": "oscura", "titular": "Un pueblo,\nuna plaza,\nuna parrilla.", "texto": "Bittor Arguinzoniz enciende las brasas con leña cada mañana desde 1990.", "scrims": [[[0, 760, 1080, 1350], 0.55]
+]}, 
+ {"n": 3, "img": "raw_3.png", "y": 900, "size": 100, "tinta": "oscura", "cabecera": "clara", "titular": "Gamba roja\nde Palamós.", "texto": "A la brasa, con sal gruesa.", "scrims": [[[0, 900, 1080, 1350], 0.55]
+]}, 
+ {"n": 4, "img": "raw_4.png", "y": 880, "size": 104, "titular": "Desde\nla anchoa…", "texto": "Anchoa en salazón sobre pan tostado.", "scrims": [[[0, 0, 1080, 130], 0.5], [[0, 860, 1080, 1350], 0.6]
+]}, 
+ {"n": 5, "img": "raw_5.png", "y": 120, "size": 92, "titular": "…hasta el postre.", "texto": "Helado de leche ahumada con zumo de remolacha. También pasa por la parrilla.", "texto_y": 1180, "scrims": [[[0, 0, 1080, 330], 0.4]
+]}, 
+ {"n": 6, "img": "raw_6.png", "y": 150, "size": 104, "tinta": "oscura", "cabecera": "oscura", "titular": "Solo a\nmediodía.", "texto": "Reserva por solicitud en asadoretxebarri.com\nSan Juan Plaza 1, Axpe (Bizkaia)\nCierra lunes y martes.", "scrims": [[[0, 100, 760, 470], 0.55], [[0, 0, 1080, 110], 0.5], [[0, 1000, 1080, 1350], 0.6]], "aviso": "Propuesta creativa no oficial · Society", "texto_y": 1060}
+]}
