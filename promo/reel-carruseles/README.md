@@ -6,7 +6,8 @@ Fecha: 2026-10-20. Encargo de Víctor: un reel con los tres carruseles de la mas
 
 | Qué | Dónde |
 |---|---|
-| Reel final, 1080 × 1920, 60 fps, 16 s, con sonido | enlace en el PR (almacenamiento de Higgsfield; el contenedor de Claude no puede descargar de ahí) |
+| Reel final, 1080 × 1920, 60 fps, 16 s, con sonido (20 MB) | [society-reel-carruseles.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/2161e899-ac13-4baf-acb4-9e1fc7e801b7.mp4) · SHA-256 `009c78750b299787bf38c5eb7791752f64b15e223d42788ae8762be525ef357e` |
+| Portada | [jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/668b657b-b38a-4184-a94c-f97538ccd774.jpg) |
 | Fuente del reel | [`reel.html`](reel.html): todo se calcula desde el tiempo en `seek(t)` |
 | Renderizador | [`render.mjs`](render.mjs): Playwright, 4 subfotogramas por fotograma, `tmix` → 60 fps |
 | Banda sonora | [`audio.py`](audio.py): rejilla medida con numpy y sonidos de interfaz sintetizados |
@@ -60,7 +61,7 @@ Sin Playwright instalado en el proyecto, `render.mjs` usa el global (`npm root -
 
 - **Imagen con referencia:** el reel no genera imágenes nuevas; usa las 18 diapositivas tal cual. El único plano generado es el clip de la mascota (Seedance 2.5, 720p, 5 s, `job 0cfc6e54-06e3-4fab-bded-9780c9913fc0`), hecho con la diapositiva 1·6 como imagen de inicio y la orden de no mover el texto. Se usa el tramo 2,6–5,0 s: entre 1,9 y 2,2 s la mascota guiña y cambia los ojos, que según la marca no cambian nunca.
 - **Reescalado:** el clip se ve a 760 × 1013 px dentro de la forma, por debajo de su tamaño nativo (834 × 1112), así que no se ha reescalado.
-- **Regla cero (firma de rodaje real):** no se aplica, a propósito y por escrito: es una pieza de diseño de movimiento de interfaz, como las de `papel-stopmotion` (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se ha pasado igualmente y su resultado está en el PR.
+- **Regla cero (firma de rodaje real):** no se aplica, a propósito y por escrito: es una pieza de diseño de movimiento de interfaz, como las de `papel-stopmotion` (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se ha pasado igualmente y marca lo esperable en una pieza sin cortes: plano medio de 3,2 s (objetivo 0,4–1,2), movimiento de cámara 10,3 px (1–9), negros a 40,6 (0–3,5, el lienzo es gris claro a propósito) y dos «transiciones» por desenfoque (los cambios de contenido). Foco 24,7 % y audio, dentro.
 - **Nada inventado:** el gráfico no lleva cifras. Las tres barras iguales dicen «siempre los mismos días», que es el mensaje del carrusel 3, no un dato. La interfaz (⌘K, isla, reproductor) es ilustración de marca, no la app de Society.
 - **Coste:** 35 créditos (el clip de Seedance). Saldo de 890,65 a 855,65.
 
@@ -68,3 +69,7 @@ Sin Playwright instalado en el proyecto, `render.mjs` usa el global (`npm root -
 
 - Igual que en los carruseles: falta confirmar que habrá enlace en la bio y los platos de algunas diapositivas son ilustrativos.
 - El botón dice «Haz que vean tu bar». Si se prefiere otro gancho, es la primera línea del HTML que hay que cambiar (`L_boton`).
+
+## Cómo se renderizó esta versión
+
+El contenedor de Claude no puede descargar del almacenamiento de Higgsfield (proxy 403), así que el render final se hizo en el sandbox de Higgsfield con este mismo código: clon de la rama, `preparar.sh`, `render.mjs` con 8 hilos (150 s), `audio.py` (tempo medido 119,98 BPM; inicio en 64,068 s) y unión con ffmpeg. El primer y el último fotograma difieren un 0,6 % (RMSE), lo que se mueve el cursor en un sesentavo de segundo.
