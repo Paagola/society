@@ -1,0 +1,9 @@
+{"marca": "sj", "prefijo": "st_john", "slides": [
+ {"n": 1, "img": "raw_1.png", "y": 1050, "caja": true, "size": 50, "plato": "Roast Bone Marrow\nand Parsley Salad", "precio": "16.50", "texto": "Médula asada y ensalada de perejil. Así de corto lo escribe la carta."}, 
+ {"n": 2, "img": "raw_2.png", "y": 1040, "caja": true, "ancho": 700, "titular": "Octubre de 1994.", "size": 56, "texto": "St. JOHN abre en un antiguo ahumadero junto al mercado de Smithfield.", "papel_arriba": true, "papel_abajo": true}, 
+ {"n": 3, "img": "raw_3.png", "y": 190, "size": 56, "plato": "Eccles Cake and\nLancashire Cheese", "precio": "12.50", "texto": "Hojaldre relleno de pasas de Corinto, con queso de Lancashire."}, 
+ {"n": 4, "img": "raw_4.png", "y": 1100, "caja": true, "size": 56, "plato": "Welsh Rarebit", "precio": "12.50", "texto": "Pan tostado con queso fundido y gratinado."}, 
+ {"n": 5, "img": "raw_5.png", "bloques": [{"y": 150, "titular": "Del morro a la cola.", "size": 48}, {"y": 1110, "caja": true, "texto": "Fergus Henderson: usar todo el animal es «de sentido común, e incluso de buena educación» (traducción nuestra)."}
+]}, 
+ {"n": 6, "img": "raw_6.png", "y": 170, "caja": true, "ancho": 780, "size": 50, "titular": "La carta cambia\ncada día.", "texto": "Comidas desde las 12.00. Cenas de lunes a sábado desde las 18.00.\n26 St. John Street, London EC1M 4AY.\nstjohnrestaurant.com", "aviso": "Propuesta creativa no oficial · Society", "papel_abajo": true, "papel_arriba": true}
+]}
