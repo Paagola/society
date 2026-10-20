@@ -2,14 +2,16 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Society · reel v3</title>
+<title>Society · reel v4</title>
 <!--
-  Reel v3, 20 s (10 compases a 120 BPM) en 1080 × 1920. El flujo de Society contado con cambios de
-  punto de vista en cada tramo: la carpeta de cristal donde el cliente suelta su foto, la foto vista
-  desde la mesa, el escaneo, las letras vistas desde abajo, la rueda de posts, la plaza de Axpe vista
-  desde arriba, una ráfaga con un ángulo por corte, la semana en carpetas y el logo.
-  Los componentes de interfaz (cursor con etiqueta, carpeta de cristal y rueda de trabajos) están
-  rehechos aquí a partir de los que pasó Víctor, para poder moverlos fotograma a fotograma.
+  Reel v4, 20 s (10 compases a 120 BPM) en 1080 × 1920, montado como una sola toma (método onetake):
+  cada tramo nace del anterior y solo hay cortes secos dentro de la ráfaga.
+    carpeta → la foto sale de la carpeta y se coloca → escaneo → las capas del post («FUEGO» y el pie)
+    flotan separadas y se acoplan → el post se encoge en la rueda → la rueda gira hasta Axpe → la tarjeta
+    de Axpe se queda para la ráfaga (el fondo toma el color de cada foto) → el último post vuela a la
+    carpeta del lunes → la semana → el aviso → su círculo crece hasta el sello → los posts orbitan el sello,
+    cae el logotipo → el sello se encoge hasta la tecla «+» de la carpeta y el bucle vuelve a empezar.
+  El movimiento usa lib/motion.js de onetake (window.OM), que preparar.sh descarga en assets/onetake.
   Todo sale de seek(t): sin transiciones CSS, sin temporizadores y sin estado entre fotogramas.
 -->
 <style>
@@ -17,35 +19,44 @@
   @font-face { font-family: GeistMono; src: url(fonts/GeistMono.woff2) format('woff2'); }
   @font-face { font-family: AN; src: url(fuentes/ArchivoNarrow.ttf); font-weight: 400 700; }
   @font-face { font-family: Anton; src: url(fonts/Anton.woff2) format('woff2'); }
-  :root { --papel: #ECE8DC; --tinta: #141414; --cobalto: #2440E0; --mostaza: #F5C518; --gris: #8A8780; }
-  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--papel); }
+  :root { --tinta: #141414; --cobalto: #2440E0; --mostaza: #F5C518; }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #f4f6fb; }
   body { font-family: Geist, system-ui, sans-serif; color: var(--tinta); -webkit-font-smoothing: antialiased; }
-  #stage { position: absolute; inset: 0; overflow: hidden; background: var(--papel); }
-  #mesa { position: absolute; inset: -200px; opacity: .12;
-          background-image: radial-gradient(#141414 1.6px, transparent 2px); background-size: 32px 32px; }
+  #stage { position: absolute; inset: 0; overflow: hidden; background: #f4f6fb; }
   .esc { position: absolute; inset: 0; display: none; }
   .obj { position: absolute; left: 540px; top: 1040px; }
   img { display: block; }
   svg { overflow: visible; }
 
-  /* ── tarjeta de foto ── */
-  .tarjeta { width: 760px; height: 950px; border-radius: 40px; overflow: hidden; background: #fff;
-             box-shadow: 0 40px 90px -30px rgba(20,20,20,.45), 0 0 0 1px rgba(20,20,20,.06); }
-  .tarjeta > img, .capaimg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
-  .chip { position: absolute; left: 28px; top: 28px; height: 58px; padding: 0 22px; border-radius: 29px; display: flex; align-items: center; gap: 14px;
-          font-size: 25px; font-weight: 550; letter-spacing: -.01em; color: #fff; white-space: nowrap;
-          background: rgba(20,20,22,.42); backdrop-filter: blur(14px) saturate(1.4);
-          box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 0 0 1px rgba(255,255,255,.12); }
-  .chip .m { font-family: GeistMono; font-size: 18px; letter-spacing: .08em; color: rgba(255,255,255,.66); }
-  .punto { width: 12px; height: 12px; border-radius: 6px; flex: none; }
-  .letra { position: relative; font-family: Anton; color: #EDE7DD; line-height: 1; font-size: 360px; letter-spacing: -0.01em; transform-origin: 50% 60%; }
+  /* ── fondo: degradado de cristal con la paleta de la app ── */
+  #fondo { position: absolute; inset: 0; background: linear-gradient(165deg, #f8f9fd 0%, #eef1fb 48%, #f7f2e3 100%); }
+  .bl { position: absolute; border-radius: 50%; }
+  #color { position: absolute; inset: 0; opacity: 0; }
+  #vidrio { position: absolute; inset: 30px; border-radius: 66px;
+            background: linear-gradient(155deg, rgba(255,255,255,.46) 0%, rgba(255,255,255,.14) 46%, rgba(255,255,255,.30) 100%);
+            box-shadow: inset 0 0 0 2px rgba(255,255,255,.72), inset 0 3px 0 rgba(255,255,255,.9), 0 40px 90px -50px rgba(36,64,224,.35); }
+  #grano { position: absolute; inset: 0; opacity: .055; pointer-events: none;
+           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  /* ── la foto y sus capas ── */
+  #objB { width: 760px; height: 950px; transform-style: preserve-3d; }
+  #caraB { position: absolute; inset: 0; border-radius: 40px; overflow: hidden; background: #fff;
+           box-shadow: 0 40px 90px -30px rgba(20,20,40,.45), 0 0 0 1px rgba(20,20,20,.06); }
+  .llena { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+  .capa { position: absolute; left: 0; top: 0; width: 760px; height: 950px; border-radius: 40px; overflow: hidden; }
+  .capa .vid { position: absolute; inset: 0; border-radius: 40px; background: linear-gradient(160deg, rgba(255,255,255,.16), rgba(255,255,255,.04));
+               box-shadow: inset 0 0 0 2px rgba(255,255,255,.6), inset 0 2px 0 rgba(255,255,255,.85); }
+  .letra { position: relative; font-family: Anton; color: #EDE7DD; line-height: 1; font-size: 360px; letter-spacing: -0.01em; }
+  #pildora { position: absolute; left: 50%; top: 812px; height: 88px; padding: 0 40px; border-radius: 44px; background: #fff; color: #141414;
+             display: flex; align-items: center; gap: 16px; font-size: 34px; font-weight: 750; letter-spacing: -.025em; white-space: nowrap;
+             box-shadow: 0 18px 40px -12px rgba(20,20,20,.45); }
 
   /* ── carpeta de cristal (rehecha de glass-folder-cards) ── */
   .gf { position: absolute; font-family: Geist, system-ui, sans-serif; isolation: isolate; }
   .gf-stage { position: absolute; left: 0; top: 0; width: 340px; height: 272px; transform-origin: 0 0; }
   .gf-tilt { position: absolute; inset: 0; }
-  .gf-shadow { position: absolute; left: 18px; right: 18px; bottom: -6px; height: 60px; border-radius: 40px; background: rgba(16,18,24,.34); filter: blur(22px); }
-  .gf[data-tone=dark] .gf-shadow { background: rgba(0,0,0,.62); }
+  .gf-shadow { position: absolute; left: 18px; right: 18px; bottom: -6px; height: 60px; border-radius: 40px; background: rgba(16,18,40,.30); filter: blur(22px); }
+  .gf[data-tone=dark] .gf-shadow { background: rgba(0,0,0,.55); }
   .gf-back { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(180deg,#f3f3f4 0%,#e3e3e6 100%); }
   .gf[data-tone=dark] .gf-back { background: linear-gradient(180deg,#2a2a2e 0%,#121214 100%); }
   .gf-art { position: absolute; left: -12px; top: -12px; width: 364px; height: 296px; max-width: none; object-fit: cover; }
@@ -59,10 +70,6 @@
               background: #1a1a1d; transform-origin: 50% 100%;
               box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 0 0 .5px rgba(0,0,0,.1), 0 10px 26px -8px rgba(10,12,20,.28); }
   .gf-sheet img { position: absolute; left: 0; top: 0; width: 272px; height: 184px; object-fit: cover; }
-  .gf-sheet::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,0) 34%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
-  .gf-sheet-head { position: absolute; left: 14px; right: 14px; top: 11px; z-index: 1; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; white-space: nowrap; }
-  .gf-sheet-name { font-size: 12.5px; font-weight: 560; letter-spacing: -.005em; color: #fafafa; }
-  .gf-sheet-meta { font-family: GeistMono; font-size: 10px; letter-spacing: .02em; color: rgba(250,250,250,.66); }
   .gf-front { position: absolute; left: 0; top: 74px; width: 340px; height: 198px; z-index: 10; backdrop-filter: blur(22px) saturate(1.5); transform-origin: 50% 100%; }
   .gf-tint { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.5) 42%,rgba(252,252,252,.93) 100%); }
   .gf[data-tone=dark] .gf-tint { background: linear-gradient(180deg,rgba(18,18,20,.18) 0%,rgba(14,14,16,.62) 46%,rgba(8,8,10,.94) 100%); }
@@ -71,11 +78,8 @@
   .gf-front-rim { width: 340px; height: 198px; }
   .gf-front-rim path { stroke-width: 2.4; }
   .gf[data-tone=dark] .gf-front-rim { opacity: .55; }
-  .gf-label { position: absolute; z-index: 2; left: 28px; bottom: 32px; display: flex; flex-direction: column; gap: 4px; color: #141416; }
+  .gf-label { position: absolute; z-index: 2; left: 26px; bottom: 26px; font-size: 30px; font-weight: 800; letter-spacing: -.04em; line-height: 1; white-space: nowrap; color: #141416; }
   .gf[data-tone=dark] .gf-label { color: #f5f5f7; }
-  .gf-title { font-size: 18px; font-weight: 500; line-height: 1.15; letter-spacing: -.012em; white-space: nowrap; }
-  .gf-meta { font-family: GeistMono; font-size: 12px; letter-spacing: .03em; opacity: .55; white-space: nowrap; height: 15px; position: relative; }
-  .gf-meta span { position: absolute; left: 0; top: 0; }
   .gf-key { box-sizing: border-box; position: absolute; right: 22px; bottom: 22px; z-index: 12; width: 58px; height: 58px; border-radius: 18px; display: grid; place-items: center; color: #fff;
             background: radial-gradient(120% 90% at 50% 0%,#3a3a3f 0%,#121214 55%,#050506 100%);
             box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -3px 8px rgba(0,0,0,.7), 0 0 0 1px rgba(0,0,0,.75), 0 14px 22px -8px rgba(0,0,0,.55), 0 3px 6px -2px rgba(0,0,0,.35); }
@@ -86,86 +90,85 @@
   #ruedaEje { position: absolute; left: 540px; top: 1010px; transform-style: preserve-3d; }
   .rw { position: absolute; backface-visibility: hidden; }
   .rw > span { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border-radius: 14px; background: #ddd;
-               box-shadow: 0 18px 40px -18px rgba(20,20,20,.35); }
+               box-shadow: 0 18px 40px -18px rgba(20,20,40,.35); }
   .rw img { width: 100%; height: 100%; object-fit: cover; }
-  #ruedaTit { position: absolute; left: 0; right: 0; top: 1010px; transform: translateY(-50%); text-align: center; font-size: 88px; font-weight: 600; letter-spacing: -.04em; }
-  #indiceVent { position: absolute; left: 0; right: 0; top: 1452px; height: 60px; -webkit-mask-image: linear-gradient(90deg, transparent 4%, #000 30%, #000 70%, transparent 96%); }
-  #indice { position: absolute; left: 540px; top: 0; display: flex; gap: 44px; white-space: nowrap; font-size: 36px; font-weight: 500; letter-spacing: -.025em; color: #9a978f; list-style: none; margin: 0; padding: 0; }
 
-  /* ── ráfaga, aviso, logo ── */
-  .post { width: 760px; height: 950px; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(20,20,20,.5); }
-  .post img { width: 100%; height: 100%; object-fit: cover; }
-  #contador { position: absolute; right: 40px; top: 1610px; font-family: GeistMono; font-size: 26px; letter-spacing: .08em; color: #141414; }
-  #aprobar { position: absolute; left: 50%; top: 1420px; width: 760px; height: 112px; margin-left: -380px; border-radius: 56px; background: var(--cobalto); color: #fff;
-             display: flex; align-items: center; justify-content: center; gap: 16px; font-size: 36px; font-weight: 600; letter-spacing: -.02em;
+  /* ── Axpe, ráfaga, semana ── */
+  .tarjeta { width: 760px; height: 950px; border-radius: 40px; overflow: hidden; background: #fff;
+             box-shadow: 0 40px 90px -30px rgba(20,20,40,.45), 0 0 0 1px rgba(20,20,20,.06); }
+  #objF { width: 760px; height: 950px; border-radius: 40px; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(20,20,20,.5); }
+  #aprobar { position: absolute; left: 50%; top: 1420px; width: 760px; height: 116px; margin-left: -380px; border-radius: 58px; background: var(--cobalto); color: #fff;
+             display: flex; align-items: center; justify-content: center; gap: 18px; font-size: 42px; font-weight: 800; letter-spacing: -.035em;
              box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 20px 40px -16px rgba(36,64,224,.6); }
-  #aviso { position: absolute; left: 50%; top: 0; display: flex; align-items: center; gap: 24px; padding: 26px 46px 26px 26px; border-radius: 999px; white-space: nowrap;
-           background: rgba(22,22,24,.78); backdrop-filter: blur(24px) saturate(1.6); color: #fff;
+  #aviso { position: absolute; left: 50%; top: 0; display: flex; align-items: center; gap: 24px; padding: 26px 50px 26px 26px; border-radius: 999px; white-space: nowrap;
+           background: rgba(22,22,24,.84); color: #fff;
            box-shadow: inset 0 1px 0 rgba(255,255,255,.16), 0 0 0 1px rgba(255,255,255,.08), 0 30px 60px -20px rgba(0,0,0,.55); }
-  #aviso .t { font-size: 38px; font-weight: 600; letter-spacing: -.025em; }
-  #aviso .m { font-family: GeistMono; font-size: 20px; letter-spacing: .08em; color: rgba(255,255,255,.6); margin-top: 6px; }
-  #logo { width: 760px; height: 760px; border-radius: 56px; overflow: hidden; background: rgb(26,26,26); box-shadow: 0 50px 100px -30px rgba(20,20,20,.55); }
-  #logo img { width: 760px; height: 760px; }
+  #aviso .t { font-size: 44px; font-weight: 800; letter-spacing: -.04em; }
+  #avisoDisco { width: 76px; height: 76px; flex: none; }
 
-  /* ── rótulos de arriba ── */
-  .cap { position: absolute; left: 70px; right: 70px; top: 150px; visibility: hidden; }
-  .cap .l { font-family: GeistMono; font-size: 24px; letter-spacing: .14em; text-transform: uppercase; color: #8A8780; display: block; margin-bottom: 22px; }
-  .cap .t { font-size: 88px; font-weight: 600; line-height: 1.0; letter-spacing: -.045em; }
-  .cap .t span { display: inline-block; white-space: pre; }
-  .cap .s { font-size: 30px; font-weight: 500; letter-spacing: -.015em; color: #6c6962; margin-top: 18px; display: block; }
-  .cap.claro .t { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.35); }
-  .cap.claro .l, .cap.claro .s { color: rgba(255,255,255,.78); }
-  .nota { position: absolute; left: 0; right: 0; bottom: 60px; text-align: center; font-family: GeistMono; font-size: 18px; letter-spacing: .06em; text-transform: uppercase; color: #8A8780; visibility: hidden; }
-  .masc { position: absolute; transform-origin: 50% 100%; visibility: hidden; }
+  /* ── final: sello, órbita de posts y logotipo ── */
+  #orbita > div { position: absolute; left: 0; top: 0; width: 150px; height: 188px; border-radius: 16px; overflow: hidden; box-shadow: 0 18px 36px -16px rgba(20,20,40,.45); }
+  #orbita img { width: 100%; height: 100%; object-fit: cover; }
+  #sello { position: absolute; left: 0; top: 0; overflow: hidden; display: none; box-shadow: 0 50px 100px -40px rgba(20,20,40,.6); }
+  #selloBrillo { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; display: none;
+                 background: conic-gradient(from 0deg, rgba(255,255,255,0) 0deg, rgba(255,255,255,.07) 60deg, rgba(255,255,255,0) 140deg, rgba(255,255,255,0) 220deg, rgba(255,255,255,.05) 290deg, rgba(255,255,255,0) 360deg);
+                 box-shadow: inset 0 2px 0 rgba(255,255,255,.12); }
+  #selloMas { position: absolute; left: 50%; top: 50%; width: 45%; height: 45%; transform: translate(-50%,-50%); fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; opacity: 0; }
+  .pieza { position: absolute; overflow: hidden; transform-origin: 50% 100%; }
+  .pieza img { position: absolute; max-width: none; }
+
+  /* ── rótulos: solo la frase, grande y gruesa ── */
+  .cap { position: absolute; left: 68px; right: 60px; top: 130px; display: none; font-size: 116px; font-weight: 800; line-height: .96; letter-spacing: -.055em; }
+  .cap .w { display: inline-block; white-space: pre; transform-origin: 0 100%; }
+  .masc { position: absolute; left: 0; top: 0; transform-origin: 50% 100%; display: none; filter: drop-shadow(0 26px 30px rgba(20,24,60,.18)); }
 
   /* ── cursor con etiqueta (rehecho de animate-ui) ── */
   .cur { position: absolute; left: 0; top: 0; visibility: hidden; }
-  .cur svg { width: 56px; height: 56px; display: block; transform-origin: 3px 5px; }
+  .cur svg { width: 60px; height: 60px; display: block; transform-origin: 3px 5px; }
   .cur path { stroke: #fff; stroke-width: 2.2; paint-order: stroke; stroke-linejoin: round; }
-  .cur .eti { position: absolute; left: 0; top: 0; padding: 8px 18px; border-radius: 12px; font-size: 27px; font-weight: 500; letter-spacing: -.01em; white-space: nowrap; }
+  .cur .eti { position: absolute; left: 0; top: 0; padding: 9px 20px; border-radius: 13px; font-size: 30px; font-weight: 750; letter-spacing: -.02em; white-space: nowrap; }
 </style>
 </head>
 <body>
 <div id="stage">
-  <div id="mesa"></div>
+  <div id="fondo">
+    <div class="bl" id="bl0"></div><div class="bl" id="bl1"></div><div class="bl" id="bl2"></div><div class="bl" id="bl3"></div>
+    <div id="color"></div>
+    <div id="vidrio"></div>
+  </div>
 
   <!-- A · carpeta del cliente -->
-  <div id="escA" class="esc"><div id="objA" class="obj"></div></div>
+  <div id="escA" class="esc"><div id="objA" class="obj" style="top:700px"></div></div>
 
-  <!-- B/C · la foto: del móvil a la toma profesional, letras y post -->
+  <!-- B · la foto: sale de la carpeta, se mejora y recibe sus capas -->
   <div id="escB" class="esc">
-    <div id="objB" class="obj tarjeta">
-      <img src="assets/reel/real_E1.jpg">
-      <div id="crudo" style="position:absolute;inset:0">
-        <img class="capaimg" src="assets/reel/raw_E1.jpg">
-        <div id="letrasE1" style="position:absolute;left:-15px;top:30px;display:flex;white-space:nowrap"></div>
-        <div id="pieE1" style="position:absolute;left:30px;top:872px;font-family:GeistMono;font-size:20px;line-height:1.3;color:#EDE7DD;white-space:pre"></div>
+    <div id="objB" class="obj">
+      <div id="caraB">
+        <img class="llena" src="assets/reel/real_E1.jpg">
+        <div id="crudo" style="position:absolute;inset:0"><img class="llena" src="assets/reel/raw_E1.jpg"></div>
+        <img id="postE1" class="llena" src="assets/posts/E1.jpg">
+        <div id="escaneo" style="position:absolute;left:0;width:100%;height:6px;background:var(--cobalto);box-shadow:0 0 30px 6px rgba(36,64,224,.55)"></div>
+        <div id="pildora"><svg width="30" height="30" viewBox="-15 -15 30 30"><path d="M0-12 3 -3 12 0 3 3 0 12-3 3-12 0-3-3Z" fill="#2440E0"/></svg>Mejorar foto</div>
       </div>
-      <img id="postE1" class="capaimg" src="assets/posts/E1.jpg">
-      <div id="escaneo" style="position:absolute;left:0;width:100%;height:6px;background:var(--cobalto);box-shadow:0 0 30px 6px rgba(36,64,224,.55)"></div>
-      <div id="chipFoto" class="chip"><span class="punto" style="background:#fff"></span>Tu foto<span class="m">MÓVIL</span></div>
-      <div id="chipPro" class="chip" style="background:rgba(36,64,224,.78)"><span class="punto" style="background:#fff"></span>Con Society<span class="m">PRO</span></div>
-      <div id="pildora" style="position:absolute;left:50%;top:812px;height:84px;padding:0 36px;border-radius:42px;background:#fff;color:#141414;display:flex;align-items:center;gap:14px;
-           font-size:31px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 18px 40px -12px rgba(20,20,20,.45)">
-        <span class="punto" style="width:16px;height:16px;border-radius:8px;background:var(--cobalto)"></span>Mejorar foto
-      </div>
+      <div id="capaP" class="capa"><div class="vid"></div>
+        <div id="pieE1" style="position:absolute;left:30px;top:872px;font-family:GeistMono;font-size:20px;line-height:1.3;color:#EDE7DD;white-space:pre"></div></div>
+      <div id="capaF" class="capa"><div class="vid"></div>
+        <div id="letrasE1" style="position:absolute;left:-15px;top:30px;display:flex;white-space:nowrap"></div></div>
     </div>
   </div>
 
   <!-- D · rueda de posts -->
-  <div id="escD" class="esc">
-    <div id="rueda"><div id="ruedaEje"></div></div>
-    <div id="ruedaTit">17 posts</div>
-    <div id="indiceVent"><ol id="indice"></ol></div>
-  </div>
+  <div id="escD" class="esc"><div id="rueda"><div id="ruedaEje"></div></div></div>
 
-  <!-- E · «PLAZA» sobre la foto original de Axpe -->
+  <!-- E · «PLAZA» sobre la foto de Axpe -->
   <div id="escE" class="esc">
     <div id="objE" class="obj tarjeta" style="background:#2b3035">
       <div id="e2" style="position:absolute;left:0;top:0;width:1856px;height:2304px;transform-origin:0 0">
         <img src="assets/reel/raw_E2.jpg" style="position:absolute;left:0;top:0;width:1856px;height:2304px">
-        <div style="position:absolute;left:70px;top:40px;font-family:AN;font-weight:500;font-size:44px;color:#151515">Asador Etxebarri, Axpe</div>
-        <div style="position:absolute;right:70px;top:40px;font-family:AN;font-weight:500;font-size:44px;color:#151515">02/06</div>
+        <div id="e2cab" style="position:absolute;left:0;top:0;width:100%">
+          <div style="position:absolute;left:70px;top:40px;font-family:AN;font-weight:500;font-size:44px;color:#151515">Asador Etxebarri, Axpe</div>
+          <div style="position:absolute;left:1716px;top:40px;font-family:AN;font-weight:500;font-size:44px;color:#151515;white-space:nowrap">02/06</div>
+        </div>
         <div id="e2tit" style="position:absolute;left:66px;top:105px;font-family:AN;font-weight:700;font-size:132px;line-height:.9;color:#141414;white-space:nowrap"></div>
         <div style="position:absolute;left:-200px;top:1340px;width:2256px;height:964px;perspective:1100px;perspective-origin:50% 0%">
           <div id="plaza" style="position:absolute;left:0;right:0;bottom:230px;height:780px;transform:rotateX(64deg);transform-origin:50% 100%;transform-style:preserve-3d"></div>
@@ -176,40 +179,43 @@
   </div>
 
   <!-- F · ráfaga -->
-  <div id="escF" class="esc">
-    <div id="objF" class="obj post"></div>
-    <div id="contador">06 / 17</div>
-  </div>
+  <div id="escF" class="esc"><div id="objF" class="obj"></div></div>
 
-  <!-- G · la semana en carpetas, aviso -->
+  <!-- G · la semana en carpetas -->
   <div id="escG" class="esc">
     <div id="objG" class="obj" style="width:1040px;height:330px"></div>
-    <div id="aprobar">Aprobar la semana
-      <svg width="30" height="30" viewBox="0 0 30 30"><path d="M6 15h17M16 8l7 7-7 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div id="aprobar">Aprobar semana
+      <svg width="32" height="32" viewBox="0 0 30 30"><path d="M6 15h17M16 8l7 7-7 7" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
   </div>
   <div id="aviso">
-    <svg width="76" height="76" viewBox="-38 -38 76 76"><circle r="38" fill="#2440E0"/><path id="avisoCheck" d="M-15 1 L-5 11 L16 -10" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1"/></svg>
-    <div><div class="t">Tu semana, lista para publicar.</div><div class="m">3 POSTS · LUN · MIÉ · VIE</div></div>
+    <svg id="avisoDisco" viewBox="-38 -38 76 76"><circle r="38" fill="#2440E0"/><path id="avisoCheck" d="M-15 1 L-5 11 L16 -10" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1"/></svg>
+    <div class="t">Lista para publicar.</div>
   </div>
 
-  <!-- I · logo -->
-  <div id="escI" class="esc"><div id="objI" class="obj"><div id="logo"><img src="assets/reel/logo.png"></div></div></div>
+  <!-- I · final -->
+  <div id="escI" class="esc"><div id="orbita"></div></div>
+  <div id="sello"><div id="piezas"></div><div id="selloBrillo"></div>
+    <svg id="selloMas" viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15"/></svg></div>
 
   <!-- pantalla -->
   <div id="caps"></div>
-  <div id="notas"></div>
   <div id="mascotas"></div>
-  <div id="curTu" class="cur"><svg viewBox="0 0 40 40"><path fill="#141414" d="M1.8 4.4 7 36.2c.3 1.8 2.6 2.3 3.6.8l3.9-5.7c1.7-2.5 4.5-4.1 7.5-4.3l6.9-.5c1.8-.1 2.5-2.4 1.1-3.5L5 2.5c-1.4-1.1-3.5 0-3.3 1.9Z"/></svg><div class="eti" style="background:#141414;color:#ECE8DC">Tú</div></div>
+  <div id="curTu" class="cur"><svg viewBox="0 0 40 40"><path fill="#141414" d="M1.8 4.4 7 36.2c.3 1.8 2.6 2.3 3.6.8l3.9-5.7c1.7-2.5 4.5-4.1 7.5-4.3l6.9-.5c1.8-.1 2.5-2.4 1.1-3.5L5 2.5c-1.4-1.1-3.5 0-3.3 1.9Z"/></svg><div class="eti" style="background:#141414;color:#fff">Tú</div></div>
   <div id="curSo" class="cur"><svg viewBox="0 0 40 40"><path fill="#2440E0" d="M1.8 4.4 7 36.2c.3 1.8 2.6 2.3 3.6.8l3.9-5.7c1.7-2.5 4.5-4.1 7.5-4.3l6.9-.5c1.8-.1 2.5-2.4 1.1-3.5L5 2.5c-1.4-1.1-3.5 0-3.3 1.9Z"/></svg><div class="eti" style="background:#2440E0;color:#fff">Society</div></div>
+  <div id="grano"></div>
 </div>
 
+<script src="assets/onetake/lib/motion.js"></script>
 <script>
+const OM = window.OM;
+const { seg, ssstep, ease, spring, ring } = OM;
+
 // ───────────── Rejilla ─────────────
 const BPM = 120, B = 60 / BPM, BEATS = 40, DUR = BEATS * B;      // 20 s, 10 compases
 const W = 1080, H = 1920;
 
-// ───────────── Muelles y curvas ─────────────
+// ───────────── Muelles y utilidades ─────────────
 function S(t, f = 3, z = 0.86) {
   if (t <= 0) return 0;
   const w = 2 * Math.PI * f;
@@ -217,7 +223,7 @@ function S(t, f = 3, z = 0.86) {
   const wd = w * Math.sqrt(1 - z * z);
   return 1 - Math.exp(-z * w * t) * (Math.cos(wd * t) + (z * w / wd) * Math.sin(wd * t));
 }
-// Suma de un muelle por cambio de objetivo; f = 0 es un corte seco. Envuelve el bucle.
+// Suma de un muelle por cambio de objetivo; f = 0 es un cambio seco. Envuelve el bucle.
 function pista(keys, f0 = 3, z0 = 0.86) {
   const ev = (t) => {
     let v = keys[0][1];
@@ -231,7 +237,6 @@ function pista(keys, f0 = 3, z0 = 0.86) {
   const fin = keys[keys.length - 1][1];
   return (t) => ev(t) + (ev(t + DUR) - fin);
 }
-// Pista de varias propiedades: cada clave lleva solo lo que cambia
 function trk(keys, f0 = 2, z0 = 0.86) {
   const props = Object.keys(keys[0][1]), ps = {};
   for (const p of props) {
@@ -246,7 +251,6 @@ const suave = (x) => { x = clamp(x); return x * x * (3 - 2 * x); };
 const $ = (id) => document.getElementById(id);
 const env = (t) => ((t % DUR) + DUR) % DUR;
 const dentro = (t, a, b) => (a <= b ? t >= a && t < b : t >= a || t < b);
-// cubic-bezier de CSS
 function bez(x1, y1, x2, y2) {
   const c = (a, b, t) => 3 * a * t * (1 - t) ** 2 + 3 * b * t * t * (1 - t) + t ** 3;
   return (x) => {
@@ -257,7 +261,6 @@ function bez(x1, y1, x2, y2) {
   };
 }
 const EASE = bez(0.2, 0.8, 0.2, 1);
-// Animación por claves [fracción, valor] con la curva en cada tramo
 function claves(p, ks, curva = EASE) {
   if (p <= ks[0][0]) return ks[0][1];
   for (let i = 1; i < ks.length; i++) if (p <= ks[i][0]) {
@@ -269,13 +272,36 @@ function claves(p, ks, curva = EASE) {
 const ver = (el, k) => { el.style.opacity = k.toFixed(3); el.style.visibility = k <= 0.001 ? 'hidden' : 'visible'; };
 const mostrar = (el, si) => { el.style.visibility = si ? 'visible' : 'hidden'; };
 const escena = (el, si) => { el.style.display = si ? 'block' : 'none'; };
+const px = (el, x, y, w, h) => { el.style.left = x + 'px'; el.style.top = y + 'px'; if (w !== undefined) { el.style.width = w + 'px'; el.style.height = h + 'px'; } };
 
-// Cámara: el objeto gira y se acerca alrededor de su centro (el punto de fuga)
+// Cámara: el objeto gira y se acerca alrededor de su centro
 const CAM0 = { x: 0, y: 0, z: 0, rx: 0, ry: 0, rz: 0, s: 1 };
 function cam(el, c, p = 1800, extra = '') {
-  el.style.transform = `translate(-50%,-50%) perspective(${p}px) translate3d(${c.x.toFixed(2)}px,${c.y.toFixed(2)}px,${c.z.toFixed(2)}px) ` +
+  el.style.transform = `translate(-50%,-50%) perspective(${p}px) translate3d(${c.x.toFixed(2)}px,${c.y.toFixed(2)}px,${(c.z || 0).toFixed(2)}px) ` +
     `rotateX(${c.rx.toFixed(3)}deg) rotateY(${c.ry.toFixed(3)}deg) rotateZ(${c.rz.toFixed(3)}deg) scale(${c.s.toFixed(4)}) ${extra}`;
 }
+
+// ───────────── Medidas de pantalla (tomadas con REEL.rect en el render; ver README) ─────────────
+const M = {
+  hojaA: { x: 267, y: 506, w: 560, h: 379 },   // la foto dentro de la carpeta, a 1.7 s
+  bolsillo: 640,                                // borde de arriba del cristal de la carpeta, a 1.7 s
+  teclaA: { cx: 790, cy: 924, w: 119 },        // la tecla «+» de la carpeta, a 19.6 s
+  disco: { cx: 285, cy: 964, r: 45 },           // el círculo del aviso, a 17.0 s
+  lunes: { cx: 536, cy: 981 },                  // la hoja del lunes cuando empieza a caer, a 14.5 s
+};
+
+// ───────────── Fondo: manchas de color que derivan con el bucle ─────────────
+const MANCHAS = [   // [color rgba, diámetro, x, y, amplitud x, amplitud y, fase]
+  ['36,64,224,.50', 1500, 140, 1700, 90, 60, 0.0],
+  ['245,197,24,.50', 1200, 1000, 1120, 70, 90, 1.7],
+  ['255,255,255,.95', 1200, 880, 240, 80, 50, 3.1],
+  ['154,168,242,.45', 1100, 80, 520, 60, 80, 4.4],
+];
+MANCHAS.forEach(([c, d], i) => {
+  const el = $('bl' + i);
+  el.style.width = el.style.height = d + 'px';
+  el.style.background = `radial-gradient(circle, rgba(${c}) 0%, rgba(${c.replace(/,[^,]*$/, ',0')}) 68%)`;
+});
 
 // ───────────── Arte líquido de las carpetas (createArtJob de glass-folder-cards, en JS) ─────────────
 function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6d2b79f5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
@@ -303,15 +329,15 @@ function arte(w, h, rec, seed) {
   const F = new Float32Array(w * h), Q = new Float32Array(w * h);
   for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
     const u = (x - w / 2) / m, v = (y - h / 2) / m;
-    const px = (u * ca - v * sa) * scale + ox, py = (u * sa + v * ca) * scale + oy;
-    const qx = fbm(px, py, 3), qy = fbm(px + 5.2, py + 1.3, 3);
-    const rx = fbm(px + warp * qx + 1.7, py + warp * qy + 9.2, 3), ry = fbm(px + warp * qx + 8.3, py + warp * qy + 2.8, 3);
-    F[y * w + x] = fbm(px + warp * rx, py + warp * ry, 4); Q[y * w + x] = Math.hypot(qx, qy);
+    const px_ = (u * ca - v * sa) * scale + ox, py_ = (u * sa + v * ca) * scale + oy;
+    const qx = fbm(px_, py_, 3), qy = fbm(px_ + 5.2, py_ + 1.3, 3);
+    const rx = fbm(px_ + warp * qx + 1.7, py_ + warp * qy + 9.2, 3), ry = fbm(px_ + warp * qx + 8.3, py_ + warp * qy + 2.8, 3);
+    F[y * w + x] = fbm(px_ + warp * rx, py_ + warp * ry, 4); Q[y * w + x] = Math.hypot(qx, qy);
   }
   const sm = Array.from(F.filter((_, i) => i % 7 === 0)).sort((a, b) => a - b);
   const lo = sm[Math.floor(sm.length * 0.02)], hi = sm[Math.floor(sm.length * 0.98)], k = 1 / (hi - lo || 1), slope = k * m * 0.012;
   const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
-  const g = cv.getContext('2d'), im = g.createImageData(w, h), px = im.data;
+  const g = cv.getContext('2d'), im = g.createImageData(w, h), pxs = im.data;
   for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
     const i = y * w + x; let t = clamp((F[i] - lo) * k); let j = 1;
     while (j < stops.length - 1 && stops[j].t < t) j++;
@@ -320,13 +346,12 @@ function arte(w, h, rec, seed) {
     const nd = (gx * 0.55 + gy * 0.65 + 0.52) / Math.sqrt(gx * gx + gy * gy + 1);
     const spec = Math.pow(Math.max(nd, 0), 24) * gloss * 255, silk = 1 + 0.035 * Math.sin(t * 150 + Q[i] * 24);
     const vein = veins * Math.max(0, 1 - Math.abs(Q[i] - 0.42) * 14) * 0.6, lit = (0.82 + 0.28 * nd) * silk * (1 - vein);
-    for (let c = 0; c < 3; c++) px[i * 4 + c] = (a.c[c] + (b.c[c] - a.c[c]) * f) * lit + spec;
-    px[i * 4 + 3] = 255;
+    for (let c = 0; c < 3; c++) pxs[i * 4 + c] = (a.c[c] + (b.c[c] - a.c[c]) * f) * lit + spec;
+    pxs[i * 4 + 3] = 255;
   }
   g.putImageData(im, 0, 0);
   return cv.toDataURL('image/jpeg', 0.92);
 }
-// Receta con la paleta de Society: cobalto y mostaza plegados sobre tinta y papel
 const SOCIETY_ART = { colors: ['#0e1016', '#18267a', '#2440E0', '#9aa8f2', '#ECE8DC', '#F5C518', '#a8770c'], scale: 0.72, warp: 3.2, angle: -0.5, gloss: 0.5, veins: 0.45 };
 const ARTES = [3, 11, 7, 19].map((s) => arte(364, 296, SOCIETY_ART, s));
 
@@ -335,7 +360,6 @@ const GW = 340, GH = 272, HEAD = 54;
 const BACK_PATH = 'M0 56A22 22 0 0 1 22 34L146 34C170 34 172 0 198 0L318 0A22 22 0 0 1 340 22L340 250A22 22 0 0 1 318 272L22 272A22 22 0 0 1 0 250Z';
 const FH = GH - 74;
 const FRONT_PATH = `M0 22A22 22 0 0 1 22 0L118 0C144 0 146 32 172 32L318 32A22 22 0 0 1 340 54L340 ${FH - 22}A22 22 0 0 1 318 ${FH}L22 ${FH}A22 22 0 0 1 0 ${FH - 22}Z`;
-// reposo, encima (hover) y abierta, como en el CSS original
 const POSE = [
   { hinge: 0, lift: 42, spread: 0, fan: 0, stack: 15 },
   { hinge: -11, lift: -34, spread: 8, fan: 1.4, stack: 10 },
@@ -346,7 +370,7 @@ function pose(v) {
   const o = {}; for (const p in a) o[p] = lerp(a[p], b[p], k); return o;
 }
 let uid = 0;
-function carpeta({ label, metas, tone = 'light', art, file, width }) {
+function carpeta({ label = '', tone = 'light', art, img, width }) {
   const id = 'gf' + (uid++), k = width / GW;
   const el = document.createElement('div');
   el.className = 'gf'; el.dataset.tone = tone;
@@ -356,115 +380,107 @@ function carpeta({ label, metas, tone = 'light', art, file, width }) {
       <div class="gf-shadow"></div>
       <div class="gf-back" style="clip-path:path('${BACK_PATH}')"><img class="gf-art" src="${art}"><div class="gf-sheen"></div></div>
       <svg class="gf-rim gf-back-rim" viewBox="0 0 340 272"><path d="${BACK_PATH}"/></svg>
-      <div class="gf-files">${file ? `<div class="gf-sheet"><img src="${file.img}"><span class="gf-sheet-head"><span class="gf-sheet-name">${file.name}</span><span class="gf-sheet-meta">${file.meta}</span></span></div>` : ''}</div>
+      <div class="gf-files">${img ? `<div class="gf-sheet"><img src="${img}"></div>` : ''}</div>
       <div class="gf-front" style="clip-path:path('${FRONT_PATH}')">
         <div class="gf-tint"></div>
         <div class="gf-spec"></div>
         <svg class="gf-rim gf-front-rim" viewBox="0 0 340 ${FH}"><defs><linearGradient id="${id}r" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".35" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity=".12"/></linearGradient></defs>
           <path d="${FRONT_PATH}" stroke="url(#${id}r)"/></svg>
-        <div class="gf-label"><span class="gf-title">${label}</span><span class="gf-meta">${metas.map((m) => `<span>${m}</span>`).join('')}</span></div>
+        ${label ? `<div class="gf-label">${label}</div>` : ''}
       </div>
       <div class="gf-key"><svg viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15"/></svg></div>
     </div></div>`;
   const q = (s) => el.querySelector(s);
   return { el, k, tilt: q('.gf-tilt'), back: q('.gf-back'), rim: q('.gf-back-rim'), sheet: q('.gf-sheet'), front: q('.gf-front'), spec: q('.gf-spec'),
-           key: q('.gf-key'), glyph: q('.gf-key svg'), shadow: q('.gf-shadow'), metas: [...el.querySelectorAll('.gf-meta span')] };
+           key: q('.gf-key'), shadow: q('.gf-shadow') };
 }
 // Un fotograma de la carpeta. st: estado 0-2 · drop: segundos desde que cae el archivo (o null)
-// · meta: índice del texto de abajo y segundos desde el cambio · ent: 0-1 del montaje de entrada · px, py: luz y paralaje
-function pintaCarpeta(c, { st, drop = null, meta = [0, 9], ent = 9, px = 0, py = 0, pulsaTecla = 1 }) {
+// · fundido: si el archivo aparece fundiéndose al caer · ent: segundos del montaje de entrada · tecla: null (sigue
+// la entrada) o 0-1 · lx, ly: luz y paralaje
+function pintaCarpeta(c, { st, drop = null, fundido = true, ent = 9, lx = 0, ly = 0, pulsaTecla = 1, tecla = null }) {
   const P = pose(st);
-  c.tilt.style.transform = `perspective(1400px) rotateX(${(py * -3).toFixed(3)}deg) rotateY(${(px * 4).toFixed(3)}deg)`;
+  c.tilt.style.transform = `perspective(1400px) rotateX(${(ly * -3).toFixed(3)}deg) rotateY(${(lx * 4).toFixed(3)}deg)`;
   c.front.style.transform = `perspective(760px) rotateX(${P.hinge.toFixed(3)}deg)`;
-  c.spec.style.background = `radial-gradient(260px 200px at ${(50 + px * 46).toFixed(1)}% ${(30 + py * 40).toFixed(1)}%, rgba(255,255,255,.5), rgba(255,255,255,0) 70%)`;
-  // archivo: cae (gf-drop, .85 s) y luego sigue la pose
+  c.spec.style.background = `radial-gradient(260px 200px at ${(50 + lx * 46).toFixed(1)}% ${(30 + ly * 40).toFixed(1)}%, rgba(255,255,255,.5), rgba(255,255,255,0) 70%)`;
   if (c.sheet) {
     const vis = drop !== null && drop >= 0;
     mostrar(c.sheet, vis);
     if (vis) {
       const p = drop / 0.85;
       const dy = claves(p, [[0, -190], [0.72, 10], [1, 0]]), dr = claves(p, [[0, -9], [0.72, 1], [1, 0]]);
-      c.sheet.style.opacity = claves(p, [[0, 0], [0.35, 1]]).toFixed(3);
+      c.sheet.style.opacity = fundido ? claves(p, [[0, 0], [0.35, 1]]).toFixed(3) : '1';
       c.sheet.style.transform = `translate(1.6px, ${(P.lift + dy).toFixed(2)}px) rotate(${(-0.7 + dr).toFixed(3)}deg)`;
     }
-    // el panel cede bajo el archivo (gf-bump, .7 s con .38 s de retraso)
+    // el panel cede bajo el archivo (gf-bump)
     const pb = drop === null ? 1 : (drop - 0.38) / 0.7;
     const sx = claves(pb, [[0, 1], [0.35, 1.018], [0.7, 0.996], [1, 1]]), sy = claves(pb, [[0, 1], [0.35, 0.975], [0.7, 1.006], [1, 1]]);
     c.front.style.scale = `${sx.toFixed(4)} ${sy.toFixed(4)}`;
   }
-  // el contador rueda (gf-roll)
-  const [mi, md] = meta;
-  c.metas.forEach((m, i) => {
-    const on = i === mi ? suave(md / 0.5) : (i === mi - 1 ? 1 - suave(md / 0.2) : 0);
-    m.style.opacity = on.toFixed(3);
-    m.style.transform = `translateY(${(i === mi ? (1 - EASE(md / 0.5)) * 7 : 0).toFixed(2)}px)`;
-    m.style.filter = i === mi && md < 0.5 ? `blur(${((1 - EASE(md / 0.5)) * 3).toFixed(2)}px)` : 'none';
-  });
-  // entrada: la carpeta se monta sola (fondo, archivos, cristal, tecla)
-  const eb = EASE(ent / 0.9), ef = EASE((ent - 0.3) / 0.7), ek = S(ent - 0.55, 2.2, 0.55);
+  // entrada: la carpeta se monta sola (fondo, cristal, tecla)
+  const eb = EASE(ent / 0.9), ef = EASE((ent - 0.3) / 0.7), ek = tecla ?? S(ent - 0.55, 2.2, 0.55);
   c.back.style.translate = c.rim.style.translate = `0 ${((1 - eb) * 22).toFixed(2)}px`;
   c.back.style.opacity = c.rim.style.opacity = eb.toFixed(3);
   c.front.style.translate = `0 ${((1 - ef) * 46).toFixed(2)}px`; c.front.style.opacity = ef.toFixed(3);
   c.shadow.style.opacity = eb.toFixed(3);
   c.key.style.opacity = clamp(ek * 1.4).toFixed(3);
-  c.key.style.transform = `scale(${((0.6 + 0.4 * ek) * pulsaTecla).toFixed(4)})`;
+  c.key.style.transform = `scale(${((tecla === null ? 0.6 + 0.4 * ek : 1) * pulsaTecla).toFixed(4)})`;
 }
 
-// ───────────── A · la carpeta del cliente ─────────────
-const T_SUBE = 0.44, T_CAE = 0.52, T_ABRE = 1.5;
-const cA = carpeta({ label: 'Etxebarri', metas: ['0 fotos', '1 foto'], art: ARTES[0], width: 820,
-  file: { img: 'assets/reel/real_E1.jpg', name: 'Foto del plato', meta: 'JPG · MÓVIL' } });
+// ───────────── A · la carpeta del cliente (19.0 → 2.3) ─────────────
+const T_SUBE = 0.44, T_CAE = 0.52, T_ABRE = 1.5, T_SALE = 1.7, T_COLOCA = 2.3;
+const cA = carpeta({ art: ARTES[0], width: 700, img: 'assets/reel/real_E1.jpg' });
 $('objA').appendChild(cA.el);
 $('objA').style.width = cA.el.style.width; $('objA').style.height = cA.el.style.height;
-const camA = trk([
-  [0, { ...CAM0, rx: 16, ry: -20, y: 40 }],
-  [0.1, { ry: -9 }, 0.45, 1],                          // órbita lenta mientras sube la foto
-  [1.55, { rx: 30, ry: 0, s: 1.5, y: 300 }, 1.25, 0.9],  // se abre: grúa arriba y hacia el archivo
-  [18.95, { rx: 62, ry: 0, rz: -18, s: 1.45, y: -60 }, 0],   // corte: vista cenital
-  [19.0, { rx: 16, ry: -20, rz: 0, s: 1, y: 40 }, 1.2, 0.9],
-]);
+const CAIDA_A = (t) => (t < 10 ? 1200 * seg(t, T_SALE, 2.05) ** 2 : 0);
+function camA(t) {
+  const u = env(t - 19.0);                                   // 0 en 19.0
+  const c = { ...CAM0, rx: 12, ry: -14 + 9 * ease.sineInOut(seg(u, 0.6, 2.6)) };
+  c.y = CAIDA_A(env(t));                                     // la carpeta se va hacia abajo cuando sale la foto
+  c.rx += 14 * ease.cubicOut(seg(u, 2.7, 3.3));
+  return c;
+}
 const estA = pista([[0, 0.6], [0.05, 1, 2.4, 0.7], [1.5, 2, 1.6, 0.62], [18.95, 0, 0], [19.6, 0.6, 1.6, 0.8]]);
 
-// ───────────── B/C · la foto ─────────────
-const FUEGO = 'FUEGO', T_FUEGO = 4.25, P_FUEGO = 0.375;
-FUEGO.split('').forEach((c, i) => $('letrasE1').insertAdjacentHTML('beforeend', `<div class="letra" id="fl${i}">${c}</div>`));
-const PIE_E1 = 'Asador Etxebarri, Axpe\nTodo pasa por el fuego.';
+// ───────────── B · la foto (1.62 → 7.45) ─────────────
+const FUEGO = 'FUEGO';
+FUEGO.split('').forEach((c) => $('letrasE1').insertAdjacentHTML('beforeend', `<div class="letra">${c}</div>`));
+$('pieE1').textContent = 'Asador Etxebarri, Axpe\nTodo pasa por el fuego.';
+// Hueco de la tarjeta mientras la mascota está a su derecha
+const B_CX = 440, B_CY = 880, B_S = 0.82;
 const camB = trk([
-  [2.0, { ...CAM0, rx: 54, rz: -16, s: 0.92, y: 60 }],     // la foto sobre la mesa, vista desde arriba
-  [2.02, { rx: 6, rz: -3, s: 0.96, y: 0 }, 1.3, 0.9],
-  [2.62, { rx: 0, rz: 0, s: 1 }, 1.8, 0.95],
-  [3.5, { s: 1.16, y: 40 }, 0.7, 1],                      // tras el escaneo, se acerca a la carne
-  [4.0, { rx: -40, ry: -32, rz: 0, s: 0.82, y: 60 }, 0],  // corte: desde abajo
-  [4.02, { rx: -14, s: 0.9, y: 30 }, 0.9, 0.95],
-  [6.0, { rx: 0, ry: 0, rz: -5, s: 2.35, x: 560, y: -990 }, 0], // corte: primerísimo plano del pie
-  [6.02, { rz: -2, s: 2.2, x: 510, y: -930 }, 1.4, 1],
-  [6.5, { rx: 0, ry: 22, rz: 0, s: 0.9, x: 0, y: 0 }, 0],      // corte: plano general
-  [6.52, { ry: 0, s: 1 }, 2.2, 0.8],
+  [T_COLOCA, { ...CAM0, x: B_CX - 540, y: B_CY - 1040, s: B_S }],
+  [3.5, { x: 0, y: -10, s: 0.9, rx: 7, ry: -26 }, 0.95, 0.96],   // tras el escaneo gira a tres cuartos, sin corte
+  [4.7, { rx: 3, ry: 15 }, 0.3, 1],                            // órbita lenta alrededor de las capas
+  [5.85, { rx: 0, ry: 0, s: 1, y: 0 }, 1.9, 0.95],              // se acoplan: la tarjeta queda de frente
 ]);
-// órbita continua mientras caen las letras
-const orbitaC = (t) => (t >= 4.0 && t < 6.0 ? (t - 4.0) * 30 : 0);
+const T_CAPA_F = 4.05, T_CAPA_P = 4.5, T_ACOPLA = 5.85, T_TOCA = 6.3;
+const Z_F = 300, Z_P = 170;
+const capaZ = (t, t0, z) => {
+  const llega = lerp(1500, z, spring(t - t0, 0.72, 13));
+  return llega * (1 - Math.pow(seg(t, T_ACOPLA, T_TOCA), 2.2));   // cae sobre la foto acelerando
+};
+const RING_TOP = { y: 1010 - 400 };          // hueco 0 del anillo (centro), ver la rueda
 
-// ───────────── D · rueda de posts ─────────────
-const RUEDA = [['E1', 'Fuego'], ['E3', 'Gamba roja'], ['E4', 'Anchoa'], ['E5', 'Humo'], ['E6', 'Mediodía'], ['E2', 'Plaza'],
-  ['D1', 'Sin mirar'], ['D2', 'Celosía'], ['D3', 'Panchino'], ['D4', 'Sorprender'], ['D5', 'Sala blanca'], ['D6', 'Olivo'],
-  ['S1', 'Tuétano'], ['S3', 'Eccles cake'], ['S4', 'Rarebit'], ['S5', 'Del morro'], ['S6', '1994']];
-const N = RUEDA.length;
-// En vertical la rueda gira en horizontal: los vecinos salen por los lados y el arco cae hacia abajo
+// ───────────── D · rueda de posts (7.0 → 9.7) ─────────────
+const RUEDA = ['E1', 'E3', 'E4', 'E5', 'E6', 'E2', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'S1', 'S3', 'S4', 'S5', 'S6'];
+const N = RUEDA.length, I_E2 = 5;
 const CARD_H = 720, CARD_W = 576, STEP = 30, DRUM = 2.22 * CARD_W, LENS = 2.7 * CARD_W, RING_R = 400, BOW = 1.82 * CARD_W, CULL = 1.6;
 const RING_SCALE = clamp(((2 * Math.PI * RING_R) / N) * 0.82 / CARD_W, 0.16, 1);
 $('rueda').style.perspective = LENS + 'px';
-$('ruedaEje').innerHTML = RUEDA.map(([p], i) => `<div class="rw" id="rw${i}" style="width:${CARD_W}px;height:${CARD_H}px;margin-left:${-CARD_W / 2}px;margin-top:${-CARD_H / 2}px"><span><img src="assets/posts/${p}.jpg"></span></div>`).join('');
-$('indice').innerHTML = RUEDA.map(([, n], i) => `<li id="ix${i}">${n}</li>`).join('');
-const SUELTAS = [7.75, 8.25, 8.75, 9.25], AGARRE = 0.2;
-const giro = pista([[0, 0], ...SUELTAS.map((r, i) => [r - AGARRE + 0.04, i + 1, 1.9, 0.92])]);
+$('ruedaEje').innerHTML = RUEDA.map((p, i) => `<div class="rw" id="rw${i}" style="width:${CARD_W}px;height:${CARD_H}px;margin-left:${-CARD_W / 2}px;margin-top:${-CARD_H / 2}px"><span><img src="${i === I_E2 ? 'assets/reel/raw_E2.jpg' : `assets/posts/${p}.jpg`}"></span></div>`).join('');
+const T_ANILLO = 7.45;
+const SUELTAS = [7.75, 8.25, 8.75, 9.05], AGARRE = 0.2;
+const giro = pista([[0, 0], [SUELTAS[0] - AGARRE + 0.04, 1, 1.9, 0.92], [SUELTAS[1] - AGARRE + 0.04, 2, 1.9, 0.92],
+  [SUELTAS[2] - AGARRE + 0.04, 3, 1.9, 0.92], [SUELTAS[3] - AGARRE + 0.04, 1 + I_E2, 1.6, 0.95]]);
 const bowAt = (d) => BOW * (1 - Math.cos(d * Math.PI / 180));
 function place(ringDeg, drumDeg, ringR, m) {
   return `translateY(${(m * bowAt(drumDeg)).toFixed(2)}px) rotateZ(${((1 - m) * ringDeg).toFixed(3)}deg) translateY(${(-(1 - m) * ringR).toFixed(2)}px) ` +
          `rotateY(${(m * drumDeg).toFixed(3)}deg) translateZ(${(m * DRUM).toFixed(2)}px)`;
 }
 
-// ───────────── E · Axpe ─────────────
+// ───────────── E · Axpe (9.4 → 11.5) ─────────────
+const T_AXPE = 9.4;
 const PLAZA = 'PLAZA', T_PLAZA = 10.0, P_PLAZA = 0.25;
 {
   const fila = document.createElement('div');
@@ -475,81 +491,150 @@ const PLAZA = 'PLAZA', T_PLAZA = 10.0, P_PLAZA = 0.25;
 const TIT_E2 = ['Un', 'pueblo,', 'una', 'plaza,', '<br>una', 'parrilla.'];
 $('e2tit').innerHTML = TIT_E2.map((w, i) => (w.startsWith('<br>') ? '<br>' : (i ? ' ' : '')) + `<span id="tw${i}">${w.replace('<br>', '')}</span>`).join('');
 $('e2').style.transform = `translate(${(760 - 1856 * 950 / 2304) / 2}px,0) scale(${950 / 2304})`;
+// arranca exactamente donde está la tarjeta de delante de la rueda
+const E_S0 = CARD_W / 760;
 const camE = trk([
-  [9.5, { ...CAM0, rx: 58, rz: 24, s: 0.78, y: 120 }],   // desde arriba, la tarjeta en la mesa
-  [9.52, { rx: 30, rz: 8, s: 0.86, y: 60 }, 0.9, 0.95],
-  [10.1, { rx: 6, rz: 0, s: 0.98, y: 0 }, 0.8, 1],        // la grúa baja mientras cae «PLAZA»
-  [11.05, { rx: 0, s: 1.1, y: 40 }, 0.8, 1],
+  [T_AXPE, { ...CAM0, rx: 7, rz: -2, s: E_S0, y: 1010 - 1040 }],
+  [T_AXPE + 0.02, { rx: 34, rz: 5, s: 0.9, y: 50 }, 1.2, 0.9],  // la tarjeta se tumba: vista desde arriba
+  [10.0, { rx: 3, rz: 0, s: 1.0, y: 0 }, 0.85, 1],               // la grúa sube mientras cae «PLAZA»
+  [10.9, { rx: 0 }, 1.2, 1],
 ]);
 
-// ───────────── F · ráfaga, un ángulo por corte ─────────────
-const RAFAGA = ['S1', 'D1', 'D3', 'S5', 'D2', 'S3', 'E6', 'D4', 'S4', 'D6'];
-const T_RAF = 11.5, P_RAF = 0.25;
-$('objF').innerHTML = RAFAGA.map((s, i) => `<img id="rf${i}" src="assets/posts/${s}.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`).join('');
+// ───────────── F · ráfaga, el fondo toma el color de cada foto (11.5 → 14.0) ─────────────
+const RAFAGA = [['S1', '#6b4a2a'], ['D1', '#e4e2ee'], ['D3', '#c08a5e'], ['S5', '#3d2219'], ['D2', '#c8622c'],
+  ['S3', '#b59a78'], ['E6', '#e9d3bd'], ['D4', '#5f8f14'], ['S4', '#a8714c'], ['D6', '#7d8a55']];
+const T_RAF = 11.5, P_RAF = 0.25, T_RAF_FIN = T_RAF + RAFAGA.length * P_RAF;
+const luz = (hex) => { const c = hexToRgb(hex).map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+$('objF').innerHTML = RAFAGA.map(([s], i) => `<img id="rf${i}" src="assets/posts/${s}.jpg" class="llena">`).join('');
 const ANGULOS = [   // [desde, hasta]
-  [{ ry: -38, s: 0.92 }, { ry: -26, s: 0.95 }],
-  [{ rx: 50, rz: -12, s: 0.9 }, { rx: 40, rz: -8, s: 0.92 }],
-  [{ s: 1.6, x: -80, y: -120 }, { s: 1.5, x: -60, y: -100 }],
-  [{ ry: 34, rz: 3 }, { ry: 22, rz: 2 }],
-  [{ rx: -24, rz: 9, s: 0.95 }, { rx: -16, rz: 6, s: 0.97 }],
-  [{ s: 0.74, rz: -5 }, { s: 0.82, rz: -3 }],
-  [{ rx: -34, s: 0.9, y: 60 }, { rx: -24, s: 0.92, y: 40 }],
-  [{ ry: -30, rz: -7 }, { ry: -18, rz: -4 }],
-  [{ s: 1.45, y: 160, rz: 2 }, { s: 1.35, y: 130, rz: 1 }],
-  [{ rx: 24, ry: 22, s: 0.9 }, { rx: 0, ry: 0, s: 0.96 }],
+  [{ ry: -30, s: 0.94 }, { ry: -20, s: 0.96 }],
+  [{ rx: 40, rz: -9, s: 0.92 }, { rx: 30, rz: -6, s: 0.94 }],
+  [{ s: 1.5, x: -70, y: -110 }, { s: 1.42, x: -50, y: -90 }],
+  [{ ry: 30, rz: 3 }, { ry: 20, rz: 2 }],
+  [{ rx: -22, rz: 8, s: 0.95 }, { rx: -14, rz: 5, s: 0.97 }],
+  [{ s: 0.78, rz: -5 }, { s: 0.85, rz: -3 }],
+  [{ rx: -30, s: 0.92, y: 60 }, { rx: -20, s: 0.94, y: 40 }],
+  [{ ry: -26, rz: -6 }, { ry: -15, rz: -3 }],
+  [{ s: 1.4, y: 150, rz: 2 }, { s: 1.32, y: 120, rz: 1 }],
+  [{ rx: 18, ry: 16, s: 0.94 }, { rx: 0, ry: 0, s: 1 }],
 ];
 
-// ───────────── G · la semana en carpetas ─────────────
-const DIAS = [['Lunes', 'E2', '13:00'], ['Miércoles', 'D5', '20:30'], ['Viernes', 'S6', '12:00']];
+// ───────────── G · la semana en carpetas (14.0 → 17.3) ─────────────
+const DIAS = [['Lunes', 'D6'], ['Miércoles', 'D5'], ['Viernes', 'S6']];
 const T_CAEN = [14.5, 14.75, 15.0];
-const cG = DIAS.map(([d, p, h], i) => {
-  const c = carpeta({ label: d, metas: ['Sin post', h + ' · listo'], tone: i === 1 ? 'dark' : 'light', art: ARTES[i + 1], width: 320,
-    file: { img: `assets/posts/${p}.jpg`, name: d.slice(0, 3), meta: 'POST · 4:5' } });
+const cG = DIAS.map(([d, p], i) => {
+  const c = carpeta({ label: d, tone: i === 1 ? 'dark' : 'light', art: ARTES[i + 1], width: 320, img: `assets/posts/${p}.jpg` });
   c.el.style.left = (i * 360) + 'px'; c.el.style.top = '0px';
   $('objG').appendChild(c.el);
   return c;
 });
+const G0 = { ...CAM0, rx: 10, ry: -8, s: 1.9, x: 690, y: 100 };
 const camG = trk([
-  [14.0, { ...CAM0, rx: 22, ry: -16, s: 2.1, x: 760, y: 120 }],  // muy cerca del lunes
-  [14.02, { s: 1.95, x: 700, y: 100 }, 1.2, 1],
-  [14.62, { ry: 0, s: 1.85, x: 0, y: 90 }, 1.9, 0.9],           // travelling al miércoles
-  [14.87, { ry: 14, s: 1.8, x: -680, y: 90 }, 1.9, 0.9],        // y al viernes
+  [14.0, G0],
+  [14.62, { ry: 0, s: 1.85, x: 0, y: 90 }, 1.9, 0.9],          // travelling al miércoles
+  [14.87, { ry: 12, s: 1.8, x: -680, y: 90 }, 1.9, 0.9],       // y al viernes
   [15.25, { rx: 12, ry: 0, s: 0.98, x: 0, y: -40 }, 1.2, 0.92], // se abre el plano
 ]);
-const T_APRUEBA = 15.94;
+// la hoja del lunes en pantalla: tamaño de la hoja por la escala de la carpeta y de la cámara
+const LUNES_W = 272 * (320 / GW) * G0.s, LUNES_H = 184 * (320 / GW) * G0.s;
+const T_APRUEBA = 15.94, T_AVISO = 16.0, T_SELLO = 17.0;
 
-// ───────────── I · logo ─────────────
-const camI = trk([
-  [17.5, { ...CAM0, rx: 18, ry: 42, s: 0.84 }],
-  [17.52, { rx: 0, ry: 0, s: 1 }, 0.95, 0.9],
-]);
+// ───────────── I · final: sello, órbita y logotipo (17.0 → 19.6) ─────────────
+const SELLO = { cx: 540, cy: 760, r: 400 }, T_SELLO_LLENO = 17.6, T_LOGO = 17.7, T_LEMA = 18.05, T_RECOGE = 18.95, T_TECLA = 19.6;
+const ORBITA = ['E3', 'D1', 'S5', 'E4', 'D2', 'S3', 'E5', 'D3', 'S4', 'E6', 'D4', 'S1'];
+$('orbita').innerHTML = ORBITA.map((p, i) => `<div id="ob${i}"><img src="assets/posts/${p}.jpg"></div>`).join('');
+const OB_RX = 520, OB_RY = 600;
+// piezas del logotipo oficial (coordenadas del png de 1080 px): las letras y el lema
+const LOGO_S = 0.72, LOGO_C = [540, 579];
+const PIEZAS = [[75, 240], [238, 390], [390, 515], [510, 615], [608, 750], [750, 870], [865, 1005]].map(([a, b]) => [a, b, 343, 634]).concat([[200, 880, 700, 815]]);
+$('piezas').innerHTML = PIEZAS.map(([x0, x1, y0, y1], i) => {
+  const l = SELLO.r + (x0 - LOGO_C[0]) * LOGO_S, tp = SELLO.r + (y0 - LOGO_C[1]) * LOGO_S;
+  return `<div class="pieza" id="pz${i}" style="left:${l}px;top:${tp}px;width:${(x1 - x0) * LOGO_S}px;height:${(y1 - y0) * LOGO_S}px">` +
+    `<img src="assets/reel/logo.png" style="width:${1080 * LOGO_S}px;left:${-x0 * LOGO_S}px;top:${-y0 * LOGO_S}px"></div>`;
+}).join('');
+const mezcla = (a, b, k) => a.map((v, i) => Math.round(lerp(v, b[i], k)));
+const COBALTO = [36, 64, 224], OSCURO = [26, 26, 26];
+
+// ───────────── Mascota: grande (920 px, su caja ocupa más del 20 % de la pantalla) y siempre animada ─────────────
+const MH = 920, PIES = 1895;
+const POSES = { idle: 340, 'thumbs-up': 372, pointing: 340, thinking: 320 };
+Object.keys(POSES).forEach((p) => $('mascotas').insertAdjacentHTML('beforeend', `<img id="m-${p}" class="masc" src="mascota/${p}.png" style="width:${POSES[p] * MH / 640}px;height:${MH}px">`));
+const golpes = (t, lista) => lista.reduce((acc, th) => acc + ring(t - th, 7, 22), 0);
+// Estado de la mascota. tl: tiempo con el final llevado a negativo (17.5 → −2.5) para cruzar el bucle.
+function mascota(t) {
+  const tl = t >= 16 ? t - DUR : t;
+  const st = { pose: null, cx: 0, pies: PIES, flip: 1, rot: 0, ex: 0, ey: 0, pop: 0, aterriza: [] };
+  if (tl >= -2.45 && tl < 1.95) {
+    if (tl < -2.05) {                                    // entra saltando por la derecha
+      const h = OM.hop(tl, -2.45, -2.05, { x: 1400, y: PIES + 40 }, { x: 860, y: PIES }, { height: 260 });
+      Object.assign(st, { pose: 'thumbs-up', cx: h.x, pies: h.y, rot: (1 - h.k) * 14 });
+    } else if (tl < -1.0) {
+      Object.assign(st, { pose: 'thumbs-up', cx: 860 });
+      st.ey = -26 * Math.max(0, Math.sin(seg(tl, -1.55, -1.25) * Math.PI));   // saltito con el pulgar
+      st.rot = 5 * ring(tl + 1.25, 6, 16);
+    } else if (tl < -0.55) {                             // salta a la izquierda; cambia de pose en el aire
+      const h = OM.hop(tl, -1.0, -0.55, { x: 860, y: PIES }, { x: 250, y: PIES }, { height: 230 });
+      Object.assign(st, { pose: h.k < 0.5 ? 'thumbs-up' : 'idle', cx: h.x, pies: h.y, rot: -Math.sin(h.k * Math.PI) * 9 });
+    } else if (tl < 1.6) {
+      Object.assign(st, { pose: tl < 1.13 ? 'idle' : 'thumbs-up', cx: 250 });
+      st.ey = -22 * ring(tl - T_SUBE, 8, 18);            // se sobresalta con el clic
+      st.rot = tl < 1.13 ? 3 * Math.sin((tl + 0.55) * 2.2) : 0;
+      if (tl >= 1.13) { st.pop = ring(tl - 1.13, 7, 20); st.ey -= 40 * Math.max(0, Math.sin(seg(tl, 1.13, 1.38) * Math.PI)); }
+    } else {                                             // se va por abajo a la izquierda
+      const h = OM.hop(tl, 1.6, 1.95, { x: 250, y: PIES }, { x: -260, y: PIES + 900 }, { height: 160 });
+      Object.assign(st, { pose: 'thumbs-up', cx: h.x, pies: h.y, rot: -h.k * 18 });
+    }
+    st.aterriza = [-2.05, -0.55];
+  } else if (tl >= 2.4 && tl < 4.3) {
+    st.flip = -1;
+    if (tl < 2.8) {                                      // entra por la derecha, pensando
+      const h = OM.hop(tl, 2.4, 2.8, { x: 1420, y: PIES + 40 }, { x: 850, y: PIES }, { height: 240 });
+      Object.assign(st, { pose: 'thinking', cx: h.x, pies: h.y, rot: (1 - h.k) * 12 });
+    } else if (tl < 3.9) {
+      Object.assign(st, { pose: tl < 3.05 ? 'thinking' : 'pointing', cx: 850 });
+      if (tl < 3.05) st.rot = -4 * Math.sin(seg(tl, 2.8, 3.05) * Math.PI);
+      else { st.pop = ring(tl - 3.05, 7, 20); st.ex = -24 * ring(tl - 3.05, 6, 14) - 16 * ring(tl - 3.5, 6, 14); }   // señala la foto
+    } else {
+      const h = OM.hop(tl, 3.9, 4.3, { x: 850, y: PIES }, { x: 1450, y: PIES + 60 }, { height: 200 });
+      Object.assign(st, { pose: 'pointing', cx: h.x, pies: h.y, rot: h.k * 16 });
+    }
+    st.aterriza = [2.8];
+  }
+  if (st.pose) {
+    const r = golpes(tl, st.aterriza);                   // aplastamiento al aterrizar
+    st.sx = (1 + r * 0.12 + st.pop * 0.06) * (1 - 0.006 * Math.sin(tl * 6.6));
+    st.sy = (1 - r * 0.15 + st.pop * 0.05) * (1 + 0.012 * Math.sin(tl * 6.6));   // respira
+    st.rot += 1.2 * Math.sin(tl * 3.4);                  // se balancea
+  }
+  return st;
+}
 
 // ───────────── Cursores ─────────────
-// Coordenadas de pantalla (punta del cursor); [t, x, y, f]
+// pista() cierra el bucle: la primera clave vale lo mismo que la última (el cursor en la tecla)
 const RUTA_TU = [
-  [0, 960, 1640],
-  [0.06, 845, 1345, 2.6],    // a la tecla +
-  [0.75, 700, 1300, 1.6],
-  [1.2, 520, 1255, 2.4],     // al cristal
-  [1.66, 260, 2080, 1.4],    // se va
-  [15.2, 1140, 1800, 0],
-  [15.25, 640, 1484, 1.6],   // a «Aprobar la semana»
-  [16.2, 1150, 1700, 1.2],
-  [18.9, 1140, 1900, 0],
-  [19.3, 960, 1640, 1.0, 1],
-];
+  [0, M.teclaA.cx + 6, M.teclaA.cy + 8],
+  [19.62, 1160, 1560, 0],
+  [19.66, M.teclaA.cx + 6, M.teclaA.cy + 8, 2.0],      // a la tecla +
+  [0.75, M.teclaA.cx - 120, M.teclaA.cy - 30, 1.6],
+  [1.2, 640, 860, 2.4],                                 // a la foto, que sube
+  [1.7, 1240, 1400, 1.4],                               // se va
+  [15.2, 1160, 1800, 0],
+  [15.25, 640, 1484, 1.6],                              // a «Aprobar semana»
+  [16.2, 1160, 1700, 1.2],
+].sort((a, b) => a[0] - b[0]);
 const RUTA_SO = [
   [0, 1180, 1500],
-  [2.15, 1180, 1500, 0],
-  [2.2, 565, 1424, 1.6],     // a «Mejorar foto»
-  [3.08, 860, 1680, 1.0],
-  [7.0, 1150, 1450, 0],
-  ...SUELTAS.flatMap((r) => [[r - 0.46, 800, 1080, 3.2], [r - AGARRE + 0.01, 400, 1080, 4.2]]),  // arrastres de la rueda hacia la izquierda
-  [9.35, 860, 1500, 1.4],
+  [2.3, 1180, 1500, 0],
+  [2.35, B_CX + 10, B_CY + 320, 1.7],                   // a «Mejorar foto»
+  [3.1, 760, 1560, 1.0],
+  [7.4, 1150, 1450, 0],
+  ...SUELTAS.slice(0, 3).flatMap((r) => [[r - 0.46, 800, 1080, 3.2], [r - AGARRE + 0.01, 400, 1080, 4.2]]),
+  [SUELTAS[3] - 0.44, 900, 1060, 3.4], [SUELTAS[3] - AGARRE + 0.01, 160, 1080, 6.0],   // golpe de muñeca hasta Axpe
+  [9.3, 300, 1500, 1.4],
 ];
 const ruta = (R) => ({ x: pista(R.map((r) => [r[0], r[1], r[3], r[4] ?? 1]), 3, 1), y: pista(R.map((r) => [r[0], r[2], r[3], r[4] ?? 1]), 3, 1) });
 const rTu = ruta(RUTA_TU), rSo = ruta(RUTA_SO);
-const VIS_TU = [[19.3, 1.8], [15.2, 16.6]], VIS_SO = [[2.15, 3.9], [7.05, 9.48]];
+const VIS_TU = [[19.66, 1.75], [15.2, 16.6]], VIS_SO = [[2.32, 3.4], [7.4, 9.35]];
 const CLICS_TU = [[T_SUBE, T_SUBE + 0.08], [T_ABRE, T_ABRE + 0.08], [T_APRUEBA, T_APRUEBA + 0.08]];
 const CLICS_SO = [[2.94, 3.0], ...SUELTAS.map((r) => [r - AGARRE, r])];
 const pulsa = (C) => { const k = [[0, 1]]; for (const [a, b] of C) { k.push([a, 0.84, 9, 0.9]); k.push([b, 1, 7, 0.8]); } return pista(k); };
@@ -565,128 +650,141 @@ function pintaCursor(el, r, p, vis, t) {
   const x = r.x(t), y = r.y(t), sc = p(t) * (0.6 + 0.4 * k);
   el.style.transform = `translate(${(x - 3).toFixed(1)}px, ${(y - 5).toFixed(1)}px)`;
   el.firstChild.style.transform = `scale(${sc.toFixed(4)})`;
-  // la etiqueta sigue al cursor con un poco de retraso (CursorFollow: abajo, al final)
   const lx = r.x(t - 0.06) - x, ly = r.y(t - 0.06) - y;
-  el.lastChild.style.transform = `translate(${(34 + lx).toFixed(1)}px, ${(58 + ly).toFixed(1)}px) scale(${(0.7 + 0.3 * k).toFixed(3)})`;
+  el.lastChild.style.transform = `translate(${(36 + lx).toFixed(1)}px, ${(62 + ly).toFixed(1)}px) scale(${(0.7 + 0.3 * k).toFixed(3)})`;
 }
 
-// ───────────── Rótulos, notas y mascota ─────────────
-// [entra, sale, etiqueta, frase, subtítulo, claro]
-const CAPS = [
-  [19.0, 0.9, 'Society', 'De la foto del móvil<br>al post listo.'],
-  [0.9, 2.0, '01 — Tú', 'Subes la foto<br>de tu plato.'],
-  [2.0, 4.0, '02 — Society', 'La deja profesional.', 'Mismo plato. Nada inventado.'],
-  [4.0, 6.0, '03 — Diseño', 'Escribe y diseña<br>el post.'],
-  [6.0, 6.5, '03 — Diseño', 'Escribe y diseña<br>el post.', '', 1],
-  [6.5, 7.0, '03 — Diseño', 'Escribe y diseña<br>el post.'],
-  [7.0, 9.5, '04 — Carrusel', 'Monta todos<br>tus posts.'],
-  [9.5, 11.5, 'Sobre tu foto', 'Sin tocar<br>la foto original.'],
-  [11.5, 14.0, 'Con cualquier cocina', 'Etxebarri, Disfrutar,<br>St. JOHN.'],
-  [14.0, 16.5, '05 — Calendario', 'Y te planifica<br>la semana.'],
-  [17.5, 19.0, 'Society', 'Tu agencia de<br>marketing con IA.'],
+// ───────────── Rótulos: una frase corta por tramo, sin etiquetas ni subtítulos ─────────────
+const CAPS = [   // [entra, sale, frase con | como salto de línea]
+  [19.25, 0.9, 'Del móvil|al post.'],
+  [0.9, 1.95, 'Sube|tu foto.'],
+  [1.95, 3.95, 'Society|la mejora.'],
+  [3.95, 6.95, 'Diseña|el post.'],
+  [6.95, 9.4, 'Todos|tus posts.'],
+  [9.4, 11.45, 'Sin tocar|tu foto.'],
+  [11.5, 13.95, 'Cualquier|cocina.'],
+  [13.95, 16.95, 'Planifica|tu semana.'],
 ];
-CAPS.forEach(([a, b, l, t, s, claro], i) => {
+CAPS.forEach(([, , f], i) => {
   let w = 0;
-  const frase = t.split('<br>').map((lin) => lin.split(' ').map((p) => `<span data-w="${w++}">${p} </span>`).join('')).join('<br>');
-  $('caps').insertAdjacentHTML('beforeend', `<div id="cap${i}" class="cap${claro ? ' claro' : ''}"><span class="l">${l}</span><div class="t">${frase}</div>${s ? `<span class="s">${s}</span>` : ''}</div>`);
+  const html = f.split('|').map((lin) => lin.split(' ').map((p) => `<span class="w" data-w="${w++}">${p} </span>`).join('')).join('<br>');
+  $('caps').insertAdjacentHTML('beforeend', `<div id="cap${i}" class="cap">${html}</div>`);
 });
-const NOTAS = [
-  [0.9, 3.5, 'Foto original: Ryan Snyder (CC BY 2.0) · ejemplo'],
-  [3.5, 17.5, 'Restaurantes reales · propuestas no oficiales'],
-];
-NOTAS.forEach(([, , t], i) => $('notas').insertAdjacentHTML('beforeend', `<div id="nota${i}" class="nota">${t}</div>`));
-// [archivo, entra, sale, x centro, alto, giro]
-const MASC = [
-  ['thumbs-up', 1.12, 1.95, 930, 300, 4],
-  ['pointing', 3.04, 3.96, 950, 280, 0],
-  ['thumbs-up', 17.56, 18.9, 930, 320, -4],
-];
-MASC.forEach(([f], i) => $('mascotas').insertAdjacentHTML('beforeend', `<img id="ms${i}" class="masc" src="mascota/${f}.png">`));
 
 // ───────────── seek(t) ─────────────
 function seek(tAbs) {
   const t = env(tAbs);
+  const fase = (t / DUR) * Math.PI * 2;
 
-  // A · carpeta del cliente (19.0 → 2.0, cruza el bucle)
-  const enA = dentro(t, 19.0, 2.0);
+  // fondo
+  MANCHAS.forEach(([, d, x, y, ax, ay, f], i) => {
+    const el = $('bl' + i);
+    el.style.transform = `translate(${(x - d / 2 + ax * Math.sin(fase + f)).toFixed(1)}px, ${(y - d / 2 + ay * Math.cos(fase * 2 + f)).toFixed(1)}px)`;
+  });
+  const enF = t >= T_RAF && t < T_RAF_FIN, iF = clamp(Math.floor((t - T_RAF) / P_RAF), 0, RAFAGA.length - 1);
+  const kCol = enF ? 1 : (t >= T_RAF_FIN && t < T_RAF_FIN + 0.5 ? 1 - ease.cubicInOut(seg(t, T_RAF_FIN, T_RAF_FIN + 0.45)) : 0);
+  $('color').style.opacity = kCol.toFixed(3);
+  $('color').style.background = RAFAGA[iF][1];
+  $('vidrio').style.opacity = (1 - 0.55 * kCol).toFixed(3);
+
+  // A · carpeta del cliente (19.0 → 2.3, cruza el bucle)
+  const enA = dentro(t, 19.0, 2.3);
   escena($('escA'), enA);
   if (enA) {
     const c = camA(t);
     cam($('objA'), c);
-    const px = clamp((rTu.x(t) - 540) / 420, -1, 1) * (t < 1.7 ? 1 : 0), py = clamp((rTu.y(t) - 1060) / 400, -1, 1) * (t < 1.7 ? 1 : 0);
+    const tu = t < 10 ? t : 0, conTu = tu < 1.7 ? 1 : 0;
+    $('objA').style.opacity = (1 - ssstep(1.95, 2.3, tu)).toFixed(3);
+    const lx = clamp((rTu.x(t) - 560) / 420, -1, 1) * conTu, ly = clamp((rTu.y(t) - 900) / 400, -1, 1) * conTu;
     pintaCarpeta(cA, {
       st: estA(t),
-      drop: t < 2.0 && t >= T_CAE ? t - T_CAE : null,
-      meta: t >= T_CAE + 0.38 && t < 2.0 ? [1, t - T_CAE - 0.38] : [0, 9],
-      ent: t >= 19.0 ? t - 18.85 : 9,
-      px, py,
+      drop: t < T_SALE && t >= T_CAE ? t - T_CAE : null,
+      ent: t >= 19.0 ? t - 19.0 : 9,
+      lx, ly,
       pulsaTecla: t > T_SUBE && t < T_SUBE + 0.12 ? 0.93 : 1,
+      tecla: dentro(t, 19.0, T_TECLA) ? 0 : 1,
     });
   }
 
-  // B/C · la foto (2.0 → 7.0)
-  const enB = t >= 2.0 && t < 7.0;
+  // B · la foto (1.62 → 7.45)
+  const enB = t >= T_SALE && t < T_ANILLO;
   escena($('escB'), enB);
   if (enB) {
-    const c = camB(t); c.ry += orbitaC(t);
-    const tor = t < 3.0 ? (1 - S(t - 2.0, 1.6, 0.7)) * -4 : 0;    // la foto del móvil entra torcida
-    c.rz += tor;
-    cam($('objB'), c);
+    const ob = $('objB'), cara = $('caraB');
+    if (t < T_COLOCA) {
+      // sale de la carpeta y se coloca: el rectángulo de la hoja se convierte en la tarjeta
+      const A = M.hojaA, Bx = { x: B_CX - 380 * B_S, y: B_CY - 475 * B_S, w: 760 * B_S, h: 950 * B_S };
+      const R = OM.morphRect(t, T_SALE, T_COLOCA, A, Bx, { curve: ease.smoother });
+      const arco = Math.sin(R.k * Math.PI);
+      px(ob, R.cx, R.cy - arco * 140, R.w, R.h);
+      ob.style.transform = `translate(-50%,-50%) rotate(${(-0.7 * (1 - R.k) - 5 * arco).toFixed(3)}deg)`;
+      const rad = lerp(16 * A.w / 272, 40 * B_S, R.k);
+      cara.style.borderRadius = rad.toFixed(2) + 'px';
+      // mientras sube, lo que aún queda por debajo del borde del bolsillo no se ve: sale de la carpeta
+      const bajo = clamp(R.cy - arco * 140 + R.h / 2 - (M.bolsillo + CAIDA_A(t)), 0, R.h);
+      ob.style.clipPath = bajo > 0.5 ? `inset(0 0 ${bajo.toFixed(1)}px 0 round ${rad.toFixed(1)}px)` : 'none';
+    } else {
+      ob.style.clipPath = 'none';
+      px(ob, 540, 1040, 760, 950);
+      cara.style.borderRadius = '40px';
+      const c = camB(t);
+      if (t >= T_TOCA - 0.01) { const sh = OM.shake(t, T_TOCA, { amp: 9, decay: 8, freq: 17, seed: 3 }); c.x += sh.x; c.y += sh.y; c.rz += sh.rot * 57.3; }
+      if (t >= 7.0) {                                     // se encoge hasta su hueco en el anillo
+        const k = ease.cubicInOut(seg(t, 7.0, T_ANILLO));
+        c.s = Math.exp(lerp(Math.log(c.s), Math.log(RING_SCALE * CARD_W / 760), k));
+        c.y = lerp(c.y, RING_TOP.y - 1040, k); c.x = lerp(c.x, 0, k);
+      }
+      cam(ob, c);
+    }
     // escaneo: la toma profesional aparece de arriba abajo bajo la línea cobalto
     const ke = suave((t - 3.0) / 0.5);
     $('crudo').style.clipPath = t < 3.0 ? 'inset(0 0 100% 0)' : `inset(0 0 ${((1 - ke) * 100).toFixed(2)}% 0)`;
     const esc = $('escaneo');
     esc.style.top = (ke * 950 - 3) + 'px';
     esc.style.opacity = t > 2.98 && t < 3.56 ? Math.min(1, (t - 2.98) / 0.04, (3.56 - t) / 0.06) : 0;
-    ver($('chipFoto'), t < 3.0 ? suave((t - 2.15) / 0.2) * (1 - suave((t - 2.9) / 0.1)) : 0);
-    ver($('chipPro'), t >= 3.3 && t < 4.0 ? suave((t - 3.3) / 0.2) : 0);
-    const kp = t < 3.06 ? suave((t - 2.3) / 0.2) * (1 - suave((t - 3.0) / 0.06)) : 0;
+    const kp = t < 3.06 && t > T_COLOCA ? suave((t - 2.36) / 0.2) * (1 - suave((t - 3.0) / 0.06)) : 0;
     ver($('pildora'), kp);
     $('pildora').style.transform = `translateX(-50%) scale(${((0.9 + 0.1 * kp) * (t > 2.94 && t < 3.0 ? 0.94 : 1)).toFixed(4)})`;
-    // letras: cada una cae desde la cámara y se asienta con muelle
-    FUEGO.split('').forEach((_, i) => {
-      const t0 = T_FUEGO + i * P_FUEGO, el = $('fl' + i);
-      const k = S(t - t0, 3.6, 0.62);
-      el.style.opacity = t >= t0 - 0.02 ? clamp((t - t0 + 0.02) / 0.06) : 0;
-      el.style.transform = `translate(${((1 - k) * (i - 2) * 60).toFixed(1)}px, ${((1 - k) * -120).toFixed(1)}px) scale(${(1 + (1 - k) * 1.6).toFixed(4)}) rotate(${((1 - k) * (i % 2 ? 9 : -9)).toFixed(2)}deg)`;
-      el.style.filter = k < 0.97 ? `blur(${((1 - k) * 10).toFixed(2)}px)` : 'none';
+    // capas del post: llegan separadas, flotan delante de la foto y se acoplan
+    const fuera = 1 - ssstep(6.22, 6.38, t);
+    [['capaF', T_CAPA_F, Z_F], ['capaP', T_CAPA_P, Z_P]].forEach(([id, t0, z]) => {
+      const el = $(id), on = t >= t0 && t < 6.4;
+      el.style.display = on ? 'block' : 'none';
+      if (!on) return;
+      el.style.opacity = (clamp((t - t0) / 0.08) * fuera).toFixed(3);
+      el.style.transform = `translateZ(${capaZ(t, t0, z).toFixed(1)}px)`;
+      el.firstChild.style.opacity = (1 - ssstep(T_ACOPLA + 0.15, T_TOCA, t)).toFixed(3);   // el canto de cristal se va al tocar
     });
-    const nPie = clamp(Math.floor((t - 6.05) / 0.013), 0, PIE_E1.length);
-    $('pieE1').textContent = t > 6.05 ? PIE_E1.slice(0, nPie) : '';
-    ver($('postE1'), suave((t - 6.86) / 0.12));
+    ver($('postE1'), ssstep(6.22, 6.38, t));
   }
 
-  // D · rueda (7.0 → 9.5)
-  const enD = t >= 7.0 && t < 9.5;
+  // D · rueda (7.0 → 9.7)
+  const enD = t >= 7.0 && t < 9.7;
   escena($('escD'), enD);
   if (enD) {
     const tr = giro(t), m = clamp(tr), pos = Math.max(0, tr - 1);
-    const spin = (t - 7.0) * 14;                               // el anillo gira despacio
+    const spin = Math.max(0, t - T_ANILLO) * 14;
     const vista = suave((t - 7.6) / 0.6);
     $('ruedaEje').style.transform = `rotateX(${(7 * vista).toFixed(3)}deg) rotateZ(${(-2 * vista).toFixed(3)}deg) translateZ(${(-m * DRUM).toFixed(2)}px)`;
+    const vecinos = 1 - ssstep(T_AXPE, T_AXPE + 0.25, t);
     for (let i = 0; i < N; i++) {
       const d = i - pos, el = $('rw' + i);
-      const llega = S(t - 6.92 - i * 0.018, 2.6, 0.7);           // las tarjetas salen del centro al anillo
+      const llega = i === 0 ? 1 : S(t - 7.05 - i * 0.018, 2.6, 0.7);
       el.style.transform = place(d * (360 / N) + spin * (1 - m), d * STEP, RING_R * llega, m);
-      el.style.opacity = (m > 0.5 && Math.abs(d) > CULL ? 0 : clamp(llega * 3)).toFixed(3);
+      let op = m > 0.5 && Math.abs(d) > CULL ? 0 : clamp(llega * 3);
+      if (i === 0 && t < T_ANILLO) op = 0;                 // la tarjeta del post aún viaja
+      if (t >= T_AXPE) op = i === I_E2 ? 0 : op * vecinos;  // Axpe toma el relevo de la de delante
+      el.style.opacity = op.toFixed(3);
       el.firstChild.style.transform = `scale(${lerp(RING_SCALE * (0.4 + 0.6 * llega), 1, m).toFixed(4)})`;
     }
-    const kt = suave((t - 7.0) / 0.22) * (1 - m);
-    $('ruedaTit').style.opacity = kt.toFixed(3);
-    $('ruedaTit').style.filter = kt < 0.99 ? `blur(${((1 - kt) * 8).toFixed(2)}px)` : 'none';
-    // índice en cinta: el título del post de delante queda en el centro
-    const act = clamp(Math.round(pos), 0, N - 1), f0 = Math.floor(pos), fr = pos - f0;
-    const centro = (i) => { const li = $('ix' + clamp(i, 0, N - 1)); return li.offsetLeft + li.offsetWidth / 2; };
-    $('indice').style.transform = `translateX(${(-lerp(centro(f0), centro(f0 + 1), fr)).toFixed(1)}px)`;
-    $('indiceVent').style.opacity = (suave((t - 7.45) / 0.3)).toFixed(3);
-    for (let i = 0; i < N; i++) $('ix' + i).style.color = i === act ? '#141414' : '';
   }
 
-  // E · Axpe (9.5 → 11.5)
-  const enE = t >= 9.5 && t < 11.5;
+  // E · Axpe (9.4 → 11.5)
+  const enE = t >= T_AXPE && t < T_RAF;
   escena($('escE'), enE);
   if (enE) {
     cam($('objE'), camE(t));
+    $('e2cab').style.opacity = ssstep(9.5, 9.7, t).toFixed(3);
     TIT_E2.forEach((_, i) => { const k = suave((t - (9.62 + i * 0.05)) / 0.12); const s = $('tw' + i); s.style.opacity = k; s.style.filter = k < 0.99 ? `blur(${(1 - k) * 8}px)` : 'none'; });
     PLAZA.split('').forEach((_, i) => {
       const t0 = T_PLAZA + i * P_PLAZA, s = $('pl' + i);
@@ -694,80 +792,134 @@ function seek(tAbs) {
       s.style.opacity = t >= t0 - 0.02 ? clamp((t - t0 + 0.02) / 0.05) : 0;
       s.style.transform = `translateZ(${((1 - k) * 900).toFixed(1)}px) rotateX(${((1 - k) * -50).toFixed(2)}deg)`;
     });
-    $('e2pie').style.opacity = suave((t - 11.15) / 0.15);
+    $('e2pie').style.opacity = suave((t - 11.1) / 0.15);
   }
 
-  // F · ráfaga (11.5 → 14.0)
-  const enF = t >= T_RAF && t < 14.0;
-  escena($('escF'), enF);
-  if (enF) {
-    const i = clamp(Math.floor((t - T_RAF) / P_RAF), 0, RAFAGA.length - 1), u = (t - T_RAF - i * P_RAF) / P_RAF;
-    const [a, b] = ANGULOS[i], c = { ...CAM0 };
-    for (const p in c) c[p] = lerp(a[p] ?? CAM0[p], b[p] ?? CAM0[p], EASE(u));
-    cam($('objF'), c);
-    RAFAGA.forEach((_, j) => mostrar($('rf' + j), j === i));
-    $('contador').textContent = `${String(6 + i).padStart(2, '0')} / 17`;
+  // F · ráfaga (11.5 → 14.5: el último post vuela a la carpeta del lunes)
+  const enF2 = t >= T_RAF && t < T_CAEN[0];
+  escena($('escF'), enF2);
+  if (enF2) {
+    const ob = $('objF');
+    RAFAGA.forEach((_, j) => mostrar($('rf' + j), j === iF));
+    if (t < T_RAF_FIN) {
+      const u = (t - T_RAF - iF * P_RAF) / P_RAF;
+      const [a, b] = ANGULOS[iF], c = { ...CAM0 };
+      for (const p in c) c[p] = lerp(a[p] ?? CAM0[p], b[p] ?? CAM0[p], EASE(u));
+      px(ob, 540, 1040, 760, 950); ob.style.borderRadius = '40px';
+      cam(ob, c);
+    } else {
+      const R = OM.morphRect(t, T_RAF_FIN, T_CAEN[0], { x: 160, y: 565, w: 760, h: 950 },
+        { x: M.lunes.cx - LUNES_W / 2, y: M.lunes.cy - LUNES_H / 2, w: LUNES_W, h: LUNES_H }, { curve: ease.cubicInOut });
+      px(ob, R.cx, R.cy - Math.sin(R.k * Math.PI) * 120, R.w, R.h);
+      ob.style.borderRadius = lerp(40, 16 * (320 / GW) * G0.s, R.k).toFixed(2) + 'px';
+      ob.style.transform = `translate(-50%,-50%) rotate(${(-9.7 * R.k).toFixed(3)}deg)`;
+    }
   }
 
-  // G · semana (14.0 → 17.5, con el aviso encima desde 16.5)
-  const enG = t >= 14.0 && t < 17.5;
+  // G · semana (14.0 → 17.3)
+  const enG = t >= 14.0 && t < 17.3;
   escena($('escG'), enG);
   if (enG) {
     cam($('objG'), camG(t));
     cG.forEach((c, i) => {
       const t0 = T_CAEN[i];
-      pintaCarpeta(c, { st: 0.3 * suave((t - t0 + 0.2) / 0.2) + 1.05 * S(t - t0 - 0.55, 1.6, 0.62), drop: t >= t0 ? t - t0 : null, meta: t >= t0 + 0.38 ? [1, t - t0 - 0.38] : [0, 9] });
+      pintaCarpeta(c, { st: 0.3 * suave((t - t0 + 0.2) / 0.2) + 1.05 * S(t - t0 - 0.55, 1.6, 0.62), drop: t >= t0 ? t - t0 : null,
+        fundido: i > 0, ent: t - 14.0 - i * 0.1 });
     });
     const ka = suave((t - 15.3) / 0.25);
     $('aprobar').style.opacity = ka.toFixed(3);
     $('aprobar').style.transform = `translateY(${((1 - S(t - 15.3, 2.6, 0.7)) * 60).toFixed(1)}px) scale(${t > T_APRUEBA && t < T_APRUEBA + 0.08 ? 0.95 : 1})`;
-    // con el aviso, la semana se queda detrás desenfocada
-    const kb = suave((t - 16.5) / 0.3);
+    const kb = suave((t - T_AVISO) / 0.3);
     $('escG').style.filter = kb > 0.001 ? `blur(${(kb * 14).toFixed(2)}px)` : 'none';
-    $('escG').style.opacity = (1 - 0.35 * kb).toFixed(3);
+    $('escG').style.opacity = ((1 - 0.35 * kb) * (1 - ssstep(T_SELLO, T_SELLO + 0.3, t))).toFixed(3);
   }
-  // aviso: baja desde arriba como una notificación
-  const ta = t - 16.5, kav = t >= 16.5 && t < 17.5 ? S(ta, 2.2, 0.7) : 0;
-  ver($('aviso'), t >= 16.5 && t < 17.5 ? 1 : 0);
-  $('aviso').style.transform = `translate(-50%, ${lerp(-220, 900, kav).toFixed(1)}px) perspective(1400px) rotateX(${((1 - kav) * 30).toFixed(2)}deg) rotateZ(${((1 - kav) * -6).toFixed(2)}deg) scale(${(1.18 + 0.04 * Math.max(0, Math.sin(Math.max(0, ta - 0.2) * 6)) * (ta < 0.7 ? 1 : 0)).toFixed(4)})`;
-  $('avisoCheck').style.strokeDashoffset = (1 - suave((t - 16.75) / 0.22)).toFixed(3);
+  // aviso: baja como una notificación; a las 17.0 su círculo se convierte en el sello
+  const enAv = t >= T_AVISO && t < T_SELLO + 0.25;
+  ver($('aviso'), enAv ? 1 - ssstep(T_SELLO, T_SELLO + 0.18, t) : 0);
+  if (enAv) {
+    const ta = t - T_AVISO, kav = S(ta, 2.2, 0.7);
+    $('aviso').style.transform = `translate(-50%, ${lerp(-220, 900, kav).toFixed(1)}px) perspective(1400px) rotateX(${((1 - kav) * 30).toFixed(2)}deg) rotateZ(${((1 - kav) * -6).toFixed(2)}deg) scale(${(1.18 * (1 - 0.08 * ssstep(T_SELLO, T_SELLO + 0.18, t))).toFixed(4)})`;
+    $('avisoCheck').style.strokeDashoffset = (1 - suave((t - 16.25) / 0.22)).toFixed(3);
+    $('avisoDisco').style.visibility = t >= T_SELLO ? 'hidden' : 'visible';
+  }
 
-  // I · logo (17.5 → 19.0)
-  const enI = t >= 17.5 && t < 19.0;
-  escena($('escI'), enI);
-  if (enI) cam($('objI'), camI(t));
-
-  // mesa: un poco de paralaje con la cámara de cada tramo
-  const par = enA ? camA(t) : enG ? camG(t) : CAM0;
-  $('mesa').style.transform = `translate(${(-par.ry * 2 - par.x * 0.08).toFixed(1)}px, ${(par.rx * 2 - par.y * 0.08).toFixed(1)}px)`;
-
-  // Rótulos: las palabras entran (gf-roll) y el rótulo sale desenfocado
-  CAPS.forEach(([a, b], i) => {
-    const el = $('cap' + i), on = dentro(t, a, b) || dentro(t, b, b + 0.12);
-    mostrar(el, on);
-    if (!on) return;
-    const ta = env(t - a), tb = env(t - b), sale = dentro(t, b, b + 0.12) ? suave(tb / 0.12) : 0;
-    const prev = CAPS[i - 1] ?? CAPS[CAPS.length - 1];
-    const mismo = prev[3] === CAPS[i][3] && prev[1] === a;   // mismo texto que el anterior: sin entrada
-    el.querySelectorAll('[data-w]').forEach((s) => {
-      const k = mismo ? 1 : EASE((ta - 0.06 - s.dataset.w * 0.045) / 0.32);
-      s.style.opacity = (k * (1 - sale)).toFixed(3);
-      s.style.transform = `translateY(${((1 - k) * 18).toFixed(2)}px)`;
-      const bl = (1 - k) * 8 + sale * 10;
-      s.style.filter = bl > 0.05 ? `blur(${bl.toFixed(2)}px)` : 'none';
+  // I · final (17.0 → 19.6)
+  const enI = t >= T_SELLO && t < T_TECLA;
+  escena($('escI'), enI && t < 19.4);
+  $('sello').style.display = enI ? 'block' : 'none';
+  $('selloBrillo').style.display = enI ? 'block' : 'none';
+  if (enI) {
+    // el sello: del círculo del aviso al disco, y del disco a la tecla de la carpeta
+    let cx, cy, w, rad, col;
+    const giroS = OM.seal(t, T_SELLO, T_SELLO_LLENO + 0.8, { r: 1, turns: 0.6 }).rot;
+    if (t < T_RECOGE + 0.1) {
+      const k = ease.cubicInOut(seg(t, T_SELLO, T_SELLO_LLENO));
+      cx = lerp(M.disco.cx, SELLO.cx, k); cy = lerp(M.disco.cy, SELLO.cy, k) - Math.sin(k * Math.PI) * 60;
+      w = 2 * Math.exp(lerp(Math.log(M.disco.r), Math.log(SELLO.r), k)); rad = w / 2;
+      col = mezcla(COBALTO, OSCURO, ease.cubicInOut(seg(t, T_SELLO + 0.1, T_SELLO_LLENO - 0.05)));
+    } else {
+      const k = ease.cubicInOut(seg(t, T_RECOGE + 0.1, T_TECLA));
+      cx = lerp(SELLO.cx, M.teclaA.cx, k); cy = lerp(SELLO.cy, M.teclaA.cy, k);
+      w = Math.exp(lerp(Math.log(2 * SELLO.r), Math.log(M.teclaA.w), k)); rad = lerp(w / 2, 18 * M.teclaA.w / 58, ssstep(0.6, 1, k));
+      col = OSCURO;
+    }
+    const se = $('sello');
+    px(se, cx - w / 2, cy - w / 2, w, w);
+    se.style.borderRadius = rad.toFixed(2) + 'px';
+    se.style.background = `rgb(${col.join(',')})`;
+    $('selloBrillo').style.transform = `rotate(${(giroS * 57.3).toFixed(2)}deg)`;
+    $('selloMas').style.opacity = ssstep(19.4, 19.58, t).toFixed(3);
+    // el logotipo cae pieza a pieza sobre el disco; el lema sube
+    $('piezas').style.transformOrigin = '0 0';
+    $('piezas').style.transform = `scale(${(w / (2 * SELLO.r)).toFixed(4)})`;
+    const sale = OM.liftOut(t, T_RECOGE, { dur: 0.2, dist: 70, blur: 0 });
+    PIEZAS.forEach((_, i) => {
+      const el = $('pz' + i);
+      let op, ty, sx = 1, sy = 1;
+      if (i < 7) { const d = OM.letterDrop(t, T_LOGO, i, { stagger: 0.06, dist: 150, omega: 22, zeta: 0.5 }); op = d.op; ty = -d.y; sx = d.sx; sy = d.sy; }
+      else { const r = OM.wordRise(t, T_LEMA, { dist: 40, omega: 18, zeta: 0.7 }); op = r.op; ty = r.y; sx = sy = r.s; }
+      el.style.opacity = (t < T_LOGO ? 0 : op * sale.op).toFixed(3);
+      el.style.transform = `translateY(${(ty + sale.dy).toFixed(1)}px) scale(${sx.toFixed(4)}, ${sy.toFixed(4)})`;
     });
-    const ext = mismo ? 1 : suave((ta - 0.02) / 0.2);
-    el.querySelector('.l').style.opacity = (ext * (1 - sale)).toFixed(3);
-    const sub = el.querySelector('.s'); if (sub) sub.style.opacity = (suave((ta - 0.35) / 0.25) * (1 - sale)).toFixed(3);
+    // los posts llegan desde fuera, orbitan el sello, se paran y vuelven a él
+    const phi = 50 * ease.quartOut(seg(t, T_SELLO, 18.4));
+    ORBITA.forEach((_, i) => {
+      const el = $('ob' + i), a = (-90 + i * 30 + phi) * Math.PI / 180;
+      const to = { x: SELLO.cx + OB_RX * Math.cos(a), y: SELLO.cy + OB_RY * Math.sin(a) };
+      const from = { x: SELLO.cx + 1500 * Math.cos(a + 0.6), y: SELLO.cy + 1500 * Math.sin(a + 0.6) };
+      const g = OM.gather(t, T_SELLO + 0.05, T_SELLO_LLENO + 0.05, i, ORBITA.length, from, to, { stagger: 0.025, arc: 90, spin: 3 });
+      const kv = ease.smoother(seg(t, T_RECOGE + i * 0.012, T_RECOGE + 0.35 + i * 0.012));
+      const x = lerp(g.x, SELLO.cx, kv), y = lerp(g.y, SELLO.cy, kv), s = lerp(1, 0.3, kv);
+      el.style.transform = `translate(${(x - 75).toFixed(1)}px, ${(y - 94).toFixed(1)}px) rotate(${(g.rot + (a * 57.3 + 90) * 0.12).toFixed(2)}deg) scale(${s.toFixed(4)})`;
+      el.style.opacity = ((g.k > 0 ? 1 : 0) * (1 - ssstep(0.85, 1, kv))).toFixed(3);
+    });
+  }
+
+  // Rótulos: las palabras suben con muelle (wordRise) y la frase sale hacia arriba (liftOut)
+  CAPS.forEach(([a, b], i) => {
+    const el = $('cap' + i), on = dentro(t, a, env(b + 0.06));
+    el.style.display = on ? 'block' : 'none';
+    if (!on) return;
+    const ta = env(t - a), tb = env(t - (b - 0.16));
+    const sale = dentro(t, env(b - 0.16), env(b + 0.06)) ? OM.liftOut(tb, 0, { dur: 0.22, dist: 70, blur: 8 }) : { op: 1, dy: 0, blur: 0, s: 1 };
+    el.querySelectorAll('.w').forEach((s) => {
+      const r = OM.wordRise(ta, 0.02 + s.dataset.w * 0.07, { dist: 70, omega: 20, zeta: 0.62, s0: 0.9, ds: 0.1 });
+      s.style.opacity = (r.op * sale.op).toFixed(3);
+      s.style.transform = `translateY(${(r.y + sale.dy).toFixed(2)}px) scale(${r.s.toFixed(4)})`;
+      s.style.filter = sale.blur > 0.05 ? `blur(${sale.blur.toFixed(2)}px)` : 'none';
+    });
+    // en la ráfaga el texto cambia de color según el fondo
+    el.style.color = enF && luz(RAFAGA[iF][1]) < 0.3 ? '#fff' : '#141414';
   });
-  NOTAS.forEach(([a, b], i) => ver($('nota' + i), dentro(t, a, b) ? 1 : 0));
-  MASC.forEach(([, a, b, x, alto, giroM], i) => {
-    const el = $('ms' + i);
-    const k = clamp(S(t - a, 3.2, 0.62) - S(t - b, 4, 1), -0.2, 1.2);
-    el.style.height = alto + 'px';
-    el.style.left = (x - alto * 0.32) + 'px'; el.style.top = (H - 70 - alto) + 'px';
-    mostrar(el, t > a - 0.01 && t < b + 0.3);
-    el.style.transform = `translateY(${((1 - k) * (alto + 120)).toFixed(1)}px) rotate(${(giroM * k).toFixed(2)}deg)`;
+
+  // Mascota
+  const ms = mascota(t);
+  Object.keys(POSES).forEach((p) => {
+    const el = $('m-' + p), on = ms.pose === p;
+    el.style.display = on ? 'block' : 'none';
+    if (!on) return;
+    const w = POSES[p] * MH / 640;
+    el.style.transform = `translate(${(ms.cx - w / 2 + ms.ex).toFixed(1)}px, ${(ms.pies - MH + ms.ey).toFixed(1)}px) rotate(${ms.rot.toFixed(2)}deg) scale(${(ms.sx * ms.flip).toFixed(4)}, ${ms.sy.toFixed(4)})`;
   });
 
   // Cursores
@@ -775,11 +927,13 @@ function seek(tAbs) {
   pintaCursor($('curSo'), rSo, pSo, VIS_SO, t);
 }
 
-// API para el renderizador
-async function seekListo(t) { seek(t); }
+// ───────────── Contrato de onetake y API del renderizador propio ─────────────
+const listo = () => document.fonts.ready.then(() => Promise.all([...document.images].map((im) => (im.complete ? im.decode().catch(() => 0) : new Promise((r) => { im.onload = im.onerror = r; })))));
 const rect = (sel) => { const r = document.querySelector(sel).getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2, r.width, r.height].map(Math.round); };
-window.REEL = { DUR, BPM, seek, seekListo, rect, preparaVideo: () => {},
-  listo: () => document.fonts.ready.then(() => Promise.all([...document.images].map((im) => im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; })))) };
+window.__ready = listo().then(() => { seek(0); return true; });
+window.__seek = async (t) => { seek(t); };
+window.__meta = { dur: DUR, fps: 60, w: W, h: H, cuts: RAFAGA.map((_, i) => +(T_RAF + i * P_RAF).toFixed(3)) };
+window.REEL = { DUR, BPM, seek, seekListo: async (t) => seek(t), rect, preparaVideo: () => {}, listo };
 seek(0);
 </script>
 </body>

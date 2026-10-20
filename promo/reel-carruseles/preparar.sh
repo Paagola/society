@@ -5,6 +5,9 @@
 #   - assets/posts/*.jpg       los 17 posts terminados (1080 × 1350)
 #   - assets/reel/logo.png     logotipo oficial
 #   - assets/musica.mp3        «Electro Dreams» de Arulo (Mixkit, licencia gratuita de uso comercial)
+#   - assets/onetake/          onetake (github.com/feitangyuan/onetake): librería de movimiento y render del reel v4.
+#                              Licencia PolyForm Noncommercial 1.0.0: gratis para uso no comercial (el TFG);
+#                              para uso comercial hace falta la licencia Pro. No se sube al repositorio.
 # Desde el contenedor de Claude, Higgsfield da 403; se ejecuta en un ordenador normal
 # o en el sandbox de Higgsfield.
 set -euo pipefail
@@ -29,4 +32,5 @@ unzip -q -o "$tmp/p.zip" -d assets/posts
 cp ../../society-identidad-editorial/logos/society-logo-oficial.png assets/reel/logo.png
 curl -fsSL -o assets/musica.mp3 "$MUSICA_URL"
 rm -rf "$tmp"
+[ -d assets/onetake ] || { git clone -q https://github.com/feitangyuan/onetake.git assets/onetake && git -C assets/onetake checkout -q 4157581; }
 echo "posts: $(ls assets/posts | wc -l)"

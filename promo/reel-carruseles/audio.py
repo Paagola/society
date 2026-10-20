@@ -112,14 +112,16 @@ def campana(notas=(1318.5, 1975.5), fuerza=1.0):
     return fuerza * 0.28 * s
 
 
-# ───────── Guion de sonidos (mismos tiempos que reel.html) ─────────
+# ───────── Guion de sonidos (mismos tiempos que reel.html, v4) ─────────
 CLICS = [[0.44, 0.52], [1.50, 1.58], [2.94, 3.00], [15.94, 16.02]]
-SUELTAS = [7.75, 8.25, 8.75, 9.25]                        # giros de la rueda
-CORTES = [2.0, 4.0, 6.0, 6.5, 7.0, 9.5, 11.5, 14.0, 17.5, 19.0]
+SUELTAS = [7.75, 8.25, 8.75, 9.05]                        # giros de la rueda (el último, de golpe de muñeca)
 CAEN = [0.52, 14.5, 14.75, 15.0]                          # archivos que caen en una carpeta
-LETRAS = [4.25 + i * 0.375 for i in range(5)] + [10.0 + i * 0.25 for i in range(5)]
-RAFAGA = [11.5 + i * 0.25 for i in range(1, 10)]
-TECLAS = [6.05 + i * 0.013 * 4 for i in range(12)]
+LLEGADAS = [4.32, 4.78]                                   # las capas del post llegan y se quedan flotando
+PLAZA = [10.0 + i * 0.25 for i in range(5)]
+RAFAGA = [11.5 + i * 0.25 for i in range(10)]
+LOGO = [17.7 + i * 0.06 + 0.07 for i in range(7)]         # piezas del logotipo que caen en el sello
+ATERRIZA = [17.95, 19.45, 2.8]                            # la mascota toca el suelo
+VIAJES = [(2.05, 0.4), (3.5, 0.5), (7.42, 0.4), (9.62, 0.45), (14.45, 0.45), (17.55, 0.5), (19.55, 0.45)]   # pico, duración
 
 
 def eventos():
@@ -129,24 +131,32 @@ def eventos():
         ev.append((b, clic(0.5, 1800)))
     for r in SUELTAS:
         ev.append((r - 0.2, clic(0.5)))           # agarre
-        ev.append((r, barrido()))                  # el pico del barrido cae en la suelta
+        ev.append((r, barrido(0.3 if r < 9 else 0.4)))
         ev.append((r, golpe(140, 0.05, 0.5)))
-    for t in CORTES:
-        ev.append((t, golpe(110 if t not in (2.0, 9.5, 17.5) else 80, 0.10, 0.9)))
     for t in CAEN:                                 # el archivo toca fondo y el cristal cede
         ev.append((t + 0.61, golpe(150, 0.06, 0.7)))
         ev.append((t + 0.61, clic(0.35, 1300)))
-    for t in LETRAS:                               # cada letra que aterriza
-        ev.append((t + 0.07, golpe(70, 0.14, 1.0)))
-        ev.append((t + 0.07, clic(0.6, 1500)))
-    for t in RAFAGA:                               # cortes de la ráfaga
+    for t in LLEGADAS:
+        ev.append((t, golpe(90, 0.10, 0.8)))
+    ev.append((6.3, golpe(65, 0.18, 1.0)))         # las capas se acoplan al post
+    ev.append((6.3, clic(0.6, 1500)))
+    for t in PLAZA:
+        ev.append((t + 0.07, golpe(70, 0.14, 0.9)))
+        ev.append((t + 0.07, clic(0.5, 1500)))
+    ev.append((11.5, golpe(80, 0.10, 0.9)))
+    for t in RAFAGA[1:]:
         ev.append((t, clic(0.55, 2900)))
-    for t in TECLAS:
-        ev.append((t, tecla()))
-    ev.append((7.0, barrido(0.35, 0.6)))                 # el anillo se forma
-    ev.append((3.0, barrido(0.5, 0.8)))                  # escaneo
+    for t in LOGO:
+        ev.append((t, golpe(75, 0.10, 0.7)))
+        ev.append((t, clic(0.45, 1700)))
+    for t in ATERRIZA:
+        ev.append((t, golpe(60, 0.12, 0.6)))
+    for t, d in VIAJES:                            # la foto, la rueda, Axpe, la carpeta del lunes y el sello viajan
+        ev.append((t, barrido(d, 0.6)))
+    ev.append((19.6, golpe(120, 0.07, 0.8)))       # el sello se vuelve la tecla
     ev.append((1.13, campana((1567.98, 2349.3), 0.8)))   # foto recibida
-    ev.append((16.75, campana()))                        # aviso
+    ev.append((16.3, campana()))                         # aviso
+    ev.append((18.15, campana((1318.5, 1975.5, 2637.0), 0.7)))   # lema
     return ev
 
 
