@@ -36,6 +36,30 @@ Hoja de contactos: [posts-v2-hoja.jpg](https://d2ol7oe51mr4n9.cloudfront.net/use
 ## Avisos
 
 - E5: el hilo de humo sobre el helado es un recurso visual (el helado es de leche ahumada, no echa humo). Si molesta, se quita.
-- D1: «el menú se elige sin leerlo» viene de la tanda anterior; confirmar con la web de Disfrutar antes de publicar.
+- D1: la frase sale de la web oficial de Disfrutar («t'aconsellem escollir el menú sense veure'l»).
 - S1: los cuatro pasos siguen la receta conocida de Fergus Henderson (tuétano en la tostada, sal y ensalada de perejil).
 - Todos llevan «Propuesta no oficial · Society»: son ejemplos, no encargos de esos restaurantes.
+
+## Tercera tanda: 17 posts, el texto encima de la foto original
+
+Víctor dio por buenos FUEGO, Gamba roja, anchoa, HUMO e Instrucciones, pero pidió que no se modificara la foto de referencia (el post de Disfrutar había cambiado las cajas) y bastantes más posts para el reel. Desde aquí la foto no se regenera: [`montaje-posts/montar.py`](montaje-posts/montar.py) escribe un HTML por post con la tipografía encima de la foto original y [`montaje-posts/captura.cjs`](montaje-posts/captura.cjs) lo captura con Playwright. Coste: 2 créditos (dos recortes de fondo para poner la palabra detrás del objeto).
+
+| Post | Recurso |
+|---|---|
+| E2 · plaza de Axpe | «PLAZA» pintado en perspectiva sobre el suelo mojado |
+| E6 · puerta | reloj dibujado a mano marcando la una: «Solo a mediodía.» |
+| D1 · cajas | «ELIGE / SIN MIRAR.» y «?» en las tapas reales (la web de Disfrutar dice «t'aconsellem escollir el menú sense veure'l») |
+| D2 · celosía | un hilo blanco que cose los huecos: «La cerámica es el hilo conductor.» |
+| D3 · panchino | «PANCHINO» por detrás del bollo (recorte `c97d3893-af80-45bf-ad3e-941d3e8cefde`) |
+| D4 · esferas | «Sorprender» y un círculo a mano: «¿y esta?» |
+| D5 · sala blanca | cotas de plano |
+| D6 · olivo | ficha de herbario, *Olea europaea* |
+| S3 · Eccles cake | diagrama de Venn |
+| S4 · Welsh rarebit | línea de corte: «por aquí.» |
+| S5 · cabeza de cerdo | «Del morro» por detrás de las orejas, «a la cola.» abajo (recorte `eeaca0cb-f8ac-49c2-b19e-ac30862eb548`) |
+| S6 · fachada | «Octubre de 1994.» y etiqueta del antiguo ahumadero |
+
+Fuera: S2 (la fachada generada lleva un teléfono que no es el de St. JOHN).
+
+- Hoja de contactos de los 17: [posts-v3-hoja.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/1799413c-6d5e-48e9-aa33-c39cfbd17a8c.jpg)
+- Los 17 en 1080 × 1350: [posts-society-17.zip](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/28edc4ad-6c05-40de-a5b0-ae768a23a336.zip)
