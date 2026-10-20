@@ -63,3 +63,10 @@ Fuera: S2 (la fachada generada lleva un teléfono que no es el de St. JOHN).
 
 - Hoja de contactos de los 17: [posts-v3-hoja.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/1799413c-6d5e-48e9-aa33-c39cfbd17a8c.jpg)
 - Los 17 en 1080 × 1350: [posts-society-17.zip](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/28edc4ad-6c05-40de-a5b0-ae768a23a336.zip)
+
+### Ajustes tras la revisión de Víctor
+
+- «PLAZA» ahora es sólido (opaco, en negrita) y está algo más arriba para no tocar el pie.
+- Los textos secundarios dejan la letra monoespaciada, que resultaba demasiado robótica: Etxebarri y Disfrutar pasan a Archivo Narrow normal y St. JOHN a Libre Caslon. Las etiquetas en mayúsculas espaciadas pasan a minúscula normal («Asador Etxebarri, Axpe»).
+- Los cinco posts generados (E1, E3, E4, E5 y S1) llevan el texto pequeño dentro de la imagen, así que conservan la mono; cambiarla supondría regenerarlos.
+- Hoja de contactos: [posts-v4-hoja.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/9e3e7e2b-ae52-44ab-8c4c-e983c84a0408.jpg) · los 17: [posts-society-17-v4.zip](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/29cd5b4e-f39d-4d01-9893-2c490e5f4027.zip)
