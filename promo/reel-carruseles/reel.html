@@ -23,7 +23,7 @@
   #stage { position: absolute; inset: 0; overflow: hidden; background: var(--papel); }
   #mesa { position: absolute; inset: -200px; opacity: .12;
           background-image: radial-gradient(#141414 1.6px, transparent 2px); background-size: 32px 32px; }
-  .esc { position: absolute; inset: 0; visibility: hidden; }
+  .esc { position: absolute; inset: 0; display: none; }
   .obj { position: absolute; left: 540px; top: 1040px; }
   img { display: block; }
   svg { overflow: visible; }
@@ -89,7 +89,8 @@
                box-shadow: 0 18px 40px -18px rgba(20,20,20,.35); }
   .rw img { width: 100%; height: 100%; object-fit: cover; }
   #ruedaTit { position: absolute; left: 0; right: 0; top: 1010px; transform: translateY(-50%); text-align: center; font-size: 88px; font-weight: 600; letter-spacing: -.04em; }
-  #indice { position: absolute; right: 30px; top: 610px; text-align: right; font-size: 21px; line-height: 1.72; color: #8A8780; list-style: none; margin: 0; padding: 0; letter-spacing: -.01em; }
+  #indiceVent { position: absolute; left: 0; right: 0; top: 1452px; height: 60px; -webkit-mask-image: linear-gradient(90deg, transparent 4%, #000 30%, #000 70%, transparent 96%); }
+  #indice { position: absolute; left: 540px; top: 0; display: flex; gap: 44px; white-space: nowrap; font-size: 36px; font-weight: 500; letter-spacing: -.025em; color: #9a978f; list-style: none; margin: 0; padding: 0; }
 
   /* ── ráfaga, aviso, logo ── */
   .post { width: 760px; height: 950px; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(20,20,20,.5); }
@@ -108,8 +109,8 @@
 
   /* ── rótulos de arriba ── */
   .cap { position: absolute; left: 70px; right: 70px; top: 150px; visibility: hidden; }
-  .cap .l { font-family: GeistMono; font-size: 22px; letter-spacing: .14em; text-transform: uppercase; color: #8A8780; display: block; margin-bottom: 22px; }
-  .cap .t { font-size: 76px; font-weight: 600; line-height: 1.0; letter-spacing: -.045em; }
+  .cap .l { font-family: GeistMono; font-size: 24px; letter-spacing: .14em; text-transform: uppercase; color: #8A8780; display: block; margin-bottom: 22px; }
+  .cap .t { font-size: 88px; font-weight: 600; line-height: 1.0; letter-spacing: -.045em; }
   .cap .t span { display: inline-block; white-space: pre; }
   .cap .s { font-size: 30px; font-weight: 500; letter-spacing: -.015em; color: #6c6962; margin-top: 18px; display: block; }
   .cap.claro .t { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.35); }
@@ -155,7 +156,7 @@
   <div id="escD" class="esc">
     <div id="rueda"><div id="ruedaEje"></div></div>
     <div id="ruedaTit">17 posts</div>
-    <ol id="indice"></ol>
+    <div id="indiceVent"><ol id="indice"></ol></div>
   </div>
 
   <!-- E · «PLAZA» sobre la foto original de Axpe -->
@@ -267,6 +268,7 @@ function claves(p, ks, curva = EASE) {
 }
 const ver = (el, k) => { el.style.opacity = k.toFixed(3); el.style.visibility = k <= 0.001 ? 'hidden' : 'visible'; };
 const mostrar = (el, si) => { el.style.visibility = si ? 'visible' : 'hidden'; };
+const escena = (el, si) => { el.style.display = si ? 'block' : 'none'; };
 
 // Cámara: el objeto gira y se acerca alrededor de su centro (el punto de fuga)
 const CAM0 = { x: 0, y: 0, z: 0, rx: 0, ry: 0, rz: 0, s: 1 };
@@ -414,6 +416,7 @@ const T_SUBE = 0.44, T_CAE = 0.52, T_ABRE = 1.5;
 const cA = carpeta({ label: 'Etxebarri', metas: ['0 fotos', '1 foto'], art: ARTES[0], width: 820,
   file: { img: 'assets/reel/real_E1.jpg', name: 'Foto del plato', meta: 'JPG · MÓVIL' } });
 $('objA').appendChild(cA.el);
+$('objA').style.width = cA.el.style.width; $('objA').style.height = cA.el.style.height;
 const camA = trk([
   [0, { ...CAM0, rx: 16, ry: -20, y: 40 }],
   [0.1, { ry: -9 }, 0.45, 1],                          // órbita lenta mientras sube la foto
@@ -434,8 +437,8 @@ const camB = trk([
   [3.5, { s: 1.16, y: 40 }, 0.7, 1],                      // tras el escaneo, se acerca a la carne
   [4.0, { rx: -40, ry: -32, rz: 0, s: 0.82, y: 60 }, 0],  // corte: desde abajo
   [4.02, { rx: -14, s: 0.9, y: 30 }, 0.9, 0.95],
-  [6.0, { rx: 0, ry: 0, rz: -5, s: 2.35, x: 420, y: -960 }, 0], // corte: primerísimo plano del pie
-  [6.02, { rz: -2, s: 2.2, x: 395, y: -900 }, 1.4, 1],
+  [6.0, { rx: 0, ry: 0, rz: -5, s: 2.35, x: 560, y: -990 }, 0], // corte: primerísimo plano del pie
+  [6.02, { rz: -2, s: 2.2, x: 510, y: -930 }, 1.4, 1],
   [6.5, { rx: 0, ry: 22, rz: 0, s: 0.9, x: 0, y: 0 }, 0],      // corte: plano general
   [6.52, { ry: 0, s: 1 }, 2.2, 0.8],
 ]);
@@ -447,17 +450,18 @@ const RUEDA = [['E1', 'Fuego'], ['E3', 'Gamba roja'], ['E4', 'Anchoa'], ['E5', '
   ['D1', 'Sin mirar'], ['D2', 'Celosía'], ['D3', 'Panchino'], ['D4', 'Sorprender'], ['D5', 'Sala blanca'], ['D6', 'Olivo'],
   ['S1', 'Tuétano'], ['S3', 'Eccles cake'], ['S4', 'Rarebit'], ['S5', 'Del morro'], ['S6', '1994']];
 const N = RUEDA.length;
-const CARD_H = 720, CARD_W = 576, STEP = 40, DRUM = 2.22 * CARD_H, LENS = 2.7 * CARD_H, RING_R = 400, BOW = 1.82 * CARD_H, CULL = 1.6;
+// En vertical la rueda gira en horizontal: los vecinos salen por los lados y el arco cae hacia abajo
+const CARD_H = 720, CARD_W = 576, STEP = 30, DRUM = 2.22 * CARD_W, LENS = 2.7 * CARD_W, RING_R = 400, BOW = 1.82 * CARD_W, CULL = 1.6;
 const RING_SCALE = clamp(((2 * Math.PI * RING_R) / N) * 0.82 / CARD_W, 0.16, 1);
 $('rueda').style.perspective = LENS + 'px';
 $('ruedaEje').innerHTML = RUEDA.map(([p], i) => `<div class="rw" id="rw${i}" style="width:${CARD_W}px;height:${CARD_H}px;margin-left:${-CARD_W / 2}px;margin-top:${-CARD_H / 2}px"><span><img src="assets/posts/${p}.jpg"></span></div>`).join('');
 $('indice').innerHTML = RUEDA.map(([, n], i) => `<li id="ix${i}">${n}</li>`).join('');
 const SUELTAS = [7.75, 8.25, 8.75, 9.25], AGARRE = 0.2;
 const giro = pista([[0, 0], ...SUELTAS.map((r, i) => [r - AGARRE + 0.04, i + 1, 1.9, 0.92])]);
-const bowAt = (d) => -BOW * (1 - Math.cos(d * Math.PI / 180));
+const bowAt = (d) => BOW * (1 - Math.cos(d * Math.PI / 180));
 function place(ringDeg, drumDeg, ringR, m) {
-  return `translateX(${(m * bowAt(drumDeg)).toFixed(2)}px) rotateZ(${((1 - m) * ringDeg).toFixed(3)}deg) translateY(${(-(1 - m) * ringR).toFixed(2)}px) ` +
-         `rotateX(${(m * drumDeg).toFixed(3)}deg) translateZ(${(m * DRUM).toFixed(2)}px)`;
+  return `translateY(${(m * bowAt(drumDeg)).toFixed(2)}px) rotateZ(${((1 - m) * ringDeg).toFixed(3)}deg) translateY(${(-(1 - m) * ringR).toFixed(2)}px) ` +
+         `rotateY(${(m * drumDeg).toFixed(3)}deg) translateZ(${(m * DRUM).toFixed(2)}px)`;
 }
 
 // ───────────── E · Axpe ─────────────
@@ -540,7 +544,7 @@ const RUTA_SO = [
   [2.2, 590, 1330, 1.6],     // a «Mejorar foto»
   [3.08, 860, 1680, 1.0],
   [7.0, 1150, 1450, 0],
-  ...SUELTAS.flatMap((r) => [[r - 0.46, 700, 1380, 3.2], [r - AGARRE + 0.01, 700, 1060, 4.2]]),  // arrastres de la rueda hacia arriba
+  ...SUELTAS.flatMap((r) => [[r - 0.46, 800, 1080, 3.2], [r - AGARRE + 0.01, 400, 1080, 4.2]]),  // arrastres de la rueda hacia la izquierda
   [9.35, 860, 1500, 1.4],
 ];
 const ruta = (R) => ({ x: pista(R.map((r) => [r[0], r[1], r[3], r[4] ?? 1]), 3, 1), y: pista(R.map((r) => [r[0], r[2], r[3], r[4] ?? 1]), 3, 1) });
@@ -605,7 +609,7 @@ function seek(tAbs) {
 
   // A · carpeta del cliente (19.0 → 2.0, cruza el bucle)
   const enA = dentro(t, 19.0, 2.0);
-  mostrar($('escA'), enA);
+  escena($('escA'), enA);
   if (enA) {
     const c = camA(t);
     cam($('objA'), c);
@@ -622,7 +626,7 @@ function seek(tAbs) {
 
   // B/C · la foto (2.0 → 7.0)
   const enB = t >= 2.0 && t < 7.0;
-  mostrar($('escB'), enB);
+  escena($('escB'), enB);
   if (enB) {
     const c = camB(t); c.ry += orbitaC(t);
     const tor = t < 3.0 ? (1 - S(t - 2.0, 1.6, 0.7)) * -4 : 0;    // la foto del móvil entra torcida
@@ -654,12 +658,12 @@ function seek(tAbs) {
 
   // D · rueda (7.0 → 9.5)
   const enD = t >= 7.0 && t < 9.5;
-  mostrar($('escD'), enD);
+  escena($('escD'), enD);
   if (enD) {
     const tr = giro(t), m = clamp(tr), pos = Math.max(0, tr - 1);
     const spin = (t - 7.0) * 14;                               // el anillo gira despacio
     const vista = suave((t - 7.6) / 0.6);
-    $('ruedaEje').style.transform = `rotateY(${(-10 * vista).toFixed(3)}deg) translateZ(${(-m * DRUM).toFixed(2)}px)`;
+    $('ruedaEje').style.transform = `rotateX(${(7 * vista).toFixed(3)}deg) rotateZ(${(-2 * vista).toFixed(3)}deg) translateZ(${(-m * DRUM).toFixed(2)}px)`;
     for (let i = 0; i < N; i++) {
       const d = i - pos, el = $('rw' + i);
       const llega = S(t - 7.0 - i * 0.018, 2.6, 0.7);           // las tarjetas salen del centro al anillo
@@ -670,14 +674,17 @@ function seek(tAbs) {
     const kt = suave((t - 7.1) / 0.25) * (1 - m);
     $('ruedaTit').style.opacity = kt.toFixed(3);
     $('ruedaTit').style.filter = kt < 0.99 ? `blur(${((1 - kt) * 8).toFixed(2)}px)` : 'none';
-    const act = clamp(Math.round(pos), 0, N - 1);
-    $('indice').style.opacity = suave((t - 7.2) / 0.3).toFixed(3);
-    for (let i = 0; i < N; i++) { const li = $('ix' + i), on = m > 0.5 && i === act; li.style.color = on ? '#141414' : ''; li.style.fontWeight = on ? 600 : 400; }
+    // índice en cinta: el título del post de delante queda en el centro
+    const act = clamp(Math.round(pos), 0, N - 1), f0 = Math.floor(pos), fr = pos - f0;
+    const centro = (i) => { const li = $('ix' + clamp(i, 0, N - 1)); return li.offsetLeft + li.offsetWidth / 2; };
+    $('indice').style.transform = `translateX(${(-lerp(centro(f0), centro(f0 + 1), fr)).toFixed(1)}px)`;
+    $('indiceVent').style.opacity = (suave((t - 7.45) / 0.3)).toFixed(3);
+    for (let i = 0; i < N; i++) $('ix' + i).style.color = i === act ? '#141414' : '';
   }
 
   // E · Axpe (9.5 → 11.5)
   const enE = t >= 9.5 && t < 11.5;
-  mostrar($('escE'), enE);
+  escena($('escE'), enE);
   if (enE) {
     cam($('objE'), camE(t));
     TIT_E2.forEach((_, i) => { const k = suave((t - (9.62 + i * 0.05)) / 0.12); const s = $('tw' + i); s.style.opacity = k; s.style.filter = k < 0.99 ? `blur(${(1 - k) * 8}px)` : 'none'; });
@@ -692,7 +699,7 @@ function seek(tAbs) {
 
   // F · ráfaga (11.5 → 14.0)
   const enF = t >= T_RAF && t < 14.0;
-  mostrar($('escF'), enF);
+  escena($('escF'), enF);
   if (enF) {
     const i = clamp(Math.floor((t - T_RAF) / P_RAF), 0, RAFAGA.length - 1), u = (t - T_RAF - i * P_RAF) / P_RAF;
     const [a, b] = ANGULOS[i], c = { ...CAM0 };
@@ -704,7 +711,7 @@ function seek(tAbs) {
 
   // G · semana (14.0 → 17.5, con el aviso encima desde 16.5)
   const enG = t >= 14.0 && t < 17.5;
-  mostrar($('escG'), enG);
+  escena($('escG'), enG);
   if (enG) {
     cam($('objG'), camG(t));
     cG.forEach((c, i) => {
@@ -722,12 +729,12 @@ function seek(tAbs) {
   // aviso: baja desde arriba como una notificación
   const ta = t - 16.5, kav = t >= 16.5 && t < 17.5 ? S(ta, 2.2, 0.7) : 0;
   ver($('aviso'), t >= 16.5 && t < 17.5 ? 1 : 0);
-  $('aviso').style.transform = `translate(-50%, ${lerp(-220, 900, kav).toFixed(1)}px) perspective(1400px) rotateX(${((1 - kav) * 30).toFixed(2)}deg) rotateZ(${((1 - kav) * -6).toFixed(2)}deg) scale(${(1 + 0.04 * Math.max(0, Math.sin(Math.max(0, ta - 0.2) * 6)) * (ta < 0.7 ? 1 : 0)).toFixed(4)})`;
+  $('aviso').style.transform = `translate(-50%, ${lerp(-220, 900, kav).toFixed(1)}px) perspective(1400px) rotateX(${((1 - kav) * 30).toFixed(2)}deg) rotateZ(${((1 - kav) * -6).toFixed(2)}deg) scale(${(1.18 + 0.04 * Math.max(0, Math.sin(Math.max(0, ta - 0.2) * 6)) * (ta < 0.7 ? 1 : 0)).toFixed(4)})`;
   $('avisoCheck').style.strokeDashoffset = (1 - suave((t - 16.75) / 0.22)).toFixed(3);
 
   // I · logo (17.5 → 19.0)
   const enI = t >= 17.5 && t < 19.0;
-  mostrar($('escI'), enI);
+  escena($('escI'), enI);
   if (enI) cam($('objI'), camI(t));
 
   // mesa: un poco de paralaje con la cámara de cada tramo
