@@ -6,7 +6,7 @@ Fecha: 2026-10-20. Encargo de Víctor: una demostración artística de Society q
 
 | Qué | Dónde |
 |---|---|
-| Reel final, 1080 × 1920, 60 fps, 20 s, con sonido | VIDEO_V4 |
+| Reel final, 1080 × 1920, 60 fps, 20 s, con sonido | [society-reel-v4.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/c4f5bc3a-3ca6-4dfd-9345-c0ba51f8a827.mp4) (28,1 MB) · [portada](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/7bd8ff50-0a7f-4aaf-9aaa-6160415ce81e.jpg) |
 | Fuente del reel | [`reel.html`](reel.html): todo se calcula desde el tiempo en `seek(t)`; cumple el contrato de onetake (`__seek`, `__ready`, `__meta`) |
 | Movimiento y render | [onetake](https://github.com/feitangyuan/onetake) (commit `4157581`): `lib/motion.js` para los muelles, `morphRect`, `hop`, `gather`, `seal`, `letterDrop`, `wordRise`, `liftOut`, `shake`; `scripts/render.py` con obturador de 180° promediado en luz lineal; `scripts/probe.py` para la continuidad |
 | Capas de FUEGO | [`capas.py`](capas.py): recorta las letras del post E1 terminado en dos PNG transparentes |
@@ -69,7 +69,8 @@ Con el método de onetake, cada tramo nace del anterior: algo sobrevive al paso 
 ## Reglas del proyecto
 
 - **Nada inventado:** la única foto «del cliente» es la original del chuletón de Etxebarri en Wikimedia (Ryan Snyder, CC BY 2.0). Como la v4 quita los textos pequeños de pantalla, **el crédito tiene que ir en el texto de la publicación**: «Foto original: Ryan Snyder, CC BY 2.0 (Wikimedia Commons)». Las de Disfrutar y St. JOHN no salen como «antes». Los datos de los posts salen de las webs oficiales ([`posts.md`](posts.md)). La semana no lleva cifras y «lista para publicar» respeta que la publicación es asistida (README raíz §6).
-- **Regla cero (firma de rodaje real):** no se aplica, a propósito: es una pieza de diseño de movimiento de interfaz (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se pasa igualmente: REALISMO_V4
+- **Regla cero (firma de rodaje real):** no se aplica, a propósito: es una pieza de diseño de movimiento de interfaz (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se pasa igualmente: dentro de objetivo el enfoque (21,4 %), el punto blanco (242,3) y el volumen (RMS 5296,1). Marca REVISAR la duración media de plano (1,6 s, porque la toma continua cuenta como un plano largo), el movimiento de cámara (0,4 px), el punto negro (13,6), 8 planos con cámara quieta y 1 «transición» que es el desenfoque de movimiento. Es lo esperable en una pieza de interfaz sin rodaje. SHA-256 del vídeo: `3e7e447f0fa231894f88d4707a33b7c0948379e660394b2cede57c579cdf6170`.
+- **Revisión de onetake (`verify_promo.py`):** pasan la continuidad (1,00), las ráfagas y las curvas (pico de 377 px por fotograma, con obturador). No pasan dos puntos, a sabiendas: el **reposo** (onetake pide un 25 % de fotogramas totalmente quietos y un tramo de 1 s; aquí el fondo deriva y la mascota respira todo el rato, porque el encargo pedía que todo se moviera y captase la atención) y el **audio** (pide un 15 % de silencio, que no existe con música de fondo; el pico queda en −1,8 dBFS tras el AAC).
 - **Coste del reel v4:** 0 créditos (todo se dibuja en el navegador).
 
 ## Versión anterior
