@@ -1,4 +1,4 @@
-// node shot.js E2 E6 ... → out/<id>.png (1856x2304) y out/<id>.jpg (1080x1350)
+// node captura.cjs E2 E6 ... → out/<id>.png (1856x2304) y out/<id>.jpg (1080x1350)
 const path = require('path');
 const { chromium } = require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright');
 (async () => {

@@ -6,8 +6,8 @@ import os
 HEAD = """<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:AN;src:url(../../fuentes/ArchivoNarrow.ttf);font-weight:400 700}
 @font-face{font-family:B;src:url(../../fuentes/BricolageGrotesque.ttf);font-weight:200 800}
-@font-face{font-family:M;src:url(../IBMPlexMono-Regular.ttf)}
-@font-face{font-family:C;src:url(../CourierPrime-Regular.ttf)}
+@font-face{font-family:M;src:url(../../fuentes/IBMPlexMono-Regular.ttf)}
+@font-face{font-family:C;src:url(../../fuentes/CourierPrime-Regular.ttf)}
 @font-face{font-family:CA;src:url(../../fuentes/Caslon.ttf);font-weight:400 700}
 @font-face{font-family:CAI;src:url(../../fuentes/CaslonI.ttf);font-weight:400 700}
 @font-face{font-family:H;src:url(../../fuentes/Caveat.ttf);font-weight:400 700}
@@ -38,7 +38,7 @@ P = {}
 P['E2'] = foto('../../assets/raw/E2.png') + f"""
 <div class="a m hueso" style="left:70px;top:40px;color:#151515">ASADOR ETXEBARRI — AXPE</div>
 <div class="a m" style="right:70px;top:40px;color:#151515">02/06</div>
-<div class="a an ink" style="left:66px;top:120px;font-size:150px">Un pueblo, una plaza,<br>una parrilla.</div>
+<div class="a an ink" style="left:66px;top:105px;font-size:132px">Un pueblo, una plaza,<br>una parrilla.</div>
 <div style="position:absolute;left:-200px;top:1340px;width:2256px;height:964px;perspective:1100px;perspective-origin:50% 0%">
   <div class="an" style="position:absolute;left:0;right:0;bottom:120px;text-align:center;font-size:760px;color:#F4F1EA;opacity:.78;transform:rotateX(64deg);transform-origin:50% 100%;letter-spacing:.02em">PLAZA</div>
 </div>
