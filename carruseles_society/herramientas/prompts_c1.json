@@ -1,0 +1,150 @@
+[
+  {
+    "carrusel": "c1",
+    "diapositiva": 1,
+    "job_id": "915425a8-ca99-4788-97df-615577529ecc",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "4895e8f1-54f1-42dd-88bc-0fc74a4884d6",
+        "origen": "pinterest_d04_stay_curious"
+      },
+      {
+        "media_id": "e534b92d-cb26-423d-9667-1c98948157a6",
+        "origen": "marca/mascota_pulgar.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 1 of 6, vertical 4:5 editorial magazine-cover poster. LAYOUT AND LIGHT from reference image 1: a character standing full body in a seamless deep cobalt blue photo studio (curved cove wall, soft floor shadow, soft top-left key light, gentle vignette), with an enormous headline set BEHIND the character so the character overlaps the letters. CHARACTER from references 2 and 3: the Society mascot, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes, a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real paper texture on the head and cotton texture on the hoodie, giving a thumbs up, three-quarter view. TYPOGRAPHY printed directly on the blue wall, no boxes, no panels, no cards, no banners behind any text: headline in three lines, huge ultra-condensed heavy grotesque all caps in warm off-white paper colour (#F2F1EC): line 1 'TU BAR', line 2 a single word in high-contrast bold serif italic lowercase in yellow (#F5C518): 'merece', line 3 'QUE LO VEAN.' Tight leading, letters touching the side margins. Small text top left in tiny monospace off-white: 'SOCIETY · 01/06'. Small text bottom right in tiny monospace: 'DESLIZA →'. Exact Spanish spelling, no other text, no logos, no watermark. Colour palette only cobalt blue, off-white paper, ink black and a touch of yellow. Professional print-quality finish, subtle film grain."
+  },
+  {
+    "carrusel": "c1",
+    "diapositiva": 2,
+    "job_id": "3163426e-2652-47c1-b151-30b5286cb528",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "4895e8f1-54f1-42dd-88bc-0fc74a4884d6",
+        "origen": "pinterest_d04_stay_curious"
+      },
+      {
+        "media_id": "e534b92d-cb26-423d-9667-1c98948157a6",
+        "origen": "marca/mascota_pulgar.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 2 of 6, vertical 4:5 editorial magazine-cover poster. LAYOUT AND LIGHT from reference image 1: a character full body in a seamless deep cobalt blue photo studio (curved cove wall, soft floor shadow, soft top-left key light, gentle vignette) with an enormous headline in the upper half behind the character; the character may overlap only the bottom edge of the last headline line. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie. POSE: standing with one glove on its chin, thinking, head tilted, a small cobalt question mark hand-drawn next to the halo. Headline in three lines, huge ultra-condensed heavy grotesque all caps in warm off-white (#F2F1EC): line 1 '¿SIN TIEMPO', line 2 a single phrase in high-contrast bold serif italic lowercase in yellow (#F5C518): 'para redes?', line 3 'NORMAL.'. Tight leading, the headline spans the full width inside a safe margin. The italic phrase must stay fully visible and never be covered. Below, small clean grotesque off-white text: 'Tu sitio está detrás de la barra.' Tiny monospace top left 'SOCIETY · 02/06'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  },
+  {
+    "carrusel": "c1",
+    "diapositiva": 3,
+    "job_id": "85e61b90-0091-4e6a-951e-1abb5bb016db",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "4895e8f1-54f1-42dd-88bc-0fc74a4884d6",
+        "origen": "pinterest_d04_stay_curious"
+      },
+      {
+        "media_id": "e534b92d-cb26-423d-9667-1c98948157a6",
+        "origen": "marca/mascota_pulgar.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 3 of 6, vertical 4:5 editorial magazine-cover poster. LAYOUT AND LIGHT from reference image 1: a character full body in a seamless deep cobalt blue photo studio (curved cove wall, soft floor shadow, soft top-left key light, gentle vignette) with an enormous headline in the upper half behind the character; the character may overlap only the bottom edge of the last headline line. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie. POSE: holding up a smartphone towards the camera with both hands; the phone screen shows a close-up photo of a plate of tapas on a bar counter. Headline in three lines, huge ultra-condensed heavy grotesque all caps in warm off-white (#F2F1EC): line 1 'DINOS QUÉ', line 2 a single phrase in high-contrast bold serif italic lowercase in yellow (#F5C518): 'hay hoy', line 3 'Y YA.'. Tight leading, the headline spans the full width inside a safe margin. The italic phrase must stay fully visible and never be covered. Below, small clean grotesque off-white text: 'Una foto del plato o de la pizarra.' Tiny monospace top left 'SOCIETY · 03/06'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  },
+  {
+    "carrusel": "c1",
+    "diapositiva": 4,
+    "job_id": "41bc4c2e-173d-41dd-950a-a3bf93a6284b",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "4895e8f1-54f1-42dd-88bc-0fc74a4884d6",
+        "origen": "pinterest_d04_stay_curious"
+      },
+      {
+        "media_id": "e534b92d-cb26-423d-9667-1c98948157a6",
+        "origen": "marca/mascota_pulgar.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      },
+      {
+        "media_id": "7b46ce45-7fd6-4121-b2ec-fffb3af1a8fa",
+        "origen": "marca/mascota_senalando_sticker.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 4 of 6, vertical 4:5 editorial magazine-cover poster. LAYOUT AND LIGHT from reference image 1: a character full body in a seamless deep cobalt blue photo studio (curved cove wall, soft floor shadow, soft top-left key light, gentle vignette) with an enormous headline in the upper half behind the character; the character may overlap only the bottom edge of the last headline line. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie. POSE: sitting cross-legged on the floor typing on an open grey laptop, a few yellow sparkle doodles above the laptop. Headline in three lines, huge ultra-condensed heavy grotesque all caps in warm off-white (#F2F1EC): line 1 'LO CONVERTIMOS', line 2 a single phrase in high-contrast bold serif italic lowercase in yellow (#F5C518): 'en un post', line 3 'LISTO.'. Tight leading, the headline spans the full width inside a safe margin. The italic phrase must stay fully visible and never be covered. Below, small clean grotesque off-white text: 'Texto y diseño, listos para publicar.' Tiny monospace top left 'SOCIETY · 04/06'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  },
+  {
+    "carrusel": "c1",
+    "diapositiva": 5,
+    "job_id": "f27a621c-85a5-4a2c-9bc6-630ca5eae0b7",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "4895e8f1-54f1-42dd-88bc-0fc74a4884d6",
+        "origen": "pinterest_d04_stay_curious"
+      },
+      {
+        "media_id": "7b46ce45-7fd6-4121-b2ec-fffb3af1a8fa",
+        "origen": "marca/mascota_senalando_sticker.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 5 of 6, vertical 4:5 editorial magazine-cover poster. LAYOUT AND LIGHT from reference image 1: a character full body in a seamless deep cobalt blue photo studio (curved cove wall, soft floor shadow, soft top-left key light, gentle vignette) with an enormous headline in the upper half behind the character; the character may overlap only the bottom edge of the last headline line. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie. POSE: pointing up at the headline with one glove, other hand in the hoodie pocket, confident. Headline in three lines, huge ultra-condensed heavy grotesque all caps in warm off-white (#F2F1EC): line 1 'TU SEMANA,', line 2 a single phrase in high-contrast bold serif italic lowercase in yellow (#F5C518): 'planificada.', line 3 'SIN AGOBIOS.'. Tight leading, the headline spans the full width inside a safe margin. The italic phrase must stay fully visible and never be covered. Below, small clean grotesque off-white text: 'Un plan de publicaciones para tu bar, cada semana.' Tiny monospace top left 'SOCIETY · 05/06'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  },
+  {
+    "carrusel": "c1",
+    "diapositiva": 6,
+    "job_id": "1a342709-b1c5-4527-9b2f-948875b9b1f3",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "4895e8f1-54f1-42dd-88bc-0fc74a4884d6",
+        "origen": "pinterest_d04_stay_curious"
+      },
+      {
+        "media_id": "b729a1ac-7ebd-47a8-bbe3-972304a6962d",
+        "origen": "marca/mascota_celebrando_sticker.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 6 of 6, vertical 4:5 editorial magazine-cover poster. LAYOUT AND LIGHT from reference image 1: a character full body in a seamless deep cobalt blue photo studio (curved cove wall, soft floor shadow, soft top-left key light, gentle vignette) with an enormous headline in the upper half behind the character; the character may overlap only the bottom edge of the last headline line. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie. POSE: jumping in celebration with both arms up, small yellow burst strokes around the head. Headline in three lines, huge ultra-condensed heavy grotesque all caps in warm off-white (#F2F1EC): line 1 'TU AGENCIA', line 2 a single phrase in high-contrast bold serif italic lowercase in yellow (#F5C518): 'con IA.', line 3 'PARA TU BAR.'. Tight leading, the headline spans the full width inside a safe margin. The italic phrase must stay fully visible and never be covered. Below, small clean grotesque off-white text: 'Society · Link en la bio.' Tiny monospace top left 'SOCIETY · 06/06'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  }
+]
