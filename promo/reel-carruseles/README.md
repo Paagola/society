@@ -6,7 +6,7 @@ Fecha: 2026-10-20. Encargo de Víctor: una demostración artística de Society q
 
 | Qué | Dónde |
 |---|---|
-| Reel final, 1080 × 1920, 60 fps, 20 s, con sonido | enlace en el PR |
+| Reel final, 1080 × 1920, 60 fps, 20 s, con sonido | [society-reel-v2.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/88bc71bb-8a56-4831-b32b-5c6c2ce96409.mp4) (13,7 MB) · [portada](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/ee7e5c7d-96b2-4b61-9e82-ae6859ca01aa.jpg) |
 | Fuente del reel | [`reel.html`](reel.html): todo se calcula desde el tiempo en `seek(t)` |
 | Renderizador | [`render.mjs`](render.mjs): Playwright, 4 subfotogramas por fotograma, `tmix` → 60 fps |
 | Banda sonora | [`audio.py`](audio.py): rejilla medida con numpy y sonidos de interfaz sintetizados |
@@ -63,7 +63,7 @@ python3 ../../skills/openmontage/scripts/medir_realismo.py out/society-reel-v2.m
 
 - **Nada inventado:** la única foto «del cliente» es la original del chuletón de Etxebarri en Wikimedia (Ryan Snyder, CC BY 2.0), con su crédito en pantalla. Las de Disfrutar y St. JOHN no salen como «antes». Los datos de los posts salen de las webs oficiales ([`posts.md`](posts.md)). La semana no lleva cifras y «lista para publicar» respeta que la publicación es asistida (README raíz §6).
 - **Imagen con referencia:** todas las tomas tienen su foto real de referencia. Desde la tercera tanda de posts, el texto se monta sobre la foto sin regenerarla.
-- **Regla cero (firma de rodaje real):** no se aplica, a propósito: es una pieza de diseño de movimiento de interfaz (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se pasa igualmente y su resultado va en el PR.
+- **Regla cero (firma de rodaje real):** no se aplica, a propósito: es una pieza de diseño de movimiento de interfaz (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se pasa igualmente: dentro de objetivo la duración de plano (1,1 s), el enfoque (18,6 %), el punto blanco (237,9), el volumen (RMS 5291,5) y las transiciones (0). Marca REVISAR el movimiento de cámara (0,3 px), el punto negro (20,6) y los 16 planos con cámara quieta, lo esperable en una pieza de interfaz sin rodaje. SHA-256 del vídeo: `082da33e210ca6332e3f95fe542a5be38aab355b6a6427dcd6f52034d64457d1`.
 - **Coste del reel v2:** 0 créditos. Los posts costaron 16,5 + 16,5 + 2 créditos ([`posts.md`](posts.md)).
 
 ## Versión anterior
