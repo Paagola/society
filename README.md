@@ -385,6 +385,7 @@ Este es el único índice vigente. Los documentos históricos conservan evidenci
 | Society: auditoría crítica y propuesta de empresa más sólida | [informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md](informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md) |
 | Navegación | [informes/estudio-mercado/README.md](informes/estudio-mercado/README.md) |
 | Nueva API de Higgsfield y encaje técnico en Society | [informes/higgsfield/02-api-y-arquitectura.md](informes/higgsfield/02-api-y-arquitectura.md) |
+| Carruseles de Society con el texto integrado en la imagen (2026-10-20) | [carruseles_society/README.md](carruseles_society/README.md) |
 
 ### Histórico
 

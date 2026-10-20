@@ -1,0 +1,170 @@
+[
+  {
+    "carrusel": "c3",
+    "diapositiva": 1,
+    "job_id": "2819eee7-d1ba-4dee-91ee-11c37c9647ae",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "00a94300-562e-470d-b4b2-cd5999c84531",
+        "origen": "pinterest_d12_the_bad_boys"
+      },
+      {
+        "media_id": "9f515669-ae04-4350-89e0-fe7e75a06337",
+        "origen": "pinterest_c18_slow_is_a_power_move"
+      },
+      {
+        "media_id": "e534b92d-cb26-423d-9667-1c98948157a6",
+        "origen": "marca/mascota_pulgar.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 1 of 6, vertical 4:5 typographic poster. COMPOSITION from reference image 1: a character standing in front of gigantic stacked letters that fill the whole page, the character overlapping only small parts of the letters so every word stays clearly readable, on a warm off-white textured paper background (#F2F1EC) with soft contact shadow. COLOUR AND TYPE from reference image 2: ultra-condensed heavy grotesque caps in ink black (#151515) and cobalt blue (#1033EF), one thin cobalt hand-drawn wave line. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie. POSE: leaning casually with its back against the letters, thumbs up, three-quarter view. Headline filling the page: 'PUBLICA' in cobalt, 'menos,' in large black serif italic lowercase, 'LLENA MÁS.' in ink black. Tiny ink monospace top left 'SOCIETY · 01/06'. Tiny ink monospace bottom right 'DESLIZA →'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  },
+  {
+    "carrusel": "c3",
+    "diapositiva": 2,
+    "job_id": "5070b8a9-20e3-48a5-b319-ac9ed06d05f6",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "00a94300-562e-470d-b4b2-cd5999c84531",
+        "origen": "pinterest_d12_the_bad_boys"
+      },
+      {
+        "media_id": "9f515669-ae04-4350-89e0-fe7e75a06337",
+        "origen": "pinterest_c18_slow_is_a_power_move"
+      },
+      {
+        "media_id": "e534b92d-cb26-423d-9667-1c98948157a6",
+        "origen": "marca/mascota_pulgar.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 2 of 6, vertical 4:5 typographic poster. COMPOSITION from reference image 1: a character together with gigantic stacked letters on a warm off-white textured paper background (#F2F1EC) with soft contact shadow. COLOUR AND TYPE from reference image 2: ultra-condensed heavy grotesque caps in ink black (#151515) and cobalt blue (#1033EF), one thin cobalt hand-drawn wave line. LAYOUT: the four headline lines fill the top 78% of the page and NOTHING covers any letter; the character sits on top of the last headline line at the far right, perched on the upper edge of the final letters with its legs dangling down in front of the period only. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie, waving. Headline: 'UN POST' in ink black, 'bueno' in large cobalt serif italic lowercase, 'GANA A DIEZ' in ink black, 'CON PRISA.' in cobalt. Every word fully readable. Tiny ink monospace top left 'SOCIETY · 02/06'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  },
+  {
+    "carrusel": "c3",
+    "diapositiva": 3,
+    "job_id": "aa686613-fa73-441a-a500-559cb83099a7",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "00a94300-562e-470d-b4b2-cd5999c84531",
+        "origen": "pinterest_d12_the_bad_boys"
+      },
+      {
+        "media_id": "9f515669-ae04-4350-89e0-fe7e75a06337",
+        "origen": "pinterest_c18_slow_is_a_power_move"
+      },
+      {
+        "media_id": "e534b92d-cb26-423d-9667-1c98948157a6",
+        "origen": "marca/mascota_pulgar.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 3 of 6, vertical 4:5 typographic poster. COMPOSITION from reference image 1: a character together with gigantic stacked letters on a warm off-white textured paper background (#F2F1EC) with soft contact shadow. COLOUR AND TYPE from reference image 2: ultra-condensed heavy grotesque caps in ink black (#151515) and cobalt blue (#1033EF), one thin cobalt hand-drawn wave line. LAYOUT: the three headline lines fill the top 65% of the page and NOTHING covers any letter; in the free space below, the character stands full body at the right, and the small body text sits at the bottom left. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie, holding an open dark restaurant menu card and reading it. Headline: 'TU CARTA' in ink black, 'ya es' in large cobalt serif italic lowercase, 'CONTENIDO.' in ink black. Every word fully readable. Small ink grotesque body text: 'Cada plato es un post que no has hecho.' Tiny ink monospace top left 'SOCIETY · 03/06'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  },
+  {
+    "carrusel": "c3",
+    "diapositiva": 4,
+    "job_id": "db2ed9fe-605e-4313-84ce-b2a4d1e7923b",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "00a94300-562e-470d-b4b2-cd5999c84531",
+        "origen": "pinterest_d12_the_bad_boys"
+      },
+      {
+        "media_id": "9f515669-ae04-4350-89e0-fe7e75a06337",
+        "origen": "pinterest_c18_slow_is_a_power_move"
+      },
+      {
+        "media_id": "e534b92d-cb26-423d-9667-1c98948157a6",
+        "origen": "marca/mascota_pulgar.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 4 of 6, vertical 4:5 typographic poster. COMPOSITION from reference image 1: a character standing in front of gigantic stacked letters that fill the whole page, the character overlapping only small parts of the letters so every word stays clearly readable, on a warm off-white textured paper background (#F2F1EC) with soft contact shadow. COLOUR AND TYPE from reference image 2: ultra-condensed heavy grotesque caps in ink black (#151515) and cobalt blue (#1033EF), one thin cobalt hand-drawn wave line. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie. POSE: climbing up the side of a giant letter like a wall, one glove reaching up. Headline filling the page: 'LA CONSTANCIA' in ink black, 'llena' in large cobalt serif italic lowercase, 'MESAS.' in cobalt. Tiny ink monospace top left 'SOCIETY · 04/06'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  },
+  {
+    "carrusel": "c3",
+    "diapositiva": 5,
+    "job_id": "bc034f1b-450c-4b05-a903-6d609072a58c",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "00a94300-562e-470d-b4b2-cd5999c84531",
+        "origen": "pinterest_d12_the_bad_boys"
+      },
+      {
+        "media_id": "9f515669-ae04-4350-89e0-fe7e75a06337",
+        "origen": "pinterest_c18_slow_is_a_power_move"
+      },
+      {
+        "media_id": "7b46ce45-7fd6-4121-b2ec-fffb3af1a8fa",
+        "origen": "marca/mascota_senalando_sticker.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 5 of 6, vertical 4:5 typographic poster. COMPOSITION from reference image 1: a character together with gigantic stacked letters on a warm off-white textured paper background (#F2F1EC) with soft contact shadow. COLOUR AND TYPE from reference image 2: ultra-condensed heavy grotesque caps in ink black (#151515) and cobalt blue (#1033EF), one thin cobalt hand-drawn wave line. LAYOUT: the headline fills the top 70% of the page and NOTHING covers any letter; in the free space below, the character stands full body at the left, pointing up at the headline with one glove, other hand on hip. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie. Headline: 'TÚ COCINAS.' in ink black, 'nosotros' in large cobalt serif italic lowercase, 'LO CONTAMOS.' in ink black. Every word fully readable. Tiny ink monospace top left 'SOCIETY · 05/06'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  },
+  {
+    "carrusel": "c3",
+    "diapositiva": 6,
+    "job_id": "5556d0e7-ced8-437b-8fb8-87150df272f3",
+    "modelo": "gpt_image_2_5",
+    "calidad": "high",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "referencias": [
+      {
+        "media_id": "00a94300-562e-470d-b4b2-cd5999c84531",
+        "origen": "pinterest_d12_the_bad_boys"
+      },
+      {
+        "media_id": "9f515669-ae04-4350-89e0-fe7e75a06337",
+        "origen": "pinterest_c18_slow_is_a_power_move"
+      },
+      {
+        "media_id": "b729a1ac-7ebd-47a8-bbe3-972304a6962d",
+        "origen": "marca/mascota_celebrando_sticker.png"
+      },
+      {
+        "media_id": "be9444e1-005d-4b53-95eb-0c2073a790bf",
+        "origen": "marca/mascota_hoja_personaje.png"
+      }
+    ],
+    "prompt": "Instagram carousel slide 6 of 6, vertical 4:5 typographic poster. COMPOSITION from reference image 1: a character standing in front of gigantic stacked letters that fill the whole page, the character overlapping only small parts of the letters so every word stays clearly readable, on a warm off-white textured paper background (#F2F1EC) with soft contact shadow. COLOUR AND TYPE from reference image 2: ultra-condensed heavy grotesque caps in ink black (#151515) and cobalt blue (#1033EF), one thin cobalt hand-drawn wave line. CHARACTER: the Society mascot from the character references, reproduced exactly: head is a crumpled white paper ball shape with a glossy black oval face and two white vertical pill-shaped eyes (eyes never change shape), a thin wireframe globe halo floating above the head, cobalt blue hoodie (#1033EF) with black drawstrings and a small yellow four-point sparkle on the chest, white cartoon glove hands, thin black legs, chunky white sneakers with black stripes. Render it as a tactile 3D collectible figure with real crumpled paper texture on the head and soft cotton on the hoodie. POSE: jumping in celebration with both arms up. Headline filling the page: 'EMPIEZA' in ink black, 'hoy.' in very large cobalt serif italic lowercase. Small ink grotesque text at the bottom: 'Society, tu agencia con IA · Link en la bio.' Tiny ink monospace top left 'SOCIETY · 06/06'. All text sits directly on the background: no boxes, no panels, no cards, no banners, no labels, no speech bubbles and no rectangles behind any text. Exact Spanish spelling with accents, no other text, no watermark. Professional print-quality finish, subtle grain."
+  }
+]
