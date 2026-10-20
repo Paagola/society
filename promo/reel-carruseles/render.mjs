@@ -1,7 +1,7 @@
 // Renderiza reel.html con Playwright: 4 subfotogramas por fotograma, mezclados con
 // ffmpeg tmix para el desenfoque de movimiento, a 60 fps.
 //
-//   node render.mjs                 → out/reel-muda.mp4 (16 s, 60 fps)
+//   node render.mjs                 → out/reel-muda.mp4 (60 fps)
 //   node render.mjs --tiempos       → out/tiempos/bXX.png, un fotograma por tiempo + hoja
 //   node render.mjs --desde 6 --hasta 8   → solo un tramo (para revisar)
 //
@@ -59,7 +59,7 @@ async function tiempos() {
   }
   await browser.close();
   execFileSync('ffmpeg', ['-v', 'error', '-y', '-pattern_type', 'glob', '-i', path.join(dir, 'b*.png'),
-    '-vf', 'scale=270:480,tile=8x4:padding=6:color=0x222222', '-frames:v', '1', path.join(OUT, 'tiempos-hoja.jpg')]);
+    '-vf', `scale=270:480,tile=8x${Math.ceil(lista.length / 8)}:padding=6:color=0x222222`, '-frames:v', '1', path.join(OUT, 'tiempos-hoja.jpg')]);
   console.log('hoja →', path.join(OUT, 'tiempos-hoja.jpg'));
 }
 
