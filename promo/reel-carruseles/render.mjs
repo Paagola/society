@@ -75,7 +75,8 @@ async function video() {
     const page = await abre(browser);
     for (let n = h; n < total; n += HILOS) {
       const fi = f0 + Math.floor(n / SUB), s = n % SUB;
-      const t = (fi + ((s + 0.5) / SUB - 0.5) * OBTURADOR) / FPS;
+      // el obturador abre en el instante del fotograma: un corte que cae justo en un fotograma no se mezcla con el plano anterior
+      const t = (fi + ((s + 0.5) / SUB) * OBTURADOR) / FPS;
       await page.evaluate((t) => window.REEL.seekListo(t), t);
       await page.screenshot({ path: path.join(dir, `${String(n).padStart(6, '0')}.jpg`), type: 'jpeg', quality: 94 });
       if (++hechos % 240 === 0) console.log(`${hechos}/${total}  ${((Date.now() - t0) / 1000).toFixed(0)} s`);
