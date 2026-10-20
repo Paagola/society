@@ -40,7 +40,7 @@ P['E2'] = foto('../../assets/raw/E2.png') + f"""
 <div class="a m" style="right:70px;top:40px;color:#151515">02/06</div>
 <div class="a an ink" style="left:66px;top:105px;font-size:132px">Un pueblo, una plaza,<br>una parrilla.</div>
 <div style="position:absolute;left:-200px;top:1340px;width:2256px;height:964px;perspective:1100px;perspective-origin:50% 0%">
-  <div class="an" style="position:absolute;left:0;right:0;bottom:120px;text-align:center;font-size:780px;color:#F6F3EC;opacity:1;font-weight:700;transform:rotateX(64deg);transform-origin:50% 100%;letter-spacing:.02em">PLAZA</div>
+  <div class="an" style="position:absolute;left:0;right:0;bottom:230px;text-align:center;font-size:780px;color:#F6F3EC;opacity:1;font-weight:700;transform:rotateX(64deg);transform-origin:50% 100%;letter-spacing:.02em">PLAZA</div>
 </div>
 <div class="a m hueso" style="left:70px;top:2150px;color:#F4F1EA">Bittor Arguinzoniz enciende las brasas con leña<br>cada mañana desde 1990.</div>
 """
