@@ -200,17 +200,15 @@ const pCamY = pista([[0, 0], [7.50, -90], [8.86, 45], [9.50, 0]], 1.8, 0.95);
 // ───────────── Cursor ─────────────
 // Posiciones relativas al centro de la forma, en el mundo. Los clics, aparte.
 const REPOSO = [300, 470];
+const AGARRE = 0.18;                       // el arrastre dura del agarre a la suelta (en el tiempo)
+// Cada deslizamiento: vuelve a la derecha, agarra y arrastra rápido hacia la izquierda.
+const arrastre = (r) => [[r - 0.40, 260, 120], [r - AGARRE + 0.01, -170, 140, 5.5]];
 const RUTA = [
   [0, ...REPOSO],
   [0.10, 150, 30],                  // al botón
   [0.70, 230, 170],                 // se aparta mientras carga
   [1.62, 210, 18],                  // a la isla
-  // carrusel 1: arrastres
-  [2.10, 260, 120], [2.24, -160, 140, 4.2], [2.54, 260, 120], [2.74, -160, 140, 4.2],
-  [3.04, 260, 120], [3.24, -160, 140, 4.2],
-  // carrusel 2
-  [3.54, 260, 120], [3.74, -160, 140, 4.2], [4.04, 260, 120], [4.24, -160, 140, 4.2],
-  [4.54, 260, 120], [4.74, -160, 140, 4.2], [5.04, 260, 120], [5.24, -160, 140, 4.2],
+  ...[2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5].flatMap(arrastre),   // carruseles 1 y 2
   [5.56, 40, 260],                  // a la tarjeta: clic → reproductor
   [6.22, -300, 493],                // al play/pausa
   [7.00, -69, 508],                 // a la bola de progreso
@@ -221,7 +219,7 @@ const RUTA = [
   [9.62, 0, 30],                    // a Mié
   [10.22, 260, 30],                 // a Vie
   [11.20, 110, 90],                 // sobre la barra del viernes
-  [12.10, 260, 120], [12.24, -160, 140, 4.2], [12.54, 260, 120], [12.74, -160, 140, 4.2],
+  ...[12.5, 13.0].flatMap(arrastre),                        // carrusel 3
   [13.10, 40, 220],                 // clic → ⌘K
   [13.70, 260, 120],                // se aparta mientras se escribe
   [14.20, 120, 44],                 // a la fila
@@ -234,7 +232,7 @@ const pY = pista(RUTA.map((r) => [r[0], r[2], r[3]]), 3.0, 1);
 const CLICS = [[0.44, 0.52], [1.92, 2.00], [5.92, 6.00], [6.44, 6.50], [6.94, 7.00], [8.94, 9.00],
   [9.94, 10.00], [10.44, 10.50], [10.94, 11.00], [11.94, 12.00], [13.44, 13.50], [14.44, 14.50]];
 const SUELTAS = [2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 12.5, 13.0];          // arrastres de carrusel
-const ARRASTRES = SUELTAS.map((r) => [r - 0.27, r]).concat([[7.16, 7.46], [7.78, 8.50]]);
+const ARRASTRES = SUELTAS.map((r) => [r - AGARRE, r]).concat([[7.16, 7.46], [7.78, 8.50]]);
 function pulsado(t) {
   for (const [a, b] of CLICS.concat(ARRASTRES)) if (t >= a && t < b) return true;
   return false;
@@ -267,11 +265,11 @@ for (const [id, d] of Object.entries(TIRAS)) {
   d.pos = (t) => {
     let x = 0;
     for (const r of d.sueltas) {
-      const p = r - 0.27;
+      const p = r - AGARRE;
       if (t >= p && t < r) x += (pX(t) - pX(p)) * 1.0;
       if (t >= r) {
         const dx = pX(r) - pX(p);
-        x += -d.paso * S(t - r, 3.4, 0.9) + dx * (1 - S(t - r, 3.4, 0.9));
+        x += -d.paso * S(t - r, 4.4, 0.9) + dx * (1 - S(t - r, 4.4, 0.9));
       }
     }
     return x;

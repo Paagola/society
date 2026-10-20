@@ -51,7 +51,7 @@ async function tiempos() {
   fs.mkdirSync(dir, { recursive: true });
   const lista = [];
   for (let k = 0; k < Math.round(dur / B); k++) {
-    const t = k * B + 0.3;                              // un poco después del golpe, ya asentado
+    const t = k * B + 0.2;                              // justo después del golpe, ya asentado
     await page.evaluate((t) => window.REEL.seekListo(t), t);
     const f = path.join(dir, `b${String(k).padStart(2, '0')}.png`);
     await page.screenshot({ path: f });

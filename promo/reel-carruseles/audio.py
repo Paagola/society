@@ -126,7 +126,7 @@ def eventos():
         ev.append((a, clic(0.9)))
         ev.append((b, clic(0.5, 1800)))
     for r in SUELTAS:
-        ev.append((r - 0.27, clic(0.5)))          # agarre
+        ev.append((r - 0.18, clic(0.5)))          # agarre
         ev.append((r, barrido()))                  # el pico del barrido cae en la suelta
         ev.append((r, golpe(140, 0.05, 0.5)))
     for t in CAMBIOS:
