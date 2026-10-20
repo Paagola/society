@@ -420,7 +420,7 @@ $('objA').style.width = cA.el.style.width; $('objA').style.height = cA.el.style.
 const camA = trk([
   [0, { ...CAM0, rx: 16, ry: -20, y: 40 }],
   [0.1, { ry: -9 }, 0.45, 1],                          // órbita lenta mientras sube la foto
-  [1.55, { rx: 34, ry: 0, s: 1.75, y: 330 }, 1.25, 0.9],  // se abre: grúa arriba y hacia el archivo
+  [1.55, { rx: 30, ry: 0, s: 1.5, y: 300 }, 1.25, 0.9],  // se abre: grúa arriba y hacia el archivo
   [18.95, { rx: 62, ry: 0, rz: -18, s: 1.45, y: -60 }, 0],   // corte: vista cenital
   [19.0, { rx: 16, ry: -20, rz: 0, s: 1, y: 40 }, 1.2, 0.9],
 ]);
@@ -716,7 +716,7 @@ function seek(tAbs) {
     cam($('objG'), camG(t));
     cG.forEach((c, i) => {
       const t0 = T_CAEN[i];
-      pintaCarpeta(c, { st: 0.3 * suave((t - t0 + 0.2) / 0.2) + 0.7 * S(t - t0 - 0.55, 1.6, 0.62), drop: t >= t0 ? t - t0 : null, meta: t >= t0 + 0.38 ? [1, t - t0 - 0.38] : [0, 9] });
+      pintaCarpeta(c, { st: 0.3 * suave((t - t0 + 0.2) / 0.2) + 1.05 * S(t - t0 - 0.55, 1.6, 0.62), drop: t >= t0 ? t - t0 : null, meta: t >= t0 + 0.38 ? [1, t - t0 - 0.38] : [0, 9] });
     });
     const ka = suave((t - 15.3) / 0.25);
     $('aprobar').style.opacity = ka.toFixed(3);

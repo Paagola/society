@@ -113,13 +113,13 @@ def campana(notas=(1318.5, 1975.5), fuerza=1.0):
 
 
 # ───────── Guion de sonidos (mismos tiempos que reel.html) ─────────
-CLICS = [[0.44, 0.52], [1.92, 2.00], [2.94, 3.00], [15.94, 16.02]]
-SUELTAS = [7.75, 8.25, 8.75, 9.25]
-CAMBIOS = [0.52, 1.00, 1.50, 2.00, 7.00, 9.42, 9.55, 11.50, 14.00, 16.50, 17.50, 19.00]
+CLICS = [[0.44, 0.52], [1.50, 1.58], [2.94, 3.00], [15.94, 16.02]]
+SUELTAS = [7.75, 8.25, 8.75, 9.25]                        # giros de la rueda
+CORTES = [2.0, 4.0, 6.0, 6.5, 7.0, 9.5, 11.5, 14.0, 17.5, 19.0]
+CAEN = [0.52, 14.5, 14.75, 15.0]                          # archivos que caen en una carpeta
 LETRAS = [4.25 + i * 0.375 for i in range(5)] + [10.0 + i * 0.25 for i in range(5)]
 RAFAGA = [11.5 + i * 0.25 for i in range(1, 10)]
-CAEN = [14.5, 14.75, 15.0]
-TECLAS = [6.05 + i * 0.014 * 4 for i in range(12)]
+TECLAS = [6.05 + i * 0.013 * 4 for i in range(12)]
 
 
 def eventos():
@@ -128,22 +128,24 @@ def eventos():
         ev.append((a, clic(0.9)))
         ev.append((b, clic(0.5, 1800)))
     for r in SUELTAS:
-        ev.append((r - 0.18, clic(0.5)))          # agarre
+        ev.append((r - 0.2, clic(0.5)))           # agarre
         ev.append((r, barrido()))                  # el pico del barrido cae en la suelta
         ev.append((r, golpe(140, 0.05, 0.5)))
-    for t in CAMBIOS:
-        ev.append((t, golpe(110 if t not in (2.0, 9.55, 17.5) else 80, 0.10, 0.9)))
+    for t in CORTES:
+        ev.append((t, golpe(110 if t not in (2.0, 9.5, 17.5) else 80, 0.10, 0.9)))
+    for t in CAEN:                                 # el archivo toca fondo y el cristal cede
+        ev.append((t + 0.61, golpe(150, 0.06, 0.7)))
+        ev.append((t + 0.61, clic(0.35, 1300)))
     for t in LETRAS:                               # cada letra que aterriza
         ev.append((t + 0.07, golpe(70, 0.14, 1.0)))
         ev.append((t + 0.07, clic(0.6, 1500)))
     for t in RAFAGA:                               # cortes de la ráfaga
         ev.append((t, clic(0.55, 2900)))
-    for t in CAEN:
-        ev.append((t + 0.12, golpe(150, 0.06, 0.6)))
     for t in TECLAS:
         ev.append((t, tecla()))
+    ev.append((7.0, barrido(0.35, 0.6)))                 # el anillo se forma
     ev.append((3.0, barrido(0.5, 0.8)))                  # escaneo
-    ev.append((1.02, campana((1567.98, 2349.3), 0.8)))   # check
+    ev.append((1.13, campana((1567.98, 2349.3), 0.8)))   # foto recibida
     ev.append((16.75, campana()))                        # aviso
     return ev
 
