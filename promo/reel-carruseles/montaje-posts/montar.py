@@ -112,21 +112,21 @@ P['D4'] = foto('../../assets/raw/D4.png') + anillo + f"""
 # ───── Disfrutar 05 · sala blanca: cotas de plano
 cotas = svg("""
 <g stroke="#141414" stroke-width="3" fill="none" style="mix-blend-mode:multiply">
- <path d="M1200,860 L1560,860"/><path d="M1200,840 L1200,880 M1560,840 L1560,880"/>
- <path d="M300,700 L300,1180"/><path d="M280,700 L320,700 M280,1180 L320,1180"/>
- <path d="M1380,860 L1380,560"/><path d="M300,940 L520,940"/>
-</g>""")
+ <path d="M1200,860 L1560,860"/><path d="M1200,835 L1200,885 M1560,835 L1560,885"/>
+ <path d="M1380,860 L1380,560"/>
+ <path d="M250,548 L120,548"/>
+</g><circle cx="120" cy="548" r="8" fill="#141414"/>""")
 P['D5'] = foto('../../assets/raw/D5.png') + cotas + f"""
 <div class="a m ink" style="left:70px;top:40px">DISFRUTAR — BARCELONA</div>
 <div class="a m ink" style="right:70px;top:40px">05/06</div>
 <div class="a m ink" style="left:1300px;top:500px">celosía</div>
-<div class="a m ink" style="left:530px;top:915px">luz natural</div>
+<div class="a m ink" style="left:262px;top:520px">luz natural</div>
 <div class="a an ink" style="left:80px;top:1580px;font-size:190px">Una sala<br>blanca.</div>
 <div class="a m ink" style="left:84px;top:1960px">Inspirada en los pueblos de<br>pescadores del Mediterráneo.</div>
 """
 
 # ───── Disfrutar 06 · olivo: ficha de herbario
-herb = svg("""<path d="M640,980 C760,1140 900,1380 1080,1640" fill="none" stroke="#141414" stroke-width="3" style="mix-blend-mode:multiply"/>
+herb = svg("""<path d="M420,800 C640,1000 900,1340 1080,1640" fill="none" stroke="#141414" stroke-width="3" style="mix-blend-mode:multiply"/>
 <circle cx="1080" cy="1640" r="9" fill="#141414"/>""")
 P['D6'] = foto('../../assets/raw/D6.png') + herb + f"""
 <div class="a m ink" style="left:70px;top:40px">DISFRUTAR — BARCELONA</div>
@@ -163,20 +163,20 @@ P['S4'] = foto('../../assets/raw/S4.png') + corte + f"""
 
 # ───── St. JOHN 05 · cabeza de cerdo: «Del morro» detrás de las orejas
 P['S5'] = foto('../../assets/raw/S5.png') + f"""
-<div class="a ca" style="left:0;right:0;text-align:center;top:300px;font-size:330px;color:#141414">Del morro</div>
+<div class="a ca" style="left:0;right:0;text-align:center;top:440px;font-size:330px;color:#141414">Del morro</div>
 <div class="f" style="background-image:url(../../assets/raw/S5_rec.png)"></div>
 <div class="a c ink" style="left:80px;top:60px;font-size:40px">St. JOHN · Smithfield</div>
 <div class="a c ink" style="right:80px;top:60px;font-size:40px">5/6</div>
 <div class="a ca ink" style="left:0;right:0;text-align:center;top:1960px;font-size:210px">a la cola.</div>
-<div class="a c ink" style="left:0;right:0;text-align:center;top:2190px;font-size:32px">Fergus Henderson: usar todo el animal es «de sentido común, e incluso de buena educación».</div>
+<div class="a c ink" style="left:0;right:0;text-align:center;top:2170px;font-size:34px;line-height:1.3">Fergus Henderson: usar todo el animal es<br>«de sentido común, e incluso de buena educación».</div>
 """
 
 # ───── St. JOHN 06 · fachada: año y etiquetas
-eti = svg("""<path d="M640,1260 C800,1300 950,1420 1050,1610" fill="none" stroke="#FFFFFF" stroke-width="4"/>
-<circle cx="1050" cy="1610" r="9" fill="#FFFFFF"/>""")
+eti = svg("""<path d="M600,1790 C720,1760 820,1720 905,1650" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+<circle cx="905" cy="1650" r="9" fill="#FFFFFF"/>""")
 P['S6'] = foto('../../assets/raw/S6.png') + eti + f"""
 <div class="a ca ink" style="left:800px;top:40px;font-size:150px;line-height:.95">Octubre<br>de 1994.</div>
-<div class="a c" style="left:60px;top:1170px;color:#fff;font-size:38px">Un antiguo ahumadero<br>junto al mercado<br>de Smithfield.</div>
+<div class="a c" style="left:60px;top:1740px;color:#fff;font-size:38px">Un antiguo ahumadero<br>junto al mercado<br>de Smithfield.</div>
 <div class="a c" style="right:70px;top:2240px;color:#fff;font-size:30px">6/6 · {AVISO}</div>
 """
 
