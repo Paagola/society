@@ -384,7 +384,9 @@ function seek(tAbs) {
 
   // Carrusel con los posts terminados
   const kt = capa(t, 7.0, 9.42, { ent: 0.14 });
-  pinta($('L_tira'), Math.max(kt, t >= 6.9 && t < 7.0 ? suave((t - 6.9) / 0.1) : 0));
+  if (t >= 6.8 && t < 7.2) {            // el post terminado aparece nítido sobre el montaje
+    const lt = $('L_tira'); ver(lt, suave((t - 6.88) / 0.16)); lt.style.filter = 'none'; lt.style.transform = 'translate(-50%,-50%)';
+  } else pinta($('L_tira'), kt);
   $('tira').style.transform = `translate(${-CW / 2 + posTira(t)}px, ${-CH / 2}px)`;
   const idx = clamp(-posTira(t) / CW, 0, TIRA.ids.length - 1);
   TIRA.ids.forEach((_, i) => {
