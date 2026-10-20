@@ -1,75 +1,71 @@
-# Society · reel de los carruseles
+# Society · reel del flujo (v2)
 
-Fecha: 2026-10-20. Encargo de Víctor: un reel con los tres carruseles de la mascota (rama `claude/society-carousels-7e13tj`, PR #3), con buena música, buen gancho, estética profesional y minimalista, identidad de Society y mucha animación. Referencia de estilo que pasó Víctor: movimiento de interfaz «nivel Dribbble», **una sola forma que nunca se corta** y muta de tamaño, radio y color mientras un cursor la maneja con clics y arrastres de verdad, con muelles, cámara que se acerca a cada estado y bucle perfecto. Nivel de energía: un *showreel* de 15 s.
+Fecha: 2026-10-20. Encargo de Víctor: una demostración artística de Society que una la identidad visual de la app con el flujo real, desde la foto del cliente hasta el carrusel terminado, en la estética de los posts de [`posts.md`](posts.md). Mantiene la dirección de la v1, la que le gustó: **una sola forma que nunca se corta** y muta mientras un cursor la maneja, con muelles, cámara y bucle perfecto.
 
 ## Entregable
 
 | Qué | Dónde |
 |---|---|
-| Reel final, 1080 × 1920, 60 fps, 16 s, con sonido (20 MB) | [society-reel-carruseles.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/2161e899-ac13-4baf-acb4-9e1fc7e801b7.mp4) · SHA-256 `009c78750b299787bf38c5eb7791752f64b15e223d42788ae8762be525ef357e` |
-| Portada | [jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/668b657b-b38a-4184-a94c-f97538ccd774.jpg) |
+| Reel final, 1080 × 1920, 60 fps, 20 s, con sonido | enlace en el PR |
 | Fuente del reel | [`reel.html`](reel.html): todo se calcula desde el tiempo en `seek(t)` |
 | Renderizador | [`render.mjs`](render.mjs): Playwright, 4 subfotogramas por fotograma, `tmix` → 60 fps |
 | Banda sonora | [`audio.py`](audio.py): rejilla medida con numpy y sonidos de interfaz sintetizados |
-| Material | [`preparar.sh`](preparar.sh): diapositivas, clip de la mascota y música a `assets/` (no se sube) |
+| Material | [`preparar.sh`](preparar.sh): foto original, tomas, los 17 posts, logo y música a `assets/` (no se sube) |
+| Posts | [`posts.md`](posts.md) y [`montaje-posts/`](montaje-posts/): los 17 posts y cómo se montan |
+| Mascota sin fondo | [`mascota/`](mascota/): 7 poses recortadas del Drive (los ojos no cambian) |
+| Fuentes de los posts | [`fuentes/`](fuentes/): Archivo Narrow, Bricolage Grotesque, Libre Caslon, Caveat, IBM Plex Mono, Courier Prime (todas OFL) |
 
-Para rehacerlo en cualquier ordenador con Node, Python 3 (numpy, scipy) y ffmpeg:
+Para rehacerlo con Node, Python 3 (numpy, scipy), ImageMagick y ffmpeg:
 
 ```bash
 cd promo/reel-carruseles
-bash preparar.sh                       # material a assets/
+bash preparar.sh
 node render.mjs --tiempos              # un fotograma por tiempo → out/tiempos-hoja.jpg (revisar antes)
-node render.mjs                        # out/reel-muda.mp4 (unos 4 min con 4 hilos)
+HILOS=8 node render.mjs                # out/reel-muda.mp4
 python3 audio.py assets/musica.mp3 out/banda.wav --inicio 64.0
-ffmpeg -i out/reel-muda.mp4 -i out/banda.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 256k -shortest out/society-reel-carruseles.mp4
+ffmpeg -i out/reel-muda.mp4 -i out/banda.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 256k -shortest out/society-reel-v2.mp4
+python3 ../../skills/openmontage/scripts/medir_realismo.py out/society-reel-v2.mp4
 ```
-
-Sin Playwright instalado en el proyecto, `render.mjs` usa el global (`npm root -g`). `CHROMIUM=/ruta` fija el navegador.
 
 ## Dirección
 
-- **Lienzo** gris cálido `#E9E6DF`, componentes en tinta `#151515` y blanco, y un solo acento: el cobalto de Society `#1033EF`. Letra única de interfaz: Geist. La identidad gráfica de Society (Anton, Playfair cursiva, collage de papel, mascota) entra por las propias diapositivas, que viven dentro de la forma.
-- **Muelles** en todo, con forma cerrada (respuesta al escalón, zeta 0,86: rebasa menos del 1 %). Un valor que cambia de objetivo muchas veces es la suma de un muelle por cambio, así que sigue siendo una función pura del tiempo. Nada de rebotes, partículas, brillos ni degradados en la interfaz.
-- **Cámara** con su propio muelle, más lento que la forma: cada estado acaba llenando el cuadro y se nota el cambio de tamaño.
-- **Manipulación directa.** Mientras el cursor arrastra, la tira del carrusel, la barra de progreso (y el fotograma del clip) o el deslizador siguen su posición. Al soltar, el muelle sale desde donde estaba.
-- **Bola de dos bordes.** En el interruptor y en el indicador de pestañas, el borde de delante va en un muelle más rápido que el de detrás, así que se estira al moverse.
-- **Desenfoque de movimiento:** 4 subfotogramas en medio fotograma (obturador de 180°), mezclados con `tmix`.
-- **Bucle:** el último fotograma es el primero. Las pistas suman lo que queda de los muelles del final al principio, y el cursor vuelve a su sitio quieto.
+- **Identidad de Society:** lienzo papel `#ECE8DC`, tinta `#141414` y cobalto `#2440E0`, que son los colores de la guía. Los rótulos usan la pareja de la marca, Anton para el número del paso y Playfair cursiva para la frase. La interfaz va en Geist. Cierra con el logotipo oficial de recortes y la mascota.
+- **Una sola forma** que pasa por botón, carga, check, isla, tarjeta, semana, aviso y logo. Muelles de forma cerrada (zeta 0,86), sin rebotes, partículas, brillos ni degradados.
+- **El flujo se ve, no se cuenta:** la foto del móvil entra torcida y se endereza. Una línea cobalto la escanea y debajo aparece la toma profesional. La tarjeta gira en 3D, las letras caen desde la cámara una por corchea con puntillo y el montaje pasa nítido al post terminado.
+- **Sobre tu foto, sin tocarla:** en Axpe, el título entra palabra a palabra y «PLAZA» cae letra a letra sobre el suelo, en la misma perspectiva del post.
+- **Manipulación directa** en el carrusel: la tira sigue al cursor y al soltar sale el muelle desde donde estaba.
+- **Desenfoque de movimiento:** 4 subfotogramas en medio fotograma (180°) mezclados con `tmix`.
+- **Bucle:** el último fotograma es el primero.
 
-## Guion sobre la rejilla (120 BPM, 32 tiempos, 8 compases)
+## Guion sobre la rejilla (120 BPM, 40 tiempos, 10 compases)
 
-| Compás | Tiempos | Estado de la forma | Lo que hace el cursor |
-|---|---|---|---|
-| 1 | 0–3 | Botón «Haz que vean tu bar» → carga → check cobalto → isla dinámica «Society · 3 carruseles listos» | Clic en el botón (t1) y en la isla (t3–4) |
-| 2 | 4–7 | La isla crece hasta la portada del carrusel 1. Diapositivas 1·1 → 1·2 → 1·3 → 1·4 | Arrastra en cada tiempo |
-| 2–3 | 7–11 | Pulso de la tarjeta y carrusel 2: 2·1 (gancho: «Nadie va a donde no ve») → 01 → 02 → 03 → 04 | Arrastra en cada tiempo |
-| 4 | 12–15 | Reproductor con la mascota animada (Seedance 2.5 desde la diapositiva 1·6). Pausa, play, arrastre de la barra de progreso | Clics y arrastre |
-| 4–5 | 15–17 | La barra pasa a deslizador de «publicaciones por semana». Se arrastra más allá del 7 y el carril se estira; al soltar vuelve a **3**: «Publica menos, llena más.» | Arrastre |
-| 5 | 18–19 | Interruptor «Publicar solo» que se enciende en el tiempo. Su bola se convierte en el indicador de las pestañas Lun / Mié / Vie | Clic |
-| 5–6 | 20–23 | Mié, Vie y las pestañas se abren en el gráfico «Tu semana» (tres barras iguales: constancia), que se dibuja solo, con etiqueta al pasar por el viernes | Clics y paso del cursor |
-| 6–7 | 24–26 | Carrusel 3: «Publica menos, llena más» → «La constancia llena mesas» → «Tú cocinas, nosotros lo contamos» | Arrastres |
-| 7–8 | 27–31 | ⌘K, se escribe «semana», se filtra, Enter, aviso «Tu semana, planificada.» y vuelta al botón | Clics |
+| Segundos | Rótulo | Forma y acción |
+|---|---|---|
+| 0–1,5 | «De la foto del móvil al post listo.» | Botón «Sube la foto de tu plato» → clic → carga → check cobalto (la mascota sube el pulgar) |
+| 1,5–3 | 01 · «Subes la foto de tu plato.» | Isla «Foto recibida» → clic → tarjeta con la foto original del chuletón (Ryan Snyder, CC BY 2.0), chip «Tu foto · móvil», clic en «Mejorar foto» |
+| 3–4 | 02 · «La IA la deja profesional.» · «Mismo plato. Nada inventado.» | Escaneo cobalto que descubre la toma profesional; chip «Con Society» |
+| 4–7 | 03 · «Escribe y diseña el post.» | Giro 3D; F-U-E-G-O caen una a una; se teclea el pie; pasa al post E1 |
+| 7–9,5 | 04 · «Monta el carrusel entero.» | Arrastres por E1 → E3 → E4 → E5 → E6 con sus puntos |
+| 9,5–11,5 | «Sobre tu foto, sin tocarla.» | Axpe: título palabra a palabra y «PLAZA» letra a letra sobre el suelo |
+| 11,5–14 | «Con cualquier cocina.» | Ráfaga de 10 posts, uno por corchea, con contador 08/17 → 17/17 |
+| 14–16,5 | 05 · «Y te planifica la semana.» | «Tu semana»: Lun, Mié y Vie reciben su post; clic en «Aprobar la semana» |
+| 16,5–17,5 | | Aviso «Tu semana, lista para publicar.» |
+| 17,5–19 | «Tu agencia de marketing con IA.» | Logotipo oficial y mascota |
+| 19–20 | | Vuelta al botón |
 
 ## Música y sonido
 
-- **Música:** «Electro Dreams» de Arulo, de [Mixkit](https://mixkit.co/free-stock-music/tag/house/) ([pista](https://assets.mixkit.co/music/190/190.mp3)), con la *Mixkit Stock Music Free License*: uso comercial gratuito en vídeos, sin atribución obligatoria; no se puede redistribuir la pista suelta, por eso no se sube al repositorio. Elegida entre las 36 pistas de la etiqueta «house» de Mixkit midiendo el tempo de todas (las de 120 BPM eran 8) y su forma con espectrograma.
-- **Rejilla medida:** 119,98 BPM. El tramo usado son los 8 compases que empiezan en la entrada fuerte del minuto 1:04, de modo que el reel arranca en un golpe y el bucle vuelve al mismo groove.
-- **Sonidos de interfaz** sintetizados en `audio.py` (sin licencias de terceros): clic al pulsar y al soltar, barrido en cada arrastre con el pico en la suelta, golpe grave en cada cambio de forma, muescas del deslizador, teclas, campanita del check y del aviso. Cada sonido se coloca por su **pico medido**, no por su inicio.
+- **Música:** «Electro Dreams» de Arulo, de [Mixkit](https://mixkit.co/free-stock-music/tag/house/) ([pista](https://assets.mixkit.co/music/190/190.mp3)), con la *Mixkit Stock Music Free License*: uso comercial gratuito en vídeos, sin atribución obligatoria; no se puede redistribuir la pista suelta, por eso no va al repositorio. Tramo de 10 compases desde la entrada fuerte del minuto 1:04 (tempo medido 119,98 BPM).
+- **Sonidos de interfaz** sintetizados en `audio.py`: clics, barrido en cada arrastre y en el escaneo, golpe grave en cada cambio de forma y en cada letra que aterriza, tic en cada corte de la ráfaga, teclas del pie y campanitas del check y del aviso. Cada sonido se coloca por su pico medido.
 - **Mezcla:** música al 78 %, interfaz por encima, RMS a −15 dBFS y limitador suave a −1 dBFS.
 
 ## Reglas del proyecto
 
-- **Imagen con referencia:** el reel no genera imágenes nuevas; usa las 18 diapositivas tal cual. El único plano generado es el clip de la mascota (Seedance 2.5, 720p, 5 s, `job 0cfc6e54-06e3-4fab-bded-9780c9913fc0`), hecho con la diapositiva 1·6 como imagen de inicio y la orden de no mover el texto. Se usa el tramo 2,6–5,0 s: entre 1,9 y 2,2 s la mascota guiña y cambia los ojos, que según la marca no cambian nunca.
-- **Reescalado:** el clip se ve a 760 × 1013 px dentro de la forma, por debajo de su tamaño nativo (834 × 1112), así que no se ha reescalado.
-- **Regla cero (firma de rodaje real):** no se aplica, a propósito y por escrito: es una pieza de diseño de movimiento de interfaz, como las de `papel-stopmotion` (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se ha pasado igualmente y marca lo esperable en una pieza sin cortes: plano medio de 3,2 s (objetivo 0,4–1,2), movimiento de cámara 10,3 px (1–9), negros a 40,6 (0–3,5, el lienzo es gris claro a propósito) y dos «transiciones» por desenfoque (los cambios de contenido). Foco 24,7 % y audio, dentro.
-- **Nada inventado:** el gráfico no lleva cifras. Las tres barras iguales dicen «siempre los mismos días», que es el mensaje del carrusel 3, no un dato. La interfaz (⌘K, isla, reproductor) es ilustración de marca, no la app de Society.
-- **Coste:** 35 créditos (el clip de Seedance). Saldo de 890,65 a 855,65.
+- **Nada inventado:** la única foto «del cliente» es la original del chuletón de Etxebarri en Wikimedia (Ryan Snyder, CC BY 2.0), con su crédito en pantalla. Las de Disfrutar y St. JOHN no salen como «antes». Los datos de los posts salen de las webs oficiales ([`posts.md`](posts.md)). La semana no lleva cifras y «lista para publicar» respeta que la publicación es asistida (README raíz §6).
+- **Imagen con referencia:** todas las tomas tienen su foto real de referencia. Desde la tercera tanda de posts, el texto se monta sobre la foto sin regenerarla.
+- **Regla cero (firma de rodaje real):** no se aplica, a propósito: es una pieza de diseño de movimiento de interfaz (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se pasa igualmente y su resultado va en el PR.
+- **Coste del reel v2:** 0 créditos. Los posts costaron 16,5 + 16,5 + 2 créditos ([`posts.md`](posts.md)).
 
-## Avisos
+## Versión anterior
 
-- Igual que en los carruseles: falta confirmar que habrá enlace en la bio y los platos de algunas diapositivas son ilustrativos.
-- El botón dice «Haz que vean tu bar». Si se prefiere otro gancho, es la primera línea del HTML que hay que cambiar (`L_boton`).
-
-## Cómo se renderizó esta versión
-
-El contenedor de Claude no puede descargar del almacenamiento de Higgsfield (proxy 403), así que el render final se hizo en el sandbox de Higgsfield con este mismo código: clon de la rama, `preparar.sh`, `render.mjs` con 8 hilos (150 s), `audio.py` (tempo medido 119,98 BPM; inicio en 64,068 s) y unión con ffmpeg. El primer y el último fotograma difieren un 0,6 % (RMSE), lo que se mueve el cursor en un sesentavo de segundo.
+La v1 (16 s, con los tres carruseles de la mascota) está en el historial de la rama: commit `42536ad`.
