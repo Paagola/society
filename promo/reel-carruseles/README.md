@@ -6,7 +6,7 @@ Fecha: 2026-10-20. Encargo de Víctor: una demostración artística de Society q
 
 | Qué | Dónde |
 |---|---|
-| Reel final, 1080 × 1920, 60 fps, 20 s, con sonido | enlace en el PR |
+| Reel final, 1080 × 1920, 60 fps, 20 s, con sonido | [society-reel-v3.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/47d82d0c-0516-4dd8-ab22-45f80088d717.mp4) (17,5 MB) · [portada](https://d2ol7oe51mr4n9.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/9ff86a43-413d-42dd-aa48-2d5aa007b089.jpg) |
 | Fuente del reel | [`reel.html`](reel.html): todo se calcula desde el tiempo en `seek(t)` |
 | Renderizador | [`render.mjs`](render.mjs): Playwright, 4 subfotogramas por fotograma, `tmix` → 60 fps |
 | Banda sonora | [`audio.py`](audio.py): rejilla medida con numpy y sonidos de interfaz sintetizados |
@@ -64,7 +64,7 @@ python3 ../../skills/openmontage/scripts/medir_realismo.py out/society-reel-v3.m
 
 - **Nada inventado:** la única foto «del cliente» es la original del chuletón de Etxebarri en Wikimedia (Ryan Snyder, CC BY 2.0), con su crédito en pantalla. Las de Disfrutar y St. JOHN no salen como «antes». Los datos de los posts salen de las webs oficiales ([`posts.md`](posts.md)). La semana no lleva cifras y «lista para publicar» respeta que la publicación es asistida (README raíz §6).
 - **Imagen con referencia:** todas las tomas tienen su foto real de referencia. Desde la tercera tanda de posts, el texto se monta sobre la foto sin regenerarla.
-- **Regla cero (firma de rodaje real):** no se aplica, a propósito: es una pieza de diseño de movimiento de interfaz (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se pasa igualmente (resultado de la v2): dentro de objetivo la duración de plano (1,1 s), el enfoque (18,6 %), el punto blanco (237,9), el volumen (RMS 5291,5) y las transiciones (0). Marca REVISAR el movimiento de cámara (0,3 px), el punto negro (20,6) y los 16 planos con cámara quieta, lo esperable en una pieza de interfaz sin rodaje. SHA-256 del vídeo: `082da33e210ca6332e3f95fe542a5be38aab355b6a6427dcd6f52034d64457d1`.
+- **Regla cero (firma de rodaje real):** no se aplica, a propósito: es una pieza de diseño de movimiento de interfaz (`skills/README.md`, «Cuándo se puede saltar»). `medir_realismo.py` se pasa igualmente: dentro de objetivo el enfoque (17,9 %), el punto blanco (236,9) y el volumen (RMS 5293,1). Marca REVISAR la duración media de plano (2,0 s, porque los movimientos de cámara continuos los cuenta como un plano), el movimiento de cámara (0,8 px), el punto negro (14,4), 7 planos con cámara quieta y 3 «transiciones» que son el desenfoque de movimiento de los cambios de punto de vista. Es lo esperable en una pieza de interfaz sin rodaje. SHA-256 del vídeo: `b24a647eb20cda2390fb08ceef0a6aa5e783010651452fe4620b5899d1f834ae`.
 - **Coste del reel v3:** 0 créditos. Los posts costaron 16,5 + 16,5 + 2 créditos ([`posts.md`](posts.md)).
 
 ## Versión anterior
