@@ -189,10 +189,10 @@ def main():
     ui /= max(1e-9, np.abs(ui).max())
 
     mezcla = m * 0.78 + 0.32 * ui[:, None]
-    # nivel: RMS a −15 dBFS y limitador suave a −1 dBFS
+    # nivel: RMS a −15 dBFS y limitador suave con techo a −3,2 dBFS (verify_promo de onetake pide pico ≤ −3)
     rms = np.sqrt(np.mean(mezcla ** 2))
     mezcla *= 10 ** (-15 / 20) / rms
-    techo = 10 ** (-1 / 20)
+    techo = 10 ** (-3.2 / 20)
     mezcla = techo * np.tanh(mezcla / techo)
     pcm = (np.clip(mezcla, -1, 1) * 32767).astype('<i2')
     import wave
