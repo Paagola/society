@@ -1,0 +1,115 @@
+/* Society · Rediseño «Papel y cristal» (21/10/2026)
+   Maqueta de diseño, no código de la app. */
+
+:root{
+  /* Color: 60 papel · 30 cobalto/cristal · 10 mostaza */
+  --papel:#F1EDE4;
+  --papel-2:#E6E0D2;
+  --tinta:#141414;
+  --tinta-2:#3B3934;
+  --gris:#6E695F;        /* 5,1:1 sobre papel */
+  --cobalto:#2440E0;
+  --cobalto-2:#1A31B8;
+  --cobalto-claro:#DDE2FF;
+  --mostaza:#F5C518;
+
+  /* Cristal */
+  --cristal:linear-gradient(140deg,rgba(255,255,255,.70),rgba(255,255,255,.38));
+  --cristal-borde:rgba(255,255,255,.85);
+  --cristal-blur:blur(22px) saturate(170%);
+  --cristal-oscuro:linear-gradient(140deg,rgba(26,26,30,.93),rgba(18,18,22,.84));
+  --cristal-cobalto:linear-gradient(140deg,rgba(52,82,240,.86),rgba(30,52,200,.78));
+  --sombra:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -1px 0 rgba(30,30,60,.05),
+    0 26px 50px -28px rgba(24,28,70,.35),
+    0 6px 14px -8px rgba(24,28,70,.18);
+  --sombra-oscura:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    0 26px 50px -24px rgba(10,12,40,.55),
+    0 6px 14px -8px rgba(10,12,40,.3);
+
+  /* Radios concéntricos: interior = exterior − relleno */
+  --r-xs:10px; --r-s:16px; --r-m:24px; --r-l:32px; --r-xl:40px;
+
+  /* Tipografía */
+  --f-titular:"Bricolage Grotesque",system-ui,sans-serif;
+  --f-cursiva:"Instrument Serif",Georgia,serif;
+  --f-mono:"DM Mono",ui-monospace,monospace;
+
+  --ruido:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#CFCabe}
+body{font-family:var(--f-titular);font-variation-settings:"opsz" 14;color:var(--tinta);
+  -webkit-font-smoothing:antialiased;display:flex;flex-wrap:wrap;gap:40px;padding:40px;align-items:flex-start}
+
+/* ---------- Pantalla ---------- */
+.pantalla{position:relative;width:390px;overflow:hidden;background:var(--papel);isolation:isolate}
+.pantalla.alta{min-height:844px}
+.pantalla::before{ /* papel arrugado suave: identidad sin saturar */
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:url(img/papel.webp) center/390px auto repeat;
+  mix-blend-mode:multiply;opacity:.38}
+.pantalla::after{ /* grano */
+  content:"";position:absolute;inset:0;z-index:50;pointer-events:none;
+  background:var(--ruido);opacity:.07;mix-blend-mode:multiply}
+
+/* Auroras: le dan al cristal algo que difuminar (degradado cobalto-mostaza del vídeo) */
+.aurora{position:absolute;border-radius:50%;filter:blur(46px);z-index:-1;pointer-events:none}
+.aurora.cob{background:radial-gradient(circle at 40% 40%,#5B74FF,#2440E0 60%,rgba(36,64,224,0) 72%)}
+.aurora.mos{background:radial-gradient(circle at 50% 50%,#FFD84A,#F5C518 55%,rgba(245,197,24,0) 72%)}
+.aurora.cel{background:radial-gradient(circle,#BFD0FF,rgba(191,208,255,0) 70%)}
+
+/* Barra de estado */
+.estado{height:50px;display:flex;align-items:center;justify-content:space-between;padding:6px 28px 0;
+  font-weight:600;font-size:15px;font-variation-settings:"opsz" 14;position:relative;z-index:5}
+.estado svg{height:12px}
+.estado.claro{color:#fff}
+
+/* ---------- Cristal ---------- */
+.cristal{background:linear-gradient(160deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,0) 34%),var(--cristal);
+  -webkit-backdrop-filter:var(--cristal-blur);backdrop-filter:var(--cristal-blur);
+  border:1px solid var(--cristal-borde);box-shadow:var(--sombra);position:relative}
+.cristal.oscuro{background:linear-gradient(160deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 30%),var(--cristal-oscuro);
+  border-color:rgba(255,255,255,.16);box-shadow:var(--sombra-oscura);color:var(--papel)}
+.cristal.cobalto{background:linear-gradient(160deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,0) 36%),var(--cristal-cobalto);
+  border-color:rgba(255,255,255,.35);box-shadow:var(--sombra-oscura);color:#fff}
+
+/* ---------- Tipografía ---------- */
+.titular{font-family:var(--f-titular);font-weight:800;font-stretch:75%;
+  font-variation-settings:"opsz" 96,"wdth" 75;text-transform:uppercase;line-height:.86;letter-spacing:-.01em}
+.cursiva{font-family:var(--f-cursiva);font-style:italic;font-weight:400;text-transform:none;
+  letter-spacing:-.02em;line-height:.8}
+.etiqueta{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.texto{font-size:15.5px;line-height:1.5;color:var(--tinta-2)}
+.gris{color:var(--gris)}
+
+/* ---------- Botones ---------- */
+.deslizar{height:68px;border-radius:999px;display:flex;align-items:center;padding:7px;gap:14px}
+.deslizar .pomo{width:54px;height:54px;border-radius:50%;background:var(--mostaza);display:grid;place-items:center;flex:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 6px 14px -4px rgba(245,197,24,.6)}
+.deslizar .pomo.cob{background:var(--cobalto);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 6px 14px -4px rgba(36,64,224,.6)}
+.deslizar .rotulo{flex:1;font-weight:600;font-size:17px;letter-spacing:-.005em}
+.deslizar .guia{opacity:.35;margin-right:16px}
+.boton-mostaza{height:60px;border-radius:999px;background:var(--mostaza);color:var(--tinta);font-weight:700;font-size:17px;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75),inset 0 -2px 0 rgba(150,110,0,.18),0 18px 30px -16px rgba(200,150,0,.7)}
+.chip{height:38px;padding:0 16px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:500}
+.chip.activo{background:var(--cobalto);color:#fff;border:1px solid rgba(255,255,255,.4);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 10px 18px -10px rgba(36,64,224,.8)}
+.icono-redondo{width:46px;height:46px;border-radius:50%;display:grid;place-items:center}
+
+/* ---------- Personajes ---------- */
+.personaje{position:absolute;pointer-events:none;filter:drop-shadow(0 24px 22px rgba(20,24,60,.22)) drop-shadow(0 4px 6px rgba(20,24,60,.12))}
+
+/* Pegatina @society */
+.bocadillo{display:inline-flex;align-items:center;height:30px;padding:0 13px;border-radius:999px 999px 999px 6px;
+  background:var(--cobalto);color:#fff;font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;
+  box-shadow:0 10px 18px -10px rgba(36,64,224,.8)}
+
+.puntos{display:flex;gap:6px;justify-content:center}
+.puntos i{width:6px;height:6px;border-radius:3px;background:rgba(20,20,20,.18)}
+.puntos i.on{width:22px;background:var(--tinta)}
+hr.fina{border:0;border-top:1px solid rgba(20,20,20,.08)}
