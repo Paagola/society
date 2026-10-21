@@ -385,7 +385,7 @@ Este es el único índice vigente. Los documentos históricos conservan evidenci
 | Society: auditoría crítica y propuesta de empresa más sólida | [informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md](informes/estudio-mercado/04-auditoria-critica-y-propuesta-reforzada.md) |
 | Navegación | [informes/estudio-mercado/README.md](informes/estudio-mercado/README.md) |
 | Nueva API de Higgsfield y encaje técnico en Society | [informes/higgsfield/02-api-y-arquitectura.md](informes/higgsfield/02-api-y-arquitectura.md) |
-| Post de Society «Esto se come con los ojos»: foto y diseño en una sola generación, desde un pin de Pinterest (2026-10-21) | [produccion/society-post-esto-se-come/README.md](produccion/society-post-esto-se-come/README.md) |
+| Da Tonino: dos posts de Instagram con foto y diseño en una sola generación (Nano Banana Pro), desde pines de Pinterest (2026-10-21) | [produccion/da-tonino/posts-pinterest/README.md](produccion/da-tonino/posts-pinterest/README.md) |
 
 ### Histórico
 

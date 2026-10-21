@@ -1,0 +1,42 @@
+[
+  {
+    "post": "A",
+    "job_id": "ad78c219-fed0-4542-8c93-ecec0e95b188",
+    "modelo": "nano_banana_pro",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "original": "https://d8j0ntlcm91z4.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/hf_20261021_083442_ad78c219-fed0-4542-8c93-ecec0e95b188.png",
+    "referencias": [
+      {
+        "media_id": "feb9a59c-c324-4c70-b315-552adf8f0a49",
+        "origen": "pinterest_n002_pasta",
+        "url": "https://i.pinimg.com/736x/37/51/2c/37512c37a4d84640958efd1e577fef61.jpg"
+      },
+      {
+        "media_id": "8e1ee698-2b94-4c2f-a850-0021945841c2",
+        "origen": "produccion/da-tonino/reel-v4/referencias/pizza.jpg (foto real)"
+      }
+    ],
+    "prompt": "Instagram feed post for the Italian restaurant Da Tonino, vertical 4:5. Professional food advertising poster where the photograph and the typography are one single image.\n\nLAYOUT FROM IMAGE 1: warm cream paper background, an enormous dark serif word across the upper half, the food weaving through the letters (in front of some strokes, behind others), a bowl of food in the lower right at a 30-degree three-quarter angle, an italic subtitle under the big word, small spaced caps details on the left, a few real ingredients and crumbs scattered on the surface lower left.\n\nFOOD FROM IMAGE 2, reproduced faithfully: Da Tonino's real Neapolitan pizza prosciutto e rucola, puffy leopard-spotted charred crust, bright tomato, thin pink prosciutto folds, a generous heap of fresh arugula, patches of melted mozzarella, on its dark terracotta round plate. The plate sits lower right at a three-quarter angle. One slice is being lifted out of the pizza and rises upward so that a long real stretch of melted mozzarella and a few arugula leaves wrap through and around the letters of the big word, passing in front of some letters and behind others. A few loose arugula leaves and flakes of crust on the cream surface.\n\nTEXT, printed directly on the cream background, no boxes, no badges, no stickers, no shapes behind text: small top centre in spaced serif caps 'DA TONINO' with 'RISTORANTE' in tiny gold spaced caps below. Giant word in very tall heavy condensed dark espresso serif caps: 'PIZZA'. Under it, large elegant italic serif in near black: 'Prosciutto e rucola'. A thin short gold rule, then small spaced caps: 'TOMATE · MOZZARELLA · PROSCIUTTO · RÚCULA'. Bottom left small italic serif: 'Reserva tu mesa'. Exact spelling, no other text, no logos, no watermark.\n\nPHOTOGRAPHY: shot by a professional food photographer, 85 mm, soft directional key light from the upper left with a real shadow under the plate and the lifted slice, focus plane on the cheese stretch and the slice, the far rim of the plate falls slightly soft, natural grease sheen on the prosciutto, crisp char spots, subtle film grain. It must look photographed, not rendered. Palette: cream paper, espresso brown, tomato red, arugula green, a touch of gold."
+  },
+  {
+    "post": "B",
+    "job_id": "3126eb7d-b5f5-4697-843f-a5db4189b1d0",
+    "modelo": "nano_banana_pro",
+    "resolucion": "2k",
+    "formato": "4:5",
+    "original": "https://d8j0ntlcm91z4.cloudfront.net/user_3Ee1BajtdQsPuDNN1IPZF4hImnO/hf_20261021_083442_3126eb7d-b5f5-4697-843f-a5db4189b1d0.png",
+    "referencias": [
+      {
+        "media_id": "e0372385-4909-4349-ba30-4c5fd59be498",
+        "origen": "pinterest_n130_blue_bird",
+        "url": "https://i.pinimg.com/736x/b4/07/4b/b4074be294a6cd33d2b6fe7cbd377ea7.jpg"
+      },
+      {
+        "media_id": "8e1ee698-2b94-4c2f-a850-0021945841c2",
+        "origen": "produccion/da-tonino/reel-v4/referencias/pizza.jpg (foto real)"
+      }
+    ],
+    "prompt": "Instagram feed post for the Italian restaurant Da Tonino, vertical 4:5. Bold editorial food poster where the photograph and the typography are one single image.\n\nLAYOUT FROM IMAGE 1: flat warm cream background, three rows of huge tall condensed sans-serif capitals in one strong colour filling the frame from edge to edge (top row, middle row on the right, bottom row), and two real human hands reaching in from the left edge holding food that overlaps the letters, the food passing in front of the type. Same playful but premium feel, same flash-like crisp light and hard short shadows.\n\nFOOD FROM IMAGE 2, reproduced faithfully: Da Tonino's real Neapolitan pizza prosciutto e rucola: puffy leopard-spotted charred crust, bright tomato, thin pink prosciutto folds, heaps of fresh arugula, patches of melted mozzarella. Upper hand: holds the whole pizza on its dark terracotta round plate, tilted towards the camera, seen from a 45-degree angle so the toppings read clearly. Lower hand: holds a single slice of the same pizza, tip towards the camera, with a real string of melted mozzarella hanging and a few arugula leaves falling with slight motion blur. Natural hands with real skin texture, short clean nails, one simple silver ring.\n\nTEXT printed directly on the background, behind the food, in tomato red #C8321E tall condensed sans-serif caps: top row 'PROSCIUTTO', middle row right aligned 'E', bottom row 'RUCOLA'. Small text bottom right in near-black elegant italic serif: 'Da Tonino', and below it in tiny spaced caps: 'RESERVA TU MESA'. No stickers, no badges, no bubbles, no boxes or shapes behind any text. Exact spelling, no other text, no logos, no watermark.\n\nPHOTOGRAPHY: shot by a professional food photographer with on-camera-style crisp flash plus soft fill, hard small shadows under the plate and the hands on the cream wall, focus on the slice tip and the cheese string, upper plate slightly softer, natural grease sheen, crisp char spots, subtle grain. It must look photographed, not rendered."
+  }
+]
