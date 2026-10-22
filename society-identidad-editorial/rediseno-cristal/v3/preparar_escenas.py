@@ -3,7 +3,7 @@ img/v3/: las escenas eN.jpg a tamaño original (algunas pantallas las amplían) 
 personajes pN.png sin margen transparente y a 900 px de alto."""
 import io, urllib.request
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageOps
 
 aqui = Path(__file__).parent
 dest = aqui.parent / "img" / "v3"
@@ -11,13 +11,22 @@ dest.mkdir(parents=True, exist_ok=True)
 for linea in (aqui / "escenas.tsv").read_text().splitlines():
     if not linea.strip() or linea.startswith("#"):
         continue
-    cid, que, recorte, url = linea.split("\t")
+    cid, que, ajuste, url = linea.split("\t")
     im = Image.open(io.BytesIO(urllib.request.urlopen(url).read()))
     if cid.startswith("e"):
-        # El recorte quita los marcos de viñeta que a veces dibuja el modelo
-        if recorte != "-":
-            im = im.crop(tuple(int(n) for n in recorte.split(",")))
         im = im.convert("RGB")
+        tipo, _, valor = ajuste.partition(":")
+        if tipo == "recorte":
+            # quita los marcos de viñeta que a veces dibuja el modelo
+            im = im.crop(tuple(int(n) for n in valor.split(",")))
+        elif tipo == "espejo-izq":
+            # alarga la pared por la izquierda con su reflejo, para que el
+            # personaje quede más a la derecha y más pequeño
+            p = int(im.width * float(valor))
+            ancha = Image.new("RGB", (im.width + p, im.height))
+            ancha.paste(ImageOps.mirror(im.crop((0, 0, p, im.height))), (0, 0))
+            ancha.paste(im, (p, 0))
+            im = ancha
         im.save(dest / f"{cid}.jpg", quality=88, optimize=True, progressive=True)
     else:
         im = im.convert("RGBA")

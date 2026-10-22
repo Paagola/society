@@ -128,7 +128,7 @@ body{background:#CFC9BF;display:flex;flex-wrap:wrap;gap:40px;padding:40px;font-f
 
 /* ---------- Home ---------- */
 .cabecera-home{position:absolute;left:24px;top:116px;z-index:12}
-.cabecera-home .titulo{font-size:32px;margin:0}
+.cabecera-home .titulo{font-size:30px;margin:0}
 .aviso{position:absolute;left:16px;right:16px;top:200px;height:196px;border-radius:32px;padding:18px 20px;z-index:12;
   --bisel:30;--refraccion:46;--desenfoque:18;--velo-a:.66;--velo-b:.56}
 .aviso .cifra{font-size:52px;line-height:1}
