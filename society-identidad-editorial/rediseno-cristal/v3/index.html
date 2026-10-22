@@ -29,17 +29,24 @@
 
 <!-- ============ 1 · INICIO ============ -->
 <section class="pantalla" id="e1">
-  <div class="escena" style="background-image:url(../img/v3/e1.jpg)"></div>
+  <div class="escena fondo"></div>
   <div class="velo-arriba"></div>
   <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12"><use href="#i-estado"/></svg></div>
   <div class="marca liquido"><img src="../img/logo.png" alt="Society"></div>
-  <div class="pastilla liquido" style="right:18px;top:196px"><span class="ok"><svg width="14" height="14"><use href="#i-check"/></svg></span>Carrusel listo</div>
-  <div class="hoja liquido" style="top:512px">
-    <div class="asa"></div>
+  <div class="cabecera" style="top:120px;max-width:220px">
     <p class="etiqueta">@society</p>
-    <h1 class="titulo">Ideas que llenan <em>tu local</em></h1>
-    <p class="texto">Creamos contenido con IA, estrategias de marketing y campañas que atraen clientes y hacen crecer tu negocio.</p>
-    <div class="deslizar">
+    <h1 class="titulo grande">Ideas que llenan <em>tu local</em></h1>
+  </div>
+  <img class="mascota" src="../img/mascota/celebrando.png" alt="" style="right:18px;top:186px;height:132px">
+  <div class="hoja liquido columna" style="top:314px">
+    <div class="asa"></div>
+    <p class="texto" style="margin-top:0">Creamos contenido con IA, estrategias de marketing y campañas que atraen clientes y hacen crecer tu negocio.</p>
+    <div class="lista promesas solida">
+      <div class="fila"><span class="icono"><svg width="16" height="16"><use href="#i-destello"/></svg></span><div><b>Contenido con IA</b></div></div>
+      <div class="fila"><span class="icono"><svg width="16" height="16"><use href="#i-graf"/></svg></span><div><b>Estrategias de marketing</b></div></div>
+      <div class="fila"><span class="icono"><svg width="16" height="16"><use href="#i-pin"/></svg></span><div><b>Campañas que atraen clientes</b></div></div>
+    </div>
+    <div class="deslizar empuja">
       <div class="pomo"><svg width="22" height="22"><use href="#i-dobles"/></svg></div>
       <div class="rotulo">Descubre cómo funciona</div>
       <svg class="guia" width="20" height="20"><use href="#i-dobles"/></svg>
@@ -50,26 +57,28 @@
 
 <!-- ============ 2 · EMPEZAMOS ============ -->
 <section class="pantalla" id="e2">
-  <div class="escena" style="background-image:url(../img/v3/e2.jpg)"></div>
+  <div class="escena fondo" style="background-position:30% 0"></div>
   <div class="velo-arriba"></div>
   <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12"><use href="#i-estado"/></svg></div>
   <div class="boton-redondo liquido" style="left:16px"><svg width="20" height="20" style="transform:scaleX(-1)"><use href="#i-flecha"/></svg></div>
-  <div class="pastilla liquido" style="right:16px;top:338px"><span class="ok"><svg width="14" height="14"><use href="#i-pin"/></svg></span>Buscamos tu ficha</div>
-  <div class="hoja liquido" style="top:392px">
-    <div class="asa"></div>
+  <div class="cabecera">
     <p class="etiqueta">Empezamos · paso 1 de 6</p>
-    <h1 class="titulo">Busca <em>tu local</em></h1>
-    <div class="campo solida"><svg width="20" height="20"><use href="#i-lupa"/></svg><span>Torre de Vega</span><span class="cursor"></span></div>
-    <p class="peq" style="margin:12px 0 0 6px">2 resultados en Google Maps</p>
-    <div class="resultado solida">
-      <div class="miniatura" style="background-image:url(../img/terraza.jpg)"></div>
-      <div>
+    <h1 class="titulo">Busca<br><em>tu local</em></h1>
+  </div>
+  <img class="mascota espejo" src="../img/mascota/apuntando.png" alt="" style="right:34px;top:98px;height:132px">
+  <div class="hoja liquido columna" style="top:226px">
+    <div class="asa"></div>
+    <div class="campo solida" style="margin-top:0"><svg width="20" height="20"><use href="#i-lupa"/></svg><span>Torre de Vega</span><span class="cursor"></span></div>
+    <p class="peq" style="margin:14px 0 0 6px">2 resultados en Google Maps</p>
+    <div class="resultado grande solida">
+      <div class="foto" style="background-image:url(../img/terraza.jpg)"></div>
+      <div class="info">
         <p class="nombre">Restaurante Torre de Vega «El Mora»</p>
         <p class="peq">Plaza Santa Ana, 8 · Alhaurín de la Torre</p>
         <p class="nota"><svg width="13" height="13"><use href="#i-estrella"/></svg>4,8 · 1.695 reseñas</p>
       </div>
     </div>
-    <div class="boton">Es mi local</div>
+    <div class="boton empuja">Es mi local</div>
     <p class="enlace">¿No aparece tu local? <b>Añádelo a mano</b></p>
   </div>
   <div class="barra-inicio"></div>
@@ -77,19 +86,22 @@
 
 <!-- ============ 3 · ANÁLISIS ============ -->
 <section class="pantalla" id="e3">
-  <div class="escena" style="background-image:url(../img/v3/e3.jpg);background-size:100% auto;background-repeat:no-repeat;background-color:var(--crema)"></div>
+  <div class="escena fondo" style="background-position:70% 0"></div>
   <div class="velo-arriba"></div>
   <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12"><use href="#i-estado"/></svg></div>
   <div class="boton-redondo liquido" style="left:16px"><svg width="20" height="20" style="transform:scaleX(-1)"><use href="#i-flecha"/></svg></div>
-  <div class="lente-progreso liquido" style="right:18px;top:60px">
-    <svg class="anillo" viewBox="0 0 130 130"><circle cx="65" cy="65" r="58" fill="none" stroke="rgba(22,22,26,.12)" stroke-width="9"/><circle cx="65" cy="65" r="58" fill="none" stroke="#2440E0" stroke-width="9" stroke-linecap="round" stroke-dasharray="364.4" stroke-dashoffset="196.8"/></svg>
-    <div><p class="cifra">46 %</p><p class="peq">unos 4 min</p></div>
-  </div>
-  <div class="hoja liquido" style="top:372px">
-    <div class="asa"></div>
+  <div class="cabecera">
     <p class="etiqueta">Paso 3 de 6</p>
-    <h1 class="titulo">Estudiando <em>tu local</em></h1>
-    <p class="texto">Buscamos lo que internet sabe de Torre de Vega. Tarda unos minutos.</p>
+    <h1 class="titulo">Estudiando<br><em>tu local</em></h1>
+  </div>
+  <img class="mascota" src="../img/mascota/pensando.png" alt="" style="right:34px;top:98px;height:132px">
+  <div class="hoja liquido columna" style="top:226px">
+    <div class="asa"></div>
+    <p class="texto" style="margin-top:0">Buscamos lo que internet sabe de Torre de Vega. Tarda unos minutos.</p>
+    <div class="progreso solida">
+      <div class="linea"><p class="cifra">46 %</p><p class="peq">Quedan unos 4 minutos</p></div>
+      <div class="barra"><i style="width:46%"></i></div>
+    </div>
     <div class="lista solida">
       <div class="fila"><span class="hecho"><svg width="12" height="12"><use href="#i-check"/></svg></span><div><b>Google Maps</b><span>1.695 reseñas leídas</span></div><em>Hecho</em></div>
       <div class="fila"><span class="hecho"><svg width="12" height="12"><use href="#i-check"/></svg></span><div><b>Instagram</b><span>@restaurantetorredevega</span></div><em>Hecho</em></div>
@@ -97,7 +109,7 @@
       <div class="fila"><span class="espera"></span><div><b>TikTok</b><span>@restaurante_torredevega</span></div></div>
       <div class="fila"><span class="espera"></span><div><b>Colores y letras</b><span>Del rótulo, la web y las fotos</span></div></div>
     </div>
-    <div class="boton"><svg width="18" height="18"><use href="#i-campana"/></svg>Avisarme cuando termine</div>
+    <div class="boton empuja"><svg width="18" height="18"><use href="#i-campana"/></svg>Avisarme cuando termine</div>
     <p class="enlace">Puedes cerrar la app. Seguimos trabajando.</p>
   </div>
   <div class="barra-inicio"></div>
@@ -105,21 +117,26 @@
 
 <!-- ============ 4 · ASÍ TE VE INTERNET ============ -->
 <section class="pantalla" id="e4">
-  <div class="escena" style="background-image:url(../img/v3/e4.jpg);background-size:auto 135%;background-position:-160px -294px"></div>
+  <div class="escena fondo" style="background-position:0 0"></div>
   <div class="velo-arriba"></div>
   <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12"><use href="#i-estado"/></svg></div>
   <div class="boton-redondo liquido" style="left:16px"><svg width="20" height="20" style="transform:scaleX(-1)"><use href="#i-flecha"/></svg></div>
-  <div class="dato liquido" style="left:16px;top:128px"><p class="cifra">4,8</p><p class="peq">de media</p>
-    <div class="estrellas"><svg width="13" height="13"><use href="#i-estrella"/></svg><svg width="13" height="13"><use href="#i-estrella"/></svg><svg width="13" height="13"><use href="#i-estrella"/></svg><svg width="13" height="13"><use href="#i-estrella"/></svg><svg width="13" height="13"><use href="#i-estrella"/></svg></div></div>
-  <div class="dato liquido" style="left:16px;top:252px"><p class="cifra">1.695</p><p class="peq">reseñas</p></div>
-  <div class="hoja liquido" style="top:392px">
-    <div class="asa"></div>
+  <div class="cabecera">
     <p class="etiqueta">Tu ficha · paso 4 de 6</p>
-    <h1 class="titulo">Así te ve <em>internet</em></h1>
-    <p class="texto">Si algo no está bien, toca el lápiz y cámbialo.</p>
+    <h1 class="titulo">Así te ve<br><em>internet</em></h1>
+  </div>
+  <img class="mascota" src="../img/mascota/ok.png" alt="" style="right:30px;top:98px;height:132px">
+  <div class="hoja liquido columna" style="top:226px">
+    <div class="asa"></div>
+    <p class="texto" style="margin-top:0">Si algo no está bien, toca el lápiz y cámbialo.</p>
     <div class="ficha solida">
       <div><p class="nombre">Torre de Vega «El Mora»</p><p class="peq">Asador familiar en La Alquería · Alhaurín de la Torre (Málaga)</p></div>
       <span class="lapiz"><svg width="17" height="17"><use href="#i-lapiz"/></svg></span>
+    </div>
+    <div class="par">
+      <div class="caja solida"><p class="cifra grande">4,8</p><p class="peq">de media en Google</p>
+        <div class="estrellas"><svg width="13" height="13"><use href="#i-estrella"/></svg><svg width="13" height="13"><use href="#i-estrella"/></svg><svg width="13" height="13"><use href="#i-estrella"/></svg><svg width="13" height="13"><use href="#i-estrella"/></svg><svg width="13" height="13"><use href="#i-estrella"/></svg></div></div>
+      <div class="caja solida"><p class="cifra grande">1.695</p><p class="peq">reseñas</p></div>
     </div>
     <div class="par">
       <div class="caja solida"><p class="etiqueta">Cómo hablas</p>
@@ -128,41 +145,47 @@
         <div class="muestras"><i style="background:#C5B05A"></i><i style="background:#2A3749"></i><i style="background:#907161"></i><i style="background:#B78234"></i><i style="background:#1A1A1A"></i></div>
         <p class="peq" style="margin-top:8px">Del rótulo, la web y tu sala</p></div>
     </div>
-    <div class="boton">Todo correcto, seguir</div>
+    <div class="boton empuja">Todo correcto, seguir</div>
   </div>
   <div class="barra-inicio"></div>
 </section>
 
 <!-- ============ 5 · TU PRIMER CARRUSEL ============ -->
 <section class="pantalla" id="e5">
-  <div class="escena" style="background-image:url(../img/v3/e5.jpg)"></div>
+  <div class="escena fondo" style="background-position:100% 0"></div>
   <div class="velo-arriba"></div>
   <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12"><use href="#i-estado"/></svg></div>
   <div class="boton-redondo liquido" style="left:16px"><svg width="20" height="20" style="transform:scaleX(-1)"><use href="#i-flecha"/></svg></div>
-  <div class="diapo" style="left:22px;top:196px;transform:rotate(-8deg)"><div class="foto" style="background-image:url(../img/salon.jpg)"></div></div>
-  <div class="diapo" style="left:66px;top:150px;transform:rotate(3deg);z-index:11"><div class="foto" style="background-image:url(../img/terraza.jpg)"></div></div>
-  <div class="pastilla liquido" style="left:150px;top:166px;height:30px;padding:0 10px;font-size:12px;transform:rotate(3deg)">1 / 3</div>
-  <div class="hoja liquido" style="top:418px">
-    <div class="asa"></div>
+  <div class="cabecera">
     <p class="etiqueta">Tutorial · 2 minutos</p>
-    <h1 class="titulo">Tu primer <em>carrusel</em></h1>
-    <p class="texto">Tres pasos. Con tu idea y tus fotos montamos las diapositivas.</p>
+    <h1 class="titulo">Tu primer<br><em>carrusel</em></h1>
+  </div>
+  <img class="mascota" src="../img/mascota/agachado.png" alt="" style="right:26px;top:126px;height:104px">
+  <div class="hoja liquido columna" style="top:226px">
+    <div class="asa"></div>
+    <p class="texto" style="margin-top:0">Tres pasos. Con tu idea y tus fotos montamos las diapositivas.</p>
     <div class="segmentos solida"><span class="on">1 · Idea</span><span>2 · Platos</span><span>3 · Local</span></div>
+    <div class="vista">
+      <div style="background-image:url(../img/terraza.jpg)"><span class="pagina">1 / 3</span></div>
+      <div style="background-image:url(../img/salon.jpg)"></div>
+      <div style="background-image:url(../img/ensalada.jpg)"></div>
+    </div>
     <div class="campo-alto solida"><p class="etiqueta">Tu idea</p><p>Pulpo a la brasa directo de Galicia…</p></div>
     <div class="chips"><span class="chip az">Plato estrella</span><span class="chip">Novedad</span><span class="chip">Oferta</span><span class="chip">Evento</span></div>
-    <div class="boton">Siguiente: tus platos <svg width="18" height="18"><use href="#i-flecha"/></svg></div>
+    <div class="boton empuja">Siguiente: tus platos <svg width="18" height="18"><use href="#i-flecha"/></svg></div>
   </div>
   <div class="barra-inicio"></div>
 </section>
 
 <!-- ============ 6 · HOME ============ -->
 <section class="pantalla" id="e6">
-  <div class="escena" style="background-image:url(../img/v3/e6.jpg);bottom:auto;height:470px;background-size:431px auto;background-position:-28px -26px"></div>
+  <div class="escena fondo" style="bottom:auto;height:470px"></div>
   <div class="velo-arriba"></div>
   <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12"><use href="#i-estado"/></svg></div>
   <div class="marca liquido"><img src="../img/logo.png" alt="Society"></div>
   <div class="boton-redondo liquido" style="right:16px"><svg width="20" height="20"><use href="#i-campana"/></svg><i class="punto"></i></div>
   <div class="cabecera-home"><h1 class="titulo">¿Qué hacemos<br><em>hoy</em>?</h1></div>
+  <img class="mascota" src="../img/mascota/sentado.png" alt="" style="right:40px;top:122px;height:100px">
   <div class="aviso liquido">
     <div style="display:flex;align-items:center;gap:8px"><p class="etiqueta" style="color:var(--tinta-2)">Mes bajo detectado</p><span class="mini">Diciembre</span></div>
     <div style="display:flex;align-items:baseline;gap:10px;margin-top:8px"><p class="cifra">10 %</p><p class="peq" style="color:var(--tinta-2);font-weight:800;max-width:140px">menos de clientes frente a julio</p></div>
@@ -173,11 +196,11 @@
     <div class="bento">
       <div class="teja grande"><p class="teja-t">Contenido desde una idea</p>
         <span class="mas-teja"><svg width="16" height="16"><use href="#i-mas"/></svg></span>
-        <img src="../img/v3/p8.png" alt="" style="right:-6px;bottom:-4px;height:132px"></div>
+        <img src="../img/mascota/senalando.png" alt="" style="right:-4px;bottom:-6px;height:104px;transform:scaleX(-1)"></div>
       <div class="teja"><span class="nuevo">NUEVO</span><p class="teja-t" style="max-width:96px">Campaña a tu medida</p>
-        <img src="../img/v3/p6.png" alt="" style="right:-8px;bottom:-6px;height:92px"></div>
+        <img src="../img/mascota/pulgar.png" alt="" style="right:2px;bottom:-14px;height:84px"></div>
       <div class="teja"><span class="insignia">2</span><p class="teja-t" style="max-width:90px">Responder reseñas</p>
-        <img src="../img/v3/p7.png" alt="" style="right:-8px;bottom:-6px;height:92px"></div>
+        <img src="../img/mascota/quieto.png" alt="" style="right:8px;bottom:-16px;height:84px"></div>
     </div>
     <div class="para-hoy">
       <div class="cab"><p class="etiqueta">Para hoy</p><p class="peq" style="color:var(--tinta);font-weight:800">Ver todo →</p></div>

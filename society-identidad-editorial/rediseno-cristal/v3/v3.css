@@ -1,5 +1,5 @@
 /* Society · rediseño v3 «Cristal líquido». Maqueta de diseño, no código de la app.
-   Dos capas y nada más: contenido (escena ilustrada a pantalla completa, fotos, tarjetas sólidas)
+   Dos capas y nada más: contenido (pared de fondo, mascota, fotos, tarjetas sólidas)
    y controles (cristal líquido que flota encima). Nunca cristal sobre cristal. */
 
 :root{
@@ -17,6 +17,9 @@ body{background:#CFC9BF;display:flex;flex-wrap:wrap;gap:40px;padding:40px;font-f
 
 /* ---------- Capa de contenido ---------- */
 .escena{position:absolute;inset:0;background-size:cover;background-position:center top;z-index:0}
+/* Fondo: pared crema con grafitis en los bordes, suavizada para que no compita con el texto */
+.escena.fondo{background-image:url(../img/v3/fondo.jpg)}
+.escena.fondo::after{content:"";position:absolute;inset:0;background:rgba(251,248,242,.42)}
 .velo-arriba{position:absolute;left:0;right:0;top:0;height:130px;z-index:1;pointer-events:none;
   background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0))}
 .velo-arriba.oscuro{background:linear-gradient(180deg,rgba(10,12,30,.38),rgba(10,12,30,0))}
@@ -39,10 +42,6 @@ body{background:#CFC9BF;display:flex;flex-wrap:wrap;gap:40px;padding:40px;font-f
   font:800 13.5px var(--f-ui);color:var(--tinta);--bisel:16;--refraccion:28;--desenfoque:5;--velo-a:.52;--velo-b:.40}
 .pastilla .ok{width:26px;height:26px;border-radius:50%;background:var(--cobalto);color:#fff;display:grid;place-items:center}
 .pastilla .estrella{color:var(--mostaza)}
-.dato{position:absolute;border-radius:24px;padding:12px 16px 12px;z-index:30;--bisel:22;--refraccion:40;--desenfoque:6;--velo-a:.55;--velo-b:.42}
-.dato .cifra{font:700 34px/1 var(--f-titulo)}
-.dato .peq{font:700 12.5px/1.2 var(--f-ui);color:var(--tinta-2);margin-top:4px}
-.dato .estrellas{display:flex;gap:2px;color:var(--tinta);margin-top:6px}
 
 /* Hoja flotante: radio concéntrico con la esquina del móvil */
 .hoja{position:absolute;left:var(--margen);right:var(--margen);bottom:var(--margen);z-index:20;
@@ -114,17 +113,45 @@ body{background:#CFC9BF;display:flex;flex-wrap:wrap;gap:40px;padding:40px;font-f
 .muestras{display:flex;gap:5px;margin-top:10px}
 .muestras i{width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
 
-/* Lente de progreso (Análisis): cristal claro con refracción fuerte */
-.lente-progreso{position:absolute;width:130px;height:130px;border-radius:50%;z-index:30;display:grid;place-items:center;text-align:center;
-  --bisel:46;--refraccion:70;--desenfoque:3;--velo-a:.36;--velo-b:.22}
-.lente-progreso svg.anillo{position:absolute;inset:8px;width:114px;height:114px;transform:rotate(-90deg)}
-.lente-progreso .cifra{font-size:34px;line-height:1}
-.lente-progreso .peq{color:var(--tinta-2);font-weight:800;margin-top:2px}
+/* ---------- Cabecera de las pantallas del alta ---------- */
+/* Titular a la izquierda y la mascota pequeña de apoyo a la derecha, de pie sobre la hoja */
+.cabecera{position:absolute;left:24px;top:112px;z-index:12;max-width:200px}
+.titulo.grande{font-size:38px}
+.mascota{position:absolute;z-index:25;pointer-events:none;filter:drop-shadow(0 8px 10px rgba(20,16,40,.22))}
+.mascota.espejo{transform:scaleX(-1)}
 
-/* Carrusel (contenido sólido sobre la escena) */
-.diapo{position:absolute;width:150px;height:188px;border-radius:18px;padding:7px;background:#fff;z-index:10;
-  box-shadow:0 18px 30px -16px rgba(20,16,40,.55)}
-.diapo .foto{width:100%;height:100%;border-radius:12px;background-size:cover;background-position:center}
+/* Hoja en columna: la acción principal baja al final */
+.hoja.columna{display:flex;flex-direction:column}
+.hoja .empuja{margin-top:auto}
+
+/* Inicio: lo que hace Society */
+.promesas{margin-top:14px;padding:4px 14px}
+.promesas .fila{height:50px}
+.promesas .icono{width:30px;height:30px;border-radius:50%;background:var(--cobalto);color:#fff;display:grid;place-items:center;flex:none}
+.promesas b{font-size:14.5px}
+
+/* Empezamos: resultado con la foto grande */
+.resultado.grande{display:block;padding:8px}
+.resultado.grande .foto{height:148px;border-radius:14px;background-size:cover;background-position:center}
+.resultado.grande .info{padding:10px 8px 6px}
+
+/* Análisis: progreso */
+.progreso{padding:14px 16px;margin-top:12px}
+.progreso .linea{display:flex;align-items:baseline;justify-content:space-between}
+.progreso .cifra{font-size:30px;line-height:1}
+.barra{height:8px;border-radius:4px;background:rgba(22,22,26,.08);margin-top:10px;overflow:hidden}
+.barra i{display:block;height:100%;background:var(--cobalto);border-radius:4px}
+
+/* Así te ve internet: cifras */
+.cifra.grande{font-size:30px;line-height:1}
+.estrellas{display:flex;gap:2px;color:var(--tinta);margin-top:6px}
+
+/* Tu primer carrusel: vista previa de las diapositivas */
+.vista{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.vista div{height:118px;border-radius:16px;background-size:cover;background-position:center;position:relative;border:4px solid #fff;
+  box-shadow:0 8px 16px -10px rgba(30,24,60,.45)}
+.vista .pagina{position:absolute;left:6px;top:6px;height:22px;padding:0 8px;border-radius:11px;background:rgba(22,22,26,.72);color:#fff;
+  font:800 11px var(--f-ui);display:flex;align-items:center}
 
 /* ---------- Home ---------- */
 .cabecera-home{position:absolute;left:24px;top:116px;z-index:12}

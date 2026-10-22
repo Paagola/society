@@ -1,6 +1,7 @@
-"""Descarga las escenas y los personajes de la v3 (escenas.tsv) y los deja en
-img/v3/: las escenas eN.jpg a tamaño original (algunas pantallas las amplían) y los
-personajes pN.png sin margen transparente y a 900 px de alto."""
+"""Descarga las imágenes generadas de la v3 (escenas.tsv) y las deja en img/v3/:
+los fondos como .jpg a tamaño original y los recortes con transparencia (id que
+empieza por «p») como .png sin margen y a 900 px de alto. La mascota no se
+genera: es la oficial y está en img/mascota/."""
 import io, urllib.request
 from pathlib import Path
 from PIL import Image, ImageOps
@@ -13,7 +14,7 @@ for linea in (aqui / "escenas.tsv").read_text().splitlines():
         continue
     cid, que, ajuste, url = linea.split("\t")
     im = Image.open(io.BytesIO(urllib.request.urlopen(url).read()))
-    if cid.startswith("e"):
+    if not cid.startswith("p"):
         im = im.convert("RGB")
         tipo, _, valor = ajuste.partition(":")
         if tipo == "recorte":
