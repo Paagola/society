@@ -1,0 +1,219 @@
+/* Society · v2 «Escena y hoja» (22/10/2026)
+   Estructura: cada paso es una escena con el personaje y una hoja de cristal que sube desde abajo.
+   Aspecto: tablero 1 (cristal sobre papel beige y luz de ventana).
+   Letra: estilo «Beach vibes» legible: Archivo Black estrecha + Lobster + Montserrat.
+   Maqueta de diseño, no código de la app. */
+
+:root{
+  /* Papel y escena */
+  --papel:#EEEAE3;
+  --pared:#E4DCCF;          /* pared de la escena, en sombra */
+  --pared-luz:#F6F1E8;      /* donde da el sol */
+  --arena:#E2D6C4;
+  --piedra:#E1DDD5;
+  --lino:#E8E0D3;
+  --suelo:#D8CDBC;
+  --hoja:rgba(248,245,240,.74);
+  --hoja-solida:#F6F3EE;
+
+  /* Tinta y acentos */
+  --tinta:#1B1B1B;
+  --tinta-2:#45423C;        /* 8,5:1 sobre papel */
+  --gris:#66615A;           /* 5,1:1 sobre papel; 5,5:1 sobre la hoja */
+  --cobalto:#2440E0;
+  --mostaza:#F5C518;
+
+  /* Cristal */
+  --cristal:linear-gradient(165deg,rgba(255,255,255,.58),rgba(255,255,255,0) 42%),rgba(255,253,249,.56);
+  --cristal-borde:rgba(255,255,255,.95);
+  --blur:blur(20px) saturate(140%);
+  --sombra:inset 0 1px 0 #fff,0 22px 40px -26px rgba(70,52,30,.38),0 3px 8px -4px rgba(70,52,30,.16);
+  --sombra-suave:0 16px 30px -20px rgba(70,52,30,.35);
+
+  --r-hoja:34px; --r-l:24px; --r-m:18px; --r-s:12px;
+
+  /* Letra */
+  --f-titulo:"Archivo",system-ui,sans-serif;
+  --f-guion:"Lobster",cursive;
+  --f-ui:"Montserrat",system-ui,sans-serif;
+
+  --ruido:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#CFC8BC}
+body{font-family:var(--f-ui);color:var(--tinta);-webkit-font-smoothing:antialiased;
+  display:flex;flex-wrap:wrap;gap:40px;padding:40px;align-items:flex-start}
+
+/* ---------- Pantalla ---------- */
+.pantalla{position:relative;width:390px;height:844px;overflow:hidden;isolation:isolate;background:var(--papel)}
+.pantalla::after{content:"";position:absolute;inset:0;z-index:90;pointer-events:none;background:var(--ruido);opacity:.05;mix-blend-mode:multiply}
+.papel-textura::before{content:"";position:absolute;inset:0;z-index:-1;background:url(../../img/papel.webp) center/390px auto repeat;mix-blend-mode:multiply;opacity:.14}
+
+.estado{position:absolute;top:0;left:0;right:0;height:50px;display:flex;align-items:center;justify-content:space-between;
+  padding:6px 28px 0;font:600 15px var(--f-ui);z-index:40}
+.estado svg{height:12px}
+.estado.claro{color:#fff}
+
+/* ---------- Escena ---------- */
+.escena{position:absolute;left:0;right:0;top:0;overflow:hidden;z-index:0;background:var(--pared)}
+.escena.arena{--pared:#DDD0BD;--pared-luz:#F4ECDF}
+.escena.piedra{--pared:#DCD7CE;--pared-luz:#F5F2EC}
+.escena.lino{--pared:#E1D7C8;--pared-luz:#F6F0E6}
+/* Luz de ventana: dos haces de sol en diagonal con la sombra del marco entre ellos */
+.escena .luz{position:absolute;inset:-12%;pointer-events:none;filter:blur(16px);opacity:.9;
+  background:linear-gradient(116deg,transparent 0 14%,var(--pared-luz) 16% 31%,transparent 33% 35%,var(--pared-luz) 37% 52%,transparent 55%)}
+.escena .luz.izq{transform:scaleX(-1)}
+/* Superficie donde se apoya todo */
+.escena .suelo{position:absolute;left:0;right:0;bottom:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.5) 0,rgba(255,255,255,0) 3px),linear-gradient(180deg,#E5DCCD,var(--suelo))}
+.escena .suelo::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(116deg,transparent 0 30%,rgba(255,250,240,.55) 34% 46%,transparent 50%);filter:blur(10px)}
+
+/* Peana: cilindro de piedra clara */
+.peana{position:absolute;border-radius:50% / 18px;
+  background:linear-gradient(90deg,#CFC3B1 0%,#EDE6DB 42%,#F3EEE6 55%,#D3C8B7 100%);
+  box-shadow:0 26px 30px -18px rgba(70,52,30,.45)}
+.peana::before{content:"";position:absolute;left:0;right:0;top:0;height:36px;border-radius:50%;
+  background:radial-gradient(70% 90% at 45% 40%,#FBF8F3,#E9E1D5)}
+
+.sombra-pie{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(60,42,22,.34),rgba(60,42,22,0));pointer-events:none}
+
+/* Cuadro de cristal con foto dentro (tablero 1, Cristal claro 1) */
+.marco{position:absolute;border-radius:20px;padding:9px;
+  background:var(--cristal);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);
+  border:1px solid var(--cristal-borde);box-shadow:var(--sombra)}
+.marco .foto{width:100%;height:100%;border-radius:13px;background-size:cover;background-position:center}
+
+.personaje{position:absolute;pointer-events:none;z-index:3;
+  filter:drop-shadow(0 18px 18px rgba(60,42,22,.20)) drop-shadow(0 3px 5px rgba(60,42,22,.12))}
+
+/* ---------- Hoja de cristal ---------- */
+.hoja{position:absolute;left:0;right:0;bottom:0;z-index:20;border-radius:var(--r-hoja) var(--r-hoja) 0 0;padding:14px 24px 0;
+  background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,0) 90px),var(--hoja);
+  -webkit-backdrop-filter:blur(24px) saturate(140%);backdrop-filter:blur(24px) saturate(140%);
+  border-top:1px solid #fff;box-shadow:0 -24px 44px -30px rgba(70,52,30,.45),inset 0 1px 0 #fff}
+.asa{width:38px;height:5px;border-radius:3px;background:rgba(27,27,27,.14);margin:0 auto 16px}
+.barra-inicio{position:absolute;left:50%;bottom:8px;width:134px;height:5px;margin-left:-67px;border-radius:3px;background:var(--tinta);z-index:60}
+
+/* ---------- Letra ---------- */
+.etiqueta{font:700 11px/1 var(--f-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+.etiqueta.az{color:var(--cobalto)}
+.titulo{font-family:var(--f-titulo);font-weight:900;font-stretch:75%;font-size:36px;line-height:.9;
+  text-transform:uppercase;letter-spacing:.004em;color:var(--tinta);margin-top:10px}
+/* La palabra en cursiva va debajo, montada un poco sobre las mayúsculas y recortada con el color de la hoja (como «vibes» sobre «BEACH») */
+.titulo .guion{display:block;width:max-content;font-family:var(--f-guion);font-weight:400;font-stretch:100%;text-transform:none;letter-spacing:0;
+  font-size:35px;line-height:1;color:var(--cobalto);margin:-2px 0 0 var(--sangria,40px);transform:rotate(-4deg);transform-origin:left center;
+  -webkit-text-stroke:6px var(--recorte,var(--hoja-solida));paint-order:stroke fill;position:relative}
+.titulo.linea .guion{display:inline-block;margin:0 0 0 6px;transform:rotate(-4deg) translateY(4px)}
+.texto{font:400 14.5px/1.55 var(--f-ui);color:var(--tinta-2);margin-top:10px}
+.peq{font:500 12.5px/1.45 var(--f-ui);color:var(--gris)}
+.cifra{font-family:var(--f-titulo);font-weight:800;font-stretch:75%;letter-spacing:-.01em;line-height:.9}
+
+/* ---------- Piezas ---------- */
+.cristal{background:var(--cristal);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);
+  border:1px solid var(--cristal-borde);box-shadow:var(--sombra);position:relative}
+.blanca{background:rgba(255,255,255,.72);border:1px solid rgba(27,27,27,.06);box-shadow:0 10px 22px -18px rgba(70,52,30,.4)}
+
+.boton{height:56px;border-radius:999px;background:var(--mostaza);color:var(--tinta);font:700 15.5px var(--f-ui);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75),inset 0 -2px 0 rgba(150,110,0,.16),0 16px 26px -16px rgba(200,150,0,.75)}
+.deslizar{height:62px;border-radius:999px;display:flex;align-items:center;padding:6px;gap:14px}
+.deslizar .pomo{width:50px;height:50px;border-radius:50%;background:var(--mostaza);display:grid;place-items:center;flex:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 6px 14px -5px rgba(210,160,0,.7)}
+.deslizar .rotulo{flex:1;font:700 15.5px var(--f-ui)}
+.deslizar .guia{opacity:.3;margin-right:16px}
+
+.chip{height:32px;padding:0 13px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;font:600 12.5px var(--f-ui);
+  background:rgba(255,255,255,.72);border:1px solid rgba(27,27,27,.07);white-space:nowrap}
+.chip.on{background:var(--tinta);color:#fff;border-color:transparent}
+.chip.az{background:var(--cobalto);color:#fff;border-color:transparent}
+.redondo{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;flex:none}
+.ok{width:22px;height:22px;border-radius:50%;background:var(--cobalto);color:#fff;display:grid;place-items:center;flex:none}
+.fila{display:flex;align-items:center;gap:12px}
+
+/* ---------- Piezas de cada pantalla ---------- */
+.logo{position:absolute;height:26px;z-index:30;mix-blend-mode:multiply;border-radius:3px}
+.flota{position:absolute;z-index:5;height:34px;padding:0 13px 0 6px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;font:700 12.5px var(--f-ui);white-space:nowrap}
+.flota svg{color:var(--tinta)}
+.flota .ok svg{color:#fff}
+.tarjeta-flota{position:absolute;z-index:5;border-radius:20px;padding:13px 14px}
+
+.campo{height:54px;border-radius:18px;display:flex;align-items:center;gap:10px;padding:0 16px;font:600 15px var(--f-ui)}
+.campo svg{color:var(--gris)}
+.cursor{width:2px;height:20px;background:var(--cobalto);margin-left:-8px;border-radius:1px}
+.resultado{border-radius:20px;padding:10px;display:flex;gap:12px;align-items:center}
+.miniatura{width:66px;height:66px;border-radius:14px;background-size:cover;background-position:center;flex:none}
+.nombre{font:700 14px/1.3 var(--f-ui);color:var(--tinta)}
+.nota{font:600 12.5px var(--f-ui);display:flex;align-items:center;gap:5px;margin-top:4px}
+
+.progreso{display:flex;align-items:center;gap:12px;margin-top:14px}
+.pista{flex:1;height:8px;border-radius:4px;background:rgba(27,27,27,.08);overflow:hidden}
+.pista i{display:block;height:100%;border-radius:4px;background:var(--cobalto)}
+.progreso .cifra{font-size:24px}
+.lista{border-radius:20px;padding:2px 14px;margin-top:12px}
+.lista .fila{min-height:41px;padding:6px 0;border-bottom:1px solid rgba(27,27,27,.06)}
+.lista .fila:last-child{border-bottom:0}
+.lista .fila div{flex:1;min-width:0}
+.lista .fila b{display:block;font:700 13px/1.25 var(--f-ui)}
+.lista .fila div span{display:block;font:500 12px/1.3 var(--f-ui);color:var(--gris)}
+.lista .fila em{font:600 12px var(--f-ui);font-style:normal;color:var(--gris)}
+.lista .fila em.az{color:var(--cobalto)}
+.ahora{width:22px;height:22px;border-radius:50%;border:2px solid var(--cobalto);display:grid;place-items:center;flex:none}
+.ahora::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--cobalto)}
+.pendiente{width:22px;height:22px;border-radius:50%;border:2px dashed rgba(27,27,27,.22);flex:none}
+.num{font-family:var(--f-titulo);font-weight:800;font-stretch:75%;font-size:20px;color:var(--cobalto);width:26px;flex:none}
+
+.foto-escena{position:absolute;inset:0;background-size:cover;background-position:center 40%}
+.foto-escena::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,8,.45),rgba(15,12,8,0) 130px)}
+.dato{position:absolute;z-index:4;border-radius:22px;padding:14px 16px 13px;width:150px;display:flex;flex-direction:column}
+.dato .cifra{font-size:46px}
+.dato .peq{color:var(--tinta-2);font-weight:600;margin-top:4px}
+.estrellas{display:flex;gap:2px;margin-top:6px;color:var(--tinta)}
+
+.ficha{border-radius:20px;padding:12px 12px 12px 16px;margin-top:14px;display:flex;align-items:center;gap:12px}
+.ficha > div{flex:1}
+.bento2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.caja{border-radius:20px;padding:13px 14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.caja .chips{margin-top:10px}
+.caja .chip{height:28px;padding:0 11px;font-size:12px}
+.muestras{display:flex;gap:6px;margin-top:12px}
+.muestras i{width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+
+.diapo{padding:7px;border-radius:16px}
+.diapo .foto{border-radius:10px}
+.pagina{position:absolute;right:14px;top:14px;height:22px;padding:0 8px;border-radius:999px;background:rgba(27,27,27,.72);color:#fff;font:700 10.5px/22px var(--f-ui)}
+.pasos{display:flex;gap:6px;margin-top:14px}
+.campo-alto{border-radius:18px;padding:13px 16px;margin-top:10px;min-height:66px}
+
+.aviso{position:absolute;left:24px;right:24px;height:206px;border-radius:26px;z-index:4;
+  box-shadow:var(--sombra);border:1px solid rgba(255,255,255,.8)}
+.aviso > .escena{border-radius:26px}
+.aviso-texto{position:absolute;left:18px;top:16px;width:216px;z-index:2}
+.propuesta{position:absolute;left:18px;right:18px;top:160px;z-index:5;height:38px;border-radius:999px;padding:0 4px 0 14px;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,.7);font:700 12px var(--f-ui);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid #fff}
+.aviso .personaje{z-index:3}
+.aviso .personaje + .propuesta{box-shadow:0 -6px 14px -10px rgba(60,42,22,.5)}
+
+.bento{position:absolute;left:24px;right:24px;height:184px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;z-index:4}
+.teja{border-radius:22px;padding:14px;overflow:hidden;position:relative}
+.teja.grande{grid-row:span 2}
+.teja img{position:absolute;pointer-events:none;filter:drop-shadow(0 10px 12px rgba(60,42,22,.18))}
+.teja-t{font:700 14.5px/1.2 var(--f-ui);max-width:120px;position:relative;z-index:2}
+.insignia{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:11px;background:var(--cobalto);color:#fff;font:700 11.5px var(--f-ui)}
+
+.para-hoy{position:absolute;left:24px;right:24px;z-index:4}
+.cabecera{display:flex;justify-content:space-between;align-items:center;padding:0 4px}
+.punto{position:absolute;top:10px;right:11px;width:8px;height:8px;border-radius:50%;background:var(--cobalto);border:1.5px solid #fff}
+
+.pestanas{position:absolute;left:24px;right:24px;bottom:28px;height:64px;border-radius:999px;z-index:30;display:flex;align-items:center;justify-content:space-around;padding:0 10px}
+.pestanas span{display:flex;align-items:center;gap:6px;color:var(--gris);height:44px;padding:0 10px;border-radius:999px}
+.pestanas span.on{background:var(--tinta);color:#fff;padding:0 14px}
+.pestanas small{font:700 12.5px var(--f-ui)}
+.pestanas .mas{width:48px;height:48px;padding:0;justify-content:center;background:var(--mostaza);color:var(--tinta);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 8px 16px -8px rgba(200,150,0,.8)}
+
+.chips.apretadas{gap:5px;flex-wrap:nowrap}
+.chips.apretadas .chip{padding:0 10px;font-size:12px;height:30px}
+.chip.mini{height:20px;padding:0 8px;font-size:10.5px;letter-spacing:.04em}
