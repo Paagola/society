@@ -20,7 +20,7 @@ body{background:#CFC9BF;display:flex;flex-wrap:wrap;gap:40px;padding:40px;font-f
 /* Fondo: pared crema con grafitis en los bordes, suavizada para que no compita con el texto */
 .escena.fondo{background-image:url(../img/v3/fondo.jpg)}
 .escena.fondo::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(251,248,242,.86) 0,rgba(251,248,242,.80) 230px,rgba(251,248,242,.42) 380px)}
+  background:linear-gradient(180deg,rgba(251,248,242,.90) 0,rgba(251,248,242,.86) 230px,rgba(251,248,242,.42) 380px)}
 .velo-arriba{position:absolute;left:0;right:0;top:0;height:130px;z-index:1;pointer-events:none;
   background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0))}
 .velo-arriba.oscuro{background:linear-gradient(180deg,rgba(10,12,30,.38),rgba(10,12,30,0))}
