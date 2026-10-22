@@ -1,5 +1,5 @@
 """Descarga las escenas y los personajes de la v3 (escenas.tsv) y los deja en
-img/v3/: las escenas eN.jpg a 1170 px de ancho (390 pt a @3x) y los
+img/v3/: las escenas eN.jpg a tamaño original (algunas pantallas las amplían) y los
 personajes pN.png sin margen transparente y a 900 px de alto."""
 import io, urllib.request
 from pathlib import Path
@@ -18,7 +18,6 @@ for linea in (aqui / "escenas.tsv").read_text().splitlines():
         if recorte != "-":
             im = im.crop(tuple(int(n) for n in recorte.split(",")))
         im = im.convert("RGB")
-        im = im.resize((1170, round(im.height * 1170 / im.width)), Image.LANCZOS)
         im.save(dest / f"{cid}.jpg", quality=88, optimize=True, progressive=True)
     else:
         im = im.convert("RGBA")
