@@ -19,7 +19,8 @@ body{background:#CFC9BF;display:flex;flex-wrap:wrap;gap:40px;padding:40px;font-f
 .escena{position:absolute;inset:0;background-size:cover;background-position:center top;z-index:0}
 /* Fondo: pared crema con grafitis en los bordes, suavizada para que no compita con el texto */
 .escena.fondo{background-image:url(../img/v3/fondo.jpg)}
-.escena.fondo::after{content:"";position:absolute;inset:0;background:rgba(251,248,242,.42)}
+.escena.fondo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(251,248,242,.86) 0,rgba(251,248,242,.80) 230px,rgba(251,248,242,.42) 380px)}
 .velo-arriba{position:absolute;left:0;right:0;top:0;height:130px;z-index:1;pointer-events:none;
   background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0))}
 .velo-arriba.oscuro{background:linear-gradient(180deg,rgba(10,12,30,.38),rgba(10,12,30,0))}
@@ -116,7 +117,7 @@ body{background:#CFC9BF;display:flex;flex-wrap:wrap;gap:40px;padding:40px;font-f
 /* ---------- Cabecera de las pantallas del alta ---------- */
 /* Titular a la izquierda y la mascota pequeña de apoyo a la derecha, de pie sobre la hoja */
 .cabecera{position:absolute;left:24px;top:112px;z-index:12;max-width:200px}
-.titulo.grande{font-size:38px}
+.titulo.grande{font-size:42px}
 .mascota{position:absolute;z-index:25;pointer-events:none;filter:drop-shadow(0 8px 10px rgba(20,16,40,.22))}
 .mascota.espejo{transform:scaleX(-1)}
 
@@ -132,7 +133,7 @@ body{background:#CFC9BF;display:flex;flex-wrap:wrap;gap:40px;padding:40px;font-f
 
 /* Empezamos: resultado con la foto grande */
 .resultado.grande{display:block;padding:8px}
-.resultado.grande .foto{height:148px;border-radius:14px;background-size:cover;background-position:center}
+.resultado.grande .foto{height:170px;border-radius:14px;background-size:cover;background-position:center}
 .resultado.grande .info{padding:10px 8px 6px}
 
 /* Análisis: progreso */
