@@ -1,10 +1,10 @@
 # Rediseño v3 «Cristal líquido» (22/10/2026)
 
-Tercera versión de las seis pantallas del alta y la home. Víctor descartó la v2 y pidió tres cosas:
+Tercera versión de las seis pantallas del alta y la home. Víctor descartó la v2 y pidió:
 
 1. Cambiar por completo el punto de vista y usar el cristal (glassmorphism) de forma profesional.
 2. Letra **bold bubble**.
-3. Personajes nuevos con otra estética. Tras descartar las pruebas en 3D (vinilo, cristal esmerilado y plastilina) y las cartoon sacadas de Pinterest, eligió una imagen de referencia: un retrato de **cómic urbano editorial**, con tinta negra gruesa, grises planos, un solo color de acento y grafitis de fondo.
+3. Imágenes nuevas con otra estética. Primero se probaron personajes inventados (3D, cartoon y cómic urbano). Después Víctor pidió que la imagen fuera **pequeña, de ayuda**, como en la home, y que saliera **la mascota de Society** en vez de personajes inventados, **con la misma estética que sus ilustraciones del Drive**.
 
 Es una **maqueta de diseño**, no código de la app.
 
@@ -13,8 +13,9 @@ Es una **maqueta de diseño**, no código de la app.
 | `index.html` | Las 6 pantallas maquetadas (390 pt de ancho) |
 | `v3.css` | Tokens y piezas del sistema v3 |
 | `liquido.js` + `liquido.css` | El cristal líquido: refracción en los cantos, velo y brillo |
-| `escenas.tsv` | De dónde sale cada escena y cada personaje, y cómo se ajusta |
-| `preparar_escenas.py` | Descarga escenas y personajes en `../img/v3/` (no van al repo) |
+| `escenas.tsv` | De dónde sale el fondo y cada pose de la mascota, y cómo se ajusta |
+| `preparar_escenas.py` | Descarga el fondo y las poses en `../img/v3/` (no van al repo) y las limpia |
+| `../img/mascota/drive/` | Las ilustraciones oficiales del Drive que se usaron como referencia |
 | `render.cjs` | Exporta cada pantalla a PNG (`ESCALA=3` por defecto, 1170 px de ancho) |
 | `estudio/letras.html` | Muestrario de las 12 letras bubble que se probaron |
 | `estudio/cristal.html` | Comparación entre cristal plano y cristal líquido |
@@ -25,64 +26,72 @@ Para regenerar, desde `rediseno-cristal/`: `python3 v3/preparar_escenas.py` y lu
 
 En la v1 y la v2 el cristal iba en todos los contenedores. En la v3 se aplican las reglas del Liquid Glass de Apple (WWDC 2025):
 
-- **Dos capas.** Abajo, el contenido: una escena ilustrada a pantalla completa, fotos y tarjetas sólidas. Encima, los controles de cristal que flotan: botones, píldoras, cifras, la hoja inferior y la barra de pestañas.
+- **Dos capas.** Abajo, el contenido: una pared crema con grafitis cobalto en los bordes, fotos y tarjetas sólidas. Encima, los controles de cristal que flotan: botones, la hoja inferior, el aviso de la home y la barra de pestañas.
 - **Nunca cristal sobre cristal.** Lo que va dentro de la hoja (buscador, listas, campos, botones) es sólido.
 - **Una sola variante de cristal** (la normal, esmerilada). Solo se tiñe la acción principal, y nunca con más de un color por pantalla.
 - **Refracción en los cantos.** El fondo entra curvado por el borde de cada pieza, como en una lente, y la pieza lleva brillo especular arriba y sombra suave debajo.
 - **Radios concéntricos.** La hoja flota a 10 pt del borde del móvil y su radio es 55 − 10 = 45 pt.
 - **Legibilidad primero.** Más velo blanco donde hay texto largo (la hoja, al 62–70 %) y menos en los controles pequeños (30–55 %).
 
-## Cómo está hecho el cristal
+## Maqueta
 
-`liquido.js` añade dos capas detrás de cada elemento `.liquido`:
+Todas las pantallas siguen el esquema de la home:
 
-- **Lente.** Recoge el fondo con un margen extra y lo dobla con un mapa de desplazamiento que tiene la misma forma que la pieza. El mapa es neutro en el centro y empuja hacia fuera en el bisel, con más fuerza cuanto más cerca del canto. Va recortada con una máscara SVG, porque en Chromium `clip-path` no redondea el fondo filtrado.
-- **Brillo.** Velo de esmerilado, reflejo especular arriba a la izquierda y canto de luz de 1,5 pt.
+- **Cabecera** arriba a la izquierda: etiqueta del paso y titular.
+- **Mascota pequeña** a la derecha de la cabecera, de pie sobre la hoja o sobre el aviso. Es una imagen de ayuda, de unos 130 pt de alto (150 pt en Inicio), y nunca tapa texto.
+- **Hoja de cristal** con el contenido sólido debajo.
 
-Cada pieza ajusta el efecto con variables: `--bisel`, `--refraccion`, `--desenfoque`, `--velo-a` y `--velo-b`.
+La pared de fondo lleva un velo crema (90 % arriba, 86 % a 230 pt y 42 % a 380 pt), para que los grafitis no compitan con el titular.
 
 ## Tipografía
 
 | Papel | Letra | Por qué |
 | --- | --- | --- |
-| Titulares | **DynaPuff** 700, 31 pt (30 pt en la home) | Es bubble gruesa y redonda, pero con las letras abiertas: se lee bien con tildes, eñes y signos de apertura. De las 12 que se probaron (ver `estudio/letras.html`) es la que mejor aguanta palabras largas como «Estudiando» |
+| Titulares | **DynaPuff** 700, 31 pt (42 pt en Inicio y 30 pt en la home) | Es bubble gruesa y redonda, pero con las letras abiertas: se lee bien con tildes, eñes y signos de apertura. De las 12 que se probaron (ver `estudio/letras.html`) es la que mejor aguanta palabras largas como «Estudiando» |
 | Interfaz y texto | **Nunito** 400–900 | Redondeada como DynaPuff, pero neutra. Las etiquetas van en 800 y mayúsculas |
 
 Las dos son Google Fonts con licencia OFL, así que valen en Figma y en la app sin coste. La palabra destacada del titular va en cobalto.
 
-## Ilustración
+## Mascota
 
-- **Estilo:** cómic editorial, tinta negra gruesa, sombras en planos grises sin degradados y alto contraste.
-- **Acento:** cobalto de la marca (`#2440E0`) en lugar del rojo de la referencia, en una prenda de cada personaje y en los grafitis.
-- **Escenas:** seis, una por pantalla, sobre pared crema con grafitis. Son una creadora con portátil, una anfitriona con una chincheta de mapa, una fotógrafa con una ensalada, un selfi con pinchos, un pizzero y una camarera con dos cañas.
-- **Personajes de la home:** tres bustos recortados como pegatina: un cocinero, un dueño de bar y un creador con estabilizador.
-- **Personas:** todas son ilustraciones genéricas de la app. No representan a nadie del local.
-- **Modelo:** se pidió Nano Banana Pro; Higgsfield lo registra como `nano_banana_2`.
-- **Coste:** 18 créditos en la primera tanda y 8 más al rehacer cuatro escenas que salieron dentro de una viñeta, más el quitado de fondo de los tres bustos.
+Es la mascota oficial de Society, sin cambios de diseño: cabeza de papel arrugado, cara negra mate con dos ojos blancos, aureola de alambre dibujada a tinta, sudadera cobalto con la estrella amarilla, piernas negras finas y zapatillas blancas. Las poses son nuevas y se generaron en Higgsfield copiando la estética de las ilustraciones del Drive (`mascota_completa_aureola_tinta_fondo_claro`, `mascota_pose_saludo`, `mascota_pose_celebrando` y `mascota_pose_senalando`, copiadas en `../img/mascota/drive/`).
 
-Algunas escenas necesitan un ajuste, que está anotado en `escenas.tsv` y que `preparar_escenas.py` aplica solo:
+| Pantalla | Pose |
+| --- | --- |
+| Inicio | Saluda con las dos manos |
+| Empezamos | Busca con una lupa |
+| Análisis | Sentada con el portátil |
+| Así te ve internet | Enseña el móvil con una estrella |
+| Tu primer carrusel | Hace una foto |
+| Home, sobre el aviso | Tumbada, con la cara apoyada en las manos |
+| Home, «Contenido desde una idea» | Levanta una bombilla (con borde blanco de pegatina, porque la tarjeta es cobalto) |
+| Home, «Campaña a tu medida» | Habla con un megáfono |
+| Home, «Responder reseñas» | Sostiene un bocadillo con tres puntos |
 
-- **Recorte:** quita el marco fino que el modelo dibujó en Empezamos, Análisis y Así te ve internet.
-- **Espejo a la izquierda:** alarga la pared de la Home con su reflejo, para que la camarera quede a la derecha del titular y no detrás.
+Cómo se hizo:
 
-El encuadre de cada pantalla (tamaño y posición del fondo) está en `index.html`. Siempre deja la cara del personaje a la vista, fuera de la hoja y de los controles.
+- **Modelo:** se pidió Nano Banana Pro a 2K; Higgsfield lo registra como `nano_banana_2`. Las cuatro ilustraciones del Drive van como referencia en cada petición, y el texto pide redibujar la mascota «como un dibujo más de la misma serie»: ilustración mate con aspecto de papel recortado, sin brillos ni render 3D.
+- **Fondo:** cada pose se generó sobre gris cálido liso y se recortó con el quitafondos de Higgsfield. El quitafondos deja gris dentro de la aureola y borra los trazos amarillos sueltos, así que `preparar_escenas.py` compara con la imagen original: quita ese gris y recupera los amarillos.
+- **Descartado:** una primera tanda salió en 3D brillante, como un muñeco de vinilo. Víctor la rechazó porque no era la estética del Drive.
+- **Coste:** 38 créditos en total. 11 de la tanda en 3D descartada (5 imágenes y un recorte) y 27 de la buena (9 imágenes y 9 recortes). Una petición la bloqueó el filtro de contenido por error y no se cobró; se repitió con otra frase.
+
+El fondo de pared con grafitis es lo único que queda de las pruebas de cómic. Las escenas y personajes de cómic de la primera entrega ya no se usan.
 
 ## Contraste
 
-Se ha medido sobre el render @3x. Para cada control de cristal se toma la luminancia del fondo que queda detrás del texto (el percentil 40 de la pieza, que es la parte clara) y se compara con la tinta `#16161A`.
+Se ha medido sobre el render @3x, con la posición de cada control sacada del navegador, y contra la tinta `#16161A`. En los controles de cristal se toma el percentil 40 de la luminancia de la pieza (la parte clara). En la cabecera se toma el fondo sin las letras y se usa el 5 % más oscuro, que es el peor caso.
 
 | Pieza | Pantalla | Relación |
 | --- | --- | --- |
-| Logo | Inicio / Home | 7,8:1 / 14,2:1 |
-| Píldora «Carrusel listo» | Inicio | 16,6:1 |
-| Píldora «Buscamos tu ficha» | Empezamos | 10,2:1 |
-| Lente de progreso | Análisis | 15,3:1 |
-| Cifras 4,8 y 1.695 | Así te ve internet | 17,2:1 y 10,0:1 |
-| Píldora «1 / 3» | Tu primer carrusel | 6,6:1 |
-| Aviso del mes | Home | 15,3:1 |
+| Logo | Inicio / Home | 15,0:1 |
+| Botón de volver | Empezamos a Tu primer carrusel | 16,8:1 a 16,9:1 |
+| Campana | Home | 17,2:1 |
+| Aviso del mes | Home | 17,7:1 |
+| Titular en tinta sobre la pared | Todas | 12,8:1 a 14,1:1 |
+| Etiqueta gris `#5C5966` sobre la pared | Todas | 4,8:1 a 5,3:1 |
 
-La primera posición de «Carrusel listo», sobre el pantalón oscuro de la creadora, daba 4,3:1. Por eso subió a la pared. En la hoja y en las tarjetas sólidas el texto va sobre blanco o crema, así que los valores son los de la v2 o mejores. El gris `#5C5966` da 6,4:1 sobre crema.
+La etiqueta gris daba 4,5:1 con el velo anterior (86 % arriba), justo en el límite AA. Por eso el velo subió al 90 %. En la hoja y en las tarjetas sólidas el texto va sobre blanco o crema, así que los valores son los de la v2 o mejores.
 
 ## Datos
 
-Los textos, cifras y fotos son los de la v1 y la v2, que salen de las capturas originales de Torre de Vega: 4,8 de media, 1.695 reseñas, Plaza Santa Ana 8, los colores del rótulo y el «10 % menos de clientes frente a julio». No se ha añadido ningún dato nuevo.
+Los textos, cifras y fotos son los de la v1 y la v2, que salen de las capturas originales de Torre de Vega: 4,8 de media, 1.695 reseñas, Plaza Santa Ana 8, los colores del rótulo y el «10 % menos de clientes frente a julio». No se ha añadido ningún dato nuevo. La mascota es de la marca Society, no del local.
