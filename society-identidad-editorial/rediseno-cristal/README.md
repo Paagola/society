@@ -2,6 +2,8 @@
 
 Propuesta de rediseño de las seis pantallas del alta y la home de Society: se mantiene la identidad de papel, pero sin saturarla, y se añade una capa de cristal esmerilado (*glassmorphism*) como la del vídeo de referencia. Es una **maqueta de diseño**: el código de la app lo escribe Víctor.
 
+> **Versión 2 (22/10/2026):** «Escena y hoja», con el aspecto «Papel vegetal» y letra Archivo + Lobster + Montserrat. Está en [`v2/escena/`](v2/escena/README.md); el estudio previo, en [`v2/estudio/`](v2/estudio/README.md). Lo que sigue describe la v1.
+
 | Archivo | Qué es |
 | --- | --- |
 | `index.html` | Las 6 pantallas maquetadas (390 pt de ancho) |
