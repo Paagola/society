@@ -100,6 +100,10 @@ El archivo de Figma ([v3 · Cristal líquido](https://www.figma.com/design/xigLf
 - **Arriba, las 6 pantallas en capas editables.** Los textos son texto de verdad en DynaPuff y Nunito, el cristal es desenfoque de fondo con degradado, cantos de luz y sombras, los iconos son vectores y cada pose de la mascota es una imagen suelta. Las capas principales llevan nombres legibles (Fondo, Velo, Hoja · cristal, Mascota · lupa, Botón · …).
 - **Abajo, el render en imagen** como referencia, porque Figma no puede reproducir la refracción de los cantos que hace `liquido.js`.
 
+Cada pantalla es un auto layout vertical que abraza su contenido, con 844 de alto mínimo. Si se añade algo a la hoja (o al contenido de la home), la pantalla se alarga sola: el fondo se estira y la barra de pestañas y el indicador de inicio se quedan pegados abajo. La mascota va suelta encima, anclada arriba. El hueco antes del botón de cada hoja tiene un alto mínimo igual al de hoy, para que el botón no suba; se puede bajar en «Hueco y botón».
+
+Al pasarlas a auto layout se arreglaron fallos de la importación: 35 iconos que salían cortados (se volvieron a importar como SVG), la sombra cuadrada detrás de la mascota y el bloque «Para hoy» de la home, que no se había importado y se montó a mano en Figma con los mismos textos.
+
 Las capas editables no van en una página propia porque el plan Starter de Figma solo deja tres páginas.
 
 Para regenerar el HTML que se sube, desde `rediseno-cristal/`: `python3 v3/preparar_escenas.py`, `python3 v3/exportar_figma.py` y `cd v3 && NODE_PATH=$(npm root -g) node exportar_figma.cjs`. El resultado queda en `v3/figma/figma.html` (no va al repo) y se sube con la herramienta `html_to_figma` del conector de Figma, eligiendo `.pantalla`.
