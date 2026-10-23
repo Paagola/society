@@ -1,0 +1,26 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>v3 · prueba de cristal líquido</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wdth,wght@75..100,400..700&family=Nunito:wght@400..900&display=block">
+<link rel="stylesheet" href="../liquido.css">
+<style>
+body{margin:0;display:flex;gap:24px;padding:24px;background:#ddd}
+.p{position:relative;width:390px;height:844px;overflow:hidden;border-radius:40px;background:#2440E0}
+.fondo{position:absolute;inset:0;background:url(../../img/terraza.jpg) center/cover}
+.gran{position:absolute;left:20px;top:300px;font:700 120px/0.9 DynaPuff;color:#F5C518}
+.bola{position:absolute;border-radius:50%}
+.vidrio{position:absolute;border-radius:999px;
+  font:700 16px Nunito;color:#fff;display:flex;align-items:center;justify-content:center}
+.plano{backdrop-filter:blur(16px) saturate(160%);border:1px solid rgba(255,255,255,.45);background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,.12));box-shadow:inset 1.5px 1.5px 0 rgba(255,255,255,.8),0 16px 34px -14px rgba(10,14,40,.55)}
+.tarjeta{border-radius:30px;padding:18px;display:block;color:#16161A}
+.plano.tarjeta{background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,.48))}
+.tarjeta h2{font:700 30px/1 DynaPuff;margin:0 0 6px} .tarjeta p{margin:0;font:500 14px/1.45 Nunito;color:#3a3a44}
+</style></head><body>
+<script>const cuerpo=`<div class="fondo"></div><div class="bola" style="left:230px;top:120px;width:150px;height:150px;background:#F5C518"></div><div class="bola" style="left:-40px;top:520px;width:200px;height:200px;background:#FF6B4A"></div><p class="gran">Hola<br>bar</p>`;</script>
+<div class="p" id="a"></div><div class="p" id="b"></div>
+<script>
+for (const id of ['a','b']){const p=document.getElementById(id);p.innerHTML=cuerpo+`
+<div class="vidrio ${id==='a'?'plano':'liquido'}" style="left:40px;top:80px;width:180px;height:56px">Botón de cristal</div>
+<div class="vidrio tarjeta ${id==='a'?'plano':'liquido'}" style="left:24px;right:24px;top:560px;--bisel:26px;--desenfoque:14;--velo-a:.62;--velo-b:.5"><h2>¿Qué hacemos hoy?</h2><p>Creamos contenido con IA, estrategias y campañas que atraen clientes.</p></div>
+<div class="vidrio ${id==='a'?'plano':'liquido'}" style="left:24px;right:24px;bottom:28px;height:64px">Inicio · Calendario · + · Datos · Perfil</div>`;}
+</script>
+<script src="../liquido.js"></script>
+</body></html>

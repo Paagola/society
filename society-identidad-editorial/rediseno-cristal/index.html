@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Society · Papel y cristal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=block" rel="stylesheet">
+<link rel="stylesheet" href="cristal.css">
+<style>
+/* ===== 01 Inicio ===== */
+#s1{height:844px}
+#s1 .escenario{position:absolute;left:28px;top:118px;width:334px;height:340px;border-radius:var(--r-xl);transform:rotate(-4deg)}
+#s1 .escenario .etiqueta{position:absolute;left:24px;bottom:22px;color:var(--tinta-2)}
+#s1 .c0{left:30px;top:62px;height:404px;z-index:3}
+#s1 .flota1{position:absolute;right:12px;top:186px;transform:rotate(5deg);z-index:4;height:44px;padding:0 16px 0 8px;border-radius:999px;display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px}
+#s1 .flota1 .ok{width:28px;height:28px;border-radius:50%;background:var(--cobalto);display:grid;place-items:center}
+#s1 .flota2{position:absolute;right:22px;top:330px;transform:rotate(-3deg);z-index:4;border-radius:20px;padding:10px 14px;display:flex;gap:6px}
+#s1 .flota2 b{display:block;width:34px;height:42px;border-radius:8px;background-size:cover;background-position:center;border:2px solid #fff}
+#s1 .bocadillo{position:absolute;left:236px;top:96px;transform:rotate(7deg);z-index:4}
+#s1 h1{position:absolute;left:24px;top:486px;font-size:66px;width:342px}
+#s1 h1 .cursiva{font-size:84px;display:block;margin-top:4px;color:var(--cobalto)}
+#s1 .texto{position:absolute;left:24px;top:680px;width:320px}
+#s1 .deslizar{position:absolute;left:20px;right:20px;top:754px}
+#s1 .puntos{position:absolute;left:0;right:0;bottom:9px}
+
+/* ===== 02 Empezamos ===== */
+#s2 .cab{position:relative;height:330px}
+#s2 .c1{right:-8px;top:34px;height:300px;z-index:3}
+#s2 .cab .etiqueta{position:absolute;left:24px;top:70px;color:var(--gris)}
+#s2 .cab h1{position:absolute;left:24px;top:96px;font-size:84px}
+#s2 .cab h1 .cursiva{font-size:96px;display:block;color:var(--cobalto)}
+#s2 .busca{position:relative;z-index:4;margin:0 20px;height:66px;border-radius:999px;display:flex;align-items:center;padding:0 7px 0 24px;gap:12px}
+#s2 .busca>span:first-child{flex:1;font-size:16px;color:var(--gris)}
+#s2 .busca .icono-redondo{flex:none;width:52px;height:52px;background:var(--cobalto);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 10px 18px -8px rgba(36,64,224,.8)}
+#s2 .res{margin:34px 24px 14px;color:var(--gris)}
+#s2 .tarjeta{margin:0 16px 18px;border-radius:var(--r-l);padding:10px}
+#s2 .fotos{display:flex;gap:8px;height:206px;overflow:hidden;border-radius:var(--r-m)}
+#s2 .fotos div{flex:none;height:100%;border-radius:var(--r-m);background-size:cover;background-position:center;position:relative}
+#s2 .pildora{position:absolute;height:30px;padding:0 12px;border-radius:999px;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600}
+#s2 .info{padding:16px 12px 6px}
+#s2 .info h2{font-size:30px;margin-bottom:10px}
+#s2 .info p{font-size:15px;line-height:1.45;color:var(--tinta-2)}
+#s2 .nota{display:flex;align-items:center;gap:6px;margin-top:8px;font-weight:600;font-size:15px}
+#s2 .deslizar{margin:16px 2px 2px;height:62px;padding:5px}
+#s2 .deslizar .pomo{width:52px;height:52px}
+#s2 .relleno{font-family:var(--f-cursiva);font-style:italic;font-size:17px;color:var(--gris);margin-top:6px}
+#s2 .mano{margin:6px 16px 34px;border-radius:var(--r-m);padding:22px 22px;border:1.5px dashed rgba(20,20,20,.22);background:rgba(255,255,255,.35);backdrop-filter:blur(14px)}
+#s2 .mano p{font-size:15px;color:var(--tinta-2)}
+#s2 .mano b{display:flex;align-items:center;gap:6px;color:var(--cobalto);font-size:17px;margin-top:4px}
+
+/* ===== 03 Análisis ===== */
+#s3 .chip-paso{position:absolute;left:24px;top:64px;height:32px;padding:0 14px;border-radius:999px;display:flex;align-items:center;gap:8px}
+#s3 .chip-paso i{width:8px;height:8px;border-radius:50%;background:var(--cobalto);box-shadow:0 0 0 4px rgba(36,64,224,.15)}
+#s3 h1{position:absolute;left:24px;top:116px;font-size:72px}
+#s3 h1 .cursiva{font-size:92px;display:block;color:var(--cobalto)}
+#s3 .texto{position:absolute;left:24px;top:296px;width:190px}
+#s3 .c2{right:-10px;top:214px;height:250px;z-index:4}
+#s3 .lista{position:absolute;left:16px;right:16px;top:458px;border-radius:var(--r-l);padding:8px 18px}
+#s3 .fila{display:flex;align-items:center;gap:14px;padding:13px 0}
+#s3 .fila+.fila{border-top:1px solid rgba(20,20,20,.07)}
+#s3 .fila .ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex:none}
+#s3 .fila .ic.hecho{background:var(--tinta)}
+#s3 .fila .ic.ahora{background:var(--cobalto);box-shadow:0 0 0 6px rgba(36,64,224,.14)}
+#s3 .fila .ic.luego{border:1.5px dashed rgba(20,20,20,.28)}
+#s3 .fila b{display:block;font-size:17px;font-weight:650}
+#s3 .fila small{display:block;font-size:14px;color:var(--gris);margin-top:1px}
+#s3 .fila .estado-txt{margin-left:auto;align-self:flex-start;margin-top:4px}
+#s3 .fila.luego b{color:#8d877b}
+#s3 .progreso{position:absolute;left:24px;right:24px;top:842px}
+#s3 .pista{height:14px;border-radius:999px;padding:3px}
+#s3 .pista i{display:block;height:100%;width:46%;border-radius:999px;background:linear-gradient(90deg,#4E68FF,var(--cobalto))}
+#s3 .progreso .datos{display:flex;justify-content:space-between;margin-top:10px;font-weight:600;font-size:15px}
+#s3 .boton-mostaza{position:absolute;left:20px;right:20px;top:904px}
+#s3 .pie{position:absolute;left:0;right:0;top:980px;text-align:center;font-size:14px;color:var(--gris)}
+
+/* ===== 04 Así te ve internet ===== */
+#s4 .cab{position:relative;height:330px}
+#s4 .c3{right:-30px;top:40px;height:300px;z-index:3}
+#s4 .cab .etiqueta{position:absolute;left:24px;top:70px;color:var(--gris)}
+#s4 .cab h1{position:absolute;left:24px;top:96px;font-size:76px;z-index:4}
+#s4 .cab h1 .cursiva{font-size:88px;display:block;color:var(--cobalto)}
+#s4 .cab .texto{position:absolute;left:24px;top:262px;width:200px}
+#s4 .ficha{margin:0 16px 22px;border-radius:var(--r-l);padding:24px 22px 22px;text-align:center;z-index:4}
+#s4 .ficha .muesca{position:absolute;top:96px;width:22px;height:22px;border-radius:50%;background:var(--papel);box-shadow:inset 0 2px 4px rgba(0,0,0,.08)}
+#s4 .ficha h2{font-size:54px;margin:14px 0 2px}
+#s4 .ficha .cursiva{font-size:42px;color:var(--cobalto);line-height:1}
+#s4 .ficha p{font-size:15px;color:var(--tinta-2);margin-top:12px;line-height:1.45}
+#s4 .ficha .datos{display:flex;gap:8px;justify-content:center;margin-top:16px}
+#s4 .ficha .datos span{height:36px;padding:0 14px;border-radius:999px;display:flex;align-items:center;gap:6px;font-weight:650;font-size:14.5px;background:rgba(255,255,255,.7);border:1px solid #fff}
+#s4 .lapiz{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.75);border:1px solid #fff;box-shadow:0 4px 10px -4px rgba(20,24,60,.25);flex:none}
+#s4 .ficha .lapiz{position:absolute;right:16px;top:16px}
+#s4 .bloque{margin:0 16px 16px;border-radius:var(--r-l);padding:20px 20px 10px}
+#s4 .bloque .cabeza{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;color:var(--tinta-2)}
+#s4 .dato{display:flex;align-items:center;gap:12px;padding:12px 0}
+#s4 .dato+.dato{border-top:1px solid rgba(20,20,20,.07)}
+#s4 .dato div{flex:1}
+#s4 .dato small{display:block;font-size:13px;color:var(--gris)}
+#s4 .dato b{display:block;font-size:16.5px;font-weight:650;margin-top:1px}
+#s4 .tonos{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+#s4 .tonos span{height:34px;padding:0 14px;border-radius:999px;display:flex;align-items:center;background:var(--cobalto-claro);color:var(--cobalto-2);font-weight:650;font-size:14.5px}
+#s4 .cita{font-family:var(--f-cursiva);font-style:italic;font-size:30px;line-height:1.05;letter-spacing:-.01em}
+#s4 .colores{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;text-align:center;padding:8px 0 4px}
+#s4 .colores i{display:block;width:52px;height:52px;border-radius:50%;margin:0 auto 8px;border:3px solid rgba(255,255,255,.9);box-shadow:0 8px 16px -8px rgba(20,24,60,.45)}
+#s4 .colores b{display:block;font-size:13px;font-weight:650;line-height:1.15;min-height:30px}
+#s4 .colores small{font-family:var(--f-mono);font-size:10px;color:var(--gris)}
+#s4 .pie-bloque{font-size:13.5px;color:var(--gris);padding:10px 0 12px;line-height:1.4}
+#s4 .guardada{text-align:center;padding:10px 0 26px}
+#s4 .barras{height:44px;width:200px;margin:12px auto 0;background:repeating-linear-gradient(90deg,var(--tinta) 0 2px,transparent 2px 5px,var(--tinta) 5px 6px,transparent 6px 9px,var(--tinta) 9px 12px,transparent 12px 14px);opacity:.85;border-radius:2px}
+#s4 .final{margin:0 20px;}
+#s4 .final .deslizar .rotulo{color:var(--papel)}
+#s4 .final p{text-align:center;font-size:13.5px;color:var(--gris);margin:12px 0 30px}
+
+/* ===== 05 Tu primer carrusel ===== */
+#s5 .cab{position:relative;height:356px}
+#s5 .c4{right:-12px;top:44px;height:320px;z-index:3}
+#s5 .cab .etiqueta{position:absolute;left:24px;top:70px;color:var(--gris)}
+#s5 .cab h1{position:absolute;left:24px;top:96px;font-size:76px;z-index:4}
+#s5 .cab h1 .cursiva{font-size:96px;display:block;color:var(--cobalto)}
+#s5 .cab .texto{position:absolute;left:24px;top:262px;width:215px}
+#s5 .pasos{margin:0 16px 20px;height:52px;border-radius:999px;padding:5px;display:flex;gap:4px;position:relative;z-index:4}
+#s5 .pasos span{flex:1;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:600;font-size:14.5px;color:var(--gris)}
+#s5 .pasos span.on{background:var(--tinta);color:var(--papel);box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+#s5 .seccion{margin:0 16px 16px;border-radius:var(--r-l);padding:20px}
+#s5 .seccion .cabeza{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+#s5 .num{width:34px;height:34px;border-radius:50%;background:var(--cobalto);color:#fff;display:grid;place-items:center;font-weight:800;font-size:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 6px 12px -6px rgba(36,64,224,.8)}
+#s5 .seccion h2{font-size:30px}
+#s5 .seccion p.texto{font-size:15px;margin-bottom:14px}
+#s5 .campo{height:96px;border-radius:var(--r-s);background:rgba(255,255,255,.72);border:1px solid #fff;box-shadow:inset 0 2px 6px rgba(20,24,60,.06);padding:14px 16px;font-size:16px;color:#9a9488}
+#s5 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+#s5 .chips .chip:not(.activo){background:rgba(255,255,255,.6);border:1px solid rgba(20,20,20,.1)}
+#s5 .losetas{display:flex;gap:10px}
+#s5 .loseta{flex:1;aspect-ratio:1/1;border-radius:var(--r-m);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14.5px;
+  border:1.5px dashed rgba(36,64,224,.45);background:rgba(255,255,255,.5)}
+#s5 .loseta .mas{width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 6px 12px -6px rgba(20,24,60,.35)}
+#s5 .loseta.apagada{border-color:rgba(20,20,20,.14);color:#a59f93;background:rgba(255,255,255,.25)}
+#s5 .loseta.foto{border:0;background-size:cover;background-position:center;position:relative;justify-content:flex-end;align-items:flex-start;padding:10px}
+#s5 .loseta.foto span{height:28px;padding:0 10px;border-radius:999px;display:flex;align-items:center;font-size:12px;font-weight:600}
+#s5 .refs{display:flex;gap:10px;margin-right:-20px;overflow:hidden}
+#s5 .refs div{flex:none;width:132px;height:166px;border-radius:var(--r-s);background-size:cover;background-position:center;box-shadow:0 10px 18px -10px rgba(20,24,60,.5)}
+#s5 .refs .loseta{flex:none;width:132px;height:166px;aspect-ratio:auto}
+#s5 .final{margin:8px 20px 0}
+#s5 .final .rotulo{padding-left:16px;color:var(--papel)}
+#s5 .final p{text-align:center;font-size:13.5px;color:var(--gris);margin:12px 0 30px}
+
+/* ===== 06 Inicio (home) ===== */
+#s6{height:844px}
+#s6 .logo{position:absolute;left:20px;top:58px;height:46px;mix-blend-mode:multiply}
+#s6 .campana{position:absolute;right:20px;top:58px;width:46px;height:46px}
+#s6 .campana i{position:absolute;top:11px;right:12px;width:9px;height:9px;border-radius:50%;background:var(--cobalto);border:2px solid #fff}
+#s6 .banner{position:absolute;left:16px;right:16px;top:124px;height:272px;border-radius:var(--r-l);padding:20px 22px;overflow:visible}
+#s6 .banner .etiqueta{color:rgba(255,255,255,.75)}
+#s6 .banner h2{font-size:46px;margin-top:8px;color:#fff}
+#s6 .banner .cifra{display:flex;align-items:center;gap:10px;margin-top:10px;width:205px}
+#s6 .banner .cifra b{font-family:var(--f-cursiva);font-style:italic;font-weight:400;font-size:40px;line-height:.9;color:var(--mostaza);white-space:nowrap;flex:none;min-width:58px}
+#s6 .banner .cifra span{font-size:13.5px;line-height:1.3;color:rgba(255,255,255,.92)}
+#s6 .banner .franja{position:absolute;left:10px;right:138px;bottom:10px;height:58px;border-radius:var(--r-m);display:flex;flex-direction:column;justify-content:center;padding:0 14px;gap:3px;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(10px)}
+#s6 .banner .franja .etiqueta{color:#fff}
+#s6 .banner .franja span{font-size:14.5px;font-weight:650;color:#fff}
+#s6 .banner .franja .icono-redondo{width:38px;height:38px;background:#fff}
+#s6 .c5{right:-30px;top:112px;height:300px;z-index:5}
+#s6 .seccion{position:absolute;left:20px;right:20px;top:420px;display:flex;justify-content:space-between;align-items:flex-end}
+#s6 .seccion h3{font-size:38px}
+#s6 .seccion h3 .cursiva{font-size:48px;color:var(--cobalto)}
+#s6 .seccion .etiqueta{color:var(--gris);margin-bottom:6px}
+#s6 .carril{position:absolute;left:16px;top:480px;display:flex;gap:10px}
+#s6 .acc{width:142px;border-radius:var(--r-m);padding:6px 6px 12px}
+#s6 .acc .img{height:116px;border-radius:18px;position:relative;overflow:hidden}
+#s6 .acc .img img{position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;height:150px}
+#s6 .acc b{display:block;font-size:14.5px;font-weight:650;line-height:1.2;margin:10px 6px 0}
+#s6 .acc .marca{position:absolute;top:8px;left:8px;height:22px;padding:0 9px;border-radius:999px;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;display:flex;align-items:center;z-index:2}
+#s6 .acc .badge{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:var(--cobalto);color:#fff;font-weight:700;font-size:13px;display:grid;place-items:center;z-index:2;border:2px solid #fff}
+#s6 .resumen{position:absolute;left:16px;top:668px;display:flex;gap:10px}
+#s6 .resumen .r{width:236px;height:100px;border-radius:var(--r-m);padding:14px 16px;display:flex;gap:12px}
+#s6 .resumen .n{font-family:var(--f-titular);font-weight:800;font-size:58px;line-height:.85;font-variation-settings:"opsz" 96,"wdth" 75;color:transparent;-webkit-text-stroke:1.5px var(--tinta)}
+#s6 .resumen .r.oscuro .n{-webkit-text-stroke-color:var(--papel)}
+#s6 .resumen h4{font-size:19px;line-height:.95}
+#s6 .resumen p{font-size:13px;color:var(--tinta-2);margin-top:6px}
+#s6 .barra{position:absolute;left:16px;right:16px;bottom:22px;height:70px;border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:0 8px;z-index:20}
+#s6 .barra .activa{height:54px;padding:0 18px 0 14px;border-radius:999px;background:var(--cobalto);display:flex;align-items:center;gap:8px;color:#fff;font-weight:600;font-size:15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+#s6 .barra .ic{width:44px;height:44px;display:grid;place-items:center;color:rgba(241,237,228,.8)}
+#s6 .barra .crear{width:54px;height:54px;border-radius:50%;background:var(--mostaza);display:grid;place-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 8px 16px -6px rgba(245,197,24,.6)}
+</style>
+</head>
+<body>
+
+<!-- Iconos -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-dobles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l6 6-6 6M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+    <symbol id="i-lapiz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4.2-1 10.6-10.6a2.1 2.1 0 00-3-3L5.2 16 4 20z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-estrella" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.9 6.8 19.6l1-5.8L3.5 9.7l5.9-.8z"/></symbol>
+    <symbol id="i-campana" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16v-5a6 6 0 1112 0v5l1.5 2h-15L6 16zM10 20.5a2 2 0 004 0"/></symbol>
+    <symbol id="i-casa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M4 11l8-6.5 8 6.5V20H4z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 1113 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-mas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="5.5" width="16" height="14.5" rx="3"/><path d="M8 3.5v4M16 3.5v4M4 10.5h16"/></symbol>
+    <symbol id="i-graf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 20v-6M12 20V5M18 20v-9"/></symbol>
+    <symbol id="i-yo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.4-4 4.2-5.5 7.5-5.5s6.1 1.5 7.5 5.5"/></symbol>
+    <symbol id="i-asterisco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 4v16M5 8l14 8M19 8L5 16"/></symbol>
+    <symbol id="i-destello" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5c.6 5.6 4.9 9.9 10.5 10.5-5.6.6-9.9 4.9-10.5 10.5C11.4 16.9 7.1 12.6 1.5 12 7.1 11.4 11.4 7.1 12 1.5z"/></symbol>
+    <symbol id="i-estado" viewBox="0 0 72 12"><g fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/><path d="M33 2.5c2.6 0 5 1 6.8 2.7l-1.4 1.4A7.6 7.6 0 0033 4.5c-2 0-3.9.8-5.4 2.1l-1.4-1.4C28 3.5 30.4 2.5 33 2.5zm0 4c1.5 0 2.9.6 3.9 1.6L33 12l-3.9-3.9c1-1 2.4-1.6 3.9-1.6z"/><rect x="47" y="1" width="22" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".5"/><rect x="49" y="3" width="18" height="6" rx="1.6"/><rect x="70" y="4" width="1.6" height="4" rx=".8" opacity=".5"/></g></symbol>
+  </defs>
+</svg>
+
+<!-- ======================= 01 · INICIO ======================= -->
+<section class="pantalla" id="s1">
+  <i class="aurora cob" style="width:360px;height:360px;left:120px;top:30px;opacity:.9"></i>
+  <i class="aurora mos" style="width:240px;height:240px;left:-70px;top:250px;opacity:.85"></i>
+  <i class="aurora cel" style="width:300px;height:300px;left:160px;top:560px;opacity:.7"></i>
+  <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12" width="72"><use href="#i-estado"/></svg></div>
+
+  <div class="escenario cristal"></div>
+  <span class="bocadillo">@society</span>
+  <img class="personaje c0" src="img/personajes/c0.png" alt="">
+  <div class="flota1 cristal"><span class="ok"><svg width="16" height="16" style="color:#fff"><use href="#i-check"/></svg></span>Carrusel listo</div>
+  <div class="flota2 cristal"><b style="background-image:url(img/ensalada.jpg)"></b><b style="background-image:url(img/terraza.jpg)"></b><b style="background-image:url(img/salon.jpg)"></b></div>
+
+  <h1 class="titular">Ideas que<br>llenan <span class="cursiva">tu local.</span></h1>
+  <p class="texto">Creamos contenido con IA, estrategias de marketing y campañas que atraen clientes y hacen crecer tu negocio.</p>
+  <div class="deslizar cristal oscuro">
+    <span class="pomo"><svg width="22" height="22" style="color:var(--tinta)"><use href="#i-dobles"/></svg></span>
+    <span class="rotulo">Descubre cómo funciona</span>
+    <svg class="guia" width="20" height="20"><use href="#i-dobles"/></svg>
+  </div>
+  <div class="puntos"><i class="on"></i><i></i><i></i></div>
+</section>
+
+<!-- ======================= 02 · EMPEZAMOS ======================= -->
+<section class="pantalla alta" id="s2">
+  <i class="aurora cob" style="width:380px;height:380px;left:150px;top:-40px;opacity:.85"></i>
+  <i class="aurora mos" style="width:220px;height:220px;left:-80px;top:180px;opacity:.75"></i>
+  <i class="aurora cel" style="width:420px;height:420px;left:-60px;top:520px;opacity:.9"></i>
+  <i class="aurora mos" style="width:260px;height:260px;left:220px;top:900px;opacity:.55"></i>
+  <i class="aurora cob" style="width:300px;height:300px;left:-120px;top:1180px;opacity:.55"></i>
+  <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12" width="72"><use href="#i-estado"/></svg></div>
+  <div class="cab">
+    <span class="etiqueta">Empezamos · paso 1 de 6</span>
+    <h1 class="titular">Busca<span class="cursiva">tu local.</span></h1>
+    <img class="personaje c1" src="img/personajes/c1.png" alt="">
+  </div>
+  <div class="busca cristal">
+    <span>Busca tu local en Google Maps</span>
+    <span class="icono-redondo"><svg width="22" height="22" style="color:#fff"><use href="#i-lupa"/></svg></span>
+  </div>
+  <p class="res etiqueta">2 resultados en Google Maps</p>
+
+  <article class="tarjeta cristal">
+    <div class="fotos">
+      <div style="width:230px;background-image:url(img/terraza.jpg)">
+        <span class="pildora cristal" style="left:10px;bottom:10px"><svg width="14" height="14" style="color:var(--cobalto)"><use href="#i-estrella"/></svg>4,8</span>
+      </div>
+      <div style="width:200px;background-image:url(img/ensalada.jpg)"><span class="pildora cristal oscuro" style="left:96px;top:10px">1 / 3</span></div>
+    </div>
+    <div class="info">
+      <h2 class="titular">Restaurante Torre de Vega «El Mora»</h2>
+      <p>Plaza Santa Ana, 8<br>Alhaurín de la Torre, Málaga</p>
+      <p class="nota"><svg width="16" height="16" style="color:var(--cobalto)"><use href="#i-estrella"/></svg>4,8 de media <span class="gris" style="font-weight:400">· 1.695 reseñas</span></p>
+    </div>
+    <div class="deslizar cristal oscuro">
+      <span class="pomo"><svg width="20" height="20" style="color:var(--tinta)"><use href="#i-dobles"/></svg></span>
+      <span class="rotulo" style="text-align:center;margin-right:20px">Es mi local</span>
+      <svg class="guia" width="18" height="18"><use href="#i-dobles"/></svg>
+    </div>
+  </article>
+
+  <article class="tarjeta cristal">
+    <div class="fotos"><div style="width:100%;background-image:url(img/salon.jpg)"></div></div>
+    <div class="info">
+      <h2 class="titular">Restaurante Casa Pepe</h2>
+      <p>Calle Pepe, 1<br>Málaga, Málaga</p>
+      <p class="relleno">Resultado de relleno del boceto</p>
+    </div>
+    <div class="deslizar" style="background:rgba(255,255,255,.55);border:1px solid rgba(20,20,20,.12)">
+      <span class="pomo cob"><svg width="20" height="20" style="color:#fff"><use href="#i-dobles"/></svg></span>
+      <span class="rotulo" style="text-align:center;margin-right:20px">Es mi local</span>
+      <svg class="guia" width="18" height="18"><use href="#i-dobles"/></svg>
+    </div>
+  </article>
+
+  <div class="mano">
+    <p>¿No aparece tu local?</p>
+    <b>Añádelo a mano <svg width="18" height="18"><use href="#i-flecha"/></svg></b>
+  </div>
+</section>
+
+<!-- ======================= 03 · ANÁLISIS ======================= -->
+<section class="pantalla" id="s3" style="height:1020px">
+  <i class="aurora cob" style="width:340px;height:340px;left:-90px;top:60px;opacity:.55"></i>
+  <i class="aurora mos" style="width:260px;height:260px;left:200px;top:220px;opacity:.75"></i>
+  <i class="aurora cob" style="width:380px;height:380px;left:120px;top:520px;opacity:.75"></i>
+  <i class="aurora cel" style="width:300px;height:300px;left:-80px;top:700px;opacity:.9"></i>
+  <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12" width="72"><use href="#i-estado"/></svg></div>
+  <span class="chip-paso cristal etiqueta"><i></i>Paso 3 de 6</span>
+  <h1 class="titular">Estudiando<span class="cursiva">tu local.</span></h1>
+  <p class="texto">Buscamos lo que internet sabe de Torre de Vega. Tarda unos minutos.</p>
+  <img class="personaje c2" src="img/personajes/c2.png" alt="">
+
+  <div class="lista cristal">
+    <div class="fila"><span class="ic hecho"><svg width="18" height="18" style="color:#fff"><use href="#i-check"/></svg></span><div><b>Google Maps</b><small>1.695 reseñas leídas</small></div><span class="etiqueta estado-txt gris">Hecho</span></div>
+    <div class="fila"><span class="ic hecho"><svg width="18" height="18" style="color:#fff"><use href="#i-check"/></svg></span><div><b>Instagram</b><small>@restaurantetorredevega</small></div><span class="etiqueta estado-txt gris">Hecho</span></div>
+    <div class="fila"><span class="ic ahora"><svg width="18" height="18" style="color:#fff"><use href="#i-asterisco"/></svg></span><div><b>Tu web</b><small>Leyendo la carta</small></div><span class="etiqueta estado-txt" style="color:var(--cobalto);font-weight:600">Ahora</span></div>
+    <div class="fila luego"><span class="ic luego"></span><div><b>TikTok</b><small>@restaurante_torredevega</small></div></div>
+    <div class="fila luego"><span class="ic luego"></span><div><b>Colores y letras</b><small>Del rótulo, la web y las fotos</small></div></div>
+  </div>
+
+  <div class="progreso">
+    <div class="pista cristal"><i></i></div>
+    <div class="datos"><span>46 %</span><span>Quedan unos 4 minutos</span></div>
+  </div>
+  <div class="boton-mostaza">Avisarme cuando termine</div>
+  <p class="pie">Puedes cerrar la app. Seguimos trabajando.</p>
+</section>
+
+<!-- ======================= 04 · ASÍ TE VE INTERNET ======================= -->
+<section class="pantalla alta" id="s4">
+  <i class="aurora cob" style="width:380px;height:380px;left:140px;top:-30px;opacity:.85"></i>
+  <i class="aurora mos" style="width:240px;height:240px;left:-90px;top:250px;opacity:.75"></i>
+  <i class="aurora cel" style="width:420px;height:420px;left:-40px;top:700px;opacity:.9"></i>
+  <i class="aurora cob" style="width:300px;height:300px;left:200px;top:1050px;opacity:.5"></i>
+  <i class="aurora mos" style="width:260px;height:260px;left:-120px;top:1500px;opacity:.5"></i>
+  <i class="aurora cob" style="width:320px;height:320px;left:180px;top:1950px;opacity:.5"></i>
+  <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12" width="72"><use href="#i-estado"/></svg></div>
+  <div class="cab">
+    <span class="etiqueta">Tu ficha · paso 4 de 6</span>
+    <h1 class="titular">Así te ve<span class="cursiva">internet.</span></h1>
+    <p class="texto">Si algo no está bien, toca el lápiz y cámbialo.</p>
+    <img class="personaje c3" src="img/personajes/c3.png" alt="">
+  </div>
+
+  <div class="ficha cristal">
+    <span class="lapiz"><svg width="16" height="16"><use href="#i-lapiz"/></svg></span>
+    <span class="etiqueta gris">Ficha de tu local</span>
+    <h2 class="titular">Torre de Vega</h2>
+    <div class="cursiva">«El Mora»</div>
+    <p>Asador familiar en La Alquería<br>Alhaurín de la Torre (Málaga)</p>
+    <div class="datos"><span><svg width="15" height="15" style="color:var(--cobalto)"><use href="#i-estrella"/></svg>4,8 de media</span><span>1.695 reseñas</span></div>
+  </div>
+
+  <div class="bloque cristal">
+    <div class="cabeza"><span class="etiqueta">Dónde te encuentran</span></div>
+    <div class="dato"><div><small>Instagram</small><b>@restaurantetorredevega</b></div><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+    <div class="dato"><div><small>TikTok</small><b>@restaurante_torredevega</b></div><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+    <div class="dato"><div><small>Web</small><b>restaurantetorredevega.es</b></div><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+    <div class="dato"><div><small>Reservas</small><b>WhatsApp y formulario web</b></div><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+  </div>
+
+  <div class="bloque cristal">
+    <div class="cabeza"><span class="etiqueta">Cómo hablas</span><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+    <div class="tonos"><span>Cercano</span><span>Tradicional</span><span>Apetitoso</span></div>
+    <p class="cita">«La calidad se nota en cada plato»</p>
+    <p class="pie-bloque">Así escribes en tu Instagram</p>
+  </div>
+
+  <div class="bloque cristal">
+    <div class="cabeza"><span class="etiqueta">Tus colores</span><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+    <div class="colores">
+      <div><i style="background:#C5B05A"></i><b>Dorado</b><small>#C5B05A</small></div>
+      <div><i style="background:#2A3749"></i><b>Azul rótulo</b><small>#2A3749</small></div>
+      <div><i style="background:#907161"></i><b>Ladrillo</b><small>#907161</small></div>
+      <div><i style="background:#B78234"></i><b>Pino</b><small>#B78234</small></div>
+      <div><i style="background:#1A1A1A"></i><b>Carbón</b><small>#1A1A1A</small></div>
+    </div>
+    <p class="pie-bloque">Sacados de tu web, del rótulo de la entrada y de tu sala.</p>
+  </div>
+
+  <div class="bloque cristal">
+    <div class="cabeza"><span class="etiqueta">Tus letras</span></div>
+    <div class="dato"><div><b style="font-weight:800;font-stretch:80%;font-variation-settings:'opsz' 48,'wdth' 80;font-size:22px;letter-spacing:.01em">CARNES A LA BRASA</b><small>Títulos de tu web</small></div><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+    <div class="dato"><div><b style="font-weight:400;font-size:18px">Menú del día de miércoles a viernes</b><small>Textos de tu web</small></div><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+    <div class="dato"><div><b style="font-family:var(--f-cursiva);font-weight:400;font-size:26px;letter-spacing:.12em">TORRE DE VEGA</b><small>Parecida a la de tu rótulo</small></div><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+  </div>
+
+  <div class="bloque cristal">
+    <div class="cabeza"><span class="etiqueta">Lo que te hace único</span></div>
+    <div class="dato"><div><small>Tu local</small><b>Ladrillo visto, apliques de forja, visillos blancos y terraza con guirnaldas.</b></div><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+    <div class="dato"><div><small>En la carta</small><b>Tartar de salchichón, pulpo XXL a la brasa y lomo en manteca.</b></div><span class="lapiz"><svg width="15" height="15"><use href="#i-lapiz"/></svg></span></div>
+  </div>
+
+  <div class="guardada">
+    <span class="etiqueta">Ficha guardada en tu perfil</span>
+    <p class="gris" style="font-size:14px;margin-top:4px">Puedes cambiarla cuando quieras</p>
+    <div class="barras"></div>
+  </div>
+
+  <div class="final">
+    <div class="deslizar cristal oscuro">
+      <span class="pomo"><svg width="22" height="22" style="color:var(--tinta)"><use href="#i-dobles"/></svg></span>
+      <span class="rotulo" style="text-align:center;margin-right:20px">Todo correcto, seguir</span>
+      <svg class="guia" width="20" height="20"><use href="#i-dobles"/></svg>
+    </div>
+    <p>Podrás cambiar la ficha más tarde desde tu perfil.</p>
+  </div>
+</section>
+
+<!-- ======================= 05 · TU PRIMER CARRUSEL ======================= -->
+<section class="pantalla alta" id="s5">
+  <i class="aurora mos" style="width:300px;height:300px;left:190px;top:-20px;opacity:.85"></i>
+  <i class="aurora cob" style="width:340px;height:340px;left:-130px;top:160px;opacity:.65"></i>
+  <i class="aurora cel" style="width:420px;height:420px;left:40px;top:560px;opacity:.9"></i>
+  <i class="aurora cob" style="width:300px;height:300px;left:220px;top:1000px;opacity:.5"></i>
+  <i class="aurora mos" style="width:260px;height:260px;left:-110px;top:1380px;opacity:.5"></i>
+  <i class="aurora cob" style="width:340px;height:340px;left:150px;top:1700px;opacity:.55"></i>
+  <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12" width="72"><use href="#i-estado"/></svg></div>
+  <div class="cab">
+    <span class="etiqueta">Tutorial · 2 minutos</span>
+    <h1 class="titular">Tu primer<span class="cursiva">carrusel.</span></h1>
+    <p class="texto">Tres pasos. Con tu idea y tus fotos montamos las diapositivas.</p>
+    <img class="personaje c4" src="img/personajes/c4.png" alt="">
+  </div>
+  <div class="pasos cristal"><span class="on">1 · Idea</span><span>2 · Platos</span><span>3 · Local</span></div>
+
+  <div class="seccion cristal">
+    <div class="cabeza"><span class="num">1</span><h2 class="titular">Tu idea</h2></div>
+    <div class="campo">Pulpo a la brasa directo de Galicia…</div>
+    <div class="chips"><span class="chip activo">Plato estrella</span><span class="chip">Novedad</span><span class="chip">Oferta</span><span class="chip">Evento</span></div>
+  </div>
+
+  <div class="seccion cristal">
+    <div class="cabeza"><span class="num">2</span><h2 class="titular">Fotos de tus platos</h2></div>
+    <p class="texto">Una o varias. Mejor con luz natural y el plato en el centro.</p>
+    <div class="losetas">
+      <div class="loseta"><span class="mas"><svg width="18" height="18" style="color:var(--cobalto)"><use href="#i-mas"/></svg></span>Añadir foto</div>
+      <div class="loseta apagada">Plato 2</div>
+    </div>
+  </div>
+
+  <div class="seccion cristal">
+    <div class="cabeza"><span class="num">3</span><h2 class="titular">Fotos de tu local</h2></div>
+    <p class="texto">Irán de fondo. Hemos traído esta de Google Maps; añade las que quieras.</p>
+    <div class="losetas">
+      <div class="loseta foto" style="background-image:url(img/terraza.jpg)"><span class="cristal">Google Maps</span></div>
+      <div class="loseta"><span class="mas"><svg width="18" height="18" style="color:var(--cobalto)"><use href="#i-mas"/></svg></span>Añadir foto</div>
+    </div>
+  </div>
+
+  <div class="seccion cristal">
+    <div class="cabeza"><span class="num">4</span><h2 class="titular">Referencia estética</h2></div>
+    <p class="texto">Elige un post que te guste para que el sistema tenga una idea más clara de lo que quieres.</p>
+    <div class="refs">
+      <div style="background-image:url(img/ref-burger.jpg)"></div>
+      <div style="background-image:url(img/ref-sushi.jpg)"></div>
+      <span class="loseta"><span class="mas"><svg width="18" height="18" style="color:var(--cobalto)"><use href="#i-mas"/></svg></span>Añadir foto</span>
+    </div>
+  </div>
+
+  <div class="final">
+    <div class="deslizar cristal oscuro">
+      <span class="rotulo">Crear mi carrusel</span>
+      <span class="pomo"><svg width="22" height="22" style="color:var(--tinta)"><use href="#i-dobles"/></svg></span>
+    </div>
+    <p>Podrás revisarlo antes de publicar.</p>
+  </div>
+</section>
+
+<!-- ======================= 06 · HOME ======================= -->
+<section class="pantalla" id="s6">
+  <i class="aurora cob" style="width:420px;height:420px;left:40px;top:60px;opacity:.6"></i>
+  <i class="aurora mos" style="width:240px;height:240px;left:-90px;top:420px;opacity:.7"></i>
+  <i class="aurora cel" style="width:360px;height:360px;left:140px;top:520px;opacity:.9"></i>
+  <i class="aurora cob" style="width:300px;height:300px;left:-60px;top:700px;opacity:.45"></i>
+  <div class="estado"><span>9:41</span><svg viewBox="0 0 72 12" width="72"><use href="#i-estado"/></svg></div>
+  <img class="logo" src="img/logo.png" alt="Society">
+  <span class="campana cristal icono-redondo"><svg width="22" height="22"><use href="#i-campana"/></svg><i></i></span>
+
+  <div class="banner cristal cobalto">
+    <span class="etiqueta">Mes bajo detectado</span>
+    <h2 class="titular">Diciembre</h2>
+    <div class="cifra"><b>10 %</b><span>menos de clientes frente a julio</span></div>
+    <div class="cifra" style="margin-top:8px"><b>2</b><span>días del mes detectados como festivos</span></div>
+    <div class="franja"><span class="etiqueta" style="font-size:10px">Propuesta</span><span>5 historias · 4 carruseles</span></div>
+  </div>
+  <img class="personaje c5" src="img/personajes/c5.png" alt="">
+
+  <div class="seccion"><h3 class="titular">¿Qué hacemos <span class="cursiva">hoy?</span></h3><span class="etiqueta">Ver todo →</span></div>
+  <div class="carril">
+    <div class="acc cristal"><div class="img" style="background:linear-gradient(160deg,#FFE58A,#F5C518)"><img src="img/personajes/c4.png" alt="" style="height:176px;bottom:-40px"></div><b>Contenido desde una idea</b></div>
+    <div class="acc cristal"><div class="img" style="background:linear-gradient(160deg,#2B2B30,#141414)"><span class="marca" style="background:var(--cobalto);color:#fff">NUEVO</span><img src="img/personajes/c6.png" alt=""></div><b>Campaña a tu medida</b></div>
+    <div class="acc cristal"><div class="img" style="background:linear-gradient(160deg,#E4E9FF,#C9D1FF)"><span class="badge">2</span><img src="img/personajes/c7.png" alt=""></div><b>Responder reseñas</b></div>
+  </div>
+
+  <div class="resumen">
+    <div class="r cristal"><span class="n">01</span><div><h4 class="titular">Reseñas por responder</h4><p>Quedan 2 reseñas por responder</p></div></div>
+    <div class="r cristal oscuro"><span class="n">02</span><div><h4 class="titular">Propuesta del mes</h4></div></div>
+  </div>
+
+  <nav class="barra cristal oscuro">
+    <span class="activa"><svg width="20" height="20"><use href="#i-casa"/></svg>Inicio</span>
+    <span class="ic"><svg width="22" height="22"><use href="#i-pin"/></svg></span>
+    <span class="crear"><svg width="22" height="22" style="color:var(--tinta)"><use href="#i-mas"/></svg></span>
+    <span class="ic"><svg width="22" height="22"><use href="#i-cal"/></svg></span>
+    <span class="ic"><svg width="22" height="22"><use href="#i-graf"/></svg></span>
+    <span class="ic"><svg width="22" height="22"><use href="#i-yo"/></svg></span>
+  </nav>
+</section>
+
+</body>
+</html>

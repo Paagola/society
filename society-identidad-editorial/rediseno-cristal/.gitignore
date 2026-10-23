@@ -1,0 +1,6 @@
+# Los personajes y escenas se descargan con los scripts; no van al repo
+img/personajes/
+img/v3/
+
+# HTML autónomo para Figma (lleva las imágenes y letras dentro)
+v3/figma/
