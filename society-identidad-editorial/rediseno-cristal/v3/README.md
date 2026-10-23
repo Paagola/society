@@ -17,6 +17,7 @@ Es una **maqueta de diseño**, no código de la app.
 | `preparar_escenas.py` | Descarga el fondo y las poses en `../img/v3/` (no van al repo) y las limpia |
 | `../img/mascota/drive/` | Las ilustraciones oficiales del Drive que se usaron como referencia |
 | `render.cjs` | Exporta cada pantalla a PNG (`ESCALA=3` por defecto, 1170 px de ancho) |
+| `exportar_figma.py` + `exportar_figma.cjs` | Preparan un HTML autónomo para subir las pantallas a Figma como capas editables |
 | `estudio/letras.html` | Muestrario de las 12 letras bubble que se probaron |
 | `estudio/cristal.html` | Comparación entre cristal plano y cristal líquido |
 
@@ -91,6 +92,17 @@ Se ha medido sobre el render @3x, con la posición de cada control sacada del na
 | Etiqueta gris `#5C5966` sobre la pared | Todas | 4,8:1 a 5,3:1 |
 
 La etiqueta gris daba 4,5:1 con el velo anterior (86 % arriba), justo en el límite AA. Por eso el velo subió al 90 %. En la hoja y en las tarjetas sólidas el texto va sobre blanco o crema, así que los valores son los de la v2 o mejores.
+
+## Figma
+
+El archivo de Figma ([v3 · Cristal líquido](https://www.figma.com/design/xigLfMNI2Zs3ugOiadJJ9O?node-id=17-2)) tiene dos filas:
+
+- **Arriba, las 6 pantallas en capas editables.** Los textos son texto de verdad en DynaPuff y Nunito, el cristal es desenfoque de fondo con degradado, cantos de luz y sombras, los iconos son vectores y cada pose de la mascota es una imagen suelta. Las capas principales llevan nombres legibles (Fondo, Velo, Hoja · cristal, Mascota · lupa, Botón · …).
+- **Abajo, el render en imagen** como referencia, porque Figma no puede reproducir la refracción de los cantos que hace `liquido.js`.
+
+Las capas editables no van en una página propia porque el plan Starter de Figma solo deja tres páginas.
+
+Para regenerar el HTML que se sube, desde `rediseno-cristal/`: `python3 v3/preparar_escenas.py`, `python3 v3/exportar_figma.py` y `cd v3 && NODE_PATH=$(npm root -g) node exportar_figma.cjs`. El resultado queda en `v3/figma/figma.html` (no va al repo) y se sube con la herramienta `html_to_figma` del conector de Figma, eligiendo `.pantalla`.
 
 ## Datos
 
