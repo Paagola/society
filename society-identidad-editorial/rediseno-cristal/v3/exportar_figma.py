@@ -85,7 +85,8 @@ css = css.replace("url(../img/v3/fondo.jpg)", "url(" + dato(img / "v3" / "fondo.
 for foto in ("terraza", "salon", "ensalada"):
     html = html.replace(f"url(../img/{foto}.jpg)", "url(" + dato(img / f"{foto}.jpg", ancho=700) + ")")
 for ruta in sorted((img / "v3").glob("p-*.png")):
-    html = html.replace(f'src="../img/v3/{ruta.name}"', f'src="{dato(ruta, alto=320)}"')
+    pose = ruta.stem[2:]
+    html = html.replace(f'src="../img/v3/{ruta.name}"', f'data-pose="{pose}" src="{dato(ruta, alto=320)}"')
 html = html.replace('src="../img/logo.png"', f'src="{logo_sin_fondo(img / "logo.png", 78)}"')
 
 html = re.sub(r'<link[^>]*fonts.googleapis[^>]*>\s*', "", html)

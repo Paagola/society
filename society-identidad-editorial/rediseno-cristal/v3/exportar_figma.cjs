@@ -3,8 +3,10 @@
 //  · cada icono <svg><use href="#…"/></svg> pasa a llevar dentro su dibujo, con el color
 //    ya resuelto (Figma pinta currentColor de negro);
 //  · los pseudoelementos (velo de la pared y punto de «Tu web») pasan a ser capas reales.
-// Escribe figma/figma.html y una captura de cada pantalla en figma/comprobacion/ para
-// compararla con el render normal.
+// Escribe figma/figma.html, una captura de cada pantalla en figma/comprobacion/ para
+// compararla con el render normal y figma/nombres.json: la caja de cada pieza con un
+// nombre legible, para renombrar en Figma las capas («Container», «Paragraph»…) que
+// crea html_to_figma.
 // Uso: node exportar_figma.cjs   (CHROMIUM=/ruta/chromium opcional)
 const { chromium } = require("playwright");
 const path = require("node:path");
@@ -63,6 +65,45 @@ fs.mkdirSync(path.join(dir, "comprobacion"), { recursive: true });
     return { iconos, pantallas: document.querySelectorAll(".pantalla").length };
   });
   console.log(cuenta);
+
+  const nombres = await pagina.evaluate(() => {
+    const texto = e => e.textContent.replace(/\s+/g, " ").trim();
+    const reglas = [
+      [".escena", "Fondo · pared con grafitis"], [".velo-fondo", "Velo de la pared"],
+      [".velo-arriba", "Velo superior"], [".estado", "Barra de estado"],
+      [".marca", "Logo · cristal"],
+      [".boton-redondo", e => e.closest("#e6") ? "Avisos · cristal" : "Volver · cristal"],
+      [".cabecera, .cabecera-home", "Cabecera"],
+      ["img[data-pose]", e => "Mascota · " + e.dataset.pose],
+      [".hoja", "Hoja · cristal"], [".aviso", "Aviso del mes · cristal"],
+      [".pestanas", "Barra de pestañas · cristal"], [".barra-inicio", "Indicador de inicio"],
+      [".asa", "Asa"], [".boton", e => "Botón · " + texto(e)], [".enlace", "Enlace"],
+      [".campo", "Buscador"], [".campo-alto", "Campo · tu idea"],
+      [".resultado", "Resultado de Google Maps"], [".resultado .foto", "Foto del local"],
+      [".progreso", "Progreso del análisis"], [".barra", "Barra de progreso"],
+      [".lista", "Lista"], [".fila", e => "Fila · " + texto(e.querySelector("b") || e)],
+      [".ficha", "Ficha del local"], [".caja", e => "Dato · " + texto(e.firstElementChild || e)],
+      [".chips", "Etiquetas"], [".chip", e => "Etiqueta · " + texto(e)],
+      [".segmentos", "Pasos del tutorial"], [".vista", "Vista previa del carrusel"],
+      [".vista > div", "Diapositiva"], [".bento", "Accesos"],
+      [".teja", e => "Tarjeta · " + texto(e.querySelector(".teja-t"))],
+      [".para-hoy", "Para hoy"], [".deslizar", "Deslizar para empezar"],
+      [".promesas", "Lista de promesas"], [".propuesta", "Propuesta del mes"],
+      [".contenido", "Contenido"],
+    ];
+    const salida = {};
+    for (const p of document.querySelectorAll(".pantalla")) {
+      const o = p.getBoundingClientRect();
+      salida[p.id] = [];
+      for (const [sel, nombre] of reglas) for (const e of p.querySelectorAll(sel)) {
+        const r = e.getBoundingClientRect();
+        salida[p.id].push({ n: typeof nombre === "function" ? nombre(e) : nombre,
+          x: +(r.x - o.x).toFixed(1), y: +(r.y - o.y).toFixed(1), w: +r.width.toFixed(1), h: +r.height.toFixed(1) });
+      }
+    }
+    return salida;
+  });
+  fs.writeFileSync(path.join(dir, "nombres.json"), JSON.stringify(nombres));
 
   await pagina.waitForTimeout(300);
   for (const el of await pagina.$$(".pantalla")) {
